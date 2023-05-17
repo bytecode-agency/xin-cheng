@@ -1,0 +1,4143 @@
+:root {
+    --inter: 'Inter', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+    --primaryColor: #083A60;
+    --grayColor: #595959;
+    --lightColor: #A4A6B3;
+    --black: #000000;
+    --boldgray: #414141;
+    --white: #fff;
+    --gray1: #A8A8A8;
+	--colorgreen:#00A860;
+	 --colorblack:#1B1B1B;
+}
+
+body {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--grayColor);
+    font-family: var(--inter);
+}
+
+
+/* Common Styles */
+
+.form-control {
+    height: 45px;
+}
+
+.btn-primary {
+    height: 45px
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: var(--grayColor);
+    border-color: var(--grayColor);
+}
+
+a {
+    color: var(--primaryColor);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--grayColor);
+    text-decoration: none;
+}
+
+.form-check-input:checked {
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+}
+
+
+/* Headings */
+
+h2 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 22px;
+    color: #656565;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+
+/* Login Style */
+
+.loginArea {
+    width: 550px;
+    border-radius: 28px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logoMain img {
+    max-width: 120px;
+}
+
+
+/* Dashboard Page */
+
+.dashboardPage {
+    padding-left: 255px;
+    background: #F9FAFB;
+}
+
+
+/* Sidebar Code */
+
+.sidebar {
+    width: 255px;
+}
+
+.logoHead img {
+    max-width: 80px
+}
+
+.sideMenu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sideMenu li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menuArea {
+    border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 12px;
+    width: 100%;
+}
+
+.sideMenu li:hover .menuArea,
+.sideMenu li.open .menuArea {
+    /* background: rgba(33, 33, 33, 0.08); */
+    border-color: var(--primaryColor);
+}
+
+.sideMenu li:hover,
+.sideMenu li.open {
+    background: rgba(33, 33, 33, 0.08);
+}
+
+.sideMenu li a {
+    font-size: 16px;
+    line-height: 1;
+    color: #A4A6B3;
+    text-decoration: none;
+    width: calc(100% - 20px);
+    white-space: nowrap;
+    display: flex;
+}
+
+.sideMenu li:hover a,
+.sideMenu li.open a {
+    color: var(--primaryColor);
+}
+
+.sideMenu li a svg {
+    margin-right: 20px;
+    width: 15px;
+}
+
+.sideMenu li span {
+    width: 20px;
+    height: 20px;
+    background: var(--lightColor);
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sideMenu li.open span {
+    transform: rotate(90deg);
+}
+
+.sideMenu li:hover span,
+.sideMenu li.open span {
+    background: var(--primaryColor);
+}
+
+
+/* Submenu */
+
+.sideMenu li .submenu {
+    flex: 0 0 100%;
+}
+
+.sideMenu li .submenu {
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.sideMenu li.open .submenu {
+    height: auto;
+    transition: all 0.5s;
+}
+
+.sideMenu li .submenu li {
+    padding: 8px 0px 8px 70px
+}
+
+.sideMenu li .submenu li a {
+    color: var(--primaryColor);
+}
+
+
+/* Top Search */
+
+.topSearch {
+    background: var(--primaryColor);
+    padding: 30px 20px
+}
+
+.topSearch .searchForm {
+    width: calc(100% - 250px);
+    position: relative;
+}
+
+.topSearch .searchForm i {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+}
+
+.topSearch .searchForm input {
+    width: 100%;
+    height: 45px;
+    border-radius: 16px;
+    background: #FFF;
+    border: 0px;
+    outline: none;
+    padding: 0 45px
+}
+
+.topSearch .imageUser {
+    max-width: 32px;
+    height: 32px;
+    overflow: hidden;
+    flex: 0 0 32px;
+}
+
+.topSearch .imageUser img {
+    max-width: 100%;
+}
+
+.topSearch .notifications {
+    width: 32px;
+    height: 32px;
+    background: #111827;
+    border-radius: 50%;
+    font-size: 22px;
+    color: #FFF;
+}
+
+.userAreaRight {
+    width: 250px
+}
+
+
+/* Title Area */
+
+.TitleBlock {
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    margin-top: -15px;
+}
+
+.TitleBlock .headingArea {
+    background: #F9FAFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+
+/* Pagination Filter */
+
+.filterPagination {
+    padding: 35px 20px 24px;
+}
+.filterPagination .paginationLeft ul nav ol.breadcrumb {
+    margin: 0;
+}
+
+.filterPagination .paginationLeft ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+}
+
+.filterPagination .paginationLeft ul li {
+    color: #000000;
+    font-weight: 700;
+    padding: 0 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.filterPagination .paginationLeft ul li:first-child {
+    padding-left: 0px;
+}
+
+.filterPagination .paginationLeft ul li:not(:first-child)::before {
+    content: "\f054";
+    position: absolute;
+    left: -5px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 12px;
+    top: 0;
+}
+
+.filterPagination .paginationLeft ul li a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000 !important;
+    font-size: 14px;
+}
+
+.filterPagination .paginationLeft ul li a:hover {
+    color: var(--primaryColor);
+}
+
+.filterPagination .btn {
+    border-radius: 5px;
+}
+
+.btnUser {
+    background: #6F788A;
+    padding: 7px 15px;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.btnUser:hover {
+    color: #FFF;
+    background: var(--primaryColor);
+}
+
+.btnUser i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.btnFilter img {
+    max-width: 21px;
+}
+
+.btnFilter {
+    background: #ECECEC;
+    line-height: 1;
+    padding: 6.5px 6px;
+    margin-left: 15px;
+}
+
+
+/* Data Area */
+
+.dataAreaMain {
+    padding: 0 20px;
+}
+
+.dataAreaMain .formContentData {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.dataAreaMain .formContentData h3 {
+    color: #010101;
+    margin: 0 0 20px;
+}
+
+.formAreahalf {
+    width: 420px;
+    margin-right: 200px;
+    margin-bottom: 40px;
+}
+
+.formAreahalf:nth-last-child(2),
+.formAreahalf:last-child {
+    margin-bottom: 0px;
+}
+
+.formAreahalf label.form-label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-bottom: 20px;
+    display: block;
+    min-height: 18px;
+}
+
+.formAreahalf input.form-control,
+.formAreahalf select {
+    padding: 0px 0 8px;
+    border: 0px;
+    border-bottom: 1px solid #000;
+    color: #000;
+    border-radius: 0;
+    height: auto;
+    box-shadow: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    appearance: none;
+}
+
+.saveBtn {
+    background: var(--primaryColor);
+    color: #FFF;
+    padding: 5px 35px;
+}
+
+.saveBtn:hover {
+    color: #FFF;
+}
+.Dormant {
+    background: #B30000 !important;
+}
+
+.saveBtn.cancelBtn {
+    background: #B30000;
+    margin-left: 15px;
+    border-color: transparent !important;
+}
+
+
+/* User table Design */
+
+.filterBtn a {
+    text-decoration: none;
+}
+
+.topSearch ul,
+.topSearch li {
+    list-style-type: none;
+}
+
+.topSearch ul a {
+    color: #FFF;
+}
+
+.topSearch ul a:hover,
+.topSearch ul a:focus {
+    color: #FFF;
+}
+
+.topSearch ul .dropdown-menu a {
+    color: #000;
+}
+
+
+/* Tables */
+
+.table_cstm .row {
+    margin: 0 -20px;
+}
+
+.table_cstm .col-sm-12 {
+    padding: 0px;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #E5E7EB;
+    background-color: #F9FAFB;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    background-image: none;
+    border-right: 0px;
+}
+
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc {
+    background-image: none;
+}
+
+table.dataTable tbody td {
+    padding: 15px 18px;
+    border: 0;
+    font-size: 10px;
+    line-height: 22px;
+}
+
+table.dataTable tbody td:last-child .btn,
+table.dataTable tbody td:last-child a {
+    padding: 0 5px;
+    line-height: 1;
+    height: 17px;
+    border-radius: 0;
+    margin: 0;
+}
+
+table.dataTable tbody td:last-child a img {
+    margin-top: 5px;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 0;
+}
+
+table.dataTable tr:nth-child(even) {
+    background: #F9FAFB;
+}
+
+.table_cstm .row:last-child {
+    margin: 0px -5px;
+    font-size: 10px;
+    font-family: var(--roboto);
+}
+
+
+/* 17-3-2023 */
+
+.Personal_Details {
+    display: flex;
+    align-items: baseline;
+    /*argin-top: 50px;*/
+}
+
+.dataAreaMain .First-heading_ {
+    padding-right: 150px;
+}
+
+.number_main ul li {
+    background-color: transparent;
+    border: 0;
+    padding: 0 38px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+.dataAreaMain .First-heading_ h4 {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 22px;
+    color: #1B1B1B;
+    padding-left: 10px;
+}
+
+.number_main ul li a {
+    height: 32px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #A8A8A8;
+    border: 1px solid #a8a8a8;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 3px;
+    border-radius: 20px;
+}
+
+.number_main ul li p {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A8A8A8;
+    margin-bottom: 0;
+    max-width: 100px;
+}
+
+.number_main ul li:after {
+    position: absolute;
+    content: "";
+    background-color: #a8a8a8;
+    width: 70px;
+    height: 6px;
+    border: 0px solid #a8a8a8;
+    border-radius: 10px;
+    top: 15px;
+    left: auto;
+    right: -35px;
+}
+
+.number_main ul li.active {
+    background: transparent;
+    color: var(--colorgreen);
+}
+
+.number_main ul li:last-child:after {
+    display: none;
+}
+
+.number_main ul li.active a {
+    color: var(--colorgeen);
+    border: 1px solid var(--colorgreen);
+}
+
+.number_main ul li.active p {
+    color: var(--colorgreen);
+}
+
+.number_main ul li.active::after {
+    background-color: var(--colorgreen);
+}
+
+
+
+/* 20-03-2023 */
+
+.company_design {
+    padding: 33px;
+    margin-bottom: 18px;
+    background: #FFFFFF;
+    border: 0.5px solid #00000082;
+    border-radius: 5px;
+}
+
+.saveBtn {
+    border: 1px solid var(--primaryColor) !important;
+}
+
+.saveBtn:hover {
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+.form-fields h6 {
+    padding-bottom: 15px;
+}
+
+
+/* 21-mar-2023 */
+
+.type-of-potential-bussiness,
+.type-of-buss-gen {
+    border: 1px solid #000000;
+    border-radius: 2px;
+    padding: 47px 24px;
+    max-width: 1320px;
+    margin-bottom: 12px;
+}
+
+.fieldset1-account {
+    padding-top: 90px;
+}
+
+/* .card .form-fields { */
+    /* padding-left: 75px; */
+/* } */
+
+.div1-append_div {
+    padding-left: 0 !important;
+}
+
+.add_potentia {
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: end;
+}
+
+.first_selection {
+    margin-right: 0 !important;
+    margin-left: 75px;
+    margin-bottom: 40px !important;
+}
+
+.Personal_Details {
+    padding-bottom: 90px;
+}
+
+textarea {
+    width: 100%;
+    resize: unset;
+    border-radius: 0 !important;
+    border: 1px solid #000;
+    min-height: 110px;
+}
+
+.Personal_Details.company_space {
+    padding-bottom: 30px;
+}
+
+.formAreahalf label.error {
+    color: #ef0b0b !important;
+    font-size: 13px;
+    padding: 5px 0 0;
+}
+
+.Share_holder-w {
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.company-full_width_Cstm {
+    max-width: 590px;
+    width: 100%;
+    padding-right: 170px;
+}
+
+.type-of-potential-bussiness .formAreahalf {
+    margin-right: 170px;
+}
+
+
+/* user page design */
+
+.dataAreaMain .card {
+    margin: 0 0 20px;
+}
+
+.dataAreaMain .card:nth-child(2) .formAreahalf:last-child {
+    max-width: 100%;
+}
+
+.dataAreaMain .card:nth-child(2) .formAreahalf {
+    max-width: 50%;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+}
+
+.dataAreaMain .card:nth-child(2) h3 {
+    width: 100%;
+}
+
+.dataAreaMain .card:nth-child(2) {
+    flex-direction: inherit;
+    flex-wrap: wrap;
+}
+
+.dataAreaMain .card .formAreahalf h6 {
+    font-weight: 400;
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"] {
+    display: block;
+    margin: 40px 0 0;
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"]:checked {
+    background: var(--colorgreen);
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"] {
+    display: block;
+    margin: 20px 0 0;
+    appearance: none;
+    width: 50px;
+    height: 22px;
+    background: #bfbfbf;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"]:checked::after {
+    transform: translateX(25px);
+    background: #fff;
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"]::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: #5c5a5a;
+    position: absolute;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    transition: all 0.2s linear;
+}
+
+.formAreahalf select {
+    background-image: url(../images/down-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: left calc(100% - 2px) center;
+    outline: none;
+    box-shadow: none !important;
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData:nth-child(2) select {
+    background-position: left calc(100% - 9px) center;
+}
+
+.form-sets {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_potentials_fg {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.card_potentials_fg fieldset.form-fields {
+    padding: 0;
+    margin: 0;
+}
+
+div#append_div_btn button.btn {
+    padding: 7px 30px;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width:1799px) {
+    .formAreahalf {
+        margin-right: 100px;
+    }
+}
+
+@media only screen and (max-width:1539px) {
+    .formAreahalf {
+        margin-right: 50px;
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width:1365px) {
+    .card .form-fields {
+        padding-left: 40px;
+    }
+}
+
+
+/* 24 Mar */
+
+.dataAreaMain {
+    padding: 0 20px 170px;
+}
+
+.custom_next_btn {
+    margin-top: 100px;
+}
+
+.type-of-potential-bussiness .saveBtn.add_potentia {
+    display: flex;
+    margin-right: 0;
+}
+
+.card_potentials_fg {
+    border-left: 0;
+    border-top: 0;
+}
+
+.application .accordion-item .accordion-button,
+ .card_potentials_fg .accordion-item .accordion-button {
+    float: right;
+    width: 45px;
+    height: 45px;
+    background: #323232;
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 60px;
+    position: absolute;
+    top: -17px;
+    right: 0;
+}
+
+.application .accordion-item .accordion-button i:before,
+.card_potentials_fg .accordion-item .accordion-button i:before {
+    color: #fff;
+    content: "\f0d8";
+    position: absolute;
+    left: 51%;
+    top: 53%;
+    font-size: 25px;
+    transform: translate(-57%, -50%);
+}
+
+.application .accordion-item:last-of-type .accordion-button.collapsed,
+.card_potentials_fg .accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 50px;
+}
+
+.application .accordion-item:last-of-type .accordion-button.collapsed i:before,
+.card_potentials_fg .accordion-item:last-of-type .accordion-button.collapsed i:before {
+    transform: translate(-57%, -50%) rotate(180deg);
+}
+
+.main_class_fp.type-of-potential-bussiness {
+    width: 100%;
+}
+
+.card .form-fields {
+    max-width: 100%;
+    /* justify-content: center !important; */
+    padding-left: 260px;
+}
+
+fieldset#account {
+    max-width: 1137px;
+    margin-bottom: 50px;
+}
+
+.business.generate .formAreahalf:nth-child(odd),
+fieldset#account .formAreahalf:nth-child(even) {
+    padding-left: 50px;
+}
+
+.business.generate .formAreahalf:nth-child(even),
+fieldset#account .formAreahalf:nth-child(odd) {
+    padding-right: 50px;
+}
+
+.business.generate .formAreahalf,
+fieldset#account .formAreahalf {
+    width: 100%;
+    max-width: calc(100%/2);
+    margin: 0;
+    margin-bottom: 30px
+}
+
+.cross {
+    display: flex;
+    float: right;
+    justify-content: flex-end;
+    width: 100%;
+    color: var(--black);
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 12px;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.custom-form,
+.accordion-body .custom-form {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    padding-bottom: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.card_potentials_fg {
+    border: 0;
+    position: relative;
+}
+
+.sales {
+    width: 100%;
+    position: relative;
+}
+
+.sales:before {
+    content: '';
+    width: 102%;
+    height: 5px;
+    left: -16px;
+    right: 0;
+    top: auto;
+    bottom: -5px;
+    background: #15385e;
+    position: absolute;
+    z-index: 100;
+}
+
+.sales button.btn.saveBtn {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    max-width: 154px;
+    height: 35px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card.formContentData.application .accordion-item {
+    border-radius: 5px;
+    padding: 50px;
+    margin: 28px 0;
+    width: 100%;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card.formContentData.application fieldset#account {
+    max-width: 100%;
+}
+
+.card.formContentData.application fieldset#account {
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.card.formContentData.application fieldset#account .formAreahalf:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+
+.accordion-body.potensial_business fieldset {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-left: 0;
+}
+
+.accordion-body.potensial_business {
+    border: 1px solid var(--black);
+}
+
+.accordion-body.potensial_business .accordion-item {
+    border: 0 !important;
+    padding: 10px 40px !important;
+    margin: 0 !important;
+}
+
+.accordion-body.potensial_business .accordion-item {
+    padding: 50px !important;
+}
+
+
+/* .accordion-body.potensial_business .accordion-item {
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+} */
+
+.textarea textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.textarea label {
+    color: #010101;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+input.btn.saveBtn,
+input#btnnote {
+    margin-top: 20px;
+}
+
+.active-btn {
+    background: #009022;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    max-width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0 0 !important;
+    display: inline-block;
+}
+
+.dataAreaMain.sales-edit {
+    width: 100%;
+}
+
+.dataAreaMain.sales-edit select#business option.btn.btn-success {
+    text-align: left;
+}
+
+.card.formContentData.Potential_business button {
+    margin-right: 120px;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+
+.dataAreaMain.sales-edit textarea {
+    display: block;
+    width: 100%;
+}
+
+.salescreate form .fieldset1-account {
+    max-width: 1320px !important;
+}
+
+.accordion-body.potensial_business .accordion-item,
+.dataAreaMain.viewpage .accordion-item {
+    position: relative;
+}
+
+.accordion-body.potensial_business .accordion-item button.accordion-button {
+    right: 50px;
+}
+
+.accordion-body.potensial_business .accordion-item button.accordion-button {
+    right: 25px;
+    top: 54px;
+}
+
+.dataAreaMain.sales-edit .accordion-item {
+    position: relative;
+}
+
+.dataAreaMain.sales-edit .accordion-item fieldset#account {
+    margin-top: 20px;
+}
+
+.formAreahalf.client_status select {
+    border-bottom: 0;
+}
+
+.business_border_section .card.formContentData,
+.dataAreaMain.sales-edit .dataAreaMain .formContentData,
+.dataAreaMain.sales-edit .card.formContentData.Potential_business {
+    box-shadow: none;
+}
+
+.card.formContentData.Potential_business fieldset#dynamicAddRemove {
+    border: 0;
+}
+
+.dataAreaMain.sales-edit .accordion-body .add_potentia {
+    position: absolute;
+    right: 0;
+}
+
+.business_border_section {
+    border: 1px solid;
+    position: relative;
+}
+
+.dataAreaMain.sales-edit .accordion-body .add_potentia {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: -14px;
+    margin-right: 24px;
+}
+
+.dashboard.main .card.formContentData .formAreahalf {
+    padding-left: 0 !important;
+}
+
+
+.dashboard.main .card.formContentData .card .table_cstm.dasboard-entry .row {
+    margin: 0;
+}
+
+.business_border_section .card.formContentData.Potential_business button {
+    margin-right: 33px;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+
+.accordion-body.add_fieldset_fg.add_potensian {
+    position: relative;
+}
+
+.accordion-body.add_fieldset_fg.add_potensian button#dynamic-ar {
+    position: absolute;
+    z-index: 999;
+    right: 25px;
+    bottom: 0;
+}
+
+.dataAreaMain.sales-edit .formAreahalf {
+    width: 100%;
+    max-width: calc(100%/2);
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.dataAreaMain.sales-edit .formAreahalf:nth-child(odd) {
+    padding-right: 50px;
+    padding-left: 0;
+}
+
+.dataAreaMain.sales-edit .formAreahalf:nth-child(even) {
+    padding-left: 50px;
+    padding-right: 0;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card .formAreahalf {
+    width: 100%;
+    max-width: calc(100%/2 - 20px);
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card .formAreahalf .report_period {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row {
+    flex-direction: row;
+}
+
+.dataAreaMain.dashboard label.form-label {
+    width: 100%;
+    max-width: 190px;
+    margin-bottom: 0;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row label.form-label {
+    font-weight: 500;
+}
+
+
+/* dashboard page */
+
+.dataAreaMain.dashboard {
+    overflow: hidden;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row select {
+    border-bottom: 0;
+    padding: 5px 15px 5px 15px;
+    position: relative;
+}
+
+.select-arrow {
+    width: 100%;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.card.formContentData .business_amount .formAreahalf {
+    width: 100%;
+    max-width: calc(100%/2 - 10px);
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.card.formContentData .business_amount {
+    display: flex;
+    flex-direction: row;
+}
+
+.card.formContentData .business_amount .formAreahalf label.form-label {
+    margin-bottom: 35px;
+}
+
+.card.formContentData .business_amount .formAreahalf.business {
+    border-left: 0;
+    padding-left: 20px;
+}
+
+.card.formContentData .business_amount h2 {
+    color: var(--black)
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .formAreahalf {
+    margin-bottom: 0;
+}
+
+
+/* 5th Apr */
+
+div#piechart_client {
+    margin: 0 auto;
+}
+
+.table_yellow tbody tr {
+    background: #fbffd8 !important;
+    border-bottom: #fff;
+}
+
+.table_cstm div.dataTables_length {
+    position: absolute;
+    bottom: 5px;
+    right: 105px;
+}
+
+.dashboard .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid #F9FAFB;
+}
+
+.dataTables_paginate .page-link {
+    border-radius: 50px;
+}
+
+.dataAreaMain.dashboard.main ul.pagination li:first-child {
+    margin-left: 0;
+}
+
+.dashboard .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: 1px solid transparent;
+}
+
+.dataTables_wrapper .row:last-child .col-sm-12.col-md-5 div.dataTables_info {
+    width: 100%;
+    text-align: right;
+    padding-top: 17px;
+}
+
+.dataTables_wrapper .row:last-child {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding-right: 240px;
+}
+.table_cstm .row .table {
+    width: 100% !important;
+}
+
+.dataTables_wrapper .row:last-child .col-sm-12.col-md-7 div.dataTables_paginate ul.pagination {
+    justify-content: flex-start;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin-left: 0;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row h3 {
+    padding: 0 15px;
+}
+
+ul.pagination li.previous a,
+ul.pagination li.next a {
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    color: var(--black);
+}
+
+.page-link.active,
+.active>.page-link {
+    background-color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.role_check label {
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.active) .page-link {
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 400;
+    border: 1px solid #ddd;
+}
+
+h3.agrement {
+    position: relative;
+    top: -11px;
+}
+
+.dataTables_wrapper .row:last-child .col-sm-12.col-md-5 {
+    text-align: right;
+}
+
+.table_cstm.dasboard-entry .dataTables_length {
+    position: absolute;
+    bottom: -45px;
+    right: 0;
+}
+
+.table_cstm.dasboard-entry {
+    position: relative;
+}
+
+.table_cstm.dasboard-entry .dataTables_length label {
+    display: flex;
+    align-items: center;
+}
+
+.table_cstm.dasboard-entry select.custom-select.custom-select-sm.form-control.form-control-sm {
+    border-bottom: 0;
+    padding: 10px;
+    position: relative;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    color: var(--boldgray);
+    font-family: var(--roboto);
+    font-weight: 700;
+}
+
+div.dataTables_wrapper div.dataTables_length select:focus,
+.dataAreaMain.dashboard .card.formContentData.report-card.row select:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    border: 0;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.role_check {
+    display: flex;
+    align-items: center;
+}
+
+.formAreahalf.user_permissions:nth-last-child(2) {
+    margin-left: 135px;
+}
+
+.formAreahalf.user_permissions:nth-last-child(2) input {
+    accent-color: #323232;
+}
+
+.formAreahalf.user_permissions label {
+    color: #323232;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-footer {
+    text-align: center;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 400;
+    font-family: var(--roboto);
+}
+
+table.table.user_action_log tr th:first-child {
+    width: 70%;
+}
+
+table.table.user_action_log tr th:nth-child(2) {
+    width: 17%;
+}
+
+table.table.user_action_log thead {
+    background: #F9FAFB;
+}
+
+table.table.user_action_log tbody td {
+    border-bottom: 0;
+}
+
+.dataAreaMain.dashboard.main .table_cstm div.dataTables_length {
+    position: absolute;
+    bottom: 10px;
+    right: 105px;
+}
+
+.dataAreaMain.dashboard.main .dataTables_info {
+    padding-top: 10px !important;
+}
+
+.dataAreaMain.dashboard.main ul.pagination li {
+    margin: 0 10px;
+}
+
+.table_cstm.dasboard-entry .table th:before {
+    right: 1em;
+    content: "\2191";
+    position: absolute;
+    pointer-events: none;
+}
+
+.table_cstm.dasboard-entry .table th:after {
+    right: 0.5em;
+    content: "\2193";
+    position: absolute;
+    bottom: 0.9em;
+    display: block;
+    pointer-events: none;
+}
+
+.table_cstm.dasboard-entry .table th {
+    position: relative;
+}
+
+.table_cstm.dasboard-entry .table th:after,
+.table_cstm.dasboard-entry .table th:before {
+    opacity: 0.3;
+}
+
+.table_cstm.dasboard-entry thead .sorting_asc:before,
+.table_cstm.dasboard-entry thead .sorting_desc:after {
+    opacity: 1;
+    position: absolute;
+    bottom: 0.9em;
+    display: block;
+}
+
+.cancelBtn.delete {
+    padding: 5px 25px;
+}
+
+.cancelBtn:hover {
+    background: #B30000;
+}
+
+.cancelBtn.delete:focus-visible:focus,
+.cancelBtn.delete:focus-visible {
+    border: 1px solid #B30000 !important;
+    background: transparent;
+    color: #B30000;
+}
+
+.saveBtn.cancelBtn:active {
+    border: 1px solid #B30000 !important;
+    color: #B30000;
+}
+
+.saveBtn.cancelBtn {
+    padding: 5px 26px;
+}
+
+label.form-label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.type_business {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.type_business .card_potentials_fg {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.type_business .custom-form {
+    margin-bottom: 10px !important;
+}
+
+.form-fields.custom-form {
+    margin-bottom: 10px !important;
+}
+
+.generated {
+    margin-top: 20px
+}
+
+#dynamicAddRemove {
+    padding: 35px 0;
+}
+
+.card_potentials_fg {
+    padding: 0;
+    margin-bottom: 0;
+    /* border-right: 1px solid;
+    border-bottom: 1px solid; */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.main_class_fp.type-of-potential-business {
+    width: 100%;
+    max-width: 1320px;
+}
+
+.accordion-item {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.cross span.remove-input-field2,
+span.remove-input-field {
+    position: absolute;
+    top: 9px;
+    font-size: 60px;
+}
+
+.dataAreaMain.dashboard .dataAreaMain {
+    padding-bottom: 0;
+}
+
+.card_potentials_fg .accordion-item .accordion-button.collapsed {
+    position: relative;
+}
+
+.total_application h2 {
+    font-size: 35px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.formAreahalf .select_box span.every {
+    padding-right: 5px;
+    font-size: 15px;
+    color: var(--black);
+}
+
+.formAreahalf span.select {
+    width: 55%;
+}
+
+.formAreahalf .select_box {
+    display: flex;
+}
+
+.dollersec {
+    display: flex;
+    align-items: center;
+}
+
+.dollersec span.input input {
+    padding-bottom: 0;
+}
+
+span.doller {
+    padding-right: 5px;
+}
+
+.dataAreaMain.viewpage .accordion-item.edit_application,
+.dataAreaMain.sales-edit .accordion-item.edit_application {
+    margin-top: 43px;
+}
+
+
+.dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian button.accordion-button {
+    top: 9px;
+}
+.dataAreaMain.sales-edit .accordion-item.edit_application .accordion-button {
+    top: 32px;
+    margin-right: 35px;
+}
+
+.business.generate {
+    max-width: 100%;
+}
+
+.dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian button.accordion-button {
+    top: 9px;
+   
+}
+
+.dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian .cross span.remove-input-field {
+    top: 45px;
+}
+
+.dataAreaMain.sales-edit .custom_sec .business.generate .cross span {
+    top: 63px;
+}
+
+.dataAreaMain.sales-edit #dynamicAddRemove {
+    padding: 0;
+}
+
+.dataAreaMain.sales-edit .business.generate.buss .accordion-item,
+.business.generate.Potens .accordion-item {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.dataAreaMain.sales-edit .business.generate.Potens>.cross span {
+    top: 17px !important;
+}
+
+.dataAreaMain.sales-edit .business.generate.buss .cross span {
+    top: 9px !important;
+}
+
+.business_border_section .accordion-body.add_fieldset_fg.add_potensian .accordion-item {
+    margin-top: 0;
+    padding-top: 24px;
+}
+
+.business_border_section .accordion-body.add_fieldset_fg.add_potensian .accordion-item .accordion-button {
+    top: 26px !important;
+}
+
+.dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian .cross span.remove-input-field {
+    top: 33px !important;
+}
+
+.accordion-body.add_fieldset_fg.add_potensian {
+    margin-bottom: 60px;
+}
+
+.dataAreaMain .accordion-item.edit_application button.accordion-button {
+    top: 9px;
+}
+
+.dataAreaMain .accordion-body.potensial_business button.accordion-button {
+    top: 52px;
+}
+
+.card.file.upload {
+    margin-top: 25px;
+}
+
+.card.file {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+}
+
+.card.file table.table.user_action_log {
+    margin-bottom: 0;
+}
+
+table.table.role_action_log thead th,
+.card.file table thead tr th {
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.card.file.upload thead tr th:nth-child(3) {
+    width: 30%;
+}
+
+textarea,
+.textarea textarea:focus-visible {
+    outline: 0;
+}
+
+.dataAreaMain.viewpage .error,
+.dataAreaMain.sales-edit .error {
+    color: red;
+    padding-top: 5px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.dataAreaMain.viewpage .error h3,
+.dataAreaMain.sales-edit .error h3 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.main_class_fp.type-of-potential-business {
+    border: 1px solid #000;
+    padding: 35px;
+}
+
+
+/* .wealth  */
+
+.wealth_view .card.company_info.formContentData .accordion-item .card .collapse .share_accordian_set .card.shareholder {
+    padding: 20px;
+}
+
+.wealth_view .card.company_info.formContentData .accordion-item .card .collapse .share_accordian_set .card.shareholder .card-header {
+    padding: 0;
+}
+
+.wealth_view .card.company_info.formContentData .accordion-item .card .collapse .share_accordian_set .card.shareholder .card-header .formAreahalf.basic_data {
+    margin: 0px 0 20px;
+}
+
+.wealth_view .card.company_info.formContentData .accordion-item .card .collapse .share_accordian_set .card.shareholder .card-body {
+    padding: 0;
+}
+
+.wealth_view .card.company_info.formContentData .accordion-item .card .collapse .share_accordian_set {
+    max-width: calc(100% - 30px);
+    margin: 0 auto 25px;
+}
+
+.wealth_view .formAreahalf p {
+    margin: 0;
+}
+
+.wealth .number_main {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.wealth .Personal_Details .First-heading_ {
+    padding-right: 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.wealth .first_selection {
+    margin-right: 0;
+    margin-left: 127px;
+    margin-bottom: 40px;
+}
+
+.wealth div#append_div_btn {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+.wealth .number_main {
+    text-align: center;
+    display: flex;
+}
+
+.wealth .number_main ul li p {
+    max-width: 100%;
+}
+
+.wealth_view .application_info .tabbing_wealth_four .tab-content .tab-pane button.btn {
+    top: 80px;
+}
+
+
+.wealth_view .application_info .tabbing_wealth_four .tab-content {
+    padding-bottom: 80px;
+}
+
+.wealth_view .card.company_basic_info h3 {
+    position: relative;
+}
+
+/* .wealth_view .card.company_basic_info h3::after { */
+    /* position: absolute; */
+    /* content: ""; */
+    /* background: #E5E7EB; */
+    /* width: 110px; */
+    /* height: 1px; */
+    /* bottom: 0; */
+    /* left: 200px; */
+/* } */
+
+.wealth_view .card.company_basic_info .formAreahalf {
+    margin-bottom: 30px;margin-right: 0;width: calc(50% - 100px);}
+
+.wealth_view .card.company_basic_info .formAreahalf label.form-label {
+    margin: 0 0 11px;
+}
+.wealth .formAreahalf.basic_data {
+    position: relative;
+    margin-bottom: 30px
+}
+
+
+.wealth_view .card.company_info.formContentData .accordion-item {
+    margin: 0;
+}
+
+
+.wealth_view .card.company_info.formContentData h3 {
+    margin: 0 0 25px;
+}
+
+
+.wealth_view .card.company_info.formContentData .accordion-item:not(:last-child) .card {
+    margin: 0 0 27px;
+}
+
+.wealth_view .card.company_info.formContentData .accordion-item .card {
+    margin: 0;
+}
+
+.wealth_view .card.formContentData {
+    padding: 20px 15px !important;
+}
+
+.wealth_view .application_info .card.company_info nav .nav-tabs::before {
+    width: calc(100% + 32px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wealth_view .application_info .card.company_info .tab-content {
+    margin-right: 0;
+    padding: 40px 51px 50px;
+}
+
+.wealth_view .application_info .card.company_info .tab-content .mas_related button.btn.btn_set {
+    margin-right: 20px;
+}
+
+
+.company_info .basic_data button {
+    float: right;
+    width: 45px;
+    height: 45px;
+    background: var(--black);
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 60px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 100;
+    margin-right: 16px;
+}
+
+
+.company_basic_data p {
+    margin-bottom: 0;
+}
+
+.company_info .basic_data button i::before {
+    font-size: 25px;
+}
+
+.company_info .basic_data button.collapsed i {
+    transform: rotate(175deg);
+    transition: all 0.5s;
+}
+
+.card.company_info .card-header {
+    background: transparent;
+    border-bottom: 0;
+}
+
+.wealth_view .card.shareholder {
+    margin: 0 20px 20px 20px;
+}
+
+.tabbing_wealth_four .nav-tabs {
+    border-bottom: 5px solid var(--primaryColor);
+    position: relative;
+}
+
+.tabbing_wealth_four .nav-tabs .nav-link.active {
+    color: var(--white);
+    border-bottom: 0;
+    background: var(--primaryColor);
+    border-color: transparent;
+}
+
+.tabbing_wealth_four .nav-tabs .nav-link {
+    background: var(--gray1);
+    color: var(--white);
+    padding: 10px 70px;
+    border: 1px solid var(--gray1);
+}
+
+.tabbing_wealth_four .nav-tabs:before {
+    content: '';
+    width: calc(100% + 28px);
+    height: 5px;
+    left: 50%;
+    right: 0;
+    top: auto;
+    bottom: -5px;
+    background: var(--primaryColor);
+    position: absolute;
+    z-index: 100;
+    transform: translateX(-50%);
+}
+
+.tabbing_wealth_four {
+    position: relative;
+}
+
+.tabbing_wealth_four button.btn.btn_set {
+    float: right;
+    width: 45px;
+    height: 45px;
+    background: var(--black);
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 60px;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    transition: all 0.5s;
+}
+
+.tabbing_wealth_four button.btn.btn_set i {
+    font-size: 25px;
+}
+
+.tab-content {
+    border: 1px solid;
+    padding: 20px 40px;
+    margin: 20px;
+    border-radius: 10px;
+    margin-left: 0;
+    padding-bottom: 0;
+}
+
+.shareholder_div_accrodion_show {
+    display: flex;
+}
+
+div#pass_accordion p {
+    margin-bottom: 0;
+}
+
+textarea#wealth_notes {
+    padding: 15px;
+}
+
+.wealth_view textarea::placeholder {
+    color: #A4A6B3;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.wealth_view .table th {
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.company_design {
+    position: relative;
+}
+
+span.cancel_company,
+span.cancel_shareholder {
+    float: right;
+    width: 45px;
+    height: 45px;
+    background: var(--black);
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 60px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transition: all 0.5s;
+}
+
+span.cancel_company i,
+span.cancel_shareholder i {
+    font-size: 25px;
+}
+
+.wealth_view table.table.user_action_log tr th:first-child {
+    width: 62%;
+}
+
+.wealth .Personal_Details .First-heading_ h6 {
+    padding-left: 11px;
+}
+
+.company_accordian_set label.form-label {
+    font-size: 15px;
+}
+
+.company_accordian_set label+p {
+    font-size: 16px;
+}
+
+.dataAreaMain.edit_wealth .formAreahalf.basic_data {
+    position: inherit;
+}
+
+
+.wealth_dashboard_set .card .row {
+    justify-content: space-between;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.wealth_dashboard_set .card .row .col-md-1 {
+    display: none;
+}
+
+.wealth_dashboard_set .card .row .business_amount {
+    width: calc(50% - 10px);
+}
+
+.wealth_dashboard_set .card.formContentData {
+    margin: 0 0 20px;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .formAreahalf {
+    padding: 20px;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .formAreahalf:not(:last-child) {
+    padding-right: 0;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain {
+    padding: 0;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain .table_cstm .row:last-child {padding: 0 30px !important;justify-content: flex-end;}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain .table_cstm table {
+    width: 100% !important;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain .table_cstm .row:last-child>div:first-child {
+    width: 100%;
+    max-width: 30%;
+    text-align: left !important;
+    flex: 0 0 30%;
+	padding-left: 100px;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain .table_cstm .row:last-child>div:last-child {
+    width: 100%;
+    max-width: 10%;
+    flex: 0 0 10%;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row .dataAreaMain .table_cstm .row:last-child>div:first-child .dataTables_info {
+    text-align: inherit;
+}
+
+ /* end style */
+
+/* business page style  */
+.sideMenu li .submenu ul li {
+    padding-left: 50px;
+}
+
+.wealth_dashboard_set .card .row .formAreahalf h2 {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.Personal_Details .number_main {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+.Personal_Details {
+    position: relative;
+}
+
+.Personal_Details .number_main ul>li:last-child {
+    padding-right: 0;
+}
+
+.Personal_Details.company_space .number_main {
+    top: -13px;
+}
+.Personal_Details .number_main ul >li {
+    width: 100%;
+    max-width: 150px;
+    flex: 0 0 150px;
+    padding: 0;
+}
+
+.Personal_Details .number_main ul {
+    justify-content: center;
+}
+.wealth_dashboard_set .dash_table_wealth {
+    padding: 0px 0 0 !important;
+}
+
+.wealth_dashboard_set .dash_table_wealth h3 {
+    margin: 0;
+    padding: 17px 16px;
+    font-size: 18px;
+}
+
+.wealth_dashboard_set .dash_table_wealth th {
+    padding: 23px 16px;
+    color: #6B7280;
+    font-size: 16px;
+    font-weight: 600;
+    background: #F9FAFB;
+}
+
+.wealth_dashboard_set .dash_table_wealth th:nth-child(1) {
+    width: 6%;
+}
+
+.wealth_dashboard_set .dash_table_wealth th:nth-child(2) {
+    width: 25%;
+}
+
+.wealth_dashboard_set .dash_table_wealth th:nth-child(3) {
+    width: 20%;
+}
+
+.wealth_dashboard_set .dash_table_wealth th:nth-child(4) {
+    width: 20%;
+}
+
+.wealth_dashboard_set .dash_table_wealth td {
+    font-size: 16px;
+    color: #111827;
+    font-weight: 400;
+    padding: 23px 16px;
+}
+
+.wealth_dashboard_set .dash_table_wealth .wealth_dash_tab {
+    margin: 0;
+}
+.wealth_dashboard_set .dash_table_wealth .wealth_dash_tab tbody tr:nth-child(even) td {
+    background: #f9fafb;
+}
+.wealth_dashboard_set .card.formContentData .card.report-card h3 {
+    padding-top: 5px !important;
+}
+.dataAreaMain.dashboard.main >.card.formContentData {
+    padding: 15px !important;
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData:nth-child(2) {
+    padding-right: 100px !important;
+    justify-content: space-between;
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData >h3 {
+    padding-top: 5px;
+}
+
+.dataAreaMain.dashboard.main >.card.formContentData>.row:last-child >div > .card.formContentData ,
+.wealth_dashboard_set .card .row .card.formContentData {
+    justify-content: space-between;
+	padding: 15px !important;
+	    flex-wrap: wrap;
+}
+
+.dataAreaMain.dashboard.main >.card.formContentData>.row:last-child >div > .card.formContentData >.formAreahalf:not(:last-child) ,
+.wealth_dashboard_set .card .row .business_amount .formAreahalf:first-child  {
+    border-right: 1px solid #000;
+}
+
+
+
+html body .card .company_design .formAreahalf.company-full_width_Cstm {
+    display: block;
+    margin-left: 0px;
+    width: 100%;
+    padding: 0;
+    max-width: 43%;
+}
+
+html body .card .company_design .formAreahalf {
+    width: calc(50% - 45px);
+    margin-right: 0;
+}
+html body .card .company_design {
+    padding: 35px;
+    display: block !important;
+}
+/* 21-04-23 */
+html body .card .company_design .added_shareholder_cmp2 {
+    justify-content: space-between !important;
+}
+
+html body .card .company_design .accordion-item {
+    margin: 5px 0;
+}
+
+
+html body .card .company_design .accordion-item h2.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+html body .card .company_design .accordion-item h2.accordion-header button.accordion-button {
+    justify-content: end;
+    width: auto;
+    max-width: initial;
+    display: flex;
+}
+
+html body .card .company_design .accordion-item h2.accordion-header button.accordion-button i {
+    width: 45px;
+    height: 45px;
+    background: #000;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    color: #fff;
+    font-size: 25px;
+}
+
+html body .card .company_design .accordion-item .accordion-collapse {
+    padding: 65px 45px 0;
+}
+
+html body .card .company_design .company_set_accrodian {
+    position: relative;
+}
+
+html body .card .company_design .company_set_accrodian span.cancel_company {
+    right: 10px;
+    top: 38px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+html body .card .company_design .accordion-item .accordion-collapse .accordion-body {
+    justify-content: space-between;
+}
+
+/* popup style  */
+.swal-overlay--show-modal .swal-modal {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 25px;
+    margin: 0;
+    position: relative;
+    padding: 90px 0 20px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-icon .swal-icon--success__ring {
+    border: 1px solid var(--colorgreen);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+.swal-overlay--show-modal .swal-modal .swal-icon span.swal-icon--success__line {
+    background-color: var(--colorgreen);
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content .number_main.swal_number {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 75%;
+    text-align: center;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content .number_main.swal_number ul li {
+    padding: 0;
+    flex: 0 0 150px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content .number_main.swal_number ul li p {
+    max-width: 100%;
+    color: var(--colorgreen);
+    letter-spacing: .5px;
+    font-size: 13px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content .number_main.swal_number ul li a {
+    margin-bottom: 4px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content .number_main.swal_number ul li::after {
+    width: 71px;
+    left: auto;
+    right: -36px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-title {
+    color:  var(--colorgreen);
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #595959;
+    text-shadow: none;
+    font-family: 'Inter';
+    opacity: 1;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-content p a {
+    color: #595959;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-footer {
+    padding-top: 25px;
+}
+
+.swal-overlay--show-modal .swal-modal .swal-footer .swal-button-container button {
+    padding: 9px 29px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    box-shadow: none;
+    outline: none;
+    background: #B30000;
+    color: #fff;
+}
+
+/* company tab style  */
+html body .card .company_design.sharehold_length .sub-heading h4 {
+    color: var(--colorblack);
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 35px;
+}
+
+html body .card .company_design.sharehold_length ,
+html body .card .company_design.nfo_shr_length {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding-right: 74px;
+}
+
+html body .card .company_design.sharehold_length .formAreahalf .percentage_input .input {
+    width: 50px;
+}
+
+
+.sideMenu ul li {
+    position: relative;
+}
+
+.sideMenu ul li::after {
+    position: absolute;
+    content: "";
+    background: #083a60;
+    width: 4px;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    transition: .5s;
+}
+
+.sideMenu ul li.open::after {
+    opacity: 1;
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData {
+    padding: 15px !important;
+    padding-left: 24px !important;
+}
+
+
+
+/* sales modules page design  */
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(1) {
+    width: 8% !important;
+}
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(2) {
+    width: 16% !important;
+}
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(3) {
+    width: 10% !important;
+}
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(4) {
+    width: 19% !important;
+}
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(5) {
+    width: 19% !important;
+}
+
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(6) {
+    width: 20% !important;
+}
+
+
+.sales-module form.userForm .main_class_fp {
+    margin: 0 auto;
+    padding: 20px 45px;
+    max-width: calc(100% - 144px);
+}
+
+.sales-module .salescreate form .fieldset1-account {
+    padding: 70px 0 0;
+}
+
+.sales-module .salescreate form {
+    max-width: 100% !important;
+}
+
+.sales-module .salescreate form .fieldset1-account .formAreahalf:nth-child(odd) {
+    padding-right: 130px !important;
+}
+
+.sales-module .salescreate form .fieldset1-account .formAreahalf:nth-child(even) {
+    padding-left: 130px !important;
+}
+
+.sales-module form.userForm .main_class_fp .accordion-body {
+    padding-right: 50px;
+    justify-content: space-between;
+}
+
+.sales-module form.userForm .main_class_fp .accordion-body fieldset {
+    border: 0;
+    display: flex;
+    justify-content: space-between !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg {
+    border: 0;
+    padding: 0;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg h2 button.accordion-button {
+    margin-left: auto;
+    margin-right: 15px;
+    top: 35px;
+    right: 19px;
+    position: absolute !important;
+    transition: all .4s ease;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales.closed button.accordion-button {
+    top: 17px;
+}
+.sales-module form.userForm .main_class_fp .accordion-body fieldset .formAreahalf {
+    width: calc(50% - 90px);
+    margin-right: 0;
+}
+
+.sales-module form.userForm .main_class_fp .accordion-body fieldset .formAreahalf:last-child {
+    display: flex;
+    flex-direction: column;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales {
+    border: 1px solid #0000006b;
+    padding: 20px !important;
+    margin: 0;
+    position: relative;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .accordion-item.border_sales {
+    padding: 0 !important;
+    border: 0;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales {
+    margin: 10px 0 0 !important;
+}
+
+.sales-module form.userForm .main_class_fp .generated {margin: 15px 0 0;}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .formAreahalf {
+    width: calc(50% - 90px);
+    margin-right: 0;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .formAreahalf:last-child label.form-label {
+    display: block;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales h2 button.accordion-button {
+    right: 50px;
+    top: 11px;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .cross {
+    position: absolute;
+    right: -19px;
+    top: 9px;
+    z-index: 0;
+    transition: .4s;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .accordion-item.border_sales.closed .cross {
+    top: 0;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .accordion-item.border_sales  .accordion-collapse {
+    padding: 10px  0 0;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .accordion-item.border_sales  .accordion-collapse {
+    padding: 10px  0 0;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .cross span {
+    font-size: 0;
+    position: relative;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .cross span::after {
+    position: absolute;
+    content: "";
+    background-image: url(../images/Vector.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 20px;
+    right: 20px;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .formAreahalf:nth-child(1) select {
+    min-height: 32px;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .accordion-item.border_sales > label.form-label {
+    display: none;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .accordion-item.border_sales.closed label.form-label {
+    display: block;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales + .border_sales .closed button.accordion-button {
+    top: 0;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales h2 + label {
+    display: none;
+}
+
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales.closed label.form-label.mb-0 {
+    display: block;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales.closed h2 + label {
+    display: block;
+}
+/* sales-edit tab style  */
+.sales-edit .card >.accordion-item.edit_application .accordion-collapse {
+    padding-right: 0;
+}
+
+.sales-edit .card >.accordion-item.edit_application .accordion-collapse > .accordion-body >.form-fields {
+    padding-right: 100px;
+}
+
+
+/* sales-view tab style  */
+
+.sales-view  ,
+.wealth_view ,
+.operation_view{
+    padding-top: 30px;
+}
+
+.sales-view .card {
+    padding: 20px 15px 29px !important;
+}
+
+.sales-view .card .form-fields {
+    padding: 0;
+    max-width: 100% !important;
+    padding-right: 90px;
+}
+
+.sales-view .card .form-fields .formAreahalf {
+    padding: 0 !important;
+}
+
+.sales-view .card:first-child .form-fields .formAreahalf:not(:last-child) label.form-label {
+    margin: 0 0 11px;
+}
+
+
+html body .sales-view .card > .accordion-item {
+    border: 1px solid #000 !important;
+    margin: 32px   10px 15px 0 !important;
+    padding: 80px 80px 0!important;
+}
+
+
+html body .sales-view .card > .accordion-item h2 button.accordion-button {
+    top: 34px;
+    margin-right: 34px;
+    transition: all .5s ease;
+}
+
+html body .sales-view .card > .accordion-item label.form-label {
+    margin: 0 0 15px;
+}
+
+
+html body .sales-view .card > .accordion-item .accordion-body .form-fields {
+    padding-right: 0;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .form-fields .formAreahalf {
+    margin: 0 0 40px !important;
+    max-width: 44% !important;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business {
+    margin: 35px 0 50px;
+    border-radius: 2px;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item {
+    border: 1px solid #0000007a !important;
+    max-width: calc(100% - 110px);
+    margin: 15px auto  !important;
+    border-radius: 0;
+    padding: 20px !important;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item:first-child {
+    margin: 30px auto 0 !important;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .form-fields {
+    border: 0;
+    justify-content: space-between !important;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item h2 button.accordion-button {
+    margin-right: 10px;
+}
+
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item .accordion-collapse .form-fields .formAreahalf {
+    max-width: 46% !important;
+}
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item .accordion-collapse .form-fields {
+    padding: 0 !important;
+}
+
+html body .sales-view .card > .accordion-item .collapse.show .accordion-item {
+    padding-bottom: 50px !important;
+}
+.dataAreaMain.dashboard .total_application {
+    justify-content: space-between;
+    margin: 0;
+}
+
+.dataAreaMain.dashboard .total_application .graph-chart {
+    padding: 0;
+    width: calc(50% - 8px);
+}
+.dataAreaMain.dashboard >.card.formContentData > .card.formContentData.report-card:nth-child(3) {
+    padding: 4px 0 0  !important;
+}
+
+.lower-bottom .notes-common {
+    /* box-shadow: none; */
+    padding: 10px 23px 25px 15px;
+}
+.lower-bottom .notes-common .textarea input.btn {
+    margin: 26px 0 0;
+}
+
+.lower-bottom .card.file.action h3 {
+    margin: 0;
+}
+
+.lower-bottom .notes-common .textarea label.form-label {
+    margin: 0 !important;
+    padding: 7px 0 22px;
+    font-size: 22px;
+}
+
+.lower-bottom .notes-common .textarea textarea {
+    background: transparent;
+    border: 1px solid #BDBDBD;
+    font-size: 14px;
+    color: #000;
+    padding: 10px 15px;
+}
+
+.lower-bottom .notes-common .textarea input.btn.disabled-btn {
+    opacity: 50%;
+}
+
+.lower-bottom .card.file {
+    border: 0;
+    padding: 0 !important;
+}
+
+.lower-bottom .card.file h3 {
+    color: #010101;
+    font-size: 22px;
+    padding: 15px 15px 18px;
+    margin: 0 !important;
+}
+.lower-bottom .card.file.upload {
+    margin: 20px 0;
+}
+
+.lower-bottom .card.file.upload form {
+    width: 100%;
+    padding: 0 20px 15px;
+    position: relative;
+    display: flex;
+    /* align-items: center; */
+}
+.lower-bottom .card.file.upload form span#file-input-error {
+    margin: 5px 0 0;
+    display: block;
+}
+.lower-bottom .card.file.upload form button.btn.saveBtn {
+    margin-left: 15px;
+}
+.lower-bottom .card.file.upload form input#wealth_inputFile {
+    height: 37px;
+    box-shadow: none !important;
+}
+.textarea label.error {
+    display: block;
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 0 0;
+}
+
+.lower-bottom .card.file.upload form .mb-3 {
+    margin: 0 !important;
+}
+
+button.btn {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.lower-bottom .card.file table.table tr th {
+    padding: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.lower-bottom .card.file.upload table.table tr th:nth-child(1) {
+    width: 60%;
+}
+
+.lower-bottom .card.file.upload table.table tr th:nth-child(2) {
+    width: 15%;
+}
+
+.lower-bottom .card.file.upload table.table tr th:nth-child(3) {
+    width: 18%;
+}
+
+.lower-bottom .card.file.upload table.table tr th:nth-child(4) {width: 10%;}
+
+
+.lower-bottom .card.file table.table tr td {
+    padding: 15px;
+    font-size: 10px;
+    color: #111827;
+}
+
+table.table.user_action_log tbody td:last-child a i {
+    color: #323232;
+    font-size: 12px;
+}
+
+.lower-bottom .card.file table.table tr:nth-child(even) td {
+    background: #f9fafb;
+}
+
+
+.lower-bottom .card.file.action {
+    box-shadow: none;
+    background: #fff;
+    padding-bottom: 10px !important;
+}
+
+
+.lower-bottom .card.file.action table.table th:nth-child(1) {
+    width: 60%;
+}
+
+.lower-bottom .card.file.action table.table th:nth-child(2) {
+    width: 25%;
+}
+
+.sales-view .card .accordion-item.closed h2 button.accordion-button {
+    top: 20px;
+}
+
+html body .sales-view .card > .accordion-item .collapse.show .accordion-item.closed h2 button.accordion-button {
+    top: 16px;
+}
+html body .sales-view .card > .accordion-item .accordion-body .accordion-body.potensial_business .accordion-item h2 + label {
+    margin: 0 0 15px !important;
+}
+
+
+.sales-view .card:nth-child(2) h3 {
+    margin: 0 0 28px;
+}
+.lower-bottom .card.file.upload tr td:first-child  ,
+.lower-bottom .card.file tr td:nth-child(2) {
+    font-weight: 700;
+}
+.lower-bottom .card.file table.table tr td:last-child a {
+    text-decoration: none;
+}
+
+.sideMenu ul li.open svg g path,
+.sideMenu ul li.open svg path {
+    fill: #083a60;
+    opacity: 1;
+}
+
+.sideMenu ul li.open svg g ,
+.sideMenu li:hover a svg g {
+    opacity: 1;
+}
+.sideMenu li:hover a svg path {
+    fill: #083a60;
+    opacity: 1;
+}
+.dataAreaMain.dashboard >.card.formContentData >.row:last-child label.form-label ,
+.dataAreaMain.dashboard >.card.formContentData >.row:last-child  h3 {
+    font-size: 18px !important;
+}
+
+
+/* opertion tab style  */
+
+form#operation_form .card.formContentData .pr_form_class .form-fields {
+    border: 0.5px solid;
+    margin-bottom: 15px;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields h2 button.accordion-button {
+    position: absolute;
+    right: 25px;
+    top: 16px;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields .accordion-item {
+    margin: 0;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields .accordion-item .accordion-collapse {
+    padding: 17px 47px;
+    padding-right: 180px;
+    border: 1px solid #000;
+	border-radius:5px;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields .accordion-item .accordion-collapse .accordion-body .formAreahalf {
+    width: calc(50% - 40px) !important;
+}
+
+form#operation_form .card.formContentData .pr_form_class + div#appended_pr_div .form-fields span.cancel_pr {
+    right: 30px;
+    top: 20px;
+}
+
+form#operation_form .card.formContentData .pr_form_class + div#appended_pr_div .form-fields span.cancel_pr + h2 button.accordion-button {
+    right: 70px;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields {
+    padding: 0 !important;
+    border: 0;
+}
+
+form#operation_form .card.formContentData .pr_form_class .form-fields >.accordion-item {
+    border: 0;
+    padding: 0;
+}
+
+form#operation_form .card.formContentData .financial .form-fields .accordion-item.closed span.cancel_financial.cancel_pr {
+    top: 4px !important;
+}
+
+form#operation_form .card.formContentData div#appended_financial_div .form-fields span.cancel_financial.cancel_pr {
+    right: 0px;
+    top: 10px;
+    transition: .5s;
+}
+
+form#operation_form .card.formContentData div#appended_financial_div .form-fields span.cancel_financial.cancel_pr + h2 button.accordion-button {
+    right: 50px;
+}
+
+form#operation_form .card.formContentData .financial .form-fields .accordion-item.closed {
+    padding: 20px;
+}
+
+form#operation_form .card.formContentData .financial .form-fields .accordion-item.closed button.accordion-button {
+    top: 0;
+}
+
+form#operation_form .card.formContentData .financial {
+    margin: 0 -5px;
+}
+
+form#operation_form .card.formContentData .financial .form-fields {
+    padding: 17px 47px;
+    margin: 0 0 10px;
+}
+form#operation_form .card.formContentData .financial .form-fields .accordion-item {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+form#operation_form .card.formContentData .financial .form-fields .accordion-item .accordion-collapse {
+    padding: 0;
+    padding-right: 140px;
+}
+
+
+form#operation_form .card.formContentData .financial .form-fields .accordion-item h2 button.accordion-button {
+    position: absolute;
+    right: -25px;
+    top: 3px;
+    transition: .5s;
+}
+
+
+.sales-view .card.formContentData .accordion-item.edit_application button.accordion-button {
+    top: 34px;
+}
+
+.sales-view .card.formContentData .accordion-item.edit_application.closed button.accordion-button {
+    top: 17px;
+}
+
+form#operation_form div#add-pass-holder_btn_div {
+    padding-right: 15px;
+}
+form#operation_form .card.formContentData .accordion-item .accordion-collapse .accordion-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.js-example-responsive {
+    background: red;
+}
+ form#multistep_form_edit .card.company_basic_info .formAreahalf span[title="Inactive"] ,
+form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-selection.select2-selection--single span[title="Rejected"] {
+    background: red;
+    width: max-content;
+    border-radius: 3px;
+    color: #fff !important;
+}
+
+
+span.select2-selection.select2-selection--single span[title="Pending"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="In progress"] {
+    background: #083a60 !important;
+	color: #fff !important;
+    padding: 0 18px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Done"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Active"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Approved"],
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Received"]  
+ {
+    background: green !important;
+	color: #fff !important;
+    padding: 0 18px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Dormant"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Inactive"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Rejected"] {
+    background: #b30000 !important;
+	color: #fff !important;
+    padding: 0 18px;
+}
+
+.select2-results >ul >li {
+    border-top: 1px solid #ddd;
+}
+
+.select2-results >ul >li[aria-selected="false"] {
+    background: #fff;
+}
+
+.select2-results >ul >li[aria-selected="true"] {
+    background: #083a60 !important;
+}
+
+.js-example-responsive + span span.select2-selection {
+    border: 0;
+
+}
+
+form#multistep_form_edit .card.company_basic_info .formAreahalf span[title="Active"] {
+    background: green;
+    width: max-content;
+    color: #fff !important;
+    border-radius: 3px;
+    text-align: center;
+    padding: 0 15px !important;
+}
+
+form#multistep_form_edit .card.company_basic_info .formAreahalf span.selection span.select2-selection {
+    background: green;
+    width: max-content;
+    border-radius: 4px;
+}
+
+form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-selection.select2-selection--single span {
+    color: #fff !important;
+    padding: 0 15px !important;
+    border-radius: 4px;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #323232 transparent;
+    border-width: 0 5px 6px 5px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #323232 transparent transparent transparent;
+    border-width: 6px 5px 0 5px;
+}
+
+
+span.cancel_pr {
+    position: absolute;
+    right: 32px;
+    color: #323232;
+    font-size: 36px;
+    cursor: pointer;
+}
+.dataAreaMain.dashboard .card.formContentData.report-card.row.operation_table_follow + .row:last-child {padding: 0 !important;margin: 0;justify-content: space-between;}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row.operation_table_follow + .row .col-md-6 {
+    padding: 0;
+    width: calc(50% - 8px);
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row.operation_table_follow + .row .col-md-6 .row {
+    margin: 0;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item + .form-fields {
+    padding: 14px 0 0;
+    position: relative;
+}
+
+.dataAreaMain .form-fields .cross {
+    position: absolute;
+    right: 0;
+    top: 33px;
+    transition: .4s;
+    width: auto;
+    z-index: 1;
+}
+.dataAreaMain .form-fields .cross >span {
+    position: relative;
+    font-size: 0;
+}
+.dataAreaMain .form-fields .cross + .accordion-item button.accordion-button {
+    right: 80px !important;
+}
+
+.dataAreaMain .form-fields .cross >span::after {
+    content: "";
+    position: absolute;
+    background-image: url(../images/Vector.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 20px;
+    right: 20px;
+}
+.edit_wealth form#multistep_form_edit .card .collapse .card-body .formAreahalf.basic_data {
+    width: 36%;
+}
+.wealth.company_show .edit__add_com {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.dataAreaMain.dashboard .card.formContentData.report-card.row.operation_table_follow {
+    padding: 4px 0 0 !important;
+}
+
+.card.formContentData .business_amount label.form-label {
+    max-width: 100%;
+}
+.card.formContentData .business_amount {
+    flex-wrap: wrap;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item .cross + h2 button.accordion-button {
+    right: 80px;
+}
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item.closed .cross {
+    top: 9px;
+}
+
+form#operation_form .card.formContentData {
+    padding: 31px !important;
+}
+
+form#operation_form .card.formContentData h4 {
+    padding: 0;
+}
+
+form#operation_form .card.formContentData .number_main {
+    position: unset;
+    transform: unset;
+}
+
+form#operation_form .card.formContentData .Personal_Details {
+    flex-wrap: wrap;
+}
+
+form#operation_form .card.formContentData .Personal_Details .First-heading_ {
+    width: 100%;
+    margin: 0 0 20px;
+}
+
+form#operation_form .card.formContentData .number_main li p {
+    max-width: 100%;
+    padding: 2px 0 0;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg {
+    margin-bottom: 0;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg >.form-fields {
+    padding: 0;
+    border-radius: 5px;
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item {
+    margin: 0;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-body {
+    justify-content: space-between;
+    max-width: calc(100% - 166px);
+   
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-body .formAreahalf {
+    width: calc(50% - 100px);
+    margin-right: 0;
+}
+
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item h2 button.accordion-button {
+    margin-right: 0;
+    top: 34px;
+    right: 30px;
+    left: auto;
+    position: absolute;
+    transition: .5s;
+}
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item.closed button.accordion-button {
+    top: 8px;
+}
+
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-body .formAreahalf label.form-label {
+    display: block;
+}
+
+form#operation_form .card.formContentData div#add-pass-holder_btn_div {
+    text-align: end !important;
+}
+
+
+form#operation_form .full_div #fo_pr .form-fields {
+    padding: 20px 20px 90px;
+    display: flex !important;
+    justify-content: space-between !important;
+    padding-right: 54px;
+}
+
+form#operation_form .full_div #fo_pr .form-fields .formAreahalf {
+    width: calc(50% - 70px);
+}
+
+form#operation_form .full_div #fo_pr .form-fields .formAreahalf label.form-label {
+    display: block;
+}
+form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-item + .form-fields {
+    padding: 14px 0 0;
+}
+
+
+form#operation_form .card.formContentData >.each_shareholder {
+    padding: 0 42px;
+}
+
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields {
+    padding: 20px;
+    margin: 0;
+}
+
+form#operation_form .card.formContentData >.each_shareholder + div#appended_shareholder_div {
+    padding: 0px 42px;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .Share_holder-w.sub-heading {
+    padding: 0;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .Share_holder-w.sub-heading h4 {
+    font-size: 21px;
+    color: #1B1B1B;
+    font-weight: 700;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item {
+    border: 0;
+    padding: 0;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item h2 button.accordion-button {
+    position: absolute;
+    right: 14px;
+    top: -16px;
+    transition: .5s;
+}
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item.closed h2 button.accordion-button {
+    top: -36px;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item .accordion-collapse {
+    padding: 50px 30px 60px 0;
+}
+
+form#operation_form .card.formContentData >.each_shareholder + div#appended_shareholder_div >.sharehold:not(:first-child) {
+    margin: 10px 0 0;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item .accordion-collapse .accordion-body >.formAreahalf {
+    width: calc(50% - 70px);
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item .cancel_shareholder {
+    margin-right: 14px;
+    position: absolute;
+    top: -15px;
+    background: transparent;
+    color: #323232;
+    transition: .4s;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item span.cancel_shareholder + h2 button.accordion-button {
+    right: 80px;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item span.cancel_shareholder i {
+    font-size: 38px;
+}
+
+form#operation_form .card.formContentData .each_shareholder .sharehold .form-fields .accordion-item.closed .cancel_shareholder {
+    top: -35px;
+}
+
+
+form#operation_form .First-heading_.heading_name {
+    padding: 0 42px;
+}
+
+form#operation_form .First-heading_.heading_name h4 {
+    font-size: 15px;
+    color: #010101;
+    font-weight: 700;
+}
+
+form#operation_form .First-heading_.heading_name h6 {
+    font-size: 16px;
+    color: #010101;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+form#operation_form .card.formContentData div#add_shareholder_btn_div {
+    padding: 0 40px;
+}
+
+.wealth_application .card> div#appended_company_div >div#fo_company {
+    margin: 10px 0 0;
+}
+
+.wealth_dashboard_set .card h3 + .row {
+    padding: 15px !important;
+}
+
+
+.edit_wealth form#multistep_form_edit .collapse>div:not(:first-child) {
+    max-width: calc(100% - 30px);
+    margin: 0 auto;
+}
+
+.edit_wealth form#multistep_form_edit .card {
+    padding: 20px 14px !important;
+}
+
+
+.edit_wealth form#multistep_form_edit .card .card-body .formAreahalf {
+    width: 35%;
+}
+
+.edit_wealth form#multistep_form_edit .card.company_basic_info {
+    padding: 20px 14px 40px !important;
+}
+
+
+.edit_wealth form#multistep_form_edit .card.company_basic_info .company_basic_data .formAreahalf {width: 35%;}
+
+.edit_wealth form#multistep_form_edit .collapse>div:not(:first-child) .formAreahalf {
+    width: 100%;
+}
+.edit_wealth form#multistep_form_edit .card .tab-content {
+    padding-bottom: 20px;
+}
+
+.wealth_view .application_info .card.company_info .tab-content .tab-cstm-data-inner .Redemption_date {
+    width: 100%;
+}
+
+.wealth_view .application_info .card.company_info .tab-content .tab-cstm-data-inner .Redemption_date table.table tr th {
+    padding: 16px;
+    background: #F9FAFB;
+}
+
+.wealth_view .application_info .card.company_info .tab-content .tab-cstm-data-inner .Redemption_date table.table tr td {
+    padding: 16px;
+    font-size: 10px;
+}
+
+.wealth_view .application_info .card.company_info .tab-content .tab-cstm-data-inner .Redemption_date table.table tr:nth-child(even) td {
+    background: #F9FAFB;
+}
+.edit_wealth form#multistep_form_edit .card .tab-content .tab-pane .mas_heading_accordian {
+    display: flex;
+    margin: 0 0 40px;
+}
+.edit_wealth form#multistep_form_edit .card > .accordion-item {
+    margin: 5px 0px;
+}
+
+
+.edit_wealth form#multistep_form_edit .card > .accordion-item .collapse .card-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit_wealth form#multistep_form_edit .card > .accordion-item .collapse .card-body >.formAreahalf {
+    width: 36%;
+}
+.dataAreaMain.edit_wealth .formAreahalf.basic_data span.select2.select2-container {
+    width: 100% !important;
+}
+
+
+form#operation_form .card.formContentData .accordion-item {
+    border: 1px solid #000;
+    padding: 30px 24px;
+    border-radius: 5px;
+}
+
+form#operation_form .card.formContentData .accordion-item h2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+form#operation_form .card.formContentData .accordion-item h2 button.accordion-button {
+    width: 45px;
+    height: 45px;
+    background: #323232;
+    border-radius: 50%;
+    color: #FFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+form#operation_form .card.formContentData .accordion-item h2 button.accordion-button i::before {
+    color: #fff;
+    content: "\f0d8";
+    position: absolute;
+    left: 51%;
+    top: 53%;
+    font-size: 25px;
+    transform: translate(-57%, -50%);
+}
+
+form#operation_form .card.formContentData .accordion-item .accordion-collapse .form-fields {
+    border: 0;
+    padding: 0;
+}
+
+/* sales-edit style  */
+.sales-edit .card {
+    padding: 15px !important;
+}
+
+.sales-edit .card .form-fields {
+    padding: 0;
+}
+.sales-edit .card .accordion-item {
+    border: 1px solid #ddd;
+}
+.sales-edit .card >.accordion-item {
+    padding: 65px 70px !important;
+}
+.sales-edit .card >.accordion-item {
+    padding: 65px 70px !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse {
+    padding-right: 100px;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .form-fields {
+    justify-content: space-between !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .form-fields .formAreahalf {
+    padding: 0 !important;
+    max-width: calc(50% - 140px) !important;
+}
+
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .card.Potential_business {padding: 0 !important;margin: 0;}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .card.Potential_business >.accordion-item {
+    padding: 25px  20px!important;
+    border-radius: 0;
+    padding-right: 90px !important;
+    margin: 0 0 13px;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .card.Potential_business >.accordion-item .accordion-collapse {
+    padding: 0;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .card.Potential_business >.accordion-item .accordion-collapse .formAreahalf {
+    max-width: 42% !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body {
+    margin: 0;
+    padding: 15px 40px !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body button.saveBtn {
+    position: unset !important;
+    display: flex;
+    justify-content: flex-end !important;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .card.Potential_business >.accordion-item .accordion-body {
+    padding: 0 !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body .card.formContentData {
+    padding: 0 !important;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body .card.formContentData .accordion-item {
+    border-radius: 0;
+    padding: 25px 20px!important;
+    border-radius: 0;
+    padding-right: 90px !important;
+    margin: 0 0 13px;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body .card.formContentData .accordion-item .accordion-collapse {
+    padding: 0;
+}
+
+.sales-edit .card >.accordion-item >.accordion-collapse .business_border_section .accordion-body .card.formContentData .accordion-item .accordion-collapse .accordion-body {
+    padding: 0 !important;
+    justify-content: space-between;
+}
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .formAreahalf.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.sales-module form.userForm .main_class_fp .card_potentials_fg .border_sales .formAreahalf.checkbox label.checkbox_label {
+    margin: 0;
+    padding-left: 8px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    /* background: green; */
+    border-radius: 4px;
+    width: max-content;
+	    padding: 0;
+    
+}
+
+.edit_wealth form#multistep_form_edit .card .tab-content .tab-pane  .tab-inner-text .formAreahalf ,
+.edit_wealth form#multistep_form_edit .card .tab-content .tab-pane .mas_heading_accordian .formAreahalf {
+    width: 35%;
+}
+
+/* education_form */
+
+form#education_form .Personal_Details .number_main ul>li p {
+    max-width: 100%;
+}
+
+form#education_form .education .card .education_info {
+    margin: 0 auto !important;
+    justify-content: space-between;
+    padding: 0 134px 30px;
+}
+
+form#education_form .education .card .education_info .formAreahalf {
+    width: 40%;
+    margin-right: 0;
+}
+
+form#education_form .education .card .parent_div {
+    padding: 0 134px;
+}
+
+form#education_form .education .card .parent_div .add_school_div {
+    margin: 0 auto !important;
+    padding: 35px 57px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+}
+
+form#education_form .education .card .parent_div .add_school_div .formAreahalf {
+    width: 43%;
+}
+
+form#education_form .education .card .parent_div .add_school_div span.cancel_company {
+    margin-right: 20px;
+}
+.add_potentia.add_school_btnDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+form#education_form .education .card .parent_div .add_school_div:not(:first-child) {
+    margin: 15px 0 0 !important;
+}
+
+
+form#operation_form .form-fields .card div#fo_company {
+    width: 100%;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+form#operation_form .form-fields .card div#fo_company >.form-fields {
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item {
+    padding: 35px 30px 60px;
+}
+
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item h2 button.accordion-button {
+    position: absolute;
+    right: 24px;
+    top: 34px;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item + div#appended_company_div .accordion-item {
+    margin-top: 15px;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item .formAreahalf input#fo_company_email {
+    width: 80%;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item + div#appended_company_div .accordion-item .accordion-collapse .company_design {
+    max-width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item + div#appended_company_div .accordion-item h2 button.accordion-button {
+    right: 85px;
+}
+
+form#operation_form .form-fields .card div#fo_company .form-fields .accordion-item + div#appended_company_div .accordion-item .cross {
+    top: 42px;
+}
+
+form#operation_form .card.formContentData div#add_company_btn_div {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 18px !important;
+}
+
+.sideMenu ul li.open svg g path {
+    fill: #083a60;
+}
+
+/* user tab style  */
+
+
+.table_cstm div#users_table_wrapper table#users_table tr th:nth-child(1) {
+    width: 10% !important;
+}
+
+.table_cstm div#users_table_wrapper table#users_table tr th:nth-child(2) {
+    width: 30% !important;
+}
+
+.table_cstm div#users_table_wrapper table#users_table tr th:nth-child(3) {
+    width: 30% !important;
+}
+
+.table_cstm div#users_table_wrapper table#users_table tr th:nth-child(4) {
+    width: 20% !important;
+}
+
+.table_cstm div#users_table_wrapper table#users_table tr th:nth-child(5) {
+    width: 8% !important;
+}
+
+.dataAreaMain.user_account > .card:nth-child(1) {
+    padding: 15px 15px 30px !important;
+}
+
+.dataAreaMain.user_account > .card:nth-child(2) {
+    padding: 17px 30px 5px !important;
+}
+
+.dataAreaMain.user_account > .card:nth-child(3) {
+    padding: 15px 0 10px !important;
+}
+
+.dataAreaMain.user_account > .card:nth-child(3) > h3 {
+    padding-left: 15px !important;
+}
+
+.dataAreaMain.user_account > .card:nth-child(3) > table.table.user_action_log tr th ,
+.dataAreaMain.user_account > .card:nth-child(3) > table.table.user_action_log tr td{
+    padding: 16px;
+}
+table.table.user_action_log tr td:last-child span.account_date {
+    padding-right: 13px;
+}
+table.table.user_action_log {
+    margin: 0;
+}
+.sale_space .dataAreaMain.sales-edit.sales_check {
+    padding-bottom: 0;
+}
+.lower-bottom .card.file.upload input#inputFile {
+    height: 36px;
+}
+.user_roles .user_roless_edit .formAreahalf .switch .role_check {
+    margin: 25px 0 0 !important;
+}
+
+.dataAreaMain .card .formAreahalf:last-child label.switch input[type="checkbox"]:checked + label {
+    color: var(--colorgreen);
+}
+.user_roles .role_check label {
+    font-weight: 400;
+}
+
+.user_account .card.user_account_edit h3 {
+    margin: 0 0 22px;
+}
+
+.user_account .card.user_account_edit .account_parent .formAreahalf {
+    margin-bottom: 51px;
+}
+
+.user_account .card.user_account_edit .role_permission .formAreahalf label:not(:first-child) {
+    margin: 0 0 7px;
+    display: flex;
+}
+
+.user_account .card.user_account_edit .role_permission .formAreahalf br {
+    display: none;
+}
+
+.user_account .card.user_account_edit .role_permission .formAreahalf label.form-label:first-child {
+    margin: 0 0 40px;
+}
+
+.user_account .card.user_account_edit .role_permission .formAreahalf label:not(:first-child) input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.dataAreaMain.wealth_dashboard_set .card.formContentData .row .card.business_amount {
+    padding-left: 15px !important;
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData.dash_table_wealth {
+    padding: 10px 0 0 !important;
+}
+.dataAreaMain.wealth_dashboard_set >.card.formContentData .card.report-card .formAreahalf {
+    padding-bottom: 3px;
+}
+
+.Share_holder-w h4 {
+    color: #000;
+    font-weight: bold;
+}
+
+.wealth .Personal_Details .First-heading_ h6 {
+    font-weight: 400;
+    font-size: 16px;
+    color: #010101;
+    padding-top: 5px;
+}
+.wealth .number_main ul li:not(.active) p {
+    color: #000;
+}
+.fa-caret-down:before {
+    transition: .5s;
+}
+
+.dataAreaMain .card.wealth_companies_change {
+    padding: 20px !important;
+}
+
+.dataAreaMain .card.wealth_companies_change .form-fields.company_design {
+    padding: 30px;
+    max-width: calc(100% - 50px);
+    margin: 0 auto;
+}
+
+.dataAreaMain .card.wealth_companies_change .form-fields.company_design .accordion-item button.accordion-button i::before {
+    transform: rotate(180deg);
+}
+
+.dataAreaMain .card.wealth_companies_change .form-fields.company_design .accordion-item.closed button.accordion-button i::before {
+    transform: rotate(0);
+}
+
+.dataAreaMain .card.wealth_companies_change .add_potential {
+    padding: 15px  20px 0!important;
+    margin: 0;
+    margin-left: auto;
+}
+
+.dataAreaMain .card.wealth_companies_change div#appended_corporate_div {
+    margin-top: 10px;
+}
+
+form#operation_form .card.formContentData .pr_form_class .add_potentia {
+    padding-top: 15px !important;
+}
+
+form#operation_form .card.formContentData .pr_form_class div#appended_pr_div {
+    padding: 10px 0 0;
+}
+form#operation_form .card.formContentData .pr_form_class div#appended_pr_div span.cancel_pr {
+    top: 20px;
+}
+
+form#operation_form .card.formContentData .pr_form_class div#appended_pr_div span.cancel_pr + h2 button.accordion-button {
+    right: 80px;
+}
+/* .full_div { */
+    /* display: block !important; */
+/* } */
+.dataAreaMain.dashboard .card.formContentData.report-card.row.operation_table_follow + .row .col-md-6:nth-child(2) .row {
+    height: calc(100% - 20px);
+}
+.dataAreaMain.dashboard.main >.card.formContentData .card.formContentData text {
+    font-weight: 800;
+    font-family: inter;
+}
+
+.mas_heading_accordian .formAreahalf.basic_data {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.operation_view .card.company_basic_info h3::after {
+    opacity: 0;
+}
+
+html body .operation_view .application_info .tab-content {
+    padding: 30px 24px !important;
+    position: relative;
+}
+
+
+html body .operation_view .application_info .tab-content .tab-pane button.btn.btn_set {
+    top: 30px;
+}
+html body .operation_view .application_info .tab-content .tab-pane .mas_heading_accordian .formAreahalf.basic_data {
+    display: block;
+}
+
+html body .operation_view .application_info .tab-content .tab-pane .mas_heading_accordian .formAreahalf.basic_data {
+    display: block;
+}
+
+
+html body .operation_view .application_info .tab-content .tab-pane .mas_related .formAreahalf.basic_data {
+    width: 50%;
+    margin-right: 0;
+}
+
+html body .operation_view .application_info .tab-content .tab-pane .mas_related .collapse>div {
+    justify-content: space-between;
+}
+
+.notes_show:nth-child(2) {
+    margin-top: 50px;
+}
+
+.notes_show {
+    border: 0;
+    border-bottom: 1px solid #00000075;
+    margin: 20px;
+    padding: 0 0 20px;
+}
+.notes_show p {
+    color: #000;
+    font-size: 13px;
+    margin: 0 0 8px;
+}
+.notes_show p.desc_notes {
+    margin: 0 0 30px;
+	font-size: 16px;
+}
+
+.notes_show p:last-child {
+    margin: 0;
+}
+
+.lower-bottom .notes-common .textarea textarea::placeholder {
+    color: #000;
+    font-size: 14px !important;
+}
+
+/* graph-chart style  */
+.graph-chart div#business_chart svg g text {
+    fill: #9CA3AF;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.graph-chart div#business_chart svg g g g text[text-anchor="middle"] {
+    font-size: 10px;
+    line-height: normal;
+    letter-spacing: .5px;
+}
+
+.dataAreaMain.dashboard .total_application .graph-chart .card {
+    justify-content: space-between;
+}
+
+.dataAreaMain.dashboard .total_application .graph-chart .card .formAreahalf.total_application {
+    border-right: 1px solid #000;
+    width: 49%;
+}
+
+
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content {
+    padding: 0;
+    border: 0;
+    padding-right: 35px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields {
+    padding: 0;
+    position: relative;
+    margin-bottom: 0;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-collapse {
+    padding: 20px;
+    padding-right: 240px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-collapse .formAreahalf {
+    width: 42%;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields h2 button.accordion-button {
+    position: absolute;
+    right: 23px;
+    top: 34px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields h2 button.accordion-button i {
+    background: #323232;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields h2 button.accordion-button i::before {
+    color: #fff;
+    content: "\f0d8";
+    position: absolute;
+    left: 51%;
+    top: 53%;
+    font-size: 25px;
+    transform: translate(-57%, -50%);
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields div#add-pass-holder_btn_div {
+    display: flex;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields + div#appended_passholder_div h2 button.accordion-button {
+    right: 80px;
+}
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-item.closed {
+    padding: 50px 0 60px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-collapse .accordion-body {
+    max-width: 100%;
+    width: 100%;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-collapse .accordion-body>div {
+    justify-content: space-between;
+    /* width: 100%; */
+}
+
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp {
+    padding: 33px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp .formAreahalf {
+    width: 46%;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body>div {
+    max-width: 89%;
+	width:100%;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four {
+    max-width: 100%;
+    padding: 34px  0 0;
+    width: 100%;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four nav .nav-tabs::before {
+    width: calc(100% + 67px);
+}
+form#operation_form_edit div#add_company_btn_div {
+    display: flex;
+}
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields div#appended_share_div h2 button.accordion-button {
+    right: 80px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content {
+    padding: 0 10px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content .tab-pane .accordion-collapse {
+    padding-right: 54px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item .Share_holder-w.sub-heading {
+    padding: 20px  0 30px 20px;
+}
+
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content div#appended_share_div .cross {
+    top: -60px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content div#appended_share_div h2 button.accordion-button {
+    top: -60px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content .tab-pane fieldset#FO_fin_form div#appended_financial_div .accordion-collapse {
+    padding-right: 144px;
+}
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content .tab-pane fieldset#FO_fin_form .accordion-collapse {
+    padding-right: 141px;
+}
+
+
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .accordion-item div#panelsStayOpen-collapsenoyescomp >.accordion-body .tabbing_wealth_four .tab-content .tab-pane fieldset#FO_fin_form div#appended_financial_div h2 button.accordion-button {
+    right: 80px;
+}
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content div#appended_passholder_div ,
+form#operation_form_edit .application_info .tabbing_wealth_four .tab-content .form-fields .accordion-collapse .accordion-body .tab-content div#appended_share_div{
+    padding-top: 15px;
+}
+form#operation_form_edit div#appended_pr_div {
+    padding: 15px 0 0;
+}
+form#operation_form_edit .card div#appended_pr_div button.accordion-button {
+    right: 80px;
+}
+
+
+
+@media(max-width:1800px){
+.card .form-fields {
+    padding-left: 220px;
+}
+}
+
+@media(max-width:1700px){
+.card .form-fields {
+    padding-left: 200px;
+}
+}
+
+@media(max-width:1649px){
+.card .form-fields {
+    padding-left: 180px;
+}
+}
+
+@media(max-width:1439px){
+.card .form-fields {
+    padding-left: 140px;
+}
+.tabbing_wealth_four .nav-tabs .nav-link {
+    padding: 10px 50px;
+}
+}
+
+@media(max-width:1365px){
+.dataAreaMain .First-heading_ h4 {
+    font-size: 19px;
+}
+	.number_main ul li p {
+    font-size: 12px;
+}
+	.Personal_Details .number_main ul >li {
+    max-width: 120px;
+    flex: 0 0 120px;
+}
+	.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(2) {
+    width: 17% !important;
+}
+.card .form-fields {
+    padding-left: 50px;
+}
+.table_cstm div#sale_table_wrapper table#sale_table tr th:nth-child(6) {
+    width: 16% !important;
+}
+}
