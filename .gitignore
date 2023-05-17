@@ -17,3 +17,16 @@ yarn-error.log
 /.idea
 /.vscode
 /vendor
+ .DS_Store
+.editorconfig
+.env.example
+.gitattributes
+.htaccess
+README.md
+composer.lock
+composer.phar
+package-lock.json
+package.json
+php_errorlog
+phpunit.xml
+vite.config.js
