@@ -337,6 +337,7 @@
                                                         <label class="form-label" for="busamt">Amount of Potential
                                                             Business
                                                         </label>
+                                                        <br>
                                                         <div class="inputdoller"><span
                                                                 class="doller">$</span><span>{{ $s['busamt'] }}</span>
                                                         </div>
