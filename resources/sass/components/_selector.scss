@@ -1,0 +1,15 @@
+.formAreahalf {
+    .client-status-selector {
+        background-color: $success;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        max-width: 100px;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 10px 0 0 !important;
+        display: inline-block;
+        padding-left: 10px;
+        background-position: left calc(100% - 6px) center;
+    }
+}
