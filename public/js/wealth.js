@@ -7,6 +7,16 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('keypress','[type^=integer]',function(event){
+        var key = window.event ? event.keyCode : event.which;
+          if (event.keyCode === 8 || event.keyCode === 46) {
+              return true;
+          } else if ( key < 48 || key > 57 ) {
+              return false;
+          } else {
+              return true;
+          }
+      });
     var form = $("#multistep_form");
     form[0].reset();
     
@@ -143,6 +153,9 @@ $(document).ready(function () {
                 //     required: true
                 // },
                 nfo_client_type: { 
+                    required: true
+                },
+                tpe_plese_specify: { 
                     required: true
                 },
             },
@@ -1511,7 +1524,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>
-                                <div class="dollersec"><span class="doller">$</span> <input type="text" class="form-control" name="shrd[1][1][nfo_mth_salary]"
+                                <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
 
