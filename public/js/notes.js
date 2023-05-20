@@ -1,9 +1,9 @@
 
 // $("#notes").validate();
-$('body').on('submit', '.note_send', function () {
-
+$('body').on('submit', '.note_send', function (e) {
+    e.preventDefault();
     var form2 = $(this).serialize();
-    console.log(form2);
+    var thisForm = $(this);
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -38,7 +38,13 @@ $('body').on('submit', '.note_send', function () {
                         },
                     },
                 }).then((result) => {
-                    location.reload();
+                    // location.reload();
+                    $(thisForm).parents('.notes-common').find('.notes_show').before(
+                    `<div class="notes_show">
+                        <p class="desc_notes">`+response.notes_description+` </p>
+                        <p class="created">`+response.created_date+`</p>
+                        <p class="createdby"><b> `+response.created_by+`</b></p>
+                    </div>`);
                     $('#text_notes').val("");
                 })
             }

@@ -44,9 +44,14 @@ class HomeController extends Controller
         'old_action' => null,
         'action_perform'=> serialize($request->toArray()),
         'message'=>'Notes Created',
-        ]);
+        ]); 
         activity_log($data);
-        return response()->json();
+        return response()->json([
+            "notes_description" => $request->notes,
+            "created_by" => $request->created_by_name,
+            "created_date" => \Carbon\Carbon::now()->format('d/m/Y h:m a'),
+
+        ]);
        }
 
 }
