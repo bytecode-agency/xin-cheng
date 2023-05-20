@@ -1493,7 +1493,7 @@
                             const el = document.createElement('div')
                             el.innerHTML =
 
-                                `<p class='view-application'>You can view Application <a href='/salesshow/` +
+                                `<p>You can view Application <a href='/salesshow/` +
                                 response.input.view_id + `'>here</a>`
                             swal({
                                 title: `Application Created`,

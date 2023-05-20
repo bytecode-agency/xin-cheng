@@ -7,8 +7,6 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-@import 'components/components';
-
 
 :root {
     --inter: 'Inter', sans-serif;
@@ -16,7 +14,7 @@
     --primaryColor: #083A60;
       --grayColor:#595959;
   }
-
+  
   body{
       font-family: 'Inter';
       font-style: normal;
@@ -477,7 +475,7 @@ section.Dashboard-sec .Dashboard-wrap .Dashboard-page header.Dashboard-page-head
     margin: 0 auto 20px;
     background-color: #1E8D0C;
     border-radius: 50%;
-}
+}	
 .B2B-Agreement.box-sadwo h6 {
     padding-bottom: 55px;
 }

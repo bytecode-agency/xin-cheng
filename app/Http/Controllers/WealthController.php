@@ -653,7 +653,7 @@ class WealthController extends Controller
                         'company_pass' => $companynfo['company_pass']
                         ]);
                         // echo'<pre>';print_r($request->shrd);
-                       
+                        
                         foreach($request->share[$k_nfo] as $key4=> $shareholder)
                             {
                                 // dd($shareholder);

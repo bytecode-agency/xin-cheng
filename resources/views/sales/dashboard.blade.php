@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="formAreahalf " id="selectYear">
+                <div class="formAreahalf ">
                     <div class="report_period">
                         <label for="" class="form-label"> Select Year: </label>
                         <div class="select-arrow">
@@ -397,32 +397,31 @@
 
         $(document).on('change', '#report_period', function() {
            
-            var period=$(this).val();
-            if(period != "Yearly"){
-                $('#selectYear').hide();
-            }else{
-                $('#selectYear').show();
-            }
+              var period=$("#report_period").val();
+            //   alert(period);
               $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                var url = "{{ route('sales.dashboard.rep') }}";
-                // url = url.replace(':id', id);
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        period: period,
-                    },
-                    cache: false,
-                    success: function(response) {
-                        // alert(response);
-                        
-                    
-                    },
-                })
-            });
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+                            var url = "{{ route('sales.dashboard.rep') }}";
+                            // url = url.replace(':id', id);
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {
+                                    period: period,
+                                },
+                                cache: false,
+                                success: function(response) {
+                                    // alert(response);
+                                    
+                                
+                                },
+                            })
+
+
+
+        });
     </script>
 @endpush

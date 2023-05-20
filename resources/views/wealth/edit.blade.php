@@ -500,7 +500,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="remarks" class="form-label">Remarks</label>
                                                     <textarea name="remarks" id="remarks" rows="4" cols="50"
-                                                        value="@isset($wealth_mas->remarks) {{ $wealth_mas->remarks }} @endisset">@isset($wealth_mas->remarks) {{ $wealth_mas->remarks }} @endisset</textarea>
+                                                        value="@isset($wealth_mas->remarks) {{ $wealth_mas->remarks }} @endisset"></textarea>
                                                 </div>
                                             </div>
                                         </div>

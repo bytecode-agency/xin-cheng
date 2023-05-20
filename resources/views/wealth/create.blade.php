@@ -646,7 +646,7 @@
                                     <div class="formAreahalf company-full_width_Cstm">
                                         <label for="nfo_compnay_1" class="form-label">Company Name 1</label>
                                         <input type="text" name="corporate[1][nfo_company]" id="nfo_compnay_1"
-                                            class="form-control" value="" >
+                                            class="form-control" value="">
                                     </div>
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseOneq" aria-expanded="true"

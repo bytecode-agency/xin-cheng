@@ -1,7 +1,3 @@
-$(document).on('click', '.remove-input-field', function() {
-  
-    $(this).parents('.accordion-item').hide();
-});
 $('body').on('change', 'select', function () {
     if (this.value == 'Others') {
         $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
@@ -634,9 +630,9 @@ $(document).ready(function () {
 
     });
 
-    // $('body').on('click','.edit_cancel_company', function(){
-    //    console.log('fgjgj');
-    // })
+    $('body').on('click','.edit_cancel_company', function(){
+       console.log('fgjgj');
+    })
     var f_btn_key = "";
     $('body').on('click','.edit_add_finance',function(){      
     
