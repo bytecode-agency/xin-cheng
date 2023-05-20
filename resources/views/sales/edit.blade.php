@@ -68,7 +68,7 @@
 
                     <div class="formAreahalf  client_status mb-1 ">
                         <label for="cby" class="form-label">Client Status</label>
-                        <select class="" name="csts" id="business">
+                        <select class="client-status-selector" name="csts" id="business">
                             <option value="Active" class="btn text-start"
                                 {{ $sale->client_sts == 'Active' ? 'selected' : '' }}>Active</option>
                             <option value="Dormant" class="btn text-start"
@@ -1671,7 +1671,7 @@
                             console.log(response);
                             const el = document.createElement('div')
                             el.innerHTML =
-                                "You can view Application List <a href='{{ route('sales') }}'>here</a>"
+                                "<p class='view-application'>You can view Application List <a href='{{ route('sales') }}'>here</a></p>"
                             swal({
                                 title: `Application Updated`,
                                 content: el,

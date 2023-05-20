@@ -1,0 +1,18 @@
+.swal-overlay {
+    .swal-modal {
+        .view-application {
+            a {
+                &:hover {
+                    color: $primary-blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.swal-overlay--show-modal {
+    .swal-modal {
+        padding: 60px 0 !important;
+    }
+}
