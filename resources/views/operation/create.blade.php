@@ -1596,6 +1596,7 @@
                 });
 
             });
+            
 
 
 
@@ -3146,7 +3147,7 @@
                                 value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="" class="form-label">Financial Institution Name ` + (fi_no + 1) + `</label>
+                            <label for="" class="form-label FinancialInstitutionName">Financial Institution Name ` + (fi_no + 1) + `</label>
                             <input type="text" class="form-control" name="fi[` + (arr_id - 1) + `][` + fi_no + `][fi_name]" id="">
                         </div>
                         <div class="formAreahalf">
@@ -3264,7 +3265,16 @@
                 // alert(id);
                 // console.log(id);
                 $(this).parents('.appended_financial_div').find('.' + id + '').remove();
+                var c = 1; 
+                $('.financial .accordion-item').each(function(index) {
+                    $(this).find('.accordion-header label').html('Financial Institution Name ' + c);
+                    $(this).find('.FinancialInstitutionName').html('Financial Institution Name ' + c);
+                    
+                    c++;
+                    // console.log(c);
+                });
             });
+            
 
 
             var btn_click_p = 0;
