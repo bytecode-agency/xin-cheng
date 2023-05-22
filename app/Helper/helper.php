@@ -21,3 +21,11 @@ use Illuminate\Http\Request;
        'message'=>$request->message]);
        
     }
+
+    function convertDate($date, $format = "Y-m-d",$tz = 'Europe/London')
+    {      
+      $dt = new DateTime();
+      $dt->setTimezone(new DateTimeZone($tz));
+      $dt->setTimestamp(strtotime($date));
+      return $dt->format($format);
+    }

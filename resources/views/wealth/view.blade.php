@@ -785,7 +785,7 @@
                                                 <label for="" class="form-label">Commencement Date</label>
                                                 <p>
                                                     @isset($wealth_mas->commencement_date)
-                                                        {{ $wealth_mas->commencement_date }}
+                                                        {{ convertDate($wealth_mas->commencement_date,'d F Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -806,7 +806,7 @@
                                                     Deadline</label>
                                                 <p>
                                                     @isset($wealth_mas->annual_declaration_deadline)
-                                                        {{ $wealth_mas->annual_declaration_deadline }}
+                                                        {{ convertDate($wealth_mas->annual_declaration_deadline,'d F Y') }}
                                                     @else
                                                         -
                                                     @endisset
