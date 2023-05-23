@@ -25,9 +25,9 @@
                     <i class="fa-solid fa-circle-plus"></i>
                     <span>Add New Application</span>
                 </button></a>
-            <button class="btn btnFilter">
+            <!-- <button class="btn btnFilter">
                 <img src="{{ asset('/images/filterIcon.png') }}" alt="">
-            </button>
+            </button> -->
         </div>
     </div>
     <!-- Form card data -->

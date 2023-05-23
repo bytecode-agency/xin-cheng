@@ -508,7 +508,7 @@ $(document).ready(function () {
                 const el = document.createElement('div');
 
                 el.innerHTML =
-                    "You can view Application <a href='/wealth'>here</a>"
+                    "You can view Application <a class='view-application' href='/wealth'>here</a>"
                 swal({
                     title: `Application Created`,
                     content: el,

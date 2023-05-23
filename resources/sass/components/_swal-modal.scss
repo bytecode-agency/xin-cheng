@@ -1,11 +1,10 @@
 .swal-overlay {
     .swal-modal {
         .view-application {
-            a {
-                &:hover {
-                    color: $primary-blue;
-                    text-decoration: underline;
-                }
+            color: $primary-grey !important;
+            &:hover {
+                color: $primary-blue !important;
+                text-decoration: underline;
             }
         }
     }
