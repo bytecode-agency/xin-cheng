@@ -995,7 +995,7 @@
                 console.log(response);
                                 const el = document.createElement('div')
                                 el.innerHTML =
-                                    "You can view Application List <a href='{{ route('finance.allapps') }}'>here</a>"
+                                    "You can view Application List <a class='view-application' href='{{ route('finance.allapps') }}'>here</a>"
                                 swal({
                                     title: `Application Created`,
                                     content: el,

@@ -1668,10 +1668,9 @@
                         type: "POST",
                         data: $('#multistep_form').serialize(),
                         success: function(response) {
-                            console.log(response);
                             const el = document.createElement('div')
                             el.innerHTML =
-                                "<p class='view-application'>You can view Application List <a href='{{ route('sales') }}'>here</a></p>"
+                                "<p>You can view Application List <a class='view-application' href='{{ route('sales') }}'>here</a></p>"
                             swal({
                                 title: `Application Updated`,
                                 content: el,

@@ -3779,7 +3779,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                             console.log(response);
                             const el = document.createElement('div')
                             el.innerHTML =
-                                "You can view Application List <a href='{{ route('operation.index') }}'>here</a>"
+                                "You can view Application List <a class='view-application' href='{{ route('operation.index') }}'>here</a>"
                             swal({
                                 title: `Application Updated`,
                                 content: el,
