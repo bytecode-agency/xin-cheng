@@ -31,5 +31,6 @@ class WealthShareholder extends Model
         'job_title',
         'monthly_sal',
         'relation_with_shareholder',
+        'rel_share_specify'
         ];
 }

@@ -314,7 +314,7 @@
                                                     Shareholder</label>
                                                 <select
                                                     name="share[{{ $key }}][{{ $key2 }}][relation_with_shareholder]"
-                                                    id="fo_cpm2_relation" class="form-control">
+                                                    id="fo_cpm2_relation" class="form-control" data-id="{{ $key }}" data-key="{{ $key2 }}">
                                                     <option value="" selected disabled>Choose Relationship with
                                                         shareholder</option>
                                                     <option value="Self"

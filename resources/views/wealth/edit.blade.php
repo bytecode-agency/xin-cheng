@@ -1999,5 +1999,33 @@
     <script src="{{ asset('js/wealth_edit.js') }}?v={{ time() }}" type="text/javascript"></script>
     <script src="{{ asset('js/notes.js') }}?v={{ time() }}" type="text/javascript"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
-  
+
+    <script>
+        $(document).ready(function() {
+            var form = $("#operation_form");
+            $('.js-example-responsive').select2({
+                minimumResultsForSearch: -1
+            });
+            $(document).on('change', '#fo_cpm2_relation', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[` +tpb_id + `][` +tpb_key + `][please_specify]"
+                                                    value="">
+                                            </div>`           
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+        });
+    </script>
 @endpush
