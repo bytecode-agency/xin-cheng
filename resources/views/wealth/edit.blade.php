@@ -431,7 +431,7 @@
                                                     <label for="commencement_date" class="form-label">Commencement
                                                         Date</label>
                                                     <input type="date" name="commencement_date" id="commencement_date"
-                                                        value="@isset($wealth_mas->commencement_date) {{ $wealth_mas->commencement_date }} @endisset"
+                                                        value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'m/d/Y') }} @endisset"
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">

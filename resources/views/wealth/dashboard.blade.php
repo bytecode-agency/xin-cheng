@@ -41,7 +41,7 @@
                     <div class="report_period">
                         <label for="passapptype" class="form-label">Report Period: </label>
                         <div class="select-arrow">
-                            <select name="report_period">
+                            <select name="report_period" id="report_period">
                                 {{-- <option value="" selected disabled>Please select
                                      </option> --}}
                                 <option value="Yearly">Yearly</option>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="formAreahalf ">
+                <div class="formAreahalf "  id="selectYear">
                     <div class="report_period"> <label for="" class="form-label"> Select Year: </label>
                         <div class="select-arrow"> <select name="report_year">
                                 {{-- <option value="" selected disabled>Please select</option> --}}
@@ -439,6 +439,16 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $(document).on('change', '#report_period', function() {
+           
+           var period=$(this).val();
+           if(period != "Yearly"){
+               $('#selectYear').hide();
+           }else{
+               $('#selectYear').show();
+           }
+        });
+
             var i = 1;
 
             var table = $('#wealths_tables').DataTable({
