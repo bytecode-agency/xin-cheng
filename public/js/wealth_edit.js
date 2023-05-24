@@ -143,23 +143,23 @@ $(document).ready(function () {
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Address</label>
                         
-                            <input type="text" name="cmp[`+ key + `][address]" id="fo_compnay"
+                            <input type="text" name="cmp[`+ key + `][address]" id="fo_compnay_address"
                                 class="form-control">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">UEN</label>
-                            <input type="text" name="cmp[`+ key + `][uen]" id="fo_compnay"
+                            <input type="text" name="cmp[`+ key + `][uen]" id="fo_compnay_uen"
                                 class="form-control">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Incorporation Date</label>
                             <input type="date" name="cmp[`+ key + `][incorporate_date]"
-                                id="fo_compnay" class="form-control">
+                                id="fo_compnay_incorporate_date" class="form-control">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>
                             <select name="cmp[`+ key + `][relationship]"
-                                id="fo_compnay" class="form-control">
+                                id="fo_compnay_relationship" class="form-control">
                                 <option value="" selected disabled>Choose Relationship with company 1</option>
                                 <option value="Self">Self</option>
                                 <option value="Subsidiary">Subsidiary</option>
@@ -167,12 +167,12 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
-                            <input type="text" name="cmp[`+ key + `][company_email]" id="fo_compnay"
+                            <input type="text" name="cmp[`+ key + `][company_email]" id="fo_compnay_company_email"
                                 class="form-control">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="text" name="cmp[`+ key + `][company_pass]" id="fo_compnay"
+                            <input type="text" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control">
                         </div>
 
@@ -284,12 +284,29 @@ $(document).ready(function () {
     $('body').on('change', '.edit_shrholder_type', function () {
         // console.log( $(this).parents()[8].id.replace("accordion-",""));
         var shr_arr_id = $(this).parents()[8].id.replace("accordion-", "");
-
+        var arr = $('input[id="fo_compnay"]').map(function () {
+            return this.value;
+        }).get();
+        console.log(arr);
         var share_key = $(this).parents('.company_share').find('.sharehold_length').length;
         if ($(this).val() == "Company") {
+            var option_values= "";
+            $.each(arr, function(key, value) { 
+               
+                if( ( (key) < shr_arr_id))
+                {
+                    var divHtml = '<option value="'+value+'">'+value+'</option>'; 
+                    console.log(shr_arr_id);   
+                }           
+                option_values += divHtml;
+            });
+            
             $(this).parents('.shareholder').find('.sharetype_data').html(`<div class="formAreahalf basic_data">
             <label for="" class="form-label">Company Name</label>
-            <input type="text" class="form-control" name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][shareholder_company_name]">
+            <select class="form-control" name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][shareholder_company_name]">
+            <option value="" selected disabled>Choose company</option>
+            `+option_values+`
+            </select>
         </div>`);
         }
         else {
