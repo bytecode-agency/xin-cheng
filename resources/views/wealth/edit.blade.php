@@ -1912,33 +1912,34 @@
 
                 </div>
             </div>
-        </form>
 
-        <div class="lower-bottom">
-            <div class="notes-common formContentData">
-                <form action="javascript:void(0)" method="POST" name="notes" id="notes" class="note_send">
-                    <input type="hidden" value="Wealth" name="tbl_name">
-                    <input type="hidden" value="{{ $data->id }}" name="application_id">
-                    <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
-                    <div class="textarea">
-                        <label class="form-label mt-5" for="notes">Notes</label>
-                        <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
-                        <div id="notes_error"></div>
-                        <input type="submit" id="w_notessave_btn"
-                            class="btn saveBtn btn saveBtn btn_notes" value="Save">
-                        <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
-                        style="display: none">
-                    </div>
-                </form>
-                @foreach ($notes as $note)
-                    <div class="notes_show">
-                        <p class="desc_notes">{{ $note->notes_description }}</p>
-                        <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
-                        <p class="createdby"><b>{{ $note->created_by }}</b></p>
-                    </div>
-                @endforeach
+            <div class="lower-bottom">
+                <div class="notes-common formContentData">
+                    <!-- <form action="javascript:void(0)" method="POST" name="notes" id="notes" class="note_send"> -->
+                        <input type="hidden" value="Wealth" name="tbl_name">
+                        <input type="hidden" value="{{ $data->id }}" name="application_id">
+                        <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
+                        <div class="textarea">
+                            <label class="form-label mt-5" for="notes">Notes</label>
+                            <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
+                            <div id="notes_error"></div>
+                            <!-- <input type="submit" id="w_notessave_btn"
+                                class="btn saveBtn btn saveBtn btn_notes" value="Save">
+                            <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
+                            style="display: none"> -->
+                        </div>
+                    <!-- </form> -->
+                    @foreach ($notes as $note)
+                        <div class="notes_show">
+                            <p class="desc_notes">{{ $note->notes_description }}</p>
+                            <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                            <p class="createdby"><b>{{ $note->created_by }}</b></p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-
+        </form>
+        <div class="lower-bottom">
             <div class="card file upload company_file_upload_info formContentData border-0 p-4 ">
                 <h3>File Uploads</h3>
                 <form action="javascript:void(0);" method="POST" id="file_wealt_upload" name="file_form" class="file_wealt_upload" enctype="multipart/form-data">

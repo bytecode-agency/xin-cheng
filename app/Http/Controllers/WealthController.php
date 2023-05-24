@@ -418,7 +418,6 @@ class WealthController extends Controller
     }
     public function update(Request $request)
     {
-        // dd($request);
         $id= $request->wealth_id;
         $data_update = Wealth::with('companies.shareholder')->find($id); 
         if($request->client_status)
@@ -719,7 +718,17 @@ class WealthController extends Controller
             ]);        
     
        }
-      
+       
+       if($request->notes)  
+        {
+            
+            $notes = new Notes;
+            $notes->module_name = $request->tbl_name;
+            $notes->application_id = $request->application_id;
+            $notes->notes_description = $request->notes;
+            $notes->created_by = $request->created_by_name;
+            $notes->save();
+        }
        $data = (object)(['id'=> Auth::user()->id,        
        'name'=> Auth::user()->name,
        'userID' => $id,

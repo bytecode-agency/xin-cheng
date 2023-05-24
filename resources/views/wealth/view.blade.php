@@ -1973,7 +1973,8 @@
         </div>
         <div class="lower-bottom">
             <div class="notes-common formContentData">
-                <form action="javascript:void(0)" method="POST" name="notess" id="notes" class="note_send">
+            <label class="form-label mt-5" for="text_notes">Notes</label>
+                <!-- <form action="javascript:void(0)" method="POST" name="notess" id="notes" class="note_send">
                     <input type="hidden" value="Wealth" name="tbl_name">
                     <input type="hidden" value="{{ $data->id }}" name="application_id">
                     <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
@@ -1986,7 +1987,7 @@
                         <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
                             style="display: none">
                     </div>
-                </form>
+                </form> -->
                 @foreach ($notes as $note)
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
