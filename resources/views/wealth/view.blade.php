@@ -450,9 +450,18 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
+                                                                Shareholder</label> 
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
+                                                        @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
+                                                            <div class="formAreahalf basic_data">
+                                                                <label for="" class="form-label">Others, please specify</label>
+                                                                @if (isset($shareholder->rel_share_specify))
+                                                                {{ $shareholder->rel_share_specify }} @else-
+                                                                @endif
+                                                                </p>
+                                                            </div>
+                                                        @endif
                                                         <!-- devPoint -->
                                                     @endif
 
@@ -943,6 +952,15 @@
                                                         @endisset
                                                     </p>
                                                 </div>
+                                                @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealth_finance[$i]->account_type_specify))
+                                                        {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                        @endif
+                                                        </p>
+                                                    </div>
+                                                @endif
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Account/Policy Number</label>
                                                     <p>
@@ -1964,7 +1982,8 @@
         </div>
         <div class="lower-bottom">
             <div class="notes-common formContentData">
-                <form action="javascript:void(0)" method="POST" name="notess" id="notes" class="note_send">
+            <label class="form-label mt-5" for="text_notes">Notes</label>
+                <!-- <form action="javascript:void(0)" method="POST" name="notess" id="notes" class="note_send">
                     <input type="hidden" value="Wealth" name="tbl_name">
                     <input type="hidden" value="{{ $data->id }}" name="application_id">
                     <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
@@ -1977,7 +1996,7 @@
                         <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
                             style="display: none">
                     </div>
-                </form>
+                </form> -->
                 @foreach ($notes as $note)
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>

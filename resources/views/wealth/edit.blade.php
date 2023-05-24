@@ -602,7 +602,7 @@
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_type" class="form-label">Account Type</label>
-                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control">
+                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
                                                                         <option value="" selected disabled>Choose account type
                                                                         </option>
                                                                         <option value="SGD"
@@ -619,6 +619,20 @@
                                                                             Others</option>
                                                                     </select>
                                                                 </div>
+                                                                
+                                               
+                                                                @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
+                                                                    <div class="formAreahalf basic_data please_specify">
+                                                                        <label for="" class="form-label">Others, please specify</label>
+                                                                        @if (isset($wealthfinance[$i]->account_type_specify))
+                                                                        <input type="text" class="form-control"
+                                                                                name="financial[{{$i +1}}][account_type_specify]"
+                                                                                value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
+                                                                        
+                                                                        @endif
+                                                                        
+                                                                    </div>
+                                                                @endif
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_policy_no" class="form-label">Account/Policy
                                                                         Number</label>
@@ -1912,33 +1926,34 @@
 
                 </div>
             </div>
-        </form>
 
-        <div class="lower-bottom">
-            <div class="notes-common formContentData">
-                <form action="javascript:void(0)" method="POST" name="notes" id="notes" class="note_send">
-                    <input type="hidden" value="Wealth" name="tbl_name">
-                    <input type="hidden" value="{{ $data->id }}" name="application_id">
-                    <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
-                    <div class="textarea">
-                        <label class="form-label mt-5" for="notes">Notes</label>
-                        <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
-                        <div id="notes_error"></div>
-                        <input type="submit" id="w_notessave_btn"
-                            class="btn saveBtn btn saveBtn btn_notes" value="Save">
-                        <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
-                        style="display: none">
-                    </div>
-                </form>
-                @foreach ($notes as $note)
-                    <div class="notes_show">
-                        <p class="desc_notes">{{ $note->notes_description }}</p>
-                        <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
-                        <p class="createdby"><b>{{ $note->created_by }}</b></p>
-                    </div>
-                @endforeach
+            <div class="lower-bottom">
+                <div class="notes-common formContentData">
+                    <!-- <form action="javascript:void(0)" method="POST" name="notes" id="notes" class="note_send"> -->
+                        <input type="hidden" value="Wealth" name="tbl_name">
+                        <input type="hidden" value="{{ $data->id }}" name="application_id">
+                        <input type="hidden" value="{{ Auth::user()->name }}" name="created_by_name">
+                        <div class="textarea">
+                            <label class="form-label mt-5" for="notes">Notes</label>
+                            <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
+                            <div id="notes_error"></div>
+                            <!-- <input type="submit" id="w_notessave_btn"
+                                class="btn saveBtn btn saveBtn btn_notes" value="Save">
+                            <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
+                            style="display: none"> -->
+                        </div>
+                    <!-- </form> -->
+                    @foreach ($notes as $note)
+                        <div class="notes_show">
+                            <p class="desc_notes">{{ $note->notes_description }}</p>
+                            <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                            <p class="createdby"><b>{{ $note->created_by }}</b></p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-
+        </form>
+        <div class="lower-bottom">
             <div class="card file upload company_file_upload_info formContentData border-0 p-4 ">
                 <h3>File Uploads</h3>
                 <form action="javascript:void(0);" method="POST" id="file_wealt_upload" name="file_form" class="file_wealt_upload" enctype="multipart/form-data">
@@ -1999,5 +2014,52 @@
     <script src="{{ asset('js/wealth_edit.js') }}?v={{ time() }}" type="text/javascript"></script>
     <script src="{{ asset('js/notes.js') }}?v={{ time() }}" type="text/javascript"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
-  
+
+    <script>
+        $(document).ready(function() {
+            var form = $("#operation_form");
+            $('.js-example-responsive').select2({
+                minimumResultsForSearch: -1
+            });
+            $(document).on('change', '#fo_cpm2_relation', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[` +tpb_id + `][` +tpb_key + `][please_specify]"
+                                                    value="">
+                                            </div>`           
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+            $(document).on('change', '#account_type', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="financial[` +tpb_id + `][account_type_specify]"
+                                                    value="">
+                                            </div>`           
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+        });
+    </script>
 @endpush

@@ -418,7 +418,6 @@ class WealthController extends Controller
     }
     public function update(Request $request)
     {
-        // dd($request);
         $id= $request->wealth_id;
         $data_update = Wealth::with('companies.shareholder')->find($id); 
         if($request->client_status)
@@ -482,7 +481,9 @@ class WealthController extends Controller
                         'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
                         'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                         'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
-                        'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null
+                        'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
+                        'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
+                        
                         ]);                       
                     }    
                 
@@ -522,6 +523,7 @@ class WealthController extends Controller
                   //  dd($request->financial);
                   foreach($request->financial as $f_key=>$f_value )
                   {
+                    // dd(['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id]);
                    $wealth_financial_application = WealthFinancial::updateOrCreate(
                     ['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id],
                     ['stakeholder_type' => isset($f_value['stakeholder_type']) ? $f_value['stakeholder_type'] :null,
@@ -531,6 +533,7 @@ class WealthController extends Controller
                     'poc_email'=>  isset($f_value['poc_email']) ? $f_value['poc_email'] :null,
                     'application_submission' =>  isset($f_value['application_submission']) ? $f_value['application_submission'] :null,
                     'account_type' =>  isset($f_value['account_type']) ? $f_value['account_type'] :null,
+                    'account_type_specify' =>  isset($f_value['account_type_specify']) ? $f_value['account_type_specify'] :null,
                     'account_policy_no'  =>  isset($f_value['account_policy_no']) ? $f_value['account_policy_no'] :null,
                     'account_opening_status'  =>  isset($f_value['account_opening_status']) ? $f_value['account_opening_status'] :null,
                     'current_account_status'=>  isset($f_value['current_account_status']) ? $f_value['current_account_status'] :null,
@@ -717,7 +720,17 @@ class WealthController extends Controller
             ]);        
     
        }
-      
+       
+       if($request->notes)  
+        {
+            
+            $notes = new Notes;
+            $notes->module_name = $request->tbl_name;
+            $notes->application_id = $request->application_id;
+            $notes->notes_description = $request->notes;
+            $notes->created_by = $request->created_by_name;
+            $notes->save();
+        }
        $data = (object)(['id'=> Auth::user()->id,        
        'name'=> Auth::user()->name,
        'userID' => $id,

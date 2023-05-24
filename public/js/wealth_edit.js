@@ -2,10 +2,10 @@ $(document).on('click', '.remove-input-field', function() {
   
     $(this).parents('.accordion-item').hide();
 });
-$('body').on('change', 'select', function () {
+$('body').on('change', 'selectq', function () {
     if (this.value == 'Others') {
         $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
-                                                <label for="" class="form-label">Please Specify</label>
+                                                <label for="" class="form-label">Please Specify111</label>
                                                 <input type="text" class="form-control"
                                                     name="share[please_specify]"
                                                     value="">
@@ -467,7 +467,7 @@ $(document).ready(function () {
                             Shareholder</label>
                         <select
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][relation_with_shareholder]"
-                            id="fo_cpm2_relation" class="form-control">
+                            id="fo_cpm2_relation" class="form-control" data-id="` + shr_arr_id + `" data-key="` + (share_key - 1) + `">
                             <option value="" selected disabled>Choose Relationship with
                                 shareholder</option>
                             <option value="Self"
