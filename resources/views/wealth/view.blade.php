@@ -492,7 +492,7 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <p>
-                        {{ convertDate($basic_data->dob,"d/m/Y", strtotime()) }}
+                        {{ convertDate($basic_data->dob,"d/m/Y") }}
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
