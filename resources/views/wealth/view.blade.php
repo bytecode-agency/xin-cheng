@@ -2023,7 +2023,7 @@
                                 <tr>
                                     <td>{{ $files->file }}</td>
                                     <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ convertDate($files->created_at,'d/m/Y') }}</td>
+                                    <td>{{ convertDate($files->created_at,'d/m/Y g:i a') }}</td>
                                     <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                             {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
                                             <i class="fa-solid fa-download"></i></a>
@@ -2058,7 +2058,7 @@
                             <tr>
                                 <td>{{ $activity->message }}</td>
                                 <td>{{ $activity->name }}</td>
-                                <td>{{ convertDate($activity->created_at,'d/m/Y') }}</td>
+                                <td>{{ convertDate($activity->created_at,'d/m/Y g:i a') }}</td>
                             </tr>
                         @endforeach
                     </tbody>
