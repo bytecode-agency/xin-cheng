@@ -889,7 +889,7 @@
                     <tr>
                         {{-- <td>{{ $activity->message }}</td>
                             <td>{{ $activity->name }}</td>
-                            <td>{{ $activity->created_at->format('d/m/Y  g:i a') }}</td> --}}
+                            <td>{{ $activity->created_at->format('d/m/Y  g:i A') }}</td> --}}
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>
