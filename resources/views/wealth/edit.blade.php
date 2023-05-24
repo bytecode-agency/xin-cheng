@@ -623,7 +623,7 @@
                                                                             Insurance</option>
                                                                         <option value="Investment"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Investment' ? 'selected' : '' }}>
-                                                                            Insurance</option>
+                                                                            Investment</option>
                                                                         <option value="Others"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
                                                                             Others</option>
