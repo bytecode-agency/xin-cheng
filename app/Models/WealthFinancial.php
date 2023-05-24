@@ -25,7 +25,7 @@ class WealthFinancial extends Model
         'online_account_username',
         'online_account_pass',
         'finacial_remarks',
-        
+        'account_type_specify'
 
     ];
 }

@@ -523,6 +523,7 @@ class WealthController extends Controller
                   //  dd($request->financial);
                   foreach($request->financial as $f_key=>$f_value )
                   {
+                    // dd(['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id]);
                    $wealth_financial_application = WealthFinancial::updateOrCreate(
                     ['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id],
                     ['stakeholder_type' => isset($f_value['stakeholder_type']) ? $f_value['stakeholder_type'] :null,
@@ -532,6 +533,7 @@ class WealthController extends Controller
                     'poc_email'=>  isset($f_value['poc_email']) ? $f_value['poc_email'] :null,
                     'application_submission' =>  isset($f_value['application_submission']) ? $f_value['application_submission'] :null,
                     'account_type' =>  isset($f_value['account_type']) ? $f_value['account_type'] :null,
+                    'account_type_specify' =>  isset($f_value['account_type_specify']) ? $f_value['account_type_specify'] :null,
                     'account_policy_no'  =>  isset($f_value['account_policy_no']) ? $f_value['account_policy_no'] :null,
                     'account_opening_status'  =>  isset($f_value['account_opening_status']) ? $f_value['account_opening_status'] :null,
                     'current_account_status'=>  isset($f_value['current_account_status']) ? $f_value['current_account_status'] :null,

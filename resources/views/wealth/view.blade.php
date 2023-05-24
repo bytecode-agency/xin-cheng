@@ -952,6 +952,15 @@
                                                         @endisset
                                                     </p>
                                                 </div>
+                                                @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealth_finance[$i]->account_type_specify))
+                                                        {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                        @endif
+                                                        </p>
+                                                    </div>
+                                                @endif
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Account/Policy Number</label>
                                                     <p>

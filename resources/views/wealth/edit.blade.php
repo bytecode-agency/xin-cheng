@@ -602,7 +602,7 @@
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_type" class="form-label">Account Type</label>
-                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control">
+                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
                                                                         <option value="" selected disabled>Choose account type
                                                                         </option>
                                                                         <option value="SGD"
@@ -619,6 +619,20 @@
                                                                             Others</option>
                                                                     </select>
                                                                 </div>
+                                                                
+                                               
+                                                                @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
+                                                                    <div class="formAreahalf basic_data please_specify">
+                                                                        <label for="" class="form-label">Others, please specify</label>
+                                                                        @if (isset($wealthfinance[$i]->account_type_specify))
+                                                                        <input type="text" class="form-control"
+                                                                                name="financial[{{$i +1}}][account_type_specify]"
+                                                                                value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
+                                                                        
+                                                                        @endif
+                                                                        
+                                                                    </div>
+                                                                @endif
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_policy_no" class="form-label">Account/Policy
                                                                         Number</label>
@@ -2016,6 +2030,25 @@
                                                 <label for="" class="form-label">Please Specify</label>
                                                 <input type="text" class="form-control"
                                                     name="share[` +tpb_id + `][` +tpb_key + `][please_specify]"
+                                                    value="">
+                                            </div>`           
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+            $(document).on('change', '#account_type', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="financial[` +tpb_id + `][account_type_specify]"
                                                     value="">
                                             </div>`           
                     );
