@@ -605,7 +605,7 @@
                                                                     <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
                                                                         <option value="" selected disabled>Choose account type
                                                                         </option>
-                                                                        <option value="SGD"
+                                                                        <!-- <option value="SGD"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'SGD' ? 'selected' : '' }}>
                                                                             SGD</option>
                                                                         <option value="USD"
@@ -614,6 +614,16 @@
                                                                         <option value="Multi-currency"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Multi-currency' ? 'selected' : '' }}>
                                                                             Multi-currency</option>
+                                                                        <option value="Others"
+                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
+                                                                            Others</option> -->
+
+                                                                        <option value="Insurance"
+                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Insurance' ? 'selected' : '' }}>
+                                                                            SGD</option>
+                                                                        <option value="Investment"
+                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Investment' ? 'selected' : '' }}>
+                                                                            USD</option>
                                                                         <option value="Others"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
                                                                             Others</option>

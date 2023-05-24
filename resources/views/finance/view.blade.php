@@ -156,7 +156,7 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">DOB(DD/MM/YYYY)</label>
-                                                    <p>{{ $shareholder->pdob}}</p>
+                                                    <p>{{ convertDate($shareholder->pdob,"d/m/Y") }}</p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -172,7 +172,7 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
-                                                    <p>{{$shareholder->pexdate}}</p>
+                                                    <p>{{ convertDate($shareholder->pexdate,"d/m/Y") }}</p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Passport Country</label>

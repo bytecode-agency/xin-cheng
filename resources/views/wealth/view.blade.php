@@ -180,7 +180,7 @@
                                     </div>
                                     <div class="formAreahalf basic_data">
                                         <label for="" class="form-label">Incorporation Date</label>
-                                        <p>{{ ($company->incorporate_date) }}</p>
+                                        <p>{{ convertDate($company->incorporate_date,"d/m/Y") }}</p>
                                     </div>
 
                                     <div class="formAreahalf basic_data">
@@ -287,7 +287,7 @@
                                                             <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">DOB (DD/MM/YYYY)111</label>
+                                                            <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             {{ convertDate($shareholder->dob,"d/m/Y") }}
                                                             </p>
@@ -794,7 +794,7 @@
                                                 <label for="" class="form-label">Commencement Date</label>
                                                 <p>
                                                     @isset($wealth_mas->commencement_date)
-                                                        {{ convertDate($wealth_mas->commencement_date,'d F Y') }}
+                                                        {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -815,7 +815,7 @@
                                                     Deadline</label>
                                                 <p>
                                                     @isset($wealth_mas->annual_declaration_deadline)
-                                                        {{ convertDate($wealth_mas->annual_declaration_deadline,'d F Y') }}
+                                                        {{ convertDate($wealth_mas->annual_declaration_deadline,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1301,7 +1301,7 @@
                                                 <label for="" class="form-label">Pass Issuance Date</label>
                                                 <p>
                                                     @isset($wealthpass->pass_issuance_date)
-                                                        {{ $wealthpass->pass_issuance_date }}
+                                                        {{ $convertDate(wealthpass->pass_issuance_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1311,7 +1311,7 @@
                                                 <label for="" class="form-label">Pass Expiry Date</label>
                                                 <p>
                                                     @isset($wealthpass->pass_expiry_date)
-                                                        {{ $wealthpass->pass_expiry_date }}
+                                                        {{ convertDate($wealthpass->pass_expiry_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1672,7 +1672,7 @@
                                                                 
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
-                                                                <td>{{ $redemption_data->red_date }}</td>
+                                                                <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>{{$redemption_data->red_amount}}</td>
                                                                 <td><a href="#" data-id="" title="Delete" class="btn"><i class="fa-solid fa-trash"></i></a>
                                                                 </td>
@@ -1828,7 +1828,7 @@
                                                     Date</label>
                                                 <p>
                                                     @isset($wealthbuss->subscription)
-                                                        {{ $wealthbuss->subscription }}
+                                                        {{ convertDate($wealthbuss->subscription,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1838,7 +1838,7 @@
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
                                                     @isset($wealthbuss->maturity_date)
-                                                        {{ $wealthbuss->maturity_date }}
+                                                        {{ convertDate($wealthbuss->maturity_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1952,7 +1952,7 @@
                                                                 
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
-                                                                <td>{{ $redemption_data->red_date }}</td>
+                                                                <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>{{$redemption_data->red_amount}}</td>
                                                                 <td><a href="#" data-id="" title="Delete" class="btn"><i class="fa-solid fa-trash"></i></a>
                                                                 </td>
@@ -2023,7 +2023,7 @@
                                 <tr>
                                     <td>{{ $files->file }}</td>
                                     <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ convertDate($files->created_at,'d-m-Y') }}</td>
+                                    <td>{{ convertDate($files->created_at,'d/m/Y') }}</td>
                                     <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                             {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
                                             <i class="fa-solid fa-download"></i></a>
@@ -2058,7 +2058,7 @@
                             <tr>
                                 <td>{{ $activity->message }}</td>
                                 <td>{{ $activity->name }}</td>
-                                <td>{{ convertDate($activity->created_at,'d-m-Y') }}</td>
+                                <td>{{ convertDate($activity->created_at,'d/m/Y') }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -2324,7 +2324,7 @@
                                             <td style="width:50%;color:#000; font-size:15px ; padding-top:26px;">
                                                 <b>Incorporation Date</b>
                                                 <span
-                                                    style="padding-top:12px; display:block;">{{ date('d/m/Y', strtotime($company->incorporate_date)) }}</span>
+                                                    style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span>
                                             </td>
 
                                         </tr>

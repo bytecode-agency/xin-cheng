@@ -156,7 +156,7 @@
                                         <label for="" class="form-label">B2B Agreement Sign Date</label>
                                         @if ($sale->b2b_agr_sign_date)
                                             <br>
-                                            {{ \Carbon\Carbon::parse($sale->b2b_agr_sign_date)->isoFormat('DD/MM/YYYY') }}
+                                            {{ convertDate($sale->b2b_agr_sign_date,"d/m/Y") }}
                                         @else
                                             -
                                         @endif
@@ -167,7 +167,7 @@
                                         <label for="" class="form-label">B2B Agreement Expiry Date</label>
                                         @if ($sale->b2b_agr_exp_date)
                                             <br>
-                                            {{ \Carbon\Carbon::parse($sale->b2b_agr_exp_date)->isoFormat('DD/MM/YYYY') }}
+                                            {{ convertDate($sale->b2b_agr_exp_date,"d/m/Y") }}
                                         @else
                                             -
                                         @endif
@@ -528,7 +528,7 @@
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">
-                            {{ \Carbon\Carbon::parse($note->created_at->setTimezone('Asia/Singapore'))->format('d/m/Y h:i a') }}
+                            {{ convertDate($note->created_at,'d/m/Y h:i a') }}
                         </p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
@@ -811,11 +811,11 @@
                                         <tr>
                                             <td
                                                 style="width:50%; font-weight:400; font-size:15px; color:#010101; padding-top:20px;">
-                                                {{ \Carbon\Carbon::parse($sale->b2b_agr_sign_date)->isoFormat('DD/MM/YYYY') }}
+                                                {{ convertDate($sale->b2b_agr_sign_date,"d/m/Y") }}
                                             </td>
                                             <td
                                                 style="width:50%; font-weight:400; font-size:15px; color:#010101; padding-top:20px;">
-                                                {{ \Carbon\Carbon::parse($sale->b2b_agr_exp_date)->isoFormat('DD/MM/YYYY') }}
+                                                {{ convertDate($sale->b2b_agr_exp_date,"d/m/Y") }}
                                             </td>
                                         </tr>
                                         <tr>
