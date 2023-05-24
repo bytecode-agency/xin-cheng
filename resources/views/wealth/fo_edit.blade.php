@@ -123,7 +123,7 @@
                                                     value="{{ $shareholder->shareholder_company_name }}"> --}}
                                                     <select name="share[{{ $key }}][{{ $key2 }}][shareholder_company_name]" class="form-control">
                                                        @foreach($data->companies as $c_key => $n_company)
-                                                             @if(($c_key+1) > ($key2))
+                                                             @if(($c_key) < ($key))
                                                                  <option value="{{$n_company->name}}">  {{$n_company->name}}</option>
                                                              @endif
                                                        @endforeach

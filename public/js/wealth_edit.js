@@ -282,21 +282,22 @@ $(document).ready(function () {
     })
 
     $('body').on('change', '.edit_shrholder_type', function () {
-        // console.log( $(this).parents()[8].id.replace("accordion-",""));
+        // console.log( $(this).parents()[8].id);
         var shr_arr_id = $(this).parents()[8].id.replace("accordion-", "");
+        // console.log(shr_arr_id);
         var arr = $('input[id="fo_compnay"]').map(function () {
             return this.value;
         }).get();
-        console.log(arr);
+        // console.log(arr);
         var share_key = $(this).parents('.company_share').find('.sharehold_length').length;
         if ($(this).val() == "Company") {
             var option_values= "";
             $.each(arr, function(key, value) { 
                
-                if( ( (key + 1) < shr_arr_id))
+                if( ( (key + 1) <= shr_arr_id))
                 {
                     var divHtml = '<option value="'+value+'">'+value+'</option>'; 
-                    console.log(shr_arr_id);   
+                    // console.log(shr_arr_id);   
                 }           
                 option_values += divHtml;
             });
