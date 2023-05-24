@@ -293,7 +293,7 @@ $(document).ready(function () {
             var option_values= "";
             $.each(arr, function(key, value) { 
                
-                if( ( (key) < shr_arr_id))
+                if( ( (key + 1) < shr_arr_id))
                 {
                     var divHtml = '<option value="'+value+'">'+value+'</option>'; 
                     console.log(shr_arr_id);   
