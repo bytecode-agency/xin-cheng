@@ -931,7 +931,7 @@
                         console.log(response.success);
                         const el = document.createElement('div');
                         el.innerHTML =
-                            `<p>You can view Application <a href='/education-view/` +
+                            `<p>You can view Application <a class='view-application' href='/education-view/` +
                             response
                             .success.id + `'>here</a></p>
                             <div class='number_main swal_number education_add_model'><ul class="list-group list-group-horizontal" id = "nav_list">

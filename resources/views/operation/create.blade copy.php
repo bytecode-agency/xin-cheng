@@ -3623,7 +3623,7 @@ if ($(this).val() == "Rejected") {
                  
                     const el = document.createElement('div')
                     el.innerHTML =
-                    `<p>You can view Application <a href='/operation-view/` +
+                    `<p>You can view Application <a class='view-application' href='/operation-view/` +
                         result.input.view_id + `'>here</a>`
                     swal({
                         title: `Application Created`,

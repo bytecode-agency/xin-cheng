@@ -2970,7 +2970,7 @@
                         console.log(response);
                         const el = document.createElement('div')
                         el.innerHTML =
-                            "You can view Application List <a href=''>here</a>"
+                            "You can view Application List <a class='view-application' href=''>here</a>"
                         swal({
                             title: `Application Created`,
                             content: el,

@@ -103,7 +103,7 @@
                                 console.log(response);
                                 const el = document.createElement('div')
                                 el.innerHTML =
-                                    "You can view Account List <a href='{{ route('users.index') }}'>here</a>"
+                                    "You can view Account List <a class='view-application' href='{{ route('users.index') }}'>here</a>"
                                 swal({
                                     title: `Account Created`,
                                     content: el,

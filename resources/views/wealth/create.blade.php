@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="fo_company_pass_1" class="form-label">Company Password</label>
-                                            <input type="text" class="form-control" name="cmp[1][company_pass]"
+                                            <input type="password" class="form-control" name="cmp[1][company_pass]"
                                                 id="fo_company_pass_1">
                                         </div>
                                     </div>
@@ -204,7 +204,7 @@
                                                     <option value="" selected="" disabled="">Choose
                                                         Relationship with Company</option>
                                                     <option value="Self">Self</option>
-                                                    <option value="Subsidiary">Subsidiary</option>                                                 
+                                                    <option value="Subsidiary">Subsidiary</option>
                                                     <option value="Parent company">Parent company</option>
                                                     <option value="Fund co.">Fund co.</option>
                                                     <option value="Management co.">Management co.</option>
@@ -214,7 +214,7 @@
                                                     class="form-control" name="cmp[2][company_email]"
                                                     id="fo_company_email_2"> </div>
                                             <div class="formAreahalf"> <label for="fo_company_pass_2"
-                                                    class="form-label">Company Password</label> <input type="text"
+                                                    class="form-label">Company Password</label> <input type="password"
                                                     class="form-control" name="cmp[2][company_pass]"
                                                     id="fo_company_pass_2"> </div>
                                         </div>
@@ -352,7 +352,7 @@
                             <option value="Female">F</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">  
+                    <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
@@ -683,7 +683,7 @@
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="nfo_company_pass_1" class="form-label">Company Password</label>
-                                            <input type="text" class="form-control"
+                                            <input type="password" class="form-control"
                                                 name="corporate[1][nfo_company_pass]" id="nfo_company_pass_1">
                                         </div>
                                     </div>
@@ -1035,7 +1035,7 @@
     </div>
 @endsection
 @push('js')
-  
+
     <script src="{{ asset('js/wealth.js') }}?v={{ time() }}" type="text/javascript"></script>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
