@@ -660,7 +660,7 @@ $(document).ready(function () {
             var tpb_key = $(this).attr('data-key');
             var tpb_name = $(this).attr('data-name');
             $(this).parent().after(
-                `<div class="formAreahalf please_specify">
+                `<div class="formAreahalf please_specify mb-40">
                                         <label for="" class="form-label">Please Specify</label>
                                         <input type="text" class="form-control"
                                             name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
@@ -680,7 +680,7 @@ $(document).ready(function () {
             // var tpb_id = $(this).attr('data-id');
             // var tpb_key = $(this).attr('data-key');
             $(this).parent().after(
-                `<div class="formAreahalf please_specify">
+                `<div class="formAreahalf please_specify mb-40">
                                         <label for="" class="form-label">Please Specify</label>
                                         <input type="text" class="form-control"
                                             name="type_of_fo_specify"
