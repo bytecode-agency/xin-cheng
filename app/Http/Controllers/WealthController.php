@@ -862,5 +862,50 @@ class WealthController extends Controller
         return response()->json($response);
 
     }
-    
+    public function company_destroy(Request $request)
+    {
+        $id = $request->id;
+        if(empty($id)){
+            return response()->json();
+        }
+        $finance_data = WealthCompany::find($id);
+        $old_user_data = serialize($finance_data->toArray());
+      
+        $data = (object)(['id'=> Auth::user()->id,        
+        'name'=> Auth::user()->name,
+        'userID' => $finance_data->wealth_id,
+        'module_name' => 'Wealth',
+        'old_action' => $old_user_data,       
+        'action_perform'=> null,
+        'message'=>'Company Deleted',
+        ]);
+        activity_log($data);
+        $finance_data->delete();
+
+        return response()->json();
+
+    }
+    public function company_shareholder_destroy(Request $request)
+    {
+        $id = $request->id;
+        if(empty($id)){
+            return response()->json();
+        }
+        $finance_data = WealthShareholder::find($id);
+        $old_user_data = serialize($finance_data->toArray());
+      
+        $data = (object)(['id'=> Auth::user()->id,        
+        'name'=> Auth::user()->name,
+        'userID' => $finance_data->wealth_id,
+        'module_name' => 'Wealth',
+        'old_action' => $old_user_data,       
+        'action_perform'=> null,
+        'message'=>'Company Shareholder Deleted',
+        ]);
+        activity_log($data);
+        $finance_data->delete();
+
+        return response()->json();
+
+    }
 }
