@@ -364,6 +364,15 @@
                                                                 Shareholder</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
+                                                        @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
+                                                            <div class="formAreahalf basic_data">
+                                                                <label for="" class="form-label">Others, please specify</label>
+                                                                @if (isset($shareholder->rel_share_specify))
+                                                                {{ $shareholder->rel_share_specify }} @else-
+                                                                @endif
+                                                                </p>
+                                                            </div>
+                                                        @endif
                                                     @else
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Full
