@@ -304,7 +304,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary in the
                                                     company(SGD)</label>
-                                                <input type="text" class="form-control"
+                                                <input type="integer" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}">
                                             </div>

@@ -1233,7 +1233,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Business Type</label>
+                                                <label for="" class="form-label">Business Type33</label>
                                                 <p>
                                                     @isset($wealthpass->business_type)
                                                         {{ $wealthpass->business_type }}
@@ -1242,6 +1242,15 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($wealthpass->business_type_specify))
+                                                    {{ $wealthpass->business_type_specify }} @else-
+                                                    @endif
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Residential Address</label>
                                                 <p>
@@ -1275,6 +1284,15 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($wealthpass->relation_with_pass_specify))
+                                                    {{ $wealthpass->relation_with_pass_specify }} @else-
+                                                    @endif
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Application Type</label>
                                                 <p>
@@ -1285,6 +1303,15 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @if (isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others')
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($wealthpass->pass_app_type_specify))
+                                                    {{ $wealthpass->pass_app_type_specify }} @else-
+                                                    @endif
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance</label>
                                                 <p
@@ -1513,6 +1540,15 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($wealthbuss->currency_specify))
+                                                    {{ $wealthbuss->currency_specify }} @else-
+                                                    @endif
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Investment Amount/Premium</label>
                                                 <p>
@@ -1621,6 +1657,15 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($wealthbuss->commission_currency_specify))
+                                                    {{ $wealthbuss->commission_currency_specify }} @else-
+                                                    @endif
+                                                    </p>
+                                                </div>
+                                            @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Commission Amount (For Admin
                                                     Purpose)</label>

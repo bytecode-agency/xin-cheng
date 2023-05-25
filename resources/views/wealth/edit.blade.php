@@ -956,7 +956,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="business_type" class="form-label">Business
                                                         Type</label>
-                                                    <select name="business_type" class="form-control">
+                                                    <select id="business_type" name="business_type" class="form-control">
                                                         <option value="" selected disabled>Choose business type
                                                         </option>
                                                         <option vlaue="FO"
@@ -977,6 +977,18 @@
                                                             {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'Others' ? 'selected' : '' }}>Others</option>
                                                     </select>
                                                 </div>
+                                                @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthpass->business_type_specify))
+                                                        <input type="text" class="form-control"
+                                                                name="business_type_specify"
+                                                                value="{{ isset($wealthpass->business_type_specify) ? $wealthpass->business_type_specify : '' }}">
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                                 <div class="formAreahalf basic_data">
                                                     <label for="residential_add" class="form-label">Residential
                                                         Address</label>
@@ -1005,7 +1017,7 @@
                                                         with
                                                         Pass
                                                         Holder 1</label>
-                                                    <select name="relation_with_pass" value=""
+                                                    <select id="relation_with_pass" name="relation_with_pass" value=""
                                                         class="form-control">
                                                         <option value="" selected disabled>Choose relationship with pass holder 1</option>
                                                         <option value="Self"
@@ -1024,10 +1036,22 @@
                                                             {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>    
                                                     </select>
                                                 </div>
+                                                @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthpass->relation_with_pass_specify))
+                                                        <input type="text" class="form-control"
+                                                                name="relation_with_pass_specify"
+                                                                value="{{ isset($wealthpass->relation_with_pass_specify) ? $wealthpass->relation_with_pass_specify : '' }}">
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_app_type" class="form-label">Pass Application
                                                         Type</label>
-                                                    <select name="pass_app_type" id="pass_app_type"
+                                                    <select id= "pass_app_type" name="pass_app_type" id="pass_app_type"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose pass
                                                             application
@@ -1050,6 +1074,18 @@
                                                             {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others' ? 'selected' : '' }}>Others</option>
                                                     </select>
                                                 </div>
+                                                @if (isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthpass->pass_app_type_specify))
+                                                        <input type="text" class="form-control"
+                                                                name="pass_app_type_specify"
+                                                                value="{{ isset($wealthpass->pass_app_type_specify) ? $wealthpass->pass_app_type_specify : '' }}">
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_inssuance" class="form-label">Pass
                                                         Issuance</label>
@@ -1290,7 +1326,7 @@
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="currency" class="form-label">Currency</label>
-                                                        <select name="currency" class="form-control">
+                                                        <select id="currency" name="currency" class="form-control">
                                                             <option value="" selected disabled>Choose currency
                                                             </option>
                                                             <option value="USD"
@@ -1307,6 +1343,18 @@
                                                             </option>
                                                         </select>
                                                     </div>
+                                                    @if (isset($wealthbuss->currency_type) && $wealthbuss->currency_type == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealthbuss->currency_specify))
+                                                            <input type="text" class="form-control"
+                                                                    name="currency_specify"
+                                                                    value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
+                                                            
+                                                            @endif
+                                                            
+                                                        </div>
+                                                    @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
@@ -1425,7 +1473,7 @@
                                                         <label for="commission_currency" class="form-label">Commission
                                                             Currency(For Admin
                                                             Purpose)</label>
-                                                        <select name="commission_currency" class="form-control">
+                                                        <select id="commission_currency" name="commission_currency" class="form-control">
                                                             <option value="" selected disabled>Choose commission
                                                                 currency
                                                             </option>
@@ -1442,6 +1490,18 @@
                                                         </select>
 
                                                     </div>
+                                                    @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthbuss->commission_currency_specify))
+                                                        <input type="text" class="form-control"
+                                                                name="commission_currency_specify"
+                                                                value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="commission_amount" class="form-label">Commission
                                                             Amount(For
@@ -2070,6 +2130,91 @@
 
 
             });
+
+
+            $(document).on('change', '#currency', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="currency_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+            $(document).on('change', '#commission_currency', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="commission_currency_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+            $(document).on('change', '#business_type', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="business_type_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+            $(document).on('change', '#relation_with_pass', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="relation_with_pass_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+            $(document).on('change', '#pass_app_type', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="pass_app_type_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+
+
+
         });
     </script>
 @endpush

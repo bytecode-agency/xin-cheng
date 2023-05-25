@@ -407,7 +407,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary in the company (SGD)</label>
-                <div class="dollersec"><span class="doller">$</span><input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
                 </div>
             </div>
             <div class="formAreahalf">
@@ -595,7 +595,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_sal_1" class="form-label">Monthly Salary in the company (SGD)</label>
-                                    <div class="dollersec"><span class="doller">$</span><input type="text" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
+                                    <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
                                     </div> 
                                 </div>
                                 <div class="formAreahalf">
@@ -1090,7 +1090,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary in the company (SGD)</label>
-                            <div class="dollersec"><span class="doller">$</span><input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
+                            <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                             </div>
                         </div>
                         <div class="formAreahalf">
@@ -1363,7 +1363,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>
-                                <div class="dollersec"><span class="doller">$</span> <input type="text" class="form-control" name="shrd[1][1][nfo_mth_salary]"
+                                <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
 
@@ -1760,7 +1760,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_sal" class="form-label">Monthly Salary in the company (SGD)</label>
-                            <div class="dollersec"><span class="doller">$</span><input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_mth_salary]" id="fo_cpm2_sal" class="form-control" value="">
+                            <div class="dollersec"><span class="doller">$</span><input type="integer" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_mth_salary]" id="fo_cpm2_sal" class="form-control" value="">
                             </div>
                         </div>
                         <div class="formAreahalf">
@@ -2108,7 +2108,7 @@ $(document).ready(function () {
                 </div>\
                     <div class="formAreahalf">\
                         <label for="nfo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>\
-                        <div class="dollersec"><span class="doller">$</span><input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_mth_salary]" id="nfo_mth_salary">\
+                        <div class="dollersec"><span class="doller">$</span><input type="integer" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_mth_salary]" id="nfo_mth_salary">\
                     </div>
                 </div>\
                 <div class="formAreahalf">\

@@ -233,7 +233,7 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
                                                     <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
-                                                    <input type="text" class="form-control" id="share[0][0][msalary]" name="share[{{$key}}][{{$key1}}][msalary]" value="{{$shareholder->msalary}}">
+                                                    <input type="integer" class="form-control" id="share[0][0][msalary]" name="share[{{$key}}][{{$key1}}][msalary]" value="{{$shareholder->msalary}}">
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
                                                     <label for="" class="form-label">Relationship With Shareholder</label>
