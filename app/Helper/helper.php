@@ -24,7 +24,9 @@ use Illuminate\Http\Request;
 
     function convertDate($date, $format = "Y-m-d",$tz = 'Europe/London')
     {      
-
+      if( empty($date) || $date == ""){
+        return "";
+      }
       $dt = new DateTime();
       $dt->setTimezone(new DateTimeZone($tz));
       $dt->setTimestamp(strtotime(str_replace("/","-",$date)));

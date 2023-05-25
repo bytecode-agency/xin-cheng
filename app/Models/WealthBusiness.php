@@ -11,6 +11,7 @@ class WealthBusiness extends Model
     protected $fillable = [         
         'wealth_id',
         'type_of_fo',
+        'type_of_fo_specify',//
         'servicing_fee',
         'servicing_fee_currency',
         'servicing_fee_status',

@@ -25,12 +25,12 @@
                     <div class="card-body d-flex flex-wrap">
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Address</label>
-                            <input type="text" name="cmp[{{ $key }}][address]" id="fo_compnay"
+                            <input type="text" name="cmp[{{ $key }}][address]" id="fo_compnay_address"
                                 class="form-control" value="{{ $company->address }}">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">UEN</label>
-                            <input type="text" name="cmp[{{ $key }}][uen]" id="fo_compnay"
+                            <input type="text" name="cmp[{{ $key }}][uen]" id="fo_compnay_uen"
                                 class="form-control" value="{{ $company->uen }}">
                         </div>
                         <div class="formAreahalf basic_data">
@@ -51,12 +51,12 @@
                       
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
-                            <input type="text" name="cmp[{{ $key }}][company_email]" id="fo_compnay"
+                            <input type="text" name="cmp[{{ $key }}][company_email]" id="fo_compnay_company_email"
                                 class="form-control" value="{{ $company->company_email }}">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay"
+                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 
@@ -123,7 +123,7 @@
                                                     value="{{ $shareholder->shareholder_company_name }}"> --}}
                                                     <select name="share[{{ $key }}][{{ $key2 }}][shareholder_company_name]" class="form-control">
                                                        @foreach($data->companies as $c_key => $n_company)
-                                                             @if(($c_key+1) > ($key2))
+                                                             @if(($c_key) < ($key))
                                                                  <option value="{{$n_company->name}}">  {{$n_company->name}}</option>
                                                              @endif
                                                        @endforeach
@@ -305,7 +305,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary in the
                                                     company(SGD)</label>
-                                                    <div class="dollersec"><span class="doller">$</span> <input type="text" class="form-control"
+                                                    <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}"></div>
                                             </div>

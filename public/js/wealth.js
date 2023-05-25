@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yy',        
+        dateFormat: 'dd/mm/yy',
         onClose: function() {
             $(this).valid();
         }
@@ -19,12 +19,12 @@ $(document).ready(function () {
       });
     var form = $("#multistep_form");
     form[0].reset();
-    
+
     // $('.business_type').val("");
     var form_count = 1,
         form_count_form, next_form, total_forms;
     total_forms = $("fieldset").length;
-    
+
     var i = 0;
     var sh_no = 0;
     var nfo_sh_no=0;
@@ -48,12 +48,12 @@ $(document).ready(function () {
         if (percentage == 100) {
             // console.log('here');
             $(this).parents('#' + compId + ".full_div").find('#next3').removeClass("disable");
-            $(this).parents('#' + compId + ".full_div").find('#next3').prop("disabled", false);          
+            $(this).parents('#' + compId + ".full_div").find('#next3').prop("disabled", false);
         }
         else {
             // console.log('there');
             $(this).parents('#' + compId + ".full_div").find('#next3').addClass("disable");
-            $(this).parents('#' + compId + ".full_div").find('#next3').attr('disabled', 'disabled');         
+            $(this).parents('#' + compId + ".full_div").find('#next3').attr('disabled', 'disabled');
 
         }
         if (percentage >= 100) {
@@ -108,17 +108,17 @@ $(document).ready(function () {
     // $('body').on('change','.one_time_status', '.annual_status', function () {
     //     $(this).valid();
     // });
-    $('body').on('change', 'select', function () {
-        if (this.value == 'Others') {
-            $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
-                <label for="" class="form-label">Please Specify</label>
-                <input type="text" class="form-control" name="tpe_plese_specify" value="">
-            </div>`);
-        }
-        else {
-            $(this).parents().next('.please_specify').remove();
-        }
-    });
+    // $('body').on('change', 'select', function () {
+    //     if (this.value == 'Others') {
+    //         $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
+    //             <label for="" class="form-label">Please Specify</label>
+    //             <input type="text" class="form-control" name="tpe_plese_specify" value="">
+    //         </div>`);
+    //     }
+    //     else {
+    //         $(this).parents().next('.please_specify').remove();
+    //     }
+    // });
 
     $('body').on('click','.next1',function () {
         form.validate({
@@ -132,10 +132,10 @@ $(document).ready(function () {
                 type_of_fo: {
                     required: true
                 },
-                // servicing_fee: {
-                //     required: true,
-                //     number: true
-                // },
+                type_of_fo_specify: {
+                    required: true,
+                    // number: true
+                },
                 // servicing_fee_currency: {
                 //     required: true
                 // },
@@ -152,12 +152,12 @@ $(document).ready(function () {
                 // annual_fee_status: {
                 //     required: true
                 // },
-                nfo_client_type: { 
+                nfo_client_type: {
                     required: true
                 },
-                tpe_plese_specify: { 
-                    required: true
-                },
+                // tpe_plese_specify: {
+                //     required: true
+                // },
             },
         });
         if (form.valid() === true) {
@@ -249,7 +249,7 @@ $(document).ready(function () {
             `<div id="fo_company" data-id=` + i + `><div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design cmd_count">
             <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
             <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span> \
-           
+
             <div class="accordion-item accordian-items-comp" id="accordion-`+ (comp + 1) + `">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                  <div class="formAreahalf company-full_width_Cstm"> \
@@ -259,12 +259,12 @@ $(document).ready(function () {
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne`+ (comp + 1) + `" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>                 
-                    
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseOne`+ (comp + 1) + `" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body d-flex flex-wrap">        
+                <div class="accordion-body d-flex flex-wrap">
                     <div class="formAreahalf">\
                         <label for="fo_uen_`+(comp + 1)+`" class="form-label">UEN</label>\
                         <input type="text" class="form-control" name="cmp[` + (comp + 1) + `][uen]" id="fo_uen_`+ (comp + 1)+`">\
@@ -277,16 +277,16 @@ $(document).ready(function () {
                         <label for="fo_incorporation_date_`+ (comp + 1)+`" class="form-label">Incorporation Date</label>\
                         <input type="text" class="form-control datepicker" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yyyy">\
                     </div>\
-                  
+
                     <div class="formAreahalf">\
                     <label for="fo_relationship_`+ (comp + 1)+`" class="form-label">Relationship with Company 1</label>\
                         <select class="form-control" name="cmp[` + (comp + 1) + `][relationship]" id="fo_relationship_`+ (comp + 1)+`">
                         <option value ="" selected disabled>Choose Relationship with Company</option>
                         <option value="Self">Self</option>
-                        <option value="Subsidiary">Subsidiary</option>   
+                        <option value="Subsidiary">Subsidiary</option>
                         <option value="Parent company">Parent company</option>
                         <option value="Fund co.">Fund co.</option>
-                        <option value="Management co.">Management co.</option>                
+                        <option value="Management co.">Management co.</option>
                         </select>\
                     </div>\
                     <div class="formAreahalf">\
@@ -305,7 +305,7 @@ $(document).ready(function () {
         )
 
         $( ".datepicker" ).datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -325,7 +325,7 @@ $(document).ready(function () {
                 <label for="fo_equity_`+ (sharehold_no + 1) + `" class="form-label">Equity Percentage</label>
                 <div class="dollersec percentage_input"><span class="input"> <input type="text" name="share[1][`+ (sharehold_no + 1) + `][equity_percentage]" id="equity_shareholder_`+ (sharehold_no + 1) + `" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
             </div>
-          
+
             <div class="formAreahalf">
                 <label for="fo_cpm2_passname_`+ (sharehold_no + 1) + `" class="form-label">Passport Full Name (Eng)</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][pass_name_eng]" id="fo_cpm2_passname_`+ (sharehold_no + 1) + `" class="form-control" value="">
@@ -393,12 +393,12 @@ $(document).ready(function () {
                 <label for="fo_cpm2_tin_type_`+ (sharehold_no + 1) + `" class="form-label">Type of TIN</label>
                 <select name="share[1][`+ (sharehold_no + 1) + `][type_of_tin]" id="fo_cpm2_tin_type_`+ (sharehold_no + 1) + `" class="form-control">
                 <option value="" selected disabled>Choose Type of TIN</option>
-                <option vlaue="WP">WP</option> 
-                <option vlaue="SP">SP</option> 
-                <option vlaue="EP">EP</option> 
-                <option vlaue="LTVP">LTVP</option> 
-                <option vlaue="DP">DP</option> 
-                <option vlaue="NRIC">NRIC</option> 
+                <option vlaue="WP">WP</option>
+                <option vlaue="SP">SP</option>
+                <option vlaue="EP">EP</option>
+                <option vlaue="LTVP">LTVP</option>
+                <option vlaue="DP">DP</option>
+                <option vlaue="NRIC">NRIC</option>
                 </select>
             </div>
             <div class="formAreahalf">
@@ -407,7 +407,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary in the company (SGD)</label>
-                <div class="dollersec"><span class="doller">$</span><input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
                 </div>
             </div>
             <div class="formAreahalf">
@@ -421,24 +421,24 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
-                <select name="share[1][`+ (sharehold_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-control">
+                <select name="share[1][`+ (sharehold_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-control fo_cpm2_relation " data-id="`+sharehold_no+`" data-key="`+(sharehold_no + 1)+`" data-name="relation_with_shareholder_specify">
                 <option value="" selected disabled>Choose Relationship with shareholder</option>
-                <option value="Self">Self</option>                            
-                <option value="Parents">Parents</option>  
-                <option value="Spouse">Spouse</option>  
-                <option value="Children">Children</option>  
-                <option value="Relatives">Relatives</option>  
-                <option value="Friend">Friend</option>  
-                <option value="Others">Others</option>  
+                <option value="Self">Self</option>
+                <option value="Parents">Parents</option>
+                <option value="Spouse">Spouse</option>
+                <option value="Children">Children</option>
+                <option value="Relatives">Relatives</option>
+                <option value="Friend">Friend</option>
+                <option value="Others">Others</option>
                 </select>
-            </div>                      
+            </div>
          <div id="appended_user_shareholder_cmp2_selcection_div"
                 class="w-100 d-flex justify-content-start flex-wrap"></div>
         </div>
         </div>`);
-    
+
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -458,18 +458,18 @@ $(document).ready(function () {
                 //     required: "This field is required."
                 // }
             });
-        }); 
+        });
         relationfield.each(function() {
             $(this).rules("add", {
-                required: true,              
+                required: true,
             });
-        }); 
-       
+        });
+
       arr = $('input[id^="fo_compnay"]').map(function () {
             return this.value;
         }).get();
         console.log(arr);
-        if (form.valid() === true) {           
+        if (form.valid() === true) {
             $('#FO_company').hide();
 
             if (arr.length >= 2) {
@@ -513,7 +513,7 @@ $(document).ready(function () {
                                     <label for="fo_equity_1" class="form-label">Equity Percentage</label>
                                     <div class="dollersec percentage_input"><span class="input"> <input type="text" name="share[1][1][equity_percentage]" id="equity_shareholder_1" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
                                 </div>
-                            
+
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_passname_1" class="form-label">Passport Full Name (Eng)</label>
                                     <input type="text" name="share[1][1][pass_name_eng]" id="fo_cpm2_passname_1" class="form-control" value="">
@@ -581,12 +581,12 @@ $(document).ready(function () {
                                     <label for="fo_cpm2_tin_type_1" class="form-label">Type of TIN</label>
                                     <select name="share[1][1][type_of_tin]" id="fo_cpm2_tin_type_1" class="form-control">
                                     <option value="" selected disabled>Choose Type of TIN</option>
-                                    <option vlaue="WP">WP</option> 
-                                    <option vlaue="SP">SP</option> 
-                                    <option vlaue="EP">EP</option> 
-                                    <option vlaue="LTVP">LTVP</option> 
-                                    <option vlaue="DP">DP</option> 
-                                    <option vlaue="NRIC">NRIC</option> 
+                                    <option vlaue="WP">WP</option>
+                                    <option vlaue="SP">SP</option>
+                                    <option vlaue="EP">EP</option>
+                                    <option vlaue="LTVP">LTVP</option>
+                                    <option vlaue="DP">DP</option>
+                                    <option vlaue="NRIC">NRIC</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf">
@@ -595,8 +595,8 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_sal_1" class="form-label">Monthly Salary in the company (SGD)</label>
-                                    <div class="dollersec"><span class="doller">$</span><input type="text" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
-                                    </div> 
+                                    <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
+                                    </div>
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_job_title_1" class="form-label">Job Title</label>
@@ -609,17 +609,17 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
-                                    <select name="share[1][1][relation_with_shareholder]" id="fo_cpm2_relation_1" class="form-control">
+                                    <select name="share[1][1][relation_with_shareholder]" id="fo_cpm2_relation_1" class="form-control fo_cpm2_relation" data-id="1" data-key="1" data-name="relation_with_shareholder_specify">
                                     <option value="" selected disabled>Choose Relationship with shareholder</option>
-                                    <option value="Self">Self</option>                            
-                                    <option value="Parents">Parents</option>  
-                                    <option value="Spouse">Spouse</option>  
-                                    <option value="Children">Children</option>  
-                                    <option value="Relatives">Relatives</option>  
-                                    <option value="Friend">Friend</option>  
-                                    <option value="Others">Others</option>  
+                                    <option value="Self">Self</option>
+                                    <option value="Parents">Parents</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Relatives">Relatives</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Others">Others</option>
                                     </select>
-                                </div>                      
+                                </div>
                             <div id="appended_user_shareholder_cmp2_selcection_div"
                                     class="w-100 d-flex justify-content-start flex-wrap"></div>
                             </div>
@@ -645,13 +645,54 @@ $(document).ready(function () {
             }
 
             $(".datepicker").datepicker({
-                dateFormat: 'dd/mm/yy',        
+                dateFormat: 'dd/mm/yy',
                 onClose: function() {
                     $(this).valid();
                 }
             });
-        
+
         }
+
+    });
+    $(document).on('change', '.fo_cpm2_relation', function() {
+        if ($(this).val() == "Others") {
+            var tpb_id = $(this).attr('data-id');
+            var tpb_key = $(this).attr('data-key');
+            var tpb_name = $(this).attr('data-name');
+            $(this).parent().after(
+                `<div class="formAreahalf please_specify mb-40">
+                                        <label for="" class="form-label">Please Specify</label>
+                                        <input type="text" class="form-control"
+                                            name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
+                                            value="">
+                                    </div>`
+            );
+            // ++o;
+
+        } else {
+            $(this).parents().next('.please_specify').remove();
+        }
+
+
+    });
+    $(document).on('change', '#type_of_fo', function() {
+        if ($(this).val() == "Others") {
+            // var tpb_id = $(this).attr('data-id');
+            // var tpb_key = $(this).attr('data-key');
+            $(this).parent().after(
+                `<div class="formAreahalf please_specify mb-40">
+                                        <label for="" class="form-label">Please Specify</label>
+                                        <input type="text" class="form-control"
+                                            name="type_of_fo_specify"
+                                            value="">
+                                    </div>`
+            );
+            // ++o;
+
+        } else {
+            $(this).parents().next('.please_specify').remove();
+        }
+
 
     });
     $('body').on('click', '.add_shareholder', function () {
@@ -684,8 +725,8 @@ $(document).ready(function () {
             </div>\
                 </div ></div > `
         );
-      
-    
+
+
 
     });
     var btn_click = "";
@@ -698,7 +739,7 @@ $(document).ready(function () {
 
         btn_click = $(this).attr('data-id');
 
-        // $.each(arr, function(key, value) {               
+        // $.each(arr, function(key, value) {
         let btn_id = "";
         if (btn_click == isLastElement1) {
             btn_id = "fo_form_sub";
@@ -752,7 +793,7 @@ $(document).ready(function () {
                                 </div>
 
                             </div>
-                            <div class="formAreahalf">
+                            <div class="formAreahalf mb-40">
                                 <label for="fo_shrholder_type_1" class="form-label">Shareholder Type</label>
                                 <select name="share[` + (btn_click - 2) + `][1][shareholder_type]" id="fo_shrholder_type_1" class="shrholder_type">
                                     <option value="" selected disabled>Please select shareholder type</option>
@@ -873,16 +914,16 @@ $(document).ready(function () {
         $(this).closest('fieldset').next('fieldset').show();
         $('#nfo_pass_name_c').text($('#nfo_pass_name').val());
         $('#nfo_pass_name_chinese_c').text($('#nfo_pass_name_chinese').val());
-        $('#nfo_gender_c').text($('#nfo_gender').val());       
+        $('#nfo_gender_c').text($('#nfo_gender').val());
         if($("#nfo_dob").val() != "" ){
             // nfo_dob = moment($("#nfo_dob").val()).format('DD/MM/YYYY');
             $("#nfo_dob_c").text($("#nfo_dob").val());
         }
-        else{          
+        else{
             $("#nfo_dob_c").text("");
         }
         $('#nfo_pass_number_c').text($('#nfo_pass_number').val());
-        $('#nfo_pass_exp_c').text($("#nfo_pass_exp").val());     
+        $('#nfo_pass_exp_c').text($("#nfo_pass_exp").val());
         $('#nfo_pass_reminder_c').text($('#nfo_pass_reminder').val());
         $('#nfo_pass_country_c').text($('#nfo_pass_country').val());
         $('#nfo_pass_trg_frq_c').text($('#nfo_pass_trg_frq').val());
@@ -927,8 +968,8 @@ $(document).ready(function () {
                     el.innerHTML =
                         `<p>You can view Application <a class='view-application' href='/wealth-view/` + response.success.id + `'>here</a></p>
                     <div class='number_main swal_number'><ul class="list-group list-group-horizontal" id = "nav_list">
-                    <li class="list-group-item active"> <a href="#">1</a><p> Business Details </p> </li> 
-                    <li class="list-group-item active"> <a href="#">2</a><p> Personal Details </p> </li>                    
+                    <li class="list-group-item active"> <a href="#">1</a><p> Business Details </p> </li>
+                    <li class="list-group-item active"> <a href="#">2</a><p> Personal Details </p> </li>
                     <li class="list-group-item active"> <a href="#">3</a><p> Complete </p> </li></ul>
                     </div>`;
                 }
@@ -980,15 +1021,15 @@ $(document).ready(function () {
 
         var shr_arr_id = $(this).parents('.full_div').attr('id').replace("comp_", "");
         var option_values= "";
-        $.each(arr, function(key, value) { 
-           
+        $.each(arr, function(key, value) {
+
             if( ( (key+1) < shr_arr_id))
             {
-             var divHtml = '<option value="'+value+'">'+value+'</option>';    
-            }           
+             var divHtml = '<option value="'+value+'">'+value+'</option>';
+            }
             option_values += divHtml;
        });
-         
+
         if ($(this).val() == "Company") {
             $(this).parents('#fo_shareholder').find(
                 "#appended_user_shareholder_cmp2_selcection_div")
@@ -1076,12 +1117,12 @@ $(document).ready(function () {
                             <label for="fo_cpm2_tin_type_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Type of TIN</label>
                             <select name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][type_of_tin]" id="fo_cpm2_tin_type_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control">
                             <option value="" selected disabled>Choose Type of TIN</option>
-                            <option vlaue="WP">WP</option> 
-                            <option vlaue="SP">SP</option> 
-                            <option vlaue="EP">EP</option> 
-                            <option vlaue="LTVP">LTVP</option> 
-                            <option vlaue="DP">DP</option> 
-                            <option vlaue="NRIC">NRIC</option> 
+                            <option vlaue="WP">WP</option>
+                            <option vlaue="SP">SP</option>
+                            <option vlaue="EP">EP</option>
+                            <option vlaue="LTVP">LTVP</option>
+                            <option vlaue="DP">DP</option>
+                            <option vlaue="NRIC">NRIC</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -1090,7 +1131,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary in the company (SGD)</label>
-                            <div class="dollersec"><span class="doller">$</span><input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
+                            <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                             </div>
                         </div>
                         <div class="formAreahalf">
@@ -1104,21 +1145,21 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
-                            <select name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control">
+                            <select name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control fo_cpm2_relation" data-id="`+shr_arr_id+`" data-key="`+(sh_no + 1)+`" data-name="relation_with_shareholder_specify">
                             <option value="" selected disabled>Choose Relationship with shareholder</option>
-                            <option value="Self">Self</option>                            
-                            <option value="Parents">Parents</option>  
-                            <option value="Spouse">Spouse</option>  
-                            <option value="Children">Children</option>  
-                            <option value="Relatives">Relatives</option>  
-                            <option value="Friend">Friend</option>  
-                            <option value="Others">Others</option>  
+                            <option value="Self">Self</option>
+                            <option value="Parents">Parents</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Children">Children</option>
+                            <option value="Relatives">Relatives</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Others">Others</option>
                             </select>
                         </div>
                     </div>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1135,7 +1176,7 @@ $(document).ready(function () {
             <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_cmp_length">\
                 <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                     <span class="cancel_nfocompany cancel_company "><i class="fa fa-times" aria-hidden="true"></i></span> \
-                    
+
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                 <div class="formAreahalf company-full_width_Cstm">\
@@ -1166,9 +1207,9 @@ $(document).ready(function () {
                         <div class="formAreahalf">\
                             <label for="nfo_relationship_` + (cmp_count + 1) + `" class="form-label">Relationship with Company 1</label>\
                             <select class="form-control" name="corporate[` + (cmp_count + 1) + `][nfo_relationship]" id="nfo_relationship_` + (cmp_count + 1) + `">\
-                            <option value="" selected disabled>Choose Relationship with Company 1</option>                           
+                            <option value="" selected disabled>Choose Relationship with Company 1</option>
                             <option value="Self">Self</option>
-                            <option value="Subsidiary">Subsidiary</option>  
+                            <option value="Subsidiary">Subsidiary</option>
                             <option value="Parent company">Parent company</option>
                             <option value="Fund co.">Fund co.</option>
                             <option value="Management co.">Management co.</option>
@@ -1186,7 +1227,7 @@ $(document).ready(function () {
             </div></div></div></div></div></div>`
         );
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1199,7 +1240,7 @@ $(document).ready(function () {
         //     let next = $('#NFO_shareholder').attr('id');
         //     $('#' + next).show();
         //     $('#NFO_corporate').hide();
-        // }           
+        // }
         nfo_arr = $('input[id^=nfo_compnay]').map(function () {
             return this.value;
         }).get();
@@ -1213,13 +1254,13 @@ $(document).ready(function () {
                 //     required: "This field is required."
                 // }
             });
-        });        
+        });
         nfo_relation_field.each(function() {
             $(this).rules("add", {
-                required: true,             
+                required: true,
             });
         });
-        if (form.valid() === true) {    
+        if (form.valid() === true) {
             $('#NFO_corporate').hide();
             if (nfo_arr.length >= 2) {
                 if ($(this).closest('fieldset').next().hasClass("wealth_back_next_comp")) {
@@ -1259,12 +1300,12 @@ $(document).ready(function () {
                                 <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_equity" class="form-label">Equity Percentage</label>                        
-                                <div class="dollersec percentage_input"><span class="input"> 
+                                <label for="nfo_equity" class="form-label">Equity Percentage</label>
+                                <div class="dollersec percentage_input"><span class="input">
                                 <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                 <span class="pecentage_end">%</span>
-                                </div>                               
-                                    
+                                </div>
+
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_name_shd" class="form-label">Passport Full Name (Eng)</label>
@@ -1289,7 +1330,7 @@ $(document).ready(function () {
                                 <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>                           
+                                <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
                                 <div class="select_box"><span class="every">Every</span>
                                 <span class="select"><select name="shrd[1][1][nfo_pass_trg_frq]" id="nfo_pass_trg_frq" class="form-control">
                                 <option value="" selected="" disabled="">Please select</option>
@@ -1349,12 +1390,12 @@ $(document).ready(function () {
                                 <label for="nfo_tin_type" class="form-label">Type of TIN</label>
                                 <select class="form-control" name="shrd[1][1][nfo_tin_type]" id="nfo_tin_type">
                                     <option value="" selected disabled>Choose Type of TIN</option>
-                                    <option vlaue="WP">WP</option> 
-                                    <option vlaue="SP">SP</option> 
-                                    <option vlaue="EP">EP</option> 
-                                    <option vlaue="LTVP">LTVP</option> 
-                                    <option vlaue="DP">DP</option> 
-                                    <option vlaue="NRIC">NRIC</option> 
+                                    <option vlaue="WP">WP</option>
+                                    <option vlaue="SP">SP</option>
+                                    <option vlaue="EP">EP</option>
+                                    <option vlaue="LTVP">LTVP</option>
+                                    <option vlaue="DP">DP</option>
+                                    <option vlaue="NRIC">NRIC</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1363,7 +1404,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>
-                                <div class="dollersec"><span class="doller">$</span> <input type="text" class="form-control" name="shrd[1][1][nfo_mth_salary]"
+                                <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
 
@@ -1420,8 +1461,8 @@ $(document).ready(function () {
                                 <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_equity" class="form-label">Equity Percentage</label>                          
-                                    <div class="dollersec percentage_input"><span class="input"> 
+                                <label for="nfo_equity" class="form-label">Equity Percentage</label>
+                                    <div class="dollersec percentage_input"><span class="input">
                                     <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
                                     </div>
@@ -1440,9 +1481,9 @@ $(document).ready(function () {
                                 <select class="form-control" name="shrd[1][1][nfo_pass_reminder]"
                                     id="nfo_pass_reminder">
                                 <option value="" selected disabled>Choose Passport Renewal Reminder</option>
-                                <option vlaue="90 days before expiry">90 days before expiry</option> 
-                                <option vlaue="120 days before expiry">120 days before expiry</option> 
-                                <option value="180 days before expiry">180 days before expiry</option>                            
+                                <option vlaue="90 days before expiry">90 days before expiry</option>
+                                <option vlaue="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                                     </select>
                             </div>
                             <div class="formAreahalf">
@@ -1450,14 +1491,14 @@ $(document).ready(function () {
                                 <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>                           
+                                <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
                                 <div class="select_box"><span class="every">Every</span>
                                 <span class="select"><select name="shrd[1][1][nfo_pass_trg_frq]" id="nfo_pass_trg_frq" class="form-control">
                                 <option value="" selected="" disabled="">Please select</option>
                                 <option value="Day">Day</option>
                                 <option value="3 Days">3 Days</option>
                                 <option value="Week">Week</option>
-                                <option value="2 Weeks">2 Weeks</option> 
+                                <option value="2 Weeks">2 Weeks</option>
                                 <option value="4 Weeks">4 Weeks</option> </select></span>
                                 </div>
                             </div>
@@ -1510,12 +1551,12 @@ $(document).ready(function () {
                                 <label for="nfo_tin_type" class="form-label">Type of TIN</label>
                                 <select class="form-control" name="shrd[1][1][nfo_tin_type]" id="nfo_tin_type">
                                 <option value="" selected disabled>Choose Type of TIN</option>
-                                <option vlaue="WP">WP</option> 
-                                <option vlaue="SP">SP</option> 
-                                <option vlaue="EP">EP</option> 
-                                <option vlaue="LTVP">LTVP</option> 
-                                <option vlaue="DP">DP</option> 
-                                <option vlaue="NRIC">NRIC</option> 
+                                <option vlaue="WP">WP</option>
+                                <option vlaue="SP">SP</option>
+                                <option vlaue="EP">EP</option>
+                                <option vlaue="LTVP">LTVP</option>
+                                <option vlaue="DP">DP</option>
+                                <option vlaue="NRIC">NRIC</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1545,7 +1586,7 @@ $(document).ready(function () {
                 }
             }
             $(".datepicker").datepicker({
-                dateFormat: 'dd/mm/yy',        
+                dateFormat: 'dd/mm/yy',
                 onClose: function() {
                     $(this).valid();
                 }
@@ -1554,14 +1595,14 @@ $(document).ready(function () {
     });
     var btn_click_nfo = 0;
     $('body').on('click', '.next_nfo_3', function () {
-       
+
         nfo_sh_no = 0;
         var share_hold = $('input[id=nfo_equity]').map(function () {
             return this.value;
         }).get();
         var id_nfo = $(this).attr('data-id');
         var isLastElement2 = nfo_arr.length - 1;
-        // $.each(arr, function(key, value) { 
+        // $.each(arr, function(key, value) {
         let btn_id_nfo = "";
         if (id_nfo == isLastElement2) {
             btn_id_nfo = "fo_form_sub";
@@ -1575,7 +1616,7 @@ $(document).ready(function () {
             $(this).closest('fieldset').next().css("display", "block");
         } else {
         $(this).parents('fieldset').after(`<fieldset id="NFO_shareholder_extra"
-        class="w-100 justify-content-start flex-wrap form-fields wealth NFO_shareholder_extra">   
+        class="w-100 justify-content-start flex-wrap form-fields wealth NFO_shareholder_extra">
         <div class="full_div" id="nf_comp_`+ id_nfo + `">
         <div class="card formContentData border-0 p-4">
                 <div class="Personal_Details company_space">
@@ -1606,14 +1647,14 @@ $(document).ready(function () {
                 </div>
                 <div id ="nfo_shareholder" class="sharehold">\
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">\
-                       
+
                         <div class="Share_holder-w sub-heading">\
                             <h4>Shareholder #1</h4>\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="fo_equity" class="form-label">Equity Percentage</label>\
                             <div class="dollersec percentage_input"><span class="input"> <input type="text" name="shrd[` + (id_nfo) + `][1][nfo_equity]" id="equity_shareholder" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
-                        </div> 
+                        </div>
                         <div class="formAreahalf">\
                             <label for="fo_shrholder_type" class="form-label">Shareholder Type</label>\
                             <select name="shrd[` + (id_nfo) + `][1][nfo_shareholder_type]" id="fo_shrholder_type" class="nfo_shrholder_type">\
@@ -1625,10 +1666,10 @@ $(document).ready(function () {
                         <div id="appended_user_shareholder_cmp2_selcection_div" class="w-100 d-flex justify-content-start flex-wrap"></div>\
                     </div>\
                 </div>
-             
+
                 <div id="appended_nfo_shareholder_div">
                 </div>
-              
+
                 <div class="text-center pt-4 add_potentia add_potential" id="add_nfo_shareholder_btn_div">
                     <button type="button" id="add_nfo_shareholder"
                         class="btn saveBtn btn_design add_nfo_shareholder">Add
@@ -1643,25 +1684,25 @@ $(document).ready(function () {
             </div></div></fieldset>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
         });
-           
+
     });
     $('body').on('change','.nfo_shrholder_type',function(){
         var shr_arr_id = $(this).parents('.full_div').attr('id').replace("nf_comp_", "");
-        var option_values= "";      
-       $.each(nfo_arr, function(key, value) { 
-           
+        var option_values= "";
+       $.each(nfo_arr, function(key, value) {
+
         if( ( (key+1) < shr_arr_id))
         {
-         var divHtml = '<option value="'+value+'">'+value+'</option>';    
-        }           
+         var divHtml = '<option value="'+value+'">'+value+'</option>';
+        }
         option_values += divHtml;
     });
-         
+
         if ($(this).val() == "Company") {
             $(this).parents('#nfo_shareholder').find(
                 "#appended_user_shareholder_cmp2_selcection_div")
@@ -1675,14 +1716,14 @@ $(document).ready(function () {
                         </div>
                      </div>`);
         } else {
-           
+
             $(this).parents('#nfo_shareholder').find(
                 "#appended_user_shareholder_cmp2_selcection_div")
                 .html(`<div id="FO_shrhold_c2_personal" class="added_shareholder_cmp2 w-100 d-flex justify-content-start flex-wrap"">
                         <div class="formAreahalf">
                             <label for="fo_cpm2_passname" class="form-label">Passport Full Name (Eng)</label>
                             <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_name]" id="fo_cpm2_passname" class="form-control" value="">
-                        </div>                                                       
+                        </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_ch" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_name_chinese]" id="fo_cpm2_pass_ch" class="form-control" value="">
@@ -1746,12 +1787,12 @@ $(document).ready(function () {
                             <label for="fo_cpm2_tin_type" class="form-label">Type of TIN</label>
                             <select name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_tin_type]" id="fo_cpm2_tin_type" class="form-control">
                             <option value="" selected disabled>Choose Type of TIN</option>
-                            <option vlaue="WP">WP</option> 
-                            <option vlaue="SP">SP</option> 
-                            <option vlaue="EP">EP</option> 
-                            <option vlaue="LTVP">LTVP</option> 
-                            <option vlaue="DP">DP</option> 
-                            <option vlaue="NRIC">NRIC</option> 
+                            <option vlaue="WP">WP</option>
+                            <option vlaue="SP">SP</option>
+                            <option vlaue="EP">EP</option>
+                            <option vlaue="LTVP">LTVP</option>
+                            <option vlaue="DP">DP</option>
+                            <option vlaue="NRIC">NRIC</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -1760,7 +1801,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_sal" class="form-label">Monthly Salary in the company (SGD)</label>
-                            <div class="dollersec"><span class="doller">$</span><input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_mth_salary]" id="fo_cpm2_sal" class="form-control" value="">
+                            <div class="dollersec"><span class="doller">$</span><input type="integer" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_mth_salary]" id="fo_cpm2_sal" class="form-control" value="">
                             </div>
                         </div>
                         <div class="formAreahalf">
@@ -1774,21 +1815,21 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_relation" class="form-label">Relationship with shareholder 1</label>
-                            <select name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_relation_with_shareholder]" id="fo_cpm2_relation" class="form-control">
+                            <select name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_relation_with_shareholder]" id="fo_cpm2_relation" class="form-control fo_cpm2_relation" data-id="`+shr_arr_id+`" data-key="`+(nfo_sh_no + 1)+`" data-name="nfo_relation_with_shareholder_specify">
                             <option value="" selected disabled>Choose Relationship with shareholder</option>
-                            <option value="Self">Self</option>                            
-                            <option value="Parents">Parents</option>  
-                            <option value="Spouse">Spouse</option>  
-                            <option value="Children">Children</option>  
-                            <option value="Relatives">Relatives</option>  
-                            <option value="Friend">Friend</option>  
-                            <option value="Others">Others</option>  
+                            <option value="Self">Self</option>
+                            <option value="Parents">Parents</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Children">Children</option>
+                            <option value="Relatives">Relatives</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Others">Others</option>
                             </select>
                         </div>
                     </div>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1927,12 +1968,12 @@ $(document).ready(function () {
         //                     <label for="nfo_tin_type" class="form-label">Type of TIN</label>
         //                     <select class="form-control" name="shrd[1][nfo_tin_type]" id="nfo_tin_type">
         //                     <option value="" selected disabled>Choose Type of TIN</option>
-        //                     <option vlaue="WP">WP</option> 
-        //                     <option vlaue="SP">SP</option> 
-        //                     <option vlaue="EP">EP</option> 
-        //                     <option vlaue="LTVP">LTVP</option> 
-        //                     <option vlaue="DP">DP</option> 
-        //                     <option vlaue="NRIC">NRIC</option> 
+        //                     <option vlaue="WP">WP</option>
+        //                     <option vlaue="SP">SP</option>
+        //                     <option vlaue="EP">EP</option>
+        //                     <option vlaue="LTVP">LTVP</option>
+        //                     <option vlaue="DP">DP</option>
+        //                     <option vlaue="NRIC">NRIC</option>
         //                     </select>
         //                 </div>
         //                 <div class="formAreahalf">
@@ -1965,7 +2006,7 @@ $(document).ready(function () {
     });
     $('body').on('click','.add_nfo_shareholder',function(){
         var sharehold_nfo_no = $(this).parents('.full_div').find('.nfo_shr_length').length;
-      
+
         var arr_id = $(this).parents('.full_div').attr('id').replace("nf_comp_", "");
         // console.log(arr_id);
         var nfo_sh_no = $(this).parents('fieldset').find('.nfo_shr_length').length;
@@ -1992,14 +2033,14 @@ $(document).ready(function () {
             </div>\
                 </div ></div> `
         );
-      
+
 
     })
     $('body').on('click', '.add_nfo_firstcmp_shareholder', function () {
         var nfo_shr_length = $(this).parents('.full_div').find('.nfo_shr_length').length;
         // var nfo_arr_id = $(this).parents('fieldset').find('#next_nfo_3').attr('data-id');
         var nfo_arr_id = $(this).parents('.full_div').attr('id').replace("nf_comp_", "");
-       
+
 
         // $('#appended_nfo_shareholder_div').append($('#nfo_shareholder').html());
         $(this).parents('fieldset').find('#appended_nfo_shareholder_div').append(
@@ -2010,8 +2051,8 @@ $(document).ready(function () {
                     <h4>Shareholder #`+ (nfo_shr_length + 1) + `</h4>
                 </div>
                 <div class="formAreahalf">\
-                    <label for="nfo_equity" class="form-label">Equity Percentage</label>\                   
-                    <div class="dollersec percentage_input"><span class="input"> 
+                    <label for="nfo_equity" class="form-label">Equity Percentage</label>\
+                    <div class="dollersec percentage_input"><span class="input">
                     <input type="text" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                     <span class="pecentage_end">%</span>
                     </div>
@@ -2039,14 +2080,14 @@ $(document).ready(function () {
                     <input type="text" class="form-control datepicker" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
-                    <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>\                   
+                    <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>\
                     <div class="select_box"><span class="every">Every</span>
                         <span class="select"><select name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_trg_frq]" id="nfo_pass_trg_frq" class="form-control">
                         <option value="" selected="" disabled="">Please select</option>
                         <option value="Day">Day</option>
                         <option value="3 Days">3 Days</option>
                         <option value="Week">Week</option>
-                        <option value="2 Weeks">2 Weeks</option> 
+                        <option value="2 Weeks">2 Weeks</option>
                         <option value="4 Weeks">4 Weeks</option></select></span>
                     </div>
                 </div>\
@@ -2094,12 +2135,12 @@ $(document).ready(function () {
                     <label for="nfo_tin_type" class="form-label">Type of TIN</label>\
                     <select class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_tin_type]" id="nfo_tin_type">\
                     <option value="" selected disabled>Choose Type of TIN</option>
-                    <option vlaue="WP">WP</option> 
-                            <option vlaue="SP">SP</option> 
-                            <option vlaue="EP">EP</option> 
-                            <option vlaue="LTVP">LTVP</option> 
-                            <option vlaue="DP">DP</option> 
-                            <option vlaue="NRIC">NRIC</option> 
+                    <option vlaue="WP">WP</option>
+                            <option vlaue="SP">SP</option>
+                            <option vlaue="EP">EP</option>
+                            <option vlaue="LTVP">LTVP</option>
+                            <option vlaue="DP">DP</option>
+                            <option vlaue="NRIC">NRIC</option>
                     </select>
                 </div>\
                 <div class="formAreahalf">\
@@ -2108,7 +2149,7 @@ $(document).ready(function () {
                 </div>\
                     <div class="formAreahalf">\
                         <label for="nfo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>\
-                        <div class="dollersec"><span class="doller">$</span><input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_mth_salary]" id="nfo_mth_salary">\
+                        <div class="dollersec"><span class="doller">$</span><input type="integer" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_mth_salary]" id="nfo_mth_salary">\
                     </div>
                 </div>\
                 <div class="formAreahalf">\
@@ -2127,7 +2168,7 @@ $(document).ready(function () {
                 </div></div>`
         );
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',        
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }

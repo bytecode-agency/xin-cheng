@@ -233,7 +233,7 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
                                                     <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
-                                                    <input type="text" class="form-control" id="share[0][0][msalary]" name="share[{{$key}}][{{$key1}}][msalary]" value="{{$shareholder->msalary}}">
+                                                    <input type="integer" class="form-control" id="share[0][0][msalary]" name="share[{{$key}}][{{$key1}}][msalary]" value="{{$shareholder->msalary}}">
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
                                                     <label for="" class="form-label">Relationship With Shareholder</label>
@@ -889,7 +889,7 @@
                     <tr>
                         {{-- <td>{{ $activity->message }}</td>
                             <td>{{ $activity->name }}</td>
-                            <td>{{ $activity->created_at->format('j F Y  g:i a') }}</td> --}}
+                            <td>{{ $activity->created_at->format('d/m/Y  g:i A') }}</td> --}}
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>

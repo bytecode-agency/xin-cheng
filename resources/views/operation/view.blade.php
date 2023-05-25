@@ -217,7 +217,7 @@
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_dob']))
-                                                        {{ \Carbon\Carbon::parse($pass_hol['pass_dob'])->isoFormat('DD/MM/YYYY') }}@else-
+                                                        {{ convertDate($pass_hol['pass_dob'],"d/m/Y") }}@else-
                                                     @endif
                                                 </p>
                                             </div>
@@ -234,7 +234,7 @@
                                                     Date(DD/MM/YYYY)</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_exp_dob']))
-                                                        {{ \Carbon\Carbon::parse($pass_hol['pass_exp_dob'])->isoFormat('DD/MM/YYYY') }}@else-
+                                                        {{ convertDate($pass_hol['pass_exp_dob'],"d/m/Y") }}@else-
                                                     @endif
                                                 </p>
                                             </div>
@@ -355,7 +355,7 @@
                                                 <label for="" class="form-label">Pass Issuance Date</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_iss_date']))
-                                                        {{ \Carbon\Carbon::parse($pass_hol['pass_iss_date'])->isoFormat('DD/MM/YYYY') }}@else-
+                                                        {{ convertDate($pass_hol['pass_iss_date'],"d/m/Y") }}@else-
                                                     @endif
                                                 </p>
                                             </div>
@@ -363,7 +363,7 @@
                                                 <label for="" class="form-label">Pass Expiry Date</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_exp_date']))
-                                                        {{ \Carbon\Carbon::parse($pass_hol['pass_exp_date'])->isoFormat('DD/MM/YYYY') }}@else-
+                                                        {{ convertDate($pass_hol['pass_exp_date'],"d/m/Y") }}@else-
                                                     @endif
                                                 </p>
                                             </div>
@@ -525,7 +525,7 @@
                                                         Date</label>
                                                     <p>
                                                         @if (isset($company['incorporation_date']))
-                                                            {{ \Carbon\Carbon::parse($company['incorporation_date'])->isoFormat('DD/MM/YYYY') }}
+                                                            {{ convertDate($company['incorporation_date'],"d/m/Y") }}
                                                         @else-
                                                         @endif
                                                     </p>
@@ -649,7 +649,7 @@
                                                                                             class="form-label">DOB(DD/MM/YYYY)</label>
                                                                                         <p>
                                                                                             @if (isset($share['shareholder_dob']))
-                                                                                                {{ \Carbon\Carbon::parse($share['shareholder_dob'])->isoFormat('DD/MM/YYYY') }}
+                                                                                                {{ convertDate($share['shareholder_dob'],"d/m/Y") }}
                                                                                             @else-
                                                                                             @endif
                                                                                         </p>
@@ -695,7 +695,7 @@
                                                                                             Date(DD/MM/YYYY)</label>
                                                                                         <p>
                                                                                             @if (isset($share['pass_exp_dob']))
-                                                                                                {{ \Carbon\Carbon::parse($share['pass_exp_dob'])->isoFormat('DD/MM/YYYY') }}
+                                                                                                {{ convertDate($share['pass_exp_dob'],"d/m/Y") }}
                                                                                             @else-
                                                                                             @endif
                                                                                         </p>
@@ -1071,7 +1071,7 @@
                                                                                         Date</label>
                                                                                     <p>
                                                                                         @if (isset($fi['mat_date']))
-                                                                                            {{ \Carbon\Carbon::parse($fi['mat_date'])->isoFormat('DD/MM/YYYY') }}
+                                                                                            {{ convertDate($fi['mat_date'],"d/m/Y") }}
                                                                                         @else-
                                                                                         @endif
                                                                                     </p>
@@ -1273,7 +1273,7 @@
                                                                                         Date</label>
                                                                                     <p>
                                                                                         @if (isset($fi['mat_date']))
-                                                                                            {{ \Carbon\Carbon::parse($fi['mat_date'])->isoFormat('DD/MM/YYYY') }}
+                                                                                            {{ convertDate($fi['mat_date'],"d/m/Y") }}
                                                                                         @else-
                                                                                         @endif
                                                                                     </p>
@@ -1340,7 +1340,7 @@
                                         </button>
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">1st Time PR Application Date</label>
-                                            <p>@if (isset($pr['application_date'])){{ \Carbon\Carbon::parse($pr['application_date'])->isoFormat('DD/MM/YYYY') }} @else-@endif</p>
+                                            <p>@if (isset($pr['application_date'])){{ convertDate($pr['application_date'],"d/m/Y") }} @else-@endif</p>
                                         </div>
 
                                     </div>
@@ -1356,7 +1356,7 @@
                                                         Date</label>
                                                     <p>
                                                         @if (isset($pr['application_date']))
-                                                            {{ \Carbon\Carbon::parse($pr['application_date'])->isoFormat('DD/MM/YYYY') }}
+                                                            {{ convertDate($pr['application_date'],"d/m/Y") }}
                                                         @else-
                                                         @endif
                                                     </p>
@@ -1399,7 +1399,7 @@
                                                                 Date</label>
                                                             <p>
                                                                 @if (isset($pr['rejection_date']))
-                                                                    {{ \Carbon\Carbon::parse($pr['rejection_date'])->isoFormat('DD/MM/YYYY') }}
+                                                                    {{ convertDate($pr['rejection_date'],"d/m/Y") }}
                                                                 @else-
                                                                 @endif
                                                             </p>
@@ -1430,7 +1430,7 @@
                                                                 Date</label>
                                                             <p>
                                                                 @if (isset($pr['approval_date']))
-                                                                    {{ \Carbon\Carbon::parse($pr['approval_date'])->isoFormat('DD/MM/YYYY') }}
+                                                                    {{ convertDate($pr['approval_date'],"d/m/Y") }}
                                                                 @else-
                                                                 @endif
                                                             </p>
@@ -1440,7 +1440,7 @@
                                                                 Date</label>
                                                             <p>
                                                                 @if (isset($pr['rep_expiry_date']))
-                                                                    {{ \Carbon\Carbon::parse($pr['rep_expiry_date'])->isoFormat('DD/MM/YYYY') }}
+                                                                    {{ convertDate($pr['rep_expiry_date'],"d/m/Y") }}
                                                                 @else-
                                                                 @endif
                                                             </p>

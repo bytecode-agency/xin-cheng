@@ -5407,7 +5407,9 @@ html body .sales-view .card > .accordion-item.edit_application .accordion-body .
 .share_space_custm .card .form-fields .formAreahalf + div#appended_user_shareholder_cmp2_selcection_div {
     margin: 0;
 }
-
+#appended_user_shareholder_cmp2_selcection_div{
+    margin-top: 50px !important;
+}
 .share_space_custm .card div#appended_shareholder_div .form-fields.company_design .formAreahalf:nth-last-child(2) {
     margin: 0 0 40px !important;
 }

@@ -26,10 +26,13 @@ class WealthPass extends Model
         'phone_no',
         'email',
         'business_type',
+        'business_type_specify',//
         'residential_add',
         'pass_app_status',
         'relation_with_pass',
+        'relation_with_pass_specify',//
         'pass_app_type',
+        'pass_app_type_specify',//
         'pass_inssuance',
         'pass_issuance_date',
         'pass_expiry_date',

@@ -172,6 +172,7 @@ class WealthController extends Controller
         $business_add = new WealthBusiness;
         $business_add->wealth_id = $wealth_all->id;
         $business_add->type_of_fo = $request->type_of_fo;
+        $business_add->type_of_fo_specify = $request->type_of_fo_specify;
         $business_add->servicing_fee = $request->servicing_fee;
         $business_add->servicing_fee_currency = $request->servicing_fee_currency;
         $business_add->servicing_fee_status = $request->servicing_fee_status;
@@ -228,6 +229,7 @@ class WealthController extends Controller
                             $shareholder_all->job_title = isset($shareholder['job_title']) ? $shareholder['job_title'] :null;
                             $shareholder_all->monthly_sal = isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null;
                             $shareholder_all->relation_with_shareholder = isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null;
+                            $shareholder_all->rel_share_specify = isset($shareholder['relation_with_shareholder_specify']) ? $shareholder['relation_with_shareholder_specify'] :null;
                         }
                     
                     $shareholder_all->save();    
@@ -455,37 +457,39 @@ class WealthController extends Controller
                     
                     // echo'<pre>';print_r($company_add->id);  
                     // dd($company_add->id);
-                    foreach($request->share[$key] as $key2=> $shareholder)
-                    {
-                        // dd($shareholder['id']);
-                        // echo'<pre>';print_r($company_add['id']);                       
-                        $shareholder_all = WealthShareholder::updateorCreate(['id'=> $shareholder['id'],'company_id' => $company_add['id']],
-                        [
-                        'equity_percentage' => isset($shareholder['equity_percentage']) ? $shareholder['equity_percentage'] : null,
-                        'shareholder_company_name' => isset($shareholder['shareholder_company_name']) ? $shareholder['shareholder_company_name'] : null,
-                        'shareholder_type' => isset($shareholder['shareholder_type']) ? $shareholder['shareholder_type'] : null,  
-                        'pass_name_eng' => isset($shareholder['pass_name_eng']) ? $shareholder['pass_name_eng'] :null,
-                        'pass_name_chinese' => isset($shareholder['pass_name_chinese'])? $shareholder['pass_name_chinese']: null,
-                        'passport_renew' => isset($shareholder['passport_renew']) ? $shareholder['passport_renew'] :null, 
-                        'gender' => isset($shareholder['gender']) ? $shareholder['gender'] : null,
-                        'dob' => isset($shareholder['dob'])? $shareholder['dob']  :null,
-                        'passport_trg_fqy' => isset($shareholder['passport_trg_fqy'])? $shareholder['passport_trg_fqy']:null,
-                        'passport_no' => isset($shareholder['passport_no']) ? $shareholder['passport_no'] :null,
-                        'passport_exp_date' =>  isset($shareholder['passport_exp_date']) ? $shareholder['passport_exp_date'] :null,
-                        'passport_country' => isset($shareholder['passport_country']) ? $shareholder['passport_country'] :null,
-                        'email' => isset($shareholder['email']) ? $shareholder['email'] :null,
-                        'phone' => isset($shareholder['phone']) ? $shareholder['phone']:null,
-                        'residential_address' => isset($shareholder['residential_address'])? $shareholder['residential_address'] :null,
-                        'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
-                        'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
-                        'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
-                        'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
-                        'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
-                        'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
-                        'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
-                        
-                        ]);                       
-                    }    
+                    if(array_key_exists($key,$request->share)){
+                        foreach($request->share[$key] as $key2=> $shareholder)
+                        {
+                            // dd($shareholder['id']);
+                            // echo'<pre>';print_r($company_add['id']);                       
+                            $shareholder_all = WealthShareholder::updateorCreate(['id'=> $shareholder['id'],'company_id' => $company_add['id']],
+                            [
+                            'equity_percentage' => isset($shareholder['equity_percentage']) ? $shareholder['equity_percentage'] : null,
+                            'shareholder_company_name' => isset($shareholder['shareholder_company_name']) ? $shareholder['shareholder_company_name'] : null,
+                            'shareholder_type' => isset($shareholder['shareholder_type']) ? $shareholder['shareholder_type'] : null,  
+                            'pass_name_eng' => isset($shareholder['pass_name_eng']) ? $shareholder['pass_name_eng'] :null,
+                            'pass_name_chinese' => isset($shareholder['pass_name_chinese'])? $shareholder['pass_name_chinese']: null,
+                            'passport_renew' => isset($shareholder['passport_renew']) ? $shareholder['passport_renew'] :null, 
+                            'gender' => isset($shareholder['gender']) ? $shareholder['gender'] : null,
+                            'dob' => isset($shareholder['dob'])? $shareholder['dob']  :null,
+                            'passport_trg_fqy' => isset($shareholder['passport_trg_fqy'])? $shareholder['passport_trg_fqy']:null,
+                            'passport_no' => isset($shareholder['passport_no']) ? $shareholder['passport_no'] :null,
+                            'passport_exp_date' =>  isset($shareholder['passport_exp_date']) ? $shareholder['passport_exp_date'] :null,
+                            'passport_country' => isset($shareholder['passport_country']) ? $shareholder['passport_country'] :null,
+                            'email' => isset($shareholder['email']) ? $shareholder['email'] :null,
+                            'phone' => isset($shareholder['phone']) ? $shareholder['phone']:null,
+                            'residential_address' => isset($shareholder['residential_address'])? $shareholder['residential_address'] :null,
+                            'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
+                            'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
+                            'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                            'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
+                            'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
+                            'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
+                            'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
+                            
+                            ]);                       
+                        }    
+                    }
                 
                 }
             }
@@ -562,10 +566,13 @@ class WealthController extends Controller
                 'phone_no' => isset($request->phone_no) ? $request->phone_no :null,
                 'email' => isset($request->email) ? $request->email :null,
                 'business_type' =>  isset($request->business_type) ? $request->business_type :null,
+                'business_type_specify' =>  isset($request->business_type_specify) ? $request->business_type_specify :null,
                 'residential_add' =>  isset($request->residential_add) ? $request->residential_add :null,
                 'pass_app_status' => isset($request->pass_app_status) ? $request->pass_app_status :null,
                 'relation_with_pass'  =>  isset($request->relation_with_pass) ? $request->relation_with_pass :null,
+                'relation_with_pass_specify'  =>  isset($request->relation_with_pass_specify) ? $request->relation_with_pass_specify :null,
                 'pass_app_type'=>  isset($request->pass_app_type) ? $request->pass_app_type :null,
+                'pass_app_type_specify'=>  isset($request->pass_app_type_specify) ? $request->pass_app_type_specify :null,
                 'pass_inssuance'  =>  isset($request->pass_inssuance) ? $request->pass_inssuance :null,
                 'pass_issuance_date'=>  isset($request->pass_issuance_date) ? $request->pass_issuance_date :null,
                 'pass_expiry_date'  =>  isset($request->pass_expiry_date) ? $request->pass_expiry_date :null,
@@ -590,6 +597,7 @@ class WealthController extends Controller
                 'product_name' =>  isset($request->product_name) ? $request->product_name :null,
                 'payment_mode' =>  isset($request->payment_mode) ? $request->payment_mode :null,
                 'currency'  =>  isset($request->currency) ? $request->currency :null,
+                'currency_specify'  =>  isset($request->currency_specify) ? $request->currency_specify :null,
                 'investment_amount'  =>  isset($request->investment_amount) ? $request->investment_amount :null,
                 'online_account_user'=>  isset($request->online_account_user) ? $request->online_account_user :null,
                 'online_acc_pass' =>  isset($request->online_acc_pass) ? $request->online_acc_pass :null,
@@ -600,6 +608,7 @@ class WealthController extends Controller
                 'maturity_reminder_trg' => isset($request->maturity_reminder_trg) ? $request->maturity_reminder_trg :null,
                 'commision_status' => isset($request->commision_status) ? $request->commision_status :null,
                 'commission_currency' => isset($request->commission_currency) ? $request->commission_currency :null,
+                'commission_currency_specify' => isset($request->commission_currency_specify) ? $request->commission_currency_specify :null,
                 'commission_amount' => isset($request->commission_amount) ? $request->commission_amount :null,
                 'business_redemption_date' => isset($request->business_redemption_date) ? $request->business_redemption_date :null,
                 'business_redemption_amount' => isset($request->business_redemption_amount) ? $request->business_redemption_amount :null,

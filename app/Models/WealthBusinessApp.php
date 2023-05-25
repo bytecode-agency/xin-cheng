@@ -18,6 +18,7 @@ class WealthBusinessApp extends Model
         'product_name',
         'payment_mode',
         'currency',
+        'currency_specify',//
         'investment_amount',
         'online_account_user',
         'online_acc_pass',
@@ -28,6 +29,7 @@ class WealthBusinessApp extends Model
         'maturity_reminder_trg',
         'commision_status',
         'commission_currency',
+        'commission_currency_specify',//
         'commission_amount',
         'business_redemption_date',
         'business_redemption_amount',
