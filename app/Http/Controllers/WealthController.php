@@ -457,37 +457,39 @@ class WealthController extends Controller
                     
                     // echo'<pre>';print_r($company_add->id);  
                     // dd($company_add->id);
-                    foreach($request->share[$key] as $key2=> $shareholder)
-                    {
-                        // dd($shareholder['id']);
-                        // echo'<pre>';print_r($company_add['id']);                       
-                        $shareholder_all = WealthShareholder::updateorCreate(['id'=> $shareholder['id'],'company_id' => $company_add['id']],
-                        [
-                        'equity_percentage' => isset($shareholder['equity_percentage']) ? $shareholder['equity_percentage'] : null,
-                        'shareholder_company_name' => isset($shareholder['shareholder_company_name']) ? $shareholder['shareholder_company_name'] : null,
-                        'shareholder_type' => isset($shareholder['shareholder_type']) ? $shareholder['shareholder_type'] : null,  
-                        'pass_name_eng' => isset($shareholder['pass_name_eng']) ? $shareholder['pass_name_eng'] :null,
-                        'pass_name_chinese' => isset($shareholder['pass_name_chinese'])? $shareholder['pass_name_chinese']: null,
-                        'passport_renew' => isset($shareholder['passport_renew']) ? $shareholder['passport_renew'] :null, 
-                        'gender' => isset($shareholder['gender']) ? $shareholder['gender'] : null,
-                        'dob' => isset($shareholder['dob'])? $shareholder['dob']  :null,
-                        'passport_trg_fqy' => isset($shareholder['passport_trg_fqy'])? $shareholder['passport_trg_fqy']:null,
-                        'passport_no' => isset($shareholder['passport_no']) ? $shareholder['passport_no'] :null,
-                        'passport_exp_date' =>  isset($shareholder['passport_exp_date']) ? $shareholder['passport_exp_date'] :null,
-                        'passport_country' => isset($shareholder['passport_country']) ? $shareholder['passport_country'] :null,
-                        'email' => isset($shareholder['email']) ? $shareholder['email'] :null,
-                        'phone' => isset($shareholder['phone']) ? $shareholder['phone']:null,
-                        'residential_address' => isset($shareholder['residential_address'])? $shareholder['residential_address'] :null,
-                        'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
-                        'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
-                        'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
-                        'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
-                        'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
-                        'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
-                        'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
-                        
-                        ]);                       
-                    }    
+                    if(array_key_exists($key,$request->share)){
+                        foreach($request->share[$key] as $key2=> $shareholder)
+                        {
+                            // dd($shareholder['id']);
+                            // echo'<pre>';print_r($company_add['id']);                       
+                            $shareholder_all = WealthShareholder::updateorCreate(['id'=> $shareholder['id'],'company_id' => $company_add['id']],
+                            [
+                            'equity_percentage' => isset($shareholder['equity_percentage']) ? $shareholder['equity_percentage'] : null,
+                            'shareholder_company_name' => isset($shareholder['shareholder_company_name']) ? $shareholder['shareholder_company_name'] : null,
+                            'shareholder_type' => isset($shareholder['shareholder_type']) ? $shareholder['shareholder_type'] : null,  
+                            'pass_name_eng' => isset($shareholder['pass_name_eng']) ? $shareholder['pass_name_eng'] :null,
+                            'pass_name_chinese' => isset($shareholder['pass_name_chinese'])? $shareholder['pass_name_chinese']: null,
+                            'passport_renew' => isset($shareholder['passport_renew']) ? $shareholder['passport_renew'] :null, 
+                            'gender' => isset($shareholder['gender']) ? $shareholder['gender'] : null,
+                            'dob' => isset($shareholder['dob'])? $shareholder['dob']  :null,
+                            'passport_trg_fqy' => isset($shareholder['passport_trg_fqy'])? $shareholder['passport_trg_fqy']:null,
+                            'passport_no' => isset($shareholder['passport_no']) ? $shareholder['passport_no'] :null,
+                            'passport_exp_date' =>  isset($shareholder['passport_exp_date']) ? $shareholder['passport_exp_date'] :null,
+                            'passport_country' => isset($shareholder['passport_country']) ? $shareholder['passport_country'] :null,
+                            'email' => isset($shareholder['email']) ? $shareholder['email'] :null,
+                            'phone' => isset($shareholder['phone']) ? $shareholder['phone']:null,
+                            'residential_address' => isset($shareholder['residential_address'])? $shareholder['residential_address'] :null,
+                            'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
+                            'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
+                            'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                            'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
+                            'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
+                            'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
+                            'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
+                            
+                            ]);                       
+                        }    
+                    }
                 
                 }
             }
