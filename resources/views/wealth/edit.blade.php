@@ -430,9 +430,10 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="commencement_date" class="form-label">Commencement
                                                         Date</label>
-                                                    <input type="date" name="commencement_date" id="commencement_date"
-                                                        value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'m/d/Y') }} @endisset"
-                                                        class="form-control">
+                                                    <input type="text" name="commencement_date" id="commencement_date"
+                                                        value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }} @endisset"
+                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                    
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="reminder_notification" class="form-label">Reminder
