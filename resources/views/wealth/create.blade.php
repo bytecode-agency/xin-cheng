@@ -204,7 +204,7 @@
                                                     <option value="" selected="" disabled="">Choose
                                                         Relationship with Company</option>
                                                     <option value="Self">Self</option>
-                                                    <option value="Subsidiary">Subsidiary</option>                                                 
+                                                    <option value="Subsidiary">Subsidiary</option>
                                                     <option value="Parent company">Parent company</option>
                                                     <option value="Fund co.">Fund co.</option>
                                                     <option value="Management co.">Management co.</option>
@@ -278,7 +278,7 @@
                                             name="share[1][0][equity_percentage]" id="fo_equity"
                                             class="form-control"></span><span class="pecentage_end">%</span></div>
                             </div>
-                            <div class="formAreahalf mb-40">
+                            <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Shareholder Type</label>
                                 <select name="share[1][0][shareholder_type]" id="fo_shrholder_type"
                                     class="shrholder_type">
@@ -352,7 +352,7 @@
                             <option value="Female">F</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">  
+                    <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
@@ -1035,7 +1035,7 @@
     </div>
 @endsection
 @push('js')
-  
+
     <script src="{{ asset('js/wealth.js') }}?v={{ time() }}" type="text/javascript"></script>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
