@@ -172,6 +172,7 @@ class WealthController extends Controller
         $business_add = new WealthBusiness;
         $business_add->wealth_id = $wealth_all->id;
         $business_add->type_of_fo = $request->type_of_fo;
+        $business_add->type_of_fo_specify = $request->type_of_fo_specify;
         $business_add->servicing_fee = $request->servicing_fee;
         $business_add->servicing_fee_currency = $request->servicing_fee_currency;
         $business_add->servicing_fee_status = $request->servicing_fee_status;
@@ -228,6 +229,7 @@ class WealthController extends Controller
                             $shareholder_all->job_title = isset($shareholder['job_title']) ? $shareholder['job_title'] :null;
                             $shareholder_all->monthly_sal = isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null;
                             $shareholder_all->relation_with_shareholder = isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null;
+                            $shareholder_all->rel_share_specify = isset($shareholder['relation_with_shareholder_specify']) ? $shareholder['relation_with_shareholder_specify'] :null;
                         }
                     
                     $shareholder_all->save();    

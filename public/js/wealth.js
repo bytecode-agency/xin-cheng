@@ -108,17 +108,17 @@ $(document).ready(function () {
     // $('body').on('change','.one_time_status', '.annual_status', function () {
     //     $(this).valid();
     // });
-    $('body').on('change', 'select', function () {
-        if (this.value == 'Others') {
-            $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
-                <label for="" class="form-label">Please Specify</label>
-                <input type="text" class="form-control" name="tpe_plese_specify" value="">
-            </div>`);
-        }
-        else {
-            $(this).parents().next('.please_specify').remove();
-        }
-    });
+    // $('body').on('change', 'select', function () {
+    //     if (this.value == 'Others') {
+    //         $(this).parent().after(`<div class="formAreahalf basic_data please_specify">
+    //             <label for="" class="form-label">Please Specify</label>
+    //             <input type="text" class="form-control" name="tpe_plese_specify" value="">
+    //         </div>`);
+    //     }
+    //     else {
+    //         $(this).parents().next('.please_specify').remove();
+    //     }
+    // });
 
     $('body').on('click','.next1',function () {
         form.validate({
@@ -132,10 +132,10 @@ $(document).ready(function () {
                 type_of_fo: {
                     required: true
                 },
-                // servicing_fee: {
-                //     required: true,
-                //     number: true
-                // },
+                type_of_fo_specify: {
+                    required: true,
+                    // number: true
+                },
                 // servicing_fee_currency: {
                 //     required: true
                 // },
@@ -155,9 +155,9 @@ $(document).ready(function () {
                 nfo_client_type: { 
                     required: true
                 },
-                tpe_plese_specify: { 
-                    required: true
-                },
+                // tpe_plese_specify: { 
+                //     required: true
+                // },
             },
         });
         if (form.valid() === true) {
@@ -421,7 +421,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
-                <select name="share[1][`+ (sharehold_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-control">
+                <select name="share[1][`+ (sharehold_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-control fo_cpm2_relation " data-id="`+sharehold_no+`" data-key="`+(sharehold_no + 1)+`" data-name="relation_with_shareholder_specify">
                 <option value="" selected disabled>Choose Relationship with shareholder</option>
                 <option value="Self">Self</option>                            
                 <option value="Parents">Parents</option>  
@@ -609,7 +609,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
-                                    <select name="share[1][1][relation_with_shareholder]" id="fo_cpm2_relation_1" class="form-control">
+                                    <select name="share[1][1][relation_with_shareholder]" id="fo_cpm2_relation_1" class="form-control fo_cpm2_relation" data-id="1" data-key="1" data-name="relation_with_shareholder_specify">
                                     <option value="" selected disabled>Choose Relationship with shareholder</option>
                                     <option value="Self">Self</option>                            
                                     <option value="Parents">Parents</option>  
@@ -652,6 +652,47 @@ $(document).ready(function () {
             });
         
         }
+
+    });
+    $(document).on('change', '.fo_cpm2_relation', function() {
+        if ($(this).val() == "Others") {
+            var tpb_id = $(this).attr('data-id');
+            var tpb_key = $(this).attr('data-key');
+            var tpb_name = $(this).attr('data-name');
+            $(this).parent().after(
+                `<div class="formAreahalf please_specify">
+                                        <label for="" class="form-label">Please Specify</label>
+                                        <input type="text" class="form-control"
+                                            name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
+                                            value="">
+                                    </div>`           
+            );
+            // ++o;
+
+        } else {
+            $(this).parents().next('.please_specify').remove();
+        }
+
+
+    });
+    $(document).on('change', '#type_of_fo', function() {
+        if ($(this).val() == "Others") {
+            // var tpb_id = $(this).attr('data-id');
+            // var tpb_key = $(this).attr('data-key');
+            $(this).parent().after(
+                `<div class="formAreahalf please_specify">
+                                        <label for="" class="form-label">Please Specify</label>
+                                        <input type="text" class="form-control"
+                                            name="type_of_fo_specify"
+                                            value="">
+                                    </div>`           
+            );
+            // ++o;
+
+        } else {
+            $(this).parents().next('.please_specify').remove();
+        }
+
 
     });
     $('body').on('click', '.add_shareholder', function () {
@@ -1104,7 +1145,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
-                            <select name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control">
+                            <select name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][relation_with_shareholder]" id="fo_cpm2_relation_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control fo_cpm2_relation" data-id="`+shr_arr_id+`" data-key="`+(sh_no + 1)+`" data-name="relation_with_shareholder_specify">
                             <option value="" selected disabled>Choose Relationship with shareholder</option>
                             <option value="Self">Self</option>                            
                             <option value="Parents">Parents</option>  
@@ -1774,7 +1815,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_relation" class="form-label">Relationship with shareholder 1</label>
-                            <select name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_relation_with_shareholder]" id="fo_cpm2_relation" class="form-control">
+                            <select name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_relation_with_shareholder]" id="fo_cpm2_relation" class="form-control fo_cpm2_relation" data-id="`+shr_arr_id+`" data-key="`+(nfo_sh_no + 1)+`" data-name="nfo_relation_with_shareholder_specify">
                             <option value="" selected disabled>Choose Relationship with shareholder</option>
                             <option value="Self">Self</option>                            
                             <option value="Parents">Parents</option>  
