@@ -105,7 +105,7 @@
                             success: function(response) {
                                 const el = document.createElement('div')
                                 el.innerHTML =
-                                    "You can view User Role List <a href='{{ route('roles.index') }}'>here</a>"
+                                    "You can view User Role List <a class='view-application' href='{{ route('roles.index') }}'>here</a>"
                                 swal({
                                     title: `User Role Created`,
                                     content: el,

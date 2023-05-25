@@ -966,7 +966,7 @@ $(document).ready(function () {
                 const el = document.createElement('div');
                 if (response.success.business_type == "Non-FO" && response.success.client_type == "Personal") {
                     el.innerHTML =
-                        `<p>You can view Application <a href='/wealth-view/` + response.success.id + `'>here</a></p>
+                        `<p>You can view Application <a class='view-application' href='/wealth-view/` + response.success.id + `'>here</a></p>
                     <div class='number_main swal_number'><ul class="list-group list-group-horizontal" id = "nav_list">
                     <li class="list-group-item active"> <a href="#">1</a><p> Business Details </p> </li> 
                     <li class="list-group-item active"> <a href="#">2</a><p> Personal Details </p> </li>                    
@@ -975,7 +975,7 @@ $(document).ready(function () {
                 }
                 else {
                     el.innerHTML =
-                        `<p>You can view Application <a href='/wealth-view/` + response.success.id + `'>here</a></p>
+                        `<p>You can view Application <a class='view-application' href='/wealth-view/` + response.success.id + `'>here</a></p>
                             <div class="number_main swal_number">
                                 <ul class="list-group list-group-horizontal" id="nav_list">
                                     <li class="list-group-item active" id="1">
