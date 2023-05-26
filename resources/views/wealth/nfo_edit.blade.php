@@ -313,7 +313,7 @@
                                                     Shareholder</label>
                                                 <select
                                                     name="share[{{ $key }}][{{ $key2 }}][relation_with_shareholder]"
-                                                    id="fo_cpm2_relation" class="form-control">
+                                                    id="fo_cpm2_relation" class="form-control"  data-id="{{ $key }}" data-key="{{ $key2 }}">
                                                     <option value="" selected disabled>Choose Relationship with
                                                         shareholder</option>
                                                     <option value="Self"
@@ -341,6 +341,18 @@
                                                 </select>
 
                                             </div>
+                                            @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
+                                                <div class="formAreahalf basic_data please_specify">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($shareholder->rel_share_specify))
+                                                    <input type="text" class="form-control"
+                                                            name="share[{{ $key }}][{{ $key2 }}][please_specify]"
+                                                            value="{{ isset($shareholder->rel_share_specify) ? $shareholder->rel_share_specify : '' }}">
+                                                    
+                                                    @endif
+                                                    
+                                                </div>
+                                            @endif
                                         @endif
 
                                     </div>

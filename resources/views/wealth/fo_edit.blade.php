@@ -342,6 +342,20 @@
                                                 </select>
 
                                             </div>
+                                            @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
+                                                <div class="formAreahalf basic_data please_specify">
+                                                    <label for="" class="form-label">Others, please specify</label>
+                                                    @if (isset($shareholder->rel_share_specify))
+                                                    <input type="text" class="form-control"
+                                                            name="share[{{ $key }}][{{ $key2 }}][please_specify]"
+                                                            value="{{ isset($shareholder->rel_share_specify) ? $shareholder->rel_share_specify : '' }}">
+                                                    
+                                                    @endif
+                                                    
+                                                </div>
+                                            @endif
+
+
                                         @endif
 
                                     </div>

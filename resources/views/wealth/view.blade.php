@@ -78,6 +78,16 @@
                         <label for="" class="form-label">Type of FO</label>
                         <p> @isset($basic_data->type_of_fo) {{ $basic_data->type_of_fo }} @endisset</p>
                     </div>
+                    @if (isset($basic_data->type_of_fo) && $basic_data->type_of_fo == 'Others')
+                            <div class="formAreahalf basic_data please_specify">
+                                <label for="" class="form-label">Others, please specify</label>
+                                @if (isset($basic_data->type_of_fo_specify))
+                                <p>{{ $basic_data->type_of_fo_specify }}</p>
+                                @else-
+                                @endif
+                                
+                            </div>
+                        @endif
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Type</label>
                         <p>{{ $data->client_type }}</p>
