@@ -13,7 +13,9 @@ class WealthBusinessApp extends Model
         'financial_institition_name',
         'application_submision',
         'business_account_status',
+        // 'business_account_status_specify',///
         'business_account_type',
+        'business_account_type_specify',///
         'business_account_policy_no',
         'product_name',
         'payment_mode',

@@ -77,10 +77,21 @@
                             <label for="" class="form-label">Type of FO</label>
                             <p> {{ $basic_data->type_of_fo }}</p>
                         </div>
+                        @if (isset($basic_data->type_of_fo) && $basic_data->type_of_fo == 'Others')
+                            <div class="formAreahalf basic_data please_specify">
+                                <label for="" class="form-label">Others, please specify</label>
+                                @if (isset($basic_data->type_of_fo_specify))
+                                <p>{{ $basic_data->type_of_fo_specify }}</p>
+                                @else-
+                                @endif
+                                
+                            </div>
+                        @endif
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Type</label>
                             <p>{{ $data->client_type }}</p>
                         </div>
+                        
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Created By</label>
                             <p>{{ $data->users->name }}</p>
@@ -1270,10 +1281,11 @@
                                                                 {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
                                                         </select>
                                                     </div>
+                                                    
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_type" class="form-label">Account
                                                             Type</label>
-                                                        <select name="business_account_type" class="form-control">
+                                                        <select name="business_account_type" class="form-control business_account_type">
                                                             <option value="" selected disabled>Choose Account Type
                                                             </option>
                                                             <option
@@ -1287,6 +1299,18 @@
                                                                 Others</option>
                                                         </select>
                                                     </div>
+                                                    @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealthbuss->business_account_type_specify))
+                                                            <input type="text" class="form-control"
+                                                                    name="business_account_type_specify"
+                                                                    value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
+                                                            
+                                                            @endif
+                                                            
+                                                        </div>
+                                                    @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_policy_no"
                                                             class="form-label">Account/Policy
@@ -1344,7 +1368,7 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    @if (isset($wealthbuss->currency_type) && $wealthbuss->currency_type == 'Others')
+                                                    @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
                                                         <div class="formAreahalf basic_data please_specify">
                                                             <label for="" class="form-label">Others, please specify</label>
                                                             @if (isset($wealthbuss->currency_specify))
@@ -1645,7 +1669,7 @@
                                                         <label for="business_account_status" class="form-label">Account
                                                             Status</label>
                                                         <select name="business_account_status" id="business_account_status"
-                                                            class="js-example-responsive form-control">
+                                                            class="js-example-responsive form-control business_account_status">
                                                             <option value="" selected disabled>Choose account status
                                                             </option>
                                                             <option value="Pending"
@@ -1656,10 +1680,11 @@
                                                                 {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
                                                         </select>
                                                     </div>
+                                                    
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_type" class="form-label">Account
                                                             Type</label>
-                                                        <select name="business_account_type" class="form-control">
+                                                        <select name="business_account_type" class="form-control business_account_type" >
                                                             <option value="" selected disabled>Choose Account Type
                                                             </option>
                                                             <option
@@ -1673,6 +1698,19 @@
                                                                 Others</option>
                                                         </select>
                                                     </div>
+                                                    @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealthbuss->business_account_type_specify))
+                                                            <input type="text" class="form-control"
+                                                                    name="business_account_type_specify"
+                                                                    value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
+                                                            
+                                                            @endif
+                                                            
+                                                        </div>
+                                                    @endif
+                                                    
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_policy_no"
                                                             class="form-label">Account/Policy
@@ -1713,7 +1751,7 @@
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="currency" class="form-label">Currency</label>
-                                                        <select name="currency" class="form-control">
+                                                        <select id="currency" name="currency" class="form-control">
                                                             <option value="" selected disabled>Choose currency
                                                             </option>
                                                             <option value="USD"
@@ -1730,6 +1768,18 @@
                                                             </option>
                                                         </select>
                                                     </div>
+                                                    @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealthbuss->currency_specify))
+                                                            <input type="text" class="form-control"
+                                                                    name="currency_specify"
+                                                                    value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
+                                                            
+                                                            @endif
+                                                            
+                                                        </div>
+                                                    @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
@@ -1848,7 +1898,7 @@
                                                         <label for="commission_currency" class="form-label">Commission
                                                             Currency(For Admin
                                                             Purpose)</label>
-                                                        <select name="commission_currency" class="form-control">
+                                                        <select id="commission_currency" name="commission_currency" class="form-control">
                                                             <option value="" selected disabled>Choose commission
                                                                 currency
                                                             </option>
@@ -1865,6 +1915,18 @@
                                                         </select>
 
                                                     </div>
+                                                    @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthbuss->commission_currency_specify))
+                                                        <input type="text" class="form-control"
+                                                                name="commission_currency_specify"
+                                                                value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="commission_amount" class="form-label">Commission
                                                             Amount(For
@@ -2213,8 +2275,40 @@
                 }
 
             });
+            // $(document).on('change', '.business_account_status', function() {
+            //     if ($(this).val() == "Others") {
+            //         $(this).parent().after(
+            //             `<div class="formAreahalf basic_data please_specify">
+            //                 <label for="" class="form-label">Please Specify</label>
+            //                 <input type="text" class="form-control"
+            //                     name="business_account_status_specify"
+            //                     value="">
+            //             </div>`           
+            //         );
 
+            //     } else {
+            //         $(this).parents().next('.please_specify').remove();
+            //     }
 
+            // });
+            $(document).on('change', '.business_account_type', function() {
+                if ($(this).val() == "Others") {
+                    $(this).parent().after(
+                        `<div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Please Specify</label>
+                            <input type="text" class="form-control"
+                                name="business_account_type_specify"
+                                value="">
+                        </div>`           
+                    );
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+            });
+
+            
 
         });
     </script>
