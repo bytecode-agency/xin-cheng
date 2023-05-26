@@ -727,7 +727,7 @@
                                                         No</option>
                                                 </select>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#pass_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1149,7 +1149,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1511,7 +1511,7 @@
                                                     value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                     class="form-control">
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#business_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
