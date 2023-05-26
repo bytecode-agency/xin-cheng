@@ -1518,7 +1518,18 @@
                                                         -
                                                     @endisset
                                                 </p>
-                                            </div>
+                                            </div>  
+                                            @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthbuss->business_account_type_specify))
+                                                        {{ $wealthbuss->business_account_type_specify  }}
+                                                        @else -
+                                                        
+                                                        @endif
+                                                        
+                                                    </div>
+                                                @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account/Policy Number</label>
                                                 <p>
