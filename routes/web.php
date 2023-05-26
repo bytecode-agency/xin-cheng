@@ -54,8 +54,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('business-data', [App\Http\Controllers\WealthController::class,'business_tab_add'])->name('business.add')->middleware('can:Wealth Module');
     Route::delete('finance-destroy', [App\Http\Controllers\WealthController::class,'finance_destroy'])->name('wealth.finance_destroy')->middleware('can:Wealth Module');
     Route::delete('business-destroy', [App\Http\Controllers\WealthController::class,'business_destroy'])->name('wealth.business_destroy')->middleware('can:Wealth Module');
+    
+    Route::delete('company-destroy', [App\Http\Controllers\WealthController::class,'company_destroy'])->name('wealth.company_destroy')->middleware('can:Wealth Module');
+    Route::delete('company-shareholder-destroy', [App\Http\Controllers\WealthController::class,'company_shareholder_destroy'])->name('wealth.company_shareholder_destroy')->middleware('can:Wealth Module');
 
-
+    
     Route::post('operation-updfile', [OperationController::class, 'file_upload'])->name('operations.updfile')->middleware('can:Operation Module');
     Route::delete('filedel/{id}', [OperationController::class, 'file_del'])->name('op.files.delete')->middleware('can:Operation Module');
     Route::get('operation-dashboard', [OperationController::class, 'dashboard'])->name('operation.dashboard')->middleware('can:Operation Module');

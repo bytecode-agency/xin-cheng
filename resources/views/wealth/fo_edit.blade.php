@@ -1,14 +1,14 @@
 <h3>Company Information</h3>
 <div class="wealth company_show">
     @foreach ($data->companies as $key => $company)
-        <div id="accordion-{{ $key }}" class="accordion-item" data-companyid={{ $key }}>
+        <div id="accordion-{{ $key }}" class="accordion-item company_name" data-companyid={{ $key }}>
             <div class="card">
                
                 <div class="card-header" id="headingOne">
                     {{-- <span class="edit_cancel_company cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>  --}}
-                    <div class="cross"><span class="edit_cancel_company remove-input-field">x</span></div>   
+                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>   
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Company Name {{ $key + 1 }}</label>
+                        <label for="company_name" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id" class="form-control"
                             value="{{ $company->id }}">
                         <input type="text" name="cmp[{{ $key }}][name]" id="fo_compnay" class="form-control"
@@ -65,9 +65,9 @@
                         <div id="shareholder-accordion-{{ $key2 }}" class="sharehold_length">
                             <div class="card shareholder">
                                 <div class="card-header" id="headingOne_shareholder">
-                                    <div class="cross"><span class="edit_cancel_share remove-input-field">x</span></div>                                   
+                                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>                                   
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Shareholder
+                                        <label for="shareholder_name" class="form-label">Shareholder
                                             #{{ $key2 + 1 }}</label>
                                         <button class="btn btn_set" data-toggle="collapse"
                                             data-target="#collapseOneS{{ $key2 }}"
@@ -81,7 +81,7 @@
                                                 <label for="" class="form-label">Equity Percentage</label>
                                                 <input type="hidden" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
-                                                    value="{{ $shareholder->id }}">
+                                                    value="{{ $shareholder->id }}" id="share_id">
                                                     <div class="dollersec percentage_input"><span class="input"><input type="text"
                                                         name="share[{{ $key }}][{{ $key2 }}][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value="{{ $shareholder->equity_percentage }}"></span><span class="pecentage_end">%</span></div>

@@ -131,12 +131,12 @@ $(document).ready(function () {
         // key++;
 
         $(this).parents('.company_show').find('#accordion-' + (key - 1)).after(
-            `<div id="accordion-` + key + `" class="accordion-item" data-companyid=` + key + `>
+            `<div id="accordion-` + key + `" class="accordion-item company_name" data-companyid=` + key + `>
             <div class="card">
                 <div class="card-header" id="headingOne">
-                <div class="cross"><span class="edit_cancel_company remove-input-field">x</span></div> 
+                <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div> 
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Company Name `+ (key + 1) + ` </label>
+                        <label for="company_name" class="form-label">Company Name `+ (key + 1) + ` </label>
                         <input type="hidden" name="cmp[`+ key + `][id]" id="fo_company_id"
                         class="form-control">
                         <input type="text" name="cmp[`+ key + `][name]" id="fo_compnay"
@@ -251,11 +251,11 @@ $(document).ready(function () {
             `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
                 <div class="card shareholder">
                     <div class="card-header" id="headingOne_shareholder">
-                    <div class="cross"><span class="edit_cancel_share remove-input-field">x</span></div>     
+                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>     
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Shareholder
+                            <label for="shareholder_name" class="form-label">Shareholder
                                 #`+ (key2 + 1) + ` </label>
-                            <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control">
+                            <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
                             <button class="btn btn_set" data-toggle="collapse"
                                 data-target="#collapseOneS`+ key2 + `" aria-expanded="true"
                                 aria-controls="collapseOneS">
@@ -935,4 +935,58 @@ $(document).ready(function () {
         $(this).parents('tr').remove();
     })
 
+    $('body').on('click','.remove-campany',function(){
+        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-destroy",
+            data: {id: id },
+            success: function (response) {
+             console.log(response);                
+            }
+        });
+
+        $(this).parents('.company_name').remove();
+        var count = 1;
+        $('.company_name').each(function (index) {
+            console.log($(this).children().find('.formAreahalf label[for="company_name"]'));
+            $(this).children().find('.formAreahalf label[for="company_name"]').html('Company Name ' + count);
+            count++;
+        });         
+
+    
+    });  
+    
+    $('body').on('click','.remove-campany-shareholder',function(){
+        var finance_entry_id =  $(this).parents('.sharehold_length').find('#share_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-shareholder-destroy",
+            data: {id: finance_entry_id },
+            success: function (response) {
+             console.log(response);                
+            }
+        });
+        
+        $(this).parents('.sharehold_length').remove();
+        var count = 1;
+        $('.sharehold_length').each(function (index) {
+            console.log(count);
+            console.log($(this).children().find('.formAreahalf label[for="shareholder_name"]'));
+            $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
+            count++;
+        });         
+
+    
+    });
 });
