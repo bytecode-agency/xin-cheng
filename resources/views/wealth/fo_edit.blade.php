@@ -13,7 +13,7 @@
                             value="{{ $company->id }}">
                         <input type="text" name="cmp[{{ $key }}][name]" id="fo_compnay" class="form-control"
                             value="{{ $company->name }}">
-                        <button class="btn btn_set" data-toggle="collapse" data-target="#collapseOne{{ $key }}"
+                        <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#collapseOne{{ $key }}"
                             aria-expanded="true" aria-controls="collapseOne">
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
+                            <input type="password" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 
@@ -69,7 +69,7 @@
                                     <div class="formAreahalf basic_data">
                                         <label for="shareholder_name" class="form-label">Shareholder
                                             #{{ $key2 + 1 }}</label>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#collapseOneS{{ $key2 }}"
                                             aria-expanded="true" aria-controls="collapseOneS">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>

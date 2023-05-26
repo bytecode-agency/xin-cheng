@@ -490,7 +490,7 @@
                                                                 <label for="" class="form-label">UEN</label>
                                                                 <p>{{ $company['uen'] }}</p>
                                                             </div>
-                                                            <button class="btn btn_set" data-toggle="collapse"
+                                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                                 data-target="#financial_collapseOne" aria-expanded="true"
                                                                 aria-controls="collapseOne">
                                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -530,7 +530,7 @@
                                                                     <label for="" class="form-label">UEN</label>
                                                                     <p>{{ $company['uen'] }}</p>
                                                                 </div>
-                                                                <button class="btn btn_set" data-toggle="collapse"
+                                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                                     data-target="#financial_collapseOne"
                                                                     aria-expanded="true" aria-controls="collapseOne">
                                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1311,7 +1311,7 @@
                                                     <label for="" class="form-label">Pass Holder Name</label>
                                                     <p>{{ $data['passhol_name'] }}</p>
                                                 </div>
-                                                <button type="button" class="btn btn_set" data-toggle="collapse"
+                                                <button type="button" class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#pass_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>

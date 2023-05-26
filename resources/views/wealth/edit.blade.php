@@ -840,7 +840,7 @@
                                                         No</option>
                                                 </select>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#pass_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1169,16 +1169,16 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_issuance_date" class="form-label">Pass Issuance
                                                         Date</label>
-                                                    <input type="date" name="pass_issuance_date"
+                                                        <input type="text" name="pass_issuance_date"
                                                         value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
-                                                        class="form-control">
+                                                        class="form-control datepicker" placeholder="dd/mm/yy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_expiry_date" class="form-label">Pass Expiry
                                                         Date</label>
-                                                    <input type="date" name="pass_expiry_date"
-                                                        value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
-                                                        class="form-control">
+                                                    <input type="text" name="pass_expiry_date"
+                                                    value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
+                                                    class="form-control datepicker" placeholder="dd/mm/yy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -1298,7 +1298,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1697,7 +1697,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>

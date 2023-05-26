@@ -185,7 +185,7 @@
                                 <div class="formAreahalf basic_data">
                                     <label for="" class="form-label">Company Name {{ $key + 1 }}</label>
                                     <p>{{ $company->name }}</p>
-                                    <button class="btn btn_set" data-toggle="collapse"
+                                    <button class="btn btn_set collapsed" data-toggle="collapse"
                                         data-target="#collapseOne{{ $key }}" aria-expanded="true"
                                         aria-controls="collapseOne">
                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -233,7 +233,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Shareholder
                                                         #{{ $key2 + 1 }}</label>
-                                                    <button class="btn btn_set" data-toggle="collapse"
+                                                    <button class="btn btn_set collapsed" data-toggle="collapse"
                                                         data-target="#collapseOneS{{ $key2 }}"
                                                         aria-expanded="true" aria-controls="collapseOneS">
                                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -938,7 +938,7 @@
                                                     @endisset
                                                 </p>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#financial_collapseOne{{$i}}" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1123,7 +1123,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#pass_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1376,7 +1376,7 @@
                                                 <label for="" class="form-label">Pass Issuance Date</label>
                                                 <p>
                                                     @isset($wealthpass->pass_issuance_date)
-                                                        {{ $convertDate(wealthpass->pass_issuance_date,"d/m/Y") }}
+                                                        {{ convertDate($wealthpass->pass_issuance_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1504,7 +1504,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#business_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1813,7 +1813,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#business_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
