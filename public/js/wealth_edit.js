@@ -255,7 +255,7 @@ $(document).ready(function () {
                         <div class="formAreahalf basic_data">
                             <label for="shareholder_name" class="form-label">Shareholder
                                 #`+ (key2 + 1) + ` </label>
-                            <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control">
+                            <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
                             <button class="btn btn_set" data-toggle="collapse"
                                 data-target="#collapseOneS`+ key2 + `" aria-expanded="true"
                                 aria-controls="collapseOneS">
@@ -936,20 +936,20 @@ $(document).ready(function () {
     })
 
     $('body').on('click','.remove-campany',function(){
-        // var finance_entry_id =  $(this).parents('.wealth_finance_check').find('#finance_id').val();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type: "delete",
-        //     url: "/company-destroy",
-        //     data: {id: finance_entry_id },
-        //     success: function (response) {
-        //      console.log(response);                
-        //     }
-        // });
+        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-destroy",
+            data: {id: id },
+            success: function (response) {
+             console.log(response);                
+            }
+        });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -963,20 +963,20 @@ $(document).ready(function () {
     });  
     
     $('body').on('click','.remove-campany-shareholder',function(){
-        // var finance_entry_id =  $(this).parents('.wealth_finance_check').find('#finance_id').val();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type: "delete",
-        //     url: "/company-destroy",
-        //     data: {id: finance_entry_id },
-        //     success: function (response) {
-        //      console.log(response);                
-        //     }
-        // });
+        var finance_entry_id =  $(this).parents('.sharehold_length').find('#share_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-shareholder-destroy",
+            data: {id: finance_entry_id },
+            success: function (response) {
+             console.log(response);                
+            }
+        });
         
         $(this).parents('.sharehold_length').remove();
         var count = 1;
