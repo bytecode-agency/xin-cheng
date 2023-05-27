@@ -380,7 +380,7 @@
                         </div>
                     @endforeach
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
-                        id="edit_add_share" data-id={{ $key2 }}>Add
+                        id="edit_add_share" data-id="{{ !empty($key2) ? $key2 : 0 }}">Add
                         Shareholder</button>
                 </div>
             </div>
