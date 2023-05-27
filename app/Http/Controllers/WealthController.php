@@ -468,7 +468,7 @@ class WealthController extends Controller
                     
                     // echo'<pre>';print_r($company_add->id);  
                     // dd($company_add->id);
-                    if(array_key_exists($key,$request->share)){
+                    if(!empty($request->share) && is_array($request->share) && array_key_exists($key,$request->share)){
                         foreach($request->share[$key] as $key2=> $shareholder)
                         {
                             // dd($shareholder['id']);
