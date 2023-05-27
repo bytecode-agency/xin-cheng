@@ -89,7 +89,8 @@
                         @endif
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
-                            <p>{{ convertDate($basic_data->date_of_contract,"d/m/Y") }}</p>
+                            <input type="text" class="form-control datepicker" name="date_of_contract"
+                                        value="{{convertDate($basic_data->date_of_contract,'d/m/Y')}}" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Type</label>
@@ -173,15 +174,53 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
-                            <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
+                            
+                            <input type="text" class="form-control datepicker" name="annual_fee_due_date"
+                                        value="{{ convertDate($basic_data->annual_fee_due_date,'d/m/Y') }}" placeholder="dd/mm/yyyy">
+                            
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
-                            <p> {{ $basic_data->annual_fee_due_reminder }}</p>
+                            <select
+                                name="annual_fee_due_reminder"
+                                id="annual_fee_due_reminder" class="form-control">
+                                    <option value="" selected disabled>Choose Passport Renewal Reminder</option>
+                                    <option value="30 day before due"
+                                        {{ $basic_data->annual_fee_due_reminder == '30 day before due' ? 'selected' : '' }}>
+                                        30 day before due
+                                    </option>
+                                    <option value="60 day before due"
+                                        {{ $basic_data->annual_fee_due_reminder == '60 day before due' ? 'selected' : '' }}>
+                                        60 day before due
+                                    </option>
+                                    
+                                </select>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
-                            <p> {{ $basic_data->annual_fee_due_reminder_trigger }}</p>
+                            <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
+                                <option value="" selected="" disabled="">Please select</option>
+                                <option value="Day" 
+                                    {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == 'Day' ? 'selected' : '' }} >
+                                    Day
+                                </option>
+                                <option value="3 Days" 
+                                    {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '3 Daya' ? 'selected' : '' }}>
+                                    3 Days
+                                </option>
+                                <option value="Week" 
+                                    {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == 'Week' ? 'selected' : '' }}>
+                                    Week
+                                </option>
+                                <option  value="2 Weeks" 
+                                    {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '2 Weeks' ? 'selected' : '' }}>
+                                    2 Weeks
+                                </option>
+                                <option value="4 Weeks" 
+                                    {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '4 Weeks' ? 'selected' : '' }}>
+                                    4 Weeks
+                                </option>
+                            </select>
                         </div>
                     @else
                             @if ($data->business_type == 'Non-FO' && $data->client_type == 'Personal')

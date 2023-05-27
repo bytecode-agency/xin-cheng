@@ -1146,7 +1146,7 @@ $(document).ready(function () {
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary</label>
+                            <label for="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary (SGD)</label>
                             <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                             </div>
                         </div>

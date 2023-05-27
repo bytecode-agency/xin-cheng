@@ -442,6 +442,11 @@ class WealthController extends Controller
                 'annual_servicing_fee' => $request->annual_servicing_fee,
                 'annual_fee_currency' => $request->annual_fee_currency,
                 'annual_fee_status' => $request->annual_fee_status,
+                'date_of_contract' => $request->date_of_contract,
+                'annual_fee_due_date' => $request->annual_fee_due_date,
+                'annual_fee_due_reminder' => $request->annual_fee_due_reminder,
+                'annual_fee_due_reminder_trigger' => $request->annual_fee_due_reminder_trigger,
+                
             ]);
             
             if(isset($request->cmp))
