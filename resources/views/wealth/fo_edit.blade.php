@@ -303,11 +303,27 @@
                                                     value="{{ $shareholder->job_title }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Monthly Salary in the
-                                                    company(SGD)</label>
+                                                <label for="" class="form-label">Monthly Salary (SGD)</label>
                                                     <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}"></div>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Company</label>
+                                                <input  type="text" 
+                                                        class="form-control"
+                                                        name="share[{{ $key }}][{{ $key2 }}][company]"
+                                                        value="{{ isset($shareholder->company) ? $shareholder->company : '' }}"
+                                                >
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                                <input  type="text" 
+                                                        class="form-control datepicker"
+                                                        name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
+                                                        value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
+                                                        placeholder="dd/mm/yy"
+                                                >
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With

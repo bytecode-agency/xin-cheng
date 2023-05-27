@@ -30,6 +30,8 @@ class WealthShareholder extends Model
         'type_of_tin',
         'job_title',
         'monthly_sal',
+        'company',
+        'monthly_salary_wef',
         'relation_with_shareholder',
         'rel_share_specify'
         ];
