@@ -759,7 +759,7 @@
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="finacial_remarks" class="form-label">Remarks</label>
                                                                     <textarea name="financial[{{$i +1}}][finacial_remarks]" id="finacial_remarks" rows="4" cols="50"
-                                                                        value="@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset"></textarea>
+                                                                        value="@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset">@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>                                                                                                                                                                                            
@@ -1237,7 +1237,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_remarks" class="form-label">Remarks</label>
                                                     <textarea name="pass_remarks" rows="4" cols="50"
-                                                        value="@isset($wealthpass->pass_remarks) {{ $wealthpass->pass_remarks }} @endisset"></textarea>
+                                                        value="@isset($wealthpass->pass_remarks) {{ $wealthpass->pass_remarks }} @endisset">@isset($wealthpass->pass_remarks) {{ $wealthpass->pass_remarks }} @endisset</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -1556,7 +1556,7 @@
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_remarks" class="form-label">Remarks</label>
                                                         <textarea name="business_remarks" rows="4" cols="50"
-                                                            value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset"></textarea>
+                                                            value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset">@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset</textarea>
                                                     </div>
                                                 </div>
                                                 
@@ -1983,7 +1983,7 @@
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_remarks" class="form-label">Remarks</label>
                                                         <textarea name="business_remarks" rows="4" cols="50"
-                                                            value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset"></textarea>
+                                                            value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset">@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset</textarea>
                                                     </div>
                                                 </div>
                                             
