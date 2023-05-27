@@ -805,7 +805,7 @@
         <div class="formAreahalf">
             <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Remainder</label>
             <select class="form-control" name="annual_fee_due_reminder" id="annual_fee_due_reminder">
-                <option value="" selected disabled>Choose TRemainder </option>
+                <option value="" selected disabled>Choose Remainder </option>
                 <option value="30 day before due">30 day before due</option>
                 <option value="60 day before due">60 day before due</option>
             </select>

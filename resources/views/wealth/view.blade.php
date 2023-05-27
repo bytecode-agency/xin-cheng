@@ -2120,10 +2120,15 @@
                         <table class="table table_yellow {{ count($file) > 0 ? 'commanDataTable' : '' }}" >
                             <thead>
                                 <tr>
-                                    <th scope="col">File Name</th>
-                                    <th scope="col">Uploaded by</th>
-                                    <th scope="col">Date & Time</th>
-                                    <th scope="col">Action</th>
+                                    <td>{{ $files->file }}</td>
+                                    <td>{{ $files->uploaded_by_name }}</td>
+                                    <td>{{ $files->created_at->format('j F Y  g:i a') }}</td>
+                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                            {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
+                                            <i class="fa-solid fa-download"></i></a>
+                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                    </td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -2156,29 +2161,24 @@
             <div class="card file company_info formContentData border-0 p-4"
                 style="background: #fff; padding-bottom: 10px !important;">
                 <h3>Action Log</h3>
-                <div class="dataAreaMain">
-                    <div class="table_cstm  dasboard-entry">
-                        <table class="table table_yellow commanDataTable" >
-                            <thead>
-                                <tr>
-                                    <th scope="col">Actions</th>
-                                    <th scope="col">Made by</th>
-                                    <th scope="col">Date & Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($action_log as $activity)
-                                    <tr>
-                                        <td>{{ $activity->message }}</td>
-                                        <td>{{ $activity->name }}</td>
-                                        <td>{{ convertDate($activity->created_at,'d/m/Y g:i A') }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+                <table class="table user_action_log">
+                    <thead>
+                        <tr>
+                            <th scope="col">Actions</th>
+                            <th scope="col">Made by</th>
+                            <th scope="col">Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($action_log as $activity)
+                            <tr>
+                                <td>{{ $activity->message }}</td>
+                                <td>{{ $activity->name }}</td>
+                                <td>{{ $activity->created_at->format('j F Y  g:i a') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
 
         </div>
