@@ -2104,7 +2104,7 @@
                 @foreach ($notes as $note)
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
-                        <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                        <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
@@ -2127,7 +2127,7 @@
                                 <tr>
                                     <td>{{ $files->file }}</td>
                                     <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->format('j F Y  g:i a') }}</td>
+                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a')  }}</td>
                                     <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                             {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
                                             <i class="fa-solid fa-download"></i></a>
@@ -2162,7 +2162,7 @@
                             <tr>
                                 <td>{{ $activity->message }}</td>
                                 <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->format('j F Y  g:i a') }}</td>
+                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -1615,7 +1615,7 @@
 
                             {{-- <td>{{ $activity->message }}</td>
                                 <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->format('j F Y  g:i a') }}</td> --}}
+                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td> --}}
                         </tr>
 
                         <tr>

@@ -889,7 +889,7 @@
                     <tr>
                         {{-- <td>{{ $activity->message }}</td>
                             <td>{{ $activity->name }}</td>
-                            <td>{{ $activity->created_at->format('d/m/Y  g:i A') }}</td> --}}
+                            <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td> --}}
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>
