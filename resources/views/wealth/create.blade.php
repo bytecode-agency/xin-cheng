@@ -741,6 +741,14 @@
                 <option value="Others">Others</option>
             </select>
         </div>
+        <div class="formAreahalf basic_data">
+            <label for="date_of_contract" class="form-label">Date of contract DD/MM/YYYY</label>
+            <input type="date" class="form-control datepicker" name="date_of_contract"
+                        id="date_of_contract" placeholder="dd/mm/yy">
+                        
+           
+        </div>
+        
         <div class="formAreahalf">
             <label for="fo_servicing_fee_amount" class="form-label">One-Time Servicing Fee Amount</label>
             <div class="dollersec"><span class="doller">$</span>
@@ -787,6 +795,30 @@
                 <option value="Pending">Pending</option>
                 <option value="Received">Received</option>
                 {{-- <option value="Rejected">Rejected</option> --}}
+            </select>
+        </div>
+        <div class="formAreahalf">
+            <label for="annual_fee_due_date" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+            <input type="date" class="form-control datepicker" name="annual_fee_due_date"
+                        id="annual_fee_due_date" placeholder="dd/mm/yy">
+        </div>
+        <div class="formAreahalf">
+            <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Remainder</label>
+            <select class="form-control" name="annual_fee_due_reminder" id="annual_fee_due_reminder">
+                <option value="" selected disabled>Choose TRemainder </option>
+                <option value="30 day before due">30 day before due</option>
+                <option value="60 day before due">60 day before due</option>
+            </select>
+        </div>
+        <div class="formAreahalf">
+            <label for="annual_fee_due_reminder_trigger" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+            <select class="form-control" name="annual_fee_due_reminder_trigger" id="annual_fee_due_reminder_trigger">
+                    <option value="" selected="" disabled="">Please select</option>
+                    <option value="Day">Day</option>
+                    <option value="3 Days">3 Days</option>
+                    <option value="Week">Week</option>
+                    <option value="2 Weeks">2 Weeks</option>
+                    <option value="4 Weeks">4 Weeks</option>
             </select>
         </div>
     </div>

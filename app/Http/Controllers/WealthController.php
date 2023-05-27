@@ -173,12 +173,16 @@ class WealthController extends Controller
         $business_add->wealth_id = $wealth_all->id;
         $business_add->type_of_fo = $request->type_of_fo;
         $business_add->type_of_fo_specify = $request->type_of_fo_specify;
+        $business_add->date_of_contract = $request->date_of_contract;
         $business_add->servicing_fee = $request->servicing_fee;
         $business_add->servicing_fee_currency = $request->servicing_fee_currency;
         $business_add->servicing_fee_status = $request->servicing_fee_status;
         $business_add->annual_servicing_fee = $request->annual_servicing_fee;
         $business_add->annual_fee_currency = $request->annual_fee_currency;
         $business_add->annual_fee_status = $request->annual_fee_status;
+        $business_add->annual_fee_due_date = $request->annual_fee_due_date;
+        $business_add->annual_fee_due_reminder = $request->annual_fee_due_reminder;
+        $business_add->annual_fee_due_reminder_trigger = $request->annual_fee_due_reminder_trigger;
         $business_add->save();
 
         //  for FO companies and shareholder

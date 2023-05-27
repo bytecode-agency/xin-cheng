@@ -79,15 +79,19 @@
                         <p> @isset($basic_data->type_of_fo) {{ $basic_data->type_of_fo }} @endisset</p>
                     </div>
                     @if (isset($basic_data->type_of_fo) && $basic_data->type_of_fo == 'Others')
-                            <div class="formAreahalf basic_data please_specify">
-                                <label for="" class="form-label">Others, please specify</label>
-                                @if (isset($basic_data->type_of_fo_specify))
-                                <p>{{ $basic_data->type_of_fo_specify }}</p>
-                                @else-
-                                @endif
-                                
-                            </div>
-                        @endif
+                        <div class="formAreahalf basic_data please_specify">
+                            <label for="" class="form-label">Others, please specify</label>
+                            @if (isset($basic_data->type_of_fo_specify))
+                            <p>{{ $basic_data->type_of_fo_specify }}</p>
+                            @else-
+                            @endif
+                            
+                        </div>
+                    @endif
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
+                        <p>{{ convertDate($basic_data->date_of_contract,"d/m/Y") }}</p>
+                    </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Type</label>
                         <p>{{ $data->client_type }}</p>
@@ -126,6 +130,18 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Amount</label>
                         <p>$ {{ $basic_data->annual_servicing_fee }}</p>
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+                        <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                        <p> {{ $basic_data->annual_fee_due_reminder }}</p>
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                        <p> {{ $basic_data->annual_fee_due_reminder_trigger }}</p>
                     </div>
                 @else
                     @if ($data->business_type == 'Non-FO' && $data->client_type == 'Personal')
@@ -1252,7 +1268,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Business Type33</label>
+                                                <label for="" class="form-label">Business Type</label>
                                                 <p>
                                                     @isset($wealthpass->business_type)
                                                         {{ $wealthpass->business_type }}

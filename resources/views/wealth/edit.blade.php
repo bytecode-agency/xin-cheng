@@ -88,6 +88,10 @@
                             </div>
                         @endif
                         <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
+                            <p>{{ convertDate($basic_data->date_of_contract,"d/m/Y") }}</p>
+                        </div>
+                        <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Type</label>
                             <p>{{ $data->client_type }}</p>
                         </div>
@@ -166,6 +170,18 @@
                                 <span class="input"> <input type="text" class="form-control" name="annual_servicing_fee"
                                         value="{{ $basic_data->annual_servicing_fee }}"></span>
                             </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+                            <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                            <p> {{ $basic_data->annual_fee_due_reminder }}</p>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                            <p> {{ $basic_data->annual_fee_due_reminder_trigger }}</p>
                         </div>
                     @else
                             @if ($data->business_type == 'Non-FO' && $data->client_type == 'Personal')
