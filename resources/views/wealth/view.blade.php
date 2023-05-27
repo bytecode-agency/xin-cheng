@@ -495,11 +495,7 @@
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
                                                         </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
-                                                            <p>{{ $shareholder->relation_with_shareholder }}</p>
-                                                        </div>
+                                                        
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
                                                                 Shareholder</label> 
