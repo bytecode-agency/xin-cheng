@@ -93,6 +93,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     Route::post('notes', [App\Http\Controllers\HomeController::class,'createnotes'])->name('notes');
+    Route::post('note-destroy', [App\Http\Controllers\HomeController::class,'removeNote'])->name('removeNote');
 
 
 });

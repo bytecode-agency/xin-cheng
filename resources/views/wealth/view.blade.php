@@ -2102,71 +2102,82 @@
                     </div>
                 </form> -->
                 @foreach ($notes as $note)
-                    <div class="notes_show">
+                    <div class="notes_show" id="note{{$note->id }}">
+                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
+                <ul id="pagin"></ul>
             </div>
 
             <div class="card file upload ">
                 <h3>File Uploads</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded by</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($file) > 0)
-                            @foreach ($file as $files)
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow {{ count($file) > 0 ? 'commanDataTable' : '' }}" >
+                            <thead>
                                 <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ convertDate($files->created_at,'d/m/Y g:i A') }}</td>
-                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
-                                            <i class="fa-solid fa-download"></i></a>
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Uploaded by</th>
+                                    <th scope="col">Date & Time</th>
+                                    <th scope="col">Action</th>
                                 </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
-                            </tr>
-                        @endif
+                            </thead>
+                            <tbody>
+                                @if (count($file) > 0)
+                                    @foreach ($file as $files)
+                                        <tr>
+                                            <td>{{ $files->file }}</td>
+                                            <td>{{ $files->uploaded_by_name }}</td>
+                                            <td>{{ convertDate($files->created_at,'d/m/Y g:i A') }}</td>
+                                            <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                    {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
+                                                    <i class="fa-solid fa-download"></i></a>
+                                                <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                    </tr>
+                                @endif
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="card file company_info formContentData border-0 p-4"
                 style="background: #fff; padding-bottom: 10px !important;">
                 <h3>Action Log</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">Actions</th>
-                            <th scope="col">Made by</th>
-                            <th scope="col">Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($action_log as $activity)
-                            <tr>
-                                <td>{{ $activity->message }}</td>
-                                <td>{{ $activity->name }}</td>
-                                <td>{{ convertDate($activity->created_at,'d/m/Y g:i A') }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow commanDataTable" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Made by</th>
+                                    <th scope="col">Date & Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($action_log as $activity)
+                                    <tr>
+                                        <td>{{ $activity->message }}</td>
+                                        <td>{{ $activity->name }}</td>
+                                        <td>{{ convertDate($activity->created_at,'d/m/Y g:i A') }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
 
         </div>
@@ -4238,5 +4249,22 @@
             })
 
         });
+
+
+      $('.commanDataTable').DataTable({
+
+            oLanguage: {
+                "sInfo": "Showing _START_ - _END_ of _TOTAL_", // text you want show for info section
+                "sLengthMenu": "Show _MENU_ Entries",
+                "oPaginate": {
+                    "sNext": "<i class='fa fa-angle-double-right'></i>",
+                    "sPrevious": "<i class='fa fa-angle-double-left'></i>"
+                },
+            },
+            
+            searching: false,
+            paging: true
+        });
+       
     </script>
 @endpush

@@ -389,10 +389,14 @@ $(document).ready(function () {
                         </div>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Gender</label>
-                        <input type="text" class="form-control"
+                        <label for="" class="form-label">Gender </label>
+                        <select class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][gender]"
                            >
+                           <option value="" selected disabled>Choose gender</option>
+                           <option value="Male">M</option>
+                           <option value="Female">F</option>
+                           </select>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Number</label>
