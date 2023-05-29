@@ -22,7 +22,7 @@
     </div>
 
     <!-- Filter Data Pagination -->
-    <div class="filterPagination d-flex justify-content-between align-items-center">
+    <div class="filterPagination d-flex col-6 justify-content-between align-items-center">
         <div class="paginationLeft">
             <ul>
                 <li><a href="{{ route('wealth.index') }}">Wealth</a></li>
@@ -38,12 +38,13 @@
                 @endif
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
-            <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
-                    alt="print Icon"></a>
-            <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
-            <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
-        </div>
+
+    </div>
+    <div class="filterBtn viewSave d-flex col-6 ms-auto align-items-center justify-content-end">
+        <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
+                alt="print Icon"></a>
+        <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
+        <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -85,7 +86,7 @@
                             <p>{{ $basic_data->type_of_fo_specify }}</p>
                             @else-
                             @endif
-                            
+
                         </div>
                     @endif
                     <div class="formAreahalf basic_data">
@@ -495,10 +496,10 @@
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
                                                         </div>
-                                                        
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label> 
+                                                                Shareholder</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -911,10 +912,10 @@
                                 aria-labelledby="nav-profile-tab">
                                     @php $length =1;@endphp
                                         @if(count($wealth_finance)>0)
-                                        @php $length=count($wealth_finance); @endphp                                       
-                                        @endif                  
-                                    @for($i=0; $i<$length; $i++)      
-                                                           
+                                        @php $length=count($wealth_finance); @endphp
+                                        @endif
+                                    @for($i=0; $i<$length; $i++)
+
                                     <div id="financial_accordion_{{$i}}" class="mas_related">
                                         <div class="mas_heading_accordian d-flex flex-wrap">
                                             <div class="formAreahalf basic_data">
@@ -1103,8 +1104,8 @@
                                         </div>
                                     </div>
                                     @endfor
-                                    
-                              
+
+
 
                             </div>
 
@@ -1547,16 +1548,16 @@
                                                         -
                                                     @endisset
                                                 </p>
-                                            </div>  
+                                            </div>
                                             @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
                                                         @if (isset($wealthbuss->business_account_type_specify))
                                                         {{ $wealthbuss->business_account_type_specify  }}
                                                         @else -
-                                                        
+
                                                         @endif
-                                                        
+
                                                     </div>
                                                 @endif
                                             <div class="formAreahalf basic_data">
@@ -1773,7 +1774,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -1789,7 +1790,7 @@
                                                             @endif
 
                                                         </tbody>
-                                                       
+
                                                     </table>
 
                                                 </div>
@@ -2053,7 +2054,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -2067,7 +2068,7 @@
                                                                 <td colspan="3">No record found</td>
                                                             </tr>
                                                             @endif
-                                                        
+
                                                         </tbody>
                                                     </table>
 
@@ -2697,7 +2698,7 @@
                                         <td
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
-                                            <span 
+                                            <span
                                                 style="padding-top:12px; display:block;">{{ convertDate($basic_data->passport_exp_date,'d/m/Y') }}
                                             </span>
                                         </td>
@@ -4131,7 +4132,7 @@
             $("#notes_cancel").show();
             });
 
-            $("#notes_cancel").click(function() {           
+            $("#notes_cancel").click(function() {
             $("#text_notes").val('');
             $("#notes_cancel").hide();
             });
@@ -4261,10 +4262,10 @@
                     "sPrevious": "<i class='fa fa-angle-double-left'></i>"
                 },
             },
-            
+
             searching: false,
             paging: true
         });
-       
+
     </script>
 @endpush
