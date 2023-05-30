@@ -4251,20 +4251,7 @@
         });
 
 
-      $('.commanDataTable').DataTable({
-
-            oLanguage: {
-                "sInfo": "Showing _START_ - _END_ of _TOTAL_", // text you want show for info section
-                "sLengthMenu": "Show _MENU_ Entries",
-                "oPaginate": {
-                    "sNext": "<i class='fa fa-angle-double-right'></i>",
-                    "sPrevious": "<i class='fa fa-angle-double-left'></i>"
-                },
-            },
-            
-            searching: false,
-            paging: true
-        });
+      
        
     </script>
 @endpush
