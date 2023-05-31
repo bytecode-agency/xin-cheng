@@ -371,7 +371,7 @@ class WealthController extends Controller
     {   
         $data = Wealth::with('companies.shareholder')->with('users')->find($id); 
         // dd($data);
-        if($data->business_type == "FO")
+        if(!empty($data) && !empty($data->business_type) && $data->business_type == "FO")
         {
             $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first();           
         }
