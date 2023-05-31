@@ -386,7 +386,7 @@ class WealthController extends Controller
                 $basic_data = $data;
             }                  
         }   
-        $file = WealthFiles::where('wealth_id', $id)->get(); 
+        $file = WealthFiles::where('wealth_id', $id)->orderBy('id','desc')->get(); 
         $notes = Notes::where('module_name','Wealth')->where('application_id',$id)->orderBy('id','desc')->get();  
         $action_log = LogActivity::where('module_name','=','Wealth')->where('userID','=',$id)->orderBy('id','desc')->get(); 
         $wealth_mas = WealthMas::where('wealth_id',$id)->first();
@@ -414,7 +414,7 @@ class WealthController extends Controller
                 $basic_data = $data;
             }                  
         } 
-        $file = WealthFiles::where('wealth_id', $id)->get();   
+        $file = WealthFiles::where('wealth_id', $id)->orderBy('id','desc')->get();   
         $wealth_mas = WealthMas::where('wealth_id',$id)->first();
         $wealthfinance = WealthFinancial::where('wealth_id',$id)->get();
        
