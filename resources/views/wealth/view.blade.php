@@ -893,7 +893,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Remarks</label>
+                                                <label for="" class="form-label">Remarksdfdfddf</label>
                                                 <p>
                                                     @isset($wealth_mas->remarks)
                                                         {{ $wealth_mas->remarks }}
@@ -2387,7 +2387,7 @@
                             </table>
                         </td>
                     </tr>
-
+                             
 
                     {{-- Company --}}
                     @if ($data->business_type == 'FO' || ($data->business_type == 'Non-FO' && $data->client_type == 'Corporate'))
@@ -2821,8 +2821,7 @@
                         </tr>
                     @endif
                 </table>
-            </div>
-
+            </div>                 
 
             {{-- Application Information --}}
             @if ($data->business_type == 'FO')
@@ -3041,7 +3040,7 @@
 
                     </table>
 
-                </div>
+                </div>              
                 {{-- Financial --}}
                 <div class="page page_7" style="page-break-before: always;">
                     <table class="header-table">
@@ -3223,7 +3222,7 @@
 
                     </table>
 
-                </div>
+                </div>           
                 {{-- Pass Related --}}
                 <div class="page page_8" style="page-break-before: always;">
                     <table class="header-table">
@@ -3479,7 +3478,7 @@
 
                     </table>
 
-                </div>
+                </div>            
                 {{-- Business Related --}}
                 <div class="page page_9" style="page-break-before: always;">
                     <table class="header-table">
@@ -3736,7 +3735,7 @@
 
                     </table>
 
-                </div>
+                </div>            
 
                 <div class="page page_10" style="page-break-before: always;">
                     <table class="header-table">
@@ -3881,7 +3880,7 @@
                         </tr>
                     </table>
 
-                </div>
+                </div>            
             @else
                 {{-- Business Related --}}
                 <div class="page page_9" style="page-break-before: always;">
