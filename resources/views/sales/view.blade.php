@@ -667,14 +667,14 @@
                                     </tr>
 
                                     <tr>
-                                        <td
+                                            <td
                                             style="width:50%; font-weight:700; font-size:15px; color:#010101; padding-top:30px;">
-                                            {{ $sale->created_by }}</td>
+                                            Client Status</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:8px;">
-                                            client_sts</td>
+                                            {{ $sale->client_sts }}</td>
                                     </tr>
 
                                 </table>
@@ -703,12 +703,7 @@
 
                         <tr class="five-row-cstm">
                             <td>
-
                                 <table border="0">
-
-
-
-
                                     <tr>
                                         <td style="width:50%; font-weight:700; font-size:15px; color:#010101;">Business
                                             Type</td>
@@ -843,10 +838,8 @@
 
                     </table>
                 </div>
-                <span class="break">&nbsp;</span>
 
-
-                <div class="page page_2">
+                <div class="page page_2" style="page-break-before: always;">
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_2">
                             <td>
@@ -1094,7 +1087,7 @@
 
                 </div>
 
-                <div class="page page_3">
+                <div class="page page_3" style="page-break-before: always;">
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_3">
                             <td>
@@ -1115,6 +1108,25 @@
                                                     <td colspan="2" class="main-heading center">Sales</td>
                                                 </tr>
                                             </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="fourth-row-cstm">
+                            <td>
+                                <table style="width:80%; margin:0 auto; ">
+                                    <tr>
+                                        <td style="width:20%; text-align:right; color:#000; padding:40px 0;">
+                                            <hr / style="background-color:#000; ">
+                                        </td>
+                                        <td style="text-align:center; width:55% padding:56px 0 40px;">
+                                            <div class="text-center line-cstm"
+                                                style="font-size:22px; color:#010101; font-weight:500;">Application
+                                                Information</div>
+                                        </td>
+                                        <td style="width:20%; text-align:left; color:#000; padding:40px 0;">
+                                            <hr / style="background-color:#000; ">
                                         </td>
                                     </tr>
                                 </table>
