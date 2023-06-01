@@ -1328,9 +1328,7 @@
                                   <?php $pr_name=0; ?>
                                     @foreach ($pass_hol['pass_pr'] as $pr_key => $pr)
                                     <?php $pr_name++; 
-                                      echo'<pre>';
-                                    print_r($pr);
-                                    echo'</pre>';?>
+                                      ?>
                                         {{-- <div class="w-100 m-1 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="mas_heading_accordian accordion-item">
                                         <button class="btn btn_set" data-toggle="collapse"

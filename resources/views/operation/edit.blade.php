@@ -1062,7 +1062,7 @@
 
                                                                                                         <input
                                                                                                             type="text"
-                                                                                                            class="form-control"
+                                                                                                            class="form-control equity_shareholders"
                                                                                                             name="share[{{ $c }}][{{ $s }}][eqt_per]"
                                                                                                             value="{{ $share['eqt_per'] }}">
                                                                                                     </div>
@@ -3182,7 +3182,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
             <div class="formAreahalf">
                       <label for="eqtper" class="form-label"> Equity percentage </label>
-                      <div class="dollersec percentage_input"><span class="input"> <input type="text" class="form-control" name="share[` +
+                      <div class="dollersec percentage_input"><span class="input"> <input type="text" class="form-control equity_shareholders" name="share[` +
                 arr_id1 + `][` +
                 sh_no + `][eqt_per]"></span><span class="pecentage_end">%</span></div>
                   </div>
@@ -3802,5 +3802,45 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                 }
             })
         }
+
+        $("body").on('keyup', '.equity_shareholders', function (evt) {
+            $(this).attr('value', $(this).val());
+            let percentage = 0;
+            var compId = $(this).parents('.full_div_share');
+            var cal_eqty_percentage = compId.find(".equity_shareholders");
+            for (per = 0; per < cal_eqty_percentage.length; per++) {
+                // console.log(cal_eqty_percentage[per].value);
+                // console.log($(cal_eqty_percentage[per]).attr('value'));
+                percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            }
+            console.log(cal_eqty_percentage.length);
+            if (percentage == 100) {
+                // console.log('here');
+                $(this).parents(".full_div_share ").find('#next3').removeClass("disable");
+                $(this).parents(".full_div_share ").find('#next3').prop("disabled", false);
+            }
+            else {
+                // console.log('there');
+                $(this).parents(".full_div_share ").find('#next3').addClass("disable");
+                $(this).parents(".full_div_share ").find('#next3').attr('disabled', 'disabled');
+
+            }
+            if (percentage >= 100) {
+                // console.log('ghty');
+                $(".full_div_share ").find(".add_shareholder").addClass("disable");
+                $(".full_div_share ").find(".add_shareholder").attr('disabled', 'disabled');
+                $(".full_div_share ").find("#add_nfo_shareholder").addClass("disable");
+                $(".full_div_share ").find("#add_nfo_shareholder").attr('disabled', 'disabled');
+                //    $(".saveBtn").addClass("disable");
+            }
+            else {
+                $(".full_div_share ").find(".add_shareholder").removeClass("disable");
+                $(".full_div_share ").find(".add_shareholder").prop("disabled", false);
+                $(".full_div_share ").find("#add_nfo_shareholder").removeClass("disable");
+                $(".full_div_share ").find("#add_nfo_shareholder").prop('disabled',false);
+            }
+
+
+        });
     </script>
 @endpush
