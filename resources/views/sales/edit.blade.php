@@ -1036,7 +1036,7 @@
                         <div class="notes_show">
                             <p class="desc_notes">{{ $note->notes_description }}</p>
                             <p class="created">
-                                {{ parse($note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                                {{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
                             </p>
                             <p class="createdby"><b>{{ $note->created_by }}</b></p>
                         </div>
