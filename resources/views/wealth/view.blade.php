@@ -2184,10 +2184,10 @@
                                         <img src="{{ url('/images/logo.png') }}" alt="logo"
                                             style="width:100px;">
                                     </td>
-                                    <td style="width:80%; padding-left: 80px;">
-                                        <span>
-                                            <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                            <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                    <td>
+                                        <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                            <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                            <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
                                         </span>
                                     </td>
                                 </tr>
@@ -2808,20 +2808,20 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                                <table class="header-table">
-                                    <tr>
-                                        <td style="width:20%;">
-                                            <img src="{{ url('/images/logo.png') }}" alt="logo"
-                                                style="width:100px;">
-                                        </td>
-                                        <td style="width:80%; padding-left: 80px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <table class="header-table">
+                                <tr>
+                                    <td style="width:20%;">
+                                        <img src="{{ url('/images/logo.png') }}" alt="logo"
+                                            style="width:100px;">
+                                    </td>
+                                    <td>
+                                        <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                            <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                            <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
                             </td>
                         </tr>
                         <tr class="second-row-cstm">
@@ -3014,19 +3014,19 @@
                         <tr class="first-row-cstm">
                             <td>
                                 <table class="header-table">
-                                        <tr>
-                                            <td style="width:20%;">
-                                                <img src="{{ url('/images/logo.png') }}" alt="logo"
-                                                    style="width:100px;">
-                                            </td>
-                                            <td style="width:80%; padding-left: 80px;">
-                                                <span>
-                                                    <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                    <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <tr>
+                                        <td style="width:20%;">
+                                            <img src="{{ url('/images/logo.png') }}" alt="logo"
+                                                style="width:100px;">
+                                        </td>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                         <tr class="second-row-cstm">
@@ -3184,16 +3184,16 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                            <table class="header-table">
+                                <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 80px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -3429,16 +3429,16 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                            <table class="header-table">
+                                <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 80px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -3675,16 +3675,16 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                            <table class="header-table">
+                                <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 80px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -3810,16 +3810,16 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                            <table class="header-table">
+                                <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 80px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $companyName }}</span><br/>
-                                                <span style="display: block; padding-left: 15px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
                                             </span>
                                         </td>
                                     </tr>

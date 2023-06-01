@@ -610,10 +610,10 @@
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 30px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
-                                                <span style="display: block; padding-left: 140px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -837,16 +837,16 @@
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_2">
                             <td>
-                                <table class="header-table">
+                            <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 30px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} - {{ $sale->client_name }}</span><br/>
-                                                <span style="display: block; padding-left: 140px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -1081,16 +1081,16 @@
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_3">
                             <td>
-                                <table class="header-table">
+                            <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%; padding-left: 30px;">
-                                            <span>
-                                                <span style="display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;"> {{ $sale->id }} - {{ $sale->client_name }}</span><br/>
-                                                <span style="display: block; padding-left: 140px; font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
                                             </span>
                                         </td>
                                     </tr>
