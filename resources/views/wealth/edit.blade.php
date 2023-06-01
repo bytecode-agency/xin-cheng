@@ -701,12 +701,10 @@
                                                                 @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
                                                                     <div class="formAreahalf basic_data please_specify">
                                                                         <label for="" class="form-label">Others, please specify</label>
-                                                                        @if (isset($wealthfinance[$i]->account_type_specify))
                                                                         <input type="text" class="form-control"
                                                                                 name="financial[{{$i +1}}][account_type_specify]"
                                                                                 value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
                                                                         
-                                                                        @endif
                                                                         
                                                                     </div>
                                                                 @endif
@@ -1047,12 +1045,10 @@
                                                 @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthpass->business_type_specify))
                                                         <input type="text" class="form-control"
                                                                 name="business_type_specify"
                                                                 value="{{ isset($wealthpass->business_type_specify) ? $wealthpass->business_type_specify : '' }}">
                                                         
-                                                        @endif
                                                         
                                                     </div>
                                                 @endif
@@ -1106,12 +1102,10 @@
                                                 @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthpass->relation_with_pass_specify))
                                                         <input type="text" class="form-control"
                                                                 name="relation_with_pass_specify"
                                                                 value="{{ isset($wealthpass->relation_with_pass_specify) ? $wealthpass->relation_with_pass_specify : '' }}">
                                                         
-                                                        @endif
                                                         
                                                     </div>
                                                 @endif
@@ -1144,12 +1138,10 @@
                                                 @if (isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthpass->pass_app_type_specify))
                                                         <input type="text" class="form-control"
                                                                 name="pass_app_type_specify"
                                                                 value="{{ isset($wealthpass->pass_app_type_specify) ? $wealthpass->pass_app_type_specify : '' }}">
                                                         
-                                                        @endif
                                                         
                                                     </div>
                                                 @endif
@@ -1357,12 +1349,10 @@
                                                     @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
                                                         <div class="formAreahalf basic_data please_specify">
                                                             <label for="" class="form-label">Others, please specify</label>
-                                                            @if (isset($wealthbuss->business_account_type_specify))
                                                             <input type="text" class="form-control"
                                                                     name="business_account_type_specify"
                                                                     value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
                                                             
-                                                            @endif
                                                             
                                                         </div>
                                                     @endif
@@ -1426,12 +1416,10 @@
                                                     @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
                                                         <div class="formAreahalf basic_data please_specify">
                                                             <label for="" class="form-label">Others, please specify</label>
-                                                            @if (isset($wealthbuss->currency_specify))
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
                                                             
-                                                            @endif
                                                             
                                                         </div>
                                                     @endif
@@ -1573,12 +1561,9 @@
                                                     @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss->commission_currency_specify))
                                                         <input type="text" class="form-control"
                                                                 name="commission_currency_specify"
                                                                 value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
-                                                        
-                                                        @endif
                                                         
                                                     </div>
                                                 @endif
@@ -1756,12 +1741,9 @@
                                                     @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
                                                         <div class="formAreahalf basic_data please_specify">
                                                             <label for="" class="form-label">Others, please specify</label>
-                                                            @if (isset($wealthbuss->business_account_type_specify))
                                                             <input type="text" class="form-control"
                                                                     name="business_account_type_specify"
                                                                     value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
-                                                            
-                                                            @endif
                                                             
                                                         </div>
                                                     @endif
@@ -1826,12 +1808,10 @@
                                                     @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
                                                         <div class="formAreahalf basic_data please_specify">
                                                             <label for="" class="form-label">Others, please specify</label>
-                                                            @if (isset($wealthbuss->currency_specify))
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
                                                             
-                                                            @endif
                                                             
                                                         </div>
                                                     @endif
@@ -1973,12 +1953,10 @@
                                                     @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss->commission_currency_specify))
                                                         <input type="text" class="form-control"
                                                                 name="commission_currency_specify"
                                                                 value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
                                                         
-                                                        @endif
                                                         
                                                     </div>
                                                 @endif
