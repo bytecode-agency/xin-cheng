@@ -795,7 +795,7 @@ class WealthController extends Controller
         'module_name' => 'Wealth',
         'old_action' => null,       
         'action_perform'=> $f,
-        'message'=>'File Uploaded',
+        'message'=>'Document uploaded '.$f.' for Wealth section',
         ]);
         activity_log($data);
         return response()->json('File uploaded successfully');
@@ -812,7 +812,7 @@ class WealthController extends Controller
         'module_name' => 'Wealth',
         'old_action' => $old_user_data,       
         'action_perform'=> null,
-        'message'=>'File Deleted',
+        'message'=>'Removed Document '.$file->file_name.' for Wealth section',
         ]);
         activity_log($data);
         $file->delete();
