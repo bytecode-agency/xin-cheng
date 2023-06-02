@@ -1385,7 +1385,7 @@
                                                 <label for="" class="form-label">Pass Issuance Date</label>
                                                 <p>
                                                     @isset($wealthpass->pass_issuance_date)
-                                                        {{ convertDate(wealthpass->pass_issuance_date,"d/m/Y") }}
+                                                        {{ convertDate($wealthpass->pass_issuance_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
