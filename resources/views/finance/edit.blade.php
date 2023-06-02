@@ -106,7 +106,7 @@
                         </div>
                         <div class="formAreahalf company-full_width_Cstm">
                             <label for="fo_company_pass" class="form-label">Company Password</label>
-                            <input type="text" class="form-control" name="cmp[{{$key}}][fo_company_pass]"
+                            <input type="password" class="form-control" name="cmp[{{$key}}][fo_company_pass]"
                                 id="fo_company_pass" value="{{ $company->c_password }}">
                         </div>
                         <div class="formAreahalf">
@@ -889,7 +889,7 @@
                     <tr>
                         {{-- <td>{{ $activity->message }}</td>
                             <td>{{ $activity->name }}</td>
-                            <td>{{ $activity->created_at->format('d/m/Y  g:i A') }}</td> --}}
+                            <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td> --}}
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>

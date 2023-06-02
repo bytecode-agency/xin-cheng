@@ -567,7 +567,7 @@
                                           
                                         </div>
 
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#financial_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -603,7 +603,7 @@
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Company Password</label>
                                            
-                                            <input type="text" class="form-control" name="cmp[{{$c}}][fo_company_pass]"
+                                            <input type="password" class="form-control" name="cmp[{{$c}}][fo_company_pass]"
                                             id="fo_company_pass" value="{{ $company['company_pass'] }}">
                                         </div>
 
@@ -1054,7 +1054,7 @@
                                    
                                 </div>
 
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#pass_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>

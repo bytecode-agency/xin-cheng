@@ -527,7 +527,7 @@
                                                     value="@isset($wealthfinance->financial_institution_name) {{ $wealthfinance->financial_institution_name }} @endisset"
                                                     class="form-control">
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#financial_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -710,7 +710,7 @@
                                                         No</option>
                                                 </select>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#pass_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1132,7 +1132,7 @@
                                                     value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                     class="form-control">
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#business_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1440,7 +1440,7 @@
                                                     value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                     class="form-control">
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#business_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1758,7 +1758,7 @@
                 @foreach ($notes as $note)
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
-                        <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                        <p class="created">{{ $note->created_atsetTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
@@ -1798,7 +1798,7 @@
                                 <tr>
                                     <td>{{ $files->file }}</td>
                                     <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->format('j F Y  g:i a') }}</td>
+                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
                                     <td>
                                         <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                             <i class="fa-solid fa-download"></i></a>

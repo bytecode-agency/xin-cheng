@@ -153,7 +153,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="fo_company_pass" class="form-label">Company Password</label>\
-                    <input type="text" class="form-control" name="cmp[` + i + `][fo_company_pass]" id="fo_company_pass">\
+                    <input type="password" class="form-control" name="cmp[` + i + `][fo_company_pass]" id="fo_company_pass">\
                 </div>\
             </div></div>`
         )
@@ -657,7 +657,7 @@ $(document).ready(function () {
             </div>\
             <div class="formAreahalf">\
                 <label for="nfo_company_pass" class="form-label">Company Password</label>\
-                <input type="text" class="form-control" name="corporate[` + n_i + `][nfo_company_pass]" id="nfo_company_pass">\
+                <input type="password" class="form-control" name="corporate[` + n_i + `][nfo_company_pass]" id="nfo_company_pass">\
                 </div>\
             </div></div>`
         );

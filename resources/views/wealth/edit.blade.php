@@ -701,10 +701,10 @@
                                                                 @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
                                                                     <div class="formAreahalf basic_data please_specify">
                                                                         <label for="" class="form-label">Others, please specify</label>
-
                                                                         <input type="text" class="form-control"
                                                                                 name="financial[{{$i +1}}][account_type_specify]"
                                                                                 value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
+
 
                                                                     </div>
                                                                 @endif
@@ -838,7 +838,7 @@
                                                         No</option>
                                                 </select>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#pass_collapseOne" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1045,9 +1045,10 @@
                                                 @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                         <input type="text" class="form-control"
+                                                        <input type="text" class="form-control"
                                                                 name="business_type_specify"
                                                                 value="{{ isset($wealthpass->business_type_specify) ? $wealthpass->business_type_specify : '' }}">
+
 
                                                     </div>
                                                 @endif
@@ -1105,6 +1106,7 @@
                                                                 name="relation_with_pass_specify"
                                                                 value="{{ isset($wealthpass->relation_with_pass_specify) ? $wealthpass->relation_with_pass_specify : '' }}">
 
+
                                                     </div>
                                                 @endif
                                                 <div class="formAreahalf basic_data">
@@ -1140,6 +1142,7 @@
                                                                 name="pass_app_type_specify"
                                                                 value="{{ isset($wealthpass->pass_app_type_specify) ? $wealthpass->pass_app_type_specify : '' }}">
 
+
                                                     </div>
                                                 @endif
                                                 <div class="formAreahalf basic_data">
@@ -1158,16 +1161,16 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_issuance_date" class="form-label">Pass Issuance
                                                         Date</label>
-                                                    <input type="date" name="pass_issuance_date"
+                                                        <input type="text" name="pass_issuance_date"
                                                         value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
-                                                        class="form-control">
+                                                        class="form-control datepicker" placeholder="dd/mm/yy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_expiry_date" class="form-label">Pass Expiry
                                                         Date</label>
-                                                    <input type="date" name="pass_expiry_date"
-                                                        value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
-                                                        class="form-control">
+                                                    <input type="text" name="pass_expiry_date"
+                                                    value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
+                                                    class="form-control datepicker" placeholder="dd/mm/yy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -1287,7 +1290,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1349,6 +1352,8 @@
                                                             <input type="text" class="form-control"
                                                                     name="business_account_type_specify"
                                                                     value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
+
+
                                                         </div>
                                                     @endif
                                                     <div class="formAreahalf basic_data">
@@ -1414,6 +1419,7 @@
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
+
 
                                                         </div>
                                                     @endif
@@ -1676,7 +1682,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1805,6 +1811,7 @@
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
+
 
                                                         </div>
                                                     @endif
@@ -1949,6 +1956,7 @@
                                                         <input type="text" class="form-control"
                                                                 name="commission_currency_specify"
                                                                 value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
+
 
                                                     </div>
                                                 @endif
@@ -2105,7 +2113,7 @@
                         <div class="notes_show" id="note{{$note->id }}">
                         <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                             <p class="desc_notes">{{ $note->notes_description }}</p>
-                            <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                            <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                             <p class="createdby"><b>{{ $note->created_by }}</b></p>
                         </div>
                     @endforeach
@@ -2147,7 +2155,7 @@
                                 <tr>
                                     <td>{{ $files->file }}</td>
                                     <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->format('j F Y  g:i a') }}</td>
+                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
                                     <td>
                                         <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                             <i class="fa-solid fa-download"></i></a>

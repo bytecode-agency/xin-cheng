@@ -917,7 +917,7 @@
                                                                     name="cmp[{{ $c }}][fo_uen]"
                                                                     id="fo_uen" value="{{ $company['uen'] }}">
                                                             </div>
-                                                            {{-- <button type="button" class="btn btn_set" data-toggle="collapse"
+                                                            {{-- <button type="button" class="btn btn_set collapsed" data-toggle="collapse"
                                                    data-target="#financial_collapseOne{{ $c }}"
                                                     aria-expanded="true" aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1950,7 +1950,7 @@
                                                     <label for="" class="form-label">Pass Holder Name</label>
                                                     <p>{{ $data['passhol_name'] }}</p>
                                                 </div>
-                                                <button type="button" class="btn btn_set" data-toggle="collapse"
+                                                <button type="button" class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#pass_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -2316,7 +2316,7 @@
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">
-                            {{ \Carbon\Carbon::parse($note->created_at->setTimezone('Asia/Singapore'))->format('d/m/Y h:i a') }}
+                            {{$note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
                         </p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
