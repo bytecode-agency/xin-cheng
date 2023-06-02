@@ -493,7 +493,7 @@
                                                 </label>
                                                 <p>{{ $company['company_name'] }}</p>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#financial_collapseOne_{{ $company_key }}"
                                                 aria-expanded="true" aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -593,7 +593,7 @@
                                                                                     #{{ $share_key + 1 }}</label>
                                                                             </div>
                                                                         </div>
-                                                                        <button class="btn btn_set" data-toggle="collapse"
+                                                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                                                             data-target="#shareholder_collapseOne_{{ $share_key }}"
                                                                             aria-expanded="true"
                                                                             aria-controls="collapseOne">
@@ -910,7 +910,7 @@
                                                                                 </p>
                                                                             </div>
                                                                         </div>
-                                                                        <button class="btn btn_set" data-toggle="collapse"
+                                                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                                                             data-target="#shareholder_collapseOne_{{ $fi_key }}"
                                                                             aria-expanded="true"
                                                                             aria-controls="collapseOne">
@@ -1121,7 +1121,7 @@
                                                                                 </p>
                                                                             </div>
                                                                         </div>
-                                                                        <button class="btn btn_set" data-toggle="collapse"
+                                                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                                                             data-target="#shareholder_collapseOne_{{ $fi_key }}"
                                                                             aria-expanded="true"
                                                                             aria-controls="collapseOne">
@@ -1333,7 +1333,7 @@
                                     echo'</pre>';?>
                                         {{-- <div class="w-100 m-1 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="mas_heading_accordian accordion-item">
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#pass_collapseOne_{{$pr_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1361,7 +1361,7 @@
                                                         @endif
                                                     </p>
                                                 </div>
-                                                <button class="btn btn_set" data-toggle="collapse"
+                                                <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#financial_collapseOne_pr{{ $pr_key }}"
                                                     aria-expanded="true" aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1525,7 +1525,7 @@
                 <div class="notes_show">
                     <p class="desc_notes">{{ $note->notes_description }}</p>
                     <p class="created">
-                        {{ \Carbon\Carbon::parse($note->created_at->setTimezone('Asia/Singapore'))->format('d/m/Y h:i a') }}
+                        {{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
                     </p>
 
                     <p class="createdby"><b>{{ $note->created_by }}</b></p>

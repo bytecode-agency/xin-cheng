@@ -83,8 +83,8 @@
                             <td>{{ $activity->message }}</td>
                             <td>{{ $activity->name }}</td>
                             <td>
-                                <span class="account_date">{{ $activity->created_at->format('j F Y') }}</span>
-                                <span class="account_time">{{ $activity->created_at->format('g:i a') }}</span>
+                                <span class="account_date">{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</span>
+                                <span class="account_time">{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</span>
                             </td>
 
                         </tr>

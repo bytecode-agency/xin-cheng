@@ -528,7 +528,7 @@
                     <div class="notes_show">
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">
-                            {{ convertDate($note->created_at,'d/m/Y h:i a') }}
+                            {{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
                         </p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
@@ -614,17 +614,11 @@
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">
-                                                        {{ $sale->id }} -
-                                                        {{ $sale->client_name }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">Sales</td>
-                                                </tr>
-                                            </table>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -673,12 +667,12 @@
                                     <tr>
                                         <td
                                             style="width:50%; font-weight:700; font-size:15px; color:#010101; padding-top:30px;">
-                                            {{ $sale->created_by }}</td>
+                                            Client Status</td>
                                     </tr>
                                     <tr>
                                         <td
                                             style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:8px;">
-                                            client_sts</td>
+                                            {{ $sale->client_sts }}</td>
                                     </tr>
 
                                 </table>
@@ -707,12 +701,7 @@
 
                         <tr class="five-row-cstm">
                             <td>
-
                                 <table border="0">
-
-
-
-
                                     <tr>
                                         <td style="width:50%; font-weight:700; font-size:15px; color:#010101;">Business
                                             Type</td>
@@ -847,30 +836,22 @@
 
                     </table>
                 </div>
-                <span class="break">&nbsp;</span>
 
-
-                <div class="page page_2">
+                <div class="page page_2" style="page-break-before: always; padding:30px;">
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_2">
                             <td>
-                                <table class="header-table">
+                            <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">
-                                                        {{ $sale->id }} -
-                                                        {{ $sale->client_name }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">Sales</td>
-                                                </tr>
-                                            </table>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -1068,7 +1049,9 @@
                             </td>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['busamt'] }}</td>
+                                @if (isset($s['busamt']))
+                                    ${{ $s['busamt'] }}
+                                @endif</td>
                         </tr>
 
                         <tr>
@@ -1098,27 +1081,40 @@
 
                 </div>
 
-                <div class="page page_3">
+                <div class="page page_3" style="page-break-before: always; padding:30px;">
                     <table border='0' cellspacing='0' cellpadding='0' border-spacing='0' width='800'>
                         <tr class="first-row-cstm-page_3">
                             <td>
-                                <table class="header-table">
+                            <table class="header-table">
                                     <tr>
                                         <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:80%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">
-                                                        {{ $sale->id }} -
-                                                        {{ $sale->client_name }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center">Sales</td>
-                                                </tr>
-                                            </table>
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $sale->id }} -{{ $sale->client_name }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">Sales</span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="fourth-row-cstm">
+                            <td>
+                                <table style="width:80%; margin:0 auto; ">
+                                    <tr>
+                                        <td style="width:20%; text-align:right; color:#000; padding:40px 0;">
+                                            <hr / style="background-color:#000; ">
+                                        </td>
+                                        <td style="text-align:center; width:55% padding:56px 0 40px;">
+                                            <div class="text-center line-cstm"
+                                                style="font-size:22px; color:#010101; font-weight:500;">Application
+                                                Information</div>
+                                        </td>
+                                        <td style="width:20%; text-align:left; color:#000; padding:40px 0;">
+                                            <hr / style="background-color:#000; ">
                                         </td>
                                     </tr>
                                 </table>
@@ -1359,7 +1355,9 @@
                                 </td>
                                 <td
                                     style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                    {{ $r['g_busamt'] }}</td>
+                                    @if (isset($r['g_busamt']))
+                                        ${{ $r['g_busamt'] }}
+                                    @endif</td>
                             </tr>
 
                             <tr>

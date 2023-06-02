@@ -22,7 +22,7 @@
     </div>
 
     <!-- Filter Data Pagination -->
-    <div class="filterPagination d-flex justify-content-between align-items-center">
+    <div class="filterPagination d-flex col-6 justify-content-between align-items-center">
         <div class="paginationLeft">
             <ul>
                 <li><a href="{{ route('wealth.index') }}">Wealth</a></li>
@@ -38,12 +38,13 @@
                 @endif
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
-            <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
-                    alt="print Icon"></a>
-            <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
-            <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
-        </div>
+
+    </div>
+    <div class="filterBtn viewSave d-flex col-6 ms-auto align-items-center justify-content-end">
+        <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
+                alt="print Icon"></a>
+        <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
+        <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -85,7 +86,7 @@
                             <p>{{ $basic_data->type_of_fo_specify }}</p>
                             @else-
                             @endif
-                            
+
                         </div>
                     @endif
                     <div class="formAreahalf basic_data">
@@ -185,7 +186,7 @@
                                 <div class="formAreahalf basic_data">
                                     <label for="" class="form-label">Company Name {{ $key + 1 }}</label>
                                     <p>{{ $company->name }}</p>
-                                    <button class="btn btn_set" data-toggle="collapse"
+                                    <button class="btn btn_set collapsed" data-toggle="collapse"
                                         data-target="#collapseOne{{ $key }}" aria-expanded="true"
                                         aria-controls="collapseOne">
                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -233,7 +234,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Shareholder
                                                         #{{ $key2 + 1 }}</label>
-                                                    <button class="btn btn_set" data-toggle="collapse"
+                                                    <button class="btn btn_set collapsed" data-toggle="collapse"
                                                         data-target="#collapseOneS{{ $key2 }}"
                                                         aria-expanded="true" aria-controls="collapseOneS">
                                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -393,7 +394,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -411,33 +412,42 @@
                                                                 Name(Chinese)</label>
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Renewal
-                                                                Reminder</label>
-                                                            <p>{{ $shareholder->passport_renew }}</p>
+                                                            <label for="" class="form-label">Gender</label>
+                                                            <p>{{ $shareholder->gender }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             {{ convertDate($shareholder->dob,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Reminder
-                                                                Trigger
-                                                                Frequency</label>
-                                                            <p><span class="every">Every</span>
-                                                                {{ $shareholder->passport_trg_fqy }}</p>
+                                                            <label for="" class="form-label">Phone
+                                                                Number</label>
+                                                            <p>{{ $shareholder->phone }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Gender</label>
-                                                            <p>{{ $shareholder->gender }}</p>
+                                                            <label for="" class="form-label">E-mail</label>
+                                                            <p>{{ $shareholder->email }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport
                                                                 Number</label>
                                                             <p>{{ $shareholder->passport_no }}</p>
                                                         </div>
+
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Passport
+                                                                Country</label>
+                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
@@ -445,19 +455,18 @@
                                                             {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport
-                                                                Country</label>
-                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                            <label for="" class="form-label">Passport Renewal
+                                                                Reminder</label>
+                                                            <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">E-mail</label>
-                                                            <p>{{ $shareholder->email }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Phone
-                                                                Number</label>
-                                                            <p>{{ $shareholder->phone }}</p>
+                                                            <label for="" class="form-label">Passport Reminder
+                                                                Trigger
+                                                                Frequency</label>
+                                                            <p><span class="every">Every</span>
+                                                                {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Residential
@@ -470,14 +479,18 @@
                                                             <p>{{ $shareholder->tin_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Type of
+                                                                TIN</label>
+                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 Number</label>
                                                             <p>{{ $shareholder->tin_no }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Type of
-                                                                TIN</label>
-                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                            <label for="" class="form-label">Company</label>
+                                                            <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Job Title</label>
@@ -488,17 +501,13 @@
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
-                                                            <p>{{ $shareholder->company }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
                                                         </div>
-                                                        
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label> 
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -892,7 +901,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Remarks</label>
+                                                <label for="" class="form-label">Remarksdfdfddf</label>
                                                 <p>
                                                     @isset($wealth_mas->remarks)
                                                         {{ $wealth_mas->remarks }}
@@ -911,10 +920,10 @@
                                 aria-labelledby="nav-profile-tab">
                                     @php $length =1;@endphp
                                         @if(count($wealth_finance)>0)
-                                        @php $length=count($wealth_finance); @endphp                                       
-                                        @endif                  
-                                    @for($i=0; $i<$length; $i++)      
-                                                           
+                                        @php $length=count($wealth_finance); @endphp
+                                        @endif
+                                    @for($i=0; $i<$length; $i++)
+
                                     <div id="financial_accordion_{{$i}}" class="mas_related">
                                         <div class="mas_heading_accordian d-flex flex-wrap">
                                             <div class="formAreahalf basic_data">
@@ -938,7 +947,7 @@
                                                     @endisset
                                                 </p>
                                             </div>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#financial_collapseOne{{$i}}" aria-expanded="true"
                                                 aria-controls="collapseOne">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1103,8 +1112,8 @@
                                         </div>
                                     </div>
                                     @endfor
-                                    
-                              
+
+
 
                             </div>
 
@@ -1123,7 +1132,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#pass_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1376,7 +1385,7 @@
                                                 <label for="" class="form-label">Pass Issuance Date</label>
                                                 <p>
                                                     @isset($wealthpass->pass_issuance_date)
-                                                        {{ convertDate(wealthpass->pass_issuance_date,"d/m/Y") }}
+                                                        {{ convertDate($wealthpass->pass_issuance_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1504,7 +1513,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#business_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -1547,16 +1556,16 @@
                                                         -
                                                     @endisset
                                                 </p>
-                                            </div>  
+                                            </div>
                                             @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
                                                         @if (isset($wealthbuss->business_account_type_specify))
                                                         {{ $wealthbuss->business_account_type_specify  }}
                                                         @else -
-                                                        
+
                                                         @endif
-                                                        
+
                                                     </div>
                                                 @endif
                                             <div class="formAreahalf basic_data">
@@ -1773,7 +1782,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -1789,7 +1798,7 @@
                                                             @endif
 
                                                         </tbody>
-                                                       
+
                                                     </table>
 
                                                 </div>
@@ -1813,7 +1822,7 @@
                                                 @endisset
                                             </p>
                                         </div>
-                                        <button class="btn btn_set" data-toggle="collapse"
+                                        <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#business_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -2053,7 +2062,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -2067,7 +2076,7 @@
                                                                 <td colspan="3">No record found</td>
                                                             </tr>
                                                             @endif
-                                                        
+
                                                         </tbody>
                                                     </table>
 
@@ -2105,7 +2114,7 @@
                     <div class="notes_show" id="note{{$note->id }}">
                         <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                         <p class="desc_notes">{{ $note->notes_description }}</p>
-                        <p class="created">{{ \Carbon\Carbon::parse($note->created_at)->format('d/m/Y h:m a') }}</p>
+                        <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
@@ -2119,10 +2128,15 @@
                         <table class="table table_yellow {{ count($file) > 0 ? 'commanDataTable' : '' }}" >
                             <thead>
                                 <tr>
-                                    <th scope="col">File Name</th>
-                                    <th scope="col">Uploaded by</th>
-                                    <th scope="col">Date & Time</th>
-                                    <th scope="col">Action</th>
+                                    <td>{{ $files->file }}</td>
+                                    <td>{{ $files->uploaded_by_name }}</td>
+                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a')  }}</td>
+                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                            {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
+                                            <i class="fa-solid fa-download"></i></a>
+                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                    </td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -2155,29 +2169,24 @@
             <div class="card file company_info formContentData border-0 p-4"
                 style="background: #fff; padding-bottom: 10px !important;">
                 <h3>Action Log</h3>
-                <div class="dataAreaMain">
-                    <div class="table_cstm  dasboard-entry">
-                        <table class="table table_yellow commanDataTable" >
-                            <thead>
-                                <tr>
-                                    <th scope="col">Actions</th>
-                                    <th scope="col">Made by</th>
-                                    <th scope="col">Date & Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($action_log as $activity)
-                                    <tr>
-                                        <td>{{ $activity->message }}</td>
-                                        <td>{{ $activity->name }}</td>
-                                        <td>{{ convertDate($activity->created_at,'d/m/Y g:i A') }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+                <table class="table user_action_log">
+                    <thead>
+                        <tr>
+                            <th scope="col">Actions</th>
+                            <th scope="col">Made by</th>
+                            <th scope="col">Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($action_log as $activity)
+                            <tr>
+                                <td>{{ $activity->message }}</td>
+                                <td>{{ $activity->name }}</td>
+                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -2186,30 +2195,20 @@
     <div id="print_screen" style="display:none;">
         <div class="print-holder">
             <div class="page page_1">
-                <table class="header-table">
+                <table class="header-table" style="padding: 30px;">
                     <tr class="first-row-cstm">
                         <td>
                             <table class="header-table">
                                 <tr>
                                     <td style="width:20%;">
-                                        <img src="{{ url('/images/logo.png') }}" alt="logo" style="width:100px;">
+                                        <img src="{{ url('/images/logo.png') }}" alt="logo"
+                                            style="width:100px;">
                                     </td>
-                                    <td style="width:70%;">
-                                        <table border="0">
-                                            <tr>
-                                                <td colspan="2" class="main-heading center"
-                                                    style="font-size:30px; color:#000; line-height:1.3;">
-                                                    {{ $companyName }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" class="main-heading center"
-                                                    style="font-size:32px; color:#000; line-height:1.3; padding-top:10px;">
-                                                    {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td style="width:10%;">
+                                    <td>
+                                        <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                            <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                            <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        </span>
                                     </td>
                                 </tr>
                             </table>
@@ -2618,7 +2617,7 @@
                                                 <tr>
                                                     <td
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px; ">
-                                                        <b>Relationship with shareholder 1</b>
+                                                        <b>Relationship with shareholder</b>
                                                         <span
                                                             style="padding-top:12px; padding-bottom:10px; display:block;">{{ $shareholder->relation_with_shareholder }}</span>
                                                     </td>
@@ -2697,7 +2696,7 @@
                                         <td
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
-                                            <span 
+                                            <span
                                                 style="padding-top:12px; display:block;">{{ convertDate($basic_data->passport_exp_date,'d/m/Y') }}
                                             </span>
                                         </td>
@@ -2822,7 +2821,6 @@
                 </table>
             </div>
 
-
             {{-- Application Information --}}
             @if ($data->business_type == 'FO')
                 {{-- MAS Related --}}
@@ -2830,31 +2828,20 @@
                     <table class="header-table">
                         <tr class="first-row-cstm">
                             <td>
-                                <table class="header-table">
-                                    <tr>
-                                        <td style="width:20%;">
-                                            <img src="{{ url('/images/logo.png') }}" alt="logo"
-                                                style="width:100px;">
-                                        </td>
-                                        <td style="width:70%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:30px; color:#000; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:32px; color:#000; line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
-                                        </td>
-                                    </tr>
-                                </table>
+                            <table class="header-table">
+                                <tr>
+                                    <td style="width:20%;">
+                                        <img src="{{ url('/images/logo.png') }}" alt="logo"
+                                            style="width:100px;">
+                                    </td>
+                                    <td>
+                                        <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                            <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                            <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
                             </td>
                         </tr>
                         <tr class="second-row-cstm">
@@ -3052,22 +3039,11 @@
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:70%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:30px; color:#000; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:32px; color:#000; line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -3234,22 +3210,11 @@
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:70%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:30px; color:#000; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:32px; color:#000; line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -3486,26 +3451,15 @@
                             <td>
                                 <table class="header-table">
                                     <tr>
-                                        <td style="width:25%;">
+                                        <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:63%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:27px; color:#000; text-align:center; font-weight:700; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:29px; color:#000; text-align:center; font-weight:700;  line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -3743,26 +3697,15 @@
                             <td>
                                 <table class="header-table">
                                     <tr>
-                                        <td style="width:25%;">
+                                        <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:63%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:27px; color:#000; text-align:center; font-weight:700; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:29px; color:#000; text-align:center; font-weight:700;  line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -3889,26 +3832,15 @@
                             <td>
                                 <table class="header-table">
                                     <tr>
-                                        <td style="width:25%;">
+                                        <td style="width:20%;">
                                             <img src="{{ url('/images/logo.png') }}" alt="logo"
                                                 style="width:100px;">
                                         </td>
-                                        <td style="width:63%;">
-                                            <table border="0">
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:27px; color:#000; text-align:center; font-weight:700; line-height:1.3;">
-                                                        {{ $companyName }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="main-heading center"
-                                                        style="font-size:29px; color:#000; text-align:center; font-weight:700;  line-height:1.3; padding-top:10px;">
-                                                        {{ $data->client_type }} ({{ $data->business_type }})</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width:10%;">
+                                        <td>
+                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
+                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
+                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -4131,7 +4063,7 @@
             $("#notes_cancel").show();
             });
 
-            $("#notes_cancel").click(function() {           
+            $("#notes_cancel").click(function() {
             $("#text_notes").val('');
             $("#notes_cancel").hide();
             });
@@ -4261,10 +4193,10 @@
                     "sPrevious": "<i class='fa fa-angle-double-left'></i>"
                 },
             },
-            
+
             searching: false,
             paging: true
         });
-       
+
     </script>
 @endpush

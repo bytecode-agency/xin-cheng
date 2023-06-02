@@ -141,7 +141,7 @@ $(document).ready(function () {
                         class="form-control">
                         <input type="text" name="cmp[`+ key + `][name]" id="fo_compnay"
                             class="form-control">
-                        <button class="btn btn_set" data-toggle="collapse" data-target="#collapseOne`+ key + `"
+                        <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#collapseOne`+ key + `"
                             aria-expanded="true" aria-controls="collapseOne">
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
@@ -182,7 +182,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="text" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
+                            <input type="password" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control">
                         </div>
 
@@ -192,7 +192,7 @@ $(document).ready(function () {
                                     <div class="card-header" id="headingOne_shareholder">
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Shareholder #1 </label>
-                                            <button class="btn btn_set" data-toggle="collapse"
+                                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                                 data-target="#collapseOneS0"
                                                 aria-expanded="true" aria-controls="collapseOneS">
                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -256,7 +256,7 @@ $(document).ready(function () {
                             <label for="shareholder_name" class="form-label">Shareholder
                                 #`+ (key2 + 1) + ` </label>
                             <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
-                            <button class="btn btn_set" data-toggle="collapse"
+                            <button class="btn btn_set collapsed" data-toggle="collapse"
                                 data-target="#collapseOneS`+ key2 + `" aria-expanded="true"
                                 aria-controls="collapseOneS">
                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
