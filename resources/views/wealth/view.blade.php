@@ -394,7 +394,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -412,33 +412,42 @@
                                                                 Name(Chinese)</label>
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Renewal
-                                                                Reminder</label>
-                                                            <p>{{ $shareholder->passport_renew }}</p>
+                                                            <label for="" class="form-label">Gender</label>
+                                                            <p>{{ $shareholder->gender }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             {{ convertDate($shareholder->dob,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Reminder
-                                                                Trigger
-                                                                Frequency</label>
-                                                            <p><span class="every">Every</span>
-                                                                {{ $shareholder->passport_trg_fqy }}</p>
+                                                            <label for="" class="form-label">Phone
+                                                                Number</label>
+                                                            <p>{{ $shareholder->phone }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Gender</label>
-                                                            <p>{{ $shareholder->gender }}</p>
+                                                            <label for="" class="form-label">E-mail</label>
+                                                            <p>{{ $shareholder->email }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport
                                                                 Number</label>
                                                             <p>{{ $shareholder->passport_no }}</p>
                                                         </div>
+
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Passport
+                                                                Country</label>
+                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
@@ -446,19 +455,18 @@
                                                             {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport
-                                                                Country</label>
-                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                            <label for="" class="form-label">Passport Renewal
+                                                                Reminder</label>
+                                                            <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">E-mail</label>
-                                                            <p>{{ $shareholder->email }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Phone
-                                                                Number</label>
-                                                            <p>{{ $shareholder->phone }}</p>
+                                                            <label for="" class="form-label">Passport Reminder
+                                                                Trigger
+                                                                Frequency</label>
+                                                            <p><span class="every">Every</span>
+                                                                {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Residential
@@ -471,14 +479,18 @@
                                                             <p>{{ $shareholder->tin_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Type of
+                                                                TIN</label>
+                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 Number</label>
                                                             <p>{{ $shareholder->tin_no }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Type of
-                                                                TIN</label>
-                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                            <label for="" class="form-label">Company</label>
+                                                            <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Job Title</label>
@@ -489,17 +501,13 @@
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
-                                                            <p>{{ $shareholder->company }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -2619,7 +2627,7 @@
                                                 <tr>
                                                     <td
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px; ">
-                                                        <b>Relationship with shareholder 1</b>
+                                                        <b>Relationship with shareholder</b>
                                                         <span
                                                             style="padding-top:12px; padding-bottom:10px; display:block;">{{ $shareholder->relation_with_shareholder }}</span>
                                                     </td>

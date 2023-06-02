@@ -3,10 +3,10 @@
     @foreach ($data->companies as $key => $company)
         <div id="accordion-{{ $key }}" class="accordion-item company_name" data-companyid={{ $key }}>
             <div class="card">
-               
+
                 <div class="card-header" id="headingOne">
                     {{-- <span class="edit_cancel_company cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>  --}}
-                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>   
+                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
                     <div class="formAreahalf basic_data">
                         <label for="company_name" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id" class="form-control"
@@ -34,21 +34,21 @@
                                 class="form-control" value="{{ $company->uen }}">
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label> 
+                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
                             <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
                                 class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yy">
                         </div>
                        @if( $key != 0)
-                        <div class="formAreahalf basic_data"> 
-                            <label for="" class="form-label">Relationship with Company 1</label> 
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Relationship with Company 1</label>
                             <select class="form-control" name="cmp[{{$key}}][relationship]" id="fo_relationship">
                             <option value="" selected disabled="">Choose Relationship with Company</option>
                             <option value="Self" {{isset($company->relationship) && $company->relationship == 'Self' ? 'selected' : ''  }}>Self</option>
                             <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
-                            </select> 
+                            </select>
                         </div>
                         @endif
-                      
+
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
                             <input type="text" name="cmp[{{ $key }}][company_email]" id="fo_compnay_company_email"
@@ -65,7 +65,7 @@
                         <div id="shareholder-accordion-{{ $key2 }}" class="sharehold_length">
                             <div class="card shareholder">
                                 <div class="card-header" id="headingOne_shareholder">
-                                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>                                   
+                                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
                                     <div class="formAreahalf basic_data">
                                         <label for="shareholder_name" class="form-label">Shareholder
                                             #{{ $key2 + 1 }}</label>
@@ -73,7 +73,7 @@
                                             data-target="#collapseOneS{{ $key2 }}"
                                             aria-expanded="true" aria-controls="collapseOneS">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                            
+
                                         </button>
                                         <div class="shareholder_div_accrodion_show">
 
@@ -85,7 +85,7 @@
                                                     <div class="dollersec percentage_input"><span class="input"><input type="text"
                                                         name="share[{{ $key }}][{{ $key2 }}][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value="{{ $shareholder->equity_percentage }}"></span><span class="pecentage_end">%</span></div>
-                                             
+
                                             </div>
                                             @if ($shareholder->shareholder_type == 'Company' || $shareholder->shareholder_type == 'Personal')
                                                 <div class="formAreahalf basic_data">
@@ -115,7 +115,7 @@
                                     <div class="card-body d-flex flex-wrap sharetype_data">
 
                                         @if ($shareholder->shareholder_type == 'Company')
-                                       
+
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Company Name</label>
                                                 {{-- <input type="text" class="form-control"
@@ -145,6 +145,57 @@
                                                     value="{{ $shareholder->pass_name_chinese }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Gender</label>
+                                                <select class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][gender]"
+                                                    value="{{ $shareholder->gender }}">
+                                                    <option value="" selected disabled>Choose gender</option>
+                                                    <option value="Male"
+                                                        {{ $shareholder->gender == 'Male' ? 'selected' : '' }}>M
+                                                    </option>
+                                                    <option value="Female"
+                                                        {{ $shareholder->gender == 'Female' ? 'selected' : '' }}>F
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">DOB</label>
+                                                <input type="text" class="form-control datepicker"
+                                                    name="share[{{ $key }}][{{ $key2 }}][dob]"
+                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yy">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Phone</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][phone]"
+                                                    value="{{ $shareholder->phone }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">E-mail</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][email]"
+                                                    value="{{ $shareholder->email }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Passport Number</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][passport_no]"
+                                                    value="{{ $shareholder->passport_no }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Passport Country</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][passport_country]"
+                                                    value="{{ $shareholder->passport_country }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Passport Expiry
+                                                    Date(DD/MM/YYYY)</label>
+                                                <input type="text" class="form-control datepicker"
+                                                    name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]"
+                                                    value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yy">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Renewal
                                                     Reminder</label>
 
@@ -167,12 +218,7 @@
                                                     </option>
                                                 </select>
                                             </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">DOB</label>
-                                                <input type="text" class="form-control datepicker"
-                                                    name="share[{{ $key }}][{{ $key2 }}][dob]"
-                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yy">
-                                            </div>
+
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Reminder Trigger
                                                     Frequency</label>
@@ -200,51 +246,7 @@
                                                         </select></span>
                                                 </div>
                                             </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Gender</label>
-                                                <select class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][gender]"
-                                                    value="{{ $shareholder->gender }}">
-                                                    <option value="" selected disabled>Choose gender</option>
-                                                    <option value="Male"
-                                                        {{ $shareholder->gender == 'Male' ? 'selected' : '' }}>M
-                                                    </option>
-                                                    <option value="Female"
-                                                        {{ $shareholder->gender == 'Female' ? 'selected' : '' }}>F
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Passport Number</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][passport_no]"
-                                                    value="{{ $shareholder->passport_no }}">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Passport Expiry
-                                                    Date(DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
-                                                    name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]"
-                                                    value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yy">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Passport Country</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][passport_country]"
-                                                    value="{{ $shareholder->passport_country }}">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">E-mail</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][email]"
-                                                    value="{{ $shareholder->email }}">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][phone]"
-                                                    value="{{ $shareholder->phone }}">
-                                            </div>
+
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Residential
                                                     Address</label>
@@ -258,13 +260,6 @@
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][tin_country]"
                                                     value="{{ $shareholder->tin_country }}">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Current TIN
-                                                    Number</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][tin_no]"
-                                                    value="{{ $shareholder->tin_no }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Type of TIN</label>
@@ -297,6 +292,21 @@
 
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Current TIN
+                                                    Number</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][tin_no]"
+                                                    value="{{ $shareholder->tin_no }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Company</label>
+                                                <input  type="text"
+                                                        class="form-control"
+                                                        name="share[{{ $key }}][{{ $key2 }}][company]"
+                                                        value="{{ isset($shareholder->company) ? $shareholder->company : '' }}"
+                                                >
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Job Title</label>
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][job_title]"
@@ -308,17 +318,10 @@
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}"></div>
                                             </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Company</label>
-                                                <input  type="text" 
-                                                        class="form-control"
-                                                        name="share[{{ $key }}][{{ $key2 }}][company]"
-                                                        value="{{ isset($shareholder->company) ? $shareholder->company : '' }}"
-                                                >
-                                            </div>
+
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                <input  type="text" 
+                                                <input  type="text"
                                                         class="form-control datepicker"
                                                         name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
                                                         value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
@@ -327,7 +330,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With
-                                                    Shareholder</label>
+                                                    Shareholder 1</label>
                                                 <select
                                                     name="share[{{ $key }}][{{ $key2 }}][relation_with_shareholder]"
                                                     id="fo_cpm2_relation" class="form-control" data-id="{{ $key }}" data-key="{{ $key2 }}">
@@ -365,9 +368,9 @@
                                                     <input type="text" class="form-control"
                                                             name="share[{{ $key }}][{{ $key2 }}][please_specify]"
                                                             value="{{ isset($shareholder->rel_share_specify) ? $shareholder->rel_share_specify : '' }}">
-                                                    
+
                                                     @endif
-                                                    
+
                                                 </div>
                                             @endif
 

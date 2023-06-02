@@ -346,6 +346,17 @@ $(document).ready(function () {
                 <label for="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
             </div>
+
+            <div class="formAreahalf">
+                <label for="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-label">Phone Number 1</label>
+                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
+                    value="">
+            </div>
+            <div class="formAreahalf">
+                <label for="fo_cpm2_email_`+ (sharehold_no + 1) + `" class="form-label">E-mail</label>
+                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][email]" id="fo_cpm2_email_`+ (sharehold_no + 1) + `" class="form-control" value="">
+            </div>
+
             <div class="formAreahalf">
                 <label for="fo_cpm2_pass_no_`+ (sharehold_no + 1) + `" class="form-label">Passport Number</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][passport_no]" id="fo_cpm2_pass_no_`+ (sharehold_no + 1) + `" class="form-control" value="">
@@ -378,16 +389,12 @@ $(document).ready(function () {
                 <option value="4 Weeks">4 Weeks</option> </select></span></div>
             </div>
             <div class="formAreahalf">
-                <label for="fo_cpm2_email_`+ (sharehold_no + 1) + `" class="form-label">E-mail</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][email]" id="fo_cpm2_email_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                <label for="fo_cpm2_res_add_`+ (sharehold_no + 1) + `" class="form-label">Residential Add.(according to Add. proof)</label>
+                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][residential_address]" id="fo_cpm2_res_add_`+ (sharehold_no + 1) + `" class="form-control" value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_tin_ctry_`+ (sharehold_no + 1) + `" class="form-label">Current TIN country</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][tin_country]" id="fo_cpm2_tin_ctry_`+ (sharehold_no + 1) + `" class="form-control" value="">
-            </div>
-            <div class="formAreahalf">
-                <label for="fo_cpm2_res_add_`+ (sharehold_no + 1) + `" class="form-label">Residential Add.(according to Add. proof)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][residential_address]" id="fo_cpm2_res_add_`+ (sharehold_no + 1) + `" class="form-control" value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_tin_type_`+ (sharehold_no + 1) + `" class="form-label">Type of TIN</label>
@@ -406,26 +413,22 @@ $(document).ready(function () {
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_`+ (sharehold_no + 1) + `" class="form-control" value="">
             </div>
             <div class="formAreahalf">
-                <label for="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary(SGD)</label>
-                <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
-                </div>
+                <label for="fo_cpm2_company_`+ (sharehold_no + 1) + `" class="form-label">Company</label>
+                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][company]" id="fo_cpm2_company_`+ (sharehold_no + 1) + `" class="form-control" value="">
             </div>
+
             <div class="formAreahalf">
                 <label for="fo_cpm2_job_title_`+ (sharehold_no + 1) + `" class="form-label">Job Title</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][job_title]" id="fo_cpm2_job_title_`+ (sharehold_no + 1) + `" class="form-control" value="">
             </div>
             <div class="formAreahalf">
-                <label for="fo_cpm2_company_`+ (sharehold_no + 1) + `" class="form-label">Company</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][company]" id="fo_cpm2_company_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                <label for="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary(SGD)</label>
+                <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][`+ (sharehold_no + 1) + `][monthly_sal]" id="fo_cpm2_sal_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                </div>
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                 <input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
-            </div>
-            <div class="formAreahalf">
-                <label for="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-label">Phone Number</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
-                    value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
@@ -542,6 +545,16 @@ $(document).ready(function () {
                                     <label for="fo_cpm2_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
                                     <input type="text" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
                                 </div>
+
+                                <div class="formAreahalf">
+                                    <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
+                                    <input type="text" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
+                                        value="">
+                                </div>
+                                <div class="formAreahalf">
+                                    <label for="fo_cpm2_email_1" class="form-label">E-mail</label>
+                                    <input type="text" name="share[1][1][email]" id="fo_cpm2_email_1" class="form-control" value="">
+                                </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_no_1" class="form-label">Passport Number</label>
                                     <input type="text" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
@@ -574,16 +587,12 @@ $(document).ready(function () {
                                     <option value="4 Weeks">4 Weeks</option> </select></span></div>
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_email_1" class="form-label">E-mail</label>
-                                    <input type="text" name="share[1][1][email]" id="fo_cpm2_email_1" class="form-control" value="">
+                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Add.(according to Add. proof)</label>
+                                    <input type="text" name="share[1][1][residential_address]" id="fo_cpm2_res_add_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_tin_ctry_1" class="form-label">Current TIN country</label>
                                     <input type="text" name="share[1][1][tin_country]" id="fo_cpm2_tin_ctry_1" class="form-control" value="">
-                                </div>
-                                <div class="formAreahalf">
-                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Add.(according to Add. proof)</label>
-                                    <input type="text" name="share[1][1][residential_address]" id="fo_cpm2_res_add_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_tin_type_1" class="form-label">Type of TIN</label>
@@ -602,26 +611,21 @@ $(document).ready(function () {
                                     <input type="text" name="share[1][1][tin_no]" id="fo_cpm2_tin_num_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_sal_1" class="form-label">Monthly Salary (SGD)</label>
-                                    <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
-                                    </div>
+                                    <label for="fo_cpm2_company_1" class="form-label">Company</label>
+                                    <input type="text" name="share[1][1][company]" id="fo_cpm2_company_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_job_title_1" class="form-label">Job Title</label>
                                     <input type="text" name="share[1][1][job_title]" id="fo_cpm2_job_title_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_company_1" class="form-label">Company</label>
-                                    <input type="text" name="share[1][1][company]" id="fo_cpm2_company_1" class="form-control" value="">
+                                    <label for="fo_cpm2_sal_1" class="form-label">Monthly Salary (SGD)</label>
+                                    <div class="dollersec"><span class="doller">$</span><input type="integer" name="share[1][1][monthly_sal]" id="fo_cpm2_sal_1" class="form-control" value="">
+                                    </div>
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_month_wef_1" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                     <input type="text" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
-                                </div>
-                                <div class="formAreahalf">
-                                    <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
-                                    <input type="text" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
-                                        value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
@@ -1163,7 +1167,7 @@ $(document).ready(function () {
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
+                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number two</label>
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
                                 value="">
                         </div>
@@ -1833,7 +1837,7 @@ $(document).ready(function () {
                             <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_job_title]" id="fo_cpm2_job_title" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_phone" class="form-label">Phone Number</label>
+                            <label for="fo_cpm2_phone" class="form-label">Phone Number 3</label>
                             <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_phone_number]" id="fo_cpm2_phone" class="form-control"
                                 value="">
                         </div>
