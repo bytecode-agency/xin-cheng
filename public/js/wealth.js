@@ -831,7 +831,7 @@ $(document).ready(function () {
                 </div>
                 <div class="text-center pt-4 " id="append_div_btn">
                     <button type="button" id="next3" class="btn saveBtn ` + btn_id + `" data-id="` +
-                btn_click + `" disabled="disabled" >Next</button>
+                btn_click + `" disabled="disabled" >Submit</button>
                     <button type="button" id="previous3" class="btn saveBtn cancelBtn previouss" data-id="` +
                 btn_click + `">Back</button>
                 </div></div></fieldset > `);

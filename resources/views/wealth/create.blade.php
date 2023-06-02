@@ -301,7 +301,7 @@
                 </div>
 
                 <div class="text-center pt-4 " id="append_div_btn">
-                    <button type="button" id="next3" class="btn saveBtn fo_form_sub" data-id="3">Next</button>
+                    <button type="button" id="next3" class="btn saveBtn fo_form_sub" data-id="3">hgfghf</button>
                     <button type="button" id="previous3" class="btn saveBtn cancelBtn previous"
                         data-id="1">Back</button>
                 </div>
@@ -745,10 +745,10 @@
             <label for="date_of_contract" class="form-label">Date of contract DD/MM/YYYY</label>
             <input type="date" class="form-control datepicker" name="date_of_contract"
                         id="date_of_contract" placeholder="dd/mm/yy">
-                        
-           
+
+
         </div>
-        
+
         <div class="formAreahalf">
             <label for="fo_servicing_fee_amount" class="form-label">One-Time Servicing Fee Amount</label>
             <div class="dollersec"><span class="doller">$</span>
