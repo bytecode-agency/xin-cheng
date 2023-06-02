@@ -539,33 +539,37 @@
 
             <div class="card file upload">
                 <h3>File Uploads</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded By</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach ($file as $files)
-                            <tr>
-                                <td>{{ $files->file_orignal_name }}</td>
-                                <td>{{ $files->uploaded_by }}</td>
-                                <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                <td>
-                                    <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                        <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
-                                    </a>
-                                    <a href="javascript:void(0);" class="del_confirm_view ink-normal"
-                                        data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow commanDataTable" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Uploaded By</th>
+                                    <th scope="col">Date & Time</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td>{{ $files->file_orignal_name }}</td>
+                                        <td>{{ $files->uploaded_by }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td>
+                                            <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
+                                            </a>
+                                            <a href="javascript:void(0);" class="del_confirm_view ink-normal"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="card file action">

@@ -737,7 +737,7 @@ textarea {
 }
 
 .dataAreaMain .card:nth-child(2) {
-    flex-direction: inherit;
+    /* flex-direction: inherit; */
     flex-wrap: wrap;
 }
 

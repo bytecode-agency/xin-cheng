@@ -88,72 +88,82 @@ $('body').on('click', '.note_remove', function (e) {
 
 });
 //Pagination
-pageSize = 4;
-incremSlide = 5;
-startPage = 0;
-numberPage = 0;
-var pageCount =  $(".notes_show").length / pageSize;
-var totalSlidepPage = Math.floor(pageCount / incremSlide);
-for(var i = 0 ; i<pageCount;i++){
-    $("#pagin").append('<li class="btn btn-primary btn-round notesBtn">'+(i+1)+'</li> ');
-    if(i>pageSize){
-       $("#pagin .notesBtn").eq(i).hide();
+    pageSize = 4;
+    incremSlide = 5;
+    startPage = 0;
+    numberPage = 0;
+    var pageCount =  $(".notes_show").length / pageSize;
+    var totalSlidepPage = Math.floor(pageCount / incremSlide);
+    for(var i = 0 ; i<pageCount;i++){
+        $("#pagin").append('<li class="btn btn-primary btn-round notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">'+(i+1)+'</li> ');
+        if(i>pageSize){
+        $("#pagin .notesBtn").eq(i).hide();
+        }
     }
-}
 
-// var prev = $("<li/>").addClass("prev").html("Prev").click(function(){
-//    startPage-=5;
-//    incremSlide-=5;
-//    numberPage--;
-//    slide();
-// });
+    var prev = $('<li class="btn btn-primary btn-round"/>').addClass("prev").html('<i class="fa fa-angle-double-left">').click(function(){
 
-// prev.hide();
+        var id = $('.notesBtn.current').data('id');
+        id = id - 1;
+        togglePrevNextBtn(id);
+        showPage(parseInt(id));
 
-// var next = $("<li/>").addClass("next").html("Next").click(function(){
-// //    startPage+=5;
-// //    incremSlide+=5;
-// //    numberPage++;
-// //    slide();
-// });
+    });
 
-// $("#pagin").prepend(prev).append(next);
+    prev.hide();
 
-$("#pagin .notesBtn").first().addClass("current");
+    var next = $('<li class="btn btn-primary btn-round"/>').addClass("next").html('<i class="fa fa-angle-double-right">').click(function(){
 
-// slide = function(sens){
-// //    $("#pagin li").hide();
-// //    for(t=startPage;t<incremSlide;t++){
-// //      $("#pagin li").eq(t+1).show();
-// //    }
-// //    if(startPage == 0){
-// //      next.show();
-// //      prev.hide();
-// //    }else if(numberPage == totalSlidepPage ){
-// //      next.hide();
-// //      prev.show();
-// //    }else{
-// //      next.show();
-// //      prev.show();
-// //    }
-   
-    
-// }
+        var id = $('.notesBtn.current').data('id');
+        id = id + 1;
+        
+        togglePrevNextBtn(id);
+        
+        showPage(parseInt(id));
+    });
+    togglePrevNextBtn = function(btnId) {
+        $("#pagin .notesBtn").removeClass("current");
+        $('#paginBtn'+btnId).addClass("current");
+        console.log(i);
+        if(btnId > 1){
+            $("#pagin .prev").show();
+            if(btnId == i){
+                $("#pagin .next").hide();
+            }else{
+                $("#pagin .next").show();
 
-showPage = function(page) {
-	  $(".notes_show").hide();
-	  $(".notes_show").each(function(n) {
-	      if (n >= pageSize * (page - 1) && n < pageSize * page)
-	          $(this).show();
-	  });        
-}
-    
-showPage(1);
-$("#pagin .notesBtn").eq(0).addClass("current");
+            }
+        }
+        else {
+            $("#pagin .prev").hide();
+            $("#pagin .next").show();
+        }
+        
+    }
 
-$("#pagin .notesBtn").click(function() {
-	 $("#pagin .notesBtn").removeClass("current");
-	 $(this).addClass("current");
-	 showPage(parseInt($(this).text()));
-});
+    $("#pagin").prepend(prev).append(next);
+
+    $("#pagin .notesBtn").first().addClass("current");
+
+
+    showPage = function(page) {
+        $(".notes_show").hide();
+        $(".notes_show").each(function(n) {
+            if (n >= pageSize * (page - 1) && n < pageSize * page)
+                $(this).show();
+        });  
+        
+    }
+        
+    showPage(1);
+    $("#pagin .notesBtn").eq(0).addClass("current");
+
+    $("#pagin .notesBtn").click(function() {
+        var id = $(this).data('id');
+        
+        
+        togglePrevNextBtn(id);
+       
+        showPage(parseInt($(this).text()));
+    });
 
