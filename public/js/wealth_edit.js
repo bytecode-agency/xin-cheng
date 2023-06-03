@@ -234,52 +234,54 @@ $(document).ready(function () {
     $('body').on('click', '.edit_add_shareholder', function () {
 
         var key2 = $(this).parents('.company_share').find('.sharehold_length').length;
-        console.log(key2);
+        
         var key = $(this).parents('.accordion-item').attr('data-companyid');
-        console.log(key);
-        //  alert();
-        $(this).parents('#collapseOne' + key).find('#shareholder-accordion-' + (key2 - 1)).after(
-            `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
-                <div class="card shareholder">
-                    <div class="card-header" id="headingOne_shareholder">
-                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>     
+        var htm =  `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
+        <div class="card shareholder">
+            <div class="card-header" id="headingOne_shareholder">
+            <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>     
+                <div class="formAreahalf basic_data">
+                    <label for="shareholder_name" class="form-label">Shareholder
+                        #`+ (key2 + 1) + ` </label>
+                    <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
+                    <button class="btn btn_set collapsed" data-toggle="collapse"
+                        data-target="#collapseOneS`+ key2 + `" aria-expanded="true"
+                        aria-controls="collapseOneS">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="shareholder_div_accrodion_show">
                         <div class="formAreahalf basic_data">
-                            <label for="shareholder_name" class="form-label">Shareholder
-                                #`+ (key2 + 1) + ` </label>
-                            <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
-                            <button class="btn btn_set collapsed" data-toggle="collapse"
-                                data-target="#collapseOneS`+ key2 + `" aria-expanded="true"
-                                aria-controls="collapseOneS">
-                                <i class="fa fa-caret-down" aria-hidden="true"></i>
-                            </button>
-                            <div class="shareholder_div_accrodion_show">
-                                <div class="formAreahalf basic_data">
-                                    <label for="" class="form-label">Equity Percentage</label>
-                                    <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
-                                    name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
-                                    ></span><span class="pecentage_end">%</span></div>
-                         
-                                  
-                                </div>
-                                <div class="formAreahalf basic_data">
-                                    <label for="" class="form-label">Shareholder Type</label>                                     
-                                    <select class="form-control edit_shrholder_type" name="share[`+ key + `][` + key2 + `][shareholder_type]">
-                                    <option value="" selected disabled>Please select shareholder type</option>
-                                    <option value="Company">Company</option>
-                                    <option value=Personal">Personal</option>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="" class="form-label">Equity Percentage</label>
+                            <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
+                            name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
+                            ></span><span class="pecentage_end">%</span></div>
+                 
+                          
                         </div>
-                    </div>
-                    <div id="collapseOneS`+ key2 + `" class="collapse show"
-                        aria-labelledby="headingOne" data-parent="#shareholder-accordion-`+ key2 + `">
-                        <div class="card-body d-flex flex-wrap sharetype_data">
-                           
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Shareholder Type</label>                                     
+                            <select class="form-control edit_shrholder_type" name="share[`+ key + `][` + key2 + `][shareholder_type]">
+                            <option value="" selected disabled>Please select shareholder type</option>
+                            <option value="Company">Company</option>
+                            <option value=Personal">Personal</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-              </div>`);
+            </div>
+            <div id="collapseOneS`+ key2 + `" class="collapse show"
+                aria-labelledby="headingOne" data-parent="#shareholder-accordion-`+ key2 + `">
+                <div class="card-body d-flex flex-wrap sharetype_data">
+                   
+                </div>
+            </div>
+        </div>
+      </div>`;
+      if( key2 == 0 ){
+        $(this).before(htm);
+      }else{
+        $(this).parents('#collapseOne' + key).find('#shareholder-accordion-' + (key2 - 1)).after(htm);
+      }
     })
 
     $('body').on('change', '.edit_shrholder_type', function () {
