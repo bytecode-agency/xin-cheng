@@ -968,7 +968,7 @@ $(document).ready(function () {
         });
         $.ajax({
             type: "delete",
-            url: "/company-shareholder-destroy",
+            url: "/company-shareholder-destroy-1",
             data: {id: finance_entry_id },
             success: function (response) {
              console.log(response);
