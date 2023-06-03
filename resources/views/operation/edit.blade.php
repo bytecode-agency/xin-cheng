@@ -2656,7 +2656,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                     </select>
                 </div>
                 <div class="formAreahalf ">
-                    <label for="" class="form-label">Pass Application Status</label>
+                    <label for="" class="form-label">Pass Application Status sdsdsd</label>
                     <select name="pr[` + pass_id_no + `][` + pr_no + `][application_sts]" id="" class="js-example-responsive p_sts">
                         <option value="" selected >Please select
                         </option>
@@ -3011,7 +3011,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
 
                         <div class="formAreahalf ">
-                            <label for="passapptype" class="form-label"> Pass Application Status </label>
+                            <label for="passapptype" class="form-label"> Pass Application Status dfdfdf</label>
                             <select name="pass[` + p + `][pass_app_sts]" class="js-example-responsive">
                                 <option value="" selected >Please select application status
                                 </option>
