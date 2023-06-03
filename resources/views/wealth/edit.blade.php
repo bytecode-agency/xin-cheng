@@ -34,7 +34,7 @@
             </ul>
         </div>
     </div>
-    <div class="filterBtn d-flex align-items-center justify-content-end">
+    <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
         <button class="btn saveBtn edit_save"><span>Save</span></button>
         <a href="{{ route('wealth.show', $data->id) }}"><button
             class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
@@ -98,11 +98,6 @@
                             <label for="" class="form-label">Client Type</label>
                             <p>{{ $data->client_type }}</p>
                         </div>
-
-                        <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Created By</label>
-                            <p>{{ $data->users->name }}</p>
-                        </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Status</label>
                             <select class="js-example-responsive form-control" name="client_status">
@@ -112,11 +107,8 @@
                             </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">One Time Servicing Fee Amount</label>
-                            <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
-                                        id="fo_servicing_fee_amount" value="{{ $basic_data->servicing_fee }}"></span>
-                            </div>
+                            <label for="" class="form-label">Created By</label>
+                            <p>{{ $data->users->name }}</p>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">One Time Servicing Fee Currency</label>
@@ -130,15 +122,11 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Currency</label>
-                            <select class="form-control" name="annual_fee_currency">
-                                <option value ="" selected disabled>Choose annual servicing fee currency</option>
-                                <option value="SGD" {{ $basic_data->annual_fee_currency == 'SGD' ? 'selected' : '' }}>
-                                    SGD</option>
-                                <option value="USD" {{ $basic_data->annual_fee_currency == 'USD' ? 'selected' : '' }}>
-                                    USD
-                                </option>
-                            </select>
+                            <label for="" class="form-label">One Time Servicing Fee Amount</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
+                                        id="fo_servicing_fee_amount" value="{{ $basic_data->servicing_fee }}"></span>
+                            </div>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">One Time Servicing Fee Status</label>
@@ -156,6 +144,24 @@
                             </select>
                         </div>
                         <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Currency</label>
+                            <select class="form-control" name="annual_fee_currency">
+                                <option value ="" selected disabled>Choose annual servicing fee currency</option>
+                                <option value="SGD" {{ $basic_data->annual_fee_currency == 'SGD' ? 'selected' : '' }}>
+                                    SGD</option>
+                                <option value="USD" {{ $basic_data->annual_fee_currency == 'USD' ? 'selected' : '' }}>
+                                    USD
+                                </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Amount</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
+                                        value="{{ $basic_data->annual_servicing_fee }}"></span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Status</label>
                             <select class="js-example-responsive form-control" name="annual_fee_status">
                                 <option value ="" selected disabled>Choose annual servicing fee status</option>
@@ -167,13 +173,7 @@
                                     {{ $basic_data->annual_fee_status == 'Rejected' ? 'selected' : '' }}>Rejected</option> --}}
                             </select>
                         </div>
-                        <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Amount</label>
-                            <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
-                                        value="{{ $basic_data->annual_servicing_fee }}"></span>
-                            </div>
-                        </div>
+
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
 
@@ -189,11 +189,11 @@
                                     <option value="" selected disabled>Choose Passport Renewal Reminder</option>
                                     <option value="30 day before due"
                                         {{ $basic_data->annual_fee_due_reminder == '30 day before due' ? 'selected' : '' }}>
-                                        30 day before due
+                                        30 Days before due
                                     </option>
                                     <option value="60 day before due"
                                         {{ $basic_data->annual_fee_due_reminder == '60 day before due' ? 'selected' : '' }}>
-                                        60 day before due
+                                        60 Days before due
                                     </option>
 
                                 </select>
@@ -366,11 +366,11 @@
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="deck_submission" class="form-label">Deck
-                                                        Submission</label>
+                                                    <label for="deck_submission" class="form-label">Legal
+                                                        Opinion</label>
                                                     <select name="deck_submission" id="deck_submission"
                                                         class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose deck submission
+                                                        <option value="" selected disabled>Choose Legal Opinion
                                                         </option>
                                                         <option value="In progress"
                                                             {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
@@ -542,7 +542,7 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="trigger_fqy_rem" class="form-label">Maturity Reminder Trigger Frequency</label>
+                                                    <label for="trigger_fqy_rem" class="form-label">Annual Declaration Reminder Trigger Frequency</label>
                                                     <div class="select_box"><span class="every">Every</span><span
                                                             class="select"><select name="trigger_fqy_rem"
                                                                 id="trigger_fqy_rem" class="form-control">
@@ -674,7 +674,7 @@
                                                                     <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
                                                                         <option value="" selected disabled>Choose account type
                                                                         </option>
-                                                                        <!-- <option value="SGD"
+                                                                        <option value="SGD"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'SGD' ? 'selected' : '' }}>
                                                                             SGD</option>
                                                                         <option value="USD"
@@ -685,9 +685,9 @@
                                                                             Multi-currency</option>
                                                                         <option value="Others"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
-                                                                            Others</option> -->
+                                                                            Others</option>
 
-                                                                        <option value="Insurance"
+                                                                        <!-- <option value="Insurance"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Insurance' ? 'selected' : '' }}>
                                                                             Insurance</option>
                                                                         <option value="Investment"
@@ -695,7 +695,7 @@
                                                                             Investment</option>
                                                                         <option value="Others"
                                                                             {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
-                                                                            Others</option>
+                                                                            Others</option> -->
                                                                     </select>
                                                                 </div>
 
@@ -1263,9 +1263,11 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="monthly_sal" class="form-label">Monthly
                                                         Salary(SGD)</label>
-                                                    <input type="text" name="monthly_sal"
-                                                        value="@isset($wealthpass->monthly_sal) {{ $wealthpass->monthly_sal }} @endisset"
-                                                        class="form-control">
+
+                                                    <div class="dollersec"><span class="doller">$</span>
+                                                        <span class="input"> <input type="integer" name="monthly_sal" value="@isset($wealthpass->monthly_sal) {{ $wealthpass->monthly_sal }} @endisset"
+                                                        class="form-control"></span>
+                                                    </div>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_remarks" class="form-label">Remarks</label>

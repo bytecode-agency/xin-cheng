@@ -75,7 +75,7 @@
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Business Type</label>
+                        <label for="" class="form-label">Business Typeee</label>
                         <p>{{ $data->business_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -101,25 +101,21 @@
                         <p>{{ $data->client_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Created By</label>
-                        <p>{{ $data->users->name }}</p>
-                    </div>
-                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Status</label>
                         <p class="active-btn @if ($data->client_status == 'Dormant') Dormant @endif">
                             {{ $data->client_status }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">One-Time Servicing Fee Amount</label>
-                        <p>$ {{ $basic_data->servicing_fee }}</p>
+                        <label for="" class="form-label">Created By</label>
+                        <p>{{ $data->users->name }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">One-time Servicing Fee Currency</label>
                         <p>{{ $basic_data->servicing_fee_currency }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Currency</label>
-                        <p>{{ $basic_data->annual_fee_currency }}</p>
+                        <label for="" class="form-label">One-Time Servicing Fee Amount</label>
+                        <p>$ {{ $basic_data->servicing_fee }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">One-Time Servicing Fee Status</label>
@@ -127,14 +123,19 @@
                             {{ $basic_data->servicing_fee_status }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Status</label>
-                        <p class="@if($basic_data->annual_fee_status == 'Pending') active-btn Dormant @elseif($basic_data->annual_fee_status == 'Received') active-btn @else  @endif">
-                            {{ $basic_data->annual_fee_status }}</p>
+                        <label for="" class="form-label">Annual Servicing Fee Currency</label>
+                        <p>{{ $basic_data->annual_fee_currency }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Amount</label>
                         <p>$ {{ $basic_data->annual_servicing_fee }}</p>
                     </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Annual Servicing Fee Status</label>
+                        <p class="@if($basic_data->annual_fee_status == 'Pending') active-btn Dormant @elseif($basic_data->annual_fee_status == 'Received') active-btn @else  @endif">
+                            {{ $basic_data->annual_fee_status }}</p>
+                    </div>
+
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
                         <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
@@ -726,7 +727,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Deck Submission</label>
+                                                <label for="" class="form-label">Legal Opinion</label>
                                                 <p
                                                     class="@if (isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
 
@@ -893,7 +894,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Maturity Reminder Trigger
+                                                <label for="" class="form-label">Annual Declaration Reminder Trigger
                                                     Frequency</label>
                                                 <p>
                                                     @isset($wealth_mas->trigger_fqy_rem)
@@ -1074,7 +1075,7 @@
                                                         Amount</label>
                                                     <p>
                                                         @isset($wealth_finance[$i]->intial_deposit_amount)
-                                                            {{ $wealth_finance[$i]->intial_deposit_amount }}
+                                                        <span class="doller">$</span>{{ $wealth_finance[$i]->intial_deposit_amount }}
                                                         @else
                                                             -
                                                         @endisset
@@ -2929,7 +2930,7 @@
                                             <span style="padding-top:15px; display:block;">9123456789</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Deck Submission</b>
+                                            <b>Legal Opinion</b>
                                             <span style="padding-top:15px; display:block;">Singapore</span>
                                         </td>
                                     </tr>
@@ -4185,7 +4186,7 @@
         });
 
 
-     
+
 
     </script>
 @endpush

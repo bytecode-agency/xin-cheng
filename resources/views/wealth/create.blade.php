@@ -144,10 +144,21 @@
                                         <div class="formAreahalf">
                                             <label for="fo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="text" class="form-control datepicker" name="cmp[1][incorporate_date]"
+                                            <input type="date" class="form-control" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="formAreahalf">
+                                        <div class="formAreahalf"> <label for="fo_relationship_1"
+                                                class="form-label">Relationship with Company 1</label> <select
+                                                class="form-control" name="cmp[1][relationship]"
+                                                id="fo_relationship_1">
+                                                <option value="" selected="" disabled="">Choose
+                                                    Relationship with Company</option>
+                                                <option value="Self">Self</option>
+                                                <option value="Subsidiary">Subsidiary</option>
+                                                <option value="Parent company">Parent company</option>
+                                                <option value="Fund co.">Fund co.</option>
+                                                <option value="Management co.">Management co.</option>
+                                            </select>
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="fo_company_email_1" class="form-label">Company Email</label>
@@ -156,7 +167,7 @@
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="fo_company_pass_1" class="form-label">Company Password</label>
-                                            <input type="password" class="form-control" name="cmp[1][company_pass]"
+                                            <input type="text" class="form-control" name="cmp[1][company_pass]"
                                                 id="fo_company_pass_1">
                                         </div>
                                     </div>
@@ -194,8 +205,8 @@
                                                     class="form-control" name="cmp[2][address]" id="fo_company_add">
                                             </div>
                                             <div class="formAreahalf"> <label for="fo_incorporation_date_2"
-                                                    class="form-label">Incorporation Date</label> <input type="text"
-                                                    class="form-control datepicker" name="cmp[2][incorporate_date]"
+                                                    class="form-label">Incorporation Date</label> <input type="date"
+                                                    class="form-control" name="cmp[2][incorporate_date]"
                                                     id="fo_incorporation_date_2" placeholder="dd/mm/yyyy"> </div>
                                             <div class="formAreahalf"> <label for="fo_relationship_2"
                                                     class="form-label">Relationship with Company 1</label> <select
@@ -214,7 +225,7 @@
                                                     class="form-control" name="cmp[2][company_email]"
                                                     id="fo_company_email_2"> </div>
                                             <div class="formAreahalf"> <label for="fo_company_pass_2"
-                                                    class="form-label">Company Password</label> <input type="password"
+                                                    class="form-label">Company Password</label> <input type="text"
                                                     class="form-control" name="cmp[2][company_pass]"
                                                     id="fo_company_pass_2"> </div>
                                         </div>
@@ -354,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
+                        <input type="date" name="nfo_dob" id="nfo_dob" class="form-control" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -365,7 +376,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                        <input type="text" class="form-control datepicker" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
+                        <input type="date" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="date" name="nfo_pass_exp" id="nfo_pass_exp"
                             class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -671,7 +682,7 @@
                                         <div class="formAreahalf">
                                             <label for="nfo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="text" class="form-control datepicker"
+                                            <input type="date" class="form-control"
                                                 name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yy">
                                         </div>
                                         <div class="formAreahalf">
@@ -683,7 +694,7 @@
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="nfo_company_pass_1" class="form-label">Company Password</label>
-                                            <input type="password" class="form-control"
+                                            <input type="text" class="form-control"
                                                 name="corporate[1][nfo_company_pass]" id="nfo_company_pass_1">
                                         </div>
                                     </div>
@@ -743,18 +754,10 @@
         </div>
         <div class="formAreahalf basic_data">
             <label for="date_of_contract" class="form-label">Date of contract DD/MM/YYYY</label>
-            <input type="date" class="form-control datepicker" name="date_of_contract"
+            <input type="date" class="form-control" name="date_of_contract"
                         id="date_of_contract" placeholder="dd/mm/yy">
 
 
-        </div>
-
-        <div class="formAreahalf">
-            <label for="fo_servicing_fee_amount" class="form-label">One-Time Servicing Fee Amount</label>
-            <div class="dollersec"><span class="doller">$</span>
-                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
-                        id="fo_servicing_fee_amount"></span>
-            </div>
         </div>
         <div class="formAreahalf">
             <label for="fo_servicing_fee_currency" class="form-label">One-time Servicing Fee Currency</label>
@@ -766,6 +769,13 @@
             </select>
         </div>
         <div class="formAreahalf">
+            <label for="fo_servicing_fee_amount" class="form-label">One-Time Servicing Fee Amount</label>
+            <div class="dollersec"><span class="doller">$</span>
+                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
+                        id="fo_servicing_fee_amount"></span>
+            </div>
+        </div>
+        <div class="formAreahalf">
             <label for="" class="form-label">One-Time Servicing Fee Status</label>
             <select class="js-example-responsive form-control one_time_status" name="servicing_fee_status">
                 <option value="" selected disabled>Choose One-Time Servicing Fee Status</option>
@@ -774,19 +784,19 @@
             </select>
         </div>
         <div class="formAreahalf">
-            <label for="fo_annual_fee" class="form-label">Annual Servicing Fee Amount</label>
-            <div class="dollersec"><span class="doller">$</span>
-                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
-                        id="fo_annual_fee"></span>
-            </div>
-        </div>
-        <div class="formAreahalf">
             <label for="fo_annual_fee_currency" class="form-label">Annual Servicing Fee Currency</label>
             <select class="form-control" name="annual_fee_currency" id="fo_annual_fee_currency">
                 <option value="" selected disabled>Choose Annual Servicing Fee Currency</option>
                 <option value="SGD">SGD</option>
                 <option value="USD">USD</option>
             </select>
+        </div>
+        <div class="formAreahalf">
+            <label for="fo_annual_fee" class="form-label">Annual Servicing Fee Amount</label>
+            <div class="dollersec"><span class="doller">$</span>
+                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
+                        id="fo_annual_fee"></span>
+            </div>
         </div>
         <div class="formAreahalf">
             <label for="fo_annual_fee_status" class="form-label">Annual Servicing Fee Status</label>
@@ -799,15 +809,15 @@
         </div>
         <div class="formAreahalf">
             <label for="annual_fee_due_date" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
-            <input type="date" class="form-control datepicker" name="annual_fee_due_date"
+            <input type="date" class="form-control" name="annual_fee_due_date"
                         id="annual_fee_due_date" placeholder="dd/mm/yy">
         </div>
-        <div class="formAreahalf">
+        <div class="formAreahalf mb-40">
             <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Remainder</label>
             <select class="form-control" name="annual_fee_due_reminder" id="annual_fee_due_reminder">
                 <option value="" selected disabled>Choose Remainder </option>
-                <option value="30 day before due">30 day before due</option>
-                <option value="60 day before due">60 day before due</option>
+                <option value="30 day before due">30 Days before due</option>
+                <option value="60 day before due">60 Days before due</option>
             </select>
         </div>
         <div class="formAreahalf">
