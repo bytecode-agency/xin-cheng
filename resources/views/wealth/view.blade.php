@@ -1,6 +1,9 @@
 @extends('layouts.app')
+@push('css')
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+@endpush
 @section('content')
-
     <!-- Title Area -->
     <div class="TitleBlock">
         <div class="headingArea p-3">
@@ -2125,20 +2128,15 @@
                 <h3>File Uploads</h3>
                 <div class="dataAreaMain">
                     <div class="table_cstm  dasboard-entry">
-                        <table class="table table_yellow {{ count($file) > 0 ? 'commanDataTable' : '' }}" >
+                        <table class="table table_yellow file_upload_table" >
                             <thead>
-                                <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a')  }}</td>
-                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
-                                            <i class="fa-solid fa-download"></i></a>
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            </thead>
+                            <tr>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Uploaded By</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
                             <tbody>
                                 @if (count($file) > 0)
                                     @foreach ($file as $files)
@@ -2169,24 +2167,28 @@
             <div class="card file company_info formContentData border-0 p-4"
                 style="background: #fff; padding-bottom: 10px !important;">
                 <h3>Action Log</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">Actions</th>
-                            <th scope="col">Made by</th>
-                            <th scope="col">Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($action_log as $activity)
-                            <tr>
-                                <td>{{ $activity->message }}</td>
-                                <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow user_action_log">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Made by</th>
+                                    <th scope="col">Date & Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($action_log as $activity)
+                                    <tr>
+                                        <td>{{ $activity->message }}</td>
+                                        <td>{{ $activity->name }}</td>
+                                        <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -4183,20 +4185,7 @@
         });
 
 
-      $('.commanDataTable').DataTable({
-
-            oLanguage: {
-                "sInfo": "Showing _START_ - _END_ of _TOTAL_", // text you want show for info section
-                "sLengthMenu": "Show _MENU_ Entries",
-                "oPaginate": {
-                    "sNext": "<i class='fa fa-angle-double-right'></i>",
-                    "sPrevious": "<i class='fa fa-angle-double-left'></i>"
-                },
-            },
-
-            searching: false,
-            paging: true
-        });
+     
 
     </script>
 @endpush

@@ -88,72 +88,86 @@ $('body').on('click', '.note_remove', function (e) {
 
 });
 //Pagination
-pageSize = 4;
-incremSlide = 5;
-startPage = 0;
-numberPage = 0;
-var pageCount =  $(".notes_show").length / pageSize;
-var totalSlidepPage = Math.floor(pageCount / incremSlide);
-for(var i = 0 ; i<pageCount;i++){
-    $("#pagin").append('<li class="btn btn-primary btn-round notesBtn">'+(i+1)+'</li> ');
-    if(i>pageSize){
-       $("#pagin .notesBtn").eq(i).hide();
+    pageSize = 4;
+    incremSlide = 5;
+    startPage = 0;
+    numberPage = 0;
+    var pageCount =  $(".notes_show").length / pageSize;
+    var totalSlidepPage = Math.floor(pageCount / incremSlide);
+    for(var i = 0 ; i<pageCount;i++){
+        $("#pagin").append('<li class="paginate_button page-item notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">' + `<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link" style="user-select: text;">${1+i}</a>` + '</li> ');
+        if(i>pageSize){
+        $("#pagin .notesBtn").eq(i).hide();
+        }
     }
-}
 
-// var prev = $("<li/>").addClass("prev").html("Prev").click(function(){
-//    startPage-=5;
-//    incremSlide-=5;
-//    numberPage--;
-//    slide();
-// });
+    var prev = $('<li class="paginate_button page-item"/>').addClass("previous").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-left" style="user-select: text;"></i></a>').click(function(){
 
-// prev.hide();
+        var id = $('.notesBtn.active').data('id');
+        id = id - 1;
+        togglePrevNextBtn(id);
+        showPage(parseInt(id));
 
-// var next = $("<li/>").addClass("next").html("Next").click(function(){
-// //    startPage+=5;
-// //    incremSlide+=5;
-// //    numberPage++;
-// //    slide();
-// });
+    });
 
-// $("#pagin").prepend(prev).append(next);
-
-$("#pagin .notesBtn").first().addClass("current");
-
-// slide = function(sens){
-// //    $("#pagin li").hide();
-// //    for(t=startPage;t<incremSlide;t++){
-// //      $("#pagin li").eq(t+1).show();
-// //    }
-// //    if(startPage == 0){
-// //      next.show();
-// //      prev.hide();
-// //    }else if(numberPage == totalSlidepPage ){
-// //      next.hide();
-// //      prev.show();
-// //    }else{
-// //      next.show();
-// //      prev.show();
-// //    }
-   
+    prev.hide();
     
-// }
 
-showPage = function(page) {
-	  $(".notes_show").hide();
-	  $(".notes_show").each(function(n) {
-	      if (n >= pageSize * (page - 1) && n < pageSize * page)
-	          $(this).show();
-	  });        
-}
-    
-showPage(1);
-$("#pagin .notesBtn").eq(0).addClass("current");
+    var next = $('<li class="paginate_button page-item"/>').addClass("next").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-right" style="user-select: text;"></i></a>').click(function(){
 
-$("#pagin .notesBtn").click(function() {
-	 $("#pagin .notesBtn").removeClass("current");
-	 $(this).addClass("current");
-	 showPage(parseInt($(this).text()));
-});
+        var id = $('.notesBtn.active').data('id');
+        id = id + 1;
+        
+        togglePrevNextBtn(id);
+        
+        showPage(parseInt(id));
+    });
+    if(pageCount < 1 ){
+        next.hide();
+    }
+    togglePrevNextBtn = function(btnId) {
+        $("#pagin .notesBtn").removeClass("active");
+        $('#paginBtn'+btnId).addClass("active");
+        console.log(i);
+        if(btnId > 1){
+            $("#pagin .previous").removeClass('disabled');
+            if(btnId == i){
+                $("#pagin .next").addClass('disabled');
+            }else{
+                $("#pagin .next").removeClass('disabled');
+
+            }
+        }
+        else {
+            $("#pagin .previous").addClass('disabled');
+            $("#pagin .next").removeClass('disabled');
+        }
+        
+    }
+
+    $("#pagin").prepend(prev).append(next);
+
+    $("#pagin .notesBtn").first().addClass("active");
+
+
+    showPage = function(page) {
+        $(".notes_show").hide();
+        $(".notes_show").each(function(n) {
+            if (n >= pageSize * (page - 1) && n < pageSize * page)
+                $(this).show();
+        });  
+        
+    }
+        
+    showPage(1);
+    $("#pagin .notesBtn").eq(0).addClass("active");
+
+    $("#pagin .notesBtn").click(function() {
+        var id = $(this).data('id');
+        
+        
+        togglePrevNextBtn(id);
+       
+        showPage(parseInt($(this).text()));
+    });
 

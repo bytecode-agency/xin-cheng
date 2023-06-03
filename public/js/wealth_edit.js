@@ -2,16 +2,7 @@ $(document).on('click', '.remove-input-field', function() {
 
     $(this).parents('.accordion-item').hide();
 });
-$(document).on('keypress','[type^=integer]',function(event){
-    var key = window.event ? event.keyCode : event.which;
-      if (event.keyCode === 8 || event.keyCode === 46) {
-          return true;
-      } else if ( key < 48 || key > 57 ) {
-          return false;
-      } else {
-          return true;
-      }
-  });
+
 $('body').on('change', 'selectq', function () {
     if (this.value == 'Others') {
         $(this).parent().after(`<div class="formAreahalf basic_data please_specify">

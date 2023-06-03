@@ -545,7 +545,7 @@ class SalesController extends Controller
         'module_name' => 'Sale Application',
         'old_action' => null,
         'action_perform'=> $f,
-        'message'=>'File Uploaded',
+        'message'=>'Document uploaded '.$f.' for Wealth section',
         ]);
         activity_log($data);
 
@@ -568,7 +568,7 @@ class SalesController extends Controller
         'module_name' => 'Sale Application',
         'old_action' => $old_data,
         'action_perform'=> null,
-        'message'=>'File Deleted',
+        'message'=>'Removed Document '.$file->file_orignal_name.' for seles section',
         ]);
         activity_log($data);
         $file->delete();

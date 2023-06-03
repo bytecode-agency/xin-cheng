@@ -2,6 +2,8 @@
 @push('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 @section('content')
 
@@ -2117,7 +2119,16 @@
                             <p class="createdby"><b>{{ $note->created_by }}</b></p>
                         </div>
                     @endforeach
-                    <ul id="pagin"></ul>
+                    <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -2140,39 +2151,43 @@
                         <button type="submit" class="btn saveBtn file_upload_submit">Upload</button>
                     </div>
                 </form>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded by</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($file) > 0)
-                            @foreach ($file as $files)
-                                <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                    <td>
-                                        <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            <i class="fa-solid fa-download"></i></a>
-
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                    <table class="table user_action_log">
+                        <thead>
                             <tr>
-                                <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Uploaded by</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        @endif
+                        </thead>
+                        <tbody>
+                            @if (count($file) > 0)
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td>{{ $files->file }}</td>
+                                        <td>{{ $files->uploaded_by_name }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td>
+                                            <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <i class="fa-solid fa-download"></i></a>
 
-                    </tbody>
-                </table>
+                                            <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                </tr>
+                            @endif
+
+                        </tbody>
+                    </table>
+                </div>
+             </div>
             </div>
         </div>
 

@@ -737,7 +737,7 @@ textarea {
 }
 
 .dataAreaMain .card:nth-child(2) {
-    flex-direction: inherit;
+    /* flex-direction: inherit; */
     flex-wrap: wrap;
 }
 
@@ -943,6 +943,7 @@ fieldset#account .formAreahalf {
     position: relative;
     cursor: pointer;
     z-index: 10;
+    top: 13px;
 }
 
 .custom-form,

@@ -58,7 +58,7 @@ class HomeController extends Controller
         if(empty($id)){
             return response()->json();
         }
-        $notes = Notes::find($id);
+         $notes = Notes::find($id);
         $data = (object)(['id'=> Auth::user()->id,
         'name'=> Auth::user()->name,
         'userID' =>  0,
@@ -68,7 +68,9 @@ class HomeController extends Controller
         'message'=>'Notes Removed',
         ]); 
         activity_log($data);
-        $notes->delete();
+        if(!empty($notes)){
+            $notes->delete();
+        }
         return response()->json();
     }
 
