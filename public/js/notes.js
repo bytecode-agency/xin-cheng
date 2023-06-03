@@ -95,15 +95,15 @@ $('body').on('click', '.note_remove', function (e) {
     var pageCount =  $(".notes_show").length / pageSize;
     var totalSlidepPage = Math.floor(pageCount / incremSlide);
     for(var i = 0 ; i<pageCount;i++){
-        $("#pagin").append('<li class="btn btn-primary btn-round notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">'+(i+1)+'</li> ');
+        $("#pagin").append('<li class="paginate_button page-item notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">' + `<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link" style="user-select: text;">${1+i}</a>` + '</li> ');
         if(i>pageSize){
         $("#pagin .notesBtn").eq(i).hide();
         }
     }
 
-    var prev = $('<li class="btn btn-primary btn-round"/>').addClass("prev").html('<i class="fa fa-angle-double-left">').click(function(){
+    var prev = $('<li class="paginate_button page-item"/>').addClass("previous").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-left" style="user-select: text;"></i></a>').click(function(){
 
-        var id = $('.notesBtn.current').data('id');
+        var id = $('.notesBtn.active').data('id');
         id = id - 1;
         togglePrevNextBtn(id);
         showPage(parseInt(id));
@@ -113,9 +113,9 @@ $('body').on('click', '.note_remove', function (e) {
     prev.hide();
     
 
-    var next = $('<li class="btn btn-primary btn-round"/>').addClass("next").html('<i class="fa fa-angle-double-right">').click(function(){
+    var next = $('<li class="paginate_button page-item"/>').addClass("next").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-right" style="user-select: text;"></i></a>').click(function(){
 
-        var id = $('.notesBtn.current').data('id');
+        var id = $('.notesBtn.active').data('id');
         id = id + 1;
         
         togglePrevNextBtn(id);
@@ -126,28 +126,28 @@ $('body').on('click', '.note_remove', function (e) {
         next.hide();
     }
     togglePrevNextBtn = function(btnId) {
-        $("#pagin .notesBtn").removeClass("current");
-        $('#paginBtn'+btnId).addClass("current");
+        $("#pagin .notesBtn").removeClass("active");
+        $('#paginBtn'+btnId).addClass("active");
         console.log(i);
         if(btnId > 1){
-            $("#pagin .prev").show();
+            $("#pagin .previous").removeClass('disabled');
             if(btnId == i){
-                $("#pagin .next").hide();
+                $("#pagin .next").addClass('disabled');
             }else{
-                $("#pagin .next").show();
+                $("#pagin .next").removeClass('disabled');
 
             }
         }
         else {
-            $("#pagin .prev").hide();
-            $("#pagin .next").show();
+            $("#pagin .previous").addClass('disabled');
+            $("#pagin .next").removeClass('disabled');
         }
         
     }
 
     $("#pagin").prepend(prev).append(next);
 
-    $("#pagin .notesBtn").first().addClass("current");
+    $("#pagin .notesBtn").first().addClass("active");
 
 
     showPage = function(page) {
@@ -160,7 +160,7 @@ $('body').on('click', '.note_remove', function (e) {
     }
         
     showPage(1);
-    $("#pagin .notesBtn").eq(0).addClass("current");
+    $("#pagin .notesBtn").eq(0).addClass("active");
 
     $("#pagin .notesBtn").click(function() {
         var id = $(this).data('id');

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @push('css')
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         /* .closed .accordion-header .formAreahalf.basic_data {
@@ -2323,7 +2325,16 @@
                     </div>
                 @endforeach
 
-                <ul id="pagin"></ul>
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
 
@@ -2645,7 +2656,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                     </select>
                 </div>
                 <div class="formAreahalf ">
-                    <label for="" class="form-label">Pass Application Status</label>
+                    <label for="" class="form-label">Pass Application Status sdsdsd</label>
                     <select name="pr[` + pass_id_no + `][` + pr_no + `][application_sts]" id="" class="js-example-responsive p_sts">
                         <option value="" selected >Please select
                         </option>
@@ -3000,7 +3011,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
 
                         <div class="formAreahalf ">
-                            <label for="passapptype" class="form-label"> Pass Application Status </label>
+                            <label for="passapptype" class="form-label"> Pass Application Status dfdfdf</label>
                             <select name="pass[` + p + `][pass_app_sts]" class="js-example-responsive">
                                 <option value="" selected >Please select application status
                                 </option>

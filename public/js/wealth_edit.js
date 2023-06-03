@@ -1,5 +1,5 @@
 $(document).on('click', '.remove-input-field', function() {
-  
+
     $(this).parents('.accordion-item').hide();
 });
 
@@ -57,7 +57,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yy',        
+        dateFormat: 'dd/mm/yy',
         onClose: function() {
             $(this).valid();
         }
@@ -65,14 +65,14 @@ $(document).ready(function () {
 
     $('.js-example-responsive').select2({
         minimumResultsForSearch: -1
-    });  
+    });
 
     equity_percentage_checks();
 
     $("#text_notes").keyup(function() {
         $("#notes_cancel").show();
         });
-    $("#notes_cancel").click(function() {           
+    $("#notes_cancel").click(function() {
         $("#text_notes").val('');
         $("#notes_cancel").hide();
     });
@@ -125,7 +125,7 @@ $(document).ready(function () {
             `<div id="accordion-` + key + `" class="accordion-item company_name" data-companyid=` + key + `>
             <div class="card">
                 <div class="card-header" id="headingOne">
-                <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div> 
+                <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
                     <div class="formAreahalf basic_data">
                         <label for="company_name" class="form-label">Company Name `+ (key + 1) + ` </label>
                         <input type="hidden" name="cmp[`+ key + `][id]" id="fo_company_id"
@@ -143,7 +143,7 @@ $(document).ready(function () {
                     <div class="card-body d-flex flex-wrap">
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Address</label>
-                        
+
                             <input type="text" name="cmp[`+ key + `][address]" id="fo_compnay_address"
                                 class="form-control">
                         </div>
@@ -177,7 +177,7 @@ $(document).ready(function () {
                                 class="form-control">
                         </div>
 
-                    </div>  
+                    </div>
                     <div id="shareholder-accordion-0" class="sharehold_length">
                                 <div class="card shareholder">
                                     <div class="card-header" id="headingOne_shareholder">
@@ -191,11 +191,11 @@ $(document).ready(function () {
                                             <div class="shareholder_div_accrodion_show">
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Equity Percentage</label>
-                                                  
+
                                                         <div class="dollersec percentage_input"><span class="input"><input type="text"
                                                         name="share[`+ key + `][0][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value=""></span><span class="pecentage_end">%</span></div>
-                                             
+
                                                 </div>
                                                 <input type="hidden" name="share[`+ key + `][0][id]" id="fo_company_id"
                                                 class="form-control">
@@ -218,7 +218,7 @@ $(document).ready(function () {
                                     <div id="collapseOneS0" class="collapse show"
                                         aria-labelledby="headingOne_shareholder" data-parent="#shareholder-accordion-0">
                                         <div class="card-body d-flex flex-wrap sharetype_data">
-                                            
+
 
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@ $(document).ready(function () {
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
                             id="edit_add_share" data-id=`+ key + `>Add
                         Shareholder</button>
-            </div>           
+            </div>
         </div>`);
         $(this).attr('data-id', key);
     });
@@ -295,16 +295,16 @@ $(document).ready(function () {
         var share_key = $(this).parents('.company_share').find('.sharehold_length').length;
         if ($(this).val() == "Company") {
             var option_values= "";
-            $.each(arr, function(key, value) { 
-               
+            $.each(arr, function(key, value) {
+
                 if( ( (key + 1) <= shr_arr_id))
                 {
-                    var divHtml = '<option value="'+value+'">'+value+'</option>'; 
-                    // console.log(shr_arr_id);   
-                }           
+                    var divHtml = '<option value="'+value+'">'+value+'</option>';
+                    // console.log(shr_arr_id);
+                }
                 option_values += divHtml;
             });
-            
+
             $(this).parents('.shareholder').find('.sharetype_data').html(`<div class="formAreahalf basic_data">
             <label for="" class="form-label">Company Name</label>
             <select class="form-control" name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][shareholder_company_name]">
@@ -331,7 +331,7 @@ $(document).ready(function () {
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Renewal
                             Reminder</label>
-                            
+
                         <select
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_renew]"
                             id="fo_cpm2_pass_renew" class="form-control">
@@ -470,7 +470,7 @@ $(document).ready(function () {
                                >
                                 NRIC
                             </option>
-                            
+
                         </select>
 
                     </div>
@@ -483,7 +483,7 @@ $(document).ready(function () {
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Monthly Salary in the
                             company(SGD)</label>
-                        <input type="text" class="form-control"
+                        <input type="integer" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
                             >
                     </div>
@@ -580,11 +580,11 @@ $(document).ready(function () {
         //     }
         // });
         $('#file-input-error').text('');
-       
+
         $.ajax({
             type: 'POST',
             url: "/wealth-uploadfile",
-            data: formData2,           
+            data: formData2,
             contentType: false,
             processData: false,
             success: (response) => {
@@ -663,18 +663,18 @@ $(document).ready(function () {
     //    console.log('fgjgj');
     // })
     var f_btn_key = "";
-    $('body').on('click','.edit_add_finance',function(){      
-    
+    $('body').on('click','.edit_add_finance',function(){
+
         // f_btn_key = $(this).parents('.wealth_finance_data').find('.wealth_finance_check').last().attr('id').replace("financial_accordion_","");
         f_btn_key = $('.wealth_finance_check').length;
         // alert(f_btn_key);
-        // f_btn_key++;       
-        
+        // f_btn_key++;
+
         $("#wealth_finance_data").append(`<div id="financial_accordion_`+ (f_btn_key +1) +`" class="mas_related financial_`+(f_btn_key +1)+` wealth_finance_check">
-        <div class="new_chnages_finance accordion-items">                                        
+        <div class="new_chnages_finance accordion-items">
             <div class="mas_heading_accordian">
                 <input type="hidden" name="financial[`+(f_btn_key +1)+`][wealth_finance_id]"
-                value="">  
+                value="">
                 <div class="formAreahalf basic_data">
                     <label for="stakeholder_type" class="form-label">Stakeholder
                         Type</label>
@@ -704,7 +704,7 @@ $(document).ready(function () {
                     data-target="#financial_collapse`+(f_btn_key +1) +`" aria-expanded="true"
                     aria-controls="collapseOne">
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </button>               
+                </button>
                 <div class="cross financial_wealth"><span class="edit_cancel_share remove-financal">x</span></div>
             </div>
             <div id="financial_collapse`+(f_btn_key +1) +`" class="collapse" aria-labelledby="headingOne"
@@ -841,13 +841,13 @@ $(document).ready(function () {
                                     value=""></textarea>
                             </div>
                         </div>
-                    </div>                                                                                                                                                       
-                </div>           
-            </div>`); 
+                    </div>
+                </div>
+            </div>`);
             // if ($('.js-example-responsive').data('select2')) {
             //     $('.js-example-responsive').select2('destroy');
             // }
-           
+
             $('#financial_accordion_'+ (f_btn_key +1)+' .js-example-responsive').select2({
                 minimumResultsForSearch: -1
             });
@@ -865,7 +865,7 @@ $(document).ready(function () {
                 url: "/finance-destroy",
                 data: {id: finance_entry_id },
                 success: function (response) {
-                 console.log(response);                
+                 console.log(response);
                 }
             });
 
@@ -875,17 +875,17 @@ $(document).ready(function () {
             console.log($(this).children().find('.formAreahalf label[for="financial_institution_name"]'));
             $(this).children().find('.formAreahalf label[for="financial_institution_name"]').html('Financial Institution Name ' + count_finance);
             count_finance++;
-        });         
-   
-      
-    });  
-    
-   
+        });
+
+
+    });
+
+
     $('body').on('click','.btn_add_redempt',function(){
        var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
        var red_date =  $(this).parents('.redemption_add_table').find('.red_date').val();
        var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
-       console.log(red_date, red_amount,red_id);    
+       console.log(red_date, red_amount,red_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -914,8 +914,8 @@ $(document).ready(function () {
         });
     })
     $('body').on('click','.del_confirm_business',function(){
-        var business_id = $(this).attr('data-id');      
-         //    console.log(business_id);    
+        var business_id = $(this).attr('data-id');
+         //    console.log(business_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -926,7 +926,7 @@ $(document).ready(function () {
             url: "/business-destroy",
             data: {id: business_id},
             success: function (response) {
-                console.log(response);               
+                console.log(response);
             }
         });
         $(this).parents('tr').remove();
@@ -944,7 +944,7 @@ $(document).ready(function () {
             url: "/company-destroy",
             data: {id: id },
             success: function (response) {
-             console.log(response);                
+             console.log(response);
             }
         });
 
@@ -954,11 +954,11 @@ $(document).ready(function () {
             console.log($(this).children().find('.formAreahalf label[for="company_name"]'));
             $(this).children().find('.formAreahalf label[for="company_name"]').html('Company Name ' + count);
             count++;
-        });         
+        });
 
-    
-    });  
-    
+
+    });
+
     $('body').on('click','.remove-campany-shareholder',function(){
         var finance_entry_id =  $(this).parents('.sharehold_length').find('#share_id').val();
         $.ajaxSetup({
@@ -971,10 +971,10 @@ $(document).ready(function () {
             url: "/company-shareholder-destroy",
             data: {id: finance_entry_id },
             success: function (response) {
-             console.log(response);                
+             console.log(response);
             }
         });
-        
+
         $(this).parents('.sharehold_length').remove();
         var count = 1;
         $('.sharehold_length').each(function (index) {
@@ -982,8 +982,8 @@ $(document).ready(function () {
             console.log($(this).children().find('.formAreahalf label[for="shareholder_name"]'));
             $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
             count++;
-        });         
+        });
 
-    
+
     });
 });
