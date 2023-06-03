@@ -821,7 +821,7 @@
                                                                 </label>
 
                                                                 <div class="dollersec"><span class="doller">$</span><span
-                                                                    class="input"><input type="text" class="form-control"
+                                                                    class="input"><input type="integer" class="form-control"
                                                                     name="pass[{{ $z }}][month_sal]"
                                                                     id="month_salary"
                                                                     value="{{ $pass_hol['month_sal'] }}"></span></div>
@@ -3121,7 +3121,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Monthly Salary (SGD)</label>
                             <div class="dollersec"><span class="doller">$</span><span
-                                                class="input"><input type="text" class="form-control"  name="pass[` + p + `][month_sal]"></span></div>
+                                                class="input"><input type="integer" class="form-control"  name="pass[` + p + `][month_sal]"></span></div>
                         </div> 
 
                         <div class="formAreahalf">

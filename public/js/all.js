@@ -1,6 +1,15 @@
 $(document).on('click', '.accordion-button', function(){
     $(this).parents('.accordion-item').toggleClass('closed');
 })
+function addCommas(str){
+    return str.replace(/^0+/, '').replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+$(document).on('keyup','[type^=integer]',function(event){
+    var nm = $(this).val();
+    $(this).val(addCommas(nm));
+    
+  });
+
 $('.commanDataTable').DataTable({
 
     oLanguage: {

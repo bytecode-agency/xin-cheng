@@ -124,7 +124,6 @@ $('body').on('click', '.note_remove', function (e) {
     });
     if(pageCount < 1 ){
         next.hide();
-        $('.notes-common ').hide();
     }
     togglePrevNextBtn = function(btnId) {
         $("#pagin .notesBtn").removeClass("current");
