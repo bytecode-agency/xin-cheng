@@ -943,6 +943,7 @@ fieldset#account .formAreahalf {
     position: relative;
     cursor: pointer;
     z-index: 10;
+    top: 13px;
 }
 
 .custom-form,
