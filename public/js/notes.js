@@ -111,6 +111,7 @@ $('body').on('click', '.note_remove', function (e) {
     });
 
     prev.hide();
+    
 
     var next = $('<li class="btn btn-primary btn-round"/>').addClass("next").html('<i class="fa fa-angle-double-right">').click(function(){
 
@@ -121,6 +122,10 @@ $('body').on('click', '.note_remove', function (e) {
         
         showPage(parseInt(id));
     });
+    if(pageCount < 1 ){
+        next.hide();
+        $('.notes-common ').hide();
+    }
     togglePrevNextBtn = function(btnId) {
         $("#pagin .notesBtn").removeClass("current");
         $('#paginBtn'+btnId).addClass("current");

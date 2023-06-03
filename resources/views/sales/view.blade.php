@@ -543,7 +543,7 @@
                 <h3>File Uploads</h3>
                 <div class="dataAreaMain">
                     <div class="table_cstm  dasboard-entry">
-                        <table class="table table_yellow commanDataTable" >
+                        <table class="table table_yellow file_upload_table" >
                             <thead>
                                 <tr>
                                     <th scope="col">File Name</th>
@@ -578,7 +578,7 @@
                 <h3>Action Log</h3>
                 <div class="dataAreaMain">
                     <div class="table_cstm  dasboard-entry">
-                        <table class="table table_yellow commanDataTable" >
+                        <table class="table table_yellow user_action_log" >
                             <thead>
                                 <tr>
                                     <th scope="col">Actions</th>

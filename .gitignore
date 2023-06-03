@@ -3,8 +3,10 @@
 /public/build
 /public/hot
 /public/storage
+/public/file
 /storage/*.key
 .env
+projectDoc.txt
 .env.backup
 .env.production
 .phpunit.result.cache

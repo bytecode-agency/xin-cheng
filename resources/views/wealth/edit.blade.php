@@ -2140,39 +2140,43 @@
                         <button type="submit" class="btn saveBtn file_upload_submit">Upload</button>
                     </div>
                 </form>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded by</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($file) > 0)
-                            @foreach ($file as $files)
-                                <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                    <td>
-                                        <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            <i class="fa-solid fa-download"></i></a>
-
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                    <table class="table user_action_log">
+                        <thead>
                             <tr>
-                                <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Uploaded by</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        @endif
+                        </thead>
+                        <tbody>
+                            @if (count($file) > 0)
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td>{{ $files->file }}</td>
+                                        <td>{{ $files->uploaded_by_name }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td>
+                                            <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <i class="fa-solid fa-download"></i></a>
 
-                    </tbody>
-                </table>
+                                            <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                </tr>
+                            @endif
+
+                        </tbody>
+                    </table>
+                </div>
+             </div>
             </div>
         </div>
 

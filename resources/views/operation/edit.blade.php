@@ -2347,58 +2347,65 @@
                         <button type="submit" class="btn saveBtn">Upload</button>
                     </div>
                 </form>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow file_upload_table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Uploaded By</th>
+                                    <th scope="col">Date & Time</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded By</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach ($file as $files)
-                            <tr>
-                                <td>{{ $files->file_orignal_name }}</td>
-                                <td>{{ $files->uploaded_by }}</td>
-                                <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                        <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
-                                    </a>
-                                    <a href="javascript:void(0);" class="del_confirm"
-                                        data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td>{{ $files->file_orignal_name }}</td>
+                                        <td>{{ $files->uploaded_by }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
+                                            </a>
+                                            <a href="javascript:void(0);" class="del_confirm"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
 
 
             <div class="card file action">
                 <h3>Action Log</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">Actions</th>
-                            <th scope="col">Made By</th>
-                            <th scope="col">Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($action_log as $activity)
-                            <tr>
-                                <td>{{ $activity->message }}</td>
-                                <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow user_action_log">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Made By</th>
+                                    <th scope="col">Date & Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($action_log as $activity)
+                                    <tr>
+                                        <td>{{ $activity->message }}</td>
+                                        <td>{{ $activity->name }}</td>
+                                        <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>

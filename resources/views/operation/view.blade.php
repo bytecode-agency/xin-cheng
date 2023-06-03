@@ -1540,7 +1540,7 @@
             <h3>File Uploads</h3>
             <div class="dataAreaMain">
                     <div class="table_cstm  dasboard-entry">
-                        <table class="table user_action_log {{ count($file) > 0 ? 'commanDataTable' : '' }}">
+                        <table class="table  table-responsive table_yellow file_upload_table">
                             <thead>
                                 <tr>
                                     <th scope="col">File Name</th>
@@ -1573,7 +1573,9 @@
 
         <div class="card file action">
             <h3>Action Log</h3>
-                    <table class="table table-responsive user_action_log  {{ count($file) > 0 ? 'commanDataTable' : '' }}" >
+            <div class="dataAreaMain">
+                <div class="table_cstm  dasboard-entry">
+                    <table class="table table-responsive table_yellow user_action_log" >
                         <thead>
                             <tr>
                                 <th scope="col">Actions</th>
