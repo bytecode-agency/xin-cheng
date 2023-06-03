@@ -112,7 +112,7 @@
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">One Time Servicing Fee Amount</label>
                             <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="text" class="form-control" name="servicing_fee"
+                                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
                                         id="fo_servicing_fee_amount" value="{{ $basic_data->servicing_fee }}"></span>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Amount</label>
                             <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="text" class="form-control" name="annual_servicing_fee"
+                                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
                                         value="{{ $basic_data->annual_servicing_fee }}"></span>
                             </div>
                         </div>
@@ -770,7 +770,7 @@
                                                                         Deposit
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="text"
+                                                                        <span class="input"> <input type="integer"
                                                                                 name="financial[{{$i +1}}][intial_deposit_amount]"
                                                                                 value="@isset($wealthfinance[$i]->intial_deposit_amount) {{ $wealthfinance[$i]->intial_deposit_amount }} @endisset"
                                                                                 class="form-control"></span>
@@ -1427,7 +1427,7 @@
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     name="investment_amount"
                                                                     value="@isset($wealthbuss->investment_amount) {{ $wealthbuss->investment_amount }} @endisset"
                                                                     class="form-control"></span>
@@ -1572,7 +1572,7 @@
                                                             Amount(For
                                                             Admin
                                                             Purpose)</label>
-                                                        <input type="text" name="commission_amount"
+                                                        <input type="integer" name="commission_amount"
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
                                                     </div>
@@ -1654,7 +1654,7 @@
                                                             <label for="net_amount_val" class="form-label">Net Account
                                                                 Value</label>
                                                             <div class="dollersec"><span class="doller">$</span>
-                                                                <span class="input"> <input type="text"
+                                                                <span class="input"> <input type="integer"
                                                                         class="form-control" name="net_amount_val"
                                                                         id="net_amount_val"
                                                                         value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
@@ -1819,7 +1819,7 @@
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     name="investment_amount"
                                                                     value="@isset($wealthbuss->investment_amount) {{ $wealthbuss->investment_amount }} @endisset"
                                                                     class="form-control"></span>
@@ -1965,7 +1965,7 @@
                                                             Amount(For
                                                             Admin
                                                             Purpose)</label>
-                                                        <input type="text" name="commission_amount"
+                                                        <input type="integer" name="commission_amount"
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
                                                     </div>
@@ -1981,7 +1981,7 @@
                                                         <label for="net_amount_val" class="form-label">Redemption
                                                             Amount</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     class="form-control" name="business_redemption_amount"
                                                                     id="fo_servicing_fee_amount"
                                                                     value="@isset($wealthbuss->business_redemption_amount) {{ $wealthbuss->business_redemption_amount }} @endisset"></span>
@@ -1991,7 +1991,7 @@
                                                         <label for="net_amount_val" class="form-label">Net Account
                                                             Value</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     class="form-control" name="net_amount_val"
                                                                     id="net_amount_val"
                                                                     value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
@@ -2021,7 +2021,7 @@
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="text"
+                                                                        <span class="input"> <input type="integer"
                                                                                 class="form-control red_amount" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>

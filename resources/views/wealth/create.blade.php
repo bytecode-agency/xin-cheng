@@ -752,7 +752,7 @@
         <div class="formAreahalf">
             <label for="fo_servicing_fee_amount" class="form-label">One-Time Servicing Fee Amount</label>
             <div class="dollersec"><span class="doller">$</span>
-                <span class="input"> <input type="text" class="form-control" name="servicing_fee"
+                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
                         id="fo_servicing_fee_amount"></span>
             </div>
         </div>
@@ -776,7 +776,7 @@
         <div class="formAreahalf">
             <label for="fo_annual_fee" class="form-label">Annual Servicing Fee Amount</label>
             <div class="dollersec"><span class="doller">$</span>
-                <span class="input"> <input type="text" class="form-control" name="annual_servicing_fee"
+                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
                         id="fo_annual_fee"></span>
             </div>
         </div>
@@ -895,7 +895,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_mth_salary" class="form-label">Monthly Salary in the company (SGD)</label>
-            <input type="text" class="form-control" name="fo_mth_salary" id="fo_mth_salary">
+            <input type="integer" class="form-control" name="fo_mth_salary" id="fo_mth_salary">
         </div>
         <div class="formAreahalf single_div">
             <label for="fo_shrhold_rel" class="form-label">Relationship with shareholder</label>
@@ -1051,7 +1051,7 @@
         <div class="formAreahalf">
             <label for="nfo_cpm2_sal" class="form-label">Monthly Salary in the company (SGD)</label>
             <div class="dollersec"><span class="doller">$</span>
-                <input type="text" name="nfo_cpm2_sal" id="nfo_cpm2_sal" class="form-control" value="">
+                <input type="integer" name="nfo_cpm2_sal" id="nfo_cpm2_sal" class="form-control" value="">
             </div>
         </div>
         <div class="formAreahalf">
