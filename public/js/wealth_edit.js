@@ -728,6 +728,12 @@ $(document).ready(function () {
                                 <label for="poc_email" class="form-label">POC Email</label>
                                 <input type="text" name="financial[`+(f_btn_key +1)+`][poc_email]" id="poc_email"
                                     value=""
+                                    class="form-control datepicker" placeholder="dd/mm/yy">
+                            </div>
+                            <div class="formAreahalf basic_data">
+                                <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                <input type="text" name="financial[`+(f_btn_key +1)+`][application_submission_date]" id="application_submission_date"
+                                    value=""
                                     class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
@@ -747,7 +753,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
-                                <select name="financial[`+(f_btn_key +1)+`][account_type]" id="account_type" class="form-control">
+                                <select name="financial[`+(f_btn_key +1)+`][account_type][]" id="account_type" class="form-control">
                                     <option value="" selected disabled>Choose account type
                                     </option>
                                     <option value="SGD">
@@ -759,11 +765,13 @@ $(document).ready(function () {
                                     <option value="Others">
                                         Others</option>
                                 </select>
+                                <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="`+(f_btn_key +1)+`" data-aclick="`+(f_btn_key +2)+`">
                             </div>
+                            
                             <div class="formAreahalf basic_data">
                                 <label for="account_policy_no" class="form-label">Account/Policy
                                     Number</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][account_policy_no]" id="account_policy_no"
+                                <input type="text" name="financial[`+(f_btn_key +1)+`][account_policy_no][]" id="account_policy_no"
                                     value=""
                                     class="form-control">
                             </div>

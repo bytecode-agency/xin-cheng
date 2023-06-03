@@ -991,8 +991,19 @@
                                                     </p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
+                                                    <label for="application_submission_date" class="form-label">Application
+                                                        Submission Date</label>
+                                                    
+                                                        @isset($wealth_finance[$i]->application_submission_date)
+                                                            {{ $wealth_finance[$i]->application_submission_date }}
+                                                        @else
+                                                            -
+                                                        @endisset
+                                                    </p>
+                                                </div>
+                                                <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Application
-                                                        Submission</label>
+                                                        Submission </label>
                                                     <p
                                                         class="@if (isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'In progress') active-blue @elseif(isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'Done') active-btn @else '' @endif">
 

@@ -16,6 +16,7 @@ class WealthFinancial extends Model
         'poc_contact_no',
         'poc_email',
         'application_submission',
+        'application_submission_date',
         'account_type',
         'account_policy_no',
         'account_opening_status',

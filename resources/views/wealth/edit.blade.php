@@ -655,6 +655,12 @@
                                                                         class="form-control">
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
+                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
+                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                                </div>
+                                                                <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
                                                                         Submission</label>
                                                                     <select name="financial[{{$i +1}}][application_submission]" id="application_submission"
@@ -669,54 +675,63 @@
 
                                                                     </select>
                                                                 </div>
+                                                                @php 
+                                                                $account_type =json_decode($wealthfinance[$i]->account_type); 
+                                                                $api = 1;
+                                                                @endphp
+                                                                
+                                                                    @foreach($account_type as $ap)
                                                                 <div class="formAreahalf basic_data">
-                                                                    <label for="account_type" class="form-label">Account Type</label>
-                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
+                                                                    <label for="account_type" class="form-label">Account Type {{$api}}</label>
+                                                                    <select name="financial[{{$i +1}}][account_type][]" id="account_type" class="form-control" data-id= "{{$i +1}}">
                                                                         <option value="" selected disabled>Choose account type
                                                                         </option>
                                                                         <option value="SGD"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'SGD' ? 'selected' : '' }}>
+                                                                            {{ isset($ap) && $ap == 'SGD' ? 'selected' : '' }}>
                                                                             SGD</option>
                                                                         <option value="USD"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'USD' ? 'selected' : '' }}>
+                                                                            {{ isset($ap) && $ap == 'USD' ? 'selected' : '' }}>
                                                                             USD</option>
                                                                         <option value="Multi-currency"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Multi-currency' ? 'selected' : '' }}>
+                                                                            {{ isset($ap) && $ap == 'Multi-currency' ? 'selected' : '' }}>
                                                                             Multi-currency</option>
                                                                         <option value="Others"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
+                                                                            {{ isset($ap) && $ap == 'Others' ? 'selected' : '' }}>
                                                                             Others</option>
-
-                                                                        <!-- <option value="Insurance"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Insurance' ? 'selected' : '' }}>
-                                                                            Insurance</option>
-                                                                        <option value="Investment"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Investment' ? 'selected' : '' }}>
-                                                                            Investment</option>
-                                                                        <option value="Others"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
-                                                                            Others</option> -->
                                                                     </select>
+                                                                    @if ($api == 1)
+                                                                        <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="{{($i + 1)}}" data-aclick="{{count($account_type)}}">
+                                                                    @endif
+                                                                    @php $api++; @endphp
                                                                 </div>
-
+                                                                @endforeach
 
                                                                 @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
-                                                                    <div class="formAreahalf basic_data please_specify">
-                                                                        <label for="" class="form-label">Others, please specify</label>
-                                                                        <input type="text" class="form-control"
-                                                                                name="financial[{{$i +1}}][account_type_specify]"
-                                                                                value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
+                                                                @php $account_type_specify =json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1; @endphp
+                                                                    @foreach($account_type_specify as $aps)
+                                                                            <div class="formAreahalf basic_data please_specify">
+                                                                                <label for="" class="form-label">Others, please specify{{$apsi}}</label>
+                                                                                <input type="text" class="form-control"
+                                                                                        name="financial[{{$i +1}}][account_type_specify][]"
+                                                                                        value="{{ isset($aps) ? $aps : '' }}">
 
 
-                                                                    </div>
+                                                                            </div>
+                                                                        @php $apsi++; @endphp
+                                                                    @endforeach
                                                                 @endif
+
+                                                                @php $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no); $apni = 1;  @endphp
+                                                                @foreach($account_policy_no as $apn)
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_policy_no" class="form-label">Account/Policy
-                                                                        Number</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][account_policy_no]" id="account_policy_no"
-                                                                        value="@isset($wealthfinance[$i]->account_policy_no)  {{ $wealthfinance[$i]->account_policy_no }} @endisset"
+                                                                        Number{{$apni}}</label>
+                                                                    <input type="text" name="financial[{{$i +1}}][account_policy_no][]" id="account_policy_no"
+                                                                        value="@isset($apn)  {{ $apn }} @endisset"
                                                                         class="form-control">
                                                                 </div>
+                                                                @php $apni++; @endphp
+                                                                @endforeach
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_opening_status" class="form-label">Account
                                                                         Opening
@@ -2357,6 +2372,40 @@
                 } else {
                     $(this).parents().next('.please_specify').remove();
                 }
+
+            });
+
+            $(document).on('click', '.add_account_type', function() {
+                var akey = $(this).data('id');
+                var aclick = $(this).data('aclick');
+                $(this).data('aclick',(aclick+1));
+                $(this).parent().after(
+                    `<div class="formAreahalf basic_data">
+                        <label for="account_type" class="form-label">Account Type `+aclick+`</label>
+                        <select name="financial[`+akey+`][account_type][]" id="account_type" class="form-control">
+                            <option value="" selected disabled>Choose account type
+                            </option>
+                            <option value="SGD">
+                                SGD</option>
+                            <option value="USD">
+                                USD</option>
+                            <option value="Multi-currency">
+                                Multi-currency</option>
+                            <option value="Others">
+                                Others</option>
+                        </select>
+                    </div>
+                    <div class="formAreahalf basic_data ">
+                        <label for="account_policy_no" class="form-label">Account/Policy
+                            Number `+aclick+`</label>
+                        <input type="text" name="financial[`+akey+`][account_policy_no][]" id="account_policy_no"
+                            value=""
+                            class="form-control">
+                    </div>
+                    `
+                );
+
+                
 
             });
 
