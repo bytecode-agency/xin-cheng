@@ -2121,7 +2121,16 @@
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
-                <ul id="pagin"></ul>
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
             <div class="card file upload ">
