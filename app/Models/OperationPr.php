@@ -26,6 +26,7 @@ class OperationPr extends Model
         'rep_ren_rem',
         'rep_ren_trg_fre',
         're_sub_trg_fre',
+        'rejection_date',
         'remarks',
          'user_id',
          'created_by',
