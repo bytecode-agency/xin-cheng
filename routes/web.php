@@ -98,7 +98,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-//Clear Cache facade value:
+//Clear Cache facade value:toomany
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     echo '<h1>Cache facade value cleared</h1>';
