@@ -63,7 +63,7 @@
             <fieldset id="account" class=" w-100 d-flex justify-content-start flex-wrap form-fields mb-0">
 
                 <div class="formAreahalf">
-                    <label for="c" class="form-label">Client's Name</label>
+                    <label for="c" class="form-label">Client(s) Name</label>
                     </br>{{ $sale->client_name }}
                 </div>
 

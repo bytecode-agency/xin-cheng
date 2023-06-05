@@ -957,10 +957,10 @@
                         '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-">'
                     );
                     $("#renewlremdiv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-" disabled>'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminderrr</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-">'
                     );
                     $("#renewlfrediv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-" disabled>'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-">'
                     );
                     // alert(document.getElementById('sign').value);
 
