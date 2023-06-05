@@ -31,10 +31,11 @@
                 </ul>
 
             </div>
-            <div class="filterBtn d-flex align-items-center justify-content-end ">
-                <button type="submit" class="btn saveBtn"><span>Save</span></button>
-                <a href="{{ route('sales.show', $sale->id) }}" class="btn saveBtn cancelBtn">Cancel</a>
-            </div>
+
+        </div>
+        <div class="filterBtn viewSave ms-auto d-flex align-items-center justify-content-end ">
+            <button type="submit" class="btn saveBtn"><span>Save</span></button>
+            <a href="{{ route('sales.show', $sale->id) }}" class="btn saveBtn cancelBtn">Cancel</a>
         </div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">

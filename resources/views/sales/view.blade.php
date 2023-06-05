@@ -22,18 +22,19 @@
             </ul>
 
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
-            <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
-                    alt="print Icon"></a>
-            <a href="{{ route('sales.edit', $sale->id) }}"><button class="btn saveBtn">
-                    <span>Edit</span>
-                </button></a>
-            {{-- <a href="{{ route('sales.destroy', $sale->id) }}"><button class="btn saveBtn cancelBtn"> --}}
-            <a href="javascript:void(0);" data-id={{ $sale->id }}
-                class="btn del_confirm btn saveBtn cancelBtn delete">Delete</a>
 
+    </div>
+    <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
+        <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
+                alt="print Icon"></a>
+        <a href="{{ route('sales.edit', $sale->id) }}"><button class="btn saveBtn">
+                <span>Edit</span>
             </button></a>
-        </div>
+        {{-- <a href="{{ route('sales.destroy', $sale->id) }}"><button class="btn saveBtn cancelBtn"> --}}
+        <a href="javascript:void(0);" data-id={{ $sale->id }}
+            class="btn del_confirm btn saveBtn cancelBtn delete">Delete</a>
+
+        </button></a>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -563,7 +564,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                                                
+
                                 @foreach ($file as $files)
                                     <tr>
                                         <td>{{ $files->file_orignal_name }}</td>
