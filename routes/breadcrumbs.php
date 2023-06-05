@@ -7,7 +7,7 @@ use App\Models\OperationPassholder;
 use App\Models\OperationApp;
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
-use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail; 
+use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail): void {
     $trail->push('User List', route('users.index'));
@@ -43,9 +43,9 @@ Breadcrumbs::for('wealth.dashboard', function (BreadcrumbTrail $trail): void {
 Breadcrumbs::for('wealth.add', function (BreadcrumbTrail $trail): void {
     $trail->push('Add New Application', route('wealth.add'));
 });
-Breadcrumbs::for('wealth.show', function (BreadcrumbTrail $trail, Wealth $wealth,  $companyName) {  
-    $trail->parent('wealth.index');  
-    $trail->push( $wealth->id .' - '.$companyName, route('wealth.show',$wealth->id));  
+Breadcrumbs::for('wealth.show', function (BreadcrumbTrail $trail, Wealth $wealth,  $companyName) {
+    $trail->parent('wealth.index');
+    $trail->push( $wealth->id .' - '.$companyName, route('wealth.show',$wealth->id));
  });
 Breadcrumbs::for('wealth.edit', function (BreadcrumbTrail $trail): void {
     $trail->parent('wealth.index');
@@ -62,7 +62,7 @@ Breadcrumbs::for('education.index', function (BreadcrumbTrail $trail): void {
     $trail->push('View Applications', route('education.index'));
 });
 Breadcrumbs::for('sales', function (BreadcrumbTrail $trail): void {
-    $trail->push('View Application', route('sales'));
+    $trail->push('View Applications', route('sales'));
 });
 Breadcrumbs::for('sales.dashboard', function (BreadcrumbTrail $trail): void {
     $trail->push('Dashboard', route('sales.dashboard'));
@@ -88,13 +88,13 @@ Breadcrumbs::for('operation.index', function (BreadcrumbTrail $trail): void {
 Breadcrumbs::for('operation.create', function (BreadcrumbTrail $trail): void {
     $trail->push('Add New Application', route('operation.create'));
 });
-Breadcrumbs::for('operation.show', function (BreadcrumbTrail $trail, OperationApp $OperationApp, $PassName ) {  
+Breadcrumbs::for('operation.show', function (BreadcrumbTrail $trail, OperationApp $OperationApp, $PassName ) {
     $trail->parent('operation.index');
-    $trail->push($OperationApp->id .' - '.$PassName,  route('operation.show',$OperationApp->id));   
+    $trail->push($OperationApp->id .' - '.$PassName,  route('operation.show',$OperationApp->id));
 });
-Breadcrumbs::for('operation.edit', function (BreadcrumbTrail $trail, OperationApp $OperationApp, $PassName) {  
-    $trail->parent('operation.index');  
-    $trail->push($OperationApp->id .' - '.$PassName,  route('operation.edit',$OperationApp->id));  
+Breadcrumbs::for('operation.edit', function (BreadcrumbTrail $trail, OperationApp $OperationApp, $PassName) {
+    $trail->parent('operation.index');
+    $trail->push($OperationApp->id .' - '.$PassName,  route('operation.edit',$OperationApp->id));
 });
 Breadcrumbs::for('finance.newapp', function (BreadcrumbTrail $trail): void {
     $trail->push('Add New Application', route('finance.newapp'));
