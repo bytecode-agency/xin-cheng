@@ -846,6 +846,24 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
+                                                                    <label for="intial_deposit_amount" class="form-label">Initial Deposit Currency</label>
+                                                                    <select name="financial[{{$i +1}}][intial_deposit_currency]" id="intial_deposit_currency"
+                                                                        class="js-example-responsive form-control">
+                                                                        <option value="" selected disabled>Choose money deposit
+                                                                            Currency
+                                                                        </option>
+                                                                        <option value="SGD"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'SGD' ? 'selected' : '' }}>SGD</option>
+                                                                        <option value="USD"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'USD' ? 'selected' : '' }}>USD</option>
+                                                                        <option value="Mult-currency"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Mult-currency' ? 'selected' : '' }}>Mult-currency</option>
+                                                                        <option value="Others"
+                                                                        {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Others' ? 'selected' : '' }}>Others</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                                <div class="formAreahalf basic_data">
                                                                     <label for="intial_deposit_amount" class="form-label">Initial
                                                                         Deposit
                                                                         Amount</label>
@@ -928,8 +946,7 @@
                                             data-parent="#pass_accordion">
                                             <div class="tab-inner-text d-flex flex-wrap">
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="pass_holder_name" class="form-label">Pass Holder Name
-                                                        1
+                                                    <label for="pass_holder_name" class="form-label" id="pass_holder_name_lable">Pass Holder Name
                                                         (Eng)
                                                     </label>
                                                     <input type="text" name="pass_holder_name" id="pass_holder_name"
@@ -2471,7 +2488,30 @@
                 
 
             });
+            $(document).on('change', '#passholder_shareholder', function() {
+                if ($(this).val() == "Yes") {
+                    
+                     var htmpass=`<select class="form-control" id="pass_holder_name"
+                                name="pass_holder_name">`;
+                    var pass_name_eng_arr = $('.pass_name_eng').map(function () {
+                        return this.value;
+                    }).get();
+                    var option_values= "";
+                    $.each(pass_name_eng_arr, function(key, value) {
+                         htmpass += `<option value="`+value+`">`+value+`</option>`;
+                    });
+                    htmpass += `</select>`;
 
+                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
+                    $('#pass_holder_name_lable').after(htmpass);
+
+                } else {
+                    var htmpass = `<input type="text" name="pass_holder_name" id="pass_holder_name" class="form-control">`;
+                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
+                    $('#pass_holder_name_lable').after(htmpass);
+                }
+
+            });
 
 
         });

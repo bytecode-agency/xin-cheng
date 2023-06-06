@@ -317,7 +317,7 @@ $(document).ready(function () {
             $(this).parents('.shareholder').find('.sharetype_data').html(`<div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Full
                             Name(Eng)</label>
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control pass_name_eng"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][pass_name_eng]"
                            >
                     </div>
