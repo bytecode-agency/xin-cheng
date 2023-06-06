@@ -75,7 +75,7 @@
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Business Typeee</label>
+                        <label for="" class="form-label">Business Type</label>
                         <p>{{ $data->business_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -993,7 +993,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="application_submission_date" class="form-label">Application
                                                         Submission Date</label>
-                                                    
+
                                                         @isset($wealth_finance[$i]->application_submission_date)
                                                             {{ $wealth_finance[$i]->application_submission_date }}
                                                         @else
