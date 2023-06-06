@@ -567,7 +567,7 @@
 
                                 @foreach ($file as $files)
                                     <tr>
-                                        <td>{{ $files->file_orignal_name }}</td>
+                                        <td><a href="{{asset('file/'.$files->file_orignal_name)}}" target="_blank" >{{ $files->file_orignal_name }}</a></td>
                                         <td>{{ $files->uploaded_by }}</td>
                                         <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
                                         <td>

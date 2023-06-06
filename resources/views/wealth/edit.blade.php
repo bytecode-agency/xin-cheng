@@ -2263,7 +2263,7 @@
                             @if (count($file) > 0)
                                 @foreach ($file as $files)
                                     <tr>
-                                        <td>{{ $files->file }}</td>
+                                        <td><a href="{{asset('file/'.$files->file)}}" target="_blank" >{{ $files->file }}</a></td>
                                         <td>{{ $files->uploaded_by_name }}</td>
                                         <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
                                         <td>
