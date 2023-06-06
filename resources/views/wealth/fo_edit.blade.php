@@ -133,7 +133,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Full
                                                     Name(Eng)</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control pass_name_eng"
                                                     name="share[{{ $key }}][{{ $key2 }}][pass_name_eng]"
                                                     value="{{ $shareholder->pass_name_eng }}">
                                             </div>

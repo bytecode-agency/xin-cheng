@@ -555,6 +555,7 @@ class WealthController extends Controller
                     'current_account_status'=>  isset($f_value['current_account_status']) ? $f_value['current_account_status'] :null,
                     'money_deposit_status' =>  isset($f_value['money_deposit_status']) ? $f_value['money_deposit_status'] :null,
                     'intial_deposit_amount' =>  isset($f_value['intial_deposit_amount']) ? $f_value['intial_deposit_amount'] :null,
+                    'intial_deposit_currency' =>  isset($f_value['intial_deposit_currency']) ? $f_value['intial_deposit_currency'] :null,
                     'online_account_username' =>  isset($f_value['online_account_username']) ? $f_value['online_account_username'] :null,
                     'online_account_pass' => isset($f_value['online_account_pass']) ? $f_value['online_account_pass']:null,
                     'finacial_remarks' => isset($f_value['finacial_remarks']) ? $f_value['finacial_remarks'] :null,  ]);

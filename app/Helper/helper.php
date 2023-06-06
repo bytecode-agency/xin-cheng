@@ -32,3 +32,8 @@ use Illuminate\Http\Request;
       $dt->setTimestamp(strtotime(str_replace("/","-",$date)));
       return $dt->format($format);
     }
+    function isJson($string) {
+      return ((is_string($string) &&
+              (is_object(json_decode($string)) ||
+              is_array(json_decode($string))))) ? true : false;
+    }

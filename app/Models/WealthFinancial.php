@@ -23,6 +23,7 @@ class WealthFinancial extends Model
         'current_account_status',
         'money_deposit_status',
         'intial_deposit_amount',
+        'intial_deposit_currency',
         'online_account_username',
         'online_account_pass',
         'finacial_remarks',

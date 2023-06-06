@@ -1014,35 +1014,95 @@
                                                         @endisset
                                                     </p>
                                                 </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">Account Type</label>
-                                                    <p>
-                                                        @isset($wealth_finance[$i]->account_type)
-                                                            {{ $wealth_finance[$i]->account_type }}
-                                                        @else
-                                                            -
-                                                        @endisset
-                                                    </p>
-                                                </div>
-                                                @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
+                                                    @php 
+                                                        $account_type =json_decode($wealth_finance[$i]->account_type); 
+                                                        $api = 1;
+                                                    @endphp
+                                                    @foreach($account_type as $ap)
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Account Type</label>
+                                                            <p>
+                                                                @isset($ap)
+                                                                    {{ $ap }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    @php 
+                                                        $ap = $wealth_finance[$i]->account_type;
+                                                        $api = 1;
+                                                    @endphp
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealth_finance[$i]->account_type_specify))
-                                                        {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                            <label for="" class="form-label">Account Type</label>
+                                                            <p>
+                                                                @isset($ap)
+                                                                    {{ $ap }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                @endif
+                                                @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
+                                                    
+                                                        @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                            @foreach($account_type_specify as $aps)
+                                                            <div class="formAreahalf basic_data">
+                                                                <label for="" class="form-label">Others, please specify</label>
+                                                                @if (isset($aps))
+                                                                    {{ $aps }} 
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                                </p>
+                                                            </div>
+                                                            @endforeach
                                                         @endif
+                                                @elseif (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                      
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealth_finance[$i]->account_type_specify))
+                                                            {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                            @endif
+                                                            </p>
+                                                        </div>
+                                                @endif
+
+                                                @if(!empty($wealth_finance[$i]->account_policy_no) && isJson($wealth_finance[$i]->account_policy_no) )
+                                                                
+                                                    @php 
+                                                        $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no); 
+                                                        $apni = 1;  
+                                                    @endphp
+                                                    @foreach($account_policy_no as $apn)
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Account/Policy Number</label>
+                                                            <p>
+                                                                @isset($apn)
+                                                                    {{ $apn }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="" class="form-label">Account/Policy Number</label>
+                                                        <p>
+                                                            @isset($wealth_finance[$i]->account_policy_no)
+                                                                {{ $wealth_finance[$i]->account_policy_no }}
+                                                            @else
+                                                                -
+                                                            @endisset
                                                         </p>
                                                     </div>
                                                 @endif
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">Account/Policy Number</label>
-                                                    <p>
-                                                        @isset($wealth_finance[$i]->account_policy_no)
-                                                            {{ $wealth_finance[$i]->account_policy_no }}
-                                                        @else
-                                                            -
-                                                        @endisset
-                                                    </p>
-                                                </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Account Opening
                                                         Status</label>
@@ -1081,6 +1141,17 @@
                                                         @endisset
                                                     </p>
                                                 </div>
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Initial Deposit Currency</label>
+                                                    
+                                                        @isset($wealth_finance[$i]->intial_deposit_currency)
+                                                            {{ $wealth_finance[$i]->intial_deposit_currency }}
+                                                        @else
+                                                            -
+                                                        @endisset
+                                                   
+                                                </div>
+                                                
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Initial Deposit
                                                         Amount</label>
