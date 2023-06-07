@@ -71,7 +71,7 @@
 
                     <div class="formAreahalf  client_status mb-1 ">
                         <label for="cby" class="form-label">Client Status</label>
-                        <select class="client-status-selector" name="csts" id="business">
+                        <select class="client-status-selector" name="csts" >
                             <option value="Active" class="btn text-start"
                                 {{ $sale->client_sts == 'Active' ? 'selected' : '' }}>Active</option>
                             <option value="Dormant" class="btn text-start"
@@ -513,7 +513,7 @@
                                                                     </div>
                                                                 @endif
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="dcname">Name of
                                                                         direct
                                                                         client</label>
@@ -525,7 +525,7 @@
 
 
                                                                 </div>
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="passcountry">Passport
                                                                         Country</label>
                                                                     <input type="text" class="form-control"
@@ -535,7 +535,7 @@
 
                                                                 </div>
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="wechatidc">Wechat Id of
                                                                         client</label>
 
@@ -545,7 +545,7 @@
                                                                         value="{{ $s['wechatidc'] }}">
                                                                 </div>
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="cmobileno">Mobile no.
                                                                         of
                                                                         Client</label>
@@ -555,7 +555,7 @@
                                                                         value="{{ $s['cmobileno'] }}">
                                                                 </div>
 
-                                                                <div class="formAreahalf">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="cemail">Email address
                                                                         of
                                                                         client</label>
@@ -1347,7 +1347,10 @@
 
             var i = $("#myInputHidden").val();
             i++;
-
+            var b2c_hide = "";
+            if ($("#business").val() == "B2C"){
+                b2c_hide = `style="display: none;"`;
+            }
             var I = i + 1;
             $(".add_fieldset_fg .card").last().append(
                 `<fieldset id="dynamicAddRemove" class="w-100 d-flex justify-content-start flex-wrap form-fields business generate Potens parent_field` +
@@ -1391,30 +1394,30 @@
          </div>
          <div class="formAreahalf others"></div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="dcname">Name of direct client</label>
 
       <input type="text" class="form-control" id="dcname[` + i + `][subject]" name="addpb[` + i + `][dcname]">
 
     </div>
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="passcountry">Passport Country</label>
       <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]">
 
     </div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="wechatidc">Wechat Id of client</label>
 
       <input type="text" class="form-control" id="wechatidc[` + i + `][subject]" name="addpb[` + i + `][wechatidc]">
     </div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cmobileno">Mobile no. of Client</label>
       <input type="text" class="form-control" id="cmobileno[` + i + `][subject]" name="addpb[` + i + `][cmobileno]">
     </div>
 
-    <div class="formAreahalf">
+    <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cemail">Email address of client</label>
       <input type="email" class="form-control" id="cemail[` + i + `][subject]" name="addpb[` + i + `][cemail]">
     </div>
@@ -1891,5 +1894,17 @@
             })
 
         });
+
+        $("#client").change(function() {
+                
+            if ($("#business").val() == "B2C"){
+                $('.b2c_hide').hide();
+            }
+        });
+        console.log($("#business").val());
+        if ($("#business").val() == "B2C"){
+            $('.b2c_hide').hide();
+           
+        }
     </script>
 @endpush

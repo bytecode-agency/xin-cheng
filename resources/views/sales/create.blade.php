@@ -189,34 +189,34 @@
 
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="dcname">Name of direct client</label>
 
                                                 <input type="text" class="form-control dc_name" id="dc_name"
                                                     name="addpb[0][dcname]" value="">
 
                                             </div>
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="passcountry">Passport Country</label>
                                                 <input type="text" class="form-control passcountry"
                                                     name="addpb[0][passcountry]" id="passcountry">
 
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="wechatidc">Wechat ID of client</label>
 
                                                 <input type="text" class="form-control wechatidc"
                                                     name="addpb[0][wechatidc]" id="wechatidc">
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="cmobileno">Mobile no. of client</label>
                                                 <input type="text" class="form-control cmobileno"
                                                     name="addpb[0][cmobileno]" id="cmobileno">
                                             </div>
 
-                                            <div class="formAreahalf">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="cemail">Email address of client</label>
                                                 <input type="email" class="form-control cemail" name="addpb[0][cemail]"
                                                     id="cemail">
@@ -568,12 +568,44 @@
                     $(".main_class_fp").show();
                     $("#previous").attr("style", "display:block");
                     var i = 0;
+                    if ($("#business").val() == "B2C"){
+                        $('.b2c_hide').hide();
+                    }
                     $("#dynamic-ar").click(function() {
                         //   alert('dd');
                         ++i;
                         var I = $(this).parents('#append_div_form').find('.accordion-body').length +
                             1;
+                        var b2cHtml =``;
+                    if ($("#business").val() != "B2C"){
+                        b2cHtml = ` <div class="formAreahalf ">
+                      <label class="form-label" for="dcname">Name of direct client</label>
 
+                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="">
+
+                    </div>
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="passcountry">Passport Country</label>
+                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="">
+
+                    </div>
+
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="wechatidc">Wechat ID of client</label>
+
+                      <input type="text" class="form-control wechatidc" name="addpb[` + i + `][wechatidc]" value="">
+                    </div>
+
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="cmobileno">Mobile no. of client</label>
+                      <input type="text" class="form-control cmobileno" name="addpb[` + i + `][cmobileno]" value="">
+                    </div>
+
+                    <div class="formAreahalf">
+                      <label class="form-label" for="cemail">Email address of client</label>
+                      <input type="email" class="form-control cemail" name="addpb[` + i + `][cemail]" value="">
+                    </div>`;
+                    }
                         $("#append_div_form .card_potentials_fg").last().append(
                             `  <fieldset id="dynamicAddRemove" class="w-100 d-flex justify-content-start flex-wrap form-fields custom-form parent_field` +
                             i + ` border_sales">
@@ -625,34 +657,8 @@
                         </div>
                         <div class="formAreahalf others">
 
-                        </div>
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="dcname">Name of direct client</label>
+                        </div>`+b2cHtml+`
 
-                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="">
-
-                    </div>
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="passcountry">Passport Country</label>
-                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="">
-
-                    </div>
-
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="wechatidc">Wechat ID of client</label>
-
-                      <input type="text" class="form-control wechatidc" name="addpb[` + i + `][wechatidc]" value="">
-                    </div>
-
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="cmobileno">Mobile no. of client</label>
-                      <input type="text" class="form-control cmobileno" name="addpb[` + i + `][cmobileno]" value="">
-                    </div>
-
-                    <div class="formAreahalf">
-                      <label class="form-label" for="cemail">Email address of client</label>
-                      <input type="email" class="form-control cemail" name="addpb[` + i + `][cemail]" value="">
-                    </div>
 
                     <div class="formAreahalf">
                       <label class="form-label" for="busdes">Business Description</label>

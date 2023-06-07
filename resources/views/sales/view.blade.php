@@ -286,7 +286,7 @@
                                                             </div>
                                                         @endif
                                                     @endif
-
+                                                    @if ($sale->bus_type == 'B2B')
                                                     <div class="formAreahalf ">
                                                         <label class="form-label" for="dcname">Name of direct
                                                             client</label>
@@ -318,7 +318,7 @@
                                                             client</label>
                                                         <br>{{ $s['cemail'] }}
                                                     </div>
-
+                                                     @endif           
                                                     <div class="formAreahalf">
                                                         <label class="form-label" for="busdes">Business
                                                             Description</label>
