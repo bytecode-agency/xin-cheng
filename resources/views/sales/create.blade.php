@@ -92,7 +92,19 @@
                             <label for="" class="form-label"> Wechat ID of POC</label>
                             <input type="text" class="form-control" id="pocwechat" name="pocwechat">
                         </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label"> Source of Client</label>
+                                <select name="source_of_client" id="source_of_client" class="source_of_client ">
+                                    <option value="" selected disabled>Please select Source of Client </option>
+                                    <option value="Referral">Referral</option>
+                                    <option value="Online marketing">Online marketing</option>
+                                    <option value="Seminar">Seminar</option>
+                                    <option value="Warm market">Warm market</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                        </div>
 
+                                                    
                         <div class="formAreahalf " id="signdiv">
 
                         </div>
