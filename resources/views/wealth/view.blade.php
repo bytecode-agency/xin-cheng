@@ -1,6 +1,9 @@
 @extends('layouts.app')
+@push('css')
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+@endpush
 @section('content')
-
     <!-- Title Area -->
     <div class="TitleBlock">
         <div class="headingArea p-3">
@@ -22,7 +25,7 @@
     </div>
 
     <!-- Filter Data Pagination -->
-    <div class="filterPagination d-flex justify-content-between align-items-center">
+    <div class="filterPagination d-flex col-6 justify-content-between align-items-center">
         <div class="paginationLeft">
             <ul>
                 <li><a href="{{ route('wealth.index') }}">Wealth</a></li>
@@ -38,12 +41,13 @@
                 @endif
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
-            <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
-                    alt="print Icon"></a>
-            <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
-            <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
-        </div>
+
+    </div>
+    <div class="filterBtn viewSave d-flex col-6 ms-auto align-items-center justify-content-end">
+        <a href="javascript:void(0)" class="me-3 print-icon"><img src="{{ url('/images/Vector.svg') }}"
+                alt="print Icon"></a>
+        <a href="{{ route('wealth.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
+        <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Delete</span></button>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -71,7 +75,7 @@
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Business Type</label>
+                        <label for="" class="form-label">Business Typeee</label>
                         <p>{{ $data->business_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -85,7 +89,7 @@
                             <p>{{ $basic_data->type_of_fo_specify }}</p>
                             @else-
                             @endif
-                            
+
                         </div>
                     @endif
                     <div class="formAreahalf basic_data">
@@ -97,25 +101,21 @@
                         <p>{{ $data->client_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Created By</label>
-                        <p>{{ $data->users->name }}</p>
-                    </div>
-                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Status</label>
                         <p class="active-btn @if ($data->client_status == 'Dormant') Dormant @endif">
                             {{ $data->client_status }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">One-Time Servicing Fee Amount</label>
-                        <p>$ {{ $basic_data->servicing_fee }}</p>
+                        <label for="" class="form-label">Created By</label>
+                        <p>{{ $data->users->name }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">One-time Servicing Fee Currency</label>
                         <p>{{ $basic_data->servicing_fee_currency }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Currency</label>
-                        <p>{{ $basic_data->annual_fee_currency }}</p>
+                        <label for="" class="form-label">One-Time Servicing Fee Amount</label>
+                        <p>$ {{ $basic_data->servicing_fee }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">One-Time Servicing Fee Status</label>
@@ -123,14 +123,19 @@
                             {{ $basic_data->servicing_fee_status }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Status</label>
-                        <p class="@if($basic_data->annual_fee_status == 'Pending') active-btn Dormant @elseif($basic_data->annual_fee_status == 'Received') active-btn @else  @endif">
-                            {{ $basic_data->annual_fee_status }}</p>
+                        <label for="" class="form-label">Annual Servicing Fee Currency</label>
+                        <p>{{ $basic_data->annual_fee_currency }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Amount</label>
                         <p>$ {{ $basic_data->annual_servicing_fee }}</p>
                     </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Annual Servicing Fee Status</label>
+                        <p class="@if($basic_data->annual_fee_status == 'Pending') active-btn Dormant @elseif($basic_data->annual_fee_status == 'Received') active-btn @else  @endif">
+                            {{ $basic_data->annual_fee_status }}</p>
+                    </div>
+
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
                         <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
@@ -393,7 +398,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label>
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -411,33 +416,42 @@
                                                                 Name(Chinese)</label>
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Renewal
-                                                                Reminder</label>
-                                                            <p>{{ $shareholder->passport_renew }}</p>
+                                                            <label for="" class="form-label">Gender</label>
+                                                            <p>{{ $shareholder->gender }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             {{ convertDate($shareholder->dob,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Reminder
-                                                                Trigger
-                                                                Frequency</label>
-                                                            <p><span class="every">Every</span>
-                                                                {{ $shareholder->passport_trg_fqy }}</p>
+                                                            <label for="" class="form-label">Phone
+                                                                Number</label>
+                                                            <p>{{ $shareholder->phone }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Gender</label>
-                                                            <p>{{ $shareholder->gender }}</p>
+                                                            <label for="" class="form-label">E-mail</label>
+                                                            <p>{{ $shareholder->email }}</p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport
                                                                 Number</label>
                                                             <p>{{ $shareholder->passport_no }}</p>
                                                         </div>
+
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Passport
+                                                                Country</label>
+                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
@@ -445,19 +459,18 @@
                                                             {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
                                                             </p>
                                                         </div>
+
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport
-                                                                Country</label>
-                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                            <label for="" class="form-label">Passport Renewal
+                                                                Reminder</label>
+                                                            <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">E-mail</label>
-                                                            <p>{{ $shareholder->email }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Phone
-                                                                Number</label>
-                                                            <p>{{ $shareholder->phone }}</p>
+                                                            <label for="" class="form-label">Passport Reminder
+                                                                Trigger
+                                                                Frequency</label>
+                                                            <p><span class="every">Every</span>
+                                                                {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Residential
@@ -470,14 +483,18 @@
                                                             <p>{{ $shareholder->tin_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Type of
+                                                                TIN</label>
+                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 Number</label>
                                                             <p>{{ $shareholder->tin_no }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Type of
-                                                                TIN</label>
-                                                            <p>{{ $shareholder->type_of_tin }}</p>
+                                                            <label for="" class="form-label">Company</label>
+                                                            <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Job Title</label>
@@ -488,17 +505,13 @@
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
-                                                            <p>{{ $shareholder->company }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
                                                         </div>
-                                                        
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
-                                                                Shareholder</label> 
+                                                                Shareholder 1</label>
                                                             <p>{{ $shareholder->relation_with_shareholder }}</p>
                                                         </div>
                                                         @if (isset($shareholder->relation_with_shareholder) && $shareholder->relation_with_shareholder == 'Others')
@@ -714,7 +727,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Deck Submission</label>
+                                                <label for="" class="form-label">Legal Opinion</label>
                                                 <p
                                                     class="@if (isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
 
@@ -881,7 +894,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Maturity Reminder Trigger
+                                                <label for="" class="form-label">Annual Declaration Reminder Trigger
                                                     Frequency</label>
                                                 <p>
                                                     @isset($wealth_mas->trigger_fqy_rem)
@@ -911,10 +924,10 @@
                                 aria-labelledby="nav-profile-tab">
                                     @php $length =1;@endphp
                                         @if(count($wealth_finance)>0)
-                                        @php $length=count($wealth_finance); @endphp                                       
-                                        @endif                  
-                                    @for($i=0; $i<$length; $i++)      
-                                                           
+                                        @php $length=count($wealth_finance); @endphp
+                                        @endif
+                                    @for($i=0; $i<$length; $i++)
+
                                     <div id="financial_accordion_{{$i}}" class="mas_related">
                                         <div class="mas_heading_accordian d-flex flex-wrap">
                                             <div class="formAreahalf basic_data">
@@ -978,8 +991,19 @@
                                                     </p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
+                                                    <label for="application_submission_date" class="form-label">Application
+                                                        Submission Date</label>
+                                                    
+                                                        @isset($wealth_finance[$i]->application_submission_date)
+                                                            {{ $wealth_finance[$i]->application_submission_date }}
+                                                        @else
+                                                            -
+                                                        @endisset
+                                                    </p>
+                                                </div>
+                                                <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Application
-                                                        Submission</label>
+                                                        Submission </label>
                                                     <p
                                                         class="@if (isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'In progress') active-blue @elseif(isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'Done') active-btn @else '' @endif">
 
@@ -990,35 +1014,95 @@
                                                         @endisset
                                                     </p>
                                                 </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">Account Type</label>
-                                                    <p>
-                                                        @isset($wealth_finance[$i]->account_type)
-                                                            {{ $wealth_finance[$i]->account_type }}
-                                                        @else
-                                                            -
-                                                        @endisset
-                                                    </p>
-                                                </div>
-                                                @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
+                                                    @php 
+                                                        $account_type =json_decode($wealth_finance[$i]->account_type); 
+                                                        $api = 1;
+                                                    @endphp
+                                                    @foreach($account_type as $ap)
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Account Type</label>
+                                                            <p>
+                                                                @isset($ap)
+                                                                    {{ $ap }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    @php 
+                                                        $ap = $wealth_finance[$i]->account_type;
+                                                        $api = 1;
+                                                    @endphp
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealth_finance[$i]->account_type_specify))
-                                                        {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                            <label for="" class="form-label">Account Type</label>
+                                                            <p>
+                                                                @isset($ap)
+                                                                    {{ $ap }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                @endif
+                                                @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
+                                                    
+                                                        @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                            @foreach($account_type_specify as $aps)
+                                                            <div class="formAreahalf basic_data">
+                                                                <label for="" class="form-label">Others, please specify</label>
+                                                                @if (isset($aps))
+                                                                    {{ $aps }} 
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                                </p>
+                                                            </div>
+                                                            @endforeach
                                                         @endif
+                                                @elseif (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
+                                                      
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            @if (isset($wealth_finance[$i]->account_type_specify))
+                                                            {{ $wealth_finance[$i]->account_type_specify }} @else-
+                                                            @endif
+                                                            </p>
+                                                        </div>
+                                                @endif
+
+                                                @if(!empty($wealth_finance[$i]->account_policy_no) && isJson($wealth_finance[$i]->account_policy_no) )
+                                                                
+                                                    @php 
+                                                        $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no); 
+                                                        $apni = 1;  
+                                                    @endphp
+                                                    @foreach($account_policy_no as $apn)
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Account/Policy Number</label>
+                                                            <p>
+                                                                @isset($apn)
+                                                                    {{ $apn }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                @else
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="" class="form-label">Account/Policy Number</label>
+                                                        <p>
+                                                            @isset($wealth_finance[$i]->account_policy_no)
+                                                                {{ $wealth_finance[$i]->account_policy_no }}
+                                                            @else
+                                                                -
+                                                            @endisset
                                                         </p>
                                                     </div>
                                                 @endif
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">Account/Policy Number</label>
-                                                    <p>
-                                                        @isset($wealth_finance[$i]->account_policy_no)
-                                                            {{ $wealth_finance[$i]->account_policy_no }}
-                                                        @else
-                                                            -
-                                                        @endisset
-                                                    </p>
-                                                </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Account Opening
                                                         Status</label>
@@ -1058,11 +1142,22 @@
                                                     </p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
+                                                    <label for="" class="form-label">Initial Deposit Currency</label>
+                                                    
+                                                        @isset($wealth_finance[$i]->intial_deposit_currency)
+                                                            {{ $wealth_finance[$i]->intial_deposit_currency }}
+                                                        @else
+                                                            -
+                                                        @endisset
+                                                   
+                                                </div>
+                                                
+                                                <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Initial Deposit
                                                         Amount</label>
                                                     <p>
                                                         @isset($wealth_finance[$i]->intial_deposit_amount)
-                                                            {{ $wealth_finance[$i]->intial_deposit_amount }}
+                                                        <span class="doller">$</span>{{ $wealth_finance[$i]->intial_deposit_amount }}
                                                         @else
                                                             -
                                                         @endisset
@@ -1103,8 +1198,8 @@
                                         </div>
                                     </div>
                                     @endfor
-                                    
-                              
+
+
 
                             </div>
 
@@ -1547,16 +1642,16 @@
                                                         -
                                                     @endisset
                                                 </p>
-                                            </div>  
+                                            </div>
                                             @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
                                                         @if (isset($wealthbuss->business_account_type_specify))
                                                         {{ $wealthbuss->business_account_type_specify  }}
                                                         @else -
-                                                        
+
                                                         @endif
-                                                        
+
                                                     </div>
                                                 @endif
                                             <div class="formAreahalf basic_data">
@@ -1773,7 +1868,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -1789,7 +1884,7 @@
                                                             @endif
 
                                                         </tbody>
-                                                       
+
                                                     </table>
 
                                                 </div>
@@ -2053,7 +2148,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
@@ -2067,7 +2162,7 @@
                                                                 <td colspan="3">No record found</td>
                                                             </tr>
                                                             @endif
-                                                        
+
                                                         </tbody>
                                                     </table>
 
@@ -2102,71 +2197,90 @@
                     </div>
                 </form> -->
                 @foreach ($notes as $note)
-                    <div class="notes_show">
+                    <div class="notes_show" id="note{{$note->id }}">
+                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
             <div class="card file upload ">
                 <h3>File Uploads</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded by</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($file) > 0)
-                            @foreach ($file as $files)
-                                <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a')  }}</td>
-                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
-                                            <i class="fa-solid fa-download"></i></a>
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow file_upload_table" >
+                            <thead>
                             <tr>
-                                <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Uploaded By</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        @endif
+                        </thead>
+                            <tbody>
+                                @if (count($file) > 0)
+                                    @foreach ($file as $files)
+                                        <tr>
+                                            <td><a href="{{asset('file/'.$files->file)}}" target="_blank" >{{ $files->file }}</a></td>
+                                            <td>{{ $files->uploaded_by_name }}</td>
+                                            <td>{{ convertDate($files->created_at,'d/m/Y g:i A') }}</td>
+                                            <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                    {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
+                                                    <i class="fa-solid fa-download"></i></a>
+                                                <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                    </tr>
+                                @endif
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="card file company_info formContentData border-0 p-4"
                 style="background: #fff; padding-bottom: 10px !important;">
                 <h3>Action Log</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">Actions</th>
-                            <th scope="col">Made by</th>
-                            <th scope="col">Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($action_log as $activity)
-                            <tr>
-                                <td>{{ $activity->message }}</td>
-                                <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow user_action_log">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Made by</th>
+                                    <th scope="col">Date & Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($action_log as $activity)
+                                    <tr>
+                                        <td>{{ $activity->message }}</td>
+                                        <td>{{ $activity->name }}</td>
+                                        <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -2365,7 +2479,7 @@
                             </table>
                         </td>
                     </tr>
-                             
+
 
                     {{-- Company --}}
                     @if ($data->business_type == 'FO' || ($data->business_type == 'Non-FO' && $data->client_type == 'Corporate'))
@@ -2597,7 +2711,7 @@
                                                 <tr>
                                                     <td
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px; ">
-                                                        <b>Relationship with shareholder 1</b>
+                                                        <b>Relationship with shareholder</b>
                                                         <span
                                                             style="padding-top:12px; padding-bottom:10px; display:block;">{{ $shareholder->relation_with_shareholder }}</span>
                                                     </td>
@@ -2676,7 +2790,7 @@
                                         <td
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
-                                            <span 
+                                            <span
                                                 style="padding-top:12px; display:block;">{{ convertDate($basic_data->passport_exp_date,'d/m/Y') }}
                                             </span>
                                         </td>
@@ -2799,7 +2913,7 @@
                         </tr>
                     @endif
                 </table>
-            </div>                 
+            </div>
 
             {{-- Application Information --}}
             @if ($data->business_type == 'FO')
@@ -2907,7 +3021,7 @@
                                             <span style="padding-top:15px; display:block;">9123456789</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Deck Submission</b>
+                                            <b>Legal Opinion</b>
                                             <span style="padding-top:15px; display:block;">Singapore</span>
                                         </td>
                                     </tr>
@@ -3007,7 +3121,7 @@
 
                     </table>
 
-                </div>              
+                </div>
                 {{-- Financial --}}
                 <div class="page page_7" style="page-break-before: always;">
                     <table class="header-table">
@@ -3178,7 +3292,7 @@
 
                     </table>
 
-                </div>           
+                </div>
                 {{-- Pass Related --}}
                 <div class="page page_8" style="page-break-before: always;">
                     <table class="header-table">
@@ -3423,7 +3537,7 @@
 
                     </table>
 
-                </div>            
+                </div>
                 {{-- Business Related --}}
                 <div class="page page_9" style="page-break-before: always;">
                     <table class="header-table">
@@ -3669,7 +3783,7 @@
 
                     </table>
 
-                </div>            
+                </div>
 
                 <div class="page page_10" style="page-break-before: always;">
                     <table class="header-table">
@@ -3803,7 +3917,7 @@
                         </tr>
                     </table>
 
-                </div>            
+                </div>
             @else
                 {{-- Business Related --}}
                 <div class="page page_9" style="page-break-before: always;">
@@ -4043,7 +4157,7 @@
             $("#notes_cancel").show();
             });
 
-            $("#notes_cancel").click(function() {           
+            $("#notes_cancel").click(function() {
             $("#text_notes").val('');
             $("#notes_cancel").hide();
             });
@@ -4161,5 +4275,9 @@
             })
 
         });
+
+
+
+
     </script>
 @endpush

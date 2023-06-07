@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @push('css')
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -29,10 +31,11 @@
                 </ul>
 
             </div>
-            <div class="filterBtn d-flex align-items-center justify-content-end ">
-                <button type="submit" class="btn saveBtn"><span>Save</span></button>
-                <a href="{{ route('sales.show', $sale->id) }}" class="btn saveBtn cancelBtn">Cancel</a>
-            </div>
+
+        </div>
+        <div class="filterBtn viewSave ms-auto d-flex align-items-center justify-content-end ">
+            <button type="submit" class="btn saveBtn"><span>Save</span></button>
+            <a href="{{ route('sales.show', $sale->id) }}" class="btn saveBtn cancelBtn">Cancel</a>
         </div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -57,7 +60,7 @@
                 <fieldset id="account" class=" w-100 d-flex justify-content-start flex-wrap form-fields mb-0">
 
                     <div class="formAreahalf">
-                        <label for="c" class="form-label">Client's</label>
+                        <label for="c" class="form-label">Client(s)</label>
                         <br>{{ $sale->client_name }}
                     </div>
 
@@ -1033,7 +1036,8 @@
                         </div>
                     </form>
                     @foreach ($notes as $note)
-                        <div class="notes_show">
+                        <div class="notes_show" id="note{{$note->id }}">
+                            <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                             <p class="desc_notes">{{ $note->notes_description }}</p>
                             <p class="created">
                                 {{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
@@ -1041,7 +1045,16 @@
                             <p class="createdby"><b>{{ $note->created_by }}</b></p>
                         </div>
                     @endforeach
-
+                    <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card file upload">
@@ -1063,59 +1076,66 @@
                             <button type="submit" class="btn saveBtn">Upload</button>
                         </div>
                     </form>
+                    <div class="dataAreaMain">
+                        <div class="table_cstm  dasboard-entry">
+                            <table class="table table_yellow file_upload_table" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">File Name</th>
+                                        <th scope="col">Uploaded By</th>
+                                        <th scope="col">Date & Time</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                    <table class="table user_action_log">
-                        <thead>
-                            <tr>
-                                <th scope="col">File Name</th>
-                                <th scope="col">Uploaded By</th>
-                                <th scope="col">Date & Time</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach ($file as $files)
-                                <tr>
-                                    <td>{{ $files->file_orignal_name }}</td>
-                                    <td>{{ $files->uploaded_by }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
-                                    </td>
-                                    <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
-                                        </a>
-                                        <a href="javascript:void(0);" class="del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    @foreach ($file as $files)
+                                        <tr>
+                                            <td><a href="{{asset('file/'.$files->file_orignal_name)}}" target="_blank" >{{ $files->file_orignal_name }}</a></td>
+                                            <td>{{ $files->uploaded_by }}</td>
+                                            <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                                            </td>
+                                            <td> <a href="{{ url('file/' . $files->file_orignal_name) }}" download class="link-normal">
+                                                    <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
+                                                </a>
+                                                <a href="javascript:void(0);" class="del_confirm"
+                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
 
 
                 <div class="card file action">
                     <h3>Action Log</h3>
-                    <table class="table user_action_log">
-                        <thead>
-                            <tr>
-                                <th scope="col">Actions</th>
-                                <th scope="col">Made By</th>
-                                <th scope="col">Date & Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($action_log as $activity)
-                                <tr>
-                                    <td>{{ $activity->message }}</td>
-                                    <td>{{ $activity->name }}</td>
-                                    <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="dataAreaMain">
+                        <div class="table_cstm  dasboard-entry">
+                            <table class="table table_yellow user_action_log" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Actions</th>
+                                        <th scope="col">Made By</th>
+                                        <th scope="col">Date & Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($action_log as $activity)
+                                        <tr>
+                                            <td>{{ $activity->message }}</td>
+                                            <td>{{ $activity->name }}</td>
+                                            <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 

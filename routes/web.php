@@ -93,11 +93,12 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     Route::post('notes', [App\Http\Controllers\HomeController::class,'createnotes'])->name('notes');
+    Route::post('note-destroy', [App\Http\Controllers\HomeController::class,'removeNote'])->name('removeNote');
 
 
 });
 
-//Clear Cache facade value:
+//Clear Cache facade value:toomany
 Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     echo '<h1>Cache facade value cleared</h1>';

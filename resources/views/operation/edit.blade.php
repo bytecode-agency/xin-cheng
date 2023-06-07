@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @push('css')
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         /* .closed .accordion-header .formAreahalf.basic_data {
@@ -821,7 +823,7 @@
                                                                 </label>
 
                                                                 <div class="dollersec"><span class="doller">$</span><span
-                                                                    class="input"><input type="text" class="form-control"
+                                                                    class="input"><input type="integer" class="form-control"
                                                                     name="pass[{{ $z }}][month_sal]"
                                                                     id="month_salary"
                                                                     value="{{ $pass_hol['month_sal'] }}"></span></div>
@@ -1062,7 +1064,7 @@
 
                                                                                                         <input
                                                                                                             type="text"
-                                                                                                            class="form-control"
+                                                                                                            class="form-control equity_shareholders"
                                                                                                             name="share[{{ $c }}][{{ $s }}][eqt_per]"
                                                                                                             value="{{ $share['eqt_per'] }}">
                                                                                                     </div>
@@ -2313,16 +2315,26 @@
                     </div>
                 </form>
                 @foreach ($notes as $note)
-                    <div class="notes_show">
+                    <div class="notes_show" id="note{{$note->id }}">
+                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">
-                            {{$note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                            {{ convertDate($note->created_at,'d/m/Y h:i a')}}
                         </p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
                     </div>
                 @endforeach
 
-
+                <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
 
@@ -2346,58 +2358,65 @@
                         <button type="submit" class="btn saveBtn">Upload</button>
                     </div>
                 </form>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow file_upload_table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">Uploaded By</th>
+                                    <th scope="col">Date & Time</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded By</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach ($file as $files)
-                            <tr>
-                                <td>{{ $files->file_orignal_name }}</td>
-                                <td>{{ $files->uploaded_by }}</td>
-                                <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                        <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
-                                    </a>
-                                    <a href="javascript:void(0);" class="del_confirm"
-                                        data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td>{{ $files->file_orignal_name }}</td>
+                                        <td>{{ $files->uploaded_by }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td> <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
+                                            </a>
+                                            <a href="javascript:void(0);" class="del_confirm"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
 
 
             <div class="card file action">
                 <h3>Action Log</h3>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">Actions</th>
-                            <th scope="col">Made By</th>
-                            <th scope="col">Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($action_log as $activity)
-                            <tr>
-                                <td>{{ $activity->message }}</td>
-                                <td>{{ $activity->name }}</td>
-                                <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                        <table class="table table_yellow user_action_log">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Made By</th>
+                                    <th scope="col">Date & Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($action_log as $activity)
+                                    <tr>
+                                        <td>{{ $activity->message }}</td>
+                                        <td>{{ $activity->name }}</td>
+                                        <td>{{ $activity->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -2637,7 +2656,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                     </select>
                 </div>
                 <div class="formAreahalf ">
-                    <label for="" class="form-label">Pass Application Status</label>
+                    <label for="" class="form-label">Pass Application Status sdsdsd</label>
                     <select name="pr[` + pass_id_no + `][` + pr_no + `][application_sts]" id="" class="js-example-responsive p_sts">
                         <option value="" selected >Please select
                         </option>
@@ -2992,7 +3011,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
 
                         <div class="formAreahalf ">
-                            <label for="passapptype" class="form-label"> Pass Application Status </label>
+                            <label for="passapptype" class="form-label"> Pass Application Status dfdfdf</label>
                             <select name="pass[` + p + `][pass_app_sts]" class="js-example-responsive">
                                 <option value="" selected >Please select application status
                                 </option>
@@ -3113,7 +3132,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Monthly Salary (SGD)</label>
                             <div class="dollersec"><span class="doller">$</span><span
-                                                class="input"><input type="text" class="form-control"  name="pass[` + p + `][month_sal]"></span></div>
+                                                class="input"><input type="integer" class="form-control"  name="pass[` + p + `][month_sal]"></span></div>
                         </div> 
 
                         <div class="formAreahalf">
@@ -3182,7 +3201,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
             <div class="formAreahalf">
                       <label for="eqtper" class="form-label"> Equity percentage </label>
-                      <div class="dollersec percentage_input"><span class="input"> <input type="text" class="form-control" name="share[` +
+                      <div class="dollersec percentage_input"><span class="input"> <input type="text" class="form-control equity_shareholders" name="share[` +
                 arr_id1 + `][` +
                 sh_no + `][eqt_per]"></span><span class="pecentage_end">%</span></div>
                   </div>
@@ -3802,5 +3821,45 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                 }
             })
         }
+
+        $("body").on('keyup', '.equity_shareholders', function (evt) {
+            $(this).attr('value', $(this).val());
+            let percentage = 0;
+            var compId = $(this).parents('.full_div_share');
+            var cal_eqty_percentage = compId.find(".equity_shareholders");
+            for (per = 0; per < cal_eqty_percentage.length; per++) {
+                // console.log(cal_eqty_percentage[per].value);
+                // console.log($(cal_eqty_percentage[per]).attr('value'));
+                percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            }
+            console.log(cal_eqty_percentage.length);
+            if (percentage == 100) {
+                // console.log('here');
+                $(this).parents(".full_div_share ").find('#next3').removeClass("disable");
+                $(this).parents(".full_div_share ").find('#next3').prop("disabled", false);
+            }
+            else {
+                // console.log('there');
+                $(this).parents(".full_div_share ").find('#next3').addClass("disable");
+                $(this).parents(".full_div_share ").find('#next3').attr('disabled', 'disabled');
+
+            }
+            if (percentage >= 100) {
+                // console.log('ghty');
+                $(".full_div_share ").find(".add_shareholder").addClass("disable");
+                $(".full_div_share ").find(".add_shareholder").attr('disabled', 'disabled');
+                $(".full_div_share ").find("#add_nfo_shareholder").addClass("disable");
+                $(".full_div_share ").find("#add_nfo_shareholder").attr('disabled', 'disabled');
+                //    $(".saveBtn").addClass("disable");
+            }
+            else {
+                $(".full_div_share ").find(".add_shareholder").removeClass("disable");
+                $(".full_div_share ").find(".add_shareholder").prop("disabled", false);
+                $(".full_div_share ").find("#add_nfo_shareholder").removeClass("disable");
+                $(".full_div_share ").find("#add_nfo_shareholder").prop('disabled',false);
+            }
+
+
+        });
     </script>
 @endpush

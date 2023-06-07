@@ -2,6 +2,8 @@
 @push('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 @section('content')
 
@@ -31,11 +33,11 @@
                 <li>{{ Breadcrumbs::render('wealth.edit') }}</li>
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
-            <button class="btn saveBtn edit_save"><span>Save</span></button>
-            <a href="{{ route('wealth.show', $data->id) }}"><button
-                    class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
-        </div>
+    </div>
+    <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
+        <button class="btn saveBtn edit_save"><span>Save</span></button>
+        <a href="{{ route('wealth.show', $data->id) }}"><button
+            class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -84,7 +86,7 @@
                                 <p>{{ $basic_data->type_of_fo_specify }}</p>
                                 @else-
                                 @endif
-                                
+
                             </div>
                         @endif
                         <div class="formAreahalf basic_data">
@@ -96,11 +98,6 @@
                             <label for="" class="form-label">Client Type</label>
                             <p>{{ $data->client_type }}</p>
                         </div>
-                        
-                        <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Created By</label>
-                            <p>{{ $data->users->name }}</p>
-                        </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Status</label>
                             <select class="js-example-responsive form-control" name="client_status">
@@ -110,11 +107,8 @@
                             </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">One Time Servicing Fee Amount</label>
-                            <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="text" class="form-control" name="servicing_fee"
-                                        id="fo_servicing_fee_amount" value="{{ $basic_data->servicing_fee }}"></span>
-                            </div>
+                            <label for="" class="form-label">Created By</label>
+                            <p>{{ $data->users->name }}</p>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">One Time Servicing Fee Currency</label>
@@ -128,15 +122,11 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Currency</label>
-                            <select class="form-control" name="annual_fee_currency">
-                                <option value ="" selected disabled>Choose annual servicing fee currency</option>
-                                <option value="SGD" {{ $basic_data->annual_fee_currency == 'SGD' ? 'selected' : '' }}>
-                                    SGD</option>
-                                <option value="USD" {{ $basic_data->annual_fee_currency == 'USD' ? 'selected' : '' }}>
-                                    USD
-                                </option>
-                            </select>
+                            <label for="" class="form-label">One Time Servicing Fee Amount</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input"> <input type="integer" class="form-control" name="servicing_fee"
+                                        id="fo_servicing_fee_amount" value="{{ $basic_data->servicing_fee }}"></span>
+                            </div>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">One Time Servicing Fee Status</label>
@@ -154,6 +144,24 @@
                             </select>
                         </div>
                         <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Currency</label>
+                            <select class="form-control" name="annual_fee_currency">
+                                <option value ="" selected disabled>Choose annual servicing fee currency</option>
+                                <option value="SGD" {{ $basic_data->annual_fee_currency == 'SGD' ? 'selected' : '' }}>
+                                    SGD</option>
+                                <option value="USD" {{ $basic_data->annual_fee_currency == 'USD' ? 'selected' : '' }}>
+                                    USD
+                                </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="" class="form-label">Annual Servicing Fee Amount</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input"> <input type="integer" class="form-control" name="annual_servicing_fee"
+                                        value="{{ $basic_data->annual_servicing_fee }}"></span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Status</label>
                             <select class="js-example-responsive form-control" name="annual_fee_status">
                                 <option value ="" selected disabled>Choose annual servicing fee status</option>
@@ -165,19 +173,13 @@
                                     {{ $basic_data->annual_fee_status == 'Rejected' ? 'selected' : '' }}>Rejected</option> --}}
                             </select>
                         </div>
-                        <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Amount</label>
-                            <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> <input type="text" class="form-control" name="annual_servicing_fee"
-                                        value="{{ $basic_data->annual_servicing_fee }}"></span>
-                            </div>
-                        </div>
+
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
-                            
+
                             <input type="text" class="form-control datepicker" name="annual_fee_due_date"
                                         value="{{ convertDate($basic_data->annual_fee_due_date,'d/m/Y') }}" placeholder="dd/mm/yyyy">
-                            
+
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
@@ -187,36 +189,36 @@
                                     <option value="" selected disabled>Choose Passport Renewal Reminder</option>
                                     <option value="30 day before due"
                                         {{ $basic_data->annual_fee_due_reminder == '30 day before due' ? 'selected' : '' }}>
-                                        30 day before due
+                                        30 Days before due
                                     </option>
                                     <option value="60 day before due"
                                         {{ $basic_data->annual_fee_due_reminder == '60 day before due' ? 'selected' : '' }}>
-                                        60 day before due
+                                        60 Days before due
                                     </option>
-                                    
+
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
                             <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
                                 <option value="" selected="" disabled="">Please select</option>
-                                <option value="Day" 
+                                <option value="Day"
                                     {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == 'Day' ? 'selected' : '' }} >
                                     Day
                                 </option>
-                                <option value="3 Days" 
+                                <option value="3 Days"
                                     {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '3 Daya' ? 'selected' : '' }}>
                                     3 Days
                                 </option>
-                                <option value="Week" 
+                                <option value="Week"
                                     {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == 'Week' ? 'selected' : '' }}>
                                     Week
                                 </option>
-                                <option  value="2 Weeks" 
+                                <option  value="2 Weeks"
                                     {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '2 Weeks' ? 'selected' : '' }}>
                                     2 Weeks
                                 </option>
-                                <option value="4 Weeks" 
+                                <option value="4 Weeks"
                                     {{ isset($basic_data->annual_fee_due_reminder_trigger) && $basic_data->annual_fee_due_reminder_trigger == '4 Weeks' ? 'selected' : '' }}>
                                     4 Weeks
                                 </option>
@@ -299,7 +301,7 @@
                         </nav>
                         <div class="tab-content border_styling tab_design_chnages" id="nav-tabContent">
                             @if ($data->business_type == 'FO')
-                               
+
 
                                 <div class="tab-pane fade show active" id="nav-mas" role="tabpanel"
                                     aria-labelledby="nav-home-tab">
@@ -364,11 +366,11 @@
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="deck_submission" class="form-label">Deck
-                                                        Submission</label>
+                                                    <label for="deck_submission" class="form-label">Legal
+                                                        Opinion</label>
                                                     <select name="deck_submission" id="deck_submission"
                                                         class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose deck submission
+                                                        <option value="" selected disabled>Choose Legal Opinion
                                                         </option>
                                                         <option value="In progress"
                                                             {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
@@ -499,7 +501,7 @@
                                                     <input type="text" name="commencement_date" id="commencement_date"
                                                         value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }} @endisset"
                                                         class="form-control datepicker" placeholder="dd/mm/yy">
-                                                    
+
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="reminder_notification" class="form-label">Reminder
@@ -526,7 +528,7 @@
                                                         Declaration
                                                         Deadline</label>
                                                     <input type="text" name="annual_declaration_deadline"
-                                                        id="annual_declaration_deadline" 
+                                                        id="annual_declaration_deadline"
                                                         value="@isset($wealth_mas->annual_declaration_deadline) {{ $wealth_mas->annual_declaration_deadline }} @endisset"
                                                         class="form-control datepicker" placeholder="dd/mm/yy">
                                                 </div>
@@ -540,7 +542,7 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="trigger_fqy_rem" class="form-label">Maturity Reminder Trigger Frequency</label>
+                                                    <label for="trigger_fqy_rem" class="form-label">Annual Declaration Reminder Trigger Frequency</label>
                                                     <div class="select_box"><span class="every">Every</span><span
                                                             class="select"><select name="trigger_fqy_rem"
                                                                 id="trigger_fqy_rem" class="form-control">
@@ -574,23 +576,23 @@
                                     </div>
                                 </div>
 
-                              
+
                                 <div class="tab-pane fade wealth_finance_tab_new" id="nav-financial" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab"> 
+                                    aria-labelledby="nav-profile-tab">
                                         @php $length =1; @endphp
                                         @if(count($wealthfinance)>0)
-                                            @php $length=count($wealthfinance); @endphp                                       
-                                        @endif                  
-                                                                    
+                                            @php $length=count($wealthfinance); @endphp
+                                        @endif
+
                                     <div class="wealth_finance_data" id="wealth_finance_data">
-                                        @for($i=0; $i<$length; $i++)  
+                                        @for($i=0; $i<$length; $i++)
                                             <div class="mas_related wealth_finance_check financial_{{$i +1}}" id="financial_accordion_{{$i +1 }}">
-                                               
-                                                <div class="new_chnages_finance accordion-items">  
+
+                                                <div class="new_chnages_finance accordion-items">
                                                     <input type="hidden" name="financial[{{$i + 1}}][wealth_finance_id]" id="finance_id"
-                                                        value="@isset($wealthfinance[$i]->id) {{ $wealthfinance[$i]->id }} @endisset">                                      
+                                                        value="@isset($wealthfinance[$i]->id) {{ $wealthfinance[$i]->id }} @endisset">
                                                     <div class="mas_heading_accordian">
-                                                    
+
                                                             <div class="formAreahalf basic_data">
                                                                 <label for="stakeholder_type" class="form-label">Stakeholder
                                                                     Type</label>
@@ -625,8 +627,8 @@
                                                                 data-target="#financial_collapse{{$i +1}}" aria-expanded="true"
                                                                 aria-controls="collapseOne">
                                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                                            </button>                                                  
-                                                    
+                                                            </button>
+
                                                         <div class="cross financial_wealth"><span class="edit_cancel_share remove-financal">x</span></div>
                                                     </div>
                                                     <div id="financial_collapse{{$i +1}}" class="collapse" aria-labelledby="headingOne"
@@ -653,6 +655,12 @@
                                                                         class="form-control">
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
+                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
+                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                                </div>
+                                                                <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
                                                                         Submission</label>
                                                                     <select name="financial[{{$i +1}}][application_submission]" id="application_submission"
@@ -667,54 +675,126 @@
 
                                                                     </select>
                                                                 </div>
-                                                                <div class="formAreahalf basic_data">
-                                                                    <label for="account_type" class="form-label">Account Type</label>
-                                                                    <select name="financial[{{$i +1}}][account_type]" id="account_type" class="form-control" data-id= "{{$i +1}}">
-                                                                        <option value="" selected disabled>Choose account type
-                                                                        </option>
-                                                                        <!-- <option value="SGD"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'SGD' ? 'selected' : '' }}>
-                                                                            SGD</option>
-                                                                        <option value="USD"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'USD' ? 'selected' : '' }}>
-                                                                            USD</option>
-                                                                        <option value="Multi-currency"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Multi-currency' ? 'selected' : '' }}>
-                                                                            Multi-currency</option>
-                                                                        <option value="Others"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
-                                                                            Others</option> -->
-
-                                                                        <option value="Insurance"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Insurance' ? 'selected' : '' }}>
-                                                                            Insurance</option>
-                                                                        <option value="Investment"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Investment' ? 'selected' : '' }}>
-                                                                            Investment</option>
-                                                                        <option value="Others"
-                                                                            {{ isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others' ? 'selected' : '' }}>
-                                                                            Others</option>
-                                                                    </select>
-                                                                </div>
                                                                 
-                                               
-                                                                @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
-                                                                    <div class="formAreahalf basic_data please_specify">
-                                                                        <label for="" class="form-label">Others, please specify</label>
-                                                                        <input type="text" class="form-control"
-                                                                                name="financial[{{$i +1}}][account_type_specify]"
-                                                                                value="{{ isset($wealthfinance[$i]->account_type_specify) ? $wealthfinance[$i]->account_type_specify : '' }}">
-                                                                        
-                                                                        
+                                                                @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
+                                                                @php 
+                                                                    $account_type =json_decode($wealthfinance[$i]->account_type); 
+                                                                    $api = 1;
+                                                                @endphp
+                                                                    @foreach($account_type as $ap)
+                                                                        <div class="formAreahalf basic_data">
+                                                                            <label for="account_type" class="form-label">Account Type {{$api}}</label>
+                                                                            <select name="financial[{{$i +1}}][account_type][]" id="account_type" class="form-control" data-id= "{{$i +1}}">
+                                                                                <option value="" selected disabled>Choose account type
+                                                                                </option>
+                                                                                <option value="SGD"
+                                                                                    {{ isset($ap) && $ap == 'SGD' ? 'selected' : '' }}>
+                                                                                    SGD</option>
+                                                                                <option value="USD"
+                                                                                    {{ isset($ap) && $ap == 'USD' ? 'selected' : '' }}>
+                                                                                    USD</option>
+                                                                                <option value="Multi-currency"
+                                                                                    {{ isset($ap) && $ap == 'Multi-currency' ? 'selected' : '' }}>
+                                                                                    Multi-currency</option>
+                                                                                <option value="Others"
+                                                                                    {{ isset($ap) && $ap == 'Others' ? 'selected' : '' }}>
+                                                                                    Others</option>
+                                                                            </select>
+                                                                            @if ($api == 1)
+                                                                                <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="{{($i + 1)}}" data-aclick="{{count($account_type)}}">
+                                                                            @endif
+                                                                            @php $api++; @endphp
+                                                                        </div>
+                                                                    @endforeach
+                                                                @else
+                                                                @php 
+                                                                    $ap =$wealthfinance[$i]->account_type; 
+                                                                    $api = 1;
+                                                                @endphp
+                                                                    <div class="formAreahalf basic_data">
+                                                                        <label for="account_type" class="form-label">Account Type {{$api}}</label>
+                                                                        <select name="financial[{{$i +1}}][account_type][]" id="account_type" class="form-control" data-id= "{{$i +1}}">
+                                                                            <option value="" selected disabled>Choose account type
+                                                                            </option>
+                                                                            <option value="SGD"
+                                                                                {{ isset($ap) && $ap == 'SGD' ? 'selected' : '' }}>
+                                                                                SGD</option>
+                                                                            <option value="USD"
+                                                                                {{ isset($ap) && $ap == 'USD' ? 'selected' : '' }}>
+                                                                                USD</option>
+                                                                            <option value="Multi-currency"
+                                                                                {{ isset($ap) && $ap == 'Multi-currency' ? 'selected' : '' }}>
+                                                                                Multi-currency</option>
+                                                                            <option value="Others"
+                                                                                {{ isset($ap) && $ap == 'Others' ? 'selected' : '' }}>
+                                                                                Others</option>
+                                                                        </select>
+                                                                        @if ($api == 1)
+                                                                            <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="{{($i + 1)}}" data-aclick="{{($api +1)}}">
+                                                                        @endif
                                                                     </div>
                                                                 @endif
-                                                                <div class="formAreahalf basic_data">
-                                                                    <label for="account_policy_no" class="form-label">Account/Policy
-                                                                        Number</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][account_policy_no]" id="account_policy_no"
-                                                                        value="@isset($wealthfinance[$i]->account_policy_no)  {{ $wealthfinance[$i]->account_policy_no }} @endisset"
-                                                                        class="form-control">
-                                                                </div>
+
+                                                                @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
+                                                                    @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
+                                                                        @php 
+                                                                            $account_type_specify = json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1; 
+                                                                        @endphp
+                                                                        @foreach($account_type_specify as $aps)
+                                                                                <div class="formAreahalf basic_data please_specify">
+                                                                                    <label for="" class="form-label">Others, please specify{{$apsi}}</label>
+                                                                                    <input type="text" class="form-control"
+                                                                                            name="financial[{{$i +1}}][account_type_specify][]"
+                                                                                            value="{{ isset($aps) ? $aps : '' }}">
+
+
+                                                                                </div>
+                                                                            @php $apsi++; @endphp
+                                                                        @endforeach
+                                                                    @else
+                                                                        @php 
+                                                                            $aps = $wealthfinance[$i]->account_type_specify; $apsi = 1; 
+                                                                        @endphp
+                                                                            <div class="formAreahalf basic_data please_specify">
+                                                                                <label for="" class="form-label">Others, please specify{{$apsi}}</label>
+                                                                                <input type="text" class="form-control"
+                                                                                        name="financial[{{$i +1}}][account_type_specify][]"
+                                                                                        value="{{ isset($aps) ? $aps : '' }}">
+
+
+                                                                            </div>
+                                                                    @endif
+                                                                @endif
+
+                                                                @if(!empty($wealthfinance[$i]->account_policy_no) && isJson($wealthfinance[$i]->account_policy_no) )
+                                                                
+                                                                    @php 
+                                                                        $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no); 
+                                                                        $apni = 1;  
+                                                                    @endphp
+                                                                    @foreach($account_policy_no as $apn)
+                                                                        <div class="formAreahalf basic_data">
+                                                                            <label for="account_policy_no" class="form-label">Account/Policy
+                                                                                Number{{$apni}}</label>
+                                                                            <input type="text" name="financial[{{$i +1}}][account_policy_no][]" id="account_policy_no"
+                                                                                value="@isset($apn)  {{ $apn }} @endisset"
+                                                                                class="form-control">
+                                                                        </div>
+                                                                        @php $apni++; @endphp
+                                                                    @endforeach
+                                                                @else
+                                                                    @php 
+                                                                        $apn =   $wealthfinance[$i]->account_policy_no; 
+                                                                        $apni = 1;
+                                                                    @endphp
+                                                                    <div class="formAreahalf basic_data">
+                                                                        <label for="account_policy_no" class="form-label">Account/Policy
+                                                                            Number{{$apni}}</label>
+                                                                        <input type="text" name="financial[{{$i +1}}][account_policy_no][]" id="account_policy_no"
+                                                                            value="@isset($apn)  {{ $apn }} @endisset"
+                                                                            class="form-control">
+                                                                    </div>
+                                                                @endif
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_opening_status" class="form-label">Account
                                                                         Opening
@@ -766,11 +846,29 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
+                                                                    <label for="intial_deposit_amount" class="form-label">Initial Deposit Currency</label>
+                                                                    <select name="financial[{{$i +1}}][intial_deposit_currency]" id="intial_deposit_currency"
+                                                                        class="js-example-responsive form-control">
+                                                                        <option value="" selected disabled>Choose money deposit
+                                                                            Currency
+                                                                        </option>
+                                                                        <option value="SGD"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'SGD' ? 'selected' : '' }}>SGD</option>
+                                                                        <option value="USD"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'USD' ? 'selected' : '' }}>USD</option>
+                                                                        <option value="Mult-currency"
+                                                                            {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Mult-currency' ? 'selected' : '' }}>Mult-currency</option>
+                                                                        <option value="Others"
+                                                                        {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Others' ? 'selected' : '' }}>Others</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                                <div class="formAreahalf basic_data">
                                                                     <label for="intial_deposit_amount" class="form-label">Initial
                                                                         Deposit
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="text"
+                                                                        <span class="input"> <input type="integer"
                                                                                 name="financial[{{$i +1}}][intial_deposit_amount]"
                                                                                 value="@isset($wealthfinance[$i]->intial_deposit_amount) {{ $wealthfinance[$i]->intial_deposit_amount }} @endisset"
                                                                                 class="form-control"></span>
@@ -799,22 +897,22 @@
                                                                         value="@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset">@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset</textarea>
                                                                 </div>
                                                             </div>
-                                                        </div>                                                                                                                                                                                            
-                                                    </div>                                           
-                                                </div> 
-                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            </div> 
-                                        @endfor   
-                                        
-                                    </div>    
+
+                                            </div>
+                                        @endfor
+
+                                    </div>
                                     <div class="btn_check_finance">
                                         <button class='btn saveBtn edit_add_finance' name='edit_add_finance'>Add Financial Institution</button>
-                                    </div>                                 
-                                </div> 
-                                                     
-                              
-                               
+                                    </div>
+                                </div>
+
+
+
                                 <div class="tab-pane fade" id="nav-pass" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <input type="hidden" name="wealth_pass_id"
@@ -848,8 +946,7 @@
                                             data-parent="#pass_accordion">
                                             <div class="tab-inner-text d-flex flex-wrap">
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="pass_holder_name" class="form-label">Pass Holder Name
-                                                        1
+                                                    <label for="pass_holder_name" class="form-label" id="pass_holder_name_lable">Pass Holder Name
                                                         (Eng)
                                                     </label>
                                                     <input type="text" name="pass_holder_name" id="pass_holder_name"
@@ -1048,8 +1145,8 @@
                                                         <input type="text" class="form-control"
                                                                 name="business_type_specify"
                                                                 value="{{ isset($wealthpass->business_type_specify) ? $wealthpass->business_type_specify : '' }}">
-                                                        
-                                                        
+
+
                                                     </div>
                                                 @endif
                                                 <div class="formAreahalf basic_data">
@@ -1084,19 +1181,19 @@
                                                         class="form-control">
                                                         <option value="" selected disabled>Choose relationship with pass holder 1</option>
                                                         <option value="Self"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>                                                            
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>
                                                         <option value="Parents"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>
                                                         <option value="Spouse"
-                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>    
+                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>
                                                         <option value="Children"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>
                                                         <option value="Relatives"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>
                                                         <option value="Friend"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>
                                                         <option value="Others"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>
                                                     </select>
                                                 </div>
                                                 @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
@@ -1105,8 +1202,8 @@
                                                         <input type="text" class="form-control"
                                                                 name="relation_with_pass_specify"
                                                                 value="{{ isset($wealthpass->relation_with_pass_specify) ? $wealthpass->relation_with_pass_specify : '' }}">
-                                                        
-                                                        
+
+
                                                     </div>
                                                 @endif
                                                 <div class="formAreahalf basic_data">
@@ -1141,8 +1238,8 @@
                                                         <input type="text" class="form-control"
                                                                 name="pass_app_type_specify"
                                                                 value="{{ isset($wealthpass->pass_app_type_specify) ? $wealthpass->pass_app_type_specify : '' }}">
-                                                        
-                                                        
+
+
                                                     </div>
                                                 @endif
                                                 <div class="formAreahalf basic_data">
@@ -1244,10 +1341,10 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="singpass_set_up" class="form-label">Singpass Set
                                                         Up</label>
-                                                    <select name="singpass_set_up"                                                       
+                                                    <select name="singpass_set_up"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>   
+                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>
                                                         <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
                                                     </select>
                                                 </div>
@@ -1261,9 +1358,11 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="monthly_sal" class="form-label">Monthly
                                                         Salary(SGD)</label>
-                                                    <input type="text" name="monthly_sal"
-                                                        value="@isset($wealthpass->monthly_sal) {{ $wealthpass->monthly_sal }} @endisset"
-                                                        class="form-control">
+
+                                                    <div class="dollersec"><span class="doller">$</span>
+                                                        <span class="input"> <input type="integer" name="monthly_sal" value="@isset($wealthpass->monthly_sal) {{ $wealthpass->monthly_sal }} @endisset"
+                                                        class="form-control"></span>
+                                                    </div>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_remarks" class="form-label">Remarks</label>
@@ -1274,7 +1373,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="tab-pane fade wealth_business_tab_new" id="nav-business" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <div class="business_data">
@@ -1328,7 +1427,7 @@
                                                                 {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_type" class="form-label">Account
                                                             Type</label>
@@ -1352,8 +1451,8 @@
                                                             <input type="text" class="form-control"
                                                                     name="business_account_type_specify"
                                                                     value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
-                                                            
-                                                            
+
+
                                                         </div>
                                                     @endif
                                                     <div class="formAreahalf basic_data">
@@ -1419,15 +1518,15 @@
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
-                                                            
-                                                            
+
+
                                                         </div>
                                                     @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     name="investment_amount"
                                                                     value="@isset($wealthbuss->investment_amount) {{ $wealthbuss->investment_amount }} @endisset"
                                                                     class="form-control"></span>
@@ -1564,7 +1663,7 @@
                                                         <input type="text" class="form-control"
                                                                 name="commission_currency_specify"
                                                                 value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
-                                                        
+
                                                     </div>
                                                 @endif
                                                     <div class="formAreahalf basic_data">
@@ -1572,22 +1671,22 @@
                                                             Amount(For
                                                             Admin
                                                             Purpose)</label>
-                                                        <input type="text" name="commission_amount"
+                                                        <input type="integer" name="commission_amount"
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
-                                                    </div>                                                  
-                                                  
+                                                    </div>
+
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_remarks" class="form-label">Remarks</label>
                                                         <textarea name="business_remarks" rows="4" cols="50"
                                                             value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset">@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset</textarea>
                                                     </div>
                                                 </div>
-                                                
+
                                                     <div class="redemption_add_table">
                                                         <h3>Redemption Date and Amount</h3>
                                                         {{-- <form name="business_red_table_data" class="business_redemption_tab" id="redemption_table" method="POST"> --}}
-                                                           
+
                                                                 <input type="hidden" name="business_tab_id" id="busines_tab_id" class="busines_tab_id" value="@isset($wealthbuss->id) {{$wealthbuss->id}} @endisset">
                                                                 <div class="redemption_table_data">
                                                                     <div class="formAreahalf r_table">
@@ -1606,16 +1705,16 @@
                                                                                     id="fo_servicing_fee_amount"
                                                                                     value=""></span>
                                                                         </div>
-                                                                    </div> 
+                                                                    </div>
                                                                 </div>
-                                                              
+
                                                             <div class="btn_adding_redempton">
                                                                 <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
                                                             </div>
                                                         {{-- </form> --}}
                                                     </div>
                                                     <div class="Redemption_date edit_redemption">
-                                                    
+
                                                         <div class="table">
                                                             <table class="table" id="red_table">
                                                                 <thead>
@@ -1626,11 +1725,11 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                  
+
                                                                     @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                                     @foreach($wealthbuss->business_redempt as $redemption_data)
-                                                                   
+
                                                                     <tr>
                                                                         <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
                                                                         <td>{{$redemption_data->red_amount}}</td>
@@ -1646,7 +1745,7 @@
                                                                 </tbody>
                                                                 </tbody>
                                                             </table>
-        
+
                                                         </div>
                                                     </div>
                                                     <div class="last_net_business">
@@ -1654,19 +1753,19 @@
                                                             <label for="net_amount_val" class="form-label">Net Account
                                                                 Value</label>
                                                             <div class="dollersec"><span class="doller">$</span>
-                                                                <span class="input"> <input type="text"
+                                                                <span class="input"> <input type="integer"
                                                                         class="form-control" name="net_amount_val"
                                                                         id="net_amount_val"
                                                                         value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @else                               
+                            @else
                                 <div class="tab-pane fade show active wealth_business_tab_new" id="nav-business" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <div class="business_data">
@@ -1720,7 +1819,7 @@
                                                                 {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_type" class="form-label">Account
                                                             Type</label>
@@ -1744,10 +1843,10 @@
                                                             <input type="text" class="form-control"
                                                                     name="business_account_type_specify"
                                                                     value="{{ isset($wealthbuss->business_account_type_specify) ? $wealthbuss->business_account_type_specify : '' }}">
-                                                            
+
                                                         </div>
                                                     @endif
-                                                    
+
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_policy_no"
                                                             class="form-label">Account/Policy
@@ -1811,15 +1910,15 @@
                                                             <input type="text" class="form-control"
                                                                     name="currency_specify"
                                                                     value="{{ isset($wealthbuss->currency_specify) ? $wealthbuss->currency_specify : '' }}">
-                                                            
-                                                            
+
+
                                                         </div>
                                                     @endif
                                                     <div class="formAreahalf basic_data">
                                                         <label for="investment_amount" class="form-label">Investment
                                                             Amount/Premium</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     name="investment_amount"
                                                                     value="@isset($wealthbuss->investment_amount) {{ $wealthbuss->investment_amount }} @endisset"
                                                                     class="form-control"></span>
@@ -1956,8 +2055,8 @@
                                                         <input type="text" class="form-control"
                                                                 name="commission_currency_specify"
                                                                 value="{{ isset($wealthbuss->commission_currency_specify) ? $wealthbuss->commission_currency_specify : '' }}">
-                                                        
-                                                        
+
+
                                                     </div>
                                                 @endif
                                                     <div class="formAreahalf basic_data">
@@ -1965,7 +2064,7 @@
                                                             Amount(For
                                                             Admin
                                                             Purpose)</label>
-                                                        <input type="text" name="commission_amount"
+                                                        <input type="integer" name="commission_amount"
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
                                                     </div>
@@ -1981,7 +2080,7 @@
                                                         <label for="net_amount_val" class="form-label">Redemption
                                                             Amount</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     class="form-control" name="business_redemption_amount"
                                                                     id="fo_servicing_fee_amount"
                                                                     value="@isset($wealthbuss->business_redemption_amount) {{ $wealthbuss->business_redemption_amount }} @endisset"></span>
@@ -1991,7 +2090,7 @@
                                                         <label for="net_amount_val" class="form-label">Net Account
                                                             Value</label>
                                                         <div class="dollersec"><span class="doller">$</span>
-                                                            <span class="input"> <input type="text"
+                                                            <span class="input"> <input type="integer"
                                                                     class="form-control" name="net_amount_val"
                                                                     id="net_amount_val"
                                                                     value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
@@ -2003,11 +2102,11 @@
                                                             value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset">@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset</textarea>
                                                     </div>
                                                 </div>
-                                            
-                                                    
+
+
                                                 <div class="redemption_add_table">
                                                     <h3>Redemption Date and Amount</h3>
-                                                    
+
                                                     <input type="hidden" name="business_tab_id" id="busines_tab_id" class="busines_tab_id" value="@isset($wealthbuss->id) {{$wealthbuss->id}} @endisset">
                                                             <div class="redemption_table_data">
                                                                 <div class="formAreahalf r_table">
@@ -2021,21 +2120,21 @@
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="text"
+                                                                        <span class="input"> <input type="integer"
                                                                                 class="form-control red_amount" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </div>
-                                                        
+
                                                         <div class="btn_adding_redempton">
                                                             <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
                                                         </div>
-                                                    
+
                                                 </div>
                                                 <div class="Redemption_date edit_redemption">
-                                                
+
                                                     <div class="table">
                                                         <table class="table" id="red_table">
                                                             <thead>
@@ -2046,11 +2145,11 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            
+
                                                                 @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                            
+
                                                                 @foreach($wealthbuss->business_redempt as $redemption_data)
-                                                            
+
                                                                 <tr>
                                                                     <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
                                                                     <td>{{$redemption_data->red_amount}}</td>
@@ -2084,10 +2183,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                           
+                                </div>
                             @endif
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -2110,12 +2209,23 @@
                         </div>
                     <!-- </form> -->
                     @foreach ($notes as $note)
-                        <div class="notes_show">
+                        <div class="notes_show" id="note{{$note->id }}">
+                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
                             <p class="desc_notes">{{ $note->notes_description }}</p>
                             <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                             <p class="createdby"><b>{{ $note->created_by }}</b></p>
                         </div>
                     @endforeach
+                    <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul id="pagin" class="pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -2138,39 +2248,43 @@
                         <button type="submit" class="btn saveBtn file_upload_submit">Upload</button>
                     </div>
                 </form>
-                <table class="table user_action_log">
-                    <thead>
-                        <tr>
-                            <th scope="col">File Name</th>
-                            <th scope="col">Uploaded by</th>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (count($file) > 0)
-                            @foreach ($file as $files)
-                                <tr>
-                                    <td>{{ $files->file }}</td>
-                                    <td>{{ $files->uploaded_by_name }}</td>
-                                    <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
-                                    <td>
-                                        <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
-                                            <i class="fa-solid fa-download"></i></a>
-
-                                        <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                            data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
+                <div class="dataAreaMain">
+                    <div class="table_cstm  dasboard-entry">
+                    <table class="table user_action_log">
+                        <thead>
                             <tr>
-                                <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                <th scope="col">File Name</th>
+                                <th scope="col">Uploaded by</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        @endif
+                        </thead>
+                        <tbody>
+                            @if (count($file) > 0)
+                                @foreach ($file as $files)
+                                    <tr>
+                                        <td><a href="{{asset('file/'.$files->file)}}" target="_blank" >{{ $files->file }}</a></td>
+                                        <td>{{ $files->uploaded_by_name }}</td>
+                                        <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</td>
+                                        <td>
+                                            <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
+                                                <i class="fa-solid fa-download"></i></a>
 
-                    </tbody>
-                </table>
+                                            <a href="javascript:void(0);" class="wealth_file_del_confirm"
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4" class="no_tab_data">No file uploaded yet.</td>
+                                </tr>
+                            @endif
+
+                        </tbody>
+                    </table>
+                </div>
+             </div>
             </div>
         </div>
 
@@ -2197,7 +2311,7 @@
                                                 <input type="text" class="form-control"
                                                     name="share[` +tpb_id + `][` +tpb_key + `][please_specify]"
                                                     value="">
-                                            </div>`           
+                                            </div>`
                     );
                     // ++o;
 
@@ -2216,7 +2330,7 @@
                                                 <input type="text" class="form-control"
                                                     name="financial[` +tpb_id + `][account_type_specify]"
                                                     value="">
-                                            </div>`           
+                                            </div>`
                     );
                     // ++o;
 
@@ -2236,7 +2350,7 @@
                             <input type="text" class="form-control"
                                 name="currency_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2252,7 +2366,7 @@
                             <input type="text" class="form-control"
                                 name="commission_currency_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2268,7 +2382,7 @@
                             <input type="text" class="form-control"
                                 name="business_type_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2284,7 +2398,7 @@
                             <input type="text" class="form-control"
                                 name="relation_with_pass_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2300,7 +2414,7 @@
                             <input type="text" class="form-control"
                                 name="pass_app_type_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2316,7 +2430,7 @@
             //                 <input type="text" class="form-control"
             //                     name="business_account_status_specify"
             //                     value="">
-            //             </div>`           
+            //             </div>`
             //         );
 
             //     } else {
@@ -2332,7 +2446,7 @@
                             <input type="text" class="form-control"
                                 name="business_account_type_specify"
                                 value="">
-                        </div>`           
+                        </div>`
                     );
 
                 } else {
@@ -2341,7 +2455,64 @@
 
             });
 
-            
+            $(document).on('click', '.add_account_type', function() {
+                var akey = $(this).data('id');
+                var aclick = $(this).data('aclick');
+                $(this).data('aclick',(aclick+1));
+                $(this).parent().after(
+                    `<div class="formAreahalf basic_data">
+                        <label for="account_type" class="form-label">Account Type `+aclick+`</label>
+                        <select name="financial[`+akey+`][account_type][]" id="account_type" class="form-control">
+                            <option value="" selected disabled>Choose account type
+                            </option>
+                            <option value="SGD">
+                                SGD</option>
+                            <option value="USD">
+                                USD</option>
+                            <option value="Multi-currency">
+                                Multi-currency</option>
+                            <option value="Others">
+                                Others</option>
+                        </select>
+                    </div>
+                    <div class="formAreahalf basic_data ">
+                        <label for="account_policy_no" class="form-label">Account/Policy
+                            Number `+aclick+`</label>
+                        <input type="text" name="financial[`+akey+`][account_policy_no][]" id="account_policy_no"
+                            value=""
+                            class="form-control">
+                    </div>
+                    `
+                );
+
+                
+
+            });
+            $(document).on('change', '#passholder_shareholder', function() {
+                if ($(this).val() == "Yes") {
+                    
+                     var htmpass=`<select class="form-control" id="pass_holder_name"
+                                name="pass_holder_name">`;
+                    var pass_name_eng_arr = $('.pass_name_eng').map(function () {
+                        return this.value;
+                    }).get();
+                    var option_values= "";
+                    $.each(pass_name_eng_arr, function(key, value) {
+                         htmpass += `<option value="`+value+`">`+value+`</option>`;
+                    });
+                    htmpass += `</select>`;
+
+                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
+                    $('#pass_holder_name_lable').after(htmpass);
+
+                } else {
+                    var htmpass = `<input type="text" name="pass_holder_name" id="pass_holder_name" class="form-control">`;
+                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
+                    $('#pass_holder_name_lable').after(htmpass);
+                }
+
+            });
+
 
         });
     </script>

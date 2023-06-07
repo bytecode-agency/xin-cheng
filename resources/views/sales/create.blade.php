@@ -248,7 +248,7 @@
                                                 <label class="form-label" for="busamt">Amount of Potential
                                                     Business</label>
                                                 <div class="dollersec"><span class="doller">$</span><span
-                                                        class="input"><input type="number" class="form-control"
+                                                        class="input"><input type="integer" class="form-control"
                                                             id="busamt[0][subject]" name="addpb[0][busamt]"></span></div>
                                             </div>
 
@@ -395,7 +395,7 @@
                                                 <label class="form-label" for="busamt">Amount of Business
                                                     Generated</label>
                                                 <div class="dollersec"><span class="doller">$</span><span
-                                                        class="input"><input type="number" class="form-control"
+                                                        class="input"><input type="integer" class="form-control"
                                                             id="genbusamt[0][subject]" name="addbg[0][g_busamt]"></span>
                                                 </div>
                                             </div>
@@ -673,7 +673,7 @@
 
                     <div class="formAreahalf">
                       <label class="form-label" for="busamt">Amount of Potential Business</label>
-                      <div class="dollersec"><span class="doller">$</span><span class="input"><input type="number" class="form-control" id="busamt[0][subject]"
+                      <div class="dollersec"><span class="doller">$</span><span class="input"><input type="integer" class="form-control" id="busamt[0][subject]"
                                                         name="addpb[` + i + `][busamt]"></span></div>
                     </div>
 
@@ -857,7 +857,7 @@
 
     <div class="formAreahalf">
       <label class="form-label" for="busamt">Amount of Business Generated</label>
-      <div class="dollersec"><span class="doller">$</span><span class="input"><input type="number" class="form-control" id="genbusamt[0][subject]"
+      <div class="dollersec"><span class="doller">$</span><span class="input"><input type="integer" class="form-control" id="genbusamt[0][subject]"
                                         name="addbg[` + g + `][g_busamt]"></span></div>
     </div>
 
@@ -947,21 +947,20 @@
                     // alert('empty');
                     $("#signdiv").html(`<label for="clienttype" class="form-label">Sign of B2B Agreement?</label>
                                     <select class="" name="sign" id="sign">
+                                        <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                         <option value="Yes">Yes</option>
-
                                     </select>`);
                     $("#b2bsigndatediv").html(
-                        '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-" disabled>'
+                        '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="date" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-">'
                     );
                     $("#b2bexdatediv").html(
-                        '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-" disabled>'
+                        '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-">'
                     );
                     $("#renewlremdiv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-" disabled>'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminderrr</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-">'
                     );
                     $("#renewlfrediv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-" disabled>'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-">'
                     );
                     // alert(document.getElementById('sign').value);
 

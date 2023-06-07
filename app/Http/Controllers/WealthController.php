@@ -371,7 +371,7 @@ class WealthController extends Controller
     {   
         $data = Wealth::with('companies.shareholder')->with('users')->find($id); 
         // dd($data);
-        if($data->business_type == "FO")
+        if(!empty($data) && !empty($data->business_type) && $data->business_type == "FO")
         {
             $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first();           
         }
@@ -547,13 +547,15 @@ class WealthController extends Controller
                     'poc_contact_no' => isset($f_value['poc_contact_no']) ? $f_value['poc_contact_no'] :null,
                     'poc_email'=>  isset($f_value['poc_email']) ? $f_value['poc_email'] :null,
                     'application_submission' =>  isset($f_value['application_submission']) ? $f_value['application_submission'] :null,
-                    'account_type' =>  isset($f_value['account_type']) ? $f_value['account_type'] :null,
-                    'account_type_specify' =>  isset($f_value['account_type_specify']) ? $f_value['account_type_specify'] :null,
-                    'account_policy_no'  =>  isset($f_value['account_policy_no']) ? $f_value['account_policy_no'] :null,
+                    'application_submission_date' =>  isset($f_value['application_submission_date']) ? $f_value['application_submission_date'] :null,
+                    'account_type' =>  isset($f_value['account_type']) ? json_encode($f_value['account_type']) :null,
+                    'account_type_specify' =>  isset($f_value['account_type_specify']) ? json_encode($f_value['account_type_specify']) :null,
+                    'account_policy_no'  =>  isset($f_value['account_policy_no']) ? json_encode($f_value['account_policy_no']) :null,
                     'account_opening_status'  =>  isset($f_value['account_opening_status']) ? $f_value['account_opening_status'] :null,
                     'current_account_status'=>  isset($f_value['current_account_status']) ? $f_value['current_account_status'] :null,
                     'money_deposit_status' =>  isset($f_value['money_deposit_status']) ? $f_value['money_deposit_status'] :null,
                     'intial_deposit_amount' =>  isset($f_value['intial_deposit_amount']) ? $f_value['intial_deposit_amount'] :null,
+                    'intial_deposit_currency' =>  isset($f_value['intial_deposit_currency']) ? $f_value['intial_deposit_currency'] :null,
                     'online_account_username' =>  isset($f_value['online_account_username']) ? $f_value['online_account_username'] :null,
                     'online_account_pass' => isset($f_value['online_account_pass']) ? $f_value['online_account_pass']:null,
                     'finacial_remarks' => isset($f_value['finacial_remarks']) ? $f_value['finacial_remarks'] :null,  ]);
@@ -795,7 +797,7 @@ class WealthController extends Controller
         'module_name' => 'Wealth',
         'old_action' => null,       
         'action_perform'=> $f,
-        'message'=>'File Uploaded',
+        'message'=>'Document uploaded '.$f.' for Wealth section',
         ]);
         activity_log($data);
         return response()->json('File uploaded successfully');
@@ -812,7 +814,7 @@ class WealthController extends Controller
         'module_name' => 'Wealth',
         'old_action' => $old_user_data,       
         'action_perform'=> null,
-        'message'=>'File Deleted',
+        'message'=>'Removed Document '.$file->file_name.' for Wealth section',
         ]);
         activity_log($data);
         $file->delete();
