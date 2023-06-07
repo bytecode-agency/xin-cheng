@@ -905,7 +905,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Remarksdfdfddf</label>
+                                                <label for="" class="form-label">Remarks</label>
                                                 <p>
                                                     @isset($wealth_mas->remarks)
                                                         {{ $wealth_mas->remarks }}
@@ -1032,8 +1032,9 @@
                                                         </div>
                                                     @endforeach
                                                 @else
+
                                                     @php 
-                                                        $ap = $wealth_finance[$i]->account_type;
+                                                        $ap = (!empty($wealth_finance) && !empty($wealth_finance[$i]->account_type)) ? $wealth_finance[$i]->account_type : "";
                                                         $api = 1;
                                                     @endphp
                                                     <div class="formAreahalf basic_data">
@@ -1076,6 +1077,7 @@
                                                 @if(!empty($wealth_finance[$i]->account_policy_no) && isJson($wealth_finance[$i]->account_policy_no) )
                                                                 
                                                     @php 
+                                                        
                                                         $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no); 
                                                         $apni = 1;  
                                                     @endphp

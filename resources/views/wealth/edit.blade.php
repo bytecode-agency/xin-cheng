@@ -708,7 +708,8 @@
                                                                     @endforeach
                                                                 @else
                                                                 @php 
-                                                                    $ap =$wealthfinance[$i]->account_type; 
+                                                                    $ap = (!empty($wealthfinance) && !empty($wealthfinance[$i]->account_type)) ? $wealthfinance[$i]->account_type : "";
+                                                        
                                                                     $api = 1;
                                                                 @endphp
                                                                     <div class="formAreahalf basic_data">
@@ -784,7 +785,8 @@
                                                                     @endforeach
                                                                 @else
                                                                     @php 
-                                                                        $apn =   $wealthfinance[$i]->account_policy_no; 
+                                                                    $apn = (!empty($wealthfinance) && !empty($wealthfinance[$i]->account_policy_no)) ? $wealthfinance[$i]->account_policy_no : "";
+                                                        
                                                                         $apni = 1;
                                                                     @endphp
                                                                     <div class="formAreahalf basic_data">
