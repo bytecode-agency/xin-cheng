@@ -905,7 +905,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Remarksdfdfddf</label>
+                                                <label for="" class="form-label">Remarks</label>
                                                 <p>
                                                     @isset($wealth_mas->remarks)
                                                         {{ $wealth_mas->remarks }}
@@ -1033,6 +1033,20 @@
                                                     @endforeach
                                                 @else
 
+                                                    @php
+                                                        $ap = (!empty($wealth_finance) && !empty($wealth_finance[$i]->account_type)) ? $wealth_finance[$i]->account_type : "";
+                                                        $api = 1;
+                                                    @endphp
+                                                    <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Account Type</label>
+                                                            <p>
+                                                                @isset($ap)
+                                                                    {{ $ap }}
+                                                                @else
+                                                                    -
+                                                                @endisset
+                                                            </p>
+                                                        </div>
                                                 @endif
                                                 @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
 
@@ -1063,6 +1077,7 @@
                                                 @if(!empty($wealth_finance[$i]->account_policy_no) && isJson($wealth_finance[$i]->account_policy_no) )
 
                                                     @php
+
                                                         $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no);
                                                         $apni = 1;
                                                     @endphp
