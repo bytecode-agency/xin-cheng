@@ -372,10 +372,10 @@
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose Legal Opinion
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
-                                                        <option value="Done"
-                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Done' ? 'selected' : '' }}>Done</option>
+                                                        <option value="Pending"
+                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                        <option value="Received"
+                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Received' ? 'selected' : '' }}>Received</option>
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -675,10 +675,10 @@
 
                                                                     </select>
                                                                 </div>
-                                                                
+
                                                                 @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
-                                                                @php 
-                                                                    $account_type =json_decode($wealthfinance[$i]->account_type); 
+                                                                @php
+                                                                    $account_type =json_decode($wealthfinance[$i]->account_type);
                                                                     $api = 1;
                                                                 @endphp
                                                                     @foreach($account_type as $ap)
@@ -707,38 +707,12 @@
                                                                         </div>
                                                                     @endforeach
                                                                 @else
-                                                                @php 
-                                                                    $ap =$wealthfinance[$i]->account_type; 
-                                                                    $api = 1;
-                                                                @endphp
-                                                                    <div class="formAreahalf basic_data">
-                                                                        <label for="account_type" class="form-label">Account Type {{$api}}</label>
-                                                                        <select name="financial[{{$i +1}}][account_type][]" id="account_type" class="form-control" data-id= "{{$i +1}}">
-                                                                            <option value="" selected disabled>Choose account type
-                                                                            </option>
-                                                                            <option value="SGD"
-                                                                                {{ isset($ap) && $ap == 'SGD' ? 'selected' : '' }}>
-                                                                                SGD</option>
-                                                                            <option value="USD"
-                                                                                {{ isset($ap) && $ap == 'USD' ? 'selected' : '' }}>
-                                                                                USD</option>
-                                                                            <option value="Multi-currency"
-                                                                                {{ isset($ap) && $ap == 'Multi-currency' ? 'selected' : '' }}>
-                                                                                Multi-currency</option>
-                                                                            <option value="Others"
-                                                                                {{ isset($ap) && $ap == 'Others' ? 'selected' : '' }}>
-                                                                                Others</option>
-                                                                        </select>
-                                                                        @if ($api == 1)
-                                                                            <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="{{($i + 1)}}" data-aclick="{{($api +1)}}">
-                                                                        @endif
-                                                                    </div>
                                                                 @endif
 
                                                                 @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
                                                                     @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
-                                                                        @php 
-                                                                            $account_type_specify = json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1; 
+                                                                        @php
+                                                                            $account_type_specify = json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1;
                                                                         @endphp
                                                                         @foreach($account_type_specify as $aps)
                                                                                 <div class="formAreahalf basic_data please_specify">
@@ -752,8 +726,8 @@
                                                                             @php $apsi++; @endphp
                                                                         @endforeach
                                                                     @else
-                                                                        @php 
-                                                                            $aps = $wealthfinance[$i]->account_type_specify; $apsi = 1; 
+                                                                        @php
+                                                                            $aps = $wealthfinance[$i]->account_type_specify; $apsi = 1;
                                                                         @endphp
                                                                             <div class="formAreahalf basic_data please_specify">
                                                                                 <label for="" class="form-label">Others, please specify{{$apsi}}</label>
@@ -767,10 +741,10 @@
                                                                 @endif
 
                                                                 @if(!empty($wealthfinance[$i]->account_policy_no) && isJson($wealthfinance[$i]->account_policy_no) )
-                                                                
-                                                                    @php 
-                                                                        $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no); 
-                                                                        $apni = 1;  
+
+                                                                    @php
+                                                                        $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no);
+                                                                        $apni = 1;
                                                                     @endphp
                                                                     @foreach($account_policy_no as $apn)
                                                                         <div class="formAreahalf basic_data">
@@ -783,17 +757,7 @@
                                                                         @php $apni++; @endphp
                                                                     @endforeach
                                                                 @else
-                                                                    @php 
-                                                                        $apn =   $wealthfinance[$i]->account_policy_no; 
-                                                                        $apni = 1;
-                                                                    @endphp
-                                                                    <div class="formAreahalf basic_data">
-                                                                        <label for="account_policy_no" class="form-label">Account/Policy
-                                                                            Number{{$apni}}</label>
-                                                                        <input type="text" name="financial[{{$i +1}}][account_policy_no][]" id="account_policy_no"
-                                                                            value="@isset($apn)  {{ $apn }} @endisset"
-                                                                            class="form-control">
-                                                                    </div>
+
                                                                 @endif
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="account_opening_status" class="form-label">Account
@@ -860,7 +824,7 @@
                                                                             {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Mult-currency' ? 'selected' : '' }}>Mult-currency</option>
                                                                         <option value="Others"
                                                                         {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Others' ? 'selected' : '' }}>Others</option>
-                                                                        
+
                                                                     </select>
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
@@ -2485,12 +2449,12 @@
                     `
                 );
 
-                
+
 
             });
             $(document).on('change', '#passholder_shareholder', function() {
                 if ($(this).val() == "Yes") {
-                    
+
                      var htmpass=`<select class="form-control" id="pass_holder_name"
                                 name="pass_holder_name">`;
                     var pass_name_eng_arr = $('.pass_name_eng').map(function () {

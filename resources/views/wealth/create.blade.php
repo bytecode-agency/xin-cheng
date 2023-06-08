@@ -469,7 +469,7 @@
 
                     <div class="formAreahalf">
                         <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" name="nfo_phone_number" id="nfo_phone_number">
+                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
                     </div>
 
                     <div class="formAreahalf">
@@ -880,7 +880,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_phone_number" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" name="fo_phone_number" id="fo_phone_number">
+            <input type="tel" id="fo_phone_number" name="fo_phone_number" class="form-control" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
         </div>
         <div class="formAreahalf">
             <label for="fo_residential_Add" class="form-label">Residential Add.(according to Add.
