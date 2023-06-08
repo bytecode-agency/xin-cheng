@@ -807,7 +807,7 @@
 
 
             $('#next').click(function() {
-                // alert('bhb');
+                alert('bhb');
 
                 if ($('#client').val() == null) {
                     $('#clienterror').html('This field is required');

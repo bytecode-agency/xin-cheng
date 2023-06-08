@@ -121,6 +121,7 @@ $(document).ready(function () {
     // });
 
     $('body').on('click','.next1',function () {
+        alert('dfdf')
         form.validate({
             rules: {
                 business_type: {
@@ -548,8 +549,7 @@ $(document).ready(function () {
 
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
-                                    <input type="text" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
-                                        value="">
+                                    <input type="tel" class="form-control" id="fo_cpm2_phone_1" name="share[1][1][phone]" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_email_1" class="form-label">E-mail</label>
