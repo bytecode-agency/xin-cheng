@@ -25,6 +25,8 @@ class Sale extends Model
         'poc_name',
         'poc_email',
         'poc_wechat',
+        'source_of_client',
+        'source_of_client_specify',
         'b2b_sign',
         'b2b_agr_sign_date',
         'b2b_agr_exp_date',

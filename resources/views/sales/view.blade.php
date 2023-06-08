@@ -147,6 +147,21 @@
                                 <label for="" class="form-label"> Wechat id of POC</label>
                                 <br>{{ $sale->poc_wechat }}
                             </div>
+
+                            <div class="formAreahalf ">
+                                <label for="" class="form-label"> Source of Client</label>
+                                <br>{{ $sale->source_of_client }}
+                            </div>
+                            @if (isset($sale->source_of_client) && ($sale->source_of_client == 'Others' || $sale->source_of_client == 'Online marketing'))
+                                <div class="formAreahalf basic_data please_specify">
+                                    <label for="" class="form-label">Others, please specify</label>
+                                    @if (isset($sale->source_of_client_specify))
+                                        <p>{{ $sale->source_of_client_specify }}</p>
+                                    @else-
+                                    @endif
+
+                                </div>
+                            @endif
                             @if ($sale->bus_type == 'B2B')
                                 <div class="formAreahalf ">
                                     <label for="clienttype" class="form-label">Sign of B2B Agreement?</label>

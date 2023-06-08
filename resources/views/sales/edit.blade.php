@@ -181,6 +181,24 @@
                                     <input type="text" class="form-control" id="pocwechat" name="pocwechat"
                                         value="{{ $sale->poc_wechat }}">
                                 </div>
+                                <div class="formAreahalf ">
+                                    <label for="" class="form-label"> Source of Client</label>
+                                    <select name="source_of_client" id="source_of_client" class="source_of_client ">
+                                        <option value=""  disabled>Please select Source of Client </option>
+                                        <option value="Referral"         {{isset($sale->source_of_client) && $sale->source_of_client == 'Referral' ? 'selected' : ''  }}>Referral</option>
+                                        <option value="Online marketing" {{isset($sale->source_of_client) && $sale->source_of_client == 'Online marketing' ? 'selected' : ''  }}>Online marketing</option>
+                                        <option value="Seminar"          {{isset($sale->source_of_client) && $sale->source_of_client == 'Seminar' ? 'selected' : ''  }}>Seminar</option>
+                                        <option value="Warm market"      {{isset($sale->source_of_client) && $sale->source_of_client == 'Warm market' ? 'selected' : ''  }}>Warm market</option>
+                                        <option value="Others"           {{isset($sale->source_of_client) && $sale->source_of_client == 'Others' ? 'selected' : ''  }}>Others</option>
+                                    </select>
+                                </div>
+                                @if (isset($sale->source_of_client) && ($sale->source_of_client == 'Others' || $sale->source_of_client == 'Online marketing'))
+                                    <div class="formAreahalf basic_data please_specify">
+                                        <label for="" class="form-label">Others, please specify</label>
+                                        <input type="text" class="form-control" id="source_of_client_specify" name="source_of_client_specify"
+                                        value="{{ isset($sale->source_of_client_specify) ? $sale->source_of_client_specify : '' }}">
+                                    </div>
+                                @endif
                                 @if ($sale->bus_type == 'B2B')
                                     <div class="formAreahalf ">
                                         <label for="clienttype" class="form-label">Sign of B2B Agreement?</label>

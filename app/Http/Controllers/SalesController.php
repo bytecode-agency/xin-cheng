@@ -340,6 +340,8 @@ class SalesController extends Controller
         $sale->poc_name = $request->pocname;
         $sale->poc_email = $request->pocemail;
         $sale->poc_wechat = $request->pocwechat;
+        $sale->source_of_client = $request->source_of_client;
+        $sale->source_of_client_specify = $request->source_of_client_specify;
         $sale->b2b_sign = $request->sign;
         $sale->b2b_agr_sign_date = $request->b2bsigndate;
         $sale->b2b_agr_exp_date = $request->b2bexdate;
@@ -449,6 +451,8 @@ class SalesController extends Controller
         $sale->poc_name = $request->pocname;
         $sale->poc_email = $request->pocemail;
         $sale->poc_wechat = $request->pocwechat;
+        $sale->source_of_client = $request->source_of_client;
+        $sale->source_of_client_specify = $request->source_of_client_specify;
         $sale->b2b_sign = $request->sign;
         $sale->b2b_agr_sign_date = $request->b2bsigndate;
         $sale->b2b_agr_exp_date = $request->b2bexdate;

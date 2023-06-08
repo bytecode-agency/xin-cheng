@@ -52,3 +52,20 @@ $('.file_upload_table').DataTable({
     searching: false,
     paging: true
 });
+
+$(document).on('change', '#source_of_client', function() {
+    if ($(this).val() == "Others" || $(this).val() == "Online marketing") {
+        $(this).parents().next('.please_specify').remove();
+        $(this).parent().after(
+            `<div class="formAreahalf basic_data please_specify">
+                <label for="" class="form-label">Please Specify</label>
+                <input type="text" class="form-control"
+                    name="source_of_client_specify" value="">
+            </div>`
+        );
+
+    } else {
+        $(this).parents().next('.please_specify').remove();
+    }
+
+});
