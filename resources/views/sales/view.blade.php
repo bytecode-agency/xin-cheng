@@ -14,10 +14,10 @@
         </div>
     </div>
     <!-- Filter Data Pagination -->
-    <div class="filterPagination d-flex justify-content-between align-items-center">
+    <div class="filterPagination d-flex justify-content-between align-items-center" style="position: relative; z-index: 2000; max-width: 50%;">
         <div class="paginationLeft">
             <ul>
-                <li><a href="{{ route('sales.show', ['id' => $sale->id]) }}">Sales</a></li>
+                <li><a href="{{ route('sales') }}">Sales</a></li>
                 <li>{{ Breadcrumbs::render() }} </li>
             </ul>
 
@@ -531,10 +531,10 @@
 
                     <div class="textarea">
                         <label class="form-label mt-5" for="notes">Notes</label>
-                        <textarea id="text_notes" name="notes" placeholder="Type your notes here..." rows="8" cols="200"></textarea>
-                        <input type="submit" class="btn saveBtn btn_notes" value="Save">
+                        <!-- <textarea id="text_notes" name="notes" placeholder="Type your notes here..." rows="8" cols="200"></textarea> -->
+                        <!-- <input type="submit" class="btn saveBtn btn_notes" value="Save">
                         <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
-                            style="display: none">
+                            style="display: none"> -->
                     </div>
 
 

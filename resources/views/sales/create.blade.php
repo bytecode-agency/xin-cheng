@@ -13,7 +13,7 @@
     <div class="filterPagination d-flex justify-content-between align-items-center">
         <div class="paginationLeft">
             <ul>
-                <li><a href="{{ route('sales.create') }}">Sales</a></li>
+                <li><a href="{{ route('sales') }}">Sales</a></li>
                 <li>{{ Breadcrumbs::render() }} </li>
             </ul>
         </div>
@@ -1422,8 +1422,28 @@
                 }
             });
 
+            var compare_dates = function(date1,date2){
+                if (date1>date2) return true;
+                else if (date1<date2) return false; 
+                else return true;
+            }
 
-
+            
+            $("#multistep_form").change(function(e) {
+                $("#multistep_form").valid();
+                if (e.target.id === 'b2bexdate') {
+                    const aggrementDate = $('#b2bsigndate').val();
+                    if (compare_dates(new Date(aggrementDate), new Date(e.target.value))) {
+                        $('#b2bexdate').val(aggrementDate);
+                    }
+                } else if (e.target.id === 'b2bsigndate') {
+                    const expiryDate = $('#b2bexdate').val();
+                    if (compare_dates(new Date(e.target.value), new Date(expiryDate))) {
+                        $('#b2bexdate').val(e.target.value);
+                    }
+                }
+            });
+            
             $("#multistep_form").validate({
 
                 rules: {
@@ -1431,7 +1451,8 @@
                         required: true
                     },
                     client: {
-                        required: true
+                        required: true,
+                        minlength: 1
                     },
                     // cname: {
                     //     required: true
@@ -1444,7 +1465,8 @@
                     },
 
                     pocemail: {
-                        email: true
+                        email: true,
+                        minlength: 1
                     },
                 },
                 messages: {
@@ -1493,7 +1515,6 @@
                 // }
                 const valid = $("#multistep_form").valid();
                 if (valid == true) {
-                    console.log("validddd")
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(

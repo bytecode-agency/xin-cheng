@@ -1230,7 +1230,7 @@
                 error: function(response) {
                     // alert('no');
                     // alert(response);
-                    // $('#file-input-error').text(response.responseJSON.message);
+                    $('#file-input-error').text(response.responseJSON.message);
                 }
             });
         });
@@ -1376,6 +1376,12 @@
 
     <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
     <div class="accordion-item">
+                
+        <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
+        <div class="formAreahalf checkbox" style="display: flex; align-items: flex-start">
+            <input type="checkbox" id="same_client_topb` + i + `"  class="same_client_topb" name="same_client_topb"  value="">
+            <label for="same_client_topb` + i + `" class="form-label checkbox_label" style="margin-left: 10px;">Same Basic Information as Client?</label>
+        </div>
                                                 <h2 class="accordion-header" id="panelsStayOpen-headingT` + i + `">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse"
@@ -1527,6 +1533,11 @@
                 g + `">
                 <div class="cross"><span class="remove-input-field2" data-id=".parent_field2` + g + `">x</span></div>
                 <div class="accordion-item">
+                    <div class="formAreahalf checkbox" style="display: flex; align-items: flex-start">
+                        <input type="checkbox" id="same_client_tobg` + g + `" class="same_client_tobg Potential_business"
+                            name="same_client_topb" value="">
+                        <label for="same_client_tobg` + g + `" class="form-label checkbox_label" style="margin-left: 10px;">Same as Type of Potential Business?</label>
+                    </div>
                                                 <h2 class="accordion-header" id="panelsStayOpen-headingTw` + g + `">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse"
