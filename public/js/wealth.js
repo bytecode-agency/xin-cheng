@@ -121,7 +121,6 @@ $(document).ready(function () {
     // });
 
     $('body').on('click','.next1',function () {
-        alert('dfdf')
         form.validate({
             rules: {
                 business_type: {
