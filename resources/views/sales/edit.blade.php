@@ -1117,7 +1117,7 @@
                                                     <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
                                                 </a>
                                                 <a href="javascript:void(0);" class="del_confirm"
-                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -1376,7 +1376,7 @@
 
     <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
     <div class="accordion-item">
-                
+
         <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
         <div class="formAreahalf checkbox" style="display: flex; align-items: flex-start">
             <input type="checkbox" id="same_client_topb` + i + `"  class="same_client_topb" name="same_client_topb"  value="">
@@ -1925,7 +1925,7 @@
         });
 
         $("#client").change(function() {
-                
+
             if ($("#business").val() == "B2C"){
                 $('.b2c_hide').hide();
             }
@@ -1933,7 +1933,7 @@
         console.log($("#business").val());
         if ($("#business").val() == "B2C"){
             $('.b2c_hide').hide();
-           
+
         }
     </script>
 @endpush

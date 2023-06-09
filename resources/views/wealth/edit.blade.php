@@ -2274,7 +2274,7 @@
                                                 <i class="fa-solid fa-download"></i></a>
 
                                             <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

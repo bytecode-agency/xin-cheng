@@ -589,8 +589,8 @@
                                             <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                                 <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
                                             </a>
-                                            <a href="javascript:void(0);" class="del_confirm_view ink-normal"
-                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                            <a href="javascript:void(0);" class="del_confirm_view ink-normal "
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
