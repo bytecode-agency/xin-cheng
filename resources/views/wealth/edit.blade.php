@@ -2507,6 +2507,7 @@
 
                     $('#pass_holder_name_lable').next('#pass_holder_name').remove();
                     $('#pass_holder_name_lable').after(htmpass);
+                    callBack(document.getElementsByClassName('pass_name_eng')[0])
 
                 } else {
                     var htmpass = `<input type="text" name="pass_holder_name" id="pass_holder_name" class="form-control">`;
