@@ -654,12 +654,7 @@
                                                                         value="@isset($wealthfinance[$i]->poc_email){{ $wealthfinance[$i]->poc_email }} @endisset"
                                                                         class="form-control">
                                                                 </div>
-                                                                <div class="formAreahalf basic_data">
-                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
-                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
-                                                                </div>
+
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
                                                                         Submission</label>
@@ -674,6 +669,12 @@
                                                                             value="Done"{{ isset($wealthfinance[$i]->application_submission) && $wealthfinance[$i]->application_submission == 'Done' ? 'selected' : '' }}>Done</option>
 
                                                                     </select>
+                                                                </div>
+                                                                <div class="formAreahalf basic_data">
+                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
+                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
                                                                 </div>
 
                                                                 @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )

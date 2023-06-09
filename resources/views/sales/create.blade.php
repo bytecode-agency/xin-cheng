@@ -104,7 +104,7 @@
                                 </select>
                         </div>
 
-                                                    
+
                         <div class="formAreahalf " id="signdiv">
 
                         </div>
@@ -975,10 +975,10 @@
                         '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-">'
                     );
                     $("#renewlremdiv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminderrr</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-">'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select class="form-control" id="renewlrem" name="renewlrem" placeholder="-"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
                     );
                     $("#renewlfrediv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-">'
+                        '<label for="clienttype" class="form-label">Agreement Renewal Frequency</label><div class="d-flex text-dark"><span class="every" style="margin: 2px 7px 0px 0px; font-size: 15px;">Every</span><span class="select"><select name="renewlfre" id="renewlfre"><option value="Day">Day</option><option value="3 Days">3 Days</option><option value="Week">Week</option><option value="2 Weeks">2 Weeks</option><option value="4 Weeks">4 Weeks</option></select></span>'
                     );
                     // alert(document.getElementById('sign').value);
 
@@ -992,7 +992,7 @@
                             );
 
                             $("#renewlremdiv").html(
-                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select name="renewlrem" id="renewlrem"><option value="" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
+                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select name="renewlrem" id="renewlrem"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
                             );
                             $("#renewlfrediv").html(
                                 ` <label for="clienttype" class="form-label"> Agreement Renewal Frequency</label>

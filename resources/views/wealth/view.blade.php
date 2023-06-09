@@ -2200,7 +2200,7 @@
                 </form> -->
                 @foreach ($notes as $note)
                     <div class="notes_show" id="note{{$note->id }}">
-                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
+                        <!-- <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div> -->
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
