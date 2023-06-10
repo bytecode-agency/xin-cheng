@@ -459,19 +459,24 @@ $(document).ready(function () {
     });
 
     var arr = "";
-    var compElement = "";
     $('body').on('click', '.next2', function () {
         var comp_field = $('input[name^="cmp"]');
+
         var relationfield = $('select[name^="cmp"]');
         comp_field.each(function() {
+            if($(this).val().trim() == ""){
+                const id = $(this).attr('id')
+                document.getElementById(id).value = ""
+            }
             $(this).rules("add", {
-                required: true,
-                // messages: {
-                //     required: "This field is required."
-                // }
+                required: true
             });
         });
         relationfield.each(function() {
+            if($(this).val().trim() == ""){
+                const id = $(this).attr('id')
+                document.getElementById(id).value = ""
+            }
             $(this).rules("add", {
                 required: true,
             });

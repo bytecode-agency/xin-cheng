@@ -2203,7 +2203,7 @@
                         <div class="textarea">
                             <label class="form-label mt-5" for="notes">Notes</label>
                             <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
-                            <div id="notes_error"></div>
+                            <div class="text-danger" id="notes_error"></div>
                             <!-- <input type="submit" id="w_notessave_btn"
                                 class="btn saveBtn btn saveBtn btn_notes" value="Save">
                             <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
