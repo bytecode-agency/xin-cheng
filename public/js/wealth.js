@@ -548,7 +548,7 @@ $(document).ready(function () {
 
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
-                                    <input type="text" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
+                                    <input type="number" maxlength="10" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
                                         value="">
                                 </div>
                                 <div class="formAreahalf">
