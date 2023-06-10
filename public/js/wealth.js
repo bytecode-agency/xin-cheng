@@ -312,6 +312,7 @@ $(document).ready(function () {
         });
         comp++;
     });
+    
     $('body').on('click', '.add_first_comp_shareholder', function () {
         var sharehold_no = $(this).parents('.full_div').find('.sharehold_length').length;
         // alert(sharehold_no);
@@ -458,19 +459,24 @@ $(document).ready(function () {
     });
 
     var arr = "";
-    var compElement = "";
     $('body').on('click', '.next2', function () {
         var comp_field = $('input[name^="cmp"]');
+
         var relationfield = $('select[name^="cmp"]');
         comp_field.each(function() {
+            if($(this).val().trim() == ""){
+                const id = $(this).attr('id')
+                document.getElementById(id).value = ""
+            }
             $(this).rules("add", {
-                required: true,
-                // messages: {
-                //     required: "This field is required."
-                // }
+                required: true
             });
         });
         relationfield.each(function() {
+            if($(this).val().trim() == ""){
+                const id = $(this).attr('id')
+                document.getElementById(id).value = ""
+            }
             $(this).rules("add", {
                 required: true,
             });
@@ -548,7 +554,7 @@ $(document).ready(function () {
 
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
-                                    <input type="number" maxlength="10" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
+                                    <input maxlength="10" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
                                         value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -672,6 +678,12 @@ $(document).ready(function () {
             });
 
         }
+        $('#fo_cpm2_phone_1').on('input',function(e){
+            let {value} = e.target            
+            if( !/^\d+$/.test(value)){
+                document.getElementById("fo_cpm2_phone_1").value = value.replace(/[@a-zA-Z]/g, "")
+            } 
+           });
 
     });
     $(document).on('change', '.fo_cpm2_relation', function() {
@@ -695,6 +707,14 @@ $(document).ready(function () {
 
 
     });
+    
+    $('fo_cpm2_phone_1').change(function() {
+        
+        let val = document.getElementById("fo_cpm2_phone_1").value
+        console.log(val,'vvvvvvvvvvvv')
+        
+     });
+    
     $(document).on('change', '#type_of_fo', function() {
         if ($(this).val() == "Others") {
             // var tpb_id = $(this).attr('data-id');
