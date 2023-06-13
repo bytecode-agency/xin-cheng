@@ -60,27 +60,29 @@
                         <!-- <fieldset id="FO_First" class=" w-100 d-flex justify-content-start flex-wrap form-fields"> -->
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Client's Full Name</label>
-                            <input type="text" class="form-control" id="cname" name="cname">
+                            <!-- <input type="text" class="form-control" id="cname" name="cname"> -->
+                            <input type='text' class="form-control" id='cname' name="cname" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Country of Client</label>
-                            <input type="text" class="form-control" id="ccountry" name="ccountry">
+                            <input type="text" class="form-control" id="ccountry" name="ccountry" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">City of Client</label>
-                            <input type="text" class="form-control" id="ccity" name="ccity">
+                            <input type="text" class="form-control" id="ccity" name="ccity" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone no. of POC</label>
-                            <input type="text" class="form-control" id="pocph" name="pocph">
+                            <input type="text" class="form-control" id="pocph" name="pocph" pattern="[0-9]{10,11}">
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Name of POC</label>
-                            <input type="text" class="form-control poc_name" id="pocname" name="pocname">
+                            <!-- <input type="text" class="form-control poc_name" id="pocname" name="pocname"> -->
+                            <input type='text' class="form-control poc_name" id='pocname' name="pocname" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
@@ -205,13 +207,13 @@
                                                 <label class="form-label" for="dcname">Name of direct client</label>
 
                                                 <input type="text" class="form-control dc_name" id="dc_name"
-                                                    name="addpb[0][dcname]" value="">
+                                                    name="addpb[0][dcname]" onkeydown="return /[a-z]/i.test(event.key) value="/>
 
                                             </div>
                                             <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="passcountry">Passport Country</label>
                                                 <input type="text" class="form-control passcountry"
-                                                    name="addpb[0][passcountry]" id="passcountry">
+                                                    name="addpb[0][passcountry]" id="passcountry" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
 
@@ -351,13 +353,13 @@
                                                 <label class="form-label" for="">Name of direct client</label>
 
                                                 <input type="text" class="form-control gendcname"
-                                                    name="addbg[0][g_dcname]">
+                                                    name="addbg[0][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
                                             <div class="formAreahalf ">
                                                 <label class="form-label" for="passcountry">Passport Country</label>
                                                 <input type="text" class="form-control genpasscountry"
-                                                    name="addbg[0][g_passcountry]">
+                                                    name="addbg[0][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
 
@@ -593,12 +595,12 @@
                         b2cHtml = ` <div class="formAreahalf ">
                       <label class="form-label" for="dcname">Name of direct client</label>
 
-                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="">
+                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                     </div>
                     <div class="formAreahalf ">
                       <label class="form-label" for="passcountry">Passport Country</label>
-                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="">
+                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                     </div>
 
@@ -830,12 +832,12 @@
     <div class="formAreahalf ">
       <label class="form-label" for="">Name of direct client</label>
 
-      <input type="text" class="form-control gendcname" name="addbg[` + g + `][g_dcname]">
+      <input type="text" class="form-control gendcname" name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
     <div class="formAreahalf ">
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control genpasscountry" name="addbg[` + g + `][g_passcountry]">
+      <input type="text" class="form-control genpasscountry" name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
@@ -1424,11 +1426,11 @@
 
             var compare_dates = function(date1,date2){
                 if (date1>date2) return true;
-                else if (date1<date2) return false; 
+                else if (date1<date2) return false;
                 else return true;
             }
 
-            
+
             $("#multistep_form").change(function(e) {
                 $("#multistep_form").valid();
                 if (e.target.id === 'b2bexdate') {
@@ -1443,7 +1445,7 @@
                     }
                 }
             });
-            
+
             $("#multistep_form").validate({
 
                 rules: {

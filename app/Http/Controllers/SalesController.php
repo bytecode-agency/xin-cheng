@@ -221,7 +221,6 @@ class SalesController extends Controller
                 $tbgs = unserialize($data->type_bus_gen);
                 if (isset($tbgs)) {
                     foreach ($tbgs as $tbg) {
-
                         $amt += $tbg['g_busamt'];
                     }
                 }

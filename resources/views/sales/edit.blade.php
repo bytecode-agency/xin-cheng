@@ -142,32 +142,33 @@
                                 </div>
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Client's Full Name</label>
-                                    <input type="text" class="form-control" id="cname" name="cname"
+                                    <input type='text' class="form-control" id='cname' name="cname" onkeydown="return /[a-z]/i.test(event.key)"
                                         value="{{ $sale->client_name }}">
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Country of Client</label>
-                                    <input type="text" class="form-control" id="ccountry" name="ccountry"
-                                        value="{{ $sale->client_country }}">
+                                    <input type="text" class="form-control" id="ccountry" name="ccountry" onkeydown="return /[a-z]/i.test(event.key)"
+                                        value="{{ $sale->client_country }}"/>
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">City of Client</label>
                                     <input type="text" class="form-control" id="ccity" name="ccity"
-                                        value="{{ $sale->client_city }}">
+                                        value="{{ $sale->client_city }}" onkeydown="return /[a-z]/i.test(event.key)"/>
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Phone no. of POC</label>
                                     <input type="text" class="form-control" id="pocph" name="pocph"
-                                        value="{{ $sale->poc_ph }}">
+                                        value="{{ $sale->poc_ph }}" pattern="[0-9]{10,11}">
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Name of POC</label>
-                                    <input type="text" class="form-control" id="pocname" name="pocname"
-                                        value="{{ $sale->poc_name }}">
+                                    <!-- <input type="text" class="form-control" id="pocname" name="pocname" -->
+                                    <input type='text' class="form-control" id='pocname' name="pocname" onkeydown="return /[a-z]/i.test(event.key)"
+                                        value="{{ $sale->poc_name }}"/>
                                 </div>
 
                                 <div class="formAreahalf ">
@@ -539,7 +540,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="dcname[0][subject]"
                                                                         name="addpb[{{ $i }}][dcname]"
-                                                                        value="{{ $s['dcname'] }}">
+                                                                        value="{{ $s['dcname'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
 
                                                                 </div>
@@ -549,7 +550,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="passcountry[0][subject]"
                                                                         name="addpb[{{ $i }}][passcountry]"
-                                                                        value="{{ $s['passcountry'] }}">
+                                                                        value="{{ $s['passcountry'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                                                 </div>
 
@@ -883,7 +884,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="gendcname[{{ $g }}][subject]"
                                                                         name="addbg[{{ $g }}][g_dcname]"
-                                                                        value="{{ $r['g_dcname'] }}">
+                                                                        value="{{ $r['g_dcname'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
 
                                                                 </div>
@@ -894,7 +895,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="genpasscountry[0][subject]"
                                                                         name="addbg[{{ $g }}][g_passcountry]"
-                                                                        value="{{ $r['g_passcountry'] }}">
+                                                                        value="{{ $r['g_passcountry'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                                                 </div>
 
@@ -1416,7 +1417,7 @@
     </div>
     <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]">
+      <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
@@ -1571,12 +1572,12 @@
     <div class="formAreahalf ">
       <label class="form-label" for="">Name of direct client</label>
 
-      <input type="text" class="form-control" id="gendcname[0][subject]" name="addbg[` + g + `][g_dcname]">
+      <input type="text" class="form-control" id="gendcname[0][subject]" name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
     <div class="formAreahalf ">
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="genpasscountry[0][subject]" name="addbg[` + g + `][g_passcountry]">
+      <input type="text" class="form-control" id="genpasscountry[0][subject]" name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
