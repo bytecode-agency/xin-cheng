@@ -182,7 +182,7 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
                             <select
                                 name="annual_fee_due_reminder"
                                 id="annual_fee_due_reminder" class="form-control">
@@ -199,7 +199,7 @@
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
                             <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
                                 <option value="" selected="" disabled="">Please select</option>
                                 <option value="Day"
@@ -675,10 +675,10 @@
 
                                                                     </select>
                                                                 </div>
-                                                                
+
                                                                 @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
-                                                                @php 
-                                                                    $account_type =json_decode($wealthfinance[$i]->account_type); 
+                                                                @php
+                                                                    $account_type =json_decode($wealthfinance[$i]->account_type);
                                                                     $api = 1;
                                                                 @endphp
                                                                     @foreach($account_type as $ap)
@@ -707,9 +707,9 @@
                                                                         </div>
                                                                     @endforeach
                                                                 @else
-                                                                @php 
+                                                                @php
                                                                     $ap = (!empty($wealthfinance) && !empty($wealthfinance[$i]->account_type)) ? $wealthfinance[$i]->account_type : "";
-                                                        
+
                                                                     $api = 1;
                                                                 @endphp
                                                                     <div class="formAreahalf basic_data">
@@ -738,8 +738,8 @@
 
                                                                 @if (isset($wealthfinance[$i]->account_type) && $wealthfinance[$i]->account_type == 'Others')
                                                                     @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
-                                                                        @php 
-                                                                            $account_type_specify = json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1; 
+                                                                        @php
+                                                                            $account_type_specify = json_decode($wealthfinance[$i]->account_type_specify); $apsi = 1;
                                                                         @endphp
                                                                         @foreach($account_type_specify as $aps)
                                                                                 <div class="formAreahalf basic_data please_specify">
@@ -753,8 +753,8 @@
                                                                             @php $apsi++; @endphp
                                                                         @endforeach
                                                                     @else
-                                                                        @php 
-                                                                            $aps = $wealthfinance[$i]->account_type_specify; $apsi = 1; 
+                                                                        @php
+                                                                            $aps = $wealthfinance[$i]->account_type_specify; $apsi = 1;
                                                                         @endphp
                                                                             <div class="formAreahalf basic_data please_specify">
                                                                                 <label for="" class="form-label">Others, please specify{{$apsi}}</label>
@@ -768,10 +768,10 @@
                                                                 @endif
 
                                                                 @if(!empty($wealthfinance[$i]->account_policy_no) && isJson($wealthfinance[$i]->account_policy_no) )
-                                                                
-                                                                    @php 
-                                                                        $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no); 
-                                                                        $apni = 1;  
+
+                                                                    @php
+                                                                        $account_policy_no =json_decode($wealthfinance[$i]->account_policy_no);
+                                                                        $apni = 1;
                                                                     @endphp
                                                                     @foreach($account_policy_no as $apn)
                                                                         <div class="formAreahalf basic_data">
@@ -784,9 +784,9 @@
                                                                         @php $apni++; @endphp
                                                                     @endforeach
                                                                 @else
-                                                                    @php 
+                                                                    @php
                                                                     $apn = (!empty($wealthfinance) && !empty($wealthfinance[$i]->account_policy_no)) ? $wealthfinance[$i]->account_policy_no : "";
-                                                        
+
                                                                         $apni = 1;
                                                                     @endphp
                                                                     <div class="formAreahalf basic_data">
@@ -862,7 +862,7 @@
                                                                             {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Mult-currency' ? 'selected' : '' }}>Mult-currency</option>
                                                                         <option value="Others"
                                                                         {{ isset($wealthfinance[$i]->intial_deposit_currency) && $wealthfinance[$i]->intial_deposit_currency == 'Others' ? 'selected' : '' }}>Others</option>
-                                                                        
+
                                                                     </select>
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
@@ -2470,7 +2470,7 @@
                             str = strFun(i, akey)
                         } else {
                             str = str + strFun(i, akey)
-                        }                  
+                        }
                     }
                     $(this).parent().after(str);
                 } else {
@@ -2482,7 +2482,7 @@
                 let substr = o.name.substr(0,11)
                 const emailValue = document.getElementsByName(substr + '[email]')[0].value
                 document.getElementsByName('email')[0].value = emailValue
-                
+
                 const passposrt_name_chinese = document.getElementsByName(substr + '[pass_name_chinese]')[0].value
                 document.getElementsByName('passposrt_name_chinese')[0].value = passposrt_name_chinese
 
@@ -2491,7 +2491,7 @@
                 document.getElementsByName("dob")[0].value = arr[2] + '-' + arr[1] + '-' + arr[0]
 
                 const phone = document.getElementsByName(substr + '[phone]')[0].value
-                document.getElementsByName('phone_no')[0].value = phone                        
+                document.getElementsByName('phone_no')[0].value = phone
 
                 const gender = document.getElementsByName(substr + '[gender]')[0].value
                 document.getElementsByName('gender')[0].value = gender
@@ -2546,17 +2546,17 @@
                         </div>
                 `
             }
-            $(document).on('change', '#pass_holder_name', function() {   
+            $(document).on('change', '#pass_holder_name', function() {
                 const arr = document.getElementsByClassName('pass_name_eng')
                 for(let i = 0; i < arr.length; i++){
                     if(arr[i].value == $(this).val()){
-                        callBack(arr[i])                  
+                        callBack(arr[i])
                     }
                 }
             });
             $(document).on('change', '#passholder_shareholder', function() {
                 if ($(this).val() == "Yes") {
-                    
+
                      var htmpass=`<select class="form-control" id="pass_holder_name"
                                 name="pass_holder_name">`;
                     var pass_name_eng_arr = $('.pass_name_eng').map(function () {
@@ -2570,7 +2570,7 @@
 
                     $('#pass_holder_name_lable').next('#pass_holder_name').remove();
                     $('#pass_holder_name_lable').after(htmpass);
-                    callBack(document.getElementsByClassName('pass_name_eng')[0]) 
+                    callBack(document.getElementsByClassName('pass_name_eng')[0])
 
                 } else {
                     var htmpass = `<input type="text" name="pass_holder_name" id="pass_holder_name" class="form-control">`;
