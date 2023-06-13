@@ -464,7 +464,7 @@ $(document).ready(function () {
 
         var relationfield = $('select[name^="cmp"]');
         comp_field.each(function() {
-            if($(this).val().trim() == ""){
+            if($(this).val() && $(this).val().trim() == ""){
                 const id = $(this).attr('id')
                 document.getElementById(id).value = ""
             }
@@ -473,7 +473,7 @@ $(document).ready(function () {
             });
         });
         relationfield.each(function() {
-            if($(this).val().trim() == ""){
+            if($(this).val() && $(this).val().trim() == ""){
                 const id = $(this).attr('id')
                 document.getElementById(id).value = ""
             }

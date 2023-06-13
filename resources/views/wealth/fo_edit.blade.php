@@ -383,8 +383,7 @@
                         </div>
                     @endforeach
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
-                        id="edit_add_share">Add
-                        Shareholder</button>
+                        id="edit_add_share">Add Shareholder</button>
                 </div>
             </div>
         </div>
