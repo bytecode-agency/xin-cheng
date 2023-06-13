@@ -493,11 +493,13 @@ $(document).ready(function () {
                             >
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Monthly Salary in the
-                            company(SGD)</label>
-                        <input type="integer" class="form-control"
+                        <label for="" class="form-label">Monthly Salary (SGD)</label>
+                        <div class="dollersec">
+                        <span class="doller">$</span>
+                        <input type="integer" class="form-control p-0"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
                             >
+                        </div>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Relationship With

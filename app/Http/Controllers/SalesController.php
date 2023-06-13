@@ -210,8 +210,9 @@ class SalesController extends Controller
                 $topbs = unserialize($data->type_pot_bus);
                 if (isset($topbs)) {
                     foreach ($topbs as $topb) {
-
-                        $amt += $topb['busamt'];
+                        if (is_numeric($topb['busamt'])) {
+                            $amt += $topb['busamt'];
+                        }
                     }
                 }
             }
@@ -221,7 +222,9 @@ class SalesController extends Controller
                 $tbgs = unserialize($data->type_bus_gen);
                 if (isset($tbgs)) {
                     foreach ($tbgs as $tbg) {
-                        $amt += $tbg['g_busamt'];
+                        if (is_numeric($tbg['g_busamt'])) {
+                            $amt += $tbg['g_busamt'];
+                        }
                     }
                 }
             }

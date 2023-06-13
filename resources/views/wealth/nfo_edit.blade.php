@@ -4,8 +4,8 @@
         <div id="accordion-{{ $key }}" class="accordion-item" data-companyid={{ $key }}>
             <div class="card">
                 <div class="card-header" id="headingOne">
-                    <div class="cross"><span class="edit_cancel_company remove-input-field">x</span></div>  
-                   
+                    <div class="cross"><span class="edit_cancel_company remove-input-field">x</span></div>
+
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id"
@@ -38,15 +38,15 @@
                                 class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yy">
                         </div>
                         @if( $key != 0)
-                            <div class="formAreahalf basic_data"> 
-                                <label for="" class="form-label">Relationship with Company 1</label> 
+                            <div class="formAreahalf basic_data">
+                                <label for="" class="form-label">Relationship with Company 1</label>
                                 <select class="form-control" name="cmp[{{$key}}][relationship]" id="fo_relationship">
                                 <option value="" selected disabled="">Choose Relationship with Company</option>
                                 <option value="Self" {{isset($company->relationship) && $company->relationship == 'Self' ? 'selected' : ''  }}>Self</option>
                                 <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
-                                </select> 
-                            </div> 
-                        @endif                       
+                                </select>
+                            </div>
+                        @endif
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
                             <input type="text" name="cmp[{{ $key }}][company_email]" id="fo_compnay"
@@ -63,7 +63,7 @@
                         <div id="shareholder-accordion-{{ $key2 }}" class="sharehold_length">
                             <div class="card shareholder">
                                 <div class="card-header" id="headingOne_shareholder">
-                                    <div class="cross"><span class="edit_cancel_share remove-input-field">x</span></div>  
+                                    <div class="cross"><span class="edit_cancel_share remove-input-field">x</span></div>
                                     <div class="formAreahalf basic_data">
                                         <label for="" class="form-label">Shareholder
                                             #{{ $key2 + 1 }}</label>
@@ -222,7 +222,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker" 
+                                                <input type="text" class="form-control datepicker"
                                                     name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]" id="nfo_date_exp_{{$key}}{{$key2}}"
                                                     value="{{ $shareholder->passport_exp_date }}">
                                             </div>
@@ -348,9 +348,9 @@
                                                     <input type="text" class="form-control"
                                                             name="share[{{ $key }}][{{ $key2 }}][please_specify]"
                                                             value="{{ isset($shareholder->rel_share_specify) ? $shareholder->rel_share_specify : '' }}">
-                                                    
+
                                                     @endif
-                                                    
+
                                                 </div>
                                             @endif
                                         @endif

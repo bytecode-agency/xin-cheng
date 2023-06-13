@@ -1213,8 +1213,9 @@
                                 },
                             },
                         }).then((result) => {
-                            //window.location = "{{ route('sales.edit', $sale->id) }}";
+                            // window.location = "{{ route('sales.edit', $sale->id) }}";
                             // $('#multistep_form')[0].reset();
+                            alert('Uploaded file will be visible in the list after submitting the complete form');
                         })
                     }
                 },
@@ -1730,6 +1731,9 @@
                                 window.location = "{{ route('sales.show', $sale->id) }}";
                                 // $('#multistep_form')[0].reset();
                             })
+                        },
+                        error: function(error) {
+                            alert(error.statusText);
                         }
                     });
                 }
