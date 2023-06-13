@@ -47,6 +47,9 @@ $('body').on('submit', '.note_send', function (e) {
                     </div>`);
                     $('#text_notes').val("");
                 })
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert("Notes can't be empty")
             }
         })
     }
@@ -144,7 +147,6 @@ $('body').on('click', '.note_remove', function (e) {
         }
         
     }
-
     $("#pagin").prepend(prev).append(next);
 
     $("#pagin .notesBtn").first().addClass("active");

@@ -10,7 +10,7 @@
 
         .accordion-header .formAreahalf.basic_data {
             display: none !important;
-            
+
         } */
     </style>
 @endpush
@@ -151,12 +151,12 @@
                                                         </label>
                                                         <br>{{ $pass_hol['passhol_name'] }}
 
-                                                    
+
                                                     </div>
                                                     <div id="panelsStayOpen-collapsenoyespass{{ $z }}"
                                                         class="accordion-collapse collapse show"
                                                         aria-labelledby="panelsStayOpen-headingnoyespass{{ $z }}">
-                                       
+
                                                         <div class="accordion-body d-flex flex-wrap">
 
                                                             <input type="hidden" name="passhole_counter"
@@ -553,7 +553,7 @@
 
                                                                 </select>
                                                             </div>
-                                                    
+
                                                             <div class="formAreahalf basic_data">
                                                                 <label for="" class="form-label">Pass Issuance
                                                                 </label>
@@ -695,7 +695,7 @@
                                                                         {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                                                                     <option value="Done"
                                                                         {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'Done' ? 'selected' : '' }}>Done</option>
-                                                                        
+
                                                                 </select> --}}
                                                             </div>
                                                             <div class="formAreahalf basic_data">
@@ -803,7 +803,7 @@
                                                                 </div>
                                                             </div>
                                                         @else
-                                        
+
                                                             <div class="formAreahalf basic_data others_rel_share others_alignment"
                                                                 style="display:none;">
 
@@ -884,14 +884,14 @@
                                                         <label for="" class="form-label">Company Name
                                                             {{ ($c+1) }}</label>
                                                             <br>{{ $company['company_name'] }}
-    
-                                                    
+
+
                                                     </div>
                                                 <div id="panelsStayOpen-collapsenoyescomp{{$c}}"
                                                     class="accordion-collapse collapse show"
                                                     aria-labelledby="panelsStayOpen-headingnoyescomp">
-                                                  
-                                                 
+
+
                                                         <div class=" d-flex flex-wrap">
                                                             {{-- <div id="financial_accordion" class="mas_related">
 
@@ -1001,7 +1001,7 @@
                                                                             class="w-100 justify-content-start flex-wrap form-fields wealth FO_Pass_PR">
                                                                             <?php $s = -1; ?>
                                                                             @foreach ($company['company_share'] as $share)
-                                                                                <?php $s++; 
+                                                                                <?php $s++;
                                                                                ?>
 
 
@@ -1499,7 +1499,7 @@
                                                                 </div>
                                                             </div>
                                                         @else
-                                        
+
                                                             <div class="formAreahalf basic_data others others_Relationship_share others_alignment"
                                                                 style="display:none;">
 
@@ -1521,7 +1521,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            
+
                                                                                 <input type="hidden" name="comp_no"
                                                                                     class="comp_no" id="comp_no"
                                                                                     value="{{ $c }}" />
@@ -1593,7 +1593,7 @@
                                                                                                 {{-- <div id="financial_accordion" class="mas_related">
                                                                         <div
                                                                             class="mas_heading_accordian d-flex flex-wrap"> --}}
-                                                                                             
+
                                                                                                 <input type="hidden"
                                                                                                     name="fi[{{ $c }}][{{ $f }}][fi_id]"
                                                                                                     value="{{ $fi['id'] }}" />
@@ -1698,7 +1698,7 @@
                                                                                             @else
                                                                                                 <div class="formAreahalf basic_data others others_acc_type others_alignment"
                                                                                                     style="display:none;">
-                                
+
                                                                                                 </div>
                                                                                             @endif
                                                                                                 <div
@@ -1742,7 +1742,7 @@
                                                                                                         <option value="Approved" {{ isset($fi['acc_opn_sts']) && $fi['acc_opn_sts'] == 'Approved' ? 'selected' : '' }}>Approved</option>
                                                                                                         <option value="Rejected" {{ isset($fi['acc_opn_sts']) && $fi['acc_opn_sts'] == 'Rejected' ? 'selected' : '' }}>Rejected</option>
                                                                                                     </select>
-                                                                                                 
+
                                                                                                 </div>
 
                                                                                                 <div
@@ -1778,7 +1778,7 @@
                                                                                                         <option
                                                                                                             value="In progress"
                                                                                                             {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'In progress' ? 'selected' : '' }}>In progress</option>
-                                                                                                       
+
                                                                                                         <option
                                                                                                             value="Done"
                                                                                                             {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'Done' ? 'selected' : '' }}>Done</option>
@@ -1812,7 +1812,7 @@
                                                                                                         <option
                                                                                                             value="Rejected"
                                                                                                             {{ isset($fi['acc_crt_sts']) && $fi['acc_crt_sts'] == 'Rejected' ? 'selected' : '' }}>Rejected</option>
-                                                                                                        
+
 
 
                                                                                                     </select>
@@ -1877,7 +1877,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                          
+
                                                                             <input type="hidden" name="comp_no"
                                                                                 class="comp_no" id="comp_no"
                                                                                 value="{{ $c }}" />
@@ -1938,7 +1938,7 @@
 
                                                 <?php $p = -1; ?>
                                                 @foreach ($pass_hol['pass_pr'] as $pr_key => $pr)
-                                                    <?php $p++; 
+                                                    <?php $p++;
                                     //                     echo'<pre>';
                                     // print_r($pr);
                                     // echo'</pre>';
@@ -1981,7 +1981,7 @@
                                                                     Date</label>
                                                                     <br>{{ $pr['application_date'] }}
 
-                                                              
+
                                                             </div>
                                                             <div id="panelsStayOpen-collapsenoyesbasic{{ $p }}"
                                                                 class="accordion-collapse collapse show"
@@ -2152,13 +2152,13 @@
                                                                         <input type="date" class="form-control" name="pr[{{ $pas }}][{{ $p }}][rejection_date]"
                                                                             id="">
                                                                     </div>
-                                                                  
+
                                                                     <div class="formAreahalf basic_data p_status_div" style="display:none">
                                                                         <label for="" class="form-label">Re Submission Reminder</label>
                                                                         <select name="pr[{{ $pas }}][{{ $p }}][re_sub_rem]" id="">
                                                                             <option value="180 days before REP expiry">180 days before REP expiry</option>
                                                                             <option value="90 days before REP expiry">90 days before REP expiry</option>
-                                                                            
+
                                                                         </select>
                                                                     </div>
                                                                     <div class="formAreahalf basic_data p_status_div" style="display:none;" >
@@ -2167,9 +2167,9 @@
                                                                             <option value="">Please select</option>
                                                                             <option value="Done">Done</option>
                                                                             <option value="Withdrawn">Withdrawn</option>
-                                                                            
+
                                                                         </select>
-                                    
+
                                                                     </div> --}}
 
 
@@ -2380,7 +2380,7 @@
                                                 <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
                                             </a>
                                             <a href="javascript:void(0);" class="del_confirm"
-                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -2425,7 +2425,7 @@
 @endsection
 @push('js')
     <script src="{{ asset('js/notes.js') }}?v={{ time() }}" type="text/javascript"></script>
-    
+
     <script>
 //         $(document).on('click', '.pass_acc_button', function(){
 //             // alert('jok');
@@ -2494,18 +2494,18 @@
         });
 
         $(document).on('change', '.select_class_rel_share', function() {
-          
+
 
 if ($(this).val() == "Others (please specify)") {
     // alert('jj');
     $(this).parents('.accordion-body').find('.others_rel_share').show();
-  
+
     var tpb_id = $(this).attr('data-id');
     $(this).parents('.accordion-body').find('.others_rel_share').append(
         '<label class="form-label" for=""></label><div class="select_box"><span class="every">Others, please specify: </span><span class="select"><input type="text" class="form-control sds" id="id_rel_pass_hol_specify" name="pass[' +
         tpb_id + '][rel_pass_hol_specify]" ></span></div>'
     );
-   
+
 
 } else {
     $(this).parents('.accordion-body').find('.others_rel_share').html('');
@@ -2521,7 +2521,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
                 if ($(this).val() == "Others (please specify)") {
                     alert('others');
-                
+
                     var tpb_id = $(this).attr('data-id');
 
                     var cmp_id_data = $(this).attr('data-id-cmp');
@@ -2532,10 +2532,10 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         cmp_id_data + '][' +
                         tpb_id + '][p_rel_share_specific]"></span></div>'
                     );
-                 
+
 
                 } else {
-                 
+
                     $(this).parents('.accordion-body').find('.others_Relationship_share').html('');
                     $(this).parents('.accordion-body').find('.others_Relationship_share').hide();
                 }
@@ -2552,7 +2552,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                     var tpb_id = $(this).attr('data-id');
 
                     var cmp_id_data = $(this).attr('data-id-cmp');
-                   
+
                     // alert(cmp_id_data);
                     // alert(tpb_id);
                     $(this).parents('.ac-b').find('.others_acc_type').show();
@@ -2619,11 +2619,11 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             $(this).parents('fieldset').find('.appended_pr_div').append(
                 `<div id="fo_pr" class="pr_form_class prr` + pr_no + `">\
      <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-         
+
          <div class="accordion-item pass_acc_it closed">
-            <span class="cancel_pr"><i class="fa fa-times remove_pr" data-id="prr` + pr_no + `" aria-hidden="true"></i></span> \ 
+            <span class="cancel_pr"><i class="fa fa-times remove_pr" data-id="prr` + pr_no + `" aria-hidden="true"></i></span> \
                 <h2 class="accordion-header" id="panelsStayOpen-headingnoyes` + pr_no + `">
-                
+
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapsenoyes` + pr_no + `" aria-expanded="true"
                         aria-controls="panelsStayOpen-collapsenoyes` + pr_no + `">
@@ -2632,13 +2632,13 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                 </h2>
                 <div class="formAreahalf">
                     <label for="" class="form-label">1st Time PR Application Date</label>
-                 
+
                 </div>
                 <div id="panelsStayOpen-collapsenoyes` + pr_no + `" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingnoyes` + pr_no + `">
      <div class="accordion-body d-flex flex-wrap">
 
-    
+
         <div class="formAreahalf">
                     <label for="" class="form-label">1st Time PR Application Date</label>
                     <input type="date" class="form-control" name="pr[` + pass_id_no + `][` + pr_no + `][application_date]"
@@ -2690,13 +2690,13 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                     <input type="date" class="form-control" name="pr[` + pass_id_no + `][` + pr_no + `][rejection_date]"
                                         id="">
                                 </div>
-                              
+
                                 <div class="formAreahalf p_status_div" style="display:none">
                                     <label for="" class="form-label">Re Submission Reminder</label>
                                     <select name="pr[` + pass_id_no + `][` + pr_no + `][re_sub_rem]" id="">
                                         <option value="180 days before REP expiry">180 days before REP expiry</option>
                                         <option value="90 days before REP expiry">90 days before REP expiry</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="formAreahalf p_status_div " style="display:none;" >
@@ -2705,12 +2705,12 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                         <option value="">Please select</option>
                                         <option value="Done">Done</option>
                                         <option value="Withdrawn">Withdrawn</option>
-                                        
+
                                     </select>
 
                                 </div>
 
-              
+
 
 
                 <div class="formAreahalf ">
@@ -2780,12 +2780,12 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             $(this).parents('fieldset').find('.appended_passholder_div').append(`
                             <div id="fo_pr" class="pr_form_class parent_field` + p + `">\
      <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
-                          
-                            
+
+
                             <div class="accordion-item pass_acc_it closed">
                                 <div class="cross"><span class="remove-input-field" data-id=".parent_field` + p + `">x</span></div>
                                 <h2 class="accordion-header" id="panelsStayOpen-heading` + p + `">
-                                
+
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapse` + p + `" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapse` + p + `">
@@ -2803,11 +2803,11 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
                         <div class="formAreahalf ">
                             <label for="bustype" class="form-label"> Business Type </label>
-                          
-                                <select name="pass[` + p + `][bus_type]" class="select_class" data-id="` + p + `"> 
+
+                                <select name="pass[` + p + `][bus_type]" class="select_class" data-id="` + p + `">
                                 <option value="" selected >Please select
                                 </option>
-                           
+
 
                                 <option value="FO">FO</option>
                                                 <option value="PIC">PIC</option>
@@ -2821,13 +2821,13 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
                         </div>
                         <div class="formAreahalf others others_hide_show others_alignment" style="display:none;">
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="passapptype" class="form-label"> Pass Application Type </label>
                             <select name="pass[` + p +
-                `][pass_app_type]" class="select_class_pass_app_type" data-id="` + p + `"> 
+                `][pass_app_type]" class="select_class_pass_app_type" data-id="` + p + `">
                                 <option value="" selected >Please select pass application type
                                 </option>
                                 <option value="EP">EP</option>
@@ -2838,12 +2838,12 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                                 <option value="PR">PR</option>
                                                 <option value="Citizen">Citizen</option>
                                                 <option value="Others (please specify)">Others (please specify)</option>
-                                
+
                             </select>
-                         
+
                         </div>
                         <div class="formAreahalf basic_data others_pass_app others_alignment" style="display:none;">
-                                                         
+
                        </div>
 
                         <div class="formAreahalf ">
@@ -2853,27 +2853,27 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                 </option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Is the passholder also the shareholder? </label>
-                            <select name="pass[` + p + `][passhol_sharehol]" id="also_shareholder" class="also_shareholder">                            
+                            <select name="pass[` + p + `][passhol_sharehol]" id="also_shareholder" class="also_shareholder">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Pass Holder Name ` +(p+1) + ` (Eng)</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passhol_name]" id="passhol_name">
 
                         </div>
@@ -2881,11 +2881,11 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Full Name (Chinese)</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_name]">
 
                         </div>
-                      
+
                         <div class="formAreahalf ">
                             <label for="" class="form-label">  DOB (DD/MM/YYYY)</label>
                             <input type="date" class="form-control"  name="pass[` + p + `][pass_dob]">
@@ -2909,7 +2909,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_number]">
 
                         </div>
@@ -2918,11 +2918,11 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Country</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_country]">
 
                         </div>
-                      
+
 
                         <div class="formAreahalf ">
                             <label for="clienttype" class="form-label"> Passport  Renewal Reminder</label>
@@ -2937,7 +2937,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label class="form-label" for="">TIN Number Before Pass Application</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_tin_number]">
 
                         </div>
@@ -2957,14 +2957,14 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">E-mail</label>
-                            <input type="email" class="form-control" 
+                            <input type="email" class="form-control"
                                 name="pass[` + p + `][email]">
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">TIN Country Before Pass Application</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_tin_country]">
 
                         </div>
@@ -2972,7 +2972,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Phone Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][phno]">
 
                         </div>
@@ -2989,15 +2989,15 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                                 <option value="LVTP">LVTP</option>
                                                 <option value="DP">DP</option>
                                                 <option value="NRIC">NRIC</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">FIN Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][finno]">
 
                         </div>
@@ -3005,7 +3005,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Residential Address</label>
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][res_add]">
                         </div>
 
@@ -3018,7 +3018,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                 <option value="Pending">Pending</option>
                                         <option value="Approved">Approved</option>
                                         <option value="Rejected">Rejected</option>
-                            </select> 
+                            </select>
                         </div>
 
                         <div class="formAreahalf ">
@@ -3028,7 +3028,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                 </option>
                                 <option value="In progress">In progress</option>
                                 <option value="Done">Done</option>
-                            </select> 
+                            </select>
                         </div>
 
 
@@ -3084,7 +3084,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Pass Job Title </label>
                             <input type="text" class="form-control"  name="pass[` + p + `][pass_job_title]">
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf ">
                             <label for="clienttype" class="form-label">Singpass Setup</label>
@@ -3121,19 +3121,19 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                             </select>
                         </div>
                         <div class="formAreahalf others others_rel_share others_alignment" style="display:none;">
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Employer's Name </label>
                             <input type="text" class="form-control"  name="pass[` + p + `][emp_name]">
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Monthly Salary (SGD)</label>
                             <div class="dollersec"><span class="doller">$</span><span
                                                 class="input"><input type="integer" class="form-control"  name="pass[` + p + `][month_sal]"></span></div>
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
@@ -3176,10 +3176,10 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             $(this).parents('fieldset').find('.appended_share_div').append(
                 `<div id="fo_shareholder" class="sharehold share` + sh_no + `">\
         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-           
+
             <div class="Share_holder-w sub-heading">\
                 <h4>Shareholder #` + (sh_no + 1) + `</h4>\
-            </div>\   
+            </div>\
             <div class="accordion-item">
                 <div class="cross"><span class="remove-input-field"  data-id=".share` +
                 sh_no + `">x</span></div>
@@ -3193,7 +3193,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                     </button>
 
                 </h2>
-               
+
                 <div id="panelsStayOpen-collapseOne1234` + sh_no + `" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingOne123` + sh_no +
                 `">
@@ -3208,7 +3208,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                   <div class="formAreahalf ">
                       <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-                      <input type="text" class="form-control" 
+                      <input type="text" class="form-control"
                       name="share[` + arr_id1 + `][` + sh_no + `][passhol_name]">
 
                   </div>
@@ -3244,7 +3244,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                       name="share[` + arr_id1 + `][` + sh_no + `][passport_number]">
 
                   </div>
-               
+
                   <div class="formAreahalf ">
                       <label class="form-label" for="">Passport Country</label>
 
@@ -3284,8 +3284,8 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                 <option value="4 Weeks">4 Weeks</option>
                       </select></span></div>
                   </div>
- 
-            
+
+
                   <div class="formAreahalf ">
             <label for="passapptype" class="form-label"> Type of TIN </label>
             <select name="share[` + arr_id1 + `][` + sh_no + `][tintype]">
@@ -3296,9 +3296,9 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                                 <option value="LVTP">LVTP</option>
                                                 <option value="DP">DP</option>
                                                 <option value="NRIC">NRIC</option>
-                
+
             </select>
-         
+
         </div>
 
                   <div class="formAreahalf ">
@@ -3323,13 +3323,13 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                       name="share[` + arr_id1 + `][` + sh_no + `][phno]">
 
                   </div>
-              
+
                   <div class="formAreahalf ">
                       <label class="form-label" for="">Residential Add.(according to Add.proof)</label>
                       <input type="text" class="form-control" id="gendcname[0][subject]"
                       name="share[` + arr_id1 + `][` + sh_no + `][res_add]">
                   </div>
-              
+
                   <div class="formAreahalf ">
                       <label for="" class="form-label"> E-mail </label>
                       <input type="text" class="form-control" name="share[` + arr_id1 + `][` +
@@ -3365,7 +3365,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                       </select>
                   </div>
                   <div class="formAreahalf others_Relationship_share" style="display:none;">
-                   
+
                     </div>
 
                   <div class="formAreahalf">
@@ -3375,7 +3375,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                 </div>
             </div>
         </div>s
-            
+
 
 
 
@@ -3419,10 +3419,10 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             $(this).parents('fieldset').find('.appended_financial_div').append(
                 `<div id="fo_financial" class="financial fi` + fi_no + `">\
      <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-         
+
          <div class="accordion-item pass_acc_it closed">
             <div class="cross"><span class="remove-input-field"  data-id=".fi` + fi_no + `">x</span></div>
-           
+
        <h2 class="accordion-header" id="panelsStayOpen-headingOne123ok` + fi_no + `">
 
            <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -3434,12 +3434,12 @@ $(document).on('change', '.others_Relationship_share_class', function() {
        </h2>
        <div class="formAreahalf">
             <label for="" class="form-label">Financial Institution Name ` + (fi_no + 1) + `</label>
-           
+
         </div>
        <div id="panelsStayOpen-collapseOne123ok` + fi_no + `" class="accordion-collapse collapse show"
            aria-labelledby="panelsStayOpen-headingOne123ok` + fi_no + `">
            <div class="accordion-body ac-b d-flex flex-wrap">
-         
+
          <div class="formAreahalf">
             <label for="" class="form-label">POC Name</label>
             <input type="text" name="fi[` + arr_id + `][` + fi_no + `][poc_name]" id="" class="form-control"
@@ -3562,7 +3562,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
         var c = 0;
             $('.add_company').click(function() {
                 // alert('hij');
-            
+
                 // var C = c + 1;
                 // var C = $('.compnies_holder').find('.accordion-body').length + 1;
                 // alert(C);
@@ -3574,31 +3574,31 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                        ` <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design parent_field2` +
                     c + `">
                         <div class="accordion-item pass_acc_it closed">
-            
-           
+
+
             <h2 class="accordion-header" id="panelsStayOpen-heading` + c + `">
-                      
-                  
+
+
                           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse` +
                     c +
                     `" aria-expanded="true" aria-controls="panelsStayOpen-collapse` + c + `">
                             <i class="fa fa-arrows-v" aria-hidden="true"></i>
                           </button>
-                        
+
                         </h2>
                         <div class="cross"><span class="remove-input" data-id=".parent_field2` + c + `">x</span></div>
                         <div class="formAreahalf basic_data">
                                                                 <label for="" class="form-label">Company Name
                                                                     ` +(c+1) +`</label>
 
-                                                              
+
                                                             </div>
                         <div id="panelsStayOpen-collapse` + c +
                     `" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading` +
                     c + `">
            <div class="accordion-body d-flex flex-wrap">
                                                         <div class=" d-flex flex-wrap">
-                                                
+
                                                             <input type="hidden"
                                                                 name="cmp[` + c + `][company_id]"
                                                                 />
@@ -3622,7 +3622,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                                                                     name="cmp[` + c + `][fo_uen]"
                                                                     id="fo_uen" >
                                                             </div>
-                                             
+
 
                                                             <div class="formAreahalf basic_data">
                                                                 <label for="" class="form-label">Company

@@ -252,7 +252,7 @@ $(document).ready(function () {
         var htm = `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
         <div class="card shareholder">
             <div class="card-header" id="headingOne_shareholder">
-            <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>     
+            <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
                 <div class="formAreahalf basic_data">
                     <label for="shareholder_name" class="form-label">Shareholder
                         #`+ (key2 + 1) + ` </label>
@@ -268,11 +268,11 @@ $(document).ready(function () {
                             <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
                             name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
                             ></span><span class="pecentage_end">%</span></div>
-                 
-                          
+
+
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Shareholder Type</label>                                     
+                            <label for="" class="form-label">Shareholder Type</label>
                             <select class="form-control edit_shrholder_type" name="share[`+ key + `][` + key2 + `][shareholder_type]">
                             <option value="" selected disabled>Please select shareholder type</option>
                             <option value="Company">Company</option>
@@ -285,7 +285,7 @@ $(document).ready(function () {
             <div id="collapseOneS`+ key2 + `" class="collapse show"
                 aria-labelledby="headingOne" data-parent="#shareholder-accordion-`+ key2 + `">
                 <div class="card-body d-flex flex-wrap sharetype_data">
-                   
+
                 </div>
             </div>
         </div>
@@ -493,11 +493,13 @@ $(document).ready(function () {
                             >
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Monthly Salary in the
-                            company(SGD)</label>
-                        <input type="integer" class="form-control"
+                        <label for="" class="form-label">Monthly Salary (SGD)</label>
+                        <div class="dollersec">
+                        <span class="doller">$</span>
+                        <input type="integer" class="form-control p-0"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
                             >
+                        </div>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Relationship With
@@ -773,6 +775,12 @@ $(document).ready(function () {
                                 </select>
                             </div>
                             <div class="formAreahalf basic_data">
+                                <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                <input type="text" name="financial[`+(f_btn_key +1)+`][application_submission_date]" id="application_submission_date"
+                                    value=""
+                                    class="form-control">
+                            </div>
+                            <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
                                 <select name="financial[`+ (f_btn_key + 1) + `][account_type][]" id="account_type" class="form-control">
                                     <option value="" selected disabled>Choose account type
@@ -788,7 +796,7 @@ $(document).ready(function () {
                                 </select>
                                 <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="`+ (f_btn_key + 1) + `" data-aclick="` + (f_btn_key + 2) + `">
                             </div>
-                            
+
                             <div class="formAreahalf basic_data">
                                 <label for="account_policy_no" class="form-label">Account/Policy
                                     Number</label>

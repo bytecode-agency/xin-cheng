@@ -2200,7 +2200,7 @@
                 </form> -->
                 @foreach ($notes as $note)
                     <div class="notes_show" id="note{{$note->id }}">
-                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
+                        <!-- <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div> -->
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">{{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}</p>
                         <p class="createdby"><b>{{ $note->created_by }}</b></p>
@@ -2242,7 +2242,7 @@
                                                     {{-- <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon"> --}}
                                                     <i class="fa-solid fa-download"></i></a>
                                                 <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

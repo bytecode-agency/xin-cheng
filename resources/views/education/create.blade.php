@@ -88,7 +88,12 @@
                         <label for="education_type" class="form-label">Types of Education Level</label>
                         <select name="education_type" id="education_type" class="form-control">
                             <option value="" selected disabled>Choose types of education level</option>
+                            <option value="Primary School">Primary School</option>
                             <option value="Secondary School">Secondary School</option>
+                            <option value="Bachelor">Bachelor</option>
+                            <option value="Master">Master</option>
+                            <option value="Others (please specify)">Others (please specify)</option>
+
                         </select>
                     </div>
 
@@ -106,13 +111,24 @@
                         <label for="education_type" class="form-label">Client's Current Pass in SG</label>
                         <select name="current_pass" id="current_pass" class="form-control">
                             <option value="" selected disabled>Choose client's current pass in SG</option>
+                            <option value="EP">EP</option>
+                            <option value="SP">SP</option>
+                            <option value="DP">DP</option>
+                            <option value="LVTP">LVTP</option>
                             <option value="Student Pass">Student Pass</option>
+                            <option value="N/A">N/A</option>
+                            <option value="Others (please specify)">Others(please specify)</option>
                         </select>
                     </div>
 
                     <div class="formAreahalf">
                         <label for="education_type" class="form-label">Gender(M/F)</label>
-                        <input type="text" name="gender" id="gender" class="form-control" value="">
+                        <!-- <input type="text" name="gender" id="gender" class="form-control" value=""> -->
+                        <select name="gender" id="gender" class="form-control">
+                        <option value="" selected disabled>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        </select>
                     </div>
 
                     <div class="formAreahalf">
@@ -185,9 +201,11 @@
                                     aria-hidden="true"></i></span> --}}
                         <div class="formAreahalf">
                             <label for="education_type" class="form-label">Name of School to be applied</label>
-                            <select name="edu[1][school_name]" id="education_type" class="form-control">\
-                                <option value="" selected disabled>Choose name of school to be applied</option>
-                                <option value="Hwa Chong International School">Hwa Chong International School</option>
+                             <input type="text" name="school_name" id="school_name" class="form-control" value=""> 
+                           <!-- <select name="edu[1][school_name]" id="education_type" class="form-control">\ -->
+                              <!--  <option value="" selected disabled>Choose name of school to be applied</option> -->
+                               <!-- <option value="Hwa Chong International School">Hwa Chong International School</option> -->
+                                
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -195,7 +213,7 @@
                             <textarea id="remark" name="edu[1][education_description]" rows="4" cols="50"></textarea>
                         </div>
                         <div class="formAreahalf">
-                            <label for="education_type" class="form-label">Application Date</label>
+                            <label for="education_type" class="form-label">Application Date(DD/MM/YYYY)</label>
                             <input type="date" name="edu[1][application_date]" id="education_type"
                                 class="form-control" value="">
                         </div>
@@ -204,7 +222,9 @@
                             <select name="edu[1][school_application_status]" id="school_application_status"
                                 class="js-example-responsive school_status form-control">
                                 <option value="" selected disabled>Choose school application status</option>
+                                <option value="Pending">Pending</option>
                                 <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
                             </select>
                         </div>
                     </div>
@@ -346,7 +366,12 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="par_gender" class="form-label">Gender (M/F)</label>
-                        <input type="text" name="par_gender" id="par_gender" class="form-control" value="">
+                        <!-- <input type="text" name="par_gender" id="par_gender" class="form-control" value=""> -->
+                        <select name="gender" id="gender" class="form-control">
+                        <option value="" selected disabled>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        </select>
                     </div>
                     <div class="formAreahalf">
                         <label for="par_dob" class="form-label">DOB (DD/MM/YYYY)</label>
@@ -759,22 +784,26 @@
                         <label for="pass_app_status" class="form-label">Pass Application Status</label>
                         <select name="pass_app_status" id="pass_app_status" class="js-example-responsive form-control">
                             <option value="" selected disabled>Choose pass application status</option>
+                            <option value="Pending">Pending</option>
                             <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
                         </select>
                     </div>
                     <div class="formAreahalf">
                     <label for="pass_issuance" class="form-label">Pass Issuance</label>
                     <select name="pass_issuance" id="pass_issuance" value="" class="js-example-responsive form-control">
                         <option value="" selected disabled>Choose pass issuance</option>
+                        <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>
+                        <option value="Withdrawn">Withdrawn</option>
                         </select>
                     </div>
                     <div class="formAreahalf">
-                    <label for="pass_issuance_date" class="form-label">Pass Issuance Date</label>
+                    <label for="pass_issuance_date" class="form-label">Pass Issuance Date(DD/MM/YYYY)</label>
                     <input type="date" name="pass_issuance_date" id="pass_issuance_date" value="" class="form-control">
                     </div>
                     <div class="formAreahalf">
-                    <label for="std_pass_expiry_date" class="form-label">Pass Expiry Date</label>
+                    <label for="std_pass_expiry_date" class="form-label">Pass Expiry Date(DD/MM/YYYY)</label>
                     <input type="date" name="std_pass_expiry_date" id="std_pass_expiry_date" value="" class="form-control">
                     </div>
                     <div class="formAreahalf">
@@ -842,23 +871,27 @@
                         <label for="education_type" class="form-label">Pass Application Status</label>
                         <select name="par_ltvp_pass_app_status" id="par_ltvp_pass_app_status" class="form-control">
                             <option value="" selected disabled>Choose pass application status</option>
+                            <option value="Pending">Pending</option>
                             <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
                             </select> 
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_issuance" class="form-label">Pass Issuance</label>
                         <select name="par_ltvp_pass_issuance" id="par_ltvp_pass_issuance" class="form-control">
                             <option value="" selected disabled>Choose pass issuance</option>
+                            <option value="Progress">Progress</option>
                             <option value="Done">Done</option>
+                            <option value="Withdrawn">Withdrawn</option>
                         </select>
                     </div>
                     <div class="formAreahalf">
-                        <label for="par_ltvp_pass_issuance_date" class="form-label">Pass Issuances Date</label>
+                        <label for="par_ltvp_pass_issuance_date" class="form-label">Pass Issuances Date(DD/MM/YYYY)</label>
                         <input type="date" name="par_ltvp_pass_issuance_date" id="par_ltvp_pass_issuance_date" class="form-control" value=""> 
 
                     </div>
                     <div class="formAreahalf">
-                        <label for="par_ltvp_pass_issuance_exp_date" class="form-label">Pass Expiry Date</label>
+                        <label for="par_ltvp_pass_issuance_exp_date" class="form-label">Pass Expiry Date(DD/MM/YYYY)</label>
                         <input type="date" name="par_ltvp_pass_issuance_exp_date" id="par_ltvp_pass_issuance_exp_date" class="form-control" value=""> 
 
                     </div>

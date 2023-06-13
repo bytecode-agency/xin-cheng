@@ -372,10 +372,10 @@
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose Legal Opinion
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
-                                                        <option value="Done"
-                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Done' ? 'selected' : '' }}>Done</option>
+                                                        <option value="Pending"
+                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                        <option value="Received"
+                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Received' ? 'selected' : '' }}>Received</option>
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -654,12 +654,7 @@
                                                                         value="@isset($wealthfinance[$i]->poc_email){{ $wealthfinance[$i]->poc_email }} @endisset"
                                                                         class="form-control">
                                                                 </div>
-                                                                <div class="formAreahalf basic_data">
-                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
-                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
-                                                                </div>
+
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
                                                                         Submission</label>
@@ -2273,7 +2268,7 @@
                                                 <i class="fa-solid fa-download"></i></a>
 
                                             <a href="javascript:void(0);" class="wealth_file_del_confirm"
-                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -2486,9 +2481,6 @@
                 const passposrt_name_chinese = document.getElementsByName(substr + '[pass_name_chinese]')[0].value
                 document.getElementsByName('passposrt_name_chinese')[0].value = passposrt_name_chinese
 
-                const str = document.getElementsByName(substr + '[dob]')[0].value
-                const arr = str.split("/")
-                document.getElementsByName("dob")[0].value = arr[2] + '-' + arr[1] + '-' + arr[0]
 
                 const phone = document.getElementsByName(substr + '[phone]')[0].value
                 document.getElementsByName('phone_no')[0].value = phone

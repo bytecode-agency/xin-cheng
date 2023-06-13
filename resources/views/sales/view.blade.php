@@ -14,10 +14,10 @@
         </div>
     </div>
     <!-- Filter Data Pagination -->
-    <div class="filterPagination d-flex justify-content-between align-items-center">
+    <div class="filterPagination d-flex justify-content-between align-items-center" style="position: relative; z-index: 2000; max-width: 50%;">
         <div class="paginationLeft">
             <ul>
-                <li><a href="{{ route('sales.show', ['id' => $sale->id]) }}">Sales</a></li>
+                <li><a href="{{ route('sales') }}">Sales</a></li>
                 <li>{{ Breadcrumbs::render() }} </li>
             </ul>
 
@@ -147,6 +147,21 @@
                                 <label for="" class="form-label"> Wechat id of POC</label>
                                 <br>{{ $sale->poc_wechat }}
                             </div>
+
+                            <div class="formAreahalf ">
+                                <label for="" class="form-label"> Source of Client</label>
+                                <br>{{ $sale->source_of_client }}
+                            </div>
+                            @if (isset($sale->source_of_client) && ($sale->source_of_client == 'Others' || $sale->source_of_client == 'Online marketing'))
+                                <div class="formAreahalf basic_data please_specify">
+                                    <label for="" class="form-label">Others, please specify</label>
+                                    @if (isset($sale->source_of_client_specify))
+                                        <p>{{ $sale->source_of_client_specify }}</p>
+                                    @else-
+                                    @endif
+
+                                </div>
+                            @endif
                             @if ($sale->bus_type == 'B2B')
                                 <div class="formAreahalf ">
                                     <label for="clienttype" class="form-label">Sign of B2B Agreement?</label>
@@ -286,7 +301,7 @@
                                                             </div>
                                                         @endif
                                                     @endif
-
+                                                    @if ($sale->bus_type == 'B2B')
                                                     <div class="formAreahalf ">
                                                         <label class="form-label" for="dcname">Name of direct
                                                             client</label>
@@ -318,7 +333,7 @@
                                                             client</label>
                                                         <br>{{ $s['cemail'] }}
                                                     </div>
-
+                                                     @endif
                                                     <div class="formAreahalf">
                                                         <label class="form-label" for="busdes">Business
                                                             Description</label>
@@ -516,10 +531,10 @@
 
                     <div class="textarea">
                         <label class="form-label mt-5" for="notes">Notes</label>
-                        <textarea id="text_notes" name="notes" placeholder="Type your notes here..." rows="8" cols="200"></textarea>
-                        <input type="submit" class="btn saveBtn btn_notes" value="Save">
+                        <!-- <textarea id="text_notes" name="notes" placeholder="Type your notes here..." rows="8" cols="200"></textarea> -->
+                        <!-- <input type="submit" class="btn saveBtn btn_notes" value="Save">
                         <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
-                            style="display: none">
+                            style="display: none"> -->
                     </div>
 
 
@@ -529,7 +544,7 @@
 
                 @foreach ($notes as $note)
                     <div class="notes_show" id="note{{$note->id }}">
-                        <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div>
+                        <!-- <div class="cross"><span class="note_remove" data-Id="{{ $note->id }}">x</span></div> -->
                         <p class="desc_notes">{{ $note->notes_description }}</p>
                         <p class="created">
                             {{ $note->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
@@ -574,8 +589,8 @@
                                             <a href="{{ url('file/' . $files->file) }}" download class="link-normal">
                                                 <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
                                             </a>
-                                            <a href="javascript:void(0);" class="del_confirm_view ink-normal"
-                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
+                                            <a href="javascript:void(0);" class="del_confirm_view ink-normal "
+                                                data-id="{{ $files->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
