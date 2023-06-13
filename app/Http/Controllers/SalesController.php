@@ -554,8 +554,11 @@ class SalesController extends Controller
         activity_log($data);
 
 
+        //All files
+        $file       = Sfile::where('sale_app_id', $request->sale_id)->get();
+        $files_view = \View::make('sales.files_table_body' , ['file'=>$file])->render();
 
-        return response()->json('File uploaded successfully');
+        return response()->json(['message'=>'File uploaded successfully' , 'files_view' => $files_view]);
     }
     public function file_del($id)
     {

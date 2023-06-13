@@ -141,11 +141,11 @@
                         <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                        <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
                         <p> {{ $basic_data->annual_fee_due_reminder }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                        <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
                         <p> {{ $basic_data->annual_fee_due_reminder_trigger }}</p>
                     </div>
                 @else

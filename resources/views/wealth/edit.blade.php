@@ -182,7 +182,7 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
                             <select
                                 name="annual_fee_due_reminder"
                                 id="annual_fee_due_reminder" class="form-control">
@@ -199,7 +199,7 @@
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
                             <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
                                 <option value="" selected="" disabled="">Please select</option>
                                 <option value="Day"
@@ -669,12 +669,6 @@
                                                                             value="Done"{{ isset($wealthfinance[$i]->application_submission) && $wealthfinance[$i]->application_submission == 'Done' ? 'selected' : '' }}>Done</option>
 
                                                                     </select>
-                                                                </div>
-                                                                <div class="formAreahalf basic_data">
-                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
-                                                                        class="form-control datepicker" placeholder="dd/mm/yy">
                                                                 </div>
 
                                                                 @if(!empty($wealthfinance[$i]->account_type) && isJson($wealthfinance[$i]->account_type) )
@@ -2204,7 +2198,7 @@
                         <div class="textarea">
                             <label class="form-label mt-5" for="notes">Notes</label>
                             <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
-                            <div id="notes_error"></div>
+                            <div class="text-danger" id="notes_error"></div>
                             <!-- <input type="submit" id="w_notessave_btn"
                                 class="btn saveBtn btn saveBtn btn_notes" value="Save">
                             <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
@@ -2462,34 +2456,95 @@
                 var akey = $(this).data('id');
                 var aclick = $(this).data('aclick');
                 $(this).data('aclick',(aclick+1));
-                $(this).parent().after(
-                    `<div class="formAreahalf basic_data">
-                        <label for="account_type" class="form-label">Account Type `+aclick+`</label>
-                        <select name="financial[`+akey+`][account_type][]" id="account_type" class="form-control">
-                            <option value="" selected disabled>Choose account type
-                            </option>
-                            <option value="SGD">
-                                SGD</option>
-                            <option value="USD">
-                                USD</option>
-                            <option value="Multi-currency">
-                                Multi-currency</option>
-                            <option value="Others">
-                                Others</option>
-                        </select>
-                    </div>
-                    <div class="formAreahalf basic_data ">
-                        <label for="account_policy_no" class="form-label">Account/Policy
-                            Number `+aclick+`</label>
-                        <input type="text" name="financial[`+akey+`][account_policy_no][]" id="account_policy_no"
-                            value=""
-                            class="form-control">
-                    </div>
-                    `
-                );
+                let str = ''
+                if(aclick > 2){
+                    let str = ''
+                    $(".test").css({"display": "none"});
+                    for(let i = 2; i <= aclick; i++){
+                        if(!str){
+                            str = strFun(i, akey)
+                        } else {
+                            str = str + strFun(i, akey)
+                        }
+                    }
+                    $(this).parent().after(str);
+                } else {
+                    let str = strFun(2, 1)
+                    $(this).parent().after(str);
+                }
+            });
+            const callBack = (o) => {
+                let substr = o.name.substr(0,11)
+                const emailValue = document.getElementsByName(substr + '[email]')[0].value
+                document.getElementsByName('email')[0].value = emailValue
+
+                const passposrt_name_chinese = document.getElementsByName(substr + '[pass_name_chinese]')[0].value
+                document.getElementsByName('passposrt_name_chinese')[0].value = passposrt_name_chinese
 
 
+                const phone = document.getElementsByName(substr + '[phone]')[0].value
+                document.getElementsByName('phone_no')[0].value = phone
 
+                const gender = document.getElementsByName(substr + '[gender]')[0].value
+                document.getElementsByName('gender')[0].value = gender
+
+                const passport_exp_date = document.getElementsByName(substr + '[passport_exp_date]')[0].value
+                document.getElementsByName('pass_expiry_date')[0].value = passport_expiry_date
+
+                const passport_no = document.getElementsByName(substr + '[passport_no]')[0].value
+                document.getElementsByName('passport_no')[0].value = passport_no
+
+                const passport_country = document.getElementsByName(substr + '[passport_country]')[0].value
+                document.getElementsByName('passport_country')[0].value = passport_country
+
+                const passport_renew = document.getElementsByName(substr + '[passport_renew]')[0].value
+                document.getElementsByName('pass_renewal_reminder')[0].value = passport_renew
+
+                const residential_address = document.getElementsByName(substr + '[residential_address]')[0].value
+                document.getElementsByName('residential_add')[0].value = residential_address
+
+                const passport_trg_fqy = document.getElementsByName(substr + '[passport_trg_fqy]')[0].value
+                document.getElementsByName('pass_renewal_frq')[0].value = passport_trg_fqy
+
+                const monthly_sal = document.getElementsByName(substr + '[monthly_sal]')[0].value
+                document.getElementsByName('monthly_sal')[0].value = passport_trg_fqy
+
+                const job_title = document.getElementsByName(substr + '[job_title]')[0].value
+                document.getElementsByName('pass_jon_title')[0].value = passport_trg_fqy
+            }
+            const strFun = (i, key) => {
+                return `
+                <div class="formAreahalf basic_data test">
+                            <label for="account_type" class="form-label">Account Type `+i+`</label>
+                            <select name="financial[`+key+`][account_type][]" id="account_type" class="form-control">
+                                <option value="" selected disabled>Choose account type
+                                </option>
+                                <option value="SGD">
+                                    SGD</option>
+                                <option value="USD">
+                                    USD</option>
+                                <option value="Multi-currency">
+                                    Multi-currency</option>
+                                <option value="Others">
+                                    Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data test">
+                            <label for="account_policy_no" class="form-label">Account/Policy
+                                Number `+i+`</label>
+                            <input type="text" name="financial[`+key+`][account_policy_no][]" id="account_policy_no"
+                                value=""
+                                class="form-control">
+                        </div>
+                `
+            }
+            $(document).on('change', '#pass_holder_name', function() {
+                const arr = document.getElementsByClassName('pass_name_eng')
+                for(let i = 0; i < arr.length; i++){
+                    if(arr[i].value == $(this).val()){
+                        callBack(arr[i])
+                    }
+                }
             });
             $(document).on('change', '#passholder_shareholder', function() {
                 if ($(this).val() == "Yes") {

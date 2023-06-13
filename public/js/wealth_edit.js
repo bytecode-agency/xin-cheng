@@ -1,4 +1,4 @@
-$(document).on('click', '.remove-input-field', function() {
+$(document).on('click', '.remove-input-field', function () {
 
     $(this).parents('.accordion-item').hide();
 });
@@ -58,7 +58,7 @@ function equity_percentage_checks() {
 $(document).ready(function () {
     $(".datepicker").datepicker({
         dateFormat: 'dd/mm/yy',
-        onClose: function() {
+        onClose: function () {
             $(this).valid();
         }
     });
@@ -69,10 +69,10 @@ $(document).ready(function () {
 
     equity_percentage_checks();
 
-    $("#text_notes").keyup(function() {
+    $("#text_notes").keyup(function () {
         $("#notes_cancel").show();
-        });
-    $("#notes_cancel").click(function() {
+    });
+    $("#notes_cancel").click(function () {
         $("#text_notes").val('');
         $("#notes_cancel").hide();
     });
@@ -115,14 +115,9 @@ $(document).ready(function () {
 
     });
 
-
-    $('body').on('click', '.edit__add_com', function () {
-
-        var key = $('.accordion-item').length;
-        // key++;
-
-        $(this).parents('.company_show').find('#accordion-' + (key - 1)).after(
-            `<div id="accordion-` + key + `" class="accordion-item company_name" data-companyid=` + key + `>
+    const htmlStr = (key) => {
+        return `
+            <div id="accordion-` + key + `" class="accordion-item company_name" data-companyid=` + key + `>
             <div class="card">
                 <div class="card-header" id="headingOne">
                 <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
@@ -228,7 +223,25 @@ $(document).ready(function () {
                             id="edit_add_share" data-id=`+ key + `>Add
                         Shareholder</button>
             </div>
-        </div>`);
+        </div>
+        `
+    }
+
+
+    $('body').on('click', '.edit__add_com', function () {
+
+        var key = $('.accordion-item').length;
+        //$(this).parents('.company_show').find('#accordion-' + (key - 1)).after(htmlStr(key));
+        $('#edit_add_company').before(htmlStr(key));
+        // if(key){
+        //     console.log(key,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        //     $(this).parents('.company_show').find('#accordion-' + (key - 1)).after(htmlStr(key));
+        // } else {
+        //     console.log(key,'bbbbbbbbbbbbbbbbbbbbbbbbbbb')
+        //     $(this).parents('.company_show').before(htmlStr(0));
+        // }
+        // key++;
+
         $(this).attr('data-id', key);
     });
     $('body').on('click', '.edit_add_shareholder', function () {
@@ -236,7 +249,7 @@ $(document).ready(function () {
         var key2 = $(this).parents('.company_share').find('.sharehold_length').length;
 
         var key = $(this).parents('.accordion-item').attr('data-companyid');
-        var htm =  `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
+        var htm = `<div id="shareholder-accordion-` + (key2) + `" class="sharehold_length">
         <div class="card shareholder">
             <div class="card-header" id="headingOne_shareholder">
             <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
@@ -277,11 +290,11 @@ $(document).ready(function () {
             </div>
         </div>
       </div>`;
-      if( key2 == 0 ){
-        $(this).before(htm);
-      }else{
-        $(this).parents('#collapseOne' + key).find('#shareholder-accordion-' + (key2 - 1)).after(htm);
-      }
+        if (key2 == 0) {
+            $(this).before(htm);
+        } else {
+            $(this).parents('#collapseOne' + key).find('#shareholder-accordion-' + (key2 - 1)).after(htm);
+        }
     })
 
     $('body').on('change', '.edit_shrholder_type', function () {
@@ -294,12 +307,11 @@ $(document).ready(function () {
         // console.log(arr);
         var share_key = $(this).parents('.company_share').find('.sharehold_length').length;
         if ($(this).val() == "Company") {
-            var option_values= "";
-            $.each(arr, function(key, value) {
+            var option_values = "";
+            $.each(arr, function (key, value) {
 
-                if( ( (key + 1) <= shr_arr_id))
-                {
-                    var divHtml = '<option value="'+value+'">'+value+'</option>';
+                if (((key + 1) <= shr_arr_id)) {
+                    var divHtml = '<option value="' + value + '">' + value + '</option>';
                     // console.log(shr_arr_id);
                 }
                 option_values += divHtml;
@@ -309,7 +321,7 @@ $(document).ready(function () {
             <label for="" class="form-label">Company Name</label>
             <select class="form-control" name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][shareholder_company_name]">
             <option value="" selected disabled>Choose company</option>
-            `+option_values+`
+            `+ option_values + `
             </select>
         </div>`);
         }
@@ -524,73 +536,38 @@ $(document).ready(function () {
     })
 
     $('body').on('click', '.edit_save', function () {
-        // alert();
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
-        console.log(formdata);
+        const notesVal = $("#text_notes").val()
+        let check = true
+        if (notesVal) {
+            const testStr = notesVal.substr(0, 1)
+            if (testStr.includes(" ")) {
+                check = false
+                $("#notes_error").text("Extra space must not be there")
+            } else {
+                $("#notes_error").text("")
+                check = true
+            }
+        }
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $.ajax({
-            type: "post",
-            route: url,
-            data: formdata,
-            success: function (response) {
-                console.log(response);
-                const el = document.createElement('div')
-                el.innerHTML =
-                    "You can view Application List <a class='view-application' href='/wealth-view'>here</a>"
-                swal({
-                    title: `Application Updated`,
-                    content: el,
-                    icon: "success",
-                    buttons: true,
-                    buttons: {
-                        cancel: false,
-                        confirm: {
-                            text: 'Close',
-                            className: 'btn btn-danger'
-                        },
-                    },
-                }).then((result) => {
-                    window.location.href = '/wealth-view/' + response.success.id;
-                })
-            }
-        });
-    });
-
-    $('body').on('submit', '.file_wealt_upload', function (e) {
-        // alert();
-        e.preventDefault();
-        let formData2 = new FormData(this);
-        console.log(formData2);
-        // $(formData2).validate({ // initialize the plugin
-        //     rules: {
-        //         wealth_file: {
-        //             required: true,
-
-        //         },
-        //     },
-        //     messages: {
-        //         wealth_file: {
-        //             required: 'File is required',
-        //         }
-        //     }
-        // });
-        $('#file-input-error').text('');
-
-        $.ajax({
-            type: 'POST',
-            url: "/wealth-uploadfile",
-            data: formData2,
-            contentType: false,
-            processData: false,
-            success: (response) => {
-                if (response) {
+        if (check) {
+            $.ajax({
+                type: "post",
+                route: url,
+                data: formdata,
+                success: function (response) {
+                    console.log(response);
+                    const el = document.createElement('div')
+                    el.innerHTML =
+                        "You can view Application List <a class='view-application' href='/wealth-view'>here</a>"
                     swal({
-                        title: `File Uploaded Successfully`,
+                        title: `Application Updated`,
+                        content: el,
                         icon: "success",
                         buttons: true,
                         buttons: {
@@ -601,15 +578,59 @@ $(document).ready(function () {
                             },
                         },
                     }).then((result) => {
-                        location.reload();
-                        $('#wealth_inputFile').val("");
+                        window.location.href = '/wealth-view/' + response.success.id;
                     })
                 }
-            },
-            error: function (response) {
-                $('#file-input-error').text(response.responseJSON.message);
-            }
-        });
+            });
+        }
+
+    });
+
+    $('#wealth_inputFile').change(function (e) {
+        const size = e.target.files[0].size / Math.pow(1024, 2)
+        if (size > 100) {
+            $("#file-input-error").text("File size cannot be more than 100mb")
+        } else {
+            $("#file-input-error").text("")
+        }
+    })
+
+
+    $('body').on('submit', '.file_wealt_upload', function (e) {
+        e.preventDefault();
+        var error = $("#file-input-error").text()
+        if (!error) {
+            let formData2 = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: "/wealth-uploadfile",
+                data: formData2,
+                contentType: false,
+                processData: false,
+                success: (response) => {
+                    if (response) {
+                        swal({
+                            title: `File Uploaded Successfully`,
+                            icon: "success",
+                            buttons: true,
+                            buttons: {
+                                cancel: false,
+                                confirm: {
+                                    text: 'Close',
+                                    className: 'btn btn-danger'
+                                },
+                            },
+                        }).then((result) => {
+                            location.reload();
+                            $('#wealth_inputFile').val("");
+                        })
+                    }
+                },
+                error: function (response) {
+                    $('#file-input-error').text(response.responseJSON.message);
+                }
+            });
+        }
     });
 
     $('body').on('click', '.wealth_file_del_confirm', function () {
@@ -663,22 +684,22 @@ $(document).ready(function () {
     //    console.log('fgjgj');
     // })
     var f_btn_key = "";
-    $('body').on('click','.edit_add_finance',function(){
+    $('body').on('click', '.edit_add_finance', function () {
 
         // f_btn_key = $(this).parents('.wealth_finance_data').find('.wealth_finance_check').last().attr('id').replace("financial_accordion_","");
         f_btn_key = $('.wealth_finance_check').length;
         // alert(f_btn_key);
         // f_btn_key++;
 
-        $("#wealth_finance_data").append(`<div id="financial_accordion_`+ (f_btn_key +1) +`" class="mas_related financial_`+(f_btn_key +1)+` wealth_finance_check">
+        $("#wealth_finance_data").append(`<div id="financial_accordion_` + (f_btn_key + 1) + `" class="mas_related financial_` + (f_btn_key + 1) + ` wealth_finance_check">
         <div class="new_chnages_finance accordion-items">
             <div class="mas_heading_accordian">
-                <input type="hidden" name="financial[`+(f_btn_key +1)+`][wealth_finance_id]"
+                <input type="hidden" name="financial[`+ (f_btn_key + 1) + `][wealth_finance_id]"
                 value="">
                 <div class="formAreahalf basic_data">
                     <label for="stakeholder_type" class="form-label">Stakeholder
                         Type</label>
-                    <select name="financial[`+(f_btn_key +1)+`][stakeholder_type]" id="stakeholder_type"
+                    <select name="financial[`+ (f_btn_key + 1) + `][stakeholder_type]" id="stakeholder_type"
                         class="form-control">
                         <option value="" selected disabled>Choose stakeholder type
                         </option>
@@ -694,47 +715,52 @@ $(document).ready(function () {
                 </div>
                 <div class="formAreahalf basic_data">
                     <label for="financial_institution_name" class="form-label">Financial
-                        Institution Name `+(f_btn_key +1 )+`</label>
-                    <input type="text" name="financial[`+(f_btn_key +1)+`][financial_institution_name]"
+                        Institution Name `+ (f_btn_key + 1) + `</label>
+                    <input type="text" name="financial[`+ (f_btn_key + 1) + `][financial_institution_name]"
                         id="financial_institution_name"
                         value=""
                         class="form-control">
                 </div>
                 <button class="btn btn_set edit_new_btn_set" data-toggle="collapse"
-                    data-target="#financial_collapse`+(f_btn_key +1) +`" aria-expanded="true"
+                    data-target="#financial_collapse`+ (f_btn_key + 1) + `" aria-expanded="true"
                     aria-controls="collapseOne">
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </button>
                 <div class="cross financial_wealth"><span class="edit_cancel_share remove-financal">x</span></div>
             </div>
-            <div id="financial_collapse`+(f_btn_key +1) +`" class="collapse" aria-labelledby="headingOne"
-                 data-parent="#financial_accordion_`+ (f_btn_key +1) +`">
+            <div id="financial_collapse`+ (f_btn_key + 1) + `" class="collapse" aria-labelledby="headingOne"
+                 data-parent="#financial_accordion_`+ (f_btn_key + 1) + `">
                 <div class="tab_custom_settings new_test_finance tab_body">
                         <div class="tab-inner-text d-flex flex-wrap">
                             <div class="formAreahalf basic_data">
                                 <label for="poc_name" class="form-label">POC Name</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][poc_name]" id="poc_name"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_name]" id="poc_name"
                                     value=""
                                     class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="poc_contact_no" class="form-label">POC Contact
                                     Number</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][poc_contact_no]" id="poc_contact_no"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_contact_no]" id="poc_contact_no"
                                     value=""
                                     class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="poc_email" class="form-label">POC Email</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][poc_email]" id="poc_email"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_email]" id="poc_email"
                                     value=""
                                     class="form-control datepicker" placeholder="dd/mm/yy">
                             </div>
-
+                            <div class="formAreahalf basic_data">
+                                <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][application_submission_date]" id="application_submission_date"
+                                    value=""
+                                    class="form-control">
+                            </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission" class="form-label">Application
                                     Submission</label>
-                                <select name="financial[`+(f_btn_key +1)+`][application_submission]" id="application_submission"
+                                <select name="financial[`+ (f_btn_key + 1) + `][application_submission]" id="application_submission"
                                     class="js-example-responsive form-control">
                                     <option value="" selected disabled>Choose application
                                         submission
@@ -754,7 +780,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
-                                <select name="financial[`+(f_btn_key +1)+`][account_type][]" id="account_type" class="form-control">
+                                <select name="financial[`+ (f_btn_key + 1) + `][account_type][]" id="account_type" class="form-control">
                                     <option value="" selected disabled>Choose account type
                                     </option>
                                     <option value="SGD">
@@ -766,13 +792,13 @@ $(document).ready(function () {
                                     <option value="Others">
                                         Others</option>
                                 </select>
-                                <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="`+(f_btn_key +1)+`" data-aclick="`+(f_btn_key +2)+`">
+                                <input type="button" class="btn saveBtn add_account_type" value="Add Account Type" data-id="`+ (f_btn_key + 1) + `" data-aclick="` + (f_btn_key + 2) + `">
                             </div>
 
                             <div class="formAreahalf basic_data">
                                 <label for="account_policy_no" class="form-label">Account/Policy
                                     Number</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][account_policy_no][]" id="account_policy_no"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][account_policy_no][]" id="account_policy_no"
                                     value=""
                                     class="form-control">
                             </div>
@@ -780,7 +806,7 @@ $(document).ready(function () {
                                 <label for="account_opening_status" class="form-label">Account
                                     Opening
                                     Status</label>
-                                <select name="financial[`+(f_btn_key +1)+`][account_opening_status]" id="account_opening_status"
+                                <select name="financial[`+ (f_btn_key + 1) + `][account_opening_status]" id="account_opening_status"
                                     class="js-example-responsive form-control">
                                     <option value="" selected disabled>Choose account opening
                                         status
@@ -794,7 +820,7 @@ $(document).ready(function () {
                                 <label for="current_account_status" class="form-label">Current
                                     Account
                                     Status</label>
-                                <select name="financial[`+(f_btn_key +1)+`][current_account_status]" id="current_account_status"
+                                <select name="financial[`+ (f_btn_key + 1) + `][current_account_status]" id="current_account_status"
                                     class="js-example-responsive form-control">
                                     <option value="" selected disabled>Choose account status
                                     </option>
@@ -806,7 +832,7 @@ $(document).ready(function () {
                             <div class="formAreahalf basic_data">
                                 <label for="money_deposit_status" class="form-label">Money Deposit
                                     Status</label>
-                                <select name="financial[`+(f_btn_key +1)+`][money_deposit_status]" id="money_deposit_status"
+                                <select name="financial[`+ (f_btn_key + 1) + `][money_deposit_status]" id="money_deposit_status"
                                     class="js-example-responsive form-control">
                                     <option value="" selected disabled>Choose money deposit
                                         status
@@ -822,7 +848,7 @@ $(document).ready(function () {
                                     Amount</label>
                                 <div class="dollersec"><span class="doller">$</span>
                                     <span class="input"> <input type="text"
-                                            name="financial[`+(f_btn_key +1)+`][intial_deposit_amount]"
+                                            name="financial[`+ (f_btn_key + 1) + `][intial_deposit_amount]"
                                             value=""
                                             class="form-control"></span>
                                 </div>
@@ -831,7 +857,7 @@ $(document).ready(function () {
                                 <label for="online_account_username" class="form-label">Online
                                     Account
                                     Username</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][online_account_username]"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][online_account_username]"
                                     id="online_account_username"
                                     value=""
                                     class="form-control">
@@ -839,44 +865,44 @@ $(document).ready(function () {
                             <div class="formAreahalf basic_data">
                                 <label for="online_account_pass" class="form-label">Online Account
                                     Password</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][online_account_pass]"
+                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][online_account_pass]"
                                     id="online_account_pass"
                                     value=""
                                     class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="finacial_remarks" class="form-label">Remarks</label>
-                                <textarea name="financial[`+(f_btn_key +1)+`][finacial_remarks]" id="finacial_remarks" rows="4" cols="50"
+                                <textarea name="financial[`+ (f_btn_key + 1) + `][finacial_remarks]" id="finacial_remarks" rows="4" cols="50"
                                     value=""></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>`);
-            // if ($('.js-example-responsive').data('select2')) {
-            //     $('.js-example-responsive').select2('destroy');
-            // }
+        // if ($('.js-example-responsive').data('select2')) {
+        //     $('.js-example-responsive').select2('destroy');
+        // }
 
-            $('#financial_accordion_'+ (f_btn_key +1)+' .js-example-responsive').select2({
-                minimumResultsForSearch: -1
-            });
+        $('#financial_accordion_' + (f_btn_key + 1) + ' .js-example-responsive').select2({
+            minimumResultsForSearch: -1
+        });
 
     })
-    $('body').on('click','.remove-financal',function(){
-            var finance_entry_id =  $(this).parents('.wealth_finance_check').find('#finance_id').val();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                type: "delete",
-                url: "/finance-destroy",
-                data: {id: finance_entry_id },
-                success: function (response) {
-                 console.log(response);
-                }
-            });
+    $('body').on('click', '.remove-financal', function () {
+        var finance_entry_id = $(this).parents('.wealth_finance_check').find('#finance_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/finance-destroy",
+            data: { id: finance_entry_id },
+            success: function (response) {
+                console.log(response);
+            }
+        });
 
         $(this).parents('.wealth_finance_check').remove();
         var count_finance = 1;
@@ -890,11 +916,11 @@ $(document).ready(function () {
     });
 
 
-    $('body').on('click','.btn_add_redempt',function(){
-       var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
-       var red_date =  $(this).parents('.redemption_add_table').find('.red_date').val();
-       var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
-       console.log(red_date, red_amount,red_id);
+    $('body').on('click', '.btn_add_redempt', function () {
+        var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
+        var red_date = $(this).parents('.redemption_add_table').find('.red_date').val();
+        var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
+        console.log(red_date, red_amount, red_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -903,28 +929,29 @@ $(document).ready(function () {
         $.ajax({
             type: "post",
             url: "/business-data",
-            data: {red_date: red_date,
-            red_amount: red_amount,
-            red_id :red_id},
+            data: {
+                red_date: red_date,
+                red_amount: red_amount,
+                red_id: red_id
+            },
             success: function (response) {
                 console.log(response);
-                if(response.success)
-                {
-                 var html = '<tr>';
-                 var redemption_date = moment(response.success.red_date).format('DD/MM/YYYY');
-                 html += '<td>'+redemption_date+'</td>';
-                 html += '<td>'+response.success.red_amount+'</td>';
-                 html += `<td><a href="javascript:void(0);" data-id="`+response.success.id+`" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a></td></tr>`;
-                 $('#red_table').prepend(html);
-                 $('.red_date').val("");
-                 $('.red_amount').val("");
+                if (response.success) {
+                    var html = '<tr>';
+                    var redemption_date = moment(response.success.red_date).format('DD/MM/YYYY');
+                    html += '<td>' + redemption_date + '</td>';
+                    html += '<td>' + response.success.red_amount + '</td>';
+                    html += `<td><a href="javascript:void(0);" data-id="` + response.success.id + `" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a></td></tr>`;
+                    $('#red_table').prepend(html);
+                    $('.red_date').val("");
+                    $('.red_amount').val("");
                 }
             }
         });
     })
-    $('body').on('click','.del_confirm_business',function(){
+    $('body').on('click', '.del_confirm_business', function () {
         var business_id = $(this).attr('data-id');
-         //    console.log(business_id);
+        //    console.log(business_id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -933,7 +960,7 @@ $(document).ready(function () {
         $.ajax({
             type: "delete",
             url: "/business-destroy",
-            data: {id: business_id},
+            data: { id: business_id },
             success: function (response) {
                 console.log(response);
             }
@@ -941,21 +968,21 @@ $(document).ready(function () {
         $(this).parents('tr').remove();
     })
 
-    $('body').on('click','.remove-campany',function(){
-        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "delete",
-            url: "/company-destroy",
-            data: {id: id },
-            success: function (response) {
-             console.log(response);
-            }
-        });
+    $('body').on('click', '.remove-campany', function () {
+        // var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     type: "delete",
+        //     url: "/company-destroy",
+        //     data: {id: id },
+        //     success: function (response) {
+        //      console.log(response);
+        //     }
+        // });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -968,8 +995,8 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click','.remove-campany-shareholder',function(){
-        var finance_entry_id =  $(this).parents('.sharehold_length').find('#share_id').val();
+    $('body').on('click', '.remove-campany-shareholder', function () {
+        var finance_entry_id = $(this).parents('.sharehold_length').find('#share_id').val();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -978,9 +1005,9 @@ $(document).ready(function () {
         $.ajax({
             type: "delete",
             url: "/company-shareholder-destroy-1",
-            data: {id: finance_entry_id },
+            data: { id: finance_entry_id },
             success: function (response) {
-             console.log(response);
+                console.log(response);
             }
         });
 
