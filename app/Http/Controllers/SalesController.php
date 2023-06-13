@@ -260,6 +260,7 @@ class SalesController extends Controller
         $id = $request->id;
         // dd($id);
         $sale = Sale::where('id', $id)->first();
+        $sale = ($sale) ? $sale : new Sale;
 
         // $action_log = LogActivity::where('module_name','=','Wealth')->where('userID','=',$id)->orderBy('id','desc')->get();
 

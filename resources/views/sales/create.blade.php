@@ -1405,7 +1405,24 @@
             });
 
 
+            $.validator.addMethod('dateAfter', function (value, element, params) {
+            // if start date is valid, validate it as well
+                var start = $(params);
+                if (!start.data('validation.running')) {
+                    $(element).data('validation.running', true);
+                    setTimeout($.proxy(
 
+                    function () {
+                        this.element(start);
+                    }, this), 0);
+                    setTimeout(function () {
+                        $(element).data('validation.running', false);
+                    }, 0);
+                }
+                return this.optional(element) || this.optional(start[0]) || new Date(value) > new Date($(params).val());
+
+            }, 'Must be after B2B Agreement Sign Date');
+            
             $("#multistep_form").validate({
 
                 rules: {
@@ -1415,10 +1432,21 @@
                     client: {
                         required: true
                     },
-                    // cname: {
-                    //     required: true
-                    // },
-
+                    cname: {
+                        maxlength: 100
+                    },
+                    ccountry: {
+                        maxlength: 100
+                    },
+                    ccity: {
+                        maxlength: 100
+                    },
+                    pocname: {
+                        maxlength: 100
+                    },
+                    pocwechat: {
+                        maxlength: 100
+                    },
                     pocph: {
                         minlength: 6,
                         maxlength: 10,
@@ -1428,6 +1456,13 @@
                     pocemail: {
                         email: true
                     },
+                    b2bsigndate:{
+                        // required:true
+                    },
+                    b2bexdate:{
+                        dateAfter: "#b2bsigndate",
+                        // required:true,
+                    }
                 },
                 messages: {
                     pocph: "Please enter valid phone number",
@@ -1488,12 +1523,12 @@
                         type: "POST",
                         data: $('#multistep_form').serialize(),
                         success: function(response) {
-                            console.log(response.input.view_id);
+                            // console.log(response.input.view_id);
                             const el = document.createElement('div')
                             el.innerHTML =
 
                                 `<p>You can view Application <a class='view-application' href='/salesshow/` +
-                                response.input.view_id + `'>here</a>`
+                                response.view_id + `'>here</a>`
                             swal({
                                 title: `Application Created`,
                                 content: el,

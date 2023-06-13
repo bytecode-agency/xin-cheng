@@ -608,7 +608,7 @@
                                                                     </label>
                                                                     <div class="dollersec"><span
                                                                             class="doller">$</span><span
-                                                                            class="input"><input type="number"
+                                                                            class="input"><input type="integer"
                                                                                 class="form-control"
                                                                                 id="busamt[0][subject]"
                                                                                 name="addpb[{{ $i }}][busamt]"
@@ -1162,7 +1162,7 @@
             e.preventDefault();
             let formData = new FormData(this);
             $('#file-input-error').text('');
-
+            triggerLoader();
             $.ajax({
                 type: 'POST',
                 url: "{{ route('sales.updfile') }}",
@@ -1170,6 +1170,7 @@
                 contentType: false,
                 processData: false,
                 success: (response) => {
+                    removeLoader();
                     if (response) {
                         //Re Render files data table
                         filesDataTable();
@@ -1200,6 +1201,8 @@
                     }
                 },
                 error: function(response) {
+                    $('#inputFile').val('');
+                    removeLoader();
                     // alert('no');
                     // alert(response);
                     // $('#file-input-error').text(response.responseJSON.message);
@@ -1640,6 +1643,24 @@
 
         });
 
+        $.validator.addMethod('dateAfter', function (value, element, params) {
+        // if start date is valid, validate it as well
+            var start = $(params);
+            if (!start.data('validation.running')) {
+                $(element).data('validation.running', true);
+                setTimeout($.proxy(
+
+                function () {
+                    this.element(start);
+                }, this), 0);
+                setTimeout(function () {
+                    $(element).data('validation.running', false);
+                }, 0);
+            }
+            return this.optional(element) || this.optional(start[0]) || new Date(value) > new Date($(params).val());
+
+        }, 'Must be after B2B Agreement Sign Date');
+
         if ($("#multistep_form").length > 0) {
             $("#multistep_form").validate({
                 rules: {
@@ -1649,10 +1670,21 @@
                     client: {
                         required: true
                     },
-                    // cname: {
-                    //     required: true
-                    // },
-
+                    cname: {
+                        maxlength: 100
+                    },
+                    ccountry: {
+                        maxlength: 100
+                    },
+                    ccity: {
+                        maxlength: 100
+                    },
+                    pocname: {
+                        maxlength: 100
+                    },
+                    pocwechat: {
+                        maxlength: 100
+                    },
                     pocph: {
                         minlength: 6,
                         maxlength: 16,
@@ -1662,6 +1694,13 @@
                     pocemail: {
                         email: true
                     },
+                    b2bsigndate:{
+                        // required:true
+                    },
+                    b2bexdate:{
+                        dateAfter: "#b2bsigndate",
+                        // required:true,
+                    }
                 },
                 messages: {
                     pocph: "Please enter valid phone number",
