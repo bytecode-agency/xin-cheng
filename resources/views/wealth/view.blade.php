@@ -75,7 +75,7 @@
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Business Typeee</label>
+                        <label for="" class="form-label">Business Type</label>
                         <p>{{ $data->business_type }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -141,11 +141,11 @@
                         <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                        <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
                         <p> {{ $basic_data->annual_fee_due_reminder }}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                        <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
                         <p> {{ $basic_data->annual_fee_due_reminder_trigger }}</p>
                     </div>
                 @else
@@ -993,7 +993,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="application_submission_date" class="form-label">Application
                                                         Submission Date</label>
-                                                    
+
                                                         @isset($wealth_finance[$i]->application_submission_date)
                                                             {{ $wealth_finance[$i]->application_submission_date }}
                                                         @else
@@ -1015,8 +1015,8 @@
                                                     </p>
                                                 </div>
                                                 @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
-                                                    @php 
-                                                        $account_type =json_decode($wealth_finance[$i]->account_type); 
+                                                    @php
+                                                        $account_type =json_decode($wealth_finance[$i]->account_type);
                                                         $api = 1;
                                                     @endphp
                                                     @foreach($account_type as $ap)
@@ -1033,7 +1033,7 @@
                                                     @endforeach
                                                 @else
 
-                                                    @php 
+                                                    @php
                                                         $ap = (!empty($wealth_finance) && !empty($wealth_finance[$i]->account_type)) ? $wealth_finance[$i]->account_type : "";
                                                         $api = 1;
                                                     @endphp
@@ -1049,13 +1049,13 @@
                                                         </div>
                                                 @endif
                                                 @if(!empty($wealth_finance[$i]->account_type) && isJson($wealth_finance[$i]->account_type) )
-                                                    
+
                                                         @if (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
                                                             @foreach($account_type_specify as $aps)
                                                             <div class="formAreahalf basic_data">
                                                                 <label for="" class="form-label">Others, please specify</label>
                                                                 @if (isset($aps))
-                                                                    {{ $aps }} 
+                                                                    {{ $aps }}
                                                                 @else
                                                                     -
                                                                 @endif
@@ -1064,7 +1064,7 @@
                                                             @endforeach
                                                         @endif
                                                 @elseif (isset($wealth_finance[$i]->account_type) && $wealth_finance[$i]->account_type == 'Others')
-                                                      
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Others, please specify</label>
                                                             @if (isset($wealth_finance[$i]->account_type_specify))
@@ -1075,11 +1075,11 @@
                                                 @endif
 
                                                 @if(!empty($wealth_finance[$i]->account_policy_no) && isJson($wealth_finance[$i]->account_policy_no) )
-                                                                
-                                                    @php 
-                                                        
-                                                        $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no); 
-                                                        $apni = 1;  
+
+                                                    @php
+
+                                                        $account_policy_no =json_decode($wealth_finance[$i]->account_policy_no);
+                                                        $apni = 1;
                                                     @endphp
                                                     @foreach($account_policy_no as $apn)
                                                         <div class="formAreahalf basic_data">
@@ -1145,15 +1145,15 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Initial Deposit Currency</label>
-                                                    
+
                                                         @isset($wealth_finance[$i]->intial_deposit_currency)
                                                             {{ $wealth_finance[$i]->intial_deposit_currency }}
                                                         @else
                                                             -
                                                         @endisset
-                                                   
+
                                                 </div>
-                                                
+
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Initial Deposit
                                                         Amount</label>

@@ -1078,7 +1078,7 @@
                     </form>
                     <div class="dataAreaMain">
                         <div class="table_cstm  dasboard-entry">
-                            <table class="table table_yellow file_upload_table" >
+                            <table class="table table_yellow" id="files_table">
                                 <thead>
                                     <tr>
                                         <th scope="col">File Name</th>
@@ -1088,21 +1088,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    @foreach ($file as $files)
-                                        <tr>
-                                            <td><a href="{{asset('file/'.$files->file_orignal_name)}}" target="_blank" >{{ $files->file_orignal_name }}</a></td>
-                                            <td>{{ $files->uploaded_by }}</td>
-                                            <td>{{ $files->created_at->setTimezone('Asia/Singapore')->format('j F Y  g:i a') }}
-                                            </td>
-                                            <td> <a href="{{ url('file/' . $files->file_orignal_name) }}" download class="link-normal">
-                                                    <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
-                                                </a>
-                                                <a href="javascript:void(0);" class="del_confirm"
-                                                    data-id="{{ $files->id }}"><i class="fa-solid fa-trash ms-2"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                    @include('sales.files_table_body')
                                 </tbody>
                             </table>
                         </div>
@@ -1185,6 +1171,10 @@
                 processData: false,
                 success: (response) => {
                     if (response) {
+                        //Re Render files data table
+                        filesDataTable();
+                        $('#files_table tbody').html(response.files_view);
+                        $('#inputFile').val('');
                         // alert('hjh');
                         // alert(response);
 
@@ -1204,7 +1194,7 @@
                                 },
                             },
                         }).then((result) => {
-                            window.location = "{{ route('sales.edit', $sale->id) }}";
+                            //window.location = "{{ route('sales.edit', $sale->id) }}";
                             // $('#multistep_form')[0].reset();
                         })
                     }
@@ -1891,5 +1881,23 @@
             })
 
         });
+
+        //Files Data Table
+        filesDataTable();
+        function filesDataTable(){
+            $('#files_table').DataTable().destroy();
+            $('#files_table').DataTable({
+                oLanguage: {
+                    "sInfo": "Showing _START_ - _END_ of _TOTAL_",
+                    "sLengthMenu": "Show _MENU_ Entries",
+                    "oPaginate": {
+                        "sNext": "<i class='fa fa-angle-double-right'></i>",
+                        "sPrevious": "<i class='fa fa-angle-double-left'></i>"
+                    },
+                },
+                searching: false,
+                paging: true
+            });            
+        }
     </script>
 @endpush

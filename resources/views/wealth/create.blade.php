@@ -813,15 +813,15 @@
                         id="annual_fee_due_date" placeholder="dd/mm/yy">
         </div>
         <div class="formAreahalf mb-40">
-            <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Remainder</label>
+            <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Reminder</label>
             <select class="form-control" name="annual_fee_due_reminder" id="annual_fee_due_reminder">
-                <option value="" selected disabled>Choose Remainder </option>
+                <option value="" selected disabled>Choose Reminder </option>
                 <option value="30 day before due">30 Days before due</option>
                 <option value="60 day before due">60 Days before due</option>
             </select>
         </div>
         <div class="formAreahalf">
-            <label for="annual_fee_due_reminder_trigger" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+            <label for="annual_fee_due_reminder_trigger" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
             <select class="form-control" name="annual_fee_due_reminder_trigger" id="annual_fee_due_reminder_trigger">
                     <option value="" selected="" disabled="">Please select</option>
                     <option value="Day">Day</option>
