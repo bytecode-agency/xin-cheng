@@ -36,7 +36,7 @@
                         <div class="formAreahalf basic_data">
                             <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
                             <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
-                                class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yy">
+                                class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yyyy">
                         </div>
                        @if( $key != 0)
                         <div class="formAreahalf basic_data">
@@ -159,10 +159,10 @@
                                                 </select>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">DOB</label>
+                                                <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                 <input type="text" class="form-control datepicker"
                                                     name="share[{{ $key }}][{{ $key2 }}][dob]"
-                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yy">
+                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yyyy">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Phone</label>
@@ -193,7 +193,7 @@
                                                     Date(DD/MM/YYYY)</label>
                                                 <input type="text" class="form-control datepicker"
                                                     name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]"
-                                                    value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yy">
+                                                    value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yyyy">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Renewal
@@ -325,7 +325,7 @@
                                                         class="form-control datepicker"
                                                         name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
                                                         value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
-                                                        placeholder="dd/mm/yy"
+                                                        placeholder="dd/mm/yyyy"
                                                 >
                                             </div>
                                             <div class="formAreahalf basic_data">

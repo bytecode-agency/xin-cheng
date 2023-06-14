@@ -563,7 +563,7 @@ $(document).ready(function () {
                             <input type="text" name="share[` + (shr_arr_id - 1) + `][` + sh_no + `][fo_cpm2_gender]" id="fo_cpm2_gender" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_dob" class="form-label">DOB(MM/DD/YYYY)</label>
+                            <label for="fo_cpm2_dob" class="form-label">DOB (MM/DD/YYYY)</label>
                             <input type="text" name="share[` + (shr_arr_id - 1) + `][` + sh_no + `][fo_cpm2_dob]" id="fo_cpm2_dob" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
@@ -596,7 +596,7 @@ $(document).ready(function () {
                             <input type="text" name="share[` + (shr_arr_id - 1) + `][` + sh_no + `][fo_cpm2_tin_ctry]" id="fo_cpm2_tin_ctry" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_res_add" class="form-label">Residential Add.(according to Add. proof)</label>
+                            <label for="fo_cpm2_res_add" class="form-label">Residential Address</label>
                             <input type="text" name="share[` + (shr_arr_id - 1) + `][` + sh_no + `][fo_cpm2_res_add]" id="fo_cpm2_res_add" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
@@ -727,7 +727,7 @@ $(document).ready(function () {
                                 id="nfo_pass_reminder">
                         </div>
                         <div class="formAreahalf">
-                            <label for="nfo_dob" class="form-label">DOB(MM/DD/YYYY)</label>
+                            <label for="nfo_dob" class="form-label">DOB (MM/DD/YYYY)</label>
                             <input type="text" class="form-control" name="shrd[0][0][nfo_dob]" id="nfo_dob">
                         </div>
                         <div class="formAreahalf">
@@ -858,7 +858,7 @@ $(document).ready(function () {
                                 id="nfo_pass_reminder">
                         </div>
                         <div class="formAreahalf">
-                            <label for="nfo_dob" class="form-label">DOB(MM/DD/YYYY)</label>
+                            <label for="nfo_dob" class="form-label">DOB (MM/DD/YYYY)</label>
                             <input type="text" class="form-control" name="shrd[0][0][nfo_dob]" id="nfo_dob">
                         </div>
                         <div class="formAreahalf">
@@ -1009,7 +1009,7 @@ $(document).ready(function () {
                                 id="nfo_pass_reminder">
                         </div>
                         <div class="formAreahalf">
-                            <label for="nfo_dob" class="form-label">DOB(MM/DD/YYYY)</label>
+                            <label for="nfo_dob" class="form-label">DOB (MM/DD/YYYY)</label>
                             <input type="text" class="form-control" name="shrd[`+ (id_nfo - 1) + `][0][nfo_dob]" id="nfo_dob">
                         </div>
                         <div class="formAreahalf">
@@ -1155,7 +1155,7 @@ $(document).ready(function () {
                                 id="nfo_pass_reminder">
                         </div>
                         <div class="formAreahalf">
-                            <label for="nfo_dob" class="form-label">DOB(MM/DD/YYYY)</label>
+                            <label for="nfo_dob" class="form-label">DOB (MM/DD/YYYY)</label>
                             <input type="text" class="form-control" name="shrd[0][nfo_dob]" id="nfo_dob">
                         </div>
                         <div class="formAreahalf">
@@ -1267,7 +1267,7 @@ $(document).ready(function () {
                     <input type="text" class="form-control" name="shrd[` + (nfo_arr_id - 1) + `][` + nfo_sh_no + `][nfo_pass_reminder]" id="nfo_pass_reminder">\
                 </div>\
                 <div class="formAreahalf">\
-                    <label for="nfo_dob" class="form-label">DOB(MM/DD/YYYY)</label>\
+                    <label for="nfo_dob" class="form-label">DOB (MM/DD/YYYY)</label>\
                     <input type="text" class="form-control" name="shrd[` + (nfo_arr_id - 1) + `][` + nfo_sh_no + `][nfo_dob]" id="nfo_dob">\
                 </div>\
                 <div class="formAreahalf">\

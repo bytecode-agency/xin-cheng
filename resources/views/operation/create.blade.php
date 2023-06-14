@@ -332,7 +332,7 @@
                                             <select name="pass[0][pass_iss]"  class="js-example-responsive form-control">
                                                 <option value="" selected>Please select pass issuance
                                                 </option>
-                                                <option value="In progress">In progress</option>
+                                                <option value="Progress">Progress</option>
                                                 <option value="Done">Done</option>
                                             </select>
                                         </div>
@@ -398,7 +398,7 @@
                                             <label for="clienttype" class="form-label ">Singpass Setup</label>
                                             <select name="pass[0][singpass_setup]" id="renewlfre" class="js-example-responsive form-control">
                                                 <option value="">Please select</option>
-                                                <option value="In progress">In progress</option>
+                                                <option value="Progress">Progress</option>
                                                 <option value="Done">Done</option>
                                             </select>
                                         </div>
@@ -1084,7 +1084,7 @@
                             <select name="pass[` + p + `][pass_iss]"  class="js-example-responsive form-control">
                                 <option value="" selected >Please select pass issuance
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select> 
                         </div>
@@ -1148,7 +1148,7 @@
                             <label for="clienttype" class="form-label ">Singpass Setup</label>
                             <select name="pass[` + p + `][singpass_setup]" class="js-example-responsive form-control>
                                 <option value="">Please select</option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -2760,7 +2760,7 @@
                             <select name="fi[` + (btn_click - 1) + `][0][app_sub]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -2783,7 +2783,7 @@
                             <select name="fi[` + (btn_click - 1) + `][0][money_dep_sts]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="N/A">N/A</option>
                             </select>
@@ -3181,7 +3181,7 @@
                             <select name="fi[` + (arr_id - 1) + `][` + fi_no + `][app_sub]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
 
@@ -3206,7 +3206,7 @@
                             <select name="fi[` + (arr_id - 1) + `][` + fi_no + `][money_dep_sts]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="N/A">N/A</option>
                             </select>

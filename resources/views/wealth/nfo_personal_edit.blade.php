@@ -20,7 +20,7 @@
     </div>
     <div class="formAreahalf">
         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" value="{{$basic_data->dob}}" placeholder="dd/mm/yy">
+        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" value="{{$basic_data->dob}}" placeholder="dd/mm/yyyy">
 
     </div>
     <div class="formAreahalf">
@@ -30,7 +30,7 @@
     </div>
     <div class="formAreahalf">
         <label for="nfo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-        <input type="text" class="form-control datepicker" name="nfo_pass_exp" id="nfo_pass_exp" value="{{$basic_data->passport_exp_date}}" placeholder="dd/mm/yy">
+        <input type="text" class="form-control datepicker" name="nfo_pass_exp" id="nfo_pass_exp" value="{{$basic_data->passport_exp_date}}" placeholder="dd/mm/yyyy">
 
     </div>
     <div class="formAreahalf">

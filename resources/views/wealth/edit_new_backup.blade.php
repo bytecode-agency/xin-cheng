@@ -418,8 +418,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="commencement_date" class="form-label">Commencement
-                                                        Date</label>
+                                                    <label for="commencement_date" class="form-label">Commencement Date (DD/MM/YYYY)</label>
                                                     <input type="date" name="commencement_date" id="commencement_date"
                                                         value="@isset($wealth_mas->commencement_date) {{ $wealth_mas->commencement_date }} @endisset"
                                                         class="form-control">
@@ -755,7 +754,7 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="dob" class="form-label">DOB(DD/MM/YYYY)</label>
+                                                    <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
                                                     <input type="date" name="dob" id="dob"
                                                         value="@isset($wealthpass->dob) {{ $wealthpass->dob }} @endisset"
                                                         class="form-control">
