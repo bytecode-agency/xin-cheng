@@ -1618,7 +1618,7 @@
                                                                 </select></span></div>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="commision_status" class="form-label">Commisison
+                                                        <label for="commision_status" class="form-label">Commission
                                                             Status(For
                                                             Admin
                                                             Purpose)
@@ -2010,7 +2010,7 @@
                                                                 </select></span></div>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="commision_status" class="form-label">Commisison
+                                                        <label for="commision_status" class="form-label">Commission
                                                             Status(For
                                                             Admin
                                                             Purpose)

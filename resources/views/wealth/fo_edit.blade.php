@@ -56,7 +56,7 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
+                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 

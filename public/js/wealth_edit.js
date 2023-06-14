@@ -910,7 +910,7 @@ $(document).ready(function () {
         var count_finance = 1;
         $('.wealth_finance_check').each(function (index) {
             console.log($(this).children().find('.formAreahalf label[for="financial_institution_name"]'));
-            $(this).children().find('.formAreahalf label[for="financial_institution_name"]').html('Financial Institution Name ' + count_finance);
+            $(this).children().find('.formAreahalf label[for="financial_institution_name"]').html('Financial Institution Name' + count_finance);
             count_finance++;
         });
 

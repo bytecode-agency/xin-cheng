@@ -386,7 +386,9 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary (SGD)</label>
+                                                            <div class="dollersec"><span class="doller">$</span>
                                                             <p>{{ $shareholder->monthly_sal }}</p>
+                                                            </div>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Company</label>
@@ -502,7 +504,9 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary (SGD)</label>
+                                                            <div class="dollersec"><span class="doller">$</span>
                                                             <p>{{ $shareholder->monthly_sal }}</p>
+                                                            </div>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
@@ -1789,7 +1793,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Commisison Status (For Admin
+                                                <label for="" class="form-label">Commission Status (For Admin
                                                     Purpose)
                                                 </label>
                                                 <p

@@ -684,7 +684,7 @@
                                     </div>
                                     {{-- <button class="btn saveBtn" id="edit_add_finance" name="edit_add_finance">Add Financial Institution</button> --}}
                                 </div>
-                              
+
 
 
                                 <input type="hidden" name="wealth_pass_id"
@@ -946,19 +946,19 @@
                                                         class="form-control">
                                                         <option value="" selected disabled>Choose relationship with pass holder 1</option>
                                                         <option value="Self"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>                                                            
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>
                                                         <option value="Parents"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>
                                                         <option value="Spouse"
-                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>    
+                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>
                                                         <option value="Children"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>
                                                         <option value="Relatives"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>
                                                         <option value="Friend"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>
                                                         <option value="Others"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -1086,10 +1086,10 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="singpass_set_up" class="form-label">Singpass Set
                                                         Up</label>
-                                                    <select name="singpass_set_up"                                                       
+                                                    <select name="singpass_set_up"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>   
+                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>
                                                         <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
                                                     </select>
                                                 </div>
@@ -1343,7 +1343,7 @@
                                                             </select></span></div>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="commision_status" class="form-label">Commisison
+                                                    <label for="commision_status" class="form-label">Commission
                                                         Status(For
                                                         Admin
                                                         Purpose)
@@ -1651,7 +1651,7 @@
                                                             </select></span></div>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="commision_status" class="form-label">Commisison
+                                                    <label for="commision_status" class="form-label">Commission
                                                         Status(For
                                                         Admin
                                                         Purpose)

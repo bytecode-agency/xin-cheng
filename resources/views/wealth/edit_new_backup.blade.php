@@ -490,22 +490,22 @@
                                     </div>
                                 </div>
 
-                              
+
                                 <div class="tab-pane fade wealth_finance_tab_new" id="nav-financial" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab"> 
+                                    aria-labelledby="nav-profile-tab">
                                     @php $length =1;@endphp
                                     @if(count($wealthfinance)>0)
-                                    @php $length=count($wealthfinance); @endphp                                       
-                                    @endif                  
-                                                                    
+                                    @php $length=count($wealthfinance); @endphp
+                                    @endif
+
                                     <div class="wealth_finance_data" id="wealth_finance_data">
-                                        @for($i=0; $i<$length; $i++)  
+                                        @for($i=0; $i<$length; $i++)
                                             <div id="financial_accordion_{{$i +1 }}" class="mas_related wealth_finance_check financial_{{$i +1}}">
-                                                <div class="new_chnages_finance accordion-items">  
+                                                <div class="new_chnages_finance accordion-items">
                                                     <input type="hidden" name="financial[{{$i + 1}}][wealth_finance_id]" id="finance_id"
-                                                        value="@isset($wealthfinance[$i]->id) {{ $wealthfinance[$i]->id }} @endisset">                                      
+                                                        value="@isset($wealthfinance[$i]->id) {{ $wealthfinance[$i]->id }} @endisset">
                                                     <div class="mas_heading_accordian">
-                                                    
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="stakeholder_type" class="form-label">Stakeholder
                                                                 Type</label>
@@ -539,8 +539,8 @@
                                                             data-target="#financial_collapse{{$i +1}}" aria-expanded="true"
                                                             aria-controls="collapseOne">
                                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                                        </button>                                                  
-                                                    
+                                                        </button>
+
                                                         <div class="cross financial_wealth"><span class="edit_cancel_share remove-financal">x</span></div>
                                                     </div>
                                                     <div id="financial_collapse{{$i +1}}" class="collapse" aria-labelledby="headingOne"
@@ -691,19 +691,19 @@
                                                                         value="@isset($wealthfinance[$i]->finacial_remarks) {{ $wealthfinance[$i]->finacial_remarks }} @endisset"></textarea>
                                                                 </div>
                                                             </div>
-                                                        </div>                                                                                                                                                                                            
-                                                    </div>                                           
-                                                </div>                                                                                      
-                                            </div> 
-                                        @endfor   
-                                      
-                                    </div>    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endfor
+
+                                    </div>
                                     <div class="btn_check_finance">
                                         <button class='btn saveBtn edit_add_finance' name='edit_add_finance'>Add Financial Institution</button>
-                                    </div>                                 
-                                </div> 
-                                                     
-                              
+                                    </div>
+                                </div>
+
+
                                 <input type="hidden" name="wealth_pass_id"
                                     value="@isset($wealthpass->id) {{ $wealthpass->id }} @endisset">
                                 <div class="tab-pane fade" id="nav-pass" role="tabpanel"
@@ -963,19 +963,19 @@
                                                         class="form-control">
                                                         <option value="" selected disabled>Choose relationship with pass holder 1</option>
                                                         <option value="Self"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>                                                            
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>
                                                         <option value="Parents"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>
                                                         <option value="Spouse"
-                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>    
+                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>
                                                         <option value="Children"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>
                                                         <option value="Relatives"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>
                                                         <option value="Friend"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>
                                                         <option value="Others"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>    
+                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -1103,10 +1103,10 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="singpass_set_up" class="form-label">Singpass Set
                                                         Up</label>
-                                                    <select name="singpass_set_up"                                                       
+                                                    <select name="singpass_set_up"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>   
+                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>
                                                         <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
                                                     </select>
                                                 </div>
@@ -1133,7 +1133,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="tab-pane fade wealth_business_tab_new" id="nav-business" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <div class="business_data">
@@ -1360,7 +1360,7 @@
                                                                 </select></span></div>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="commision_status" class="form-label">Commisison
+                                                        <label for="commision_status" class="form-label">Commission
                                                             Status(For
                                                             Admin
                                                             Purpose)
@@ -1404,19 +1404,19 @@
                                                         <input type="text" name="commission_amount"
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
-                                                    </div>                                                  
-                                                  
+                                                    </div>
+
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_remarks" class="form-label">Remarks</label>
                                                         <textarea name="business_remarks" rows="4" cols="50"
                                                             value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset"></textarea>
                                                     </div>
                                                 </div>
-                                                
+
                                                     <div class="redemption_add_table">
                                                         <h3>Redemption Date and Amount</h3>
                                                         {{-- <form name="business_red_table_data" class="business_redemption_tab" id="redemption_table" method="POST"> --}}
-                                                           
+
                                                                 <input type="hidden" name="business_tab_id" id="busines_tab_id" class="busines_tab_id" value="@isset($wealthbuss->id) {{$wealthbuss->id}} @endisset">
                                                                 <div class="redemption_table_data">
                                                                     <div class="formAreahalf r_table">
@@ -1435,16 +1435,16 @@
                                                                                     id="fo_servicing_fee_amount"
                                                                                     value=""></span>
                                                                         </div>
-                                                                    </div> 
+                                                                    </div>
                                                                 </div>
-                                                              
+
                                                             <div class="btn_adding_redempton">
                                                                 <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
                                                             </div>
                                                         {{-- </form> --}}
                                                     </div>
                                                     <div class="Redemption_date edit_redemption">
-                                                    
+
                                                         <div class="table">
                                                             <table class="table" id="red_table">
                                                                 <thead>
@@ -1455,11 +1455,11 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                  
+
                                                                     @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                                
+
                                                                     @foreach($wealthbuss->business_redempt as $redemption_data)
-                                                                   
+
                                                                     <tr>
                                                                         <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
                                                                         <td>{{$redemption_data->red_amount}}</td>
@@ -1475,7 +1475,7 @@
                                                                 </tbody>
                                                                 </tbody>
                                                             </table>
-        
+
                                                         </div>
                                                     </div>
                                                     <div class="last_net_business">
@@ -1490,12 +1490,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @else                               
+                            @else
                                 <div class="tab-pane fade show active wealth_business_tab_new" id="nav-business" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
                                     <div class="business_data">
@@ -1722,7 +1722,7 @@
                                                             </select></span></div>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="commision_status" class="form-label">Commisison
+                                                    <label for="commision_status" class="form-label">Commission
                                                         Status(For
                                                         Admin
                                                         Purpose)
@@ -1801,11 +1801,11 @@
                                                         value="@isset($wealthbuss->business_remarks) {{ $wealthbuss->business_remarks }} @endisset"></textarea>
                                                 </div>
                                             </div>
-                                        
-                                                
+
+
                                              <div class="redemption_add_table">
                                                 <h3>Redemption Date and Amount</h3>
-                                                
+
                                                   <input type="hidden" name="business_tab_id" id="busines_tab_id" class="busines_tab_id" value="@isset($wealthbuss->id) {{$wealthbuss->id}} @endisset">
                                                         <div class="redemption_table_data">
                                                             <div class="formAreahalf r_table">
@@ -1824,16 +1824,16 @@
                                                                             id="fo_servicing_fee_amount"
                                                                             value=""></span>
                                                                 </div>
-                                                            </div> 
+                                                            </div>
                                                         </div>
-                                                    
+
                                                     <div class="btn_adding_redempton">
                                                         <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
                                                     </div>
                                                 {{-- </form> --}}
                                             </div>
                                             <div class="Redemption_date edit_redemption">
-                                            
+
                                                 <div class="table">
                                                     <table class="table" id="red_table">
                                                         <thead>
@@ -1844,11 +1844,11 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        
+
                                                             @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
-                                                        
+
                                                             @foreach($wealthbuss->business_redempt as $redemption_data)
-                                                        
+
                                                             <tr>
                                                                 <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
                                                                 <td>{{$redemption_data->red_amount}}</td>
@@ -1881,10 +1881,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                           
+                                </div>
                             @endif
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -1976,5 +1976,5 @@
     <script src="{{ asset('js/wealth_edit.js') }}?v={{ time() }}" type="text/javascript"></script>
     <script src="{{ asset('js/notes.js') }}?v={{ time() }}" type="text/javascript"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
-  
+
 @endpush

@@ -147,7 +147,7 @@
                                             <input type="date" class="form-control" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="formAreahalf"> <label for="fo_relationship_1"
+                                        <!-- <div class="formAreahalf"> <label for="fo_relationship_1"
                                                 class="form-label">Relationship with Company 1</label> <select
                                                 class="form-control" name="cmp[1][relationship]"
                                                 id="fo_relationship_1">
@@ -159,8 +159,8 @@
                                                 <option value="Fund co.">Fund co.</option>
                                                 <option value="Management co.">Management co.</option>
                                             </select>
-                                        </div>
-                                        <div class="formAreahalf">
+                                        </div> -->
+                                        <div class="formAreahalf mb-4 pb-3">
                                             <label for="fo_company_email_1" class="form-label">Company Email</label>
                                             <input type="email" class="form-control" name="cmp[1][company_email]"
                                                 id="fo_company_email_1">
