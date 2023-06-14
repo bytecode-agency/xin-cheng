@@ -183,7 +183,7 @@
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="pdob" name="pdob">
                         </div>
                         <div class="formAreahalf ">
@@ -1010,7 +1010,7 @@
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
                         </div>
                         <div class="formAreahalf ">
@@ -1182,7 +1182,7 @@
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
                         </div>
                         <div class="formAreahalf ">
@@ -1394,7 +1394,7 @@
                         btn_click - 1) + `][0][pnamec]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="share[0][0][pdob]" name="share[` + (btn_click -
                         1) + `][0][pdob]">
                         </div>
@@ -1576,7 +1576,7 @@
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][pdob]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pdob]">
                         </div>

@@ -197,7 +197,7 @@
                         <input type="text" class="form-control" name="nfo_gender" id="nfo_gender">
                     </div>
                     <div class="formAreahalf">
-                        <label for="nfo_dob" class="form-label">DOB</label>
+                        <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="text" class="form-control" name="nfo_dob" id="nfo_dob">
                     </div>
                     <div class="formAreahalf">
@@ -422,7 +422,7 @@
             <input type="text" class="form-control" name="fo_pass_reminder" id="fo_pass_reminder">
         </div>
         <div class="formAreahalf">
-            <label for="fo_dob" class="form-label">DOB</label>
+            <label for="fo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
             <input type="text" class="form-control" name="fo_dob" id="fo_dob">
         </div>
         <div class="formAreahalf">
@@ -454,8 +454,7 @@
             <input type="text" class="form-control" name="fo_phone_number" id="fo_phone_number">
         </div>
         <div class="formAreahalf">
-            <label for="fo_residential_Add" class="form-label">Residential Add.(according to Add.
-                proof)</label>
+            <label for="fo_residential_Add" class="form-label">Residential Address</label>
             <input type="text" class="form-control" name="fo_residential_add" id="fo_residential_add">
         </div>
         <div class="formAreahalf">
@@ -598,7 +597,7 @@
             <input type="text" name="nfo_cpm2_tin_ctry" id="nfo_cpm2_tin_ctry" class="form-control" value="">
         </div>
         <div class="formAreahalf">
-            <label for="fo_cpm2_res_add" class="form-label">Residential Add.(according to Add. proof)</label>
+            <label for="fo_cpm2_res_add" class="form-label">Residential Address</label>
             <input type="text" name="fo_cpm2_res_add" id="fo_cpm2_res_add" class="form-control" value="">
         </div>
         <div class="formAreahalf">

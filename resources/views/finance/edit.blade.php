@@ -168,7 +168,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
-                                                    <label for="" class="form-label">DOB(DD/MM/YYYY)</label>
+                                                    <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                     <input type="date" class="form-control" id="share[0][0][pdob]" name="share[{{$key}}][{{$key1}}][pdob]" value="{{ $shareholder->pdob}}">
                                                 </div>
                                                 <div class="formAreahalf basic_data company-full_width_Cstm">
@@ -551,7 +551,7 @@
                         <p>{{ $data->pgender}}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label w-50">DOB</label>
+                        <label for="" class="form-label w-50">DOB (DD/MM/YYYY)</label>
                         <input type="date" class="form-control w-50" id="pdob" name="pdob" value="{{$data->pdob}}">
                         <p>{{ $data->pdob}}</p>
                     </div>

@@ -363,7 +363,7 @@
                                         <select name="pass[0][pass_iss]">
                                             <option value="" selected >Please select pass issuance
                                             </option>
-                                            <option value="In Progress"
+                                            <option value="Progress"
                                             {{ isset($data['pass_iss']) && $data['pass_iss'] == 'In Progress' ? 'selected' : '' }}>
                                             In Progress</option>
                                             <option value="Done"
@@ -667,7 +667,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for=""
-                                                                class="form-label">DOB(DD/MM/YYYY)</label>
+                                                                class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p></p>
                                                             <input type="date" class="form-control" name="share[{{$c}}][{{$s}}][shareholder_dob]" value="{{$share['shareholder_dob']}}" >
                                                         </div>

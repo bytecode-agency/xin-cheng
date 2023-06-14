@@ -57,7 +57,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yyyy',
         onClose: function () {
             $(this).valid();
         }
@@ -364,7 +364,7 @@ $(document).ready(function () {
                         </select>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">DOB</label>
+                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="date" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
                             value="{{ $shareholder->dob }}">
@@ -751,7 +751,7 @@ $(document).ready(function () {
                                 <label for="poc_email" class="form-label">POC Email</label>
                                 <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_email]" id="poc_email"
                                     value=""
-                                    class="form-control datepicker" placeholder="dd/mm/yy">
+                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
@@ -768,7 +768,7 @@ $(document).ready(function () {
                                         submission
                                     </option>
                                     <option
-                                        value="In progress">In progress</option>
+                                        value="Progress">Progress</option>
                                     <option
                                         value="Done">Done</option>
 
@@ -839,7 +839,7 @@ $(document).ready(function () {
                                     <option value="" selected disabled>Choose money deposit
                                         status
                                     </option>
-                                    <option value="In progress">In progress</option>
+                                    <option value="Progress">Progress</option>
                                     <option value="Done">Done</option>
                                     <option value="N/A">N/A</option>
                                 </select>

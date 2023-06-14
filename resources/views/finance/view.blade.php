@@ -155,7 +155,7 @@
                                                     <p>{{ $shareholder->prenrem}}</p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">DOB(DD/MM/YYYY)</label>
+                                                    <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                     <p>{{ convertDate($shareholder->pdob,"d/m/Y") }}</p>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -455,7 +455,7 @@
                         <p>{{ $data->pgender}}</p>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">DOB</label>
+                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <p>{{ $data->pdob}}</p>
                     </div>
                     <div class="formAreahalf basic_data">
