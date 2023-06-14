@@ -13,7 +13,7 @@
     <div class="filterPagination d-flex justify-content-between align-items-center">
         <div class="paginationLeft">
             <ul>
-                <li><a href="{{ route('sales.create') }}">Sales</a></li>
+                <li><a href="{{ route('sales') }}">Sales</a></li>
                 <li>{{ Breadcrumbs::render() }} </li>
             </ul>
         </div>
@@ -60,27 +60,29 @@
                         <!-- <fieldset id="FO_First" class=" w-100 d-flex justify-content-start flex-wrap form-fields"> -->
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Client's Full Name</label>
-                            <input type="text" class="form-control" id="cname" name="cname">
+                            <!-- <input type="text" class="form-control" id="cname" name="cname"> -->
+                            <input type='text' class="form-control" id='cname' name="cname" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Country of Client</label>
-                            <input type="text" class="form-control" id="ccountry" name="ccountry">
+                            <input type="text" class="form-control" id="ccountry" name="ccountry" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">City of Client</label>
-                            <input type="text" class="form-control" id="ccity" name="ccity">
+                            <input type="text" class="form-control" id="ccity" name="ccity" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone no. of POC</label>
-                            <input type="text" class="form-control" id="pocph" name="pocph">
+                            <input type="text" class="form-control" id="pocph" name="pocph" pattern="[0-9]{10,11}">
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Name of POC</label>
-                            <input type="text" class="form-control poc_name" id="pocname" name="pocname">
+                            <!-- <input type="text" class="form-control poc_name" id="pocname" name="pocname"> -->
+                            <input type='text' class="form-control poc_name" id='pocname' name="pocname" onkeydown="return /[a-z]/i.test(event.key)" />
                         </div>
 
                         <div class="formAreahalf ">
@@ -92,6 +94,18 @@
                             <label for="" class="form-label"> Wechat ID of POC</label>
                             <input type="text" class="form-control" id="pocwechat" name="pocwechat">
                         </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label"> Source of Client</label>
+                                <select name="source_of_client" id="source_of_client" class="source_of_client ">
+                                    <option value="" selected disabled>Please select Source of Client </option>
+                                    <option value="Referral">Referral</option>
+                                    <option value="Online marketing">Online marketing</option>
+                                    <option value="Seminar">Seminar</option>
+                                    <option value="Warm market">Warm market</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                        </div>
+
 
                         <div class="formAreahalf " id="signdiv">
 
@@ -189,34 +203,34 @@
 
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="dcname">Name of direct client</label>
 
                                                 <input type="text" class="form-control dc_name" id="dc_name"
-                                                    name="addpb[0][dcname]" value="">
+                                                    name="addpb[0][dcname]" onkeydown="return /[a-z]/i.test(event.key) value="/>
 
                                             </div>
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="passcountry">Passport Country</label>
                                                 <input type="text" class="form-control passcountry"
-                                                    name="addpb[0][passcountry]" id="passcountry">
+                                                    name="addpb[0][passcountry]" id="passcountry" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="wechatidc">Wechat ID of client</label>
 
                                                 <input type="text" class="form-control wechatidc"
                                                     name="addpb[0][wechatidc]" id="wechatidc">
                                             </div>
 
-                                            <div class="formAreahalf ">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="cmobileno">Mobile no. of client</label>
                                                 <input type="text" class="form-control cmobileno"
                                                     name="addpb[0][cmobileno]" id="cmobileno">
                                             </div>
 
-                                            <div class="formAreahalf">
+                                            <div class="formAreahalf b2c_hide">
                                                 <label class="form-label" for="cemail">Email address of client</label>
                                                 <input type="email" class="form-control cemail" name="addpb[0][cemail]"
                                                     id="cemail">
@@ -339,13 +353,13 @@
                                                 <label class="form-label" for="">Name of direct client</label>
 
                                                 <input type="text" class="form-control gendcname"
-                                                    name="addbg[0][g_dcname]">
+                                                    name="addbg[0][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
                                             <div class="formAreahalf ">
                                                 <label class="form-label" for="passcountry">Passport Country</label>
                                                 <input type="text" class="form-control genpasscountry"
-                                                    name="addbg[0][g_passcountry]">
+                                                    name="addbg[0][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                             </div>
 
@@ -568,12 +582,44 @@
                     $(".main_class_fp").show();
                     $("#previous").attr("style", "display:block");
                     var i = 0;
+                    if ($("#business").val() == "B2C"){
+                        $('.b2c_hide').hide();
+                    }
                     $("#dynamic-ar").click(function() {
                         //   alert('dd');
                         ++i;
                         var I = $(this).parents('#append_div_form').find('.accordion-body').length +
                             1;
+                        var b2cHtml =``;
+                    if ($("#business").val() != "B2C"){
+                        b2cHtml = ` <div class="formAreahalf ">
+                      <label class="form-label" for="dcname">Name of direct client</label>
 
+                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="" onkeydown="return /[a-z]/i.test(event.key)"/>
+
+                    </div>
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="passcountry">Passport Country</label>
+                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="" onkeydown="return /[a-z]/i.test(event.key)"/>
+
+                    </div>
+
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="wechatidc">Wechat ID of client</label>
+
+                      <input type="text" class="form-control wechatidc" name="addpb[` + i + `][wechatidc]" value="">
+                    </div>
+
+                    <div class="formAreahalf ">
+                      <label class="form-label" for="cmobileno">Mobile no. of client</label>
+                      <input type="text" class="form-control cmobileno" name="addpb[` + i + `][cmobileno]" value="">
+                    </div>
+
+                    <div class="formAreahalf">
+                      <label class="form-label" for="cemail">Email address of client</label>
+                      <input type="email" class="form-control cemail" name="addpb[` + i + `][cemail]" value="">
+                    </div>`;
+                    }
                         $("#append_div_form .card_potentials_fg").last().append(
                             `  <fieldset id="dynamicAddRemove" class="w-100 d-flex justify-content-start flex-wrap form-fields custom-form parent_field` +
                             i + ` border_sales">
@@ -625,34 +671,8 @@
                         </div>
                         <div class="formAreahalf others">
 
-                        </div>
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="dcname">Name of direct client</label>
+                        </div>`+b2cHtml+`
 
-                      <input type="text" class="form-control dc_name" id="dcname" name="addpb[` + i + `][dcname]" value="">
-
-                    </div>
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="passcountry">Passport Country</label>
-                      <input type="text" class="form-control passcountry" name="addpb[` + i + `][passcountry]" value="">
-
-                    </div>
-
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="wechatidc">Wechat ID of client</label>
-
-                      <input type="text" class="form-control wechatidc" name="addpb[` + i + `][wechatidc]" value="">
-                    </div>
-
-                    <div class="formAreahalf ">
-                      <label class="form-label" for="cmobileno">Mobile no. of client</label>
-                      <input type="text" class="form-control cmobileno" name="addpb[` + i + `][cmobileno]" value="">
-                    </div>
-
-                    <div class="formAreahalf">
-                      <label class="form-label" for="cemail">Email address of client</label>
-                      <input type="email" class="form-control cemail" name="addpb[` + i + `][cemail]" value="">
-                    </div>
 
                     <div class="formAreahalf">
                       <label class="form-label" for="busdes">Business Description</label>
@@ -812,12 +832,12 @@
     <div class="formAreahalf ">
       <label class="form-label" for="">Name of direct client</label>
 
-      <input type="text" class="form-control gendcname" name="addbg[` + g + `][g_dcname]">
+      <input type="text" class="form-control gendcname" name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
     <div class="formAreahalf ">
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control genpasscountry" name="addbg[` + g + `][g_passcountry]">
+      <input type="text" class="form-control genpasscountry" name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
@@ -957,10 +977,10 @@
                         '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-">'
                     );
                     $("#renewlremdiv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminderrr</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-">'
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select class="form-control" id="renewlrem" name="renewlrem" placeholder="-"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
                     );
                     $("#renewlfrediv").html(
-                        '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-">'
+                        '<label for="clienttype" class="form-label">Agreement Renewal Frequency</label><div class="d-flex text-dark"><span class="every" style="margin: 2px 7px 0px 0px; font-size: 15px;">Every</span><span class="select"><select name="renewlfre" id="renewlfre"><option value="Day">Day</option><option value="3 Days">3 Days</option><option value="Week">Week</option><option value="2 Weeks">2 Weeks</option><option value="4 Weeks">4 Weeks</option></select></span>'
                     );
                     // alert(document.getElementById('sign').value);
 
@@ -974,7 +994,7 @@
                             );
 
                             $("#renewlremdiv").html(
-                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select name="renewlrem" id="renewlrem"><option value="" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
+                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select name="renewlrem" id="renewlrem"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
                             );
                             $("#renewlfrediv").html(
                                 ` <label for="clienttype" class="form-label"> Agreement Renewal Frequency</label>
@@ -1404,7 +1424,27 @@
                 }
             });
 
+            var compare_dates = function(date1,date2){
+                if (date1>date2) return true;
+                else if (date1<date2) return false;
+                else return true;
+            }
 
+
+            $("#multistep_form").change(function(e) {
+                $("#multistep_form").valid();
+                if (e.target.id === 'b2bexdate') {
+                    const aggrementDate = $('#b2bsigndate').val();
+                    if (compare_dates(new Date(aggrementDate), new Date(e.target.value))) {
+                        $('#b2bexdate').val(aggrementDate);
+                    }
+                } else if (e.target.id === 'b2bsigndate') {
+                    const expiryDate = $('#b2bexdate').val();
+                    if (compare_dates(new Date(e.target.value), new Date(expiryDate))) {
+                        $('#b2bexdate').val(e.target.value);
+                    }
+                }
+            });
 
             $("#multistep_form").validate({
 
@@ -1413,7 +1453,8 @@
                         required: true
                     },
                     client: {
-                        required: true
+                        required: true,
+                        minlength: 1
                     },
                     // cname: {
                     //     required: true
@@ -1426,7 +1467,8 @@
                     },
 
                     pocemail: {
-                        email: true
+                        email: true,
+                        minlength: 1
                     },
                 },
                 messages: {
@@ -1475,7 +1517,6 @@
                 // }
                 const valid = $("#multistep_form").valid();
                 if (valid == true) {
-                    console.log("validddd")
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(

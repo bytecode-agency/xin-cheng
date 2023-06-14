@@ -1303,7 +1303,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                          
+
                             @endif
                         </div>
 
@@ -1329,7 +1329,7 @@
                                   @else --}}
                                   <?php $pr_name=0; ?>
                                     @foreach ($pass_hol['pass_pr'] as $pr_key => $pr)
-                                    <?php $pr_name++; 
+                                    <?php $pr_name++;
                                       ?>
                                         {{-- <div class="w-100 m-1 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="mas_heading_accordian accordion-item">
@@ -1347,7 +1347,7 @@
                                     <div id="pass_collapseOne_{{$pr_key}}" class="collapse" aria-labelledby="headingOne"
                                         data-parent="#pass_accordion">
                                         <div class="accordion-body d-flex flex-wrap"> --}}
-                                      
+
 
                                         <div id="mas_accordion_pr" class="mas_related tab-content cs_acc_pass closed">
                                             <div class="mas_heading_accordian d-flex flex-wrap ">
@@ -1572,7 +1572,7 @@
                                                 <img src="{{ url('images/download_icon.svg') }}" alt="delete-icon">
                                             </a>
                                             <a href="javascript:void(0);" class="del_confirm" data-id="{{ $files->id }}"><i
-                                                    class="fa-solid fa-trash ms-2"></i></a>
+                                                    class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

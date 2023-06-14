@@ -13,6 +13,19 @@
         right: 16px !important;
     }
     .custom-select.custom-select-sm {
-        appearance: auto;
+        border-bottom: 0;
+        padding: 10px;
+        position: relative;
+        border: 0;
+        background: transparent;
+        text-align: center;
+        color: var(--boldgray);
+        font-family: var(--roboto);
+        font-weight: 700;
+        padding-right: 20px;
+        background-image: url(/images/table-down-arrow.png);
+        background-repeat: no-repeat;
+        background-position: 82% 50%;
+        cursor: pointer;
     }
 }

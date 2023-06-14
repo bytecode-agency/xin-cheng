@@ -71,7 +71,7 @@
 
                     <div class="formAreahalf  client_status mb-1 ">
                         <label for="cby" class="form-label">Client Status</label>
-                        <select class="client-status-selector" name="csts" id="business">
+                        <select class="client-status-selector" name="csts" >
                             <option value="Active" class="btn text-start"
                                 {{ $sale->client_sts == 'Active' ? 'selected' : '' }}>Active</option>
                             <option value="Dormant" class="btn text-start"
@@ -142,32 +142,33 @@
                                 </div>
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Client's Full Name</label>
-                                    <input type="text" class="form-control" id="cname" name="cname"
+                                    <input type='text' class="form-control" id='cname' name="cname" onkeydown="return /[a-z]/i.test(event.key)"
                                         value="{{ $sale->client_name }}">
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Country of Client</label>
-                                    <input type="text" class="form-control" id="ccountry" name="ccountry"
-                                        value="{{ $sale->client_country }}">
+                                    <input type="text" class="form-control" id="ccountry" name="ccountry" onkeydown="return /[a-z]/i.test(event.key)"
+                                        value="{{ $sale->client_country }}"/>
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">City of Client</label>
                                     <input type="text" class="form-control" id="ccity" name="ccity"
-                                        value="{{ $sale->client_city }}">
+                                        value="{{ $sale->client_city }}" onkeydown="return /[a-z]/i.test(event.key)"/>
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Phone no. of POC</label>
                                     <input type="text" class="form-control" id="pocph" name="pocph"
-                                        value="{{ $sale->poc_ph }}">
+                                        value="{{ $sale->poc_ph }}" pattern="[0-9]{10,11}">
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">Name of POC</label>
-                                    <input type="text" class="form-control" id="pocname" name="pocname"
-                                        value="{{ $sale->poc_name }}">
+                                    <!-- <input type="text" class="form-control" id="pocname" name="pocname" -->
+                                    <input type='text' class="form-control" id='pocname' name="pocname" onkeydown="return /[a-z]/i.test(event.key)"
+                                        value="{{ $sale->poc_name }}"/>
                                 </div>
 
                                 <div class="formAreahalf ">
@@ -181,6 +182,24 @@
                                     <input type="text" class="form-control" id="pocwechat" name="pocwechat"
                                         value="{{ $sale->poc_wechat }}">
                                 </div>
+                                <div class="formAreahalf ">
+                                    <label for="" class="form-label"> Source of Client</label>
+                                    <select name="source_of_client" id="source_of_client" class="source_of_client ">
+                                        <option value=""  disabled>Please select Source of Client </option>
+                                        <option value="Referral"         {{isset($sale->source_of_client) && $sale->source_of_client == 'Referral' ? 'selected' : ''  }}>Referral</option>
+                                        <option value="Online marketing" {{isset($sale->source_of_client) && $sale->source_of_client == 'Online marketing' ? 'selected' : ''  }}>Online marketing</option>
+                                        <option value="Seminar"          {{isset($sale->source_of_client) && $sale->source_of_client == 'Seminar' ? 'selected' : ''  }}>Seminar</option>
+                                        <option value="Warm market"      {{isset($sale->source_of_client) && $sale->source_of_client == 'Warm market' ? 'selected' : ''  }}>Warm market</option>
+                                        <option value="Others"           {{isset($sale->source_of_client) && $sale->source_of_client == 'Others' ? 'selected' : ''  }}>Others</option>
+                                    </select>
+                                </div>
+                                @if (isset($sale->source_of_client) && ($sale->source_of_client == 'Others' || $sale->source_of_client == 'Online marketing'))
+                                    <div class="formAreahalf basic_data please_specify">
+                                        <label for="" class="form-label">Others, please specify</label>
+                                        <input type="text" class="form-control" id="source_of_client_specify" name="source_of_client_specify"
+                                        value="{{ isset($sale->source_of_client_specify) ? $sale->source_of_client_specify : '' }}">
+                                    </div>
+                                @endif
                                 @if ($sale->bus_type == 'B2B')
                                     <div class="formAreahalf ">
                                         <label for="clienttype" class="form-label">Sign of B2B Agreement?</label>
@@ -513,7 +532,7 @@
                                                                     </div>
                                                                 @endif
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="dcname">Name of
                                                                         direct
                                                                         client</label>
@@ -521,21 +540,21 @@
                                                                     <input type="text" class="form-control"
                                                                         id="dcname[0][subject]"
                                                                         name="addpb[{{ $i }}][dcname]"
-                                                                        value="{{ $s['dcname'] }}">
+                                                                        value="{{ $s['dcname'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
 
                                                                 </div>
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="passcountry">Passport
                                                                         Country</label>
                                                                     <input type="text" class="form-control"
                                                                         id="passcountry[0][subject]"
                                                                         name="addpb[{{ $i }}][passcountry]"
-                                                                        value="{{ $s['passcountry'] }}">
+                                                                        value="{{ $s['passcountry'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                                                 </div>
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="wechatidc">Wechat Id of
                                                                         client</label>
 
@@ -545,7 +564,7 @@
                                                                         value="{{ $s['wechatidc'] }}">
                                                                 </div>
 
-                                                                <div class="formAreahalf ">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="cmobileno">Mobile no.
                                                                         of
                                                                         Client</label>
@@ -555,7 +574,7 @@
                                                                         value="{{ $s['cmobileno'] }}">
                                                                 </div>
 
-                                                                <div class="formAreahalf">
+                                                                <div class="formAreahalf b2c_hide">
                                                                     <label class="form-label" for="cemail">Email address
                                                                         of
                                                                         client</label>
@@ -865,7 +884,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="gendcname[{{ $g }}][subject]"
                                                                         name="addbg[{{ $g }}][g_dcname]"
-                                                                        value="{{ $r['g_dcname'] }}">
+                                                                        value="{{ $r['g_dcname'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
 
                                                                 </div>
@@ -876,7 +895,7 @@
                                                                     <input type="text" class="form-control"
                                                                         id="genpasscountry[0][subject]"
                                                                         name="addbg[{{ $g }}][g_passcountry]"
-                                                                        value="{{ $r['g_passcountry'] }}">
+                                                                        value="{{ $r['g_passcountry'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                                                 </div>
 
@@ -1194,15 +1213,16 @@
                                 },
                             },
                         }).then((result) => {
-                            //window.location = "{{ route('sales.edit', $sale->id) }}";
+                            // window.location = "{{ route('sales.edit', $sale->id) }}";
                             // $('#multistep_form')[0].reset();
+                            alert('Uploaded file will be visible in the list after submitting the complete form');
                         })
                     }
                 },
                 error: function(response) {
                     // alert('no');
                     // alert(response);
-                    // $('#file-input-error').text(response.responseJSON.message);
+                    $('#file-input-error').text(response.responseJSON.message);
                 }
             });
         });
@@ -1337,7 +1357,10 @@
 
             var i = $("#myInputHidden").val();
             i++;
-
+            var b2c_hide = "";
+            if ($("#business").val() == "B2C"){
+                b2c_hide = `style="display: none;"`;
+            }
             var I = i + 1;
             $(".add_fieldset_fg .card").last().append(
                 `<fieldset id="dynamicAddRemove" class="w-100 d-flex justify-content-start flex-wrap form-fields business generate Potens parent_field` +
@@ -1345,6 +1368,12 @@
 
     <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
     <div class="accordion-item">
+
+        <div class="cross"><span class="remove-input-field" data-id=".parent_field` + i + `">x</span></div>
+        <div class="formAreahalf checkbox" style="display: flex; align-items: flex-start">
+            <input type="checkbox" id="same_client_topb` + i + `"  class="same_client_topb" name="same_client_topb"  value="">
+            <label for="same_client_topb` + i + `" class="form-label checkbox_label" style="margin-left: 10px;">Same Basic Information as Client?</label>
+        </div>
                                                 <h2 class="accordion-header" id="panelsStayOpen-headingT` + i + `">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse"
@@ -1381,30 +1410,30 @@
          </div>
          <div class="formAreahalf others"></div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="dcname">Name of direct client</label>
 
       <input type="text" class="form-control" id="dcname[` + i + `][subject]" name="addpb[` + i + `][dcname]">
 
     </div>
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]">
+      <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="wechatidc">Wechat Id of client</label>
 
       <input type="text" class="form-control" id="wechatidc[` + i + `][subject]" name="addpb[` + i + `][wechatidc]">
     </div>
 
-    <div class="formAreahalf ">
+    <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cmobileno">Mobile no. of Client</label>
       <input type="text" class="form-control" id="cmobileno[` + i + `][subject]" name="addpb[` + i + `][cmobileno]">
     </div>
 
-    <div class="formAreahalf">
+    <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cemail">Email address of client</label>
       <input type="email" class="form-control" id="cemail[` + i + `][subject]" name="addpb[` + i + `][cemail]">
     </div>
@@ -1496,6 +1525,11 @@
                 g + `">
                 <div class="cross"><span class="remove-input-field2" data-id=".parent_field2` + g + `">x</span></div>
                 <div class="accordion-item">
+                    <div class="formAreahalf checkbox" style="display: flex; align-items: flex-start">
+                        <input type="checkbox" id="same_client_tobg` + g + `" class="same_client_tobg Potential_business"
+                            name="same_client_topb" value="">
+                        <label for="same_client_tobg` + g + `" class="form-label checkbox_label" style="margin-left: 10px;">Same as Type of Potential Business?</label>
+                    </div>
                                                 <h2 class="accordion-header" id="panelsStayOpen-headingTw` + g + `">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse"
@@ -1539,12 +1573,12 @@
     <div class="formAreahalf ">
       <label class="form-label" for="">Name of direct client</label>
 
-      <input type="text" class="form-control" id="gendcname[0][subject]" name="addbg[` + g + `][g_dcname]">
+      <input type="text" class="form-control" id="gendcname[0][subject]" name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
     <div class="formAreahalf ">
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="genpasscountry[0][subject]" name="addbg[` + g + `][g_passcountry]">
+      <input type="text" class="form-control" id="genpasscountry[0][subject]" name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
@@ -1697,6 +1731,9 @@
                                 window.location = "{{ route('sales.show', $sale->id) }}";
                                 // $('#multistep_form')[0].reset();
                             })
+                        },
+                        error: function(error) {
+                            alert(error.statusText);
                         }
                     });
                 }
@@ -1897,7 +1934,7 @@
                 },
                 searching: false,
                 paging: true
-            });            
+            });
         }
     </script>
 @endpush

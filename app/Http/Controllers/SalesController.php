@@ -210,8 +210,9 @@ class SalesController extends Controller
                 $topbs = unserialize($data->type_pot_bus);
                 if (isset($topbs)) {
                     foreach ($topbs as $topb) {
-
-                        $amt += $topb['busamt'];
+                        if (is_numeric($topb['busamt'])) {
+                            $amt += $topb['busamt'];
+                        }
                     }
                 }
             }
@@ -221,8 +222,9 @@ class SalesController extends Controller
                 $tbgs = unserialize($data->type_bus_gen);
                 if (isset($tbgs)) {
                     foreach ($tbgs as $tbg) {
-
-                        $amt += $tbg['g_busamt'];
+                        if (is_numeric($tbg['g_busamt'])) {
+                            $amt += $tbg['g_busamt'];
+                        }
                     }
                 }
             }
@@ -340,6 +342,8 @@ class SalesController extends Controller
         $sale->poc_name = $request->pocname;
         $sale->poc_email = $request->pocemail;
         $sale->poc_wechat = $request->pocwechat;
+        $sale->source_of_client = $request->source_of_client;
+        $sale->source_of_client_specify = $request->source_of_client_specify;
         $sale->b2b_sign = $request->sign;
         $sale->b2b_agr_sign_date = $request->b2bsigndate;
         $sale->b2b_agr_exp_date = $request->b2bexdate;
@@ -449,6 +453,8 @@ class SalesController extends Controller
         $sale->poc_name = $request->pocname;
         $sale->poc_email = $request->pocemail;
         $sale->poc_wechat = $request->pocwechat;
+        $sale->source_of_client = $request->source_of_client;
+        $sale->source_of_client_specify = $request->source_of_client_specify;
         $sale->b2b_sign = $request->sign;
         $sale->b2b_agr_sign_date = $request->b2bsigndate;
         $sale->b2b_agr_exp_date = $request->b2bexdate;

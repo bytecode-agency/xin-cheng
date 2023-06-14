@@ -312,7 +312,7 @@ $(document).ready(function () {
         });
         comp++;
     });
-    
+
     $('body').on('click', '.add_first_comp_shareholder', function () {
         var sharehold_no = $(this).parents('.full_div').find('.sharehold_length').length;
         // alert(sharehold_no);
@@ -679,10 +679,10 @@ $(document).ready(function () {
 
         }
         $('#fo_cpm2_phone_1').on('input',function(e){
-            let {value} = e.target            
+            let {value} = e.target
             if( !/^\d+$/.test(value)){
                 document.getElementById("fo_cpm2_phone_1").value = value.replace(/[@a-zA-Z]/g, "")
-            } 
+            }
            });
 
     });
@@ -707,14 +707,14 @@ $(document).ready(function () {
 
 
     });
-    
+
     $('fo_cpm2_phone_1').change(function() {
-        
+
         let val = document.getElementById("fo_cpm2_phone_1").value
         console.log(val,'vvvvvvvvvvvv')
-        
+
      });
-    
+
     $(document).on('change', '#type_of_fo', function() {
         if ($(this).val() == "Others") {
             // var tpb_id = $(this).attr('data-id');
@@ -1509,7 +1509,7 @@ $(document).ready(function () {
                                 <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_equity" class="form-label">Equity Percentage</label>
+                                <label for="nfo_equity" class="form-label">Equity Percentageee</label>
                                     <div class="dollersec percentage_input"><span class="input">
                                     <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
@@ -1568,7 +1568,7 @@ $(document).ready(function () {
                                 <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_pass_country" class="form-label">Passport Country</label>
+                                <label for="nfo_pass_country" class="form-label">Passport Countryyy</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_pass_country]"
                                     id="nfo_pass_country">
                             </div>
