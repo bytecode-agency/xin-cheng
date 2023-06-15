@@ -24,10 +24,153 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <link href="{{ asset('css/style.css?v=' . time()) }}" rel="stylesheet">
+    <style>
+        @-webkit-keyframes moveup {
+
+        0%,
+        60%,
+        100% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(0);
+        }
+
+        25% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(1em);
+        }
+        }
+
+        @keyframes moveup {
+
+        0%,
+        60%,
+        100% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(0);
+        }
+
+        25% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(1em);
+        }
+        }
+
+        @-webkit-keyframes movedown {
+
+        0%,
+        60%,
+        100% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(0);
+        }
+
+        25% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(-1em);
+        }
+        }
+
+        @keyframes movedown {
+
+        0%,
+        60%,
+        100% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(0);
+        }
+
+        25% {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg) translateZ(-1em);
+        }
+        }        
+        .layer {
+            display: block;
+            position: absolute;
+            height: 3em;
+            width: 3em;
+            box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(45deg);
+        }
+
+        .layer:nth-of-type(1) {
+            background: #005EA2;
+            margin-top: 1.5em;
+            -webkit-animation: movedown 1.8s cubic-bezier(0.39, 0.575, 0.565, 1) 0.9s infinite normal;
+            animation: movedown 1.8s cubic-bezier(0.39, 0.575, 0.565, 1) 0.9s infinite normal;
+        }
+
+        .layer:nth-of-type(1):before {
+            content: "";
+            position: absolute;
+            width: 85%;
+            background: #003860;
+        }
+
+        .layer:nth-of-type(2) {
+            background: #5DC0F1;
+            margin-top: 0.75em;
+        }
+
+        .layer:nth-of-type(3) {
+            background: rgba(20, 89, 222, .2);
+            -webkit-animation: moveup 1.8s cubic-bezier(0.39, 0.575, 0.565, 1) infinite normal;
+            animation: moveup 1.8s cubic-bezier(0.39, 0.575, 0.565, 1) infinite normal;
+        }
+
+        /* Stage and link styles */
+        .custom_wait_container {
+            height: 4.4em;
+            width: 37px;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+        }
+
+        .custom_wait_link {
+            align-self: center;
+            justify-self: center;
+            color: rgba(255, 255, 255, 0.5);
+            font: 400 1em Helvetica Neue, Helvetica, sans-serif;
+        }
+        .custom_wait_link a {
+            color: #292929 !important;
+            text-decoration: none;
+        }
+        #PopUpMessage {
+            opacity:0;
+            position: fixed;
+            visibility:hidden;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index:99999;
+        }
+        #PopUpMessage .custom_wait_link {
+            position: absolute;
+            border-radius: 5px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            font-size: 17px;
+        }
+        #PopUpMessage .msg-gif{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+        }
+    </style>
 </head>
 
 <body class="dashboardPage">
-
+        <div id="PopUpMessage">
+            <div class="custom_wait_link">
+                <div class="custom_wait_container">
+                    <i class="layer"></i>
+                    <i class="layer"></i>
+                    <i class="layer"></i>
+                </div>
+                <a id="loader-msg">Your request is being processed...</a>
+            </div>
+        </div>
     @include('layouts.sidebar')
 
     <section class="mainSection">
@@ -52,6 +195,19 @@
         $(".MenuToggle").click(function() {
             $(this).parent().parent().toggleClass('open');
         });
+
+        function triggerLoader() {
+            $('#PopUpMessage').show();
+            $('#PopUpMessage').delay(500).css({
+                "visibility": "visible",
+                "opacity": "1",
+                "transition": "all .5s linear"
+            });
+        }
+
+        function removeLoader() {
+            $('#PopUpMessage').hide();
+        }
     </script>
     @stack('js')
 </body>
