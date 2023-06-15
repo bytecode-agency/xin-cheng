@@ -656,8 +656,13 @@
                                                                 </div>
 
                                                                 <div class="formAreahalf basic_data">
+                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                                                    <input type="date" name="financial[1][application_submission_date]" id="application_submission_date" value="" class="form-control" placeholder="dd/mm/yyyy">
+                                                                </div>
+
+                                                                <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
-                                                                        Submission</label>
+                                                                        Submissionnn</label>
                                                                     <select name="financial[{{$i +1}}][application_submission]" id="application_submission"
                                                                         class="js-example-responsive form-control">
                                                                         <option value="" selected disabled>Choose application

@@ -593,7 +593,7 @@ $(document).ready(function () {
                                     <option value="4 Weeks">4 Weeks</option> </select></span></div>
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Add.(according to Add. proof)</label>
+                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Address</label>
                                     <input type="text" name="share[1][1][residential_address]" id="fo_cpm2_res_add_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -1150,7 +1150,7 @@ $(document).ready(function () {
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][tin_country]" id="fo_cpm2_tin_ctry_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_res_add_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Residential Add.(according to Add. proof)</label>
+                            <label for="fo_cpm2_res_add_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Residential Address</label>
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][residential_address]" id="fo_cpm2_res_add_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
