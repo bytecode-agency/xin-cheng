@@ -1945,21 +1945,21 @@
                                                             Date</label>
                                                         <input type="date" name="subscription"
                                                             value="@isset($wealthbuss->subscription){{ $wealthbuss->subscription }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control subsInsDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
                                                             value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control maturityDate">
 
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control durationJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity
@@ -2577,6 +2577,11 @@
             });
 
 
+        });
+
+        $('#business_account_type').select2({
+            placeholder: 'Select Account Types',
+            allowClear: true
         });
     </script>
 @endpush

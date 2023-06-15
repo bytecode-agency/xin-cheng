@@ -288,8 +288,6 @@ class SalesController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->addbg);
-        //  dd($request->all());
         $typeofpotentialbus = $request->addpb;
         foreach ($typeofpotentialbus as $key => $val) {
             if (isset($val['drp'])) {
@@ -359,17 +357,43 @@ class SalesController extends Controller
 
         $sale->save();
 
-        $data = (object)([
-            'id' => $request->uid,
-            'name' => $request->created_by,
-            'userID' => $sale->id,
-            'module_name' => 'Sale Application',
-            'old_action' => null,
-            'action_perform' => serialize($request->toArray()),
-            'message' => 'Application Created',
-        ]);
-        activity_log($data);
+        // $data = (object)([
+        //     'id' => $request->uid,
+        //     'name' => $request->created_by,
+        //     'userID' => $sale->id,
+        //     'module_name' => 'Sale Application',
+        //     'old_action' => null,
+        //     'action_perform' => serialize($request->toArray()),
+        //     'message' => 'Application Created',
+        // ]);
+        // activity_log($data);
         $view_id=$sale->id;
+
+        $notes = new Notes;
+        $notes->module_name = $request->tbl_name;
+        $notes->application_id = $sale->id;
+        $notes->notes_description = $request->notes;
+        $notes->created_by = $request->created_by_name;
+        $notes->save();
+
+        $request->validate([
+            'file' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
+        ]);
+
+        if ($files = $request->file('file')) {
+        $fileName = time().'.'.$request->file->extension();
+        $f = $request->file->getClientOriginalName();
+        $request->file->move(public_path('file'), $fileName);
+
+        $file = new Sfile;
+        $file->file = $fileName;
+        $file->file_orignal_name = $f;
+        $file->sale_app_id = $sale->id;
+        $file->uploaded_by = $request->created_by;
+        $file->uploaded_by_id = $request->uid;
+        $file->save();
+        }        
+
         return redirect()->route('sales', compact('view_id'));
     }
 

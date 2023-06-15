@@ -24,17 +24,15 @@ function equity_percentage_checks() {
         var id = '';
         id = $(company[index]).attr('id');
         var eqty_precentage = document.getElementById(id).querySelectorAll('#equity_shareholder')
-        // console.log(eqty_precentage);
         let percentage = 0;
         for (per = 0; per < eqty_precentage.length; per++) {
             percentage += parseFloat($(eqty_precentage[per]).attr('value'));
 
         }
-        // console.log(percentage);
         if (percentage < 100) {
 
             $(".edit__add_com").addClass("disable");
-            $(".edit__add_com").attr('disabled', 'disabled');
+            $(".edit__add_com").removeAttr('disabled');
             $("#" + id).find(".edit_add_shareholder").removeClass("disable");
             if (!$("#" + id).find(".edit_add_shareholder").hasClass("disable")) {
                 disable = 1;
@@ -971,20 +969,20 @@ $(document).ready(function () {
     })
 
     $('body').on('click', '.remove-campany', function () {
-        // var id =  $(this).parents('.company_name').find('#fo_company_id').val();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type: "delete",
-        //     url: "/company-destroy",
-        //     data: {id: id },
-        //     success: function (response) {
-        //      console.log(response);
-        //     }
-        // });
+        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-destroy",
+            data: {id: id },
+            success: function (response) {
+             console.log(response);
+            }
+        });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -1006,7 +1004,7 @@ $(document).ready(function () {
         });
         $.ajax({
             type: "delete",
-            url: "/company-shareholder-destroy-1",
+            url: "/company-shareholder-destroy",
             data: { id: finance_entry_id },
             success: function (response) {
                 console.log(response);
