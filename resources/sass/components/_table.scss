@@ -29,3 +29,9 @@
         cursor: pointer;
     }
 }
+
+
+table.table-bordered.dataTable td:last-child,table.table-bordered.dataTable td:last-child {
+    padding-left: 0;
+    padding-right: 0;
+}

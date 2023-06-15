@@ -44,13 +44,14 @@
 
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
+    </div>
+
+    <div class="filterBtn d-flex align-items-center justify-content-end viewSave">
             <a href="{{ route('operation.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
             {{-- <a href=""><button class="btn saveBtn"><span>Edit</span></button></a> --}}
             <a href="javascript:void(0);" data-id={{ $data->id }} title="Delete"
                 class="btn del_confirm_opr saveBtn cancelBtn delete">Delete</a>
         </div>
-    </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
 
@@ -354,7 +355,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Pass Issuance Date</label>
+                                                <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_iss_date']))
                                                         {{ convertDate($pass_hol['pass_iss_date'],"d/m/Y") }}@else-
@@ -362,7 +363,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Pass Expiry Date</label>
+                                                <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @if (isset($pass_hol['pass_exp_date']))
                                                         {{ convertDate($pass_hol['pass_exp_date'],"d/m/Y") }}@else-

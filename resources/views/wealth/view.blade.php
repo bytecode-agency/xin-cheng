@@ -1470,7 +1470,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Pass Issuance Date</label>
+                                                <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->pass_issuance_date)
                                                         {{ convertDate($wealthpass->pass_issuance_date,"d/m/Y") }}
@@ -1480,7 +1480,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Pass Expiry Date</label>
+                                                <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->pass_expiry_date)
                                                         {{ convertDate($wealthpass->pass_expiry_date,"d/m/Y") }}

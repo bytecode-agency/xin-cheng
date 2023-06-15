@@ -372,12 +372,12 @@
                                         </select>
                                     </div>
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Pass Issuance Date</label>
+                                        <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                        
                                         <input type="date" class="form-control" name="pass[0][pass_iss_date]" value="{{ $data['pass_iss_date'] }}">
                                     </div>
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Pass Expiry Date</label>
+                                        <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                       
                                         <input type="date" class="form-control" name="pass[0][pass_exp_date]" value="{{ $data['pass_exp_date'] }}">
                                     </div>

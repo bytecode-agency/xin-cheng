@@ -6,7 +6,7 @@
 
                 <div class="card-header" id="headingOne">
                     {{-- <span class="edit_cancel_company cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>  --}}
-                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
+                    <div class="cross"><span s="edit_cancel_company remove-campany">x</span></div>
                     <div class="formAreahalf basic_data">
                         <label for="company_name" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id" class="form-control"

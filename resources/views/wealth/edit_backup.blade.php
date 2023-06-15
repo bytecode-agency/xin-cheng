@@ -1000,15 +1000,13 @@
                                                     </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="pass_issuance_date" class="form-label">Pass Issuance
-                                                        Date</label>
+                                                    <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                     <input type="date" name="pass_issuance_date"
                                                         value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="pass_expiry_date" class="form-label">Pass Expiry
-                                                        Date</label>
+                                                    <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                     <input type="date" name="pass_expiry_date"
                                                         value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
                                                         class="form-control">
