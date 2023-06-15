@@ -691,7 +691,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
 
     /**
      * Checks whether the given (cached) response may be served as "stale" when a revalidation
-     * is currently in progress.
+     * is currently Progress.
      */
     private function mayServeStaleWhileRevalidate(Response $entry): bool
     {

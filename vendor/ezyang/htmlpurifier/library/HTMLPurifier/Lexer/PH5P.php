@@ -2785,7 +2785,7 @@ class HTML5TreeConstructer
                     case 'footer':
                     case 'datagrid':
                     case 'command':
-                        // Work in progress!
+                        // Work Progress!
                         break;
 
                     /* A start tag token not covered by the previous entries */

@@ -347,7 +347,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance </label>
                                                 <p
-                                                    class="@if ($pass_hol['pass_iss'] == 'Done') active-btn @elseif($pass_hol['pass_iss'] == 'In progress') active-blue  @else ' ' @endif">
+                                                    class="@if ($pass_hol['pass_iss'] == 'Done') active-btn @elseif($pass_hol['pass_iss'] == 'Progress') active-blue  @else ' ' @endif">
                                                     @if (isset($pass_hol['pass_iss']))
                                                         {{ $pass_hol['pass_iss'] }}@else-
                                                     @endif
@@ -412,7 +412,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Singpass Setup </label>
                                                 <p
-                                                    class="@if ($pass_hol['singpass_setup'] == 'Done') active-btn @elseif($pass_hol['singpass_setup'] == 'In progress') active-blue  @else ' ' @endif">
+                                                    class="@if ($pass_hol['singpass_setup'] == 'Done') active-btn @elseif($pass_hol['singpass_setup'] == 'Progress') active-blue  @else ' ' @endif">
                                                     @if (isset($pass_hol['singpass_setup']))
                                                         {{ $pass_hol['singpass_setup'] }}@else-
                                                     @endif
@@ -984,7 +984,7 @@
                                                                                         class="form-label">Application
                                                                                         Submission</label>
                                                                                     <p
-                                                                                        class="@if ($fi['app_sub'] == 'Done') active-btn @elseif($fi['app_sub'] == 'In progress') active-blue  @else ' ' @endif">
+                                                                                        class="@if ($fi['app_sub'] == 'Done') active-btn @elseif($fi['app_sub'] == 'Progress') active-blue  @else ' ' @endif">
                                                                                         @if (isset($fi['app_sub']))
                                                                                         {{ $fi['app_sub'] }} @else-
                                                                                         @endif
@@ -1022,7 +1022,7 @@
                                                                                         Deposit
                                                                                         Status</label>
                                                                                     <p
-                                                                                        class="@if ($fi['money_dep_sts'] == 'Done') active-btn @elseif($fi['money_dep_sts'] == 'In progress') active-blue  @else ' ' @endif">
+                                                                                        class="@if ($fi['money_dep_sts'] == 'Done') active-btn @elseif($fi['money_dep_sts'] == 'Progress') active-blue  @else ' ' @endif">
                                                                                         @if (isset($fi['money_dep_sts']))
                                                                                             {{ $fi['money_dep_sts'] }}
                                                                                         @else-
@@ -1186,7 +1186,7 @@
                                                                                         class="form-label">Application
                                                                                         Submission</label>
                                                                                     <p
-                                                                                        class="@if ($fi['app_sub'] == 'Done') active-btn @elseif($fi['app_sub'] == 'In progress') active-blue  @else ' ' @endif">
+                                                                                        class="@if ($fi['app_sub'] == 'Done') active-btn @elseif($fi['app_sub'] == 'Progress') active-blue  @else ' ' @endif">
                                                                                         @if (isset($fi['app_sub']))
                                                                                         {{ $fi['app_sub'] }} @else-
                                                                                         @endif
@@ -1224,7 +1224,7 @@
                                                                                         Deposit
                                                                                         Status</label>
                                                                                     <p
-                                                                                        class="@if ($fi['money_dep_sts'] == 'Done') active-btn @elseif($fi['money_dep_sts'] == 'In progress') active-blue  @else ' ' @endif">
+                                                                                        class="@if ($fi['money_dep_sts'] == 'Done') active-btn @elseif($fi['money_dep_sts'] == 'Progress') active-blue  @else ' ' @endif">
                                                                                         @if (isset($fi['money_dep_sts']))
                                                                                             {{ $fi['money_dep_sts'] }}
                                                                                         @else-

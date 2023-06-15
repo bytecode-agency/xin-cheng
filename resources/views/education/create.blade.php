@@ -201,11 +201,11 @@
                                     aria-hidden="true"></i></span> --}}
                         <div class="formAreahalf">
                             <label for="education_type" class="form-label">Name of School to be applied</label>
-                             <input type="text" name="school_name" id="school_name" class="form-control" value=""> 
+                             <input type="text" name="school_name" id="school_name" class="form-control" value="">
                            <!-- <select name="edu[1][school_name]" id="education_type" class="form-control">\ -->
                               <!--  <option value="" selected disabled>Choose name of school to be applied</option> -->
                                <!-- <option value="Hwa Chong International School">Hwa Chong International School</option> -->
-                                
+
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -679,7 +679,7 @@
                     'data-id');
                 dataId++;
                 $(this).parents('#add_schol_parent').find('#add-school-' + (dataId - 1)).after(
-                    `<div id="add-school-` + dataId + `" data-id=` + dataId + ` class="w-100 d-flex 
+                    `<div id="add-school-` + dataId + `" data-id=` + dataId + ` class="w-100 d-flex
                                 flex-wrap justify-content-start form-fields company_design add_school_div" style="margin-left:100px;">
                                 <span class="cancel_company cancel_school"><i class="fa fa-times" aria-hidden="true"></i></span>
                                 <div class="formAreahalf">
@@ -772,14 +772,14 @@
                 if ($(this).val() == "Yes") {
                     $('#student_pass_opt').css('margin-left', '100px');
                     $('#student_pass_opt').css('margin-bottom', '10px');
-                    $('#student_pass_opt').html(`  
+                    $('#student_pass_opt').html(`
                     <div class="formAreahalf">
                         <label for="need_student_pass_app" class="form-label">Need of student-Pass Application</label>
-                        <select name="need_student_pass_app" id="need_student_pass_app" class="form-control student_pass">                           
+                        <select name="need_student_pass_app" id="need_student_pass_app" class="form-control student_pass">
                             <option value="Yes" selected>Yes</option>
                             <option value="No">No</option>
                         </select>
-                    </div>                      
+                    </div>
                     <div class="formAreahalf">
                         <label for="pass_app_status" class="form-label">Pass Application Status</label>
                         <select name="pass_app_status" id="pass_app_status" class="js-example-responsive form-control">
@@ -793,7 +793,7 @@
                     <label for="pass_issuance" class="form-label">Pass Issuance</label>
                     <select name="pass_issuance" id="pass_issuance" value="" class="js-example-responsive form-control">
                         <option value="" selected disabled>Choose pass issuance</option>
-                        <option value="In Progress">In Progress</option>
+                        <option value="Progress">Progress</option>
                         <option value="Done">Done</option>
                         <option value="Withdrawn">Withdrawn</option>
                         </select>
@@ -824,7 +824,7 @@
                     <input type="text" name="fin_number" id="fin_number" value="" class="form-control">
                     </div>
                     <div class="formAreahalf">
-                    <label for="pass_renewal_frq" class="form-label">Pass Renewal Frequency</label>                   
+                    <label for="pass_renewal_frq" class="form-label">Pass Renewal Frequency</label>
                     <div class="select_box"><span class="every">Every</span><span class="select"><select
                                     name="pass_renewal_frq" id="pass_renewal_frq" class="form-control">
                                     <option value="" selected="" disabled="">Please select</option>
@@ -844,7 +844,7 @@
                     $('#student_pass_opt').css('margin-bottom', '200px');
                     $('#student_pass_opt').html(`<div class="formAreahalf">
                         <label for="education_type" class="form-label">Need of student-Pass Application</label>
-                        <select name="need_student_pass_app" id="need_student_pass_app" class="form-control student_pass">                           
+                        <select name="need_student_pass_app" id="need_student_pass_app" class="form-control student_pass">
                             <option value="Yes" >Yes</option>
                             <option value="No" selected>No</option>
                         </select>
@@ -874,7 +874,7 @@
                             <option value="Pending">Pending</option>
                             <option value="Approved">Approved</option>
                             <option value="Rejected">Rejected</option>
-                            </select> 
+                            </select>
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_issuance" class="form-label">Pass Issuance</label>
@@ -887,17 +887,17 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_issuance_date" class="form-label">Pass Issuances Date(DD/MM/YYYY)</label>
-                        <input type="date" name="par_ltvp_pass_issuance_date" id="par_ltvp_pass_issuance_date" class="form-control" value=""> 
+                        <input type="date" name="par_ltvp_pass_issuance_date" id="par_ltvp_pass_issuance_date" class="form-control" value="">
 
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_issuance_exp_date" class="form-label">Pass Expiry Date(DD/MM/YYYY)</label>
-                        <input type="date" name="par_ltvp_pass_issuance_exp_date" id="par_ltvp_pass_issuance_exp_date" class="form-control" value=""> 
+                        <input type="date" name="par_ltvp_pass_issuance_exp_date" id="par_ltvp_pass_issuance_exp_date" class="form-control" value="">
 
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_duration" class="form-label">Pass Duration (Years)</label>
-                        <input type="text" name="par_ltvp_pass_duration" id="par_ltvp_pass_duration" class="form-control" value=""> 
+                        <input type="text" name="par_ltvp_pass_duration" id="par_ltvp_pass_duration" class="form-control" value="">
 
                     </div>
                     <div class="formAreahalf">
@@ -907,11 +907,11 @@
                             <option value="90 days before expiry">90 days before expiry</option>
                             <option value="120 days before expiry">120 days before expiry</option>
                             <option value="180 days before expiry">180 days before expiry</option>
-                        </select>                        
+                        </select>
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_fin_no" class="form-label">FIN Number</label>
-                        <input type="text" name="par_ltvp_fin_no" id="par_ltvp_fin_no" class="form-control" value=""> 
+                        <input type="text" name="par_ltvp_fin_no" id="par_ltvp_fin_no" class="form-control" value="">
 
                     </div>
                     <div class="formAreahalf">
@@ -928,7 +928,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="par_ltvp_remarks" class="form-label">Remarks</label>
-                        <textarea name="par_ltvp_remarks" id="par_ltvp_remarks" rows="4" cols="50"></textarea> 
+                        <textarea name="par_ltvp_remarks" id="par_ltvp_remarks" rows="4" cols="50"></textarea>
                     </div>
                     `);
                 } else {
@@ -968,8 +968,8 @@
                             response
                             .success.id + `'>here</a></p>
                             <div class='number_main swal_number education_add_model'><ul class="list-group list-group-horizontal" id = "nav_list">
-                            <li class="list-group-item active"> <a href="#">1</a><p> Personal Details </p> </li> 
-                            <li class="list-group-item active"> <a href="#">2</a><p> Student Pass Application </p> </li>                    
+                            <li class="list-group-item active"> <a href="#">1</a><p> Personal Details </p> </li>
+                            <li class="list-group-item active"> <a href="#">2</a><p> Student Pass Application </p> </li>
                             <li class="list-group-item active"> <a href="#">3</a><p> Parent Personal Details </p> </li></ul>
                             <li class="list-group-item active"> <a href="#">4</a><p> Parents LTVP Application </p> </li></ul>
                             <li class="list-group-item active"> <a href="#">5</a><p> Parent/Guardian Details </p> </li></ul>

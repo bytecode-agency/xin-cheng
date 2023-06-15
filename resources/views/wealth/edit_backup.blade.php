@@ -285,8 +285,8 @@
                                                         <option value="" selected disabled>Choose kickstart to
                                                             tax
                                                             advisor</option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -298,8 +298,8 @@
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose deck submission
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -314,7 +314,7 @@
                                                         <option value="" selected disabled>Choose presentation
                                                             deck</option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -328,7 +328,7 @@
                                                             opening
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->tax_advisor_name) && $wealth_mas->masnet_account == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->tax_advisor_name) && $wealth_mas->masnet_account == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -373,7 +373,7 @@
                                                             submission
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -564,7 +564,7 @@
                                                             submission
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealthfinance->application_submission) && $wealthfinance->application_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealthfinance->application_submission) && $wealthfinance->application_submission == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealthfinance->application_submission) && $wealthfinance->application_submission == 'Done' ? 'selected' : '' }}>Done</option>
 
@@ -638,8 +638,8 @@
                                                         <option value="" selected disabled>Choose money deposit
                                                             status
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealthfinance->money_deposit_status) && $wealthfinance->money_deposit_status == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealthfinance->money_deposit_status) && $wealthfinance->money_deposit_status == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealthfinance->money_deposit_status) && $wealthfinance->money_deposit_status == 'Done' ? 'selected' : '' }}>Done</option>
                                                         <option value="N/A"
@@ -994,8 +994,8 @@
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose Pass Issuance
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -1089,7 +1089,7 @@
                                                     <select name="singpass_set_up"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>
+                                                        <option value="Progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Progress" ? 'selected' : ""}}>Progress</option>
                                                         <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
                                                     </select>
                                                 </div>
@@ -1150,7 +1150,7 @@
                                                             Submission
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -1458,7 +1458,7 @@
                                                             Submission
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>

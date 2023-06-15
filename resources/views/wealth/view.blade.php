@@ -722,7 +722,7 @@
                                                 <label for="" class="form-label">Kickstart to Tax
                                                     Advisor</label>
                                                 <p
-                                                    class="@if (isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'In progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
                                                     @isset($wealth_mas->kickstart_tax_advisor)
                                                         {{ $wealth_mas->kickstart_tax_advisor }}
                                                     @else
@@ -733,7 +733,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Legal Opinion</label>
                                                 <p
-                                                    class="@if (isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'In progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealth_mas->deck_submission) && $wealth_mas->deck_submission == 'Progress') active-blue @elseif(isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealth_mas->deck_submission)
                                                         {{ $wealth_mas->deck_submission }}
@@ -747,7 +747,7 @@
                                                     (Final)
                                                 </label>
                                                 <p
-                                                    class="@if (isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'In progress') active-blue @elseif(isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Progress') active-blue @elseif(isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealth_mas->presentation_deck)
                                                         {{ $wealth_mas->presentation_deck }}
@@ -760,7 +760,7 @@
                                                 <label for="" class="form-label">MASNET Account
                                                     Opening</label>
                                                 <p
-                                                    class="@if (isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'In progress') active-blue @elseif(isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'Progress') active-blue @elseif(isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealth_mas->masnet_account)
                                                         {{ $wealth_mas->masnet_account }}
@@ -796,7 +796,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Final Submission</label>
                                                 <p
-                                                    class="@if (isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'In progress') active-blue @elseif(isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Progress') active-blue @elseif(isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealth_mas->final_submission)
                                                         {{ $wealth_mas->final_submission }}
@@ -856,7 +856,7 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Commencement Date</label>
+                                                <label for="" class="form-label">Commencement Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealth_mas->commencement_date)
                                                         {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }}
@@ -877,7 +877,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Annual Declaration
-                                                    Deadline</label>
+                                                    Deadline (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealth_mas->annual_declaration_deadline)
                                                         {{ convertDate($wealth_mas->annual_declaration_deadline,'d/m/Y') }}
@@ -1009,7 +1009,7 @@
                                                     <label for="" class="form-label">Application
                                                         Submission </label>
                                                     <p
-                                                        class="@if (isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'In progress') active-blue @elseif(isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'Done') active-btn @else '' @endif">
+                                                        class="@if (isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'Progress') active-blue @elseif(isset($wealth_finance[$i]->application_submission) && $wealth_finance[$i]->application_submission == 'Done') active-btn @else '' @endif">
 
                                                         @isset($wealth_finance[$i]->application_submission)
                                                             {{ $wealth_finance[$i]->application_submission }}
@@ -1138,7 +1138,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Money Deposit Status</label>
                                                     <p
-                                                        class="@if (isset($wealth_finance[$i]->money_deposit_status) && $wealth_finance[$i]->money_deposit_status == 'In progress') active-blue @elseif(isset($wealth_finance[$i]->money_deposit_status) && $wealth_finance[$i]->money_deposit_status == 'Done') active-btn @else '' @endif">
+                                                        class="@if (isset($wealth_finance[$i]->money_deposit_status) && $wealth_finance[$i]->money_deposit_status == 'Progress') active-blue @elseif(isset($wealth_finance[$i]->money_deposit_status) && $wealth_finance[$i]->money_deposit_status == 'Done') active-btn @else '' @endif">
 
                                                         @isset($wealth_finance[$i]->money_deposit_status)
                                                             {{ $wealth_finance[$i]->money_deposit_status }}
@@ -1464,7 +1464,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance</label>
                                                 <p
-                                                    class="@if (isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'In progress') active-blue @elseif(isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Progress') active-blue @elseif(isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealthpass->pass_inssuance)
                                                         {{ $wealthpass->pass_inssuance }}
@@ -1547,7 +1547,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Singpass Set Up</label>
                                                 <p
-                                                    class="@if (isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'In progress') active-blue @elseif(isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'Progress') active-blue @elseif(isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'Done') active-btn @else '' @endif">
                                                     @isset($wealthpass->singpass_set_up)
                                                         {{ $wealthpass->singpass_set_up }}
                                                     @else
@@ -1618,7 +1618,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealthbuss->application_submision)
                                                         {{ $wealthbuss->application_submision }}
@@ -1927,7 +1927,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
 
                                                     @isset($wealthbuss->application_submision)
                                                         {{ $wealthbuss->application_submision }}

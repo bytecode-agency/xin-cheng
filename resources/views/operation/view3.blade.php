@@ -1049,9 +1049,8 @@
                                                                                                                     select
                                                                                                                 </option>
                                                                                                                 <option
-                                                                                                                    value="In Progress"
-                                                                                                                    {{ isset($fi['app_sub']) && $fi['app_sub'] == 'In Progress' ? 'selected' : '' }}>
-                                                                                                                    In
+                                                                                                                    value="Progress"
+                                                                                                                    {{ isset($fi['app_sub']) && $fi['app_sub'] == 'Progress' ? 'selected' : '' }}>
                                                                                                                     Progress
                                                                                                                 </option>
                                                                                                                 <option
@@ -1133,10 +1132,9 @@
                                                                                                                     select
                                                                                                                 </option>
                                                                                                                 <option
-                                                                                                                    value="In progress"
-                                                                                                                    {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'In progress' ? 'selected' : '' }}>
-                                                                                                                    In
-                                                                                                                    progress
+                                                                                                                    value="Progress"
+                                                                                                                    {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'Progress' ? 'selected' : '' }}>
+                                                                                                                    Progress
                                                                                                                 </option>
                                                                                                                 <option
                                                                                                                     value="Done"

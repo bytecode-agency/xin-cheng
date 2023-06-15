@@ -13,7 +13,7 @@
                 {{-- <li><a href="">Dashboard</a></li> --}}
                 <li>Dashboard</li>
             </ul>
-        </div>        
+        </div>
     </div>
 
     <!-- Form card data -->
@@ -112,7 +112,7 @@
                         </tr>
                         <tr>
                             <td>009</td>
-                            <td>2nd Attempt of PR Application for Timmy Yao is still in progress</td>
+                            <td>2nd Attempt of PR Application for Timmy Yao is still Progress</td>
                             <td>BeccaLam</td>
                             <td>03/11/2022</td>
                             <td>Application</td>
@@ -122,14 +122,14 @@
                             <td> <img src="{{ asset('/images/alert-no.png') }}" alt=">Notification"> <span>REP Renewal for
                                     Timmy
                                     Yao is
-                                    still in progress</span></td>
+                                    still Progress</span></td>
                             <td>BeccaLam</td>
                             <td>03/11/2022</td>
                             <td>Application</td>
                         </tr>
                         <tr>
                             <td>009</td>
-                            <td>Student Pass Renewal for Kai Jie is still in progress</td>
+                            <td>Student Pass Renewal for Kai Jie is still Progress</td>
                             <td>BeccaLam</td>
                             <td>03/11/2022</td>
                             <td>Application</td>

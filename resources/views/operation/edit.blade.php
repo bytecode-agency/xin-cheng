@@ -561,8 +561,8 @@
                                                                     class="js-example-responsive">
                                                                     <option value="" selected>Please select
                                                                     </option>
-                                                                    <option value="In progress"
-                                                                        {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                    <option value="Progress"
+                                                                        {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                     <option value="Done"
                                                                         {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'Done' ? 'selected' : '' }}>Done</option>
                                                                     </select>
@@ -571,8 +571,8 @@
                                                                     <option value="" selected>Please select pass
                                                                         issuance
                                                                     </option>
-                                                                    <option value="In Progress"
-                                                                        {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                                                    <option value="Progress"
+                                                                        {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                     <option value="Done"
                                                                         {{ isset($pass_hol['pass_iss']) && $pass_hol['pass_iss'] == 'Done' ? 'selected' : '' }}>Done</option>
                                                                 </select> --}}
@@ -683,16 +683,16 @@
                                                                     class="js-example-responsive">
                                                                     <option value="" selected>Please select
                                                                     </option>
-                                                                    <option value="In progress"
-                                                                        {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                    <option value="Progress"
+                                                                        {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                     <option value="Done"
                                                                         {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'Done' ? 'selected' : '' }}>Done</option>
                                                                 </select>
                                                                 {{-- <select name="pass[{{ $z }}][singpass_setup]"
                                                                     id="renewlfre" class="js-example-responsive">
                                                                     <option value="" selected>Please select</option>
-                                                                    <option value="In Progress"
-                                                                        {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                                                    <option value="Progress"
+                                                                        {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                     <option value="Done"
                                                                         {{ isset($pass_hol['singpass_setup']) && $pass_hol['singpass_setup'] == 'Done' ? 'selected' : '' }}>Done</option>
 
@@ -1717,8 +1717,8 @@
                                                                                                             select
                                                                                                         </option>
                                                                                                         <option
-                                                                                                            value="In progress"
-                                                                                                            {{ isset($fi['app_sub']) && $fi['app_sub'] == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                                                            value="Progress"
+                                                                                                            {{ isset($fi['app_sub']) && $fi['app_sub'] == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                                                         <option
                                                                                                             value="Done"
                                                                                                             {{ isset($fi['app_sub']) && $fi['app_sub'] == 'Done' ? 'selected' : '' }}>Done</option>
@@ -1776,8 +1776,8 @@
                                                                                                             select
                                                                                                         </option>
                                                                                                         <option
-                                                                                                            value="In progress"
-                                                                                                            {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                                                            value="Progress"
+                                                                                                            {{ isset($fi['money_dep_sts']) && $fi['money_dep_sts'] == 'Progress' ? 'selected' : '' }}>Progress</option>
 
                                                                                                         <option
                                                                                                             value="Done"
@@ -3026,7 +3026,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                             <select name="pass[` + p + `][pass_iss]" class="js-example-responsive">
                                 <option value="" selected >Please select pass issuance
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -3090,7 +3090,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
                             <label for="clienttype" class="form-label">Singpass Setup</label>
                             <select name="pass[` + p + `][singpass_setup]" class="js-example-responsive">
                                 <option value="">Please select</option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -3475,7 +3475,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             <select name="fi[` + arr_id + `][` + fi_no + `][app_sub]" id="" class="js-example-responsive">
                 <option value="" selected >Please select
                 </option>
-                <option value="In progress">In progress</option>
+                <option value="Progress">Progress</option>
                 <option value="Done">Done</option>
             </select>
         </div>
@@ -3498,7 +3498,7 @@ $(document).on('change', '.others_Relationship_share_class', function() {
             <select name="fi[` + arr_id + `][` + fi_no + `][money_dep_sts]" id="" class="js-example-responsive">
                 <option value="" selected >Please select
                 </option>
-                <option value="In progress">In progress</option>
+                <option value="Progress">Progress</option>
                 <option value="Done">Done</option>
                 <option value="N/A">N/A</option>
             </select>

@@ -768,7 +768,7 @@ $(document).ready(function () {
                                         submission
                                     </option>
                                     <option
-                                        value="In progress">In progress</option>
+                                        value="Progress">Progress</option>
                                     <option
                                         value="Done">Done</option>
 
@@ -839,7 +839,7 @@ $(document).ready(function () {
                                     <option value="" selected disabled>Choose money deposit
                                         status
                                     </option>
-                                    <option value="In progress">In progress</option>
+                                    <option value="Progress">Progress</option>
                                     <option value="Done">Done</option>
                                     <option value="N/A">N/A</option>
                                 </select>

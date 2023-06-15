@@ -85,7 +85,7 @@
                                 <div class="formAreahalf">
                                     <label class="form-label" for="">Pass Holder Name 1 (Eng)</label>
 
-                              
+
 
                                 </div>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -109,12 +109,12 @@
                                                 <option value="Others (please specify)">Others (please specify)</option>
 
                                             </select>
-                                          
+
                                         </div>
                                         <div class="formAreahalf others others_hide_show others_alignment" style="display:none;">
                                             <label class="form-label" for=""></label>
                                         </div>
-                                      
+
                                         <div class="formAreahalf ">
                                             <label for="passapptype" class="form-label"> Pass Application Type </label>
                                             <select name="pass[0][pass_app_type]" class="select_class_pass_app_type"
@@ -260,7 +260,7 @@
                                                 <option value="" selected="" disabled="">Please select passport reminder trigger</option>
                                                 <option value="Day">Day</option>
                                                 <option value="3 Days">3 Days</option>
-                                                <option value="Every Week">Every Week</option>                                               
+                                                <option value="Every Week">Every Week</option>
                                             </select></span></div> --}}
                                         </div>
 
@@ -332,7 +332,7 @@
                                             <select name="pass[0][pass_iss]"  class="js-example-responsive form-control">
                                                 <option value="" selected>Please select pass issuance
                                                 </option>
-                                                <option value="In progress">In progress</option>
+                                                <option value="Progress">Progress</option>
                                                 <option value="Done">Done</option>
                                             </select>
                                         </div>
@@ -398,7 +398,7 @@
                                             <label for="clienttype" class="form-label ">Singpass Setup</label>
                                             <select name="pass[0][singpass_setup]" id="renewlfre" class="js-example-responsive form-control">
                                                 <option value="">Please select</option>
-                                                <option value="In progress">In progress</option>
+                                                <option value="Progress">Progress</option>
                                                 <option value="Done">Done</option>
                                             </select>
                                         </div>
@@ -629,7 +629,7 @@
 
             {{-- <fieldset id="com_shareholder" class="w-100 justify-content-start flex-wrap form-fields"
                 style="display:none">
-          
+
 
             </fieldset> --}}
 
@@ -800,14 +800,14 @@
               if ($(this).val() == "Rejected") {
              $(this).parents('.accordion-body').find('.p_status_div_default').hide();
              $(this).parents('.accordion-body').find('.p_status_div').show();
-  
-   
-                  } 
+
+
+                  }
                   else {
-  
+
             $(this).parents('.accordion-body').find('.p_status_div_default').show();
              $(this).parents('.accordion-body').find('.p_status_div').hide();
-  
+
                 }
 
 
@@ -837,17 +837,17 @@
                 }
             });
             $('body').on('click', ".add-pass-holder", function() {
-            
+
                 //   alert('dd');
                 ++p;
                 $("#passholder_section .pass_design").last().append(`<div id="dynamicAddRemove"
-                            class="w-100 d-flex justify-content-start flex-wrap form-fields parent_field` + p + `">   
-                          
-                            
+                            class="w-100 d-flex justify-content-start flex-wrap form-fields parent_field` + p + `">
+
+
                             <div class="accordion-item pass_acc_it ">
                                 <div class="cross"><span class="remove-input-field" data-id=".parent_field` + p + `">x</span></div>
                                 <h2 class="accordion-header" id="panelsStayOpen-heading` + p + `">
-                                
+
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapse` + p + `" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapse` + p + `">
@@ -857,7 +857,7 @@
                                 <div class="formAreahalf ">
                             <label class="form-label" for="">Pass Holder Name ` + (p + 1 )+ ` (Eng)</label>
 
-                         
+
 
                         </div>
                                 <div id="panelsStayOpen-collapse` + p + `" class="accordion-collapse collapse show"
@@ -866,11 +866,11 @@
 
                         <div class="formAreahalf ">
                             <label for="bustype" class="form-label"> Business Type </label>
-                          
-                                <select name="pass[` + p + `][bus_type]" class="select_class" data-id="` + p + `"> 
+
+                                <select name="pass[` + p + `][bus_type]" class="select_class" data-id="` + p + `">
                                 <option value="" selected >Please select
                                 </option>
-                           
+
 
                                 <option value="FO">FO</option>
                                                 <option value="PIC">PIC</option>
@@ -889,7 +889,7 @@
                         <div class="formAreahalf ">
                             <label for="passapptype" class="form-label"> Pass Application Type </label>
                             <select name="pass[` + p +
-                    `][pass_app_type]" class="select_class_pass_app_type" data-id="` + p + `"> 
+                    `][pass_app_type]" class="select_class_pass_app_type" data-id="` + p + `">
                                 <option value="" selected >Please select pass application type
                                 </option>
                                 <option value="EP">EP</option>
@@ -900,12 +900,12 @@
                                                 <option value="PR">PR</option>
                                                 <option value="Citizen">Citizen</option>
                                                 <option value="Others (please specify)">Others (please specify)</option>
-                                
+
                             </select>
-                         
+
                         </div>
                         <div class="formAreahalf others_pass_app others_alignment" style="display:none;">
-                            
+
                             <label class="form-label" for=""></label>
                         </div>
                         <div class="formAreahalf ">
@@ -915,23 +915,23 @@
                                 </option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Is the passholder also the shareholder? </label>
-                            <select name="pass[` + p + `][passhol_sharehol]" id="also_shareholder" class="also_shareholder">                            
-                              
+                            <select name="pass[` + p + `][passhol_sharehol]" id="also_shareholder" class="also_shareholder">
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Pass Holder Name ` + (p + 1 )+ ` (Eng)</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passhol_name]" id="passhol_name">
 
                         </div>
@@ -939,11 +939,11 @@
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Full Name (Chinese)</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_name]">
 
                         </div>
-                      
+
                         <div class="formAreahalf ">
                             <label for="" class="form-label">  DOB (DD/MM/YYYY)</label>
                             <input type="date" class="form-control"  name="pass[` + p + `][pass_dob]" id="pass_holder_dob">
@@ -967,7 +967,7 @@
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_number]" id="passport_no" >
 
                         </div>
@@ -976,11 +976,11 @@
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Passport Country</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_country]" id="passport_cnt">
 
                         </div>
-                      
+
 
                         <div class="formAreahalf ">
                             <label for="clienttype" class="form-label"> Passport  Renewal Reminder</label>
@@ -995,7 +995,7 @@
                         <div class="formAreahalf ">
                             <label class="form-label" for="">TIN Number Before Pass Application</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_tin_number]" id="tin_number">
 
                         </div>
@@ -1015,14 +1015,14 @@
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">E-mail</label>
-                            <input type="email" class="form-control" 
+                            <input type="email" class="form-control"
                                 name="pass[` + p + `][email]" id="p_email">
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">TIN Country Before Pass Application</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][passport_tin_country]" id="tin_cnt">
 
                         </div>
@@ -1030,7 +1030,7 @@
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Phone Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][phno]" id="ph_num">
 
                         </div>
@@ -1047,15 +1047,15 @@
                                                 <option value="LVTP">LVTP</option>
                                                 <option value="DP">DP</option>
                                                 <option value="NRIC">NRIC</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">FIN Number</label>
 
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][finno]">
 
                         </div>
@@ -1063,7 +1063,7 @@
 
                         <div class="formAreahalf ">
                             <label class="form-label" for="">Residential Address</label>
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control"
                                 name="pass[` + p + `][res_add]" id="res_add">
                         </div>
 
@@ -1076,7 +1076,7 @@
                                 <option value="Pending">Pending</option>
                                         <option value="Approved">Approved</option>
                                         <option value="Rejected">Rejected</option>
-                            </select> 
+                            </select>
                         </div>
 
                         <div class="formAreahalf ">
@@ -1084,9 +1084,9 @@
                             <select name="pass[` + p + `][pass_iss]"  class="js-example-responsive form-control">
                                 <option value="" selected >Please select pass issuance
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
-                            </select> 
+                            </select>
                         </div>
 
 
@@ -1142,13 +1142,13 @@
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Pass Job Title </label>
                             <input type="text" class="form-control"  name="pass[` + p + `][pass_job_title]" id="p_job_title">
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf ">
                             <label for="clienttype" class="form-label ">Singpass Setup</label>
                             <select name="pass[` + p + `][singpass_setup]" class="js-example-responsive form-control>
                                 <option value="">Please select</option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -1187,13 +1187,13 @@
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Employer's Name </label>
                             <input type="text" class="form-control"  name="pass[` + p + `][emp_name]">
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf ">
                             <label for="" class="form-label"> Monthly Salary (SGD)</label>
                             <div class="dollersec"><span class="doller">$</span><span
                                                 class="input"><input type="text" class="form-control"  name="pass[` + p + `][month_sal]" id="month_salary"></span></div>
-                        </div> 
+                        </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
@@ -1265,7 +1265,7 @@
                 $('#FO_company').show();
 
                 $(this).parents('fieldset').hide();
-               
+
 
                 // $(this).closest('fieldset').prev().show();
             });
@@ -1348,9 +1348,9 @@
                                 <div id="fo_pr" class="pr pr_form_class">
                                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
                                         <div class="accordion-item pass_acc_it ">
-                                
+
                                 <h2 class="accordion-header" id="panelsStayOpen-headingno` + btn_click_p + `">
-                               
+
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseno` + btn_click_p + `" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapseno` + btn_click_p + `">
@@ -1359,7 +1359,7 @@
                                 </h2>
                                 <div class="formAreahalf">
                                         <label for="" class="form-label">1st Time PR Application Date</label>
-                                      
+
                                     </div>
                                 <div id="panelsStayOpen-collapseno` + btn_click_p + `" class="accordion-collapse collapse show"
                                     aria-labelledby="panelsStayOpen-headingno` + btn_click_p + `">
@@ -1391,7 +1391,7 @@
                                         <option value="Rejected">Rejected</option>
                                         </select>
                                     </div>
-                                
+
                                     <div class="formAreahalf p_status_div_default">
                                         <label for="" class="form-label">PR Approval Date</label>
                                         <input type="date" class="form-control" name="pr[` + (btn_click_p - 1) +
@@ -1417,13 +1417,13 @@
                                     <input type="date" class="form-control" name="pr[` + (btn_click_p - 1) + `][0][rejection_date]"
                                         id="">
                                 </div>
-                              
+
                                 <div class="formAreahalf p_status_div" style="display:none">
                                     <label for="" class="form-label">Re Submission Reminder</label>
                                     <select name="pr[` + (btn_click_p - 1) + `][0][re_sub_rem]" id="">
                                         <option value="180 days before REP expiry">180 days before REP expiry</option>
                                         <option value="90 days before REP expiry">90 days before REP expiry</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="formAreahalf p_status_div" style="display:none;" >
@@ -1432,7 +1432,7 @@
                                         <option value="">Please select</option>
                                         <option value="Done">Done</option>
                                         <option value="Withdrawn">Withdrawn</option>
-                                        
+
                                     </select>
 
                                 </div>
@@ -1459,9 +1459,9 @@
                                 <option value="Week">Week</option>
                                 <option value="2 Weeks">2 Weeks</option>
                                 <option value="4 Weeks">4 Weeks</option></select></span></div>
-                                            
 
-                                     
+
+
                                     </div>
                                     <div class="formAreahalf">
                                         <label class="form-label" for="remarks">Remarks</label>
@@ -1473,12 +1473,12 @@
                                             class="w-100 d-flex justify-content-start flex-wrap"></div>
                                     </div>
                                 </div>
-                           
+
                         </div>
                     </div>
-                               
+
                             </div>
-                       
+
                             <div id="appended_pr_div" class="appended_pr_div">
                                 </div>
                                 <div class="text-center pt-4 add_potentia add_potential" id="add_pr_btn_div">
@@ -1527,7 +1527,7 @@
                     ` <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design parent_field2` +
                     c + `">
                     <div class="accordion-item pass_acc_it ">
-                        
+
                         <h2 class="accordion-header" id="panelsStayOpen-heading` + c + `">
                             <div class="formAreahalf company-full_width_Cstm">
                                 <label for="fo_compnay" class="form-label">Company Name ` + C +
@@ -1536,13 +1536,13 @@
                     `][fo_company]" id="fo_compnay" class="form-control"
                                    value="">
                            </div>
-                  
+
                           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse` +
                     c +
                     `" aria-expanded="true" aria-controls="panelsStayOpen-collapse` + c + `">
                             <i class="fa fa-arrows-v" aria-hidden="true"></i>
                           </button>
-                        
+
                         </h2>
                         <div class="cross"><span class="remove-input" data-id=".parent_field2` + c + `">x</span></div>
                         <div id="panelsStayOpen-collapse` + c +
@@ -1550,9 +1550,9 @@
                     c + `">
                           <div class="accordion-body">
 
-                 
-                    
-                          
+
+
+
                             <div class="formAreahalf">
                                 <label for="fo_uen" class="form-label">UEN</label>
                                 <input type="text" class="form-control" name="cmp[` + c + `][fo_uen]" id="fo_uen">
@@ -1596,7 +1596,7 @@
                 });
 
             });
-            
+
 
 
 
@@ -1612,7 +1612,7 @@
                     rules: {
                         'cmp[][]': {
                             required: true
-                        },                    
+                        },
                     },
             });
         if (form.valid() === true) {
@@ -1726,10 +1726,10 @@
                 sh_no = 0;
                 var p_name = "";
                 ++btn_click;
-              
+
                 // console.log("btn_click--" + btn_click);
                 // console.log("arr---" + arr[btn_click - 1]);
-             
+
                 $(this).parents('fieldset').hide();
                 // $('#FO_financial_extra').hide();
                 // $(this).parents('div.full_div_share').hide();
@@ -1781,14 +1781,14 @@
                          <div class="each_shareholder"></div>
                          <div id="appended_shareholder_div" class="appended_shareholder_div each_shareholder">
                             </div>
-                       
-                       
+
+
                             <div class="text-center pt-4 add_potentia add_potential" id="add_shareholder_btn_div">
                                 <button type="button" id="add_shareholder" class="btn saveBtn btn_design add_shareholder"
                                     name="add-shareholder" data-id="` + btn_click + `" >Add
                                     shareholder</button>
                             </div>
-                     
+
                         <div class="text-center pt-4 " id="append_div_btn">
                             <button type="button" id="next3" class="btn saveBtn ` + btn_id + `" data-id="` +
                     btn_click +
@@ -1816,7 +1816,7 @@
                                 </div>`;
 
                         $(".FO_shareholder_extra .each_shareholder").last().append(`
-               
+
                             <div id="fo_shareholder" class="sharehold">
                                 <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="Share_holder-w sub-heading">
@@ -1824,7 +1824,7 @@
                                     </div>
 
                                     <div class="accordion-item pass_acc_it ">
-                                        
+
                                 <h2 class="accordion-header" id="panelsStayOpen-headingOne123` + also + `">
 
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -1851,7 +1851,7 @@
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-                                      <input type="text" class="form-control" 
+                                      <input type="text" class="form-control"
                                           name="share[` + (btn_click - 1) + `][` + (also - 1) +
                             `][passhol_name]" value="` + pass_holder_name_eng[key] + `">
 
@@ -1875,9 +1875,9 @@
                                   <div class="formAreahalf ">
                                       <label for="gender" class="form-label">Gender (M/F)</label>
                                       <select class="" name="share[` + (btn_click - 1) + `][` + (also - 1) + `][shareholder_gender]" id="sign">
-                                      
+
                                           <option value="` + p_gen[key] + `">` + p_gen[key] + `</option>
-                                       
+
                                       </select>
                                   </div>
 
@@ -1889,17 +1889,17 @@
                             `][passport_number]"  value="` + p_no[key] + `">
 
                                   </div>
-                               
+
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Passport Country</label>
-                                  
+
                                       <input type="text" class="form-control" id="gendcname[0][subject]"
                                           name="share[` + (btn_click - 1) + `][` + (also - 1) +
                             `][passport_country]" value="` +
                             p_cnt + `">
 
                                   </div>
-                                 
+
                                   <div class="formAreahalf ">
                                       <label for="" class="form-label"> Passport Expiry Date
                                           (DD/MM/YYYY)</label>
@@ -1911,30 +1911,30 @@
                                       <label for="clienttype" class="form-label"> Passport Renewal
                                           Reminder</label>
                                       <select name="share[` + (btn_click - 1) + `][` + (also - 1) + `][passport_ren_rem]" id="renewlrem">
-                                         
+
                                           <option value="` + p_ren_rem[key] + `">` + p_ren_rem[key] + `</option>
                                       </select>
                                   </div>
-         
+
                                   <div class="formAreahalf ">
                                       <label for="clienttype" class="form-label">Passport Reminder Trigger
                                           Frequency</label>
                                           <div class="select_box"><span class="every">Every</span><span
                                                         class="select"><select name="share[` + (btn_click - 1) + `][` + (also - 1) + `][passport_rem_fre]" id="renewlfre">
-                                         
+
                                           <option value="` + p_rem_trg_fre[key] + `">` + p_rem_trg_fre[key] + `</option>
                                       </select></span></div>
                                   </div>
-                 
-                            
+
+
                                   <div class="formAreahalf ">
                             <label for="passapptype" class="form-label"> Type of TIN </label>
                             <select name="share[` + (btn_click - 1) + `][` + (also - 1) + `][tintype]">
-                               
+
                                 <option value="` + p_type_tin[key] + `">` + p_type_tin[key] + `</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                                   <div class="formAreahalf ">
@@ -1962,14 +1962,14 @@
                             p_ph_no[key] + `">
 
                                   </div>
-                              
+
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Residential Add.(according to Add.proof)</label>
                                       <input type="text" class="form-control" id="gendcname[0][subject]"
                                           name="share[` + (btn_click - 1) + `][` + (also - 1) + `][res_add]" value="` +
                             p_res_add[key] + `">
                                   </div>
-                              
+
                                   <div class="formAreahalf ">
                                       <label for="" class="form-label"> E-mail </label>
                                       <input type="text" class="form-control" name="share[` + (btn_click - 1) + `][` +
@@ -1998,10 +1998,10 @@
                                         <option value="` + p_rel_share[key] + `">` + p_rel_share[key] + `</option>
                                       </select>
                                   </div>
-                                  
+
                                   `  + (p_rel_share[key]=="Others (please specify)" ? ghty : '') + `
-               
-                        
+
+
                                   <div class="formAreahalf">
                                       <label class="form-label" for="remarks">Remarks</label>
                                       <textarea id="addbg[0][genremarks]" name="share[` + (btn_click - 1) + `][0][remarks]" rows="4" cols="50"></textarea>
@@ -2009,12 +2009,12 @@
                                   </div>
                                 </div>
                                   </div>
-                        
+
                                     <div id="appended_user_shareholder_cmp2_selcection_div"
                                         class="w-100 d-flex justify-content-start flex-wrap"></div>
                                 </div>
                             </div>
-                         
+
                            `);
                     }
                     //         else {
@@ -2035,7 +2035,7 @@
                 //                       <div class="formAreahalf ">
                 //                           <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-                //                           <input type="text" class="form-control" 
+                //                           <input type="text" class="form-control"
                 //                               name="share[` + (btn_click - 1) + `][0][passhol_name]">
 
                 //                       </div>
@@ -2192,7 +2192,7 @@
 
                 if (jQuery.inArray("Yes", also_share) == -1) {
                     $(".FO_shareholder_extra .each_shareholder").last().append(`
-               
+
                <div id="fo_shareholder" class="sharehold">
                    <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
                        <div class="Share_holder-w sub-heading">
@@ -2200,7 +2200,7 @@
                        </div>
 
                        <div class="accordion-item pass_acc_it ">
-                       
+
                                 <h2 class="accordion-header" id="panelsStayOpen-headingOne123` + btn_click + `">
 
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -2220,13 +2220,13 @@
                                       <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders" name="share[` + (btn_click - 1) + `][0][eqt_per]">
                                       </span><span class="pecentage_end">%</span></div></div>
 
-                       
+
 
 
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-                                      <input type="text" class="form-control" 
+                                      <input type="text" class="form-control"
                                           name="share[` + (btn_click - 1) + `][0][passhol_name]">
 
                                   </div>
@@ -2302,7 +2302,7 @@
                                       </select></span></div>
                                   </div>
 
-                            
+
                                   <div class="formAreahalf ">
                             <label for="passapptype" class="form-label"> Type of TIN </label>
                             <select name="share[` + (btn_click - 1) + `][0][tintype]">
@@ -2313,9 +2313,9 @@
                                                 <option value="LVTP">LVTP</option>
                                                 <option value="DP">DP</option>
                                                 <option value="NRIC">NRIC</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                                   <div class="formAreahalf ">
@@ -2389,12 +2389,12 @@
                                       <textarea id="addbg[0][genremarks]" name="share[` + (btn_click - 1) + `][0][remarks]" rows="4" cols="50"></textarea>
                                   </div>
 </div></div></div>
-           
+
                        <div id="appended_user_shareholder_cmp2_selcection_div"
                            class="w-100 d-flex justify-content-start flex-wrap"></div>
                    </div>
                </div>
-            
+
               `);
                     also = 1;
 
@@ -2482,7 +2482,7 @@
             //                       <div class="formAreahalf ">
             //                           <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-            //                           <input type="text" class="form-control" 
+            //                           <input type="text" class="form-control"
             //                               name="share[` + (btn_click - 1) + `][0][passhol_name]">
 
             //                       </div>
@@ -2702,7 +2702,7 @@
                             <div id="fo_financial" class="financial">
                                 <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="accordion-item pass_acc_it ">
-                       
+
                        <h2 class="accordion-header" id="panelsStayOpen-headingOne123o` + btn_click + `">
 
                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -2714,7 +2714,7 @@
                        </h2>
                        <div class="formAreahalf">
                             <label for="" class="form-label">Financial Institution Name ` + (btn_click) + `</label>
-                           
+
                         </div>
                        <div id="panelsStayOpen-collapseOne123o` + btn_click + `" class="accordion-collapse collapse show"
                            aria-labelledby="panelsStayOpen-headingOne123o` + btn_click + `">
@@ -2753,14 +2753,14 @@
                             </select>
                         </div>
                         <div class="formAreahalf others_acc_type" style="display: none;">
-                          
+
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Application Submission</label>
                             <select name="fi[` + (btn_click - 1) + `][0][app_sub]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
                         </div>
@@ -2783,7 +2783,7 @@
                             <select name="fi[` + (btn_click - 1) + `][0][money_dep_sts]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="N/A">N/A</option>
                             </select>
@@ -2821,7 +2821,7 @@
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="" name="fi[` + (btn_click - 1) + `][0][remarks]" rows="4" cols="50"></textarea>
                         </div>
-        
+
                                     <div id="appended_user_financial_cmp2_selcection_div"
                                         class="w-100 d-flex justify-content-start flex-wrap"></div>
                                 </div>
@@ -2859,10 +2859,10 @@
                 $(this).parents('fieldset').find('.appended_shareholder_div').append(
                     `<div id="fo_shareholder" class="sharehold share` + sh_no + `">\
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-                           
+
                             <div class="Share_holder-w sub-heading">\
                                 <h4>Shareholder #` + (sh_no) + `</h4>\
-                            </div>\   
+                            </div>\
                             <div class="accordion-item pass_acc_it ">
                                 <span class="cancel_shareholder"><i class="fa fa-times remove_share"  data-id="share` +
                     sh_no + `" aria-hidden="true"></i></span> \
@@ -2886,13 +2886,13 @@
                     (sh_no - 1) + `][eqt_per]"></span><span class="pecentage_end">%</span></div>
                                   </div>
 
-                           
+
 
 
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Pass Holder Full Name (Eng)</label>
 
-                                      <input type="text" class="form-control" 
+                                      <input type="text" class="form-control"
                                       name="share[` + (arr_id - 1) + `][` + (sh_no - 1) + `][passhol_name]">
 
                                   </div>
@@ -2928,7 +2928,7 @@
                                       name="share[` + (arr_id - 1) + `][` + (sh_no - 1) + `][passport_number]">
 
                                   </div>
-                               
+
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Passport Country</label>
 
@@ -2954,7 +2954,7 @@
                                                 <option value="180 days before expiry">180 days before expiry</option>
                                       </select>
                                   </div>
-         
+
                                   <div class="formAreahalf ">
                                       <label for="clienttype" class="form-label">Passport Reminder Trigger
                                           Frequency</label>
@@ -2969,8 +2969,8 @@
                                 <option value="4 Weeks">4 Weeks</option>
                                       </select></span></div>
                                   </div>
-                 
-                            
+
+
                                   <div class="formAreahalf ">
                             <label for="passapptype" class="form-label"> Type of TIN </label>
                             <select name="share[` + (arr_id - 1) + `][` + (sh_no - 1) + `][tintype]">
@@ -2981,9 +2981,9 @@
                                                 <option value="LVTP">LVTP</option>
                                                 <option value="DP">DP</option>
                                                 <option value="NRIC">NRIC</option>
-                                
+
                             </select>
-                         
+
                         </div>
 
                                   <div class="formAreahalf ">
@@ -3008,13 +3008,13 @@
                                       name="share[` + (arr_id - 1) + `][` + (sh_no - 1) + `][phno]">
 
                                   </div>
-                              
+
                                   <div class="formAreahalf ">
                                       <label class="form-label" for="">Residential Add.(according to Add.proof)</label>
                                       <input type="text" class="form-control" id="gendcname[0][subject]"
                                       name="share[` + (arr_id - 1) + `][` + (sh_no - 1) + `][res_add]">
                                   </div>
-                              
+
                                   <div class="formAreahalf ">
                                       <label for="" class="form-label"> E-mail </label>
                                       <input type="text" class="form-control" name="share[` + (arr_id - 1) + `][` +
@@ -3052,7 +3052,7 @@
                                       </select>
                                   </div>
                                   <div class="formAreahalf others_Relationship_share" style="display:none;">
-                        
+
                                   </div>
 
                                   <div class="formAreahalf">
@@ -3063,7 +3063,7 @@
                                 </div>
                             </div>
                         </div>
-                            
+
 
 
 
@@ -3095,7 +3095,7 @@
                 // if (jQuery.inArray("Yes", set_company) == -1) {
 
                 //     // btn_click_p--;
-                    
+
                 //     $("#FO_Pass_PR").hide();
                 //     $("#start_field").show();
                 // }
@@ -3121,14 +3121,14 @@
                 $(this).parents('fieldset').find('.appended_financial_div').append(
                     `<div id="fo_financial" class="financial fi` + fi_no + `">\
                      <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-                         
+
                          <div class="accordion-item pass_acc_it ">
                             <span class="cancel_financial cancel_pr"><i class="fa fa-times remove_fi" data-id="fi` +
-                    fi_no + `" aria-hidden="true"></i></span> \  
+                    fi_no + `" aria-hidden="true"></i></span> \
                        <h2 class="accordion-header" id="panelsStayOpen-headingOne123ok` + fi_no + `">
                         <div class="formAreahalf">
                             <label for="" class="form-label">Financial Institution Name ` + (fi_no + 1) + `</label>
-                           
+
                         </div>
                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                data-bs-target="#panelsStayOpen-collapseOne123ok` + fi_no + `" aria-expanded="true"
@@ -3140,7 +3140,7 @@
                        <div id="panelsStayOpen-collapseOne123ok` + fi_no + `" class="accordion-collapse collapse show"
                            aria-labelledby="panelsStayOpen-headingOne123ok` + fi_no + `">
                            <div class="accordion-body d-flex flex-wrap">
-                         
+
                          <div class="formAreahalf">
                             <label for="" class="form-label">POC Name</label>
                             <input type="text" name="fi[` + (arr_id - 1) + `][` + fi_no + `][poc_name]" id="" class="form-control"
@@ -3173,15 +3173,15 @@
                             </select>
                         </div>
                         <div class="formAreahalf others_acc_type" style="display:none;">
-                          
+
                         </div>
-                       
+
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Application Submission</label>
                             <select name="fi[` + (arr_id - 1) + `][` + fi_no + `][app_sub]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                             </select>
 
@@ -3206,7 +3206,7 @@
                             <select name="fi[` + (arr_id - 1) + `][` + fi_no + `][money_dep_sts]" id="" class="js-example-responsive form-control">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="In progress">In progress</option>
+                                <option value="Progress">Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="N/A">N/A</option>
                             </select>
@@ -3244,7 +3244,7 @@
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="" name="fi[` + (arr_id - 1) + `][` + fi_no + `][remarks]" rows="4" cols="50"></textarea>
                         </div>
-                
+
 
 
                          <div id="appended_user_financial_cmp2_selcection_div" class="w-100 d-flex justify-content-start flex-wrap"></div>\
@@ -3265,16 +3265,16 @@
                 // alert(id);
                 // console.log(id);
                 $(this).parents('.appended_financial_div').find('.' + id + '').remove();
-                var c = 1; 
+                var c = 1;
                 $('.financial .accordion-item').each(function(index) {
                     $(this).find('.accordion-header label').html('Financial Institution Name ' + c);
                     $(this).find('.FinancialInstitutionName').html('Financial Institution Name ' + c);
-                    
+
                     c++;
                     // console.log(c);
                 });
             });
-            
+
 
 
             var btn_click_p = 0;
@@ -3301,10 +3301,10 @@
 
                 let btn_id_p = "";
                 if (btn_click_p == isLastElement1_p) {
-                
+
                     btn_id_p = "next6";
                 } else {
-           
+
                     btn_id_p = "next4";
                 }
 
@@ -3318,7 +3318,7 @@
                 }
                 else
                 {
-                 
+
                 $('.FO_Pass_PR').append(`
                 <div class="full_divs">
                         <div class="card formContentData border-0 p-4">
@@ -3355,9 +3355,9 @@
                             <div id="fo_pr" class="pr pr_form_class">
                                 <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">
                                     <div class="accordion-item pass_acc_it ">
-                                
+
                                 <h2 class="accordion-header" id="panelsStayOpen-headingno` + btn_click_p + `">
-                                
+
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseno` + btn_click_p + `" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapseno` + btn_click_p + `">
@@ -3366,7 +3366,7 @@
                                 </h2>
                                 <div class="formAreahalf">
                                     <label for="" class="form-label">1st Time PR Application Date</label>
-                                   
+
                                 </div>
                                 <div id="panelsStayOpen-collapseno` + btn_click_p + `" class="accordion-collapse collapse show"
                                     aria-labelledby="panelsStayOpen-headingno` + btn_click_p + `">
@@ -3398,7 +3398,7 @@
                                         <option value="Rejected">Rejected</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="formAreahalf p_status_div_default">
                                     <label for="" class="form-label">PR Approval Date</label>
                                     <input type="date" class="form-control" name="pr[` + (btn_click_p - 1) + `][0][approval_date]"
@@ -3418,19 +3418,19 @@
                                         <option value="180 days before REP expiry">180 days before REP expiry</option>
                                     </select>
                                 </div>
-                              
+
                                     <div class="formAreahalf p_status_div" style="display: none">
                                     <label for="" class="form-label">PR Rejection Date</label>
                                     <input type="date" class="form-control" name="pr[` + (btn_click_p - 1) + `][0][rejection_date]"
                                         id="">
                                 </div>
-                              
+
                                 <div class="formAreahalf p_status_div" style="display: none">
                                     <label for="" class="form-label">Re Submission Reminder</label>
                                     <select name="pr[` + (btn_click_p - 1) + `][0][re_sub_rem]" id="">
                                         <option value="180 days before REP expiry">180 days before REP expiry</option>
                                         <option value="90 days before REP expiry">90 days before REP expiry</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="formAreahalf p_status_div" style="display: none">
@@ -3439,7 +3439,7 @@
                                         <option value="">Please select</option>
                                         <option value="Done">Done</option>
                                         <option value="Withdrawn">Withdrawn</option>
-                                        
+
                                     </select>
                                 </div>
 
@@ -3480,8 +3480,8 @@
                                         class="w-100 d-flex justify-content-start flex-wrap"></div>
                                 </div>
                             </div>
-                           
-                         </div> 
+
+                         </div>
                          <div id="appended_pr_div" class="appended_pr_div">
                             </div>
                     </div>
@@ -3490,7 +3490,7 @@
                                     name="add-pr" data-id="` + btn_click_p + `" >Add
                                     Application Attempt</button>
                             </div>
-                        
+
                         </div>
                         <div class="text-center pt-4 " id="append_div_btn">
                             <button type="button" id="next5" class="btn saveBtn ` + btn_id_p + `" data-id="` +
@@ -3509,7 +3509,7 @@
                 $("#FO_Pass_PR").hide();
                 $("#FO_financial_extra").show();
                 $("#next4").addClass("lastnext");
-                
+
             });
 
             $('body').on('click', '.add_pr', function() {
@@ -3521,13 +3521,13 @@
                 $(this).parents('fieldset').find('.appended_pr_div').append(
                     `<div id="fo_pr" class="pr_form_class prr` + pr_no + `">\
                      <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design">\
-                         
+
                          <div class="accordion-item pass_acc_it ">
-                            <span class="cancel_pr"><i class="fa fa-times remove_pr" data-id="prr` + pr_no + `" aria-hidden="true"></i></span> \ 
+                            <span class="cancel_pr"><i class="fa fa-times remove_pr" data-id="prr` + pr_no + `" aria-hidden="true"></i></span> \
                                 <h2 class="accordion-header" id="panelsStayOpen-headingnoyes` + pr_no + `">
                                     <div class="formAreahalf">
                                     <label for="" class="form-label">1st Time PR Application Date</label>
-                                  
+
                                 </div>
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapsenoyes` + pr_no + `" aria-expanded="true"
@@ -3539,7 +3539,7 @@
                                     aria-labelledby="panelsStayOpen-headingnoyes` + pr_no + `">
                      <div class="accordion-body d-flex flex-wrap">
 
-                    
+
                         <div class="formAreahalf">
                                     <label for="" class="form-label">1st Time PR Application Date</label>
                                     <input type="date" class="form-control" name="pr[` + (arr_id - 1) + `][` + pr_no + `][application_date]"
@@ -3566,7 +3566,7 @@
                                         <option value="Rejected">Rejected</option>
                                     </select>
                                 </div>
-                              
+
                                 <div class="formAreahalf p_status_div_default">
                                     <label for="" class="form-label">PR Approval Date</label>
                                     <input type="date" class="form-control" name="pr[` + (arr_id - 1) + `][` + pr_no + `][approval_date]"
@@ -3592,13 +3592,13 @@
                                     <input type="date" class="form-control" name="pr[` + (arr_id - 1) + `][` + pr_no + `][rejection_date]"
                                         id="">
                                 </div>
-                              
+
                                 <div class="formAreahalf p_status_div" style="display: none">
                                     <label for="" class="form-label">Re Submission Reminder</label>
                                     <select name="pr[` + (arr_id - 1) + `][` + pr_no + `][re_sub_rem]" id="" >
                                         <option value="180 days before REP expiry">180 days before REP expiry</option>
                                         <option value="90 days before REP expiry">90 days before REP expiry</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="formAreahalf p_status_div" style="display: none">
@@ -3607,10 +3607,10 @@
                                         <option value="">Please select</option>
                                         <option value="Done">Done</option>
                                         <option value="Withdrawn">Withdrawn</option>
-                                        
+
                                     </select>
                                 </div>
-                               
+
                                 <div class="formAreahalf ">
                                     <label for="" class="form-label">REP Renewal Trigger Frequency</label>
                                     <div class="select_box"><span class="every">Every</span><span
@@ -3657,13 +3657,13 @@
 
             });
             $(document).on('click', '.remove_pr', function() {
-              
+
                 var id = $(this).attr('data-id');
-             
+
                 $(this).parents('.appended_pr_div').find('.' + id + '').remove();
             });
 
- 
+
         });
 
 
@@ -3681,7 +3681,7 @@
                 data: $('#operation_form').serialize(),
                 success: function(result) {
                     console.log(result.input.view_id);
-                 
+
                     const el = document.createElement('div')
                     el.innerHTML =
                     `<p>You can view Application <a class='view-application' href='/operation-view/` +
