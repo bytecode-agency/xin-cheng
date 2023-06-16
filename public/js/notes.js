@@ -39,13 +39,15 @@ $('body').on('submit', '.note_send', function (e) {
                     },
                 }).then((result) => {
                     // location.reload();
-                    $(thisForm).parents('.notes-common').find('.notes_show').before(
+                    $(thisForm).parents('.notes-common').find('.notes_show').first().before(
                     `<div class="notes_show">
                         <p class="desc_notes">`+response.notes_description+` </p>
                         <p class="created">`+response.created_date+`</p>
                         <p class="createdby"><b> `+response.created_by+`</b></p>
                     </div>`);
                     $('#text_notes').val("");
+                    $('#pagin').html('');
+                    notesPaginate();
                 })
             },
             error: function(xhr, ajaxOptions, thrownError) {
@@ -53,8 +55,6 @@ $('body').on('submit', '.note_send', function (e) {
             }
         })
     }
-
-
 });
 $('body').on('click', '.note_remove', function (e) {
         var id = $(this).data('id');
@@ -91,6 +91,8 @@ $('body').on('click', '.note_remove', function (e) {
 
 });
 //Pagination
+notesPaginate();
+function notesPaginate(){
     pageSize = 4;
     incremSlide = 5;
     startPage = 0;
@@ -98,13 +100,13 @@ $('body').on('click', '.note_remove', function (e) {
     var pageCount =  $(".notes_show").length / pageSize;
     var totalSlidepPage = Math.floor(pageCount / incremSlide);
     for(var i = 0 ; i<pageCount;i++){
-        $("#pagin").append('<li class="paginate_button page-item notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">' + `<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link" style="user-select: text;">${1+i}</a>` + '</li> ');
+        $("#pagin").append('<li class="paginate_button page-item notesBtn" data-id="'+(i+1)+'" id="paginBtn'+(i+1)+'">' + `<a href="javascript:void(0);" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link" style="user-select: text;">${1+i}</a>` + '</li> ');
         if(i>pageSize){
         $("#pagin .notesBtn").eq(i).hide();
         }
     }
 
-    var prev = $('<li class="paginate_button page-item"/>').addClass("previous").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-left" style="user-select: text;"></i></a>').click(function(){
+    var prev = $('<li class="paginate_button page-item"/>').addClass("previous").html('<a href="javascript:void(0);" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-left" style="user-select: text;"></i></a>').click(function(){
 
         var id = $('.notesBtn.active').data('id');
         id = id - 1;
@@ -116,7 +118,7 @@ $('body').on('click', '.note_remove', function (e) {
     prev.hide();
     
 
-    var next = $('<li class="paginate_button page-item"/>').addClass("next").html('<a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-right" style="user-select: text;"></i></a>').click(function(){
+    var next = $('<li class="paginate_button page-item"/>').addClass("next").html('<a href="javascript:void(0);" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link" style="user-select: text;"><i class="fa fa-angle-double-right" style="user-select: text;"></i></a>').click(function(){
 
         var id = $('.notesBtn.active').data('id');
         id = id + 1;
@@ -125,25 +127,30 @@ $('body').on('click', '.note_remove', function (e) {
         
         showPage(parseInt(id));
     });
-    if(pageCount < 1 ){
+    if(pageCount <= 1 ){
         next.hide();
+        prev.hide();
     }
     togglePrevNextBtn = function(btnId) {
+        // console.log(btnId +'-'+ i);
         $("#pagin .notesBtn").removeClass("active");
         $('#paginBtn'+btnId).addClass("active");
-        console.log(i);
-        if(btnId > 1){
-            $("#pagin .previous").removeClass('disabled');
-            if(btnId == i){
-                $("#pagin .next").addClass('disabled');
+        if(btnId >= 1){
+            if(btnId == 1){
+                $("#pagin .previous").hide();
             }else{
-                $("#pagin .next").removeClass('disabled');
-
+                $("#pagin .previous").show();
+            }
+            
+            if(btnId == i){
+                $("#pagin .next").hide();
+            }else{
+                $("#pagin .next").show();
             }
         }
         else {
-            $("#pagin .previous").addClass('disabled');
-            $("#pagin .next").removeClass('disabled');
+            $("#pagin .previous").hide();
+            $("#pagin .next").hide();
         }
         
     }
@@ -172,4 +179,5 @@ $('body').on('click', '.note_remove', function (e) {
        
         showPage(parseInt($(this).text()));
     });
+}
 

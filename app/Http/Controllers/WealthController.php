@@ -425,7 +425,12 @@ class WealthController extends Controller
         return view('wealth.edit',compact('data','basic_data','file','notes','wealth_mas','wealthfinance','wealthpass','wealthbuss'));
     }
     public function update(Request $request)
-    {
+    { 
+        $business_account_types = null;
+        if(!empty($request->business_account_type)){
+            $business_account_types = implode(',' , $request->business_account_type);
+        }
+
         $id= $request->wealth_id;
         $data_update = Wealth::with('companies.shareholder')->find($id); 
         if($request->client_status)
@@ -606,7 +611,7 @@ class WealthController extends Controller
                 'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
                 'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
                 // 'business_account_status_specify'=>  isset($request->business_account_status_specify) ? $request->business_account_status_specify :null,
-                'business_account_type' => isset($request->business_account_type) ? $request->business_account_type :null,
+                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
                 'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
                 'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
                 'product_name' =>  isset($request->product_name) ? $request->product_name :null,
@@ -721,7 +726,8 @@ class WealthController extends Controller
                 ['financial_institition_name' => isset($request->financial_institition_name) ? $request->financial_institition_name :null,
                 'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
                 'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
-                'business_account_type' => isset($request->business_account_type) ? $request->business_account_type :null,
+                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
+                'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
                 'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
                 'product_name' =>  isset($request->product_name) ? $request->product_name :null,
                 'payment_mode' =>  isset($request->payment_mode) ? $request->payment_mode :null,

@@ -132,7 +132,7 @@
                     </div>
 
                     <div class="formAreahalf">
-                        <label for="education_type" class="form-label">DOB(DD/MM/YYYY)</label>
+                        <label for="education_type" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="date" name="dob" id="dob" class="form-control" value="">
                     </div>
 
@@ -793,7 +793,7 @@
                     <label for="pass_issuance" class="form-label">Pass Issuance</label>
                     <select name="pass_issuance" id="pass_issuance" value="" class="js-example-responsive form-control">
                         <option value="" selected disabled>Choose pass issuance</option>
-                        <option value="In Progress">In Progress</option>
+                        <option value="Progress">Progress</option>
                         <option value="Done">Done</option>
                         <option value="Withdrawn">Withdrawn</option>
                         </select>

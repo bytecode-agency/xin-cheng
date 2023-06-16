@@ -182,7 +182,7 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
                             <select
                                 name="annual_fee_due_reminder"
                                 id="annual_fee_due_reminder" class="form-control">
@@ -199,7 +199,7 @@
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
                             <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
                                 <option value="" selected="" disabled="">Please select</option>
                                 <option value="Day"
@@ -359,8 +359,8 @@
                                                         <option value="" selected disabled>Choose kickstart to
                                                             tax
                                                             advisor</option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealth_mas->kickstart_tax_advisor) && $wealth_mas->kickstart_tax_advisor == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -388,7 +388,7 @@
                                                         <option value="" selected disabled>Choose presentation
                                                             deck</option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->presentation_deck) && $wealth_mas->presentation_deck == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -402,7 +402,7 @@
                                                             opening
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->tax_advisor_name) && $wealth_mas->masnet_account == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->tax_advisor_name) && $wealth_mas->masnet_account == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->masnet_account) && $wealth_mas->masnet_account == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -447,7 +447,7 @@
                                                             submission
                                                         </option>
                                                         <option
-                                                            value="In progress"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                            value="Progress"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option
                                                             value="Done"{{ isset($wealth_mas->final_submission) && $wealth_mas->final_submission == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -496,11 +496,10 @@
                                                       </select>
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="commencement_date" class="form-label">Commencement
-                                                        Date</label>
+                                                    <label for="commencement_date" class="form-label">Commencement Date (DD/MM/YYYY)</label>
                                                     <input type="text" name="commencement_date" id="commencement_date"
                                                         value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
 
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -530,7 +529,7 @@
                                                     <input type="text" name="annual_declaration_deadline"
                                                         id="annual_declaration_deadline"
                                                         value="@isset($wealth_mas->annual_declaration_deadline) {{ $wealth_mas->annual_declaration_deadline }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="internal_account_manager" class="form-label">Internal
@@ -654,7 +653,12 @@
                                                                         value="@isset($wealthfinance[$i]->poc_email){{ $wealthfinance[$i]->poc_email }} @endisset"
                                                                         class="form-control">
                                                                 </div>
-
+                                                                <div class="formAreahalf basic_data">
+                                                                    <label for="application_submission_date" class="form-label">Application Submission Date</label>
+                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
+                                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                                </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
                                                                         Submission</label>
@@ -664,7 +668,7 @@
                                                                             submission
                                                                         </option>
                                                                         <option
-                                                                            value="In progress"{{ isset($wealthfinance[$i]->application_submission) && $wealthfinance[$i]->application_submission == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                            value="Progress"{{ isset($wealthfinance[$i]->application_submission) && $wealthfinance[$i]->application_submission == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                         <option
                                                                             value="Done"{{ isset($wealthfinance[$i]->application_submission) && $wealthfinance[$i]->application_submission == 'Done' ? 'selected' : '' }}>Done</option>
 
@@ -834,8 +838,8 @@
                                                                         <option value="" selected disabled>Choose money deposit
                                                                             status
                                                                         </option>
-                                                                        <option value="In progress"
-                                                                            {{ isset($wealthfinance[$i]->money_deposit_status) && $wealthfinance[$i]->money_deposit_status == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                        <option value="Progress"
+                                                                            {{ isset($wealthfinance[$i]->money_deposit_status) && $wealthfinance[$i]->money_deposit_status == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                                         <option value="Done"
                                                                             {{ isset($wealthfinance[$i]->money_deposit_status) && $wealthfinance[$i]->money_deposit_status == 'Done' ? 'selected' : '' }}>Done</option>
                                                                         <option value="N/A"
@@ -960,7 +964,7 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="dob" class="form-label">DOB(DD/MM/YYYY)</label>
+                                                    <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
                                                     <input type="date" name="dob" id="dob"
                                                         value="@isset($wealthpass->dob) {{ $wealthpass->dob }} @endisset"
                                                         class="form-control">
@@ -1246,8 +1250,8 @@
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose Pass Issuance
                                                         </option>
-                                                        <option value="In progress"
-                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                        <option value="Progress"
+                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                         <option value="Done"
                                                             {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done' ? 'selected' : '' }}>Done</option>
                                                     </select>
@@ -1257,14 +1261,14 @@
                                                         Date</label>
                                                         <input type="text" name="pass_issuance_date"
                                                         value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yy">
+                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_expiry_date" class="form-label">Pass Expiry
                                                         Date</label>
                                                     <input type="text" name="pass_expiry_date"
                                                     value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
-                                                    class="form-control datepicker" placeholder="dd/mm/yy">
+                                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -1341,7 +1345,7 @@
                                                     <select name="singpass_set_up"
                                                         class="js-example-responsive form-control">
                                                         <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="In progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="In progress" ? 'selected' : ""}}>In progress</option>
+                                                        <option value="Progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Progress" ? 'selected' : ""}}>Progress</option>
                                                         <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
                                                     </select>
                                                 </div>
@@ -1404,7 +1408,7 @@
                                                                 Submission
                                                             </option>
                                                             <option
-                                                                value="In progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                             <option
                                                                 value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
                                                         </select>
@@ -1796,7 +1800,7 @@
                                                                 Submission
                                                             </option>
                                                             <option
-                                                                value="In progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'In progress' ? 'selected' : '' }}>In progress</option>
+                                                                value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
                                                             <option
                                                                 value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
                                                         </select>
@@ -1941,21 +1945,21 @@
                                                             Date</label>
                                                         <input type="date" name="subscription"
                                                             value="@isset($wealthbuss->subscription){{ $wealthbuss->subscription }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control subsInsDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
                                                             value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control maturityDate">
 
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control durationJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity
@@ -2198,7 +2202,7 @@
                         <div class="textarea">
                             <label class="form-label mt-5" for="notes">Notes</label>
                             <textarea id="text_notes" name="notes" rows="8" cols="200" placeholder="Type your notes here..."></textarea>
-                            <div class="text-danger" id="notes_error"></div>
+                            <div id="notes_error"></div>
                             <!-- <input type="submit" id="w_notessave_btn"
                                 class="btn saveBtn btn saveBtn btn_notes" value="Save">
                             <input type="button" id="notes_cancel" class="btn saveBtn cancelBtn delete" value="Cancel"
@@ -2517,26 +2521,26 @@
                 <div class="formAreahalf basic_data test">
                             <label for="account_type" class="form-label">Account Type `+i+`</label>
                             <select name="financial[`+key+`][account_type][]" id="account_type" class="form-control">
-                                <option value="" selected disabled>Choose account type
-                                </option>
-                                <option value="SGD">
-                                    SGD</option>
-                                <option value="USD">
-                                    USD</option>
-                                <option value="Multi-currency">
-                                    Multi-currency</option>
-                                <option value="Others">
-                                    Others</option>
-                            </select>
-                        </div>
+                            <option value="" selected disabled>Choose account type
+                            </option>
+                            <option value="SGD">
+                                SGD</option>
+                            <option value="USD">
+                                USD</option>
+                            <option value="Multi-currency">
+                                Multi-currency</option>
+                            <option value="Others">
+                                Others</option>
+                        </select>
+                    </div>
                         <div class="formAreahalf basic_data test">
-                            <label for="account_policy_no" class="form-label">Account/Policy
+                        <label for="account_policy_no" class="form-label">Account/Policy
                                 Number `+i+`</label>
                             <input type="text" name="financial[`+key+`][account_policy_no][]" id="account_policy_no"
-                                value=""
-                                class="form-control">
-                        </div>
-                `
+                            value=""
+                            class="form-control">
+                    </div>
+                    `
             }
             $(document).on('change', '#pass_holder_name', function() {
                 const arr = document.getElementsByClassName('pass_name_eng')
@@ -2573,6 +2577,11 @@
             });
 
 
+        });
+
+        $('#business_account_type').select2({
+            placeholder: 'Select Account Types',
+            allowClear: true
         });
     </script>
 @endpush

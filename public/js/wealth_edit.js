@@ -24,17 +24,15 @@ function equity_percentage_checks() {
         var id = '';
         id = $(company[index]).attr('id');
         var eqty_precentage = document.getElementById(id).querySelectorAll('#equity_shareholder')
-        // console.log(eqty_precentage);
         let percentage = 0;
         for (per = 0; per < eqty_precentage.length; per++) {
             percentage += parseFloat($(eqty_precentage[per]).attr('value'));
 
         }
-        // console.log(percentage);
         if (percentage < 100) {
 
             $(".edit__add_com").addClass("disable");
-            $(".edit__add_com").attr('disabled', 'disabled');
+            $(".edit__add_com").removeAttr('disabled');
             $("#" + id).find(".edit_add_shareholder").removeClass("disable");
             if (!$("#" + id).find(".edit_add_shareholder").hasClass("disable")) {
                 disable = 1;
@@ -57,7 +55,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yyyy',
         onClose: function () {
             $(this).valid();
         }
@@ -364,7 +362,7 @@ $(document).ready(function () {
                         </select>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">DOB</label>
+                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="date" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
                             value="{{ $shareholder->dob }}">
@@ -751,7 +749,7 @@ $(document).ready(function () {
                                 <label for="poc_email" class="form-label">POC Email</label>
                                 <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_email]" id="poc_email"
                                     value=""
-                                    class="form-control datepicker" placeholder="dd/mm/yy">
+                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
@@ -768,7 +766,7 @@ $(document).ready(function () {
                                         submission
                                     </option>
                                     <option
-                                        value="In progress">In progress</option>
+                                        value="Progress">Progress</option>
                                     <option
                                         value="Done">Done</option>
 
@@ -839,7 +837,7 @@ $(document).ready(function () {
                                     <option value="" selected disabled>Choose money deposit
                                         status
                                     </option>
-                                    <option value="In progress">In progress</option>
+                                    <option value="Progress">Progress</option>
                                     <option value="Done">Done</option>
                                     <option value="N/A">N/A</option>
                                 </select>
@@ -971,20 +969,20 @@ $(document).ready(function () {
     })
 
     $('body').on('click', '.remove-campany', function () {
-        // var id =  $(this).parents('.company_name').find('#fo_company_id').val();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type: "delete",
-        //     url: "/company-destroy",
-        //     data: {id: id },
-        //     success: function (response) {
-        //      console.log(response);
-        //     }
-        // });
+        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-destroy",
+            data: {id: id },
+            success: function (response) {
+             console.log(response);
+            }
+        });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -1006,7 +1004,7 @@ $(document).ready(function () {
         });
         $.ajax({
             type: "delete",
-            url: "/company-shareholder-destroy-1",
+            url: "/company-shareholder-destroy",
             data: { id: finance_entry_id },
             success: function (response) {
                 console.log(response);

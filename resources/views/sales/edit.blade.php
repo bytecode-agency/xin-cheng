@@ -111,33 +111,25 @@
                                     <label for="bustype" class="form-label">Business Type</label>
                                     <select class="" name="business" id="business">
                                         <!-- <option value="" selected disabled>Please select business type</option> -->
-                                        @if ($sale->bus_type == 'B2B')
                                             <option value="B2B" {{ $sale->bus_type == 'B2B' ? 'selected' : '' }}>B2B
                                             </option>
-                                        @endif
-                                        @if ($sale->bus_type == 'B2C')
                                             <option value="B2C" {{ $sale->bus_type == 'B2C' ? 'selected' : '' }}>B2C
                                             </option>
-                                        @endif
                                     </select>
                                 </div>
 
                                 <div class="formAreahalf ">
                                     <label for="clienttype" class="form-label">Client Type</label>
                                     <select class="" name="client" id="client">
-                                        @if ($sale->bus_type == 'B2B')
                                             <option value="Personal"
                                                 {{ $sale->client_type == 'Personal' ? 'selected' : '' }}>
                                                 Personal</option>
                                             <option value="Corporate"
                                                 {{ $sale->client_type == 'Corporate' ? 'selected' : '' }}>
                                                 Corporate</option>
-                                        @else
                                             <option value="Personal"
                                                 {{ $sale->client_type == 'Personal' ? 'selected' : '' }}>
                                                 Personal</option>
-                                        @endif
-
                                     </select>
                                 </div>
                                 <div class="formAreahalf ">
@@ -537,10 +529,10 @@
                                                                         direct
                                                                         client</label>
 
-                                                                    <input type="text" class="form-control"
-                                                                        id="dcname[0][subject]"
+                                                                    <input type="text" class="form-control dc_name"
+                                                                        id="dcname"
                                                                         name="addpb[{{ $i }}][dcname]"
-                                                                        value="{{ $s['dcname'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
+                                                                        value="{{ $s['dcname'] ?? '' }}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
 
                                                                 </div>
@@ -548,9 +540,9 @@
                                                                     <label class="form-label" for="passcountry">Passport
                                                                         Country</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="passcountry[0][subject]"
+                                                                        id="passcountry"
                                                                         name="addpb[{{ $i }}][passcountry]"
-                                                                        value="{{ $s['passcountry'] }}" onkeydown="return /[a-z]/i.test(event.key)"/>
+                                                                        value="{{ $s['passcountry'] ?? ''}}" onkeydown="return /[a-z]/i.test(event.key)"/>
 
                                                                 </div>
 
@@ -559,9 +551,9 @@
                                                                         client</label>
 
                                                                     <input type="text" class="form-control"
-                                                                        id="wechatidc[0][subject]"
+                                                                        id="wechatidc"
                                                                         name="addpb[{{ $i }}][wechatidc]"
-                                                                        value="{{ $s['wechatidc'] }}">
+                                                                        value="{{ $s['wechatidc'] ?? ''}}">
                                                                 </div>
 
                                                                 <div class="formAreahalf b2c_hide">
@@ -569,9 +561,9 @@
                                                                         of
                                                                         Client</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="cmobileno[0][subject]"
+                                                                        id="cmobileno"
                                                                         name="addpb[{{ $i }}][cmobileno]"
-                                                                        value="{{ $s['cmobileno'] }}">
+                                                                        value="{{ $s['cmobileno'] ?? ''}}">
                                                                 </div>
 
                                                                 <div class="formAreahalf b2c_hide">
@@ -579,18 +571,18 @@
                                                                         of
                                                                         client</label>
                                                                     <input type="email" class="form-control"
-                                                                        id="cemail[0][subject]"
+                                                                        id="cemail"
                                                                         name="addpb[{{ $i }}][cemail]"
-                                                                        value="{{ $s['cemail'] }}">
+                                                                        value="{{ $s['cemail'] ?? '' }}">
                                                                 </div>
 
                                                                 <div class="formAreahalf">
                                                                     <label class="form-label" for="busdes">Business
                                                                         Description</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="busdes[0][subject]"
+                                                                        id="busdes"
                                                                         name="addpb[{{ $i }}][busdes]"
-                                                                        value="{{ $s['busdes'] }}">
+                                                                        value="{{ $s['busdes'] ?? '' }}">
 
                                                                 </div>
 
@@ -601,7 +593,7 @@
                                                                     {{-- <input type="text" class="form-control"
                                                                         id="buscurr[0][subject]"
                                                                         name="addpb[{{ $i }}][buscurr]"
-                                                                        value="{{ $s['buscurr'] }}"> --}}
+                                                                        value="{{ $s['buscurr'] ?? '' }}"> --}}
 
                                                                     <select name="addpb[{{ $i }}][buscurr]"
                                                                         id="addpb[0][buscurr]">
@@ -925,7 +917,7 @@
                                                                         of
                                                                         client</label>
                                                                     <input type="email" class="form-control"
-                                                                        id="gencemail[0][subject]"
+                                                                        id="gencemail"
                                                                         name="addbg[{{ $g }}][g_cemail]"
                                                                         value="{{ $r['g_cemail'] }}">
                                                                 </div>
@@ -934,7 +926,7 @@
                                                                     <label class="form-label" for="busdes">Business
                                                                         Description</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="genbusdes[0][subject]"
+                                                                        id="genbusdes"
                                                                         name="addbg[{{ $g }}][g_busdes]"
                                                                         value="{{ $r['g_busdes'] }}">
                                                                 </div>
@@ -1284,80 +1276,6 @@
 
 
         $("#dynamic-ar").click(function() {
-
-
-
-            // $("#sign").change(function() {
-            //     //  alert('bchange');
-            //     // var option = document.getElementById("client").options;
-            //     if (document.getElementById('sign').value == "Yes") {
-            //       $("#b2bsigndatediv").html(
-            //             '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="date" class="form-control" id="b2bsigndate" name="b2bsigndate" >'
-            //         );
-            //         $("#b2bexdatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate">'
-            //         );
-            //     }
-            //     else
-            //     {
-            //       $("#b2bsigndatediv").html(
-            //             '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-" disabled>'
-            //         );
-            //         $("#b2bexdatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-" disabled>'
-            //         );
-
-            //     }
-            //   });
-
-
-
-            // $("#business").change(function() {
-            //     //  alert('bchange');
-            //     var option = document.getElementById("client").options;
-            //     if (document.getElementById('business').value == "B2B") {
-            //         // alert('b2b');
-            //         // $("#client").append('<option>Select</option>');
-            //         $("#client").html(
-            //             '<option value="" selected disabled>Please select client type</option><option value="Personal">Personal</option><option value="Corporate">Corporate</option>'
-            //         );
-            //         $("#sign").html(
-            //             '<option value="No">No</option><option value="Yes">Yes</option>'
-            //         );
-            //         $("#b2bsigndatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Sign Date</label><input type="" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-" disabled>'
-            //         );
-            //         $("#b2bexdatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-" disabled>'
-            //         );
-
-
-            //     }
-            //     if (document.getElementById('business').value == "B2C") {
-            //         // alert('b2b');
-            //         // $("#client").append('<option>Select</option>');
-            //         $("#client").html(
-            //             '<option value="" selected disabled>Please select client type</option><option value="Personal">Personal</option>'
-            //         );
-            //         $("#sign").html(
-            //             '<option value="No">No</option>'
-            //         );
-            //         $("#b2bsigndatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Sign Date</label><input type="" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-" disabled>'
-            //         );
-            //         $("#b2bexdatediv").html(
-            //             '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-" disabled>'
-            //         );
-
-
-
-
-            //     }
-            // });
-
-
-
-
             var i = $("#myInputHidden").val();
             i++;
             var b2c_hide = "";
@@ -1416,29 +1334,29 @@
     <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="dcname">Name of direct client</label>
 
-      <input type="text" class="form-control" id="dcname[` + i + `][subject]" name="addpb[` + i + `][dcname]">
+      <input type="text" class="form-control dc_name" id="dcname[` + i + `][subject]" name="addpb[` + i + `][dcname]">
 
     </div>
     <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
+      <input type="text" class="form-control passcountry" id="passcountry[` + i + `][subject]" name="addpb[` + i + `][passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
     <div class="formAreahalf" `+b2c_hide+`>
       <label class="form-label" for="wechatidc">Wechat Id of client</label>
 
-      <input type="text" class="form-control" id="wechatidc[` + i + `][subject]" name="addpb[` + i + `][wechatidc]">
+      <input type="text" class="form-control wechatidc" id="wechatidc[` + i + `][subject]" name="addpb[` + i + `][wechatidc]">
     </div>
 
     <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cmobileno">Mobile no. of Client</label>
-      <input type="text" class="form-control" id="cmobileno[` + i + `][subject]" name="addpb[` + i + `][cmobileno]">
+      <input type="text" class="form-control cmobileno" id="cmobileno[` + i + `][subject]" name="addpb[` + i + `][cmobileno]">
     </div>
 
     <div class="formAreahalf " `+b2c_hide+`>
       <label class="form-label" for="cemail">Email address of client</label>
-      <input type="email" class="form-control" id="cemail[` + i + `][subject]" name="addpb[` + i + `][cemail]">
+      <input type="email" class="form-control cemail" id="cemail[` + i + `][subject]" name="addpb[` + i + `][cemail]">
     </div>
 
     <div class="formAreahalf">
@@ -1576,30 +1494,30 @@
     <div class="formAreahalf ">
       <label class="form-label" for="">Name of direct client</label>
 
-      <input type="text" class="form-control" id="gendcname[0][subject]" name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
+      <input type="text" class="form-control gendcname"  name="addbg[` + g + `][g_dcname]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
     <div class="formAreahalf ">
       <label class="form-label" for="passcountry">Passport Country</label>
-      <input type="text" class="form-control" id="genpasscountry[0][subject]" name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
+      <input type="text" class="form-control genpasscountry"  name="addbg[` + g + `][g_passcountry]" onkeydown="return /[a-z]/i.test(event.key)"/>
 
     </div>
 
     <div class="formAreahalf ">
         <label class="form-label" for="wechatidc">Wechat Id of client</label>
 
-      <input type="text" class="form-control" id="genwechatidc[0][subject]" name="addbg[` + g + `][g_wechatid]">
+      <input type="text" class="form-control genwechatidc"  name="addbg[` + g + `][g_wechatid]">
     </div>
 
     <div class="formAreahalf ">
       <label class="form-label" for="cmobileno">Mobile no. of client</label>
-      <input type="text" class="form-control" id="gencmobileno[0][subject]" name="addbg[` + g + `][g_cmobno]">
+      <input type="text" class="form-control gencmobileno"  name="addbg[` + g + `][g_cmobno]">
     </div>
 
 
     <div class="formAreahalf">
       <label class="form-label" for="cemail">Email address of client</label>
-      <input type="email" class="form-control" id="gencemail[0][subject]" name="addbg[` + g + `][g_cemail]">
+      <input type="email" class="form-control gencemail" name="addbg[` + g + `][g_cemail]">
     </div>
 
     <div class="formAreahalf">
@@ -1975,5 +1893,154 @@
                 paging: true
             });
         }
+
+        $('body').on('click', '.same_client_topb', function() {
+                var chk = $(this).prop("checked");
+                if (chk == true) {
+                    var poc_name = $('#pocname').val();
+                    var client_cnt = $('#ccountry').val();
+                    var poc_wechat_id = $('#pocwechat').val();
+                    var poc_phno = $('#pocph').val();
+                    var poc_email = $('#pocemail').val();
+                    $(this).closest('.accordion-item').find(".dc_name").val(poc_name);
+                    $(this).closest('.accordion-item').find(".passcountry").val(client_cnt);
+                    $(this).closest('.accordion-item').find(".wechatidc").val(poc_wechat_id);
+                    $(this).closest('.accordion-item').find(".cmobileno").val(poc_phno);
+                    $(this).closest('.accordion-item').find(".cemail").val(poc_email);
+                } else {
+                    $(this).closest('.accordion-item').find(".dc_name").val("");
+                    $(this).closest('.accordion-item').find(".passcountry").val("");
+                    $(this).closest('.accordion-item').find(".wechatidc").val("");
+                    $(this).closest('.accordion-item').find(".cmobileno").val("");
+                    $(this).closest('.accordion-item').find(".cemail").val("");
+                }
+            });
+
+            $('body').on('click', '.same_client_tobg', function() {
+                var chk1 = $(this).prop("checked");
+                if (chk1 == true) {
+                    var poc_name = $('#dcname').val();
+                    var topb = $('#topb_class').val();
+                    var client_cnt = $('#passcountry').val();
+                    var poc_wechat_id = $('#wechatidc').val();
+                    var poc_phno = $('#cmobileno').val();
+                    var poc_email = $('#cemail').val();
+                    var bus_desc = $('#busdes').val();
+                    var other = $('#drp_spc').val();
+                    $(this).parents('.accordion-item').find(".g_drp_class").val(topb);
+                    $(this).parents('.accordion-item').find(".gendcname").val(poc_name);
+                    $(this).parents('.accordion-item').find(".genpasscountry").val(client_cnt);
+                    $(this).parents('.accordion-item').find(".genwechatidc").val(poc_wechat_id);
+                    $(this).parents('.accordion-item').find(".gencmobileno").val(poc_phno);
+                    $(this).parents('.accordion-item').find(".gencemail").val(poc_email);
+                    $(this).parents('.accordion-item').find(".genbusdes").val(bus_desc);
+                    $(this).parents('.accordion-item').find(".g_drp_class").change();
+                    $(this).parents('.accordion-item').find(".drp_spc_g").val(other);
+                    $('.select_class_g').parents('.accordion-body').find('.others2').show()
+                } else {
+                    $(this).parents('.accordion-item').find(".g_drp_class").val("");
+                    $(this).parents('.accordion-item').find(".gendcname").val("");
+                    $(this).parents('.accordion-item').find(".genpasscountry").val("");
+                    $(this).parents('.accordion-item').find(".genwechatidc").val("");
+                    $(this).parents('.accordion-item').find(".gencmobileno").val("");
+                    $(this).parents('.accordion-item').find(".gencemail").val("");
+                    $(this).parents('.accordion-item').find(".genbusdes").val("");
+                    $(this).parents('.accordion-body').find('.others').html("other");
+                    $(this).parents('.accordion-item').find(".drp_spc_g").val("");
+                    $(this).parents('.accordion-item').find(".drp_spc_g").val("");
+                    $('.select_class_g').parents('.accordion-body').find('.others2').hide()
+
+                }
+
+            })
+
+            $("#business").change(function() {
+                var option = document.getElementById("client").options;
+                if (document.getElementById('business').value == "B2B") {
+                    $("#client").html(
+                        '<option value="" selected disabled>Please select client type</option><option value="Personal">Personal</option><option value="Corporate">Corporate</option>'
+                    );
+                    $("#signdiv").html(`<label for="clienttype" class="form-label">Sign of B2B Agreement?</label>
+                                    <select class="" name="sign" id="sign">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>`);
+                    $("#b2bsigndatediv").html(
+                        '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="date" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-">'
+                    );
+                    $("#b2bexdatediv").html(
+                        '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-">'
+                    );
+                    $("#renewlremdiv").html(
+                        '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select class="form-control" id="renewlrem" name="renewlrem" placeholder="-"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
+                    );
+                    $("#renewlfrediv").html(
+                        '<label for="clienttype" class="form-label">Agreement Renewal Frequency</label><div class="d-flex text-dark"><span class="every" style="margin: 2px 7px 0px 0px; font-size: 15px;">Every</span><span class="select"><select name="renewlfre" id="renewlfre"><option value="Day">Day</option><option value="3 Days">3 Days</option><option value="Week">Week</option><option value="2 Weeks">2 Weeks</option><option value="4 Weeks">4 Weeks</option></select></span>'
+                    );
+
+                    $("#sign").change(function() {
+                        if (document.getElementById('sign').value == "Yes") {
+                            $("#b2bsigndatediv").html(
+                                '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="date" class="form-control" id="b2bsigndate" name="b2bsigndate" >'
+                            );
+                            $("#b2bexdatediv").html(
+                                '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="date" class="form-control" id="b2bexdate" name="b2bexdate">'
+                            );
+
+                            $("#renewlremdiv").html(
+                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><select name="renewlrem" id="renewlrem"><option value="Please select" selected disabled>Please select</option><option value="90 days before expiry">90 days before expiry</option><option value="120 days before expiry">120 days before expiry</option><option value="180 days before expiry">180 days before expiry</option></select>'
+                            );
+                            $("#renewlfrediv").html(
+                                ` <label for="clienttype" class="form-label"> Agreement Renewal Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select
+                                        name="renewlfre" id="renewlfre">
+                                        <option value="" selected disabled>Please select</option>
+                                        <option value="Day">Day</option>
+                                        <option value="3 Days">3 Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="2 Weeks">2 Weeks</option>
+                                        <option value="4 Weeks">4 Weeks</option>
+
+
+
+                                    </select>
+                                </span>`
+                            );
+
+                        } else {
+                            $("#b2bsigndatediv").html(
+                                '   <label for="" class="form-label">B2B Agreement Sign Date</label><input type="" class="form-control" id="b2bsigndate" name="b2bsigndate" placeholder="-" disabled>'
+                            );
+                            $("#b2bexdatediv").html(
+                                '<label for="" class="form-label">B2B Agreement Expiry Date</label><input type="" class="form-control" id="b2bexdate" name="b2bexdate" placeholder="-" disabled>'
+                            );
+                            $("#renewlremdiv").html(
+                                '<label for="clienttype" class="form-label"> Agreement Renewal Reminder</label><input type="" class="form-control" id="renewlrem" name="renewlrem" placeholder="-" disabled>'
+                            );
+                            $("#renewlfrediv").html(
+                                '<label for="clienttype" class="form-label"> Agreement Renewal Frequency</label><input type="" class="form-control" id="renewlfre" name="renewlfre" placeholder="-" disabled>'
+                            );
+
+                        }
+                    })
+                    $('.textarea').hide();
+                    $('.file_uload').hide();
+                }
+                if (document.getElementById('business').value == "B2C") {
+                    $('.textarea').show();
+                    $('.file_uload').show();
+                    $("#client").html(
+                        '<option value="" selected disabled>Please select client type</option><option value="Personal">Personal</option>'
+                    );
+                    $("#b2bsigndatediv").html('');
+                    $("#b2bexdatediv").html('');
+                    $("#renewlremdiv").html('');
+
+                    $("#renewlfrediv").html('');
+                    $("#signdiv").html('');
+
+
+                }
+            });
     </script>
 @endpush

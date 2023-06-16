@@ -683,7 +683,7 @@
                                             <label for="nfo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
                                             <input type="date" class="form-control"
-                                                name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yy">
+                                                name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="formAreahalf">
                                         </div>
@@ -755,7 +755,7 @@
         <div class="formAreahalf basic_data">
             <label for="date_of_contract" class="form-label">Date of contract DD/MM/YYYY</label>
             <input type="date" class="form-control" name="date_of_contract"
-                        id="date_of_contract" placeholder="dd/mm/yy">
+                        id="date_of_contract" placeholder="dd/mm/yyyy">
 
 
         </div>
@@ -810,7 +810,7 @@
         <div class="formAreahalf">
             <label for="annual_fee_due_date" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
             <input type="date" class="form-control" name="annual_fee_due_date"
-                        id="annual_fee_due_date" placeholder="dd/mm/yy">
+                        id="annual_fee_due_date" placeholder="dd/mm/yyyy">
         </div>
         <div class="formAreahalf mb-40">
             <label for="annual_fee_due_reminder" class="form-label">Annual Servicing Fee Due Reminder</label>
@@ -847,7 +847,7 @@
             <input type="text" class="form-control" name="fo_pass_reminder" id="fo_pass_reminder">
         </div>
         <div class="formAreahalf">
-            <label for="fo_dob" class="form-label">DOB</label>
+            <label for="fo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
             <input type="text" class="form-control" name="fo_dob" id="fo_dob">
         </div>
         <div class="formAreahalf">
@@ -883,8 +883,7 @@
             <input type="tel" id="fo_phone_number" name="fo_phone_number" class="form-control" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
         </div>
         <div class="formAreahalf">
-            <label for="fo_residential_Add" class="form-label">Residential Add.(according to Add.
-                proof)</label>
+            <label for="fo_residential_Add" class="form-label">Residential Address</label>
             <input type="text" class="form-control" name="fo_residential_add" id="fo_residential_add">
         </div>
         <div class="formAreahalf">
@@ -1045,7 +1044,7 @@
                 value="">
         </div>
         <div class="formAreahalf">
-            <label for="fo_cpm2_res_add" class="form-label">Residential Add.(according to Add. proof)</label>
+            <label for="fo_cpm2_res_add" class="form-label">Residential Address</label>
             <input type="text" name="fo_cpm2_res_add" id="fo_cpm2_res_add" class="form-control" value="">
         </div>
         <div class="formAreahalf">

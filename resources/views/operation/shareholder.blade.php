@@ -3,7 +3,7 @@
     <p></p>
 </div>
 <div class="formAreahalf basic_data">
-    <label for="" class="form-label">DOB(DD/MM/YYYY)</label>
+    <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
     <p></p>
 </div>
 <div class="formAreahalf basic_data">

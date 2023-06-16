@@ -1013,10 +1013,10 @@
                         <tr>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['dcname'] }}</td>
+                                {{ $s['dcname'] ?? '' }}</td>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['passcountry'] }}</td>
+                                {{ $s['passcountry'] ?? '' }}</td>
 
                         </tr>
 
@@ -1036,10 +1036,10 @@
                         <tr>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['wechatidc'] }}</td>
+                                {{ $s['wechatidc'] ?? '' }}</td>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['cmobileno'] }}</td>
+                                {{ $s['cmobileno'] ?? ''}}</td>
                         </tr>
 
                         <tr>
@@ -1056,10 +1056,10 @@
                         <tr>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['cemail'] }}</td>
+                                {{ $s['cemail'] ?? '' }}</td>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['remarks'] }}</td>
+                                {{ $s['remarks'] ?? '' }}</td>
                         </tr>
 
                         <tr>
@@ -1095,7 +1095,7 @@
                         <tr>
                             <td
                                 style="width:50%; font-weight:400; font-size:14px; color:#010101; padding-top:22px; padding-left:20px;">
-                                {{ $s['remarks'] }}</td>
+                                {{ $s['remarks'] ?? '' }}</td>
                         </tr>
 
 
