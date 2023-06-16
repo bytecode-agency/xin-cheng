@@ -46,12 +46,12 @@
                         <li>{{ Breadcrumbs::render('operation.edit', $data, $PassName) }}</li>
                     </ul>
                 </div>
-                <div class="filterBtn d-flex align-items-center justify-content-end">
+            </div>
+            <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
                     <button type="submit" class="btn saveBtn"><span>Save</span></button>
                     <a href="{{ route('operation.show', $data->id) }}"><button type="button"
                             class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
                     {{-- <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Cancel</span></button> --}}
-                </div>
             </div>
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
