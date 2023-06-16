@@ -297,7 +297,7 @@
                             <div class="w-100 d-flex justify-content-start flex-wrap form-fields append-div-css">
 
                                 <div class="formAreahalf">
-                                    <label class="form-label" for="buscurr">Revunue Item 1</label>
+                                    <label class="form-label" for="buscurr">Revenue Item 1</label>
                                     <select name="payment[0][revenue]" id="payment[0][revenue]">
                                         <option value="" selected>Please select
                                         </option>
@@ -2275,7 +2275,7 @@
                     <div class="company_design Revunue">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields append-div-css">
                             <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item 1</label>
+                            <label class="form-label" for="buscurr">Revenue Item 1</label>
                             <select name="payment[0][revenue]" id="payment[0][revenue]">
                                 <option value="" selected >Please select
                                 </option>
@@ -2378,7 +2378,7 @@
                     <div class="Share_holder-w sub-heading">\
                     </div>\
                     <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item 1</label>
+                            <label class="form-label" for="buscurr">Revenue Item 1</label>
                             <select name="payment[` + sh_no + `][revenue]" id="payment[` + sh_no + `][revenue]">
                                 <option value="" selected >Please select
                                 </option>
@@ -2739,7 +2739,7 @@
                                                     aria-labelledby="panelsStayOpen-headingTwi` + i + `">
                                                     <div class="accordion-body d-flex flex-wrap">
                                                     <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item ` + I + `</label>
+                            <label class="form-label" for="buscurr">Revenue Item ` + I + `</label>
                             <select name="payment[` + i + `][revenue]" id="payment[` + i + `][revenue]">
                                 <option value="" selected >Please select
                                 </option>
