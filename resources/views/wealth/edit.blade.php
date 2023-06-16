@@ -2493,7 +2493,7 @@
                 document.getElementsByName('gender')[0].value = gender
 
                 const passport_exp_date = document.getElementsByName(substr + '[passport_exp_date]')[0].value
-                document.getElementsByName('pass_expiry_date')[0].value = passport_expiry_date
+                document.getElementsByName('passport_expiry_date')[0].value = passport_exp_date.split("/").reverse().join("-")
 
                 const passport_no = document.getElementsByName(substr + '[passport_no]')[0].value
                 document.getElementsByName('passport_no')[0].value = passport_no
@@ -2503,6 +2503,9 @@
 
                 const passport_renew = document.getElementsByName(substr + '[passport_renew]')[0].value
                 document.getElementsByName('pass_renewal_reminder')[0].value = passport_renew
+
+                const dob = document.getElementsByName(substr + '[passport_exp_date]')[0].value
+                document.getElementsByName('dob')[0].value = dob.split("/").reverse().join("-")
 
                 const residential_address = document.getElementsByName(substr + '[residential_address]')[0].value
                 document.getElementsByName('residential_add')[0].value = residential_address
