@@ -92,7 +92,7 @@
                             <option value="Secondary School">Secondary School</option>
                             <option value="Bachelor">Bachelor</option>
                             <option value="Master">Master</option>
-                            <option value="Others (please specify)">Others (please specify)</option>
+                            <option value="Others">Others</option>
 
                         </select>
                     </div>
@@ -109,7 +109,7 @@
 
                     <div class="formAreahalf">
                         <label for="education_type" class="form-label">Client's Current Pass in SG</label>
-                        <select name="current_pass" id="current_pass" class="form-control">
+                        <select name="current_pass" id="current_pass" class="form-control" >
                             <option value="" selected disabled>Choose client's current pass in SG</option>
                             <option value="EP">EP</option>
                             <option value="SP">SP</option>
@@ -117,9 +117,11 @@
                             <option value="LVTP">LVTP</option>
                             <option value="Student Pass">Student Pass</option>
                             <option value="N/A">N/A</option>
-                            <option value="Others (please specify)">Others(please specify)</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
+
+
 
                     <div class="formAreahalf">
                         <label for="education_type" class="form-label">Gender(M/F)</label>
@@ -201,10 +203,29 @@
                                     aria-hidden="true"></i></span> --}}
                         <div class="formAreahalf">
                             <label for="education_type" class="form-label">Name of School to be applied</label>
-                             <input type="text" name="school_name" id="school_name" class="form-control" value="">
-                           <!-- <select name="edu[1][school_name]" id="education_type" class="form-control">\ -->
-                              <!--  <option value="" selected disabled>Choose name of school to be applied</option> -->
-                               <!-- <option value="Hwa Chong International School">Hwa Chong International School</option> -->
+
+                            <select name="edu[1][school_name]" id="education_type_school" class="form-control">\
+                                <option value="" selected disabled>Choose name of school to be applied</option>
+                                <option value="Stamford American International School, SAIS">Stamford American International School, SAIS</option>
+                                <option value="Overseas Family School, OFS">Overseas Family School, OFS</option>
+                                <option value="Australian International School, AIS">Australian International School, AIS</option>
+                                <option value="The United World College of Southeast Asia, UWC">The United World College of Southeast Asia, UWC</option>
+                                <option value="Singapore American School, SAS">Singapore American School, SAS</option>
+                                <option value="Hwa Chong International School, HCIS">Hwa Chong International School, HCIS</option>
+                                <option value="Canadian International School, CIS">Canadian International School, CIS</option>
+                                <option value="Tanglin Trust School, TTS">Tanglin Trust School, TTS</option>
+                                <option value="St Joseph's Institution International School, SJI">St Joseph's Institution International School, SJI</option>
+                                <option value="Anglo-Chinese School International，ACS">Anglo-Chinese School International，ACS</option>
+                                <option value="Dulwich College Singapore">Dulwich College Singapore</option>
+                                <option value="Chatsworth International School">Chatsworth International School</option>
+                                <option value="Dover Court International School, DCIS">Dover Court International School, DCIS</option>
+                                <option value="Nexus International School Singapore, NISS">Nexus International School Singapore, NISS</option>
+                                <option value="North London Collegiate School Singapore, NLCS">North London Collegiate School Singapore, NLCS</option>
+                                <option value="Global Indian International School ，GIIS">Global Indian International School ，GIIS</option>
+                                <option value="XCL World Academy, XCL">XCL World Academy, XCL</option>
+                                <option value="Internatioal School Singapore, ISS">Internatioal School Singapore, ISS</option>
+                                <option value="Hillside World Academy，HWA">Hillside World Academy，HWA</option>
+                                <option value="Others">Others, please specify</option>
 
                             </select>
                         </div>
@@ -381,6 +402,20 @@
                         <label for="par_pass_no" class="form-label">Passport Number</label>
                         <input type="text" name="par_pass_no" id="par_pass_no" class="form-control" value="">
                     </div>
+
+                    <div class="formAreahalf">
+                        <label for="par_pass_country" class="form-label">Passport Country</label>
+                        <input type="text" name="par_pass_country" id="par_pass_country" class="form-control"
+                            value="">
+                    </div>
+
+                    <div class="formAreahalf">
+                        <label for="par_pass_exp_date" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
+                        <input type="date" name="par_pass_exp_date" id="par_pass_exp_date" class="form-control"
+                            value="">
+                    </div>
+
+
                     <div class="formAreahalf">
                         <label for="par_pass_renewal_reminder" class="form-label">Passport Renewal Reminder</label>
                         <select name="par_pass_renewal_reminder" id="par_pass_renewal_reminder" class="form-control">
@@ -390,11 +425,13 @@
                             <option value="180 days before expiry">180 days before expiry</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">
+
+                    <!-- <div class="formAreahalf">
                         <label for="par_pass_exp_date" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
                         <input type="date" name="par_pass_exp_date" id="par_pass_exp_date" class="form-control"
                             value="">
-                    </div>
+                    </div> -->
+
                     <div class="formAreahalf">
                         <label for="par_pass_renewal_frq" class="form-label">Passport Reminder Trigger Frequency</label>
                         <div class="select_box"><span class="every">Every</span><span class="select"><select
@@ -407,16 +444,31 @@
                                     <option value="4 Weeks">4 Weeks</option>
                                 </select></span></div>
                     </div>
-                    <div class="formAreahalf">
+
+
+                   <!-- <div class="formAreahalf">
                         <label for="par_pass_country" class="form-label">Passport Country</label>
                         <input type="text" name="par_pass_country" id="par_pass_country" class="form-control"
                             value="">
-                    </div>
+                    </div> -->
+
+
                     <div class="formAreahalf">
                         <label for="par_job_occupation" class="form-label">Job Occupation</label>
                         <input type="text" name="par_job_occupation" id="par_job_occupation" class="form-control"
                             value="">
                     </div>
+
+                    <div class="formAreahalf">
+            <label for="annual_income_currency" class="form-label">Annual Income Currency</label>
+            <select class="form-control" name="annual_income_currency" id="annual_income_currency">
+                <option value="" selected disabled>Choose Annual Currency</option>
+                <option value="SGD">SGD</option>
+                <option value="USD">USD</option>
+
+            </select>
+        </div>
+
                     <div class="formAreahalf">
                         <label for="par_annual_income" class="form-label">Annual Income</label>
                         <div class="dollersec"><span class="doller">$</span>
@@ -574,11 +626,13 @@
                             class="form-control" value="">
                     </div>
 
-                    <div class="formAreahalf">
+                    <!-- <div class="formAreahalf">
                         <label for="guardian_gender" class="form-label">Gender (M/F)</label>
                         <input type="text" name="guardian_gender" id="guardian_gender" class="form-control"
                             value="">
-                    </div>
+                            </div>-->
+
+
                     <div class="formAreahalf">
                         <label for="guardian_dob" class="form-label">DOB (DD/MM/YYYY)</label>
                         <input type="date" name="guardian_dob" id="guardian_dob" class="form-control"
@@ -589,6 +643,21 @@
                         <input type="text" name="guardian_pass_no" id="guardian_pass_no" class="form-control"
                             value="">
                     </div>
+
+                    <div class="formAreahalf">
+                        <label for="guardian_pass_country" class="form-label">Passport Country</label>
+                        <input type="text" name="guardian_pass_country" id="guardian_pass_country"
+                            class="form-control" value="">
+                    </div>
+
+                    <div class="formAreahalf">
+                        <label for="guardian_pass_expiry_date" class="form-label">Passport Expiry Date
+                            (DD/MM/YYYY)</label>
+                        <input type="date" name="guardian_pass_expiry_date" id="guardian_pass_expiry_date"
+                            class="form-control" value="">
+                    </div>
+
+
                     <div class="formAreahalf">
                         <label for="guardian_pass_renewal" class="form-label">Passport Renewal Reminder</label>
                         <select name="guardian_pass_renewal" id="guardian_pass_renewal" class="form-control">
@@ -598,12 +667,12 @@
                             <option value="180 days before expiry">180 days before expiry</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">
+                   <!-- <div class="formAreahalf">
                         <label for="guardian_pass_expiry_date" class="form-label">Passport Expiry Date
                             (DD/MM/YYYY)</label>
                         <input type="date" name="guardian_pass_expiry_date" id="guardian_pass_expiry_date"
                             class="form-control" value="">
-                    </div>
+                    </div> -->
                     <div class="formAreahalf">
                         <label for="guardian_pass_frq" class="form-label">Passport Reminder Trigger Frequency</label>
                         <div class="select_box"><span class="every">Every</span><span class="select"><select
@@ -616,20 +685,38 @@
                                     <option value="4 Weeks">4 Weeks</option>
                                 </select></span></div>
                     </div>
-                    <div class="formAreahalf">
+
+                    <!-- <div class="formAreahalf">
                         <label for="guardian_pass_country" class="form-label">Passport Country</label>
                         <input type="text" name="guardian_pass_country" id="guardian_pass_country"
                             class="form-control" value="">
-                    </div>
+                    </div>-->
+
                     <div class="formAreahalf">
                         <label for="guardian_job" class="form-label">Job Occupation</label>
                         <input type="text" name="guardian_job" id="guardian_job" class="form-control"
                             value="">
-                    </div>
+
+                            </div>
+
+
+                        <div class="formAreahalf">
+            <label for="annual_income_currency" class="form-label">Annual Income Currency</label>
+            <select class="form-control" name="annual_income_currency" id="annual_income_currency">
+                <option value="" selected disabled>Choose Annual Currency</option>
+                <option value="SGD">SGD</option>
+                <option value="USD">USD</option>
+
+            </select>
+        </div>
+
+
                     <div class="formAreahalf">
-                        <label for="guardian_annual_income" class="form-label">Annual Income</label>
+                    <label for="guardian_annual_income" class="form-label">Annual Income</label>
+                    <div class="dollersec"><span class="doller">$</span>
                         <input type="text" name="guardian_annual_income" id="guardian_annual_income"
                             class="form-control" value="">
+                            </div>
                     </div>
                     <div class="formAreahalf">
                         <label for="guardian_email" class="form-label">Email Address</label>
@@ -655,7 +742,7 @@
                 </div>
             </div>
             <div class="text-center pt-4 " id="append_div_btn">
-                <button type="button" id="next" class="btn saveBtn education_submit" data-id="4">Next</button>
+                <button type="button" id="next" class="btn saveBtn education_submit" data-id="4">Submit</button>
                 <button type="button" id="previous" class="btn saveBtn cancelBtn previous"
                     data-id="4">Back</button>
             </div>
@@ -684,10 +771,33 @@
                                 <span class="cancel_company cancel_school"><i class="fa fa-times" aria-hidden="true"></i></span>
                                 <div class="formAreahalf">
                                     <label for="education_type" class="form-label">Name of School to be applied</label>
-                                    <select name="edu[` + dataId + `][school_name]" id="education_type" class="form-control">
-                                        <option value="" selected disabled>Choose name of school to be applied</option>
-                                        <option value="Hwa Chong International School">Hwa Chong International School</option>
-                                    </select>
+                                  <!-- <input type="text" name="edu[` + dataId + `][school_name]" id="education_type" class="form-control" value=""> -->
+
+                                  <select name="edu[1][school_name]" id="education_type_school" class="form-control">\
+                                <option value="" selected disabled>Choose name of school to be applied</option>
+                                <option value="Stamford American International School, SAIS">Stamford American International School, SAIS</option>
+                                <option value="Overseas Family School, OFS">Overseas Family School, OFS</option>
+                                <option value="Australian International School, AIS">Australian International School, AIS</option>
+                                <option value="The United World College of Southeast Asia, UWC">The United World College of Southeast Asia, UWC</option>
+                                <option value="Singapore American School, SAS">Singapore American School, SAS</option>
+                                <option value="Hwa Chong International School, HCIS">Hwa Chong International School, HCIS</option>
+                                <option value="Canadian International School, CIS">Canadian International School, CIS</option>
+                                <option value="Tanglin Trust School, TTS">Tanglin Trust School, TTS</option>
+                                <option value="St Joseph's Institution International School, SJI">St Joseph's Institution International School, SJI</option>
+                                <option value="Anglo-Chinese School International，ACS">Anglo-Chinese School International，ACS</option>
+                                <option value="Dulwich College Singapore">Dulwich College Singapore</option>
+                                <option value="Chatsworth International School">Chatsworth International School</option>
+                                <option value="Dover Court International School, DCIS">Dover Court International School, DCIS</option>
+                                <option value="Nexus International School Singapore, NISS">Nexus International School Singapore, NISS</option>
+                                <option value="North London Collegiate School Singapore, NLCS">North London Collegiate School Singapore, NLCS</option>
+                                <option value="Global Indian International School ，GIIS">Global Indian International School ，GIIS</option>
+                                <option value="XCL World Academy, XCL">XCL World Academy, XCL</option>
+                                <option value="Internatioal School Singapore, ISS">Internatioal School Singapore, ISS</option>
+                                <option value="Hillside World Academy，HWA">Hillside World Academy，HWA</option>
+                                <option value="Others">Others, please specify</option>
+
+                            </select>
+
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="education_type" class="form-label">Education Description</label>
@@ -702,11 +812,14 @@
                                     <label for="education_type" class="form-label">School Application Status</label>
                                     <select name="edu[` + dataId + `][school_application_status]" id="school_application_status" class="js-example-responsive school_status form-control">
                                         <option value="" selected disabled>Choose school application status</option>
+                                        <option value="Pending">Pending</option>
                                         <option value="Approved">Approved</option>
+                                        <option value="Rejected">Rejected</option>
                                         </select>
                                 </div>
                             </div>`
                 );
+
             });
 
             $('body').on('click', '.next', function() {
@@ -782,18 +895,20 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="pass_app_status" class="form-label">Pass Application Status</label>
-                        <select name="pass_app_status" id="pass_app_status" class="js-example-responsive form-control">
+                        <select name="pass_app_status" id="pass_app_status" class="js-example-responsive form-control pass_app_status" >
                             <option value="" selected disabled>Choose pass application status</option>
-                            <option value="Pending">Pending</option>
+                            <option title="Pending" value="Pending">Pending</option>
                             <option value="Approved">Approved</option>
                             <option value="Rejected">Rejected</option>
                         </select>
                     </div>
+
+
                     <div class="formAreahalf">
                     <label for="pass_issuance" class="form-label">Pass Issuance</label>
                     <select name="pass_issuance" id="pass_issuance" value="" class="js-example-responsive form-control">
                         <option value="" selected disabled>Choose pass issuance</option>
-                        <option value="Progress">Progress</option>
+                        <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>
                         <option value="Withdrawn">Withdrawn</option>
                         </select>
@@ -810,6 +925,12 @@
                     <label for="pass_duration" class="form-label">Pass Duration (Years)</label>
                     <input type="text" name="pass_duration" id="pass_duration" value="" class="form-control">
                     </div>
+
+                        <div class="formAreahalf">
+                    <label for="fin_number" class="form-label">FIN Number</label>
+                    <input type="text" name="fin_number" id="fin_number" value="" class="form-control">
+                    </div>
+
                     <div class="formAreahalf">
                     <label for="pass_renewal_reminder" class="form-label">Pass Renewal Reminder</label>
                     <select name="pass_renewal_reminder" id="pass_renewal_reminder" value="" class="form-control">
@@ -819,10 +940,12 @@
                         <option value="180 days before expiry">180 days before expiry</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">
-                    <label for="fin_number" class="form-label">FIN Number</label>
-                    <input type="text" name="fin_number" id="fin_number" value="" class="form-control">
-                    </div>
+
+
+
+
+
+
                     <div class="formAreahalf">
                     <label for="pass_renewal_frq" class="form-label">Pass Renewal Frequency</label>
                     <div class="select_box"><span class="every">Every</span><span class="select"><select
@@ -853,6 +976,13 @@
                 }
 
             });
+
+
+
+
+
+
+
             $('body').on('change', '.parents_ltvp_app', function() {
                 $('.parent_lvtp').css('margin-left', '100px');
                 $('.parent_lvtp').css('margin-bottom', '20px');
@@ -901,6 +1031,11 @@
 
                     </div>
                     <div class="formAreahalf">
+                        <label for="par_ltvp_fin_no" class="form-label">FIN Number</label>
+                        <input type="text" name="par_ltvp_fin_no" id="par_ltvp_fin_no" class="form-control" value="">
+                    </div>
+
+                    <div class="formAreahalf">
                         <label for="par_ltvp_pass_renewal" class="form-label">Pass Renewal Reminder</label>
                         <select name="par_ltvp_pass_renewal" id="par_ltvp_pass_renewal" class="form-control">
                             <option value="" selected disabled>Choose pass renewal reminder</option>
@@ -909,11 +1044,11 @@
                             <option value="180 days before expiry">180 days before expiry</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">
-                        <label for="par_ltvp_fin_no" class="form-label">FIN Number</label>
-                        <input type="text" name="par_ltvp_fin_no" id="par_ltvp_fin_no" class="form-control" value="">
 
-                    </div>
+
+
+
+
                     <div class="formAreahalf">
                         <label for="par_ltvp_pass_frq" class="form-label">Pass Renewal Frequency</label>
                         <div class="select_box"><span class="every">Every</span><span class="select"><select
@@ -970,9 +1105,9 @@
                             <div class='number_main swal_number education_add_model'><ul class="list-group list-group-horizontal" id = "nav_list">
                             <li class="list-group-item active"> <a href="#">1</a><p> Personal Details </p> </li>
                             <li class="list-group-item active"> <a href="#">2</a><p> Student Pass Application </p> </li>
-                            <li class="list-group-item active"> <a href="#">3</a><p> Parent Personal Details </p> </li></ul>
-                            <li class="list-group-item active"> <a href="#">4</a><p> Parents LTVP Application </p> </li></ul>
-                            <li class="list-group-item active"> <a href="#">5</a><p> Parent/Guardian Details </p> </li></ul>
+                            <li class="list-group-item active"> <a href="#">3</a><p> Parent Personal Details </p> </li>
+                            <li class="list-group-item active"> <a href="#">4</a><p> Parents LTVP Application </p> </li>
+                            <li class="list-group-item active"> <a href="#">5</a><p> Parent/Guardian Details </p> </li>
                             <li class="list-group-item active"> <a href="#">5</a><p> Complete </p> </li></ul>
                             </div>`;
 
@@ -997,5 +1132,73 @@
             });
 
         });
+
+
+        // When the user selects others for 'Types of Education Level'
+        $(document).on('change', '#education_type', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="education_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+            // When the user clicks 'Client's Current Pass in SG' and others option
+
+             $(document).on('change', '#current_pass', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="education_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+// When the user clicks on the others, please specify when they are choosing the options for 'Name of school to be applied' in the dropdown
+ $(document).on('change', '#education_type_school', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="education_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
     </script>
 @endpush

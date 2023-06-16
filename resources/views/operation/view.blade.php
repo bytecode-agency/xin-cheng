@@ -44,12 +44,12 @@
 
             </ul>
         </div>
-        <div class="filterBtn d-flex align-items-center justify-content-end">
+    </div>
+    <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
             <a href="{{ route('operation.edit', $data->id) }}"><button class="btn saveBtn"><span>Edit</span></button></a>
             {{-- <a href=""><button class="btn saveBtn"><span>Edit</span></button></a> --}}
             <a href="javascript:void(0);" data-id={{ $data->id }} title="Delete"
                 class="btn del_confirm_opr saveBtn cancelBtn delete">Delete</a>
-        </div>
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">

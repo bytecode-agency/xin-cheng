@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@push('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endpush
 @section('content')
     <style>
         body .append-div-css {
@@ -32,7 +35,7 @@
         </div>
     @endif
     <!-- Form card data -->
-    <div class="dataAreaMain finance-veiw-cstm wealth_application finance-section-form">
+    <div class="dataAreaMain finance-veiw-cstm finance-section-form">
 
         <form action="javascipt:void(0);" method="post" id="multistep_form" class='d-flex justify-content-start flex-wrap '>
             @csrf
@@ -43,7 +46,7 @@
 
             <fieldset id="FO_start_field" class="w-100 justify-content-start flex-wrap form-fields wealth FO_start_field">
                 <div class="card formContentData border-0 p-4 wealth_companies_change">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Business Details</h4>
                         </div>
@@ -59,7 +62,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="#">3</a>
-                                    <p> Payment Recievable Item </p>
+                                    <p> Payment Receivable Item </p>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="#">4</a>
@@ -73,15 +76,8 @@
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <!-- <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                                                                                                                                                                                                                                                                                                                            <label for="fo_compnay" class="form-label">Revenue Item 1</label>
-                                                                                                                                                                                                                                                                                                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                                                                                                                                                                                                                                                                                                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-                                                                                                                                                                                                                                                                                                                                                aria-controls="panelsStayOpen-collapseThree">
-                                                                                                                                                                                                                                                                                                                                                <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                                                                                                                                                                                                                                                                                                                                            </button>
 
-                                                                                                                                                                                                                                                                                                                                        </h2> -->
+
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body">
@@ -150,7 +146,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="#">3</a>
-                                    <p> Payment Recievable Item </p>
+                                    <p> Payment Receivable Item </p>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="#">4</a>
@@ -171,24 +167,36 @@
                             <input type="text" class="form-control" id="pname" name="pname">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Full Name (chinese)</label>
+                            <label for="" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" class="form-control" id="pnamec" name="pnamec">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Gender(M/F)</label>
+                            <label for="" class="form-label">Gender</label>
                             <select name="pgender" id="pgender">
                                 <option selected value="">Please select</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="M">M</option>
+                                 <option value="F">F</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="pdob" name="pdob">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="pphoneno" name="pphoneno">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="pemail" name="pemail">
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Passport Number</label>
                             <input type="text" class="form-control" id="pnumber" name="pnumber">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Country</label>
+                            <input type="text" class="form-control" id="pcountry" name="pcountry">
                         </div>
                         <div class="formAreahalf ">
                             <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
@@ -198,22 +206,22 @@
                             <label for="" class="form-label">Passport Renewal Reminder</label>
                             <select name="prenrem" id="prenrem">
                                 <option value="" selected>Please select</option>
-                                <option value="30">30 days before expiry</option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="90">90 days before expiry</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
                         </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Country</label>
-                            <input type="text" class="form-control" id="pcountry" name="pcountry">
-                        </div>
+                        
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
-                            <select name="premtf" id="premtf">
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="premtf" id="premtf">
                                 <option value="" selected>Please select</option>
-                                <option value="everyweek">Every Week</option>
-                                <option value="everymonth">Every Month</option>
-                            </select>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Current TIN Number</label>
@@ -228,20 +236,18 @@
                             <label for="" class="form-label">Type of TIN</label>
                             <select name="ptypetin" id="ptypetin">others,please specify
                                 <option value="" selected>Please select</option>
-                                <option value="EAD">EAD</option>
-                                <!-- <option value="everymonth">Every Month</option> -->
+                                <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LTVP">LTVP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
                             </select>
                         </div>
+                        
+                        
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="pphoneno" name="pphoneno">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">E mail</label>
-                            <input type="text" class="form-control" id="pemail" name="pemail">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Residential Address</label>
+                            <label for="" class="form-label">Residential Add.(according to Add. proof)</label>
                             <input type="text" class="form-control" id="paddress" name="paddress">
                         </div>
                         <div class="formAreahalf">
@@ -262,7 +268,7 @@
                 class="w-100 justify-content-start flex-wrap form-fields wealth main_class_payment" style="display:none;">
 
                 <div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Payment Details</h4>
 
@@ -279,7 +285,7 @@
                                 </li>
                                 <li class="list-group-item active">
                                     <a href="#">3</a>
-                                    <p> Payment Recievable Item </p>
+                                    <p> Payment Receivable Item </p>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="#">4</a>
@@ -297,22 +303,49 @@
                             <div class="w-100 d-flex justify-content-start flex-wrap form-fields append-div-css">
 
                                 <div class="formAreahalf">
-                                    <label class="form-label" for="buscurr">Revunue Item 1</label>
-                                    <select name="payment[0][revenue]" id="payment[0][revenue]">
+                                    <label class="form-label" for="buscurr">Payment Receivable Item 1</label>
+                                    <select name="payment[0][revenue]" id="payment[0][revenue]" class="pr_item">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                        <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                        <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
 
                                 <div class="formAreahalf">
                                     <label class="form-label" for="buscurr">Currency</label>
-                                    <select name="payment[0][currency]" id="payment[0][currency]">
+                                    <select name="payment[0][currency]" id="payment[0][currency]" class="pr_currency">
                                         <option value="" selected>Please select
                                         </option>
                                         <option value="SGD">SGD</option>
                                         <option value="USD">USD</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf">
@@ -320,7 +353,13 @@
                                     <select name="payment[0][payfre]" id="payment[0][payfre]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="One Time">One Time</option>
+                                        <option value="One-Time">One-Time</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Yearly">Yearly</option>
+                                        <option value="Half-yearly">Half-yearly</option>
+                                        <option value="Quarterly">Quarterly</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="No Longer">No Longer</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf">
@@ -330,35 +369,42 @@
                                 </div>
 
                                 <div class="formAreahalf ">
-                                    <label class="form-label" for="dcname">Payment Recievable Deadline</label>
+                                    <label class="form-label" for="dcname">Payment Receivable Deadline</label>
                                     <input type="date" class="form-control" id="payment[0][paredead]"
                                         name="payment[0][paredead]">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label class="form-label" for="buscurr">Payment Recievable Reminder Trigger</label>
+                                    <label class="form-label" for="buscurr">Payment Receivable Reminder</label>
                                     <select name="payment[0][pareretri]" id="payment[0][pareretri]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="60">60 days before expiry</option>
-                                        <option value="30">30 days before expiry</option>
-                                    </select>
-                                </div>
-                                <div class="formAreahalf ">
-                                    <label class="form-label" for="passcountry">Payment Recievable Status</label>
-                                    <select name="payment[0][paresta]" id="payment[0][paresta]">
-                                        <option value="" selected>Please select
-                                        </option>
-                                        <option value="Recievable">Recievable</option>
+                                        <option value="90 days before expiry">90 days before expiry</option>
+                                        <option value="120 days before expiry">120 days before expiry</option>
+                                        <option value="180 days before expiry">180 days before expiry</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf ">
                                     <label class="form-label" for="passcountry">Payment Reminder Trigger Frequency</label>
-                                    <select name="payment[0][paretrfre]" id="payment[0][paretrfre]">
+                                    <div class="select_box"><span class="every">Every</span><span class="select"><select name="payment[0][paretrfre]" id="payment[0][paretrfre]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="Every Week">Every Week</option>
-                                    </select>
+                                        <option value="Day">Day</option>
+                                        <option value="3 Days">3 Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="2 Weeks">2 Weeks</option>
+                                        <option value="4 Weeks">4 Weeks</option>
+                                    </select></span></div>
                                 </div>
+                                <div class="formAreahalf ">
+                                    <label class="form-label" for="passcountry">Payment Receivable Status</label>
+                                    <div class="select_box"><span class="every">Every</span><span class="select"><select name="payment[0][paresta]" id="payment[0][paresta]">
+                                        <option value="" selected>Please select
+                                        </option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Received">Received</option>
+                                    </select></span></div>
+                                </div>
+                                
                                 <div class="formAreahalf">
                                     <label class="form-label" for="remarks">Remarks</label>
                                     <textarea id="payment[0][subject]" name="payment[0][remarks]" rows="4" cols="50"> </textarea>
@@ -372,7 +418,7 @@
                     </div>
                     <div class="text-center pt-4 add_potentia add_potential" id="add_shareholder_btn_div">
                         <button type="button" id="add_payment" class="btn saveBtn btn_design add_payment"
-                            name="add_payment">Add Payment Recievable Item</button>
+                            name="add_payment">Add Payment Receivable Item</button>
                     </div>
                 </div>
                 <div class="text-center pt-4 " id="append_div_btn">
@@ -389,7 +435,7 @@
             <fieldset class="main_class_fp w-100 justify-content-start flex-wrap form-fields wealth"
                 id="main_class_report" style="display:none;">
                 <div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Report Detail</h4>
 
@@ -406,7 +452,7 @@
                                 </li>
                                 <li class="list-group-item active">
                                     <a href="#">3</a>
-                                    <p> Payment Recievable Item </p>
+                                    <p> Payment Receivable Item </p>
                                 </li>
                                 <li class="list-group-item active">
                                     <a href="#">4</a>
@@ -427,21 +473,48 @@
                                 </div>
                                 <div class="formAreahalf">
                                     <label class="form-label" for="buscurr">Report Submission Item 1</label>
-                                    <select name="report[0][submission]" id="report[0][submission]">
+                                    <select name="report[0][submission]" id="report[0][submission]" class="rs_item">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                        <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                        <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
 
                                 <div class="formAreahalf">
                                     <label class="form-label" for="buscurr">Currency</label>
-                                    <select name="report[0][currency]" id="report[0][currency]">
+                                    <select name="report[0][currency]" id="report[0][currency]" class="pr_currency">
                                         <option value="" selected>Please select
                                         </option>
                                         <option value="SGD">SGD</option>
                                         <option value="USD">USD</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf">
@@ -449,7 +522,13 @@
                                     <select name="report[0][subfre]" id="report[0][subfre]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="One Time">One Time</option>
+                                        <option value="One-Time">One-Time</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Yearly">Yearly</option>
+                                        <option value="Half-yearly">Half-yearly</option>
+                                        <option value="Quarterly">Quarterly</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="No Longer">No Longer</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf">
@@ -468,8 +547,9 @@
                                     <select name="report[0][subretri]" id="report[0][subretri]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="60">60 days before expiry</option>
-                                        <option value="30">30 days before expiry</option>
+                                        <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf ">
@@ -477,7 +557,8 @@
                                     <select name="report[0][substa]" id="report[0][substa]">
                                         <option value="" selected>Please select
                                         </option>
-                                        <option value="Recievable">Recievable</option>
+                                        <option value="In Progress">In Progress</option>
+                                <option value="Submitted">Submitted</option>
                                     </select>
                                 </div>
                                 <div class="formAreahalf ">
@@ -517,7 +598,7 @@
             <fieldset id="main_class_company"
                 class="w-100 justify-content-start flex-wrap form-fields wealth wealth_companies" style="display:none">
                 <div class="card formContentData border-0 p-4 wealth_companies_change">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Details</h4>
                         </div>
@@ -527,17 +608,25 @@
                                     <a href="#">1</a>
                                     <p> Business Details </p>
                                 </li>
-                                <li class="list-group-item active" id="2">
+                                <li class="list-group-item">
                                     <a href="#">2</a>
-                                    <p> Company Details </p>
+                                    <p> Shareholders </p>
                                 </li>
-                                <li class="list-group-item" id="3">
+                                <li class="list-group-item">
                                     <a href="#">3</a>
-                                    <p> Shareholder </p>
+                                    <p> Financial Institutions </p>
                                 </li>
-                                <li class="list-group-item" id="4">
+                                <li class="list-group-item">
                                     <a href="#">4</a>
-                                    <p> Complete</p>
+                                    <p> Payment Receivable Item </p>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">5</a>
+                                    <p> Report Submission Item</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">6</a>
+                                    <p> Complete </p>
                                 </li>
                             </ul>
                         </div>
@@ -574,7 +663,7 @@
                                             </div>
                                             <div class="formAreahalf">
                                                 <label for="fo_company_add" class="form-label">Company Address</label>
-                                                <input type="text" class="form-control" name="cmp[0][fo_company_add]"
+                                                <input type="email" class="form-control" name="cmp[0][fo_company_add]"
                                                     id="fo_company_add">
                                             </div>
                                             <div class="formAreahalf">
@@ -590,7 +679,7 @@
                                             </div>
                                             <div class="formAreahalf">
                                                 <label for="fo_company_pass" class="form-label">Company Password</label>
-                                                <input type="password" class="form-control" name="cmp[0][fo_company_pass]"
+                                                <input type="text" class="form-control" name="cmp[0][fo_company_pass]"
                                                     id="fo_company_pass">
                                             </div>
                                         </div>
@@ -601,7 +690,7 @@
                     </div>
 
                     <div id="appended_company_div">
-                        <div id="fo_company" data-id="0">
+                        <div id="fo_company" data-id="0" class="finance_company">
                             <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design cmd_count">
                                 <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                                     <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>
@@ -630,7 +719,7 @@
                                                 </div>
                                                 <div class="formAreahalf">
                                                     <label for="fo_company_add" class="form-label">Company Address</label>
-                                                    <input type="text" class="form-control"
+                                                    <input type="email" class="form-control"
                                                         name="cmp[1][fo_company_add]" id="fo_company_add">
                                                 </div>
                                                 <div class="formAreahalf">
@@ -739,6 +828,10 @@
     <script>
         $(document).ready(function() {
 
+            $('.js-example-responsive').select2({
+                minimumResultsForSearch: -1
+            });
+
             // $("body").on('keyup', '#equity_shareholder', function(evt){
             //     alert('y');
             //     $(this).attr('value',$(this).val());
@@ -791,13 +884,13 @@
                 // var option = document.getElementById("bussiness").options;
                 if (document.getElementById('client').value == "Personal") {
                     $("#business").html(
-                        '<option value="" selected >Please select business type</option><option value="wealthmanagement">Wealth Management</option>'
+                        '<option value="" selected >Please select business type</option><option value="Wealth Management">Wealth Management</option><option value="Immigration Programme">Immigration Programme</option><option value="Family Office">Family Office</option><option value="Passport">Passport</option><option value="Real Property">Real Property</option><option value="Pure Identity Management">Pure Identity Management</option><option value="Account Services">Account Services</option><option value="Education">Education</option><option value="Others">Others</option>'
                     );
 
                 }
                 if (document.getElementById('client').value == "Corporate") {
                     $("#business").html(
-                        '<option value="" selected >Please select business type</option><option value="wealthmanagement">Wealth Management</option>'
+                        '<option value="" selected >Please select business type</option><option value="Wealth Management">Wealth Management</option><option value="Immigration Programme">Immigration Programme</option><option value="Family Office">Family Office</option><option value="Passport">Passport</option><option value="Real Property">Real Property</option><option value="Pure Identity Management">Pure Identity Management</option><option value="Account Services">Account Services</option><option value="Education">Education</option><option value="Others">Others</option>'
                     );
 
                 }
@@ -805,9 +898,140 @@
 
             });
 
+            $(document).on('change', '.rs_item', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="rs_item_business_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+            $(document).on('change', '.pr_item', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="pr_item_business_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+            $(document).on('change', '#business', function() {
+                if ($(this).val() == "Others") {
+                    // var tpb_id = $(this).attr('data-id');
+                    // var tpb_key = $(this).attr('data-key');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="business_specify"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+            $(document).on('change', '.rl_with_sh', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    var tpb_key = $(this).attr('data-key');
+                    var tpb_name = $(this).attr('data-name');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+
+            $(document).on('change', '.pr_currency', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    var tpb_key = $(this).attr('data-key');
+                    var tpb_name = $(this).attr('data-name');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
+        
+            $(document).on('change', '.acc_type', function() {
+                if ($(this).val() == "Others") {
+                    var tpb_id = $(this).attr('data-id');
+                    var tpb_key = $(this).attr('data-key');
+                    var tpb_name = $(this).attr('data-name');
+                    $(this).parent().after(
+                        `<div class="formAreahalf please_specify mb-40">
+                                                <label for="" class="form-label">Please Specify</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[`+tpb_id+`][`+tpb_key+`][`+tpb_name+`]"
+                                                    value="">
+                                            </div>`
+                    );
+                    // ++o;
+
+                } else {
+                    $(this).parents().next('.please_specify').remove();
+                }
+
+
+            });
+
 
             $('#next').click(function() {
-                alert('bhb');
+                // alert('bhb');
 
                 if ($('#client').val() == null) {
                     $('#clienterror').html('This field is required');
@@ -827,16 +1051,14 @@
                     $('#businessdeserror').html('');
                 }
 
-                if (($('#client').val() == "Personal") && ($('#business').val() == "wealthmanagement") && (
-                        $('#businessdes').val() != "")) {
+                if (($('#client').val() == "Personal") && ($('#business').val() != "")) {
                     $('#FO_personaldetails').show();
                     $('#start_field').hide();
                     $('#FO_start_field').hide();
                     // $('#FO_shareholder_extra').hide();
 
                 }
-                if (($('#client').val() == "Corporate") && ($('#business').val() == "wealthmanagement") && (
-                        $('#businessdes').val() != "")) {
+                if (($('#client').val() == "Corporate") && ($('#business').val() != "")) {
                     // alert('jj');
                     $('#main_class_company').show();
                     $('#start_field').hide();
@@ -849,7 +1071,7 @@
                         // $('#appended_company_div').append($('#fo_company').html());
                         $('#appended_company_div').append(
                             `
-            <div id="fo_company">
+            <div id="fo_company" class="finance_company">
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design cmd_count">
                         <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                         <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span> \
@@ -884,7 +1106,7 @@
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_company_add" class="form-label">Company Address</label>
-                            <input type="text" class="form-control" name="cmp[` + i + `][fo_company_add]" id="fo_company_add">
+                            <input type="email" class="form-control" name="cmp[` + i + `][fo_company_add]" id="fo_company_add">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_incorporation_date" class="form-label">Incorporation Date</label>
@@ -898,7 +1120,7 @@
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_company_pass" class="form-label">Company Password</label>
-                            <input type="password" class="form-control" name="cmp[` + i + `][fo_company_pass]"
+                            <input type="text" class="form-control" name="cmp[` + i + `][fo_company_pass]"
                                 id="fo_company_pass">
                         </div>
                                     </div>
@@ -933,11 +1155,10 @@
                 if (arr.length >= 2) {
                     $('.FO_shareholder').css("display", "block");
                     $('.FO_shareholder').html(`<div class="full_div"><div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name 1</h4>
                             <h6>` + arr[0] + `</h6>
-                            <span class="investment">DEF Investments Pte Ltd</span>
                         </div>
                         <div class="number_main">
                             <ul class="list-group list-group-horizontal" id="nav_list">
@@ -951,11 +1172,11 @@
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -990,68 +1211,75 @@
                                     <div class="accordion-body d-flex flex-wrap">
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Equity Percentage</label>
-                                <input type="text" name="share[0][0][equity_percentage]" id="equity_shareholder" class="form-control" value="">%
+                                <div class="dollersec percentage_input">
+                                <span class="input">
+                                <input type="text" name="share[0][0][equity_percentage]" id="equity_shareholder" class="form-control" value=""></span><span class="pecentage_end">%</span>
+                                </div>
                             </div>
                             <div class="formAreahalf ">
                             <label for="" class="form-label">Passport Full Name (Eng)</label>
                             <input type="text" class="form-control" id="share[0][0][pname]" name="share[0][0][pname]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Full Name (chinese)</label>
+                            <label for="" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" class="form-control" id="share[0][0][pnamec]" name="share[0][0][pnamec]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Renewal Reminder</label>
-                            <select name="share[0][0][prenrem]" id="share[0][0][prenrem]">
-                                 <option selected value="">Please select</option>
-                                 <option value="30">30 days before expiry</option>
-                                 <option value="60">60 days before expiry</option>
-                                 <option value="90">90 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
-                            <select name="share[0][0][premtf]" id="share[0][0][premtf]">
-                                 <option value="" selected >Please select</option>
-                                 <option value="everyweek">Every Week</option>
-                                 <option value="everymonth">Every Month</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Gender(M/F)</label>
+                            <label for="" class="form-label">Gender</label>
                             <select name="share[0][0][pgender]" id="share[0][0][pgender]">
                                  <option value="" selected >Please select</option>
-                                 <option value="Male">Male</option>
-                                 <option value="Female">Female</option>
+                                 <option value="M">M</option>
+                                 <option value="F">F</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Number</label>
-                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[0][0][pnumber]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[0][0][pexdate]">
-                        </div>
-
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Country</label>
-                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[0][0][pcountry]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">E mail</label>
-                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[0][0][pemail]">
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone Number</label>
                             <input type="text" class="form-control" id="share[0][0][pphoneno]" name="share[0][0][pphoneno]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Residential Address(acc. to add proof)</label>
+                            <label for="" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[0][0][pemail]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Number</label>
+                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[0][0][pnumber]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Country</label>
+                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[0][0][pcountry]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[0][0][pexdate]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Renewal Reminder</label>
+                            <select name="share[0][0][prenrem]" id="share[0][0][prenrem]">
+                                 <option selected value="">Please select</option>
+                                 <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="share[0][0][premtf]" id="share[0][0][premtf]">
+                                 <option value="" selected >Please select</option>
+                                 <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Residential Add.(according to Add. proof)</label>
                             <input type="text" class="form-control" id="share[0][0][paddress]" name="share[0][0][paddress]">
                         </div>
                         <div class="formAreahalf ">
@@ -1059,36 +1287,56 @@
                             <input type="text" class="form-control" id="share[0][0][ptincountry]" name="share[0][0][ptincountry]">
                         </div>
                         <div class="formAreahalf ">
+                            <label for="" class="form-label">Type of TIN</label>
+                            <select name="share[0][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
+                                 <option selected value="" >Please select</option>
+                                 <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LTVP">LTVP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf ">
                             <label for="" class="form-label">Current TIN Number</label>
                             <input type="text" class="form-control" id="share[0][0][ptinnumber]" name="share[0][0][ptinnumber]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Type of TIN</label>
-                            <select name="share[0][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
-                                 <option selected value="" >Please select</option>
-                                 <option value="EAD">EAD</option>
-                                 <!-- <option value="everymonth">Every Month</option> -->
-                            </select>
+                            <label for="" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="share[0][0][jcompany]" name="share[0][0][jcompany]">
                         </div>
+                        
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Job Title</label>
                             <input type="text" class="form-control" id="share[0][0][jtitle]" name="share[0][0][jtitle]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
+                            <label for="" class="form-label">Monthly Salary (SGD)</label>
                             <input type="text" class="form-control" id="share[0][0][msalary]" name="share[0][0][msalary]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" id="share[0][0][msalarywef]" name="share[0][0][msalarywef]">
                         </div>
                         <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Relationship with shareholder 1</label>
-                                <select name="share[0][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type">
+                                <select name="share[0][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type rl_with_sh">
                                     <option value="" selected >Please select shareholder type</option>
-                                    <option value="self">self</option>
+                                    <option value="Self">Self</option>
+                                    <option value="Parents">Parents</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Relatives">Relatives</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Others">Others</option>
                                 </select>
                         </div>
+                        <!--
                         <div class="formAreahalf">
                             <label class="" for="remarks">Remarks</label>
                             <textarea id="share[0][0][premarks]" name="share[0][0][premarks]" rows="4" cols="50"></textarea>
-                        </div>
+                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -1113,7 +1361,7 @@
                 } else {
                     $('.FO_shareholder').css("display", "block");
                     $('.FO_shareholder').html(`<div class="full_div sfd" id="comp_1"><div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name 1</h4>
                             <h6>` + arr + `</h6>
@@ -1131,11 +1379,11 @@
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -1162,68 +1410,81 @@
                             <div class="accordion-body d-flex flex-wrap">
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Equity Percentage</label>
-                                <input type="text" name="share[0][0][equity_percentage]" id="equity_shareholder" class="form-control" value="">%
+                                <div class="dollersec percentage_input">
+                                <span class="input">
+                                <input type="text" name="share[0][0][equity_percentage]" id="equity_shareholder" class="form-control" value=""></span><span class="pecentage_end">%</span>
+                                </div>
                             </div>
                             <div class="formAreahalf ">
                             <label for="" class="form-label">Passport Full Name (Eng)</label>
                             <input type="text" class="form-control" id="share[0][0][pname]" name="share[0][0][pname]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Full Name (chinese)</label>
+                            <label for="" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" class="form-control" id="share[0][0][pnamec]" name="share[0][0][pnamec]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Renewal Reminder</label>
-                            <select name="share[0][0][prenrem]" id="share[0][0][prenrem]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="30">30 days before expiry</option>
-                                 <option value="60">60 days before expiry</option>
-                                 <option value="90">90 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
-                            <select name="share[0][0][premtf]" id="share[0][0][premtf]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="everyweek">Every Week</option>
-                                 <option value="everymonth">Every Month</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Gender(M/F)</label>
+                            <label for="" class="form-label">Gender</label>
                             <select name="share[0][0][pgender]" id="share[0][0][pgender]">
                                  <option selected value="" >Please select</option>
-                                 <option value="Male">Male</option>
-                                 <option value="Female">Female</option>
+                                 <option value="M">M</option>
+                                 <option value="F">F</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Number</label>
-                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[0][0][pnumber]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[0][0][pexdate]">
-                        </div>
-
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Country</label>
-                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[0][0][pcountry]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">E mail</label>
-                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[0][0][pemail]">
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[0][0][pdob]">
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone Number</label>
                             <input type="text" class="form-control" id="share[0][0][pphoneno]" name="share[0][0][pphoneno]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Residential Address(acc. to add proof)</label>
+                            <label for="" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[0][0][pemail]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Number</label>
+                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[0][0][pnumber]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Country</label>
+                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[0][0][pcountry]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[0][0][pexdate]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Renewal Reminder</label>
+                            <select name="share[0][0][prenrem]" id="share[0][0][prenrem]">
+                                 <option selected value="" >Please select</option>
+                                 <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="share[0][0][premtf]" id="share[0][0][premtf]">
+                                 <option selected value="" >Please select</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+                        
+                        
+                        
+
+                        
+                        
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Residential Add.(according to Add. proof)</label>
                             <input type="text" class="form-control" id="share[0][0][paddress]" name="share[0][0][paddress]">
                         </div>
                         <div class="formAreahalf ">
@@ -1231,36 +1492,56 @@
                             <input type="text" class="form-control" id="share[0][0][ptincountry]" name="share[0][0][ptincountry]">
                         </div>
                         <div class="formAreahalf ">
+                            <label for="" class="form-label">Type of TIN</label>
+                            <select name="share[0][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
+                                 <option selected value="" >Please select</option>
+                                 <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LTVP">LTVP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf ">
                             <label for="" class="form-label">Current TIN Number</label>
                             <input type="text" class="form-control" id="share[0][0][ptinnumber]" name="share[0][0][ptinnumber]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Type of TIN</label>
-                            <select name="share[0][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
-                                 <option selected value="" >Please select</option>
-                                 <option value="EAD">EAD</option>
-                                 <!-- <option value="everymonth">Every Month</option> -->
-                            </select>
+                            <label for="" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="share[0][0][jcompany]" name="share[0][0][jcompany]">
                         </div>
+                        
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Job Title</label>
                             <input type="text" class="form-control" id="share[0][0][jtitle]" name="share[0][0][jtitle]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
+                            <label for="" class="form-label">Monthly Salary (SGD)</label>
                             <input type="text" class="form-control" id="share[0][0][msalary]" name="share[0][0][msalary]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" id="share[0][0][msalarywef]" name="share[0][0][msalarywef]">
                         </div>
                         <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Relationship with shareholder 1</label>
-                                <select name="share[0][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type">
+                                <select name="share[0][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type rl_with_sh">
                                     <option value="" selected >Please select shareholder type</option>
-                                    <option value="self">self</option>
+                                    <option value="Self">Self</option>
+                                    <option value="Parents">Parents</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Relatives">Relatives</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Others">Others</option>
                                 </select>
                         </div>
+                        <!--
                         <div class="formAreahalf">
                             <label class="" for="remarks">Remarks</label>
                             <textarea id="share[0][0][premarks]" name="share[0][0][premarks]" rows="4" cols="50"></textarea>
-                        </div>
+                        </div>-->
                             <div id="appended_user_shareholder_cmp2_selcection_div"
                                 class="w-100 d-flex justify-content-start flex-wrap"></div>
                         </div>
@@ -1319,7 +1600,7 @@
                 $('.FO_shareholder_extra').append(`
         <div class="full_div">
                 <div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name ` + [btn_click] + `</h4>
                             <h6></h6>
@@ -1336,11 +1617,11 @@
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -1374,7 +1655,9 @@
                                     <div class="accordion-body d-flex flex-wrap">
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Equity Percentage</label>
-                                <input type="text" name="share[` + (btn_click - 1) + `][0][equity_percentage]" id="fo_equity" class="form-control" value="">%
+                                <div class="dollersec percentage_input">
+                                <span class="input">
+                                <input type="text" name="share[` + (btn_click - 1) + `][0][equity_percentage]" id="fo_equity" class="form-control" value=""></span><span class="pecentage_end">%</span></div>
                             </div>
                             <div class="formAreahalf ">
                             <label for="" class="form-label">Shareholder Type</label>
@@ -1389,68 +1672,22 @@
                         btn_click - 1) + `][0][pname]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Full Name (chinese)</label>
+                            <label for="" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" class="form-control" id="share[0][0][pnamec]" name="share[` + (
                         btn_click - 1) + `][0][pnamec]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[` + (btn_click -
-                        1) + `][0][pdob]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Renewal Reminder</label>
-                            <select name="share[` + (btn_click - 1) + `][0][prenrem]" id="share[0][0][prenrem]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="30">30 days before expiry</option>
-                                 <option value="60">60 days before expiry</option>
-                                 <option value="90">90 days before expiry</option>
-                            </select>
-                        </div>
-
-
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Gender(M/F)</label>
+                            <label for="" class="form-label">Gender</label>
                             <select name="share[` + (btn_click - 1) + `][0][pgender]" id="share[0][0][pgender]">
                                  <option selected value="" >Please select</option>
-                                 <option value="Male">Male</option>
-                                 <option value="Female">Female</option>
+                                 <option value="M">M</option>
+                                 <option value="F">F</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
-                            <select name="share[` + (btn_click - 1) + `][0][premtf]" id="share[0][0][premtf]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="everyweek">Every Week</option>
-                                 <option value="everymonth">Every Month</option>
-                            </select>
-                        </div>
-
-                        <div class="formAreahalf ">
-                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[` + (
-                        btn_click - 1) + `][0][pexdate]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Number</label>
-                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[` + (
-                        btn_click - 1) + `][0][pnumber]">
-                        </div>
-
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">E mail</label>
-                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[` + (
-                        btn_click - 1) + `][0][pemail]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Country</label>
-                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[` + (
-                        btn_click - 1) + `][0][pcountry]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Residential Address(acc. to add proof)</label>
-                            <input type="text" class="form-control" id="share[0][0][paddress]" name="share[` + (
-                        btn_click - 1) + `][0][paddress]">
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pdob]" name="share[` + (btn_click -
+                        1) + `][0][pdob]">
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone Number</label>
@@ -1458,45 +1695,120 @@
                         btn_click - 1) + `][0][pphoneno]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Current TIN Number</label>
-                            <input type="text" class="form-control" id="share[0][0][ptinnumber]" name="share[` + (
-                        btn_click - 1) + `][0][ptinnumber]">
+                            <label for="" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="share[0][0][pemail]" name="share[` + (
+                        btn_click - 1) + `][0][pemail]">
                         </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Number</label>
+                            <input type="text" class="form-control" id="share[0][0][pnumber]" name="share[` + (
+                        btn_click - 1) + `][0][pnumber]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Country</label>
+                            <input type="text" class="form-control" id="share[0][0][pcountry]" name="share[` + (
+                        btn_click - 1) + `][0][pcountry]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[0][0][pexdate]" name="share[` + (
+                        btn_click - 1) + `][0][pexdate]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Renewal Reminder</label>
+                            <select name="share[` + (btn_click - 1) + `][0][prenrem]" id="share[0][0][prenrem]">
+                                 <option selected value="" >Please select</option>
+                                 <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+
+
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="share[` + (btn_click - 1) + `][0][premtf]" id="share[0][0][premtf]">
+                                 <option selected value="" >Please select</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+
+                        
+                        
+
+                        
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Residential Add.(according to Add. proof)</label>
+                            <input type="text" class="form-control" id="share[0][0][paddress]" name="share[` + (
+                        btn_click - 1) + `][0][paddress]">
+                        </div>
+                        
+                        
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Current TIN Country</label>
                             <input type="text" class="form-control" id="share[0][0][ptincountry]" name="share[` + (
                         btn_click - 1) + `][0][ptincountry]">
                         </div>
                         <div class="formAreahalf ">
+                            <label for="" class="form-label">Type of TIN</label>
+                            <select name="share[` + (btn_click - 1) + `][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
+                                 <option selected value="" >Please select</option>
+                                 <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LTVP">LTVP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Current TIN Number</label>
+                            <input type="text" class="form-control" id="share[0][0][ptinnumber]" name="share[` + (
+                        btn_click - 1) + `][0][ptinnumber]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="share[0][0][jcompany]" name="share[0][0][jcompany]">
+                        </div>
+                        <div class="formAreahalf ">
                             <label for="" class="form-label">Job Title</label>
                             <input type="text" class="form-control" id="share[0][0][jtitle]" name="share[` + (
                         btn_click - 1) + `][0][jtitle]">
                         </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Type of TIN</label>
-                            <select name="share[` + (btn_click - 1) + `][0][ptypetin]" id="share[0][0][ptypetin]">others,please specify
-                                 <option selected value="" >Please select</option>
-                                 <option value="EAD">EAD</option>
-                                 <!-- <option value="everymonth">Every Month</option> -->
-                            </select>
-                        </div>
+                        
                         <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Relationship with shareholder 1</label>
-                                <select name="share[` + (btn_click - 1) + `][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type">
+                                <select name="share[` + (btn_click - 1) + `][0][rl_with_sh]" id="share[0][0][rl_with_sh]" class="fo_shrholder_type rl_with_sh">
                                     <option value="" selected >Please select shareholder type</option>
-                                    <option value="self">self</option>
+                                    <option value="Self">Self</option>
+                                    <option value="Parents">Parents</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Relatives">Relatives</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Others">Others</option>
                                 </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
+                            <label for="" class="form-label">Monthly Salary (SGD)</label>
                             <input type="text" class="form-control" id="share[0][0][msalary]" name="share[` + (
                         btn_click - 1) + `][0][msalary]">
                         </div>
-
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" id="share[0][0][msalarywef]" name="share[0][0][msalarywef]">
+                        </div>
+                        <!--
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="share[0][0][premarks]" name="share[` + (btn_click - 1) + `][0][premarks]" rows="4" cols="50"></textarea>
-                        </div>
+                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -1553,7 +1865,9 @@
                                     <div class="accordion-body d-flex flex-wrap">
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Equity Percentage</label>
-                                <input type="text" name="share[` + (arr_id - 1) + `][` + sh_no + `][equity_percentage]" id="equity_shareholder" class="form-control" value="">%
+                                <div class="dollersec percentage_input">
+                                <span class="input">
+                                <input type="text" name="share[` + (arr_id - 1) + `][` + sh_no + `][equity_percentage]" id="equity_shareholder" class="form-control" value=""></span><span class="pecentage_end">%</span></div>
                             </div>
                             <div class="formAreahalf ">
                             <label for="" class="form-label">Passport Full Name (Eng)</label>
@@ -1561,63 +1875,23 @@
                     `][pname]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pname]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Full Name (chinese)</label>
+                            <label for="" class="form-label">Passport Full Name (Chinese)</label>
                             <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][pnamec]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pnamec]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Renewal Reminder</label>
-                            <select name="share[` + (arr_id - 1) + `][` + sh_no + `][prenrem]" id="share[` + (arr_id -
-                        1) + `][` + sh_no + `][prenrem]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="30">30 days before expiry</option>
-                                 <option value="60">60 days before expiry</option>
-                                 <option value="90">90 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pdob" class="form-label">DOB(DD/MM/YYYY) </label>
-                            <input type="date" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
-                    `][pdob]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pdob]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
-                            <select name="share[` + (arr_id - 1) + `][` + sh_no + `][premtf]" id="share[` + (arr_id -
-                        1) + `][` + sh_no + `][premtf]">
-                                 <option selected value="" >Please select</option>
-                                 <option value="everyweek">Every Week</option>
-                                 <option value="everymonth">Every Month</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Gender(M/F)</label>
+                            <label for="" class="form-label">Gender</label>
                             <select name="share[` + (arr_id - 1) + `][` + sh_no + `][pgender]" id="share[` + (arr_id -
                         1) + `][` + sh_no + `][pgender]">
                                  <option selected value="" >Please select</option>
-                                 <option value="Male">Male</option>
-                                 <option value="Female">Female</option>
+                                 <option value="M">M</option>
+                                 <option value="F">F</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Number</label>
-                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
-                    `][pnumber]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pnumber]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
+                            <label for="pdob" class="form-label">DOB (DD/MM/YYYY) </label>
                             <input type="date" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
-                    `][pexdate]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pexdate]">
-                        </div>
-
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">Passport Country</label>
-                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
-                    `][pcountry]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pcountry]">
-                        </div>
-                        <div class="formAreahalf ">
-                            <label for="" class="form-label">E mail</label>
-                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
-                    `][pemail]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pemail]">
+                    `][pdob]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pdob]">
                         </div>
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Phone Number</label>
@@ -1625,7 +1899,57 @@
                     `][pphoneno]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pphoneno]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Residential Address(acc. to add proof)</label>
+                            <label for="" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
+                    `][pemail]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pemail]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Number</label>
+                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
+                    `][pnumber]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pnumber]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Country</label>
+                            <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
+                    `][pcountry]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pcountry]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Passport Expiry Date (DD/MM/YYYY) </label>
+                            <input type="date" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
+                    `][pexdate]" name="share[` + (arr_id - 1) + `][` + sh_no + `][pexdate]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Renewal Reminder</label>
+                            <select name="share[` + (arr_id - 1) + `][` + sh_no + `][prenrem]" id="share[` + (arr_id -
+                        1) + `][` + sh_no + `][prenrem]">
+                                 <option selected value="" >Please select</option>
+                                 <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="share[` + (arr_id - 1) + `][` + sh_no + `][premtf]" id="share[` + (arr_id -
+                        1) + `][` + sh_no + `][premtf]">
+                                 <option selected value="" >Please select</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+                        
+                        
+                        
+
+                        
+                        
+                        
+                        <div class="formAreahalf ">
+                            <label for="" class="form-label">Residential Add.(according to Add. proof)</label>
                             <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][paddress]" name="share[` + (arr_id - 1) + `][` + sh_no + `][paddress]">
                         </div>
@@ -1635,42 +1959,61 @@
                     `][ptincountry]" name="share[` + (arr_id - 1) + `][` + sh_no + `][ptincountry]">
                         </div>
                         <div class="formAreahalf ">
+                            <label for="" class="form-label">Type of TIN</label>
+                            <select name="share[` + (arr_id - 1) + `][` + sh_no + `][ptypetin]" id="share[` + (arr_id -
+                        1) + `][` + sh_no + `][ptypetin]">others,please specify
+                                 <option selected value="" >Please select</option>
+                                 <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LTVP">LTVP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf ">
                             <label for="" class="form-label">Current TIN Number</label>
                             <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][ptinnumber]" name="share[` + (arr_id - 1) + `][` + sh_no + `][ptinnumber]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Type of TIN</label>
-                            <select name="share[` + (arr_id - 1) + `][` + sh_no + `][ptypetin]" id="share[` + (arr_id -
-                        1) + `][` + sh_no + `][ptypetin]">others,please specify
-                                 <option selected value="" >Please select</option>
-                                 <option value="EAD">EAD</option>
-                                 <!-- <option value="everymonth">Every Month</option> -->
-                            </select>
+                            <label for="" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="share[0][0][jcompany]" name="share[0][0][jcompany]">
                         </div>
+                        
                         <div class="formAreahalf ">
                             <label for="" class="form-label">Job Title</label>
                             <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][jtitle]" name="share[` + (arr_id - 1) + `][` + sh_no + `][jtitle]">
                         </div>
                         <div class="formAreahalf ">
-                            <label for="" class="form-label">Monthly Salary in the company(SGD)</label>
+                            <label for="" class="form-label">Monthly Salary (SGD)</label>
                             <input type="text" class="form-control" id="share[` + (arr_id - 1) + `][` + sh_no +
                     `][msalary]" name="share[` + (arr_id - 1) + `][` + sh_no + `][msalary]">
+                        </div>
+                        <div class="formAreahalf ">
+                            <label for="pexdate" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" id="share[0][0][msalarywef]" name="share[0][0][msalarywef]">
                         </div>
                         <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Relationship with shareholder 1</label>
                                 <select name="share[` + (arr_id - 1) + `][` + sh_no + `][rl_with_sh]" id="share[` + (
-                        arr_id - 1) + `][` + sh_no + `][rl_with_sh]" class="fo_shrholder_type">
+                        arr_id - 1) + `][` + sh_no + `][rl_with_sh]" class="fo_shrholder_type rl_with_sh">
                                     <option value="" selected >Please select shareholder type</option>
-                                    <option value="self">self</option>
+                                    <option value="Self">Self</option>
+                                    <option value="Parents">Parents</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Relatives">Relatives</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Others">Others</option>
                                 </select>
-                        </div>
+                        </div><!--
                         <div class="formAreahalf">
                             <label class="" for="remarks">Remarks</label>
                             <textarea id="share[` + (arr_id - 1) + `][` + sh_no + `][premarks]" name="share[` + (
                         arr_id - 1) + `][` + sh_no + `][premarks]" rows="4" cols="50"></textarea>
-                        </div>
+                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -1707,11 +2050,10 @@
                 if (arr.length >= 2) {
                     $('.FO_institution').css("display", "block");
                     $('.FO_institution').html(`<div class="full_div"><div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name 1</h4>
                             <h6>` + arr[0] + `</h6>
-                            <span>DEF Investments Pte Ltd</span>
                         </div>
                         <div class="number_main">
                             <ul class="list-group list-group-horizontal" id="nav_list">
@@ -1725,11 +2067,11 @@
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -1765,24 +2107,29 @@
 
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Bank Application Submission</label>
-                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="fo_shrholder_type">
-                                    <option value="" selected >Please select</option>
-                                    <option value="done">Done</option>
+                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="js-example-responsive fo_shrholder_type">
+                                    <option value="" selected>Please select</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Opening Status</label>
                                 <select name="fin[0][0][ac_open_sta]" id="fin[0][0][ac_open_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
+                                    <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Type</label>
-                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type">
+                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type acc_type">
                                     <option value="" selected >Please select</option>
                                     <option value="SGD">SGD</option>
                                     <option value="USD">USD</option>
+                                    <option value="Multi-currency">Multi-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1794,6 +2141,7 @@
                                 <select name="fin[0][0][bank_ac_sta]" id="fin[0][0][bank_ac_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
                                     <option value="Active">Active</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1821,7 +2169,7 @@
                 } else {
                     $('.FO_institution').css("display", "block");
                     $('.FO_institution').html(`<div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name 1</h4>
                             <h6>` + arr + `</h6>
@@ -1838,11 +2186,11 @@
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -1869,24 +2217,29 @@
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Bank Application Submission</label>
-                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="fo_shrholder_type">
-                                    <option value="" selected >Please select</option>
-                                    <option value="done">Done</option>
+                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="js-example-responsive fo_shrholder_type">
+                                    <option value="" selected>Please select</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Opening Status</label>
                                 <select name="fin[0][0][ac_open_sta]" id="fin[0][0][ac_open_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
+                                    <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Type</label>
-                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type">
+                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type acc_type">
                                     <option value="" selected >Please select</option>
                                     <option value="SGD">SGD</option>
                                     <option value="USD">USD</option>
+                                    <option value="Multi-currency">Multi-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1898,6 +2251,7 @@
                                 <select name="fin[0][0][bank_ac_sta]" id="fin[0][0][bank_ac_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
                                     <option value="Active">Active</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1941,24 +2295,29 @@
 
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Bank Application Submission</label>
-                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="fo_shrholder_type">
-                                    <option value="" selected >Please select</option>
-                                    <option value="done">Done</option>
+                                <select name="fin[0][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="js-example-responsive fo_shrholder_type">
+                                    <option value="" selected>Please select</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Opening Status</label>
                                 <select name="fin[0][0][ac_open_sta]" id="fin[0][0][ac_open_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
+                                    <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Type</label>
-                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type">
+                                <select name="fin[0][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type acc_type">
                                     <option value="" selected >Please select</option>
                                     <option value="SGD">SGD</option>
                                     <option value="USD">USD</option>
+                                    <option value="Multi-currency">Multi-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -1970,6 +2329,7 @@
                                 <select name="fin[0][0][bank_ac_sta]" id="fin[0][0][bank_ac_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
                                     <option value="Active">Active</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -2021,7 +2381,7 @@
                 $('.FO_institution_extra').append(`
         <div class="full_div">
                 <div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Company Name ` + [btn_click] + `</h4>
                             <h6>` + arr[btn_click - 1] + `</h6>
@@ -2038,11 +2398,11 @@
                             </li>
                             <li class="list-group-item active"  id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -2078,24 +2438,29 @@
 
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Bank Application Submission</label>
-                                <select name="fin[` + (btn_click - 1) + `][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="fo_shrholder_type">
-                                    <option value="" selected >Please select</option>
-                                    <option value="done">Done</option>
+                                <select name="fin[` + (btn_click - 1) + `][0][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="js-example-responsive fo_shrholder_type">
+                                    <option value="" selected>Please select</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Opening Status</label>
                                 <select name="fin[0][0][ac_open_sta]" id="fin[0][0][ac_open_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
+                                    <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Type</label>
-                                <select name="fin[` + (btn_click - 1) + `][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type">
+                                <select name="fin[` + (btn_click - 1) + `][0][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type acc_type">
                                     <option value="" selected >Please select</option>
                                     <option value="SGD">SGD</option>
                                     <option value="USD">USD</option>
+                                    <option value="Multi-currency">Multi-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -2107,6 +2472,7 @@
                                 <select name="fin[` + (btn_click - 1) + `][0][bank_ac_sta]" id="fin[0][0][bank_ac_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
                                     <option value="Active">Active</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -2172,24 +2538,29 @@
 
                                     <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Bank Application Submission</label>
-                                <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="fo_shrholder_type">
-                                    <option value="" selected >Please select</option>
-                                    <option value="done">Done</option>
+                                <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][ba_app_sub]" id="fin[0][0][ba_app_sub]" class="js-example-responsive fo_shrholder_type">
+                                    <option value="" selected>Please select</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Opening Status</label>
                                 <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][ac_open_sta]" id="fin[0][0][ac_open_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
+                                    <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Account Type</label>
-                                <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type">
+                                <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][ac_type]" id="fin[0][0][ac_type]" class="fo_shrholder_type acc_type">
                                     <option value="" selected >Please select</option>
                                     <option value="SGD">SGD</option>
                                     <option value="USD">USD</option>
+                                    <option value="Multi-currency">Multi-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -2201,6 +2572,7 @@
                                 <select name="fin[` + (arr_id - 1) + `][` + sh_no + `][bank_ac_sta]" id="fin[0][0][bank_ac_sta]" class="fo_shrholder_type">
                                     <option value="" selected >Please select</option>
                                     <option value="Active">Active</option>
+                                    <option value="Closed">Closed</option>
                                 </select>
                             </div>
                             <div class="formAreahalf">
@@ -2237,7 +2609,7 @@
                 // alert('payment')
                 $('.FO_payment').css("display", "block");
                 $('.FO_payment').html(`<div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Payment Details</h4>
 
@@ -2254,11 +2626,11 @@
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item" id="3">
                                 <a href="#">5</a>
@@ -2275,22 +2647,49 @@
                     <div class="company_design Revunue">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields append-div-css">
                             <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item 1</label>
-                            <select name="payment[0][revenue]" id="payment[0][revenue]">
+                            <label class="form-label" for="buscurr">Payment Receivable Item</label>
+                            <select name="payment[0][revenue]" id="payment[0][revenue]" class="pr_item">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                             </select>
                         </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="payment[0][currency]" id="payment[0][currency]">
+                            <select name="payment[0][currency]" id="payment[0][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2298,7 +2697,13 @@
                             <select name="payment[0][payfre]" id="payment[0][payfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2307,35 +2712,42 @@
                         </div>
 
                         <div class="formAreahalf ">
-                            <label class="form-label" for="dcname">Payment Recievable Deadline</label>
+                            <label class="form-label" for="dcname">Payment Receivable Deadline</label>
                             <input type="date" class="form-control" id="payment[0][paredead]"
                                 name="payment[0][paredead]">
                         </div>
                         <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Payment Recievable Reminder Trigger</label>
+                            <label class="form-label" for="buscurr">Payment Receivable Reminder</label>
                             <select name="payment[0][pareretri]" id="payment[0][pareretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Payment Recievable Status</label>
-                            <select name="payment[0][paresta]" id="payment[0][paresta]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Payment Reminder Trigger Frequency</label>
-                            <select name="payment[0][paretrfre]" id="payment[0][paretrfre]">
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="payment[0][paretrfre]" id="payment[0][paretrfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Every Week">Every Week</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Payment Receivable Status</label>
+                            <select name="payment[0][paresta]" id="payment[0][paresta]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Pending">Pending</option>
+                                        <option value="Received">Received</option>
                             </select>
                         </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="payment[0][subject]" name="payment[0][remarks]" rows="4" cols="50"> </textarea>
@@ -2350,7 +2762,7 @@
 
                     <div class="text-center pt-4 add_potentia add_potential" id="add_shareholder_btn_div">
                         <button type="button" id="add_payment" class="btn saveBtn btn_design add_payment"
-                            name="add_payment">Add Payment Recievable Item</button>
+                            name="add_payment">Add Payment Receivable Item</button>
                     </div>
                 </div>
                 <div class="text-center pt-4 " id="append_div_btn">
@@ -2378,22 +2790,49 @@
                     <div class="Share_holder-w sub-heading">\
                     </div>\
                     <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item 1</label>
-                            <select name="payment[` + sh_no + `][revenue]" id="payment[` + sh_no + `][revenue]">
+                            <label class="form-label" for="buscurr">Payment Receivable Item</label>
+                            <select name="payment[` + sh_no + `][revenue]" id="payment[` + sh_no + `][revenue]" class="pr_item">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                             </select>
                         </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="payment[` + sh_no + `][currency]" id="payment[` + sh_no + `][currency]">
+                            <select name="payment[` + sh_no + `][currency]" id="payment[` + sh_no + `][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2401,7 +2840,13 @@
                             <select name="payment[` + sh_no + `][payfre]" id="payment[` + sh_no + `][payfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2411,35 +2856,42 @@
                         </div>
 
                         <div class="formAreahalf ">
-                            <label class="form-label" for="dcname">Payment Recievable Deadline</label>
+                            <label class="form-label" for="dcname">Payment Receivable Deadline</label>
                             <input type="date" class="form-control" id="payment[` + sh_no + `][paredead]"
                                 name="payment[` + sh_no + `][paredead]">
                         </div>
                         <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Payment Recievable Reminder Trigger</label>
+                            <label class="form-label" for="buscurr">Payment Receivable Reminder</label>
                             <select name="payment[` + sh_no + `][pareretri]" id="payment[` + sh_no + `][pareretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Payment Recievable Status</label>
-                            <select name="payment[` + sh_no + `][paresta]" id="payment[` + sh_no + `][paresta]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Payment Reminder Trigger Frequency</label>
-                            <select name="payment[` + sh_no + `][paretrfre]" id="payment[` + sh_no + `][paretrfre]">
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="payment[` + sh_no + `][paretrfre]" id="payment[` + sh_no + `][paretrfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Every Week">Every Week</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Payment Receivable Status</label>
+                            <select name="payment[` + sh_no + `][paresta]" id="payment[` + sh_no + `][paresta]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Pending">Pending</option>
+                                        <option value="Received">Received</option>
                             </select>
                         </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="payment[` + sh_no + `][subject]" name="payment[` + sh_no + `][remarks]" rows="4" cols="50"> </textarea>
@@ -2472,7 +2924,7 @@
                 // alert('report');
                 $('.FO_report').css("display", "block");
                 $('.FO_report').html(`<div class="card formContentData border-0 p-4">
-                    <div class="Personal_Details company_space">
+                    <div class="Personal_Details">
                         <div class="First-heading_">
                             <h4>Report Details</h4>
                             <h6>` + arr + `</h6>
@@ -2489,11 +2941,11 @@
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">3</a>
-                                <p> Fiancial Institutions </p>
+                                <p> Financial Institutions </p>
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">4</a>
-                                <p> Payment Recievable Item </p>
+                                <p> Payment Receivable Item </p>
                             </li>
                             <li class="list-group-item active" id="3">
                                 <a href="#">5</a>
@@ -2514,21 +2966,48 @@
                             </div>
                             <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Report Submission Item 1</label>
-                            <select name="report[0][submission]" id="report[0][submission]">
+                            <select name="report[0][submission]" id="report[0][submission]" class="rs_item">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                             </select>
                         </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="report[0][currency]" id="report[0][currency]">
+                            <select name="report[0][currency]" id="report[0][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2536,7 +3015,13 @@
                             <select name="report[0][subfre]" id="report[0][subfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2550,30 +3035,37 @@
                                 name="report[0][subdead]">
                         </div>
                         <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Submission Reminder Trigger</label>
+                            <label class="form-label" for="buscurr">Submission Reminder</label>
                             <select name="report[0][subretri]" id="report[0][subretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="report[0][subretrfre]" id="report[0][subretrfre]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Submission Status</label>
                             <select name="report[0][substa]" id="report[0][substa]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Submitted">Submitted</option>
                             </select>
                         </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
-                            <select name="report[0][subretrfre]" id="report[0][subretrfre]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Every Week">Every Week</option>
-                            </select>
-                        </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="report[0][remarks]" name="report[0][remarks]" rows="4" cols="50"> </textarea>
@@ -2615,21 +3107,48 @@
                     </div>\
                     <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Report Submission Item 1</label>
-                            <select name="report[` + sh_no + `][submission]" id="report[0][submission]">
+                            <select name="report[` + sh_no + `][submission]" id="report[0][submission]" class="rs_item">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                             </select>
                         </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="report[` + sh_no + `][currency]" id="report[0][currency]">
+                            <select name="report[` + sh_no + `][currency]" id="report[0][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2637,7 +3156,13 @@
                             <select name="report[` + sh_no + `][subfre]" id="report[0][subfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2655,26 +3180,33 @@
                             <select name="report[` + sh_no + `][subretri]" id="report[0][subretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="report[` + sh_no + `][subretrfre]" id="report[0][subretrfre]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Submission Status</label>
                             <select name="report[` + sh_no + `][substa]" id="report[0][substa]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Submitted">Submitted</option>
                             </select>
                         </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
-                            <select name="report[` + sh_no + `][subretrfre]" id="report[0][subretrfre]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Every Week">Every Week</option>
-                            </select>
-                        </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="report[0][remarks]" name="report[` + sh_no + `][remarks]" rows="4" cols="50"> </textarea>
@@ -2739,7 +3271,7 @@
                                                     aria-labelledby="panelsStayOpen-headingTwi` + i + `">
                                                     <div class="accordion-body d-flex flex-wrap">
                                                     <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Revunue Item ` + I + `</label>
+                            <label class="form-label" for="buscurr">Revenue Item ` + I + `</label>
                             <select name="payment[` + i + `][revenue]" id="payment[` + i + `][revenue]">
                                 <option value="" selected >Please select
                                 </option>
@@ -2750,11 +3282,12 @@
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="payment[` + i + `][currency]" id="payment[` + i + `][currency]">
+                            <select name="payment[` + i + `][currency]" id="payment[` + i + `][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2762,7 +3295,13 @@
                             <select name="payment[` + i + `][payfre]" id="payment[` + i + `][payfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2772,35 +3311,42 @@
                         </div>
 
                         <div class="formAreahalf ">
-                            <label class="form-label" for="dcname">Payment Recievable Deadline</label>
+                            <label class="form-label" for="dcname">Payment Receivable Deadline</label>
                             <input type="date" class="form-control" id="payment[` + i + `][paredead]"
                                 name="payment[` + i + `][paredead]">
                         </div>
                         <div class="formAreahalf">
-                            <label class="form-label" for="buscurr">Payment Recievable Reminder Trigger</label>
+                            <label class="form-label" for="buscurr">Payment Receivable Reminder</label>
                             <select name="payment[` + i + `][pareretri]" id="payment[` + i + `][pareretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
-                            </select>
-                        </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Payment Recievable Status</label>
-                            <select name="payment[` + i + `][paresta]" id="payment[` + i + `][paresta]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Payment Reminder Trigger Frequency</label>
-                            <select name="payment[` + i + `][paretrfre]" id="payment[` + i + `][paretrfre]">
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="payment[` + i + `][paretrfre]" id="payment[` + i + `][paretrfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Every Week">Every Week</option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Payment Receivable Status</label>
+                            <select name="payment[` + i + `][paresta]" id="payment[` + i + `][paresta]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Pending">Pending</option>
+                                        <option value="Received">Received</option>
                             </select>
                         </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="payment[` + i + `][subject]" name="payment[` + i + `][remarks]" rows="4" cols="50"> </textarea>
@@ -2867,20 +3413,47 @@
                                                     <div class="accordion-body d-flex flex-wrap">
                                                     <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Report Submission Item ` + I + `</label>
-                            <select name="report[` + i + `][submission]" id="report[0][submission]">
+                            <select name="report[` + i + `][submission]" id="report[0][submission]" class="rs_item">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Wealth Management-Comission">Wealth Management-Comission</option>
-                                <option value="Wealth Management-AUM fee">Wealth Management-AUM fee</option>
+                                <option value="Wealth Management - Comission">Wealth Management - Comission</option>
+                                        <option value="Wealth Management - AUM fee">Wealth Management - AUM fee</option>
+                                        <option value="Wealth Management - Referral Fee">Wealth Management - Referral Fee</option>
+                                        <option value="Immigration Programme – Application & company incorporation">Immigration Programme – Application & company incorporation</option>
+                                        <option value="Immigration Programme - Custodian fee">Immigration Programme - Custodian fee</option>
+                                        <option value="Family Office - Application& incorporation">Family Office - Application& incorporation</option>
+                                        <option value="Family Office - Custodian fee">Family Office - Custodian fee</option>
+                                        <option value="Passport - Application & handling fee">Passport - Application & handling fee</option>
+                                        <option value="Passport - Commission">Passport - Commission</option>
+                                        <option value="Real Property - Application & handling fee">Real Property - Application & handling fee</option>
+                                        <option value="Real Property - Tenancy agreement & Rental">Real Property - Tenancy agreement & Rental</option>
+                                        <option value="Real Property - Commission">Real Property - Commission</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen application">Pure Identity Management - Work pass/PR/citizen application</option>
+                                        <option value="Pure Identity Management - Work pass/PR/citizen renewal ">Pure Identity Management - Work pass/PR/citizen renewal </option>
+                                        <option value="Accounts Services - management account, FS & AR filling">Accounts Services - management account, FS & AR filling</option>
+                                        <option value="Accounts Services - Annual corporate tax return filling ">Accounts Services - Annual corporate tax return filling </option>
+                                        <option value="Accounts Services - Annual personal tax return filling ">Accounts Services - Annual personal tax return filling </option>
+                                        <option value="Accounts Services - IR8A">Accounts Services - IR8A</option>
+                                        <option value="Accounts Services - Goods and service tax filling ">Accounts Services - Goods and service tax filling </option>
+                                        <option value="Accounts Services - fees for payroll & CPF submission">Accounts Services - fees for payroll & CPF submission</option>
+                                        <option value="Accounts Services - Local corporate secretarial services">Accounts Services - Local corporate secretarial services</option>
+                                        <option value="Accounts Services - bank accounts opening">Accounts Services - bank accounts opening</option>
+                                        <option value="Accounts Services - Registration of business address">Accounts Services - Registration of business address</option>
+                                        <option value="Accounts Services - Local nominee director services">Accounts Services - Local nominee director services</option>
+                                        <option value="Accounts Services - Striking off a local company">Accounts Services - Striking off a local company</option>
+                                        <option value="Education - Application & handling fee">Education - Application & handling fee</option>
+                                        <option value="Education - Commission">Education - Commission</option>
+                                        <option value="Others">Others</option>
                             </select>                        </div>
 
                         <div class="formAreahalf">
                             <label class="form-label" for="buscurr">Currency</label>
-                            <select name="report[` + i + `][currency]" id="report[` + i + `][currency]">
+                            <select name="report[` + i + `][currency]" id="report[` + i + `][currency]" class="pr_currency">
                                 <option value="" selected >Please select
                                 </option>
                                 <option value="SGD">SGD</option>
                                 <option value="USD">USD</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2888,7 +3461,13 @@
                             <select name="report[` + i + `][subfre]" id="report[` + i + `][subfre]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="One Time">One Time</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="Half-yearly">Half-yearly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="No Longer">No Longer</option>
                             </select>
                         </div>
                         <div class="formAreahalf">
@@ -2906,26 +3485,33 @@
                             <select name="report[` + i + `][subretri]" id="report[` + i + `][subretri]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="60">60 days before expiry</option>
-                                <option value="30">30 days before expiry</option>
+                                <option value="90 days before expiry">90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
                             </select>
+                        </div>
+                        <div class="formAreahalf ">
+                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
+                            <div class="select_box"><span class="every">Every</span><span class="select"><select name="report[` + i + `][subretrfre]" id="report[` + i + `][subretrfre]">
+                                <option value="" selected >Please select
+                                </option>
+                                <option value="Day">Day</option>
+                                <option value="3 Days">3 Days</option>
+                                <option value="Week">Week</option>
+                                <option value="2 Weeks">2 Weeks</option>
+                                <option value="4 Weeks">4 Weeks</option>
+                            </select></span></div>
                         </div>
                         <div class="formAreahalf ">
                             <label class="form-label" for="passcountry">Submission Status</label>
                             <select name="report[` + i + `][substa]" id="report[` + i + `][substa]">
                                 <option value="" selected >Please select
                                 </option>
-                                <option value="Recievable">Recievable</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Submitted">Submitted</option>
                             </select>
                         </div>
-                        <div class="formAreahalf ">
-                            <label class="form-label" for="passcountry">Submission Reminder Trigger Frequency</label>
-                            <select name="report[` + i + `][subretrfre]" id="report[` + i + `][subretrfre]">
-                                <option value="" selected >Please select
-                                </option>
-                                <option value="Every Week">Every Week</option>
-                            </select>
-                        </div>
+                        
                         <div class="formAreahalf">
                             <label class="form-label" for="remarks">Remarks</label>
                             <textarea id="report[` + i + `][remarks]" name="report[` + i + `][remarks]" rows="4" cols="50"> </textarea>

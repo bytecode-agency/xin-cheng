@@ -650,7 +650,7 @@
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="poc_email" class="form-label">POC Email</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][poc_email]" id="poc_email"
+                                                                    <input type="email" name="financial[{{$i +1}}][poc_email]" id="poc_email"
                                                                         value="@isset($wealthfinance[$i]->poc_email){{ $wealthfinance[$i]->poc_email }} @endisset"
                                                                         class="form-control">
                                                                 </div>
