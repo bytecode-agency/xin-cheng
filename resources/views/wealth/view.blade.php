@@ -215,10 +215,10 @@
                                     </div>
 
                                     <div class="formAreahalf basic_data">
-                                        @if ($key != 0)
+                                       
                                             <label for="" class="form-label">Relationship with Company 1</label>
                                             <p>{{ $company->relationship }}</p>
-                                        @endif
+                                      
                                     </div>
 
                                     <div class="formAreahalf basic_data">

@@ -55,7 +55,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yyyy',
+        dateFormat: 'dd/mm/yy',
         onClose: function () {
             $(this).valid();
         }
@@ -166,7 +166,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
+                            <input type="text" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control">
                         </div>
 
@@ -1021,5 +1021,33 @@ $(document).ready(function () {
         });
 
 
+    });
+
+    $('.subsInsDateJs , .maturityDateJs').change(function(){
+        var si_date = new Date($('.subsInsDateJs').val());
+        var m_date = new Date($('.maturityDateJs').val());
+        if(si_date != 'Invalid Date' && m_date != 'Invalid Date'){
+            var diff =  new Date(m_date - si_date);
+            var years = (diff.toISOString().slice(0, 4) - 1970);
+            if(years > 1){
+                years = years + ' Years';
+            }else{
+                years = years + ' Year';
+            }
+            var months = (diff.getMonth()+1);
+            if(months > 1){
+                months = months + ' Months';
+            }else{
+                months = months + ' Month';
+            }
+            var days = (diff.getDate());
+            if(days > 1){
+                days = days + ' Days';
+            }else{
+                days = days + ' Day';
+            }
+            $('.durationJs').val(years +' ' + months +' ' + days);
+            $('.durationJs').attr('readonly' , true);
+        }
     });
 });

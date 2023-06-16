@@ -1952,7 +1952,7 @@
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
                                                             value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
-                                                            class="form-control maturityDate">
+                                                            class="form-control maturityDateJs">
 
                                                     </div>
                                                     <div class="formAreahalf basic_data">

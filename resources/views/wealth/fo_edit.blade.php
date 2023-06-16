@@ -36,9 +36,8 @@
                         <div class="formAreahalf basic_data">
                             <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
                             <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
-                                class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yyyy">
+                                class="form-control datepicker" value="{{date('d/m/Y' , strtotime($company->incorporate_date))}}" placeholder="dd/mm/yyyy">
                         </div>
-                       @if( $key != 0)
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>
                             <select class="form-control" name="cmp[{{$key}}][relationship]" id="fo_relationship">
@@ -47,7 +46,6 @@
                             <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
                             </select>
                         </div>
-                        @endif
 
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
@@ -56,7 +54,7 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
+                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 
@@ -321,7 +319,7 @@
 
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                <input  type="integer"
+                                                <input  type="text"
                                                         class="form-control datepicker"
                                                         name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
                                                         value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
