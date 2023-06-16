@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".datepicker").datepicker({
         dateFormat: 'dd/mm/yy',        
         onClose: function() {
-            $(this).valid();
+            $(this).valid(); 
         }
     });
 
