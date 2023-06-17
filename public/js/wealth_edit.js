@@ -26,8 +26,10 @@ function equity_percentage_checks() {
         var eqty_precentage = document.getElementById(id).querySelectorAll('#equity_shareholder')
         let percentage = 0;
         for (per = 0; per < eqty_precentage.length; per++) {
-            percentage += parseFloat($(eqty_precentage[per]).attr('value'));
-
+            var value = parseFloat($(eqty_precentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                percentage += value;
+            }
         }
         if (percentage < 100) {
 
@@ -55,7 +57,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd-mm-yy',
+        dateFormat: 'dd/mm/yy',
         onClose: function () {
             $(this).valid();
         }
@@ -75,6 +77,10 @@ $(document).ready(function () {
         $("#notes_cancel").hide();
     });
 
+    $('.equity_shareholders').on('input', function() {
+        this.value = this.value.replace(/(?!^-)[^0-9.]/g, "").replace(/(\..*)\./g, '$1');
+    });
+
     $("body").on('keyup', '#equity_shareholder', function (evt) {
 
         $(this).attr('value', $(this).val());
@@ -86,16 +92,17 @@ $(document).ready(function () {
         for (per = 0; per < cal_eqty_percentage.length; per++) {
             // console.log(cal_eqty_percentage[per].value);
             // console.log($(cal_eqty_percentage[per]).attr('value'));
-            edit_percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            var value = parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                edit_percentage += value;
+            }
         }
-        console.log(edit_percentage);
+        //console.log(edit_percentage);
         if (edit_percentage == 100) {
-            console.log('here');
             $('.edit__add_com').removeClass("disable");
             $('.edit__add_com').prop("disabled", false);
         }
         else {
-            console.log('there');
             $('.edit__add_com').addClass("disable");
             $('.edit__add_com').attr("disabled", "disabled");
 
@@ -157,6 +164,9 @@ $(document).ready(function () {
                                 <option value="" selected disabled>Choose Relationship with company 1</option>
                                 <option value="Self">Self</option>
                                 <option value="Subsidiary">Subsidiary</option>
+                                <option value="Parent company">Parent company</option>
+                                <option value="Fund co.">Fund co.</option>
+                                <option value="Management co.">Management co.</option>
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
@@ -749,7 +759,7 @@ $(document).ready(function () {
                                 <label for="poc_email" class="form-label">POC Email</label>
                                 <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_email]" id="poc_email"
                                     value=""
-                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                    class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
@@ -915,6 +925,25 @@ $(document).ready(function () {
 
     });
 
+    $('.redDateJs').on('change' , function(){ 
+        var red_date = $('.redDateJs').val();
+        var red_amount = $('.redAmountJs').val();
+        if(red_date && red_amount){
+            $('.addRedButtonJs').attr('disabled' , false);
+        }else{
+            $('.addRedButtonJs').attr('disabled' , true);
+        }
+    });
+
+    $('.redDateJs , .redAmountJs').on('keyup' , function(){ 
+        var red_date = $('.redDateJs').val();
+        var red_amount = $('.redAmountJs').val();
+        if(red_date && red_amount){
+            $('.addRedButtonJs').attr('disabled' , false);
+        }else{
+            $('.addRedButtonJs').attr('disabled' , true);
+        }
+    });
 
     $('body').on('click', '.btn_add_redempt', function () {
         var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();

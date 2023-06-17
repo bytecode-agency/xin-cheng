@@ -36,7 +36,7 @@
                         <div class="formAreahalf basic_data">
                             <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
                             <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
-                                class="form-control datepicker" value="{{date('d/m/Y' , strtotime($company->incorporate_date))}}" placeholder="dd/mm/yyyy">
+                                class="form-control datepicker" value="{{$company->incorporate_date}}" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>

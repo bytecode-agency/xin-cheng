@@ -2115,14 +2115,14 @@
                                                                         Date</label>
                                                                     <input type="date" name="business_redemption_date"
                                                                         value=""
-                                                                        class="form-control red_date">
+                                                                        class="form-control red_date redDateJs">
                                                                 </div>
                                                                 <div class="formAreahalf r_table">
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
                                                                         <span class="input"> <input type="integer"
-                                                                                class="form-control red_amount" name="business_redemption_amount"
+                                                                                class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>
                                                                     </div>
@@ -2130,7 +2130,7 @@
                                                             </div>
 
                                                         <div class="btn_adding_redempton">
-                                                            <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
+                                                            <button class="btn saveBtn add_redemption btn_add_redempt addRedButtonJs" disabled>Add</button>
                                                         </div>
 
                                                 </div>

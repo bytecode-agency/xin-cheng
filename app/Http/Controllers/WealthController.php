@@ -500,6 +500,7 @@ class WealthController extends Controller
                             'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
                             'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                             'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
+                            'monthly_salary_wef' =>  isset($shareholder['monthly_salary_wef']) ?$shareholder['monthly_salary_wef'] :null,
                             'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
                             'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
                             

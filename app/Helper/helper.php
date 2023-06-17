@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
        
     }
 
-    function convertDate($date, $format = "Y-m-d",$tz = 'Europe/London')
+    function convertDate($date, $format = "Y-m-d",$tz = 'Asia/Singapore')
     {      
       if( empty($date) || $date == ""){
         return "";

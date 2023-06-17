@@ -211,7 +211,7 @@
                                     </div>
                                     <div class="formAreahalf basic_data">
                                         <label for="" class="form-label">Incorporation Date</label>
-                                        <p>{{date('d/m/Y' , strtotime($company->incorporate_date))}}</p>
+                                        <p>{{$company->incorporate_date}}</p>
                                     </div>
 
                                     <div class="formAreahalf basic_data">
@@ -394,7 +394,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
+                                                            <p>{{ $shareholder->monthly_salary_wef }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
@@ -2533,8 +2533,11 @@
                                         <tr>
                                             <td style="width:50%;color:#000; font-size:15px ; padding-top:26px;">
                                                 <b>Incorporation Date</b>
-                                                <span
-                                                    style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span>
+                                                <!-- <span
+                                                    style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span> -->
+                                                <span style="padding-top:12px; display:block;">
+                                                    {{ $company->incorporate_date }}
+                                                </span>
                                             </td>
 
                                         </tr>
