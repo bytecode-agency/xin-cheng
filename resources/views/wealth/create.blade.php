@@ -144,7 +144,7 @@
                                         <div class="formAreahalf">
                                             <label for="fo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="date" class="form-control" name="cmp[1][incorporate_date]"
+                                            <input type="text" class="form-control datepicker" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="formAreahalf"> <label for="fo_relationship_1"
