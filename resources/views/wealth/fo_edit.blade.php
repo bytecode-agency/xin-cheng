@@ -44,6 +44,9 @@
                             <option value="" selected disabled="">Choose Relationship with Company</option>
                             <option value="Self" {{isset($company->relationship) && $company->relationship == 'Self' ? 'selected' : ''  }}>Self</option>
                             <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
+                            <option value="Parent company" {{isset($company->relationship) && $company->relationship == 'Parent company' ? 'selected' : ''  }}>Parent company</option>
+                            <option value="Fund co." {{isset($company->relationship) && $company->relationship == 'Fund co.' ? 'selected' : ''  }}>Fund co.</option>
+                            <option value="Management co." {{isset($company->relationship) && $company->relationship == 'Management co.' ? 'selected' : ''  }}>Management co.</option>
                             </select>
                         </div>
 

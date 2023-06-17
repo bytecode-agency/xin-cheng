@@ -55,7 +55,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'dd-mm-yy',
         onClose: function () {
             $(this).valid();
         }
@@ -995,7 +995,8 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click', '.remove-campany-shareholder', function () {
+    $('body').on('click', '.remove-campany-shareholder', function (e) {
+        e.preventDefault();
         var finance_entry_id = $(this).parents('.sharehold_length').find('#share_id').val();
         $.ajaxSetup({
             headers: {
@@ -1011,9 +1012,12 @@ $(document).ready(function () {
             }
         });
 
-        $(this).parents('.sharehold_length').remove();
+        var share_holders = $(this).closest('.company_share').find('.sharehold_length').not($(this).closest('.sharehold_length'));
+
+        $(this).closest('.sharehold_length').remove();
+
         var count = 1;
-        $('.sharehold_length').each(function (index) {
+        $(share_holders).each(function (index) {
             console.log(count);
             console.log($(this).children().find('.formAreahalf label[for="shareholder_name"]'));
             $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
