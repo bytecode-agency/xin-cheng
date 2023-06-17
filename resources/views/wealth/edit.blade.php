@@ -1959,7 +1959,7 @@
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control durationJs">
+                                                            class="form-control durationJs" disabled>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity

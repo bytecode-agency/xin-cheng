@@ -1057,23 +1057,25 @@ $(document).ready(function () {
     });
 
     $('.subsInsDateJs , .maturityDateJs').change(function(){
-        var si_date = new Date($('.subsInsDateJs').val());
-        var m_date = new Date($('.maturityDateJs').val());
+
+        var si_date = moment($('.subsInsDateJs').val());
+        var m_date = moment($('.maturityDateJs').val());
+        var duration = moment.duration(m_date.diff(si_date));
+        var diff     = duration._data;
         if(si_date != 'Invalid Date' && m_date != 'Invalid Date'){
-            var diff =  new Date(m_date - si_date);
-            var years = (diff.toISOString().slice(0, 4) - 1970);
+            var years = diff.years;
             if(years > 1){
                 years = years + ' Years';
             }else{
                 years = years + ' Year';
             }
-            var months = (diff.getMonth()+1);
+            var months = diff.months;
             if(months > 1){
                 months = months + ' Months';
             }else{
                 months = months + ' Month';
             }
-            var days = (diff.getDate());
+            var days = diff.days;
             if(days > 1){
                 days = days + ' Days';
             }else{
