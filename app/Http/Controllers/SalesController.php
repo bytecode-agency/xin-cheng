@@ -368,16 +368,18 @@ class SalesController extends Controller
         // ]);
         // activity_log($data);
         $view_id=$sale->id;
+        if(!empty($request->notes)){
+            $notes = new Notes;
+            $notes->module_name = $request->tbl_name;
+            $notes->application_id = $sale->id;
+            $notes->notes_description = $request->notes;
+            $notes->created_by = $request->created_by_name;
+            $notes->save();
+        }
 
-        $notes = new Notes;
-        $notes->module_name = $request->tbl_name;
-        $notes->application_id = $sale->id;
-        $notes->notes_description = $request->notes;
-        $notes->created_by = $request->created_by_name;
-        $notes->save();
 
         $request->validate([
-            'file' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
+            'file' => 'mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
         ]);
 
         if ($files = $request->file('file')) {

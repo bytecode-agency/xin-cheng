@@ -1584,7 +1584,7 @@
                             el.innerHTML =
 
                                 `<p>You can view Application <a class='view-application' href='/salesshow/` +
-                                response.view_id + `'>here</a>`
+                                response.input.view_id + `'>here</a>`
                             swal({
                                 title: `Application Created`,
                                 content: el,
