@@ -94,7 +94,13 @@
                     @endif
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
-                        <p>{{ convertDate($basic_data->date_of_contract,"d/m/Y") }}</p>
+                        <p>
+                            @if(!empty($basic_data->date_of_contract))
+                                {{ date('d/m/Y' , strtotime($basic_data->date_of_contract)) }}
+                            @else
+                                -
+                            @endif
+                        </p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Type</label>
@@ -138,7 +144,13 @@
 
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
-                        <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
+                        <p>
+                            @if(!empty($basic_data->annual_fee_due_date))
+                                {{date('d/m/Y' , strtotime($basic_data->annual_fee_due_date))}}
+                            @else
+                                -
+                            @endif
+                        </p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>

@@ -91,8 +91,8 @@
                         @endif
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
-                            <input type="text" class="form-control datepicker" name="date_of_contract"
-                                        value="{{convertDate($basic_data->date_of_contract,'d/m/Y')}}" placeholder="dd/mm/yyyy">
+                            <input type="date" class="form-control" name="date_of_contract"
+                                        value="{{$basic_data->date_of_contract ?? ''}}" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Type</label>
@@ -177,8 +177,8 @@
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
 
-                            <input type="text" class="form-control datepicker" name="annual_fee_due_date"
-                                        value="{{ convertDate($basic_data->annual_fee_due_date,'d/m/Y') }}" placeholder="dd/mm/yyyy">
+                            <input type="date" class="form-control" name="annual_fee_due_date"
+                                        value="{{$basic_data->annual_fee_due_date ?? ''}}" placeholder="dd/mm/yyyy">
 
                         </div>
                         <div class="formAreahalf basic_data">
