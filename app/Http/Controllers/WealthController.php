@@ -544,6 +544,11 @@ class WealthController extends Controller
                   //  dd($request->financial);
                   foreach($request->financial as $f_key=>$f_value )
                   {
+                    $sub_date = $f_value['application_submission_date'];
+                    if(!empty($sub_date)){
+                        $sub_date = str_replace("/","-",$f_value['application_submission_date']);
+                        $sub_date = date('Y-m-d' , strtotime($sub_date));
+                    }
                     // dd(['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id]);
                    $wealth_financial_application = WealthFinancial::updateOrCreate(
                     ['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id],
@@ -553,7 +558,7 @@ class WealthController extends Controller
                     'poc_contact_no' => isset($f_value['poc_contact_no']) ? $f_value['poc_contact_no'] :null,
                     'poc_email'=>  isset($f_value['poc_email']) ? $f_value['poc_email'] :null,
                     'application_submission' =>  isset($f_value['application_submission']) ? $f_value['application_submission'] :null,
-                    'application_submission_date' =>  isset($f_value['application_submission_date']) ? $f_value['application_submission_date'] :null,
+                    'application_submission_date' =>  isset($sub_date) ? $sub_date :null,
                     'account_type' =>  isset($f_value['account_type']) ? json_encode($f_value['account_type']) :null,
                     'account_type_specify' =>  isset($f_value['account_type_specify']) ? json_encode($f_value['account_type_specify']) :null,
                     'account_policy_no'  =>  isset($f_value['account_policy_no']) ? json_encode($f_value['account_policy_no']) :null,

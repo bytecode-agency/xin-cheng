@@ -656,7 +656,7 @@
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission_date" class="form-label">Application Submission Date</label>
                                                                     <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
+                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ date('d/m/Y' , strtotime($wealthfinance[$i]->application_submission_date)) }} @endisset"
                                                                         class="form-control datepicker" placeholder="dd/mm/yyyy">
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">

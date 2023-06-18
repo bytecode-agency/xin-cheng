@@ -765,7 +765,7 @@ $(document).ready(function () {
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
                                 <input type="text" name="financial[`+ (f_btn_key + 1) + `][application_submission_date]" id="application_submission_date"
                                     value=""
-                                    class="form-control">
+                                    class="form-control datepicker">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission" class="form-label">Application
@@ -786,7 +786,7 @@ $(document).ready(function () {
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
                                 <input type="text" name="financial[`+(f_btn_key +1)+`][application_submission_date]" id="application_submission_date"
                                     value=""
-                                    class="form-control">
+                                    class="form-control datepicker">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
