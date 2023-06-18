@@ -1057,7 +1057,6 @@ $(document).ready(function () {
     });
 
     $('.subsInsDateJs , .maturityDateJs').change(function(){
-
         var si_date = moment($('.subsInsDateJs').val());
         var m_date = moment($('.maturityDateJs').val());
         var duration = moment.duration(m_date.diff(si_date));
