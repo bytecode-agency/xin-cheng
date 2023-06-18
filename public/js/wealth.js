@@ -71,7 +71,7 @@ $(document).ready(function () {
             $('#' + compId).find("#add_nfo_shareholder").prop('disabled',false);
         }
 
-    
+
     });
 
     $('body').on('change', ".business_type", function () {
@@ -1187,7 +1187,7 @@ $(document).ready(function () {
                             <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number two</label>
+                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
                                 value="">
                         </div>
