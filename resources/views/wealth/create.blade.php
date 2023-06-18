@@ -682,7 +682,7 @@
                                         <div class="formAreahalf">
                                             <label for="nfo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="date" class="form-control"
+                                            <input type="text" class="form-control datepicker"
                                                 name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="formAreahalf">
