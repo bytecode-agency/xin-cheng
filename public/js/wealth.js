@@ -275,7 +275,7 @@ $(document).ready(function () {
                     </div>\
                     <div class="formAreahalf">\
                         <label for="fo_incorporation_date_`+ (comp + 1)+`" class="form-label">Incorporation Date</label>\
-                        <input type="text" class="form-control datepicker" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yy">\
+                        <input type="date" class="form-control" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yy">\
                     </div>\
 
                     <div class="formAreahalf">\
@@ -429,7 +429,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
@@ -631,7 +631,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_month_wef_1" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                    <input type="integer" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                                    <input type="date" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
@@ -1184,7 +1184,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                            <input type="integer" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
@@ -1250,7 +1250,7 @@ $(document).ready(function () {
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_incorporation_date_` + (cmp_count + 1) + `" class="form-label">Incorporation Date</label>\
-                            <input type="text" class="form-control datepicker" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yy">\
+                            <input type="date" class="form-control" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yy">\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_relationship_` + (cmp_count + 1) + `" class="form-label">Relationship with Company 1</label>\
@@ -1509,7 +1509,7 @@ $(document).ready(function () {
                                 <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_equity" class="form-label">Equity Percentageee</label>
+                                <label for="nfo_equity" class="form-label">Equity Percentage</label>
                                     <div class="dollersec percentage_input"><span class="input">
                                     <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
