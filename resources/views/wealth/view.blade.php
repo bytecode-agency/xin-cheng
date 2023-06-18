@@ -394,7 +394,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ $shareholder->monthly_salary_wef }}</p>
+                                                            <p>{{ date('d/m/Y' , strtotime($shareholder->monthly_salary_wef)) }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
@@ -506,7 +506,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ $shareholder->monthly_salary_wef }}</p>
+                                                            <p>{{ date('d/m/Y' , strtotime($shareholder->monthly_salary_wef)) }}</p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">

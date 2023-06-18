@@ -322,8 +322,8 @@
 
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                <input  type="text"
-                                                        class="form-control datepicker"
+                                                <input  type="date"
+                                                        class="form-control"
                                                         name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
                                                         value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
                                                         placeholder="dd/mm/yyyy"

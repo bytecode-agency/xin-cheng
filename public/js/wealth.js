@@ -429,7 +429,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
@@ -631,7 +631,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_month_wef_1" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                    <input type="integer" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                                    <input type="date" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
@@ -1184,7 +1184,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number two</label>
