@@ -322,8 +322,7 @@ class WealthController extends Controller
                     $shareholder_all->type_of_tin = isset($shareholder['nfo_tin_type']) ? $shareholder['nfo_tin_type'] : null ;
                     $shareholder_all->job_title = isset($shareholder['nfo_job_title'])? $shareholder['nfo_job_title'] : null;
                     $shareholder_all->monthly_sal = isset($shareholder['nfo_mth_salary']) ? $shareholder['nfo_mth_salary'] : null;    
-                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;           
-                    
+                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;         
                     $shareholder_all->save();    
                     }
                 }       
@@ -425,11 +424,12 @@ class WealthController extends Controller
         return view('wealth.edit',compact('data','basic_data','file','notes','wealth_mas','wealthfinance','wealthpass','wealthbuss'));
     }
     public function update(Request $request)
-    { 
-        $business_account_types = null;
-        if(!empty($request->business_account_type)){
-            $business_account_types = implode(',' , $request->business_account_type);
-        }
+    {
+        $business_account_types = $request->business_account_type;
+
+        // if(!empty($request->business_account_type)){
+        //     $business_account_types = implode(',' , $request->business_account_type);
+        // }
 
         $id= $request->wealth_id;
         $data_update = Wealth::with('companies.shareholder')->find($id); 
@@ -720,7 +720,8 @@ class WealthController extends Controller
                                 'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
                                 'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                                 'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
-                                'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null
+                                'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
+                               'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] : null
                                 ]);                       
                             }    
                     }       
