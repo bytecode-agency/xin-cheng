@@ -80,11 +80,11 @@
     <p></p>
 </div>
 <div class="formAreahalf basic_data">
-    <label for="" class="form-label">Pass Issuance Date</label>
+    <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
     <p></p>
 </div>
 <div class="formAreahalf basic_data">
-    <label for="" class="form-label">Pass Expiry Date</label>
+    <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
     <p></p>
 </div>
 <div class="formAreahalf basic_data">

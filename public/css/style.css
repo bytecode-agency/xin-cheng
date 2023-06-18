@@ -3060,8 +3060,8 @@ form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-sel
 
 
 
-.select2-container--default .select2-selection--single .select2-selection__rendered[title="In progress"] ,
-.select2-container--default .select2-selection--single .select2-selection__rendered[title="In Progress"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Progress"] ,
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Progress"] ,
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Rejected"] {
     background: #083a60 !important;
 	color: #fff !important;
@@ -4509,7 +4509,7 @@ form#operation_form .formAreahalf span.select2 span.select2-selection span.selec
     padding: 0 18px;
 }
 
-form#operation_form .formAreahalf span.select2 span.select2-selection span.select2-selection__rendered[title="In Progress"] ,
+form#operation_form .formAreahalf span.select2 span.select2-selection span.select2-selection__rendered[title="Progress"] ,
 form#operation_form .formAreahalf span.select2 span.select2-selection span.select2-selection__rendered[title="Pending"] {
     background: #083a60 !important;
     color: #fff !important;

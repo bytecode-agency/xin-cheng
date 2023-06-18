@@ -967,7 +967,7 @@
                                                                         Generated</label>
                                                                     <div class="dollersec"><span
                                                                             class="doller">$</span><span
-                                                                            class="input"><input type="number"
+                                                                            class="input"><input type="integer"
                                                                                 class="form-control"
                                                                                 id="genbusamt[0][subject]"
                                                                                 name="addbg[{{ $g }}][g_busamt]"
@@ -1382,7 +1382,7 @@
                                                                 <label class="form-label" for="busamt">Amount of
                                                                     Potential Business
                                                                     </label>
-                                                                       <div class="dollersec"><span class="doller">$</span><span class="input"><input type="number" class="form-control" id="busamt[` +
+                                                                       <div class="dollersec"><span class="doller">$</span><span class="input"><input type="integer" class="form-control" id="busamt[` +
                 i + `][subject]" name="addpb[` + i + `][busamt]"></span></div>
 
                                                             </div>
@@ -1543,7 +1543,7 @@
                                                                 <label class="form-label" for="busamt">Amount of
                                                                     Business
                                                                     Generated</label>
-                                                                       <div class="dollersec"><span class="doller">$</span><span class="input"><input type="number" class="form-control" id="genbusamt[0][subject]" name="addbg[` +
+                                                                       <div class="dollersec"><span class="doller">$</span><span class="input"><input type="integer" class="form-control" id="genbusamt[0][subject]" name="addbg[` +
                 g + `][g_busamt]"></span></div>
 
                                                             </div>

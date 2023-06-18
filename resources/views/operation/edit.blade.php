@@ -47,11 +47,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
-                    <button type="submit" class="btn saveBtn"><span>Save</span></button>
-                    <a href="{{ route('operation.show', $data->id) }}"><button type="button"
-                            class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
-                    {{-- <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Cancel</span></button> --}}
+            <div class="filterBtn d-flex align-items-center justify-content-end viewSave">
+                <button type="submit" class="btn saveBtn"><span>Save</span></button>
+                <a href="{{ route('operation.show', $data->id) }}"><button type="button"
+                        class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
+                {{-- <button class="btn saveBtn cancelBtn del_confirm" data-id="{{ $data->id }}"><span>Cancel</span></button> --}}
             </div>
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -578,16 +578,14 @@
                                                                 </select> --}}
                                                             </div>
                                                             <div class="formAreahalf basic_data">
-                                                                <label for="" class="form-label">Pass Issuance
-                                                                    Date</label>
+                                                                <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
 
                                                                 <input type="date" class="form-control"
                                                                     name="pass[{{ $z }}][pass_iss_date]"
                                                                     value="{{ $pass_hol['pass_iss_date'] }}">
                                                             </div>
                                                             <div class="formAreahalf basic_data">
-                                                                <label for="" class="form-label">Pass Expiry
-                                                                    Date</label>
+                                                                <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
 
                                                                 <input type="date" class="form-control"
                                                                     name="pass[{{ $z }}][pass_exp_date]"
@@ -3033,12 +3031,12 @@ $(document).on('change', '.others_Relationship_share_class', function() {
 
 
                         <div class="formAreahalf ">
-                            <label for="" class="form-label"> Pass Issuance Date </label>
+                            <label for="" class="form-label"> Pass Issuance Date (DD/MM/YYYY)</label>
                             <input type="date" class="form-control"  name="pass[` + p + `][pass_iss_date]">
                         </div>
 
                         <div class="formAreahalf ">
-                            <label for="" class="form-label"> Pass Expiry Date </label>
+                            <label for="" class="form-label"> Pass Expiry Date (DD/MM/YYYY)</label>
                             <input type="date" class="form-control"  name="pass[` + p + `][pass_exp_date]">
                         </div>
 

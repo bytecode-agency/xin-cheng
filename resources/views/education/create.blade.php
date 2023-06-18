@@ -66,7 +66,7 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="">4</a>
-                                <p>Parent’s LTVP Application </p>
+                                <p>Parent/Guardian LVTP Application</p>
                             </li>
                             <li class="list-group-item">
                                 <a href="">5</a>
@@ -495,7 +495,7 @@
                 </div>
                 <div class="education_info parents_info parent_lvtp d-flex flex-wrap">
                     <div class="formAreahalf education-fields">
-                        <label for="education_type" class="form-label">Parent's LTVP Application</label>
+                        <label for="education_type" class="form-label">Parent/Guardian LVTP Application</label>
                         <select name="parents_ltvp_app" id="parents_ltvp_app" class="form-group parents_ltvp_app">
                             <option value="" selected disabled>Choose Option</option>
                             <option value="Yes">Yes</option>
@@ -861,7 +861,7 @@
                     $(this).parents('fieldset').find('#next').addClass('next');
                     $('.parent_lvtp').html(`
                     <div class="formAreahalf">
-                        <label for="parents_ltvp_app" class="form-label">Parent's LTVP Application</label>
+                        <label for="parents_ltvp_app" class="form-label">Parent/Guardian LVTP Application</label>
                         <select name="parents_ltvp_app" id="parents_ltvp_app" class="form-group parents_ltvp_app">
                             <option value="Yes" selected>Yes</option>
                             <option value="No">No</option>
@@ -937,7 +937,7 @@
                     $(this).parents('fieldset').find('#next').addClass('education_submit');
                     $(this).parents('fieldset').find('#next').removeClass('next');
                     $('.parent_lvtp').html(`<div class="formAreahalf">
-                            <label for="parents_ltvp_app" class="form-label">Parent's LTVP Application</label>
+                            <label for="parents_ltvp_app" class="form-label">Parent/Guardian LVTP Application</label>
                             <select name="parents_ltvp_app" id="parents_ltvp_app" class="form-group parents_ltvp_app">
                                 <option value="Yes">Yes</option>
                                 <option value="No" selected>No</option>

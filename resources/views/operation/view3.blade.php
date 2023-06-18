@@ -367,8 +367,7 @@
                                                             <p>{{ $data['pass_iss'] }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Pass Issuance
-                                                                Date</label>
+                                                            <label for="" class="form-label">Pass Issuance Date </label>
                                                             <p>{{ $data['pass_iss_date'] }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
