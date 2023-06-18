@@ -497,9 +497,9 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="commencement_date" class="form-label">Commencement Date (DD/MM/YYYY)</label>
-                                                    <input type="text" name="commencement_date" id="commencement_date"
-                                                        value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                    <input type="date" name="commencement_date" id="commencement_date"
+                                                        value="{{$wealth_mas->commencement_date ?? ''}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
 
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -526,10 +526,10 @@
                                                     <label for="annual_declaration_deadline" class="form-label">Annual
                                                         Declaration
                                                         Deadline</label>
-                                                    <input type="text" name="annual_declaration_deadline"
+                                                    <input type="date" name="annual_declaration_deadline"
                                                         id="annual_declaration_deadline"
-                                                        value="@isset($wealth_mas->annual_declaration_deadline) {{ $wealth_mas->annual_declaration_deadline }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                        value="{{$wealth_mas->annual_declaration_deadline}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="internal_account_manager" class="form-label">Internal
@@ -655,9 +655,9 @@
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ date('d/m/Y' , strtotime($wealthfinance[$i]->application_submission_date)) }} @endisset"
-                                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                                    <input type="date" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="{{$wealthfinance[$i]->application_submission_date}}"
+                                                                        class="form-control" placeholder="dd/mm/yyyy">
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
@@ -965,9 +965,9 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                    <input type="text" name="dob" id="dob"
-                                                        value="@isset($wealthpass->dob) {{ $wealthpass->dob }} @endisset"
-                                                        class="form-control datepicker">
+                                                    <input type="date" name="dob" id="dob"
+                                                        value="{{$wealthpass->dob}}"
+                                                        class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="gender" class="form-label">Gender(M/F)</label>
@@ -989,7 +989,7 @@
                                                         Date(DD/MM/YYYY)</label>
                                                     <input type="date" name="passport_expiry_date"
                                                         id="passport_expiry_date"
-                                                        value="@isset($wealthpass->passport_expiry_date) {{ $wealthpass->passport_expiry_date }} @endisset"
+                                                        value="{{$wealthpass->passport_expiry_date }}"
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -1258,15 +1258,15 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
-                                                        <input type="text" name="pass_issuance_date"
-                                                        value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                        <input type="date" name="pass_issuance_date"
+                                                        value="{{$wealthpass->pass_issuance_date}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
-                                                    <input type="text" name="pass_expiry_date"
-                                                    value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
-                                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                    <input type="date" name="pass_expiry_date"
+                                                    value="{{$wealthpass->pass_expiry_date}}"
+                                                    class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -1550,14 +1550,14 @@
                                                             Inception
                                                             Date</label>
                                                         <input type="date" name="subscription"
-                                                            value="@isset($wealthbuss->subscription){{ $wealthbuss->subscription }}@endisset"
+                                                            value="{{$wealthbuss->subscription}}"
                                                             class="form-control subsInsDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
-                                                            value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
+                                                            value="{{ $wealthbuss->maturity_date}}"
                                                             class="form-control maturityDateJs">
 
                                                     </div>
@@ -1949,7 +1949,7 @@
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
-                                                            value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
+                                                            value="{{$wealthbuss->maturity_date}}"
                                                             class="form-control maturityDateJs">
 
                                                     </div>
@@ -2072,7 +2072,7 @@
                                                         <label for="net_amount_val" class="form-label">Redemption
                                                             Date</label>
                                                         <input type="date" name="business_redemption_date"
-                                                            value="@isset($wealthbuss->business_redemption_date){{ $wealthbuss->business_redemption_date }}@endisset"
+                                                            value="{{$wealthbuss->business_redemption_date}}"
                                                             class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">

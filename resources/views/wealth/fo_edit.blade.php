@@ -161,7 +161,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
+                                                <input type="date" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][dob]"
                                                     value="{{ $shareholder->dob }}" placeholder="dd/mm/yyyy">
                                             </div>
@@ -192,7 +192,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
+                                                <input type="date" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]"
                                                     value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yyyy">
                                             </div>

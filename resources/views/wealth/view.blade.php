@@ -211,7 +211,13 @@
                                     </div>
                                     <div class="formAreahalf basic_data">
                                         <label for="" class="form-label">Incorporation Date</label>
-                                        <p>{{date('d/m/Y' , strtotime($company->incorporate_date))}}</p>
+                                        <p>
+                                            @if(!empty($company->incorporate_date))
+                                                {{date('d/m/Y' , strtotime($company->incorporate_date))}}
+                                            @else
+                                                -
+                                            @endif
+                                        </p>
                                     </div>
 
                                     <div class="formAreahalf basic_data">
@@ -320,7 +326,11 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{$shareholder->dob}}
+                                                            @if(!empty($shareholder->dob))
+                                                                {{date('d/m/Y' , strtotime($shareholder->dob))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -343,7 +353,11 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{$shareholder->passport_exp_date}}
+                                                            @if($shareholder->passport_exp_date)
+                                                                {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -394,7 +408,13 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ date('d/m/Y' , strtotime($shareholder->monthly_salary_wef)) }}</p>
+                                                            <p>
+                                                                @if($shareholder->monthly_salary_wef)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->monthly_salary_wef))}}
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                            </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
@@ -425,7 +445,11 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{$shareholder->dob}}
+                                                                @if($shareholder->dob)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->dob))}}
+                                                                @else
+                                                                    -
+                                                                @endif
                                                             </p>
                                                         </div>
 
@@ -456,7 +480,11 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{$shareholder->passport_exp_date}}
+                                                                @if($shareholder->passport_exp_date)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                                @else
+                                                                    -
+                                                                @endif
                                                             </p>
                                                         </div>
 
@@ -506,7 +534,13 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ date('d/m/Y' , strtotime($shareholder->monthly_salary_wef)) }}</p>
+                                                            <p>
+                                                                @if($shareholder->monthly_salary_wef)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->monthly_salary_wef))}}
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                            </p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
@@ -553,7 +587,11 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <p>
-                        {{$basic_data->dob}}
+                        @if($basic_data->dob)
+                            {{date('d/m/Y' , strtotime($basic_data->dob))}}
+                        @else
+                            -
+                        @endif
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -563,7 +601,11 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
                         <p>
-                            {{$basic_data->passport_exp_date}}
+                        @if($basic_data->passport_exp_date)
+                            {{date('d/m/Y' , strtotime($basic_data->passport_exp_date))}}
+                        @else
+                            -
+                        @endif
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -995,7 +1037,7 @@
                                                         Submission Date</label>
 
                                                         @isset($wealth_finance[$i]->application_submission_date)
-                                                            {{ $wealth_finance[$i]->application_submission_date }}
+                                                            {{ date('d/m/Y' , strtotime($wealth_finance[$i]->application_submission_date)) }}
                                                         @else
                                                             -
                                                         @endisset
@@ -1255,7 +1297,7 @@
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->dob)
-                                                        {{$wealthpass->dob}}
+                                                        {{date('d/m/Y' , strtotime($wealthpass->dob))}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1276,7 +1318,7 @@
                                                     Date(DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->passport_expiry_date)
-                                                        {{$wealthpass->passport_expiry_date}}
+                                                        {{date('d/m/Y' , strtotime($wealthpass->passport_expiry_date))}}
                                                     @else
                                                         -
                                                     @endisset
@@ -2536,7 +2578,11 @@
                                                 <!-- <span
                                                     style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span> -->
                                                 <span style="padding-top:12px; display:block;">
-                                                    {{ date('d/m/Y' , strtotime($company->incorporate_date)) }}
+                                                @if($company->incorporate_date)
+                                                    {{date('d/m/Y' , strtotime($company->incorporate_date))}}
+                                                @else
+                                                    -
+                                                @endif
                                                 </span>
                                             </td>
 
@@ -2646,7 +2692,12 @@
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                                         <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                                         <span
-                                                            style="padding-top:12px; display:block;">{{$shareholder->passport_exp_date}}
+                                                            style="padding-top:12px; display:block;">
+                                                            @if($shareholder->passport_exp_date)
+                                                                {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                         </span>
                                                     </td>
                                                     <td
@@ -2786,7 +2837,11 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>DOB (DD/MM/YYYY)</b>
                                             <span style="padding-top:12px; display:block;">
-                                                {{ $basic_data->dob }}
+                                                @if($basic_data->dob)
+                                                    {{date('d/m/Y' , strtotime($basic_data->dob))}}
+                                                @else
+                                                    -
+                                                @endif
                                         </span>
                                         </td>
                                     </tr>
@@ -2796,7 +2851,12 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                             <span
-                                                style="padding-top:12px; display:block;">{{$basic_data->passport_exp_date}}
+                                                style="padding-top:12px; display:block;">
+                                                @if($basic_data->passport_exp_date)
+                                                    {{date('d/m/Y' , strtotime($basic_data->passport_exp_date))}}
+                                                @else
+                                                    -
+                                                @endif
                                             </span>
                                         </td>
                                         <td

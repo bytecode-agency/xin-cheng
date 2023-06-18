@@ -345,7 +345,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
 
             <div class="formAreahalf">
@@ -368,7 +368,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yy" value="">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_pass_renew_`+ (sharehold_no + 1) + `" class="form-label">Passport Renewal Reminder</label>
@@ -549,7 +549,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                    <input type="text" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                                    <input type="date" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
 
                                 <div class="formAreahalf">
@@ -571,7 +571,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                    <input type="text" name="share[1][1][passport_exp_date]" id="fo_cpm2_pass_exp_1" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                                    <input type="date" name="share[1][1][passport_exp_date]" id="fo_cpm2_pass_exp_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_renew_1" class="form-label">Passport Renewal Reminder</label>
@@ -1108,7 +1108,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yy" value="">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Number</label>
@@ -1120,7 +1120,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yy" value="">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_renew_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Renewal Reminder</label>
@@ -1375,7 +1375,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -1404,7 +1404,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_country" class="form-label">Passport Country</label>
@@ -1536,7 +1536,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -1565,7 +1565,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_country" class="form-label">Passport Countryyy</label>
@@ -1786,7 +1786,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="nfo_cpm2_dobq_`+(shr_arr_id) +(nfo_sh_no + 1) +`" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                            <input type="date" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no" class="form-label">Passport Number</label>
@@ -1798,7 +1798,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                            <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_exp]" id="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-control datepicker" value="" placeholder="dd/mm/yy">
+                            <input type="date" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_exp]" id="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_renew" class="form-label">Passport Renewal Reminder</label>
@@ -2125,7 +2125,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">DOB (DD/MM/YYYY)</label>\
-                    <input type="text" class="form-control datepicker" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
+                    <input type="date" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>\
@@ -2153,7 +2153,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>\
-                    <input type="text" class="form-control datepicker" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_exp]" id="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
+                    <input type="date" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_exp]" id="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_country" class="form-label">Passport Country</label>\
