@@ -154,8 +154,8 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Incorporation Date</label>
-                            <input type="text" name="cmp[`+ key + `][incorporate_date]"
-                                id="fo_compnay_incorporate_date" class="form-control datepicker" placeholder="dd/mm/yyyy">
+                            <input type="date" name="cmp[`+ key + `][incorporate_date]"
+                                id="fo_compnay_incorporate_date" class="form-control" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>

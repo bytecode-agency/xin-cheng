@@ -275,7 +275,7 @@ $(document).ready(function () {
                     </div>\
                     <div class="formAreahalf">\
                         <label for="fo_incorporation_date_`+ (comp + 1)+`" class="form-label">Incorporation Date</label>\
-                        <input type="text" class="form-control datepicker" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yy">\
+                        <input type="date" class="form-control" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yy">\
                     </div>\
 
                     <div class="formAreahalf">\
@@ -1250,7 +1250,7 @@ $(document).ready(function () {
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_incorporation_date_` + (cmp_count + 1) + `" class="form-label">Incorporation Date</label>\
-                            <input type="text" class="form-control datepicker" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yy">\
+                            <input type="date" class="form-control" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yy">\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_relationship_` + (cmp_count + 1) + `" class="form-label">Relationship with Company 1</label>\

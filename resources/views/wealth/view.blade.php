@@ -211,7 +211,7 @@
                                     </div>
                                     <div class="formAreahalf basic_data">
                                         <label for="" class="form-label">Incorporation Date</label>
-                                        <p>{{$company->incorporate_date}}</p>
+                                        <p>{{date('d/m/Y' , strtotime($company->incorporate_date))}}</p>
                                     </div>
 
                                     <div class="formAreahalf basic_data">
@@ -2536,7 +2536,7 @@
                                                 <!-- <span
                                                     style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span> -->
                                                 <span style="padding-top:12px; display:block;">
-                                                    {{ $company->incorporate_date }}
+                                                    {{ date('d/m/Y' , strtotime($company->incorporate_date)) }}
                                                 </span>
                                             </td>
 

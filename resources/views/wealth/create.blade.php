@@ -144,7 +144,7 @@
                                         <div class="formAreahalf">
                                             <label for="fo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="text" class="form-control datepicker" name="cmp[1][incorporate_date]"
+                                            <input type="date" class="form-control" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="formAreahalf"> <label for="fo_relationship_1"
@@ -205,8 +205,8 @@
                                                     class="form-control" name="cmp[2][address]" id="fo_company_add">
                                             </div>
                                             <div class="formAreahalf"> <label for="fo_incorporation_date_2"
-                                                    class="form-label">Incorporation Date</label> <input type="text"
-                                                    class="form-control datepicker" name="cmp[2][incorporate_date]"
+                                                    class="form-label">Incorporation Date</label> <input type="date"
+                                                    class="form-control" name="cmp[2][incorporate_date]"
                                                     id="fo_incorporation_date_2" placeholder="dd/mm/yyyy"> </div>
                                             <div class="formAreahalf"> <label for="fo_relationship_2"
                                                     class="form-label">Relationship with Company 1</label> <select
@@ -682,7 +682,7 @@
                                         <div class="formAreahalf">
                                             <label for="nfo_incorporation_date_1" class="form-label">Incorporation
                                                 Date</label>
-                                            <input type="text" class="form-control datepicker"
+                                            <input type="date" class="form-control"
                                                 name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="formAreahalf">
