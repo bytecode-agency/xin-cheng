@@ -965,9 +965,9 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                    <input type="date" name="dob" id="dob"
+                                                    <input type="text" name="dob" id="dob"
                                                         value="@isset($wealthpass->dob) {{ $wealthpass->dob }} @endisset"
-                                                        class="form-control">
+                                                        class="form-control datepicker">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="gender" class="form-label">Gender(M/F)</label>

@@ -208,6 +208,20 @@
         function removeLoader() {
             $('#PopUpMessage').hide();
         }
+
+        initializeDatePicker();
+
+        function initializeDatePicker(){
+            $(".datepicker").datepicker({
+                dateFormat: 'dd/mm/yy',
+                onClose: function () {
+                    $(this).valid();
+                }
+            });
+        }
+        $('body').click(function(evt){
+            initializeDatePicker();
+        });
     </script>
     @stack('js')
 </body>

@@ -365,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" name="nfo_dob" id="nfo_dob" class="form-control" placeholder="dd/mm/yyyy">
+                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -376,7 +376,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
+                        <input type="text" class="form-control datepicker" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="date" name="nfo_pass_exp" id="nfo_pass_exp"
                             class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -848,7 +848,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" class="form-control" name="fo_dob" id="fo_dob">
+            <input type="text" class="form-control datepicker" name="fo_dob" id="fo_dob">
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -868,7 +868,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-            <input type="text" class="form-control" name="fo_pass_exp" id="fo_pass_exp">
+            <input type="text" class="form-control datepicker" name="fo_pass_exp" id="fo_pass_exp">
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_country" class="form-label">Passport Country</label>
@@ -1001,7 +1001,7 @@
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" name="nfo_cpm2_dob" id="nfo_cpm2_dob" class="form-control" value="">
+            <input type="text" name="nfo_cpm2_dob datepicker" id="nfo_cpm2_dob" class="form-control" value="">
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_pass_no" class="form-label">Passport Number</label>
@@ -1015,7 +1015,7 @@
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-            <input type="text" name="nfo_cpm2_pass_exp" id="nfo_cpm2_pass_exp" class="form-control"
+            <input type="text" name="nfo_cpm2_pass_exp" id="nfo_cpm2_pass_exp" class="form-control datepicker"
                 value="">
         </div>
         <div class="formAreahalf">

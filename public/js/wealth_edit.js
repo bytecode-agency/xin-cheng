@@ -154,8 +154,8 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Incorporation Date</label>
-                            <input type="date" name="cmp[`+ key + `][incorporate_date]"
-                                id="fo_compnay_incorporate_date" class="form-control">
+                            <input type="text" name="cmp[`+ key + `][incorporate_date]"
+                                id="fo_compnay_incorporate_date" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>
@@ -373,7 +373,7 @@ $(document).ready(function () {
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control"
+                        <input type="text" class="form-control datepicker"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
                             value="{{ $shareholder->dob }}">
                     </div>
@@ -420,7 +420,7 @@ $(document).ready(function () {
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Expiry
                             Date(MM/DD/YYYY)</label>
-                        <input type="date" class="form-control"
+                        <input type="text" class="form-control datepicker"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_exp_date]"
                            >
                     </div>

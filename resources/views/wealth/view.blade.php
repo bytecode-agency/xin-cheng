@@ -320,7 +320,7 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->dob,"d/m/Y") }}
+                                                            {{$shareholder->dob}}
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -343,7 +343,7 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
+                                                            {{$shareholder->passport_exp_date}}
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -425,7 +425,7 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->dob,"d/m/Y") }}
+                                                            {{$shareholder->dob}}
                                                             </p>
                                                         </div>
 
@@ -456,7 +456,7 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
+                                                            {{$shareholder->passport_exp_date}}
                                                             </p>
                                                         </div>
 
@@ -506,7 +506,7 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
+                                                            <p>{{ $shareholder->monthly_salary_wef }}</p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
@@ -553,7 +553,7 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <p>
-                        {{ convertDate($basic_data->dob,"d/m/Y") }}
+                        {{$basic_data->dob}}
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -563,7 +563,7 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
                         <p>
-                            {{ convertDate($basic_data->passport_exp_date,"d/m/Y") }}
+                            {{$basic_data->passport_exp_date}}
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -1255,7 +1255,7 @@
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->dob)
-                                                        {{ convertDate($wealthpass->dob,"d/m/Y") }}
+                                                        {{$wealthpass->dob}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1276,7 +1276,7 @@
                                                     Date(DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealthpass->passport_expiry_date)
-                                                        {{ convertDate($wealthpass->passport_expiry_date,"d/m/Y") }}
+                                                        {{$wealthpass->passport_expiry_date}}
                                                     @else
                                                         -
                                                     @endisset
@@ -2646,7 +2646,7 @@
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                                         <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                                         <span
-                                                            style="padding-top:12px; display:block;">{{ convertDate($shareholder->passport_exp_date,'d/m/Y') }}
+                                                            style="padding-top:12px; display:block;">{{$shareholder->passport_exp_date}}
                                                         </span>
                                                     </td>
                                                     <td
@@ -2786,7 +2786,7 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>DOB (DD/MM/YYYY)</b>
                                             <span style="padding-top:12px; display:block;">
-                                                {{ convertDate($basic_data->dob,"d/m/Y") }}
+                                                {{ $basic_data->dob }}
                                         </span>
                                         </td>
                                     </tr>
@@ -2796,7 +2796,7 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                             <span
-                                                style="padding-top:12px; display:block;">{{ convertDate($basic_data->passport_exp_date,'d/m/Y') }}
+                                                style="padding-top:12px; display:block;">{{$basic_data->passport_exp_date}}
                                             </span>
                                         </td>
                                         <td
