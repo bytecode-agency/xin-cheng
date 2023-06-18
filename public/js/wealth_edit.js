@@ -17,7 +17,6 @@ $('body').on('change', 'selectq', function () {
     }
 });
 function equity_percentage_checks() {
-
     var company = document.querySelectorAll('.accordion-item');
     var disable = 0;
     for (index = 0; index < company.length; index++) {
@@ -32,16 +31,14 @@ function equity_percentage_checks() {
             }
         }
         if (percentage < 100) {
-
             $(".edit__add_com").addClass("disable");
             $(".edit__add_com").removeAttr('disabled');
-            $("#" + id).find(".edit_add_shareholder").removeClass("disable");
+            $("#" + id).find(".edit_add_shareholder").prop("disabled", false);;
             if (!$("#" + id).find(".edit_add_shareholder").hasClass("disable")) {
                 disable = 1;
             }
         }
         else {
-            // console.log('here');
             $("#" + id).find(".edit_add_shareholder").addClass("disable");
             $("#" + id).find(".edit_add_shareholder").attr("disabled", 'disabled');
         }
@@ -783,12 +780,6 @@ $(document).ready(function () {
                                 </select>
                             </div>
                             <div class="formAreahalf basic_data">
-                                <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                <input type="date" name="financial[`+(f_btn_key +1)+`][application_submission_date]" id="application_submission_date"
-                                    value=""
-                                    class="form-control">
-                            </div>
-                            <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
                                 <select name="financial[`+ (f_btn_key + 1) + `][account_type][]" id="account_type" class="form-control">
                                     <option value="" selected disabled>Choose account type
@@ -850,6 +841,17 @@ $(document).ready(function () {
                                     <option value="Progress">Progress</option>
                                     <option value="Done">Done</option>
                                     <option value="N/A">N/A</option>
+                                </select>
+                            </div>
+                            <div class="formAreahalf basic_data">
+                                <label for="intial_deposit_currency" class="form-label">Initial Deposit Currency</label>
+                                <select name="financial[`+ (f_btn_key + 1) + `][intial_deposit_currency]" id="intial_deposit_currency"
+                                    class="js-example-responsive form-control">
+                                    <option value="" selected="" disabled=""> Choose money deposit Currency </option>
+                                    <option value="SGD">SGD</option>
+                                    <option value="USD">USD</option>
+                                    <option value="Mult-currency">Mult-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf basic_data">
@@ -1037,7 +1039,8 @@ $(document).ready(function () {
             url: "/company-shareholder-destroy",
             data: { id: finance_entry_id },
             success: function (response) {
-                console.log(response);
+                equity_percentage_checks();
+                console.log('Shareholder deleted successfully.');
             }
         });
 
@@ -1048,7 +1051,6 @@ $(document).ready(function () {
         var count = 1;
         $(share_holders).each(function (index) {
             console.log(count);
-            console.log($(this).children().find('.formAreahalf label[for="shareholder_name"]'));
             $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
             count++;
         });
