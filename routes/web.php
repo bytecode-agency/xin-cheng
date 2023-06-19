@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('salessave', [SalesController::class, 'store'])->name('sales.save')->middleware('can:Sales Module');
     Route::get('salesshow/{id}', [SalesController::class, 'show'])->name('sales.show')->middleware('can:Sales Module');
     Route::delete('salesdestroy/{id}', [SalesController::class, 'destroy'])->name('sales.destroy')->middleware('can:Sales Module');
-    Route::get('salesdestroy/{id}', [SalesController::class, 'destroy'])->name('sales.destroy')->middleware('can:Sales Module');
+    // Route::get('salesdestroy/{id}', [SalesController::class, 'destroy'])->name('sales.destroy')->middleware('can:Sales Module');
     Route::get('salesshowedit/{id}', [SalesController::class, 'edit'])->name('sales.edit')->middleware('can:Sales Module');
     Route::post('salesupdate/{id}', [SalesController::class, 'update'])->name('sales.update')->middleware('can:Sales Module');
     Route::post('salesnote', [SalesController::class, 'note'])->name('sales.note')->middleware('can:Sales Module');
