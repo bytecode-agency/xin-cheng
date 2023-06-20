@@ -919,7 +919,7 @@
                                     <div id="pass_accordion" class="passholders_itemsJs">
                                         @foreach($wealthpass as $passholder_key => $passholder_item)
                                         @php $passholder_key++; @endphp
-                                        <div id="passholder_item1" class="mas_related passholder_itemJs">
+                                        <div id="passholder_item{{$passholder_key}}" class="mas_related passholder_itemJs">
                                         <input type="hidden" name="passholder[{{$passholder_key}}][wealth_pass_id]" value="{{$passholder_item->id}}">
                                             <div class="mas_heading_accordian">
                                                 <div class="formAreahalf basic_data">
@@ -939,11 +939,12 @@
                                                             No</option>
                                                     </select>
                                                 </div>
-                                                <button class="btn btn_set collapsed" data-toggle="collapse"
+                                                <button class="btn btn_set edit_new_btn_set" data-toggle="collapse"
                                                     data-target="#pass_collapse_{{$passholder_key}}" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                                                 </button>
+                                                <div class="cross financial_wealth"><span class="edit_cancel_share remove_item delete_passholderJs" data-id="{{$passholder_key}}" data-passholder_id="{{$passholder_item->id}}">x</span></div>
                                             </div>
                                             <div id="pass_collapse_{{$passholder_key}}" class="collapse" aria-labelledby="headingOne"
                                                 data-parent="#pass_accordion">
@@ -2591,6 +2592,56 @@
         $('#business_account_type').select2({
             placeholder: 'Select Account Types',
             allowClear: true
+        });
+
+
+        $('body').on('click' , '.delete_passholderJs' , function(){
+            var id            = $(this).attr('data-id');
+            var passholder_id = $(this).attr('data-passholder_id');
+            if(passholder_id){
+                swal({
+                    title: "Are you sure you want to delete this passholder ?",
+                    text: "You will not be able to retrieve this passholder again.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        var url = "{{ route('wealth.delete.passholder', ':id') }}";
+                        url = url.replace(':id', passholder_id);
+                        $.ajax({
+                            type: "DELETE",
+                            url: url,
+                            data: {
+                                passholder_id: passholder_id,
+                            },
+                            cache: false,
+                            success: function(response) {
+                                swal(
+                                    "Success!",
+                                    "Passholder has been deleted successfully!",
+                                    "success",
+                                );
+                                $('#passholder_item' + id).remove();
+                            },
+                            failure: function(response) {
+                                swal(
+                                    "Internal Error",
+                                    "Oops, your passholder was not deleted.",
+                                    "error"
+                                )
+                            }
+                        });
+                    }
+                });
+            }else{
+                $('#passholder_item' + id).remove();
+            }
         });
     </script>
 @endpush

@@ -1105,9 +1105,10 @@ $(document).ready(function () {
                             <option value="No">No</option>
                         </select>
                     </div>
-                    <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`">
+                    <button class="btn btn_set edit_new_btn_set" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`">
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </button>
+                    <div class="cross financial_wealth"><span class="edit_cancel_share remove_item delete_passholderJs" data-id="`+passholders_length+`" data-passholder_id="">x</span></div>
                 </div>
                 <div id="passholder_collapse_`+passholders_length+`" class="collapse" aria-labelledby="heading`+passholders_length+`" data-parent="#passholder_accordion">
                     <div class="tab-inner-text d-flex flex-wrap">
@@ -1228,9 +1229,9 @@ $(document).ready(function () {
                             </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label class="form-label">Relationship with Pass Holder `+(passholders_length + 1)+`</label>
+                            <label class="form-label">Relationship with Pass Holder ` + passholders_length + `</label>
                             <select name="passholder[` +passholders_length + `][relation_with_pass]" class="form-control relationship_with_passholderJs" data-passholder_id="`+passholders_length+`">
-                                <option value="" selected="" disabled="">Choose relationship with pass holder 1</option>
+                                <option value="" selected="" disabled="">Choose relationship with pass holder ` +passholders_length+ ` </option>
                                 <option value="Self">Self</option>
                                 <option value="Parents">Parents</option>
                                 <option value="Spouse">Spouse</option>

@@ -979,4 +979,11 @@ class WealthController extends Controller
         return response()->json();
 
     }
+
+    public function deletePassholder($id){
+        $passholder = WealthPass::find($id)->delete();
+        return response()->json([
+            'message' => 'Passholder has been deleted successfully!'
+        ]);
+    }
 }
