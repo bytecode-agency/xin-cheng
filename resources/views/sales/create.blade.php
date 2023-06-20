@@ -1584,7 +1584,7 @@
                             el.innerHTML =
 
                                 `<p>You can view Application <a class='view-application' href='/salesshow/` +
-                                response.input.view_id + `'>here</a>`
+                                response.view_id + `'>here</a>`
                             swal({
                                 title: `Application Created`,
                                 content: el,
@@ -1599,7 +1599,7 @@
                                 },
                             }).then((result) => {
                                 $('#multistep_form')[0].reset();
-                                window.location.reload()
+                                window.location = '{{route('sales')}}';
 
                             })
                         }

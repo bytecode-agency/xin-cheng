@@ -377,7 +377,6 @@ class SalesController extends Controller
             $notes->save();
         }
 
-
         $request->validate([
             'file' => 'mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
         ]);
@@ -394,9 +393,11 @@ class SalesController extends Controller
         $file->uploaded_by = $request->created_by;
         $file->uploaded_by_id = $request->uid;
         $file->save();
-        }        
-
-        return redirect()->route('sales', compact('view_id'));
+        }  
+        return response()->json([
+            'view_id' => $view_id
+        ]);      
+        //return redirect()->route('sales', compact('view_id'));
     }
 
     public function destroy($id)
