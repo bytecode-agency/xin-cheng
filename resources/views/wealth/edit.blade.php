@@ -1817,12 +1817,12 @@
                                                             class="js-example-responsive form-control business_account_status">
                                                             <option value="" selected disabled>Choose account status
                                                             </option>
-                                                            <option value="Pending"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                            <option value="Approved"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved' ? 'selected' : '' }}>Approved</option>
-                                                            <option value="Rejected"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+                                                            <!-- <option value="Pending"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option> -->
+                                                            <option value="Active"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Active' ? 'selected' : '' }}>Active</option>
+                                                            <option value="Dormant"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Dormant' ? 'selected' : '' }}>Dormant</option>
                                                         </select>
                                                     </div>
 
