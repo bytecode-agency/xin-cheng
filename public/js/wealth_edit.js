@@ -1086,4 +1086,275 @@ $(document).ready(function () {
             $('.durationJs').attr('readonly' , true);
         }
     });
+
+
+    //Add Passholder
+    var passholders_length = "";
+    $('body').on('click', '#add_passholder', function () {
+        passholders_length = $('.passholder_itemJs').length + 1;
+        $(".passholders_itemsJs").append(`
+        <div id="passholder_item`+passholders_length+`" class="mas_related passholder_itemJs">
+        <input type="hidden" name="passholder[` +passholders_length + `][wealth_pass_id]">
+            <div id="passholder_accordion">
+                <div class="mas_heading_accordian">
+                    <div class="formAreahalf basic_data">
+                        <label class="form-label">Is Passholder also the shareholder</label>
+                        <select name="passholder[` +passholders_length + `][passholder_shareholder]" value="" class="form-control shareholdersJs" data-key="`+passholders_length+`">
+                            <option value="" selected="" disabled="">Choose is passholder also the shareholder</option>
+                            <option value="Yes"> Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`"> 
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div id="passholder_collapse_`+passholders_length+`" class="collapse" aria-labelledby="heading`+passholders_length+`" data-parent="#passholder_accordion">
+                    <div class="tab-inner-text d-flex flex-wrap">
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label pass_holder_name_lableJs">Pass Holder Name
+                                (Eng)
+                            </label>
+                            <input type="text" name="passholder[` +passholders_length + `][pass_holder_name]" class="form-control pass_holder_nameJs">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport
+                                Full Name(Chinese)
+                            </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passposrt_name_chinese]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">DOB (DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][dob]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Gender(M/F)</label>
+                            <select name="passholder[` +passholders_length + `][gender]" class="form-control">
+                                <option value="" selected="" disabled="">Choose gender</option>
+                                <option value="Male"> M </option>
+                                <option value="Female"> F </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][passport_expiry_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Number </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passport_no]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Renewal Reminder</label>
+                            <select name="passholder[` +passholders_length + `][passport_renewal_reminder]" class="form-control">
+                                <option value="" selected="" disabled="">Please select</option>
+                                <option value="90 days before expiry"> 90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Country </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passport_country]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box">
+                            <span class="every">Every</span>
+                            <span class="select">
+                                <select name="passholder[` +passholders_length + `][passport_tri_frq]" class="form-control">
+                                    <option value="" selected="" disabled=""> Please select</option>
+                                    <option value="Day">Day</option>
+                                    <option value="3 Days">3 Days</option>
+                                    <option value="Week">Week</option>
+                                    <option value="2 Weeks">2 Weeks</option>
+                                    <option value="4 Weeks">4 Weeks</option>
+                                </select>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Tin Country Before Pass Application</label>
+                            <input type="text" name="passholder[` +passholders_length + `][tin_country_before_app]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Type of TIN Before Pass Application</label>
+                            <select name="passholder[` +passholders_length + `][type_of_tin_before_app]" class="form-control">
+                                <option value="" selected="" disabled="">Choose type of tin before pass application</option>
+                                <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LVTP">LVTP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">TIN Number Before Pass Application</label>
+                            <input type="text" name="passholder[` +passholders_length + `][tin_no_before_pass_app]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="passholder[` +passholders_length + `][phone_no]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="passholder[` +passholders_length + `][email]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Business Type</label>
+                            <select name="passholder[` +passholders_length + `][business_type]" class="form-control">
+                                <option value="" selected="" disabled="">Choose business type</option>
+                                <option vlaue="FO">FO</option>
+                                <option vlaue="PIC">PIC</option>
+                                <option vlaue="Self-Employment">Self-Employment</option>
+                                <option vlaue="Employer Guarantee">Employer Guarantee</option>
+                                <option vlaue="PR Application">PR Application</option>
+                                <option vlaue="PR Renewal">PR Renewal</option>
+                                <option vlaue="Citizen">Citizen</option>
+                                <option vlaue="Others">Others</option>
+                            </select>
+                        </div>  
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Residential Address</label>
+                            <input type="text" name="passholder[` +passholders_length + `][residential_add]" class="form-control">
+                        </div>  
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Application Status</label>
+                            <select name="passholder[` +passholders_length + `][pass_app_status]" class="js-example-responsive form-control">
+                                <option value="" selected="" disabled="">Choose application status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>  
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Relationship with Pass Holder `+(passholders_length + 1)+`</label>
+                            <select name="passholder[` +passholders_length + `][relation_with_pass]" class="form-control relationship_with_passholderJs" data-passholder_id="`+passholders_length+`">
+                                <option value="" selected="" disabled="">Choose relationship with pass holder 1</option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Application Type</label>
+                            <select name="passholder[` +passholders_length + `][pass_app_type]" class="form-control">
+                                <option value="" selected="" disabled="">Choose pass application </option>
+                                <option value="EP">EP</option>
+                                <option value="SP">SP</option>
+                                <option value="DP">DP</option>
+                                <option value="LVTP">LVTP</option>
+                                <option value="WP">WP</option>
+                                <option value="PR">PR</option>
+                                <option value="Citizen">Citizen</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Issuance</label>
+                            <select name="passholder[` +passholders_length + `][pass_inssuance]" class="js-example-responsive form-control">
+                                <option value="" selected disabled>Choose Pass Issuance</option>
+                                <option value="Progress">Progress</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
+                                <input type="date" name="passholder[` +passholders_length + `][pass_issuance_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][pass_expiry_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Renewal Reminder</label>
+                            <select name="passholder[` +passholders_length + `][pass_renewal_reminder]" class="form-control">
+                                <option value="" selected disabled> Choose pass renewal reminder </option>
+                                <option value="90 days before expiry"> 90 days before expiry </option>
+                                <option value="120 days before expiry"> 120 days before expiry </option>
+                                <option value="180 days before expiry"> 180 days before expiry </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Duration</label>
+                            <input type="text" name="passholder[` +passholders_length + `][duration]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">FIN Number</label>
+                            <input type="text" name="passholder[` +passholders_length + `][fin_number]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Renewal Trigger Frequency</label>
+                            <div class="select_box">
+                                <span class="every">Every</span>
+                                <span class="select">
+                                    <select name="passholder[` +passholders_length + `][pass_renewal_frq]" class="form-control">
+                                        <option value="" selected="" disabled=""> Please select</option>
+                                        <option value="Day">Day</option>
+                                        <option value="3 Days">3 Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="2 Weeks">2 Weeks</option>
+                                        <option value="4 Weeks">4 Weeks</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_jon_title" class="form-label">Pass. Job Title</label>
+                            <input type="text" name="passholder[` +passholders_length + `][pass_jon_title]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="singpass_set_up" class="form-label">Singpass Set Up</label>
+                            <select name="passholder[` +passholders_length + `][singpass_set_up]" class="js-example-responsive form-control">
+                                <option value="" selected disabled>Choose singpass set</option>
+                                <option value="Progress" >Progress</option>
+                                <option value="Done"  >Done</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="employee_name" class="form-label">Employer's Name</label>
+                            <input type="text" name="passholder[` +passholders_length + `][employee_name]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="monthly_sal" class="form-label">Monthly Salary(SGD)</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input"> 
+                                    <input type="number" name="passholder[` +passholders_length + `][monthly_sal]" class="form-control">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_remarks" class="form-label">Remarks</label>
+                            <textarea name="passholder[` +passholders_length + `][pass_remarks]" rows="4" cols="50"
+                                value=""></textarea>
+                        </div>                                                                 
+                    </div>
+                </div>
+            </div>
+        </div>
+        `);
+
+        $('#passholder_item' + passholders_length + ' .js-example-responsive').select2({
+            minimumResultsForSearch: -1
+        });
+    });
+
+    $('body').on('change' , '.relationship_with_passholderJs' , function(){
+        var value = $(this).val();
+        if ($(this).val() == "Others") {
+            var passholder_id = $(this).attr('data-passholder_id');
+            $(this).parent().after(
+                `<div class="formAreahalf basic_data please_specifyJs">
+                    <label for="" class="form-label">Please Specify</label>
+                    <input type="text" class="form-control" name="passholder[` +passholder_id + `][relation_with_pass_specify]">
+                </div>`
+            );
+        } else {
+            $(this).parents().next('.please_specifyJs').remove();
+        }
+    });
 });
