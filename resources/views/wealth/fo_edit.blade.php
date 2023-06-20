@@ -34,7 +34,7 @@
                                 class="form-control" value="{{ $company->uen }}">
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
+                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date (DD/MM/YYYY)</label>
                             <input type="date" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
                                 class="form-control" value="{{$company->incorporate_date}}" placeholder="dd/mm/yyyy">
                         </div>

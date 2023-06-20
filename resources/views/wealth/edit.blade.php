@@ -90,7 +90,7 @@
                             </div>
                         @endif
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
+                            <label for="" class="form-label">Date of contract (DD/MM/YYYY)</label>
                             <input type="date" class="form-control" name="date_of_contract"
                                         value="{{$basic_data->date_of_contract ?? ''}}" placeholder="dd/mm/yyyy">
                         </div>
@@ -175,7 +175,7 @@
                         </div>
 
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Date (DD/MM/YYYY)</label>
 
                             <input type="date" class="form-control" name="annual_fee_due_date"
                                         value="{{$basic_data->annual_fee_due_date ?? ''}}" placeholder="dd/mm/yyyy">

@@ -93,7 +93,7 @@
                         </div>
                     @endif
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
+                        <label for="" class="form-label">Date of contract (DD/MM/YYYY)</label>
                         <p>
                             @if(!empty($basic_data->date_of_contract))
                                 {{ date('d/m/Y' , strtotime($basic_data->date_of_contract)) }}
@@ -143,14 +143,14 @@
                     </div>
 
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+                        <label for="" class="form-label">Annual Servicing Fee Due Date (DD/MM/YYYY)</label>
                         <p>
                             @if(!empty($basic_data->annual_fee_due_date))
                                 {{date('d/m/Y' , strtotime($basic_data->annual_fee_due_date))}}
                             @else
                                 -
                             @endif
-                        </p> 
+                        </p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
@@ -222,7 +222,7 @@
                                         <p>{{ $company->uen }}</p>
                                     </div>
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Incorporation Date</label>
+                                        <label for="" class="form-label">Incorporation Date (DD/MM/YYYY)</label>
                                         <p>
                                             @if(!empty($company->incorporate_date))
                                                 {{date('d/m/Y' , strtotime($company->incorporate_date))}}
@@ -233,10 +233,10 @@
                                     </div>
 
                                     <div class="formAreahalf basic_data">
-                                       
+
                                             <label for="" class="form-label">Relationship with Company 1</label>
                                             <p>{{ $company->relationship }}</p>
-                                      
+
                                     </div>
 
                                     <div class="formAreahalf basic_data">

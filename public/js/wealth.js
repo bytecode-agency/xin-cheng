@@ -1568,7 +1568,7 @@ $(document).ready(function () {
                                 <input type="date" class="form-control" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_pass_country" class="form-label">Passport Countryyy</label>
+                                <label for="nfo_pass_country" class="form-label">Passport Country</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_pass_country]"
                                     id="nfo_pass_country">
                             </div>
@@ -1587,15 +1587,6 @@ $(document).ready(function () {
                                     id="nfo_residential_Add">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_tin_ctry" class="form-label">Current TIN country</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_ctry]" id="nfo_tin_ctry">
-                            </div>
-                            <div class="formAreahalf">
-                                <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
-                                    id="nfo_tin_number">
-                            </div>
-                            <div class="formAreahalf">
                                 <label for="nfo_tin_type" class="form-label">Type of TIN</label>
                                 <select class="form-control" name="shrd[1][1][nfo_tin_type]" id="nfo_tin_type">
                                 <option value="" selected disabled>Choose Type of TIN</option>
@@ -1607,6 +1598,16 @@ $(document).ready(function () {
                                 <option vlaue="NRIC">NRIC</option>
                                 </select>
                             </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_tin_ctry" class="form-label">Current TIN country</label>
+                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_ctry]" id="nfo_tin_ctry">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
+                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
+                                    id="nfo_tin_number">
+                            </div>
+
                             <div class="formAreahalf">
                                 <label for="nfo_job_title" class="form-label">Job Title</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_job_title]" id="nfo_job_title">

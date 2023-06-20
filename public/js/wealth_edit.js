@@ -927,7 +927,7 @@ $(document).ready(function () {
 
     });
 
-    $('.redDateJs').on('change' , function(){ 
+    $('.redDateJs').on('change' , function(){
         var red_date = $('.redDateJs').val();
         var red_amount = $('.redAmountJs').val();
         if(red_date && red_amount){
@@ -937,7 +937,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.redDateJs , .redAmountJs').on('keyup' , function(){ 
+    $('.redDateJs , .redAmountJs').on('keyup' , function(){
         var red_date = $('.redDateJs').val();
         var red_amount = $('.redAmountJs').val();
         if(red_date && red_amount){
@@ -1105,7 +1105,7 @@ $(document).ready(function () {
                             <option value="No">No</option>
                         </select>
                     </div>
-                    <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`"> 
+                    <button class="btn btn_set collapsed" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`">
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -1213,11 +1213,11 @@ $(document).ready(function () {
                                 <option vlaue="Citizen">Citizen</option>
                                 <option vlaue="Others">Others</option>
                             </select>
-                        </div>  
+                        </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Residential Address</label>
                             <input type="text" name="passholder[` +passholders_length + `][residential_add]" class="form-control">
-                        </div>  
+                        </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Pass Application Status</label>
                             <select name="passholder[` +passholders_length + `][pass_app_status]" class="js-example-responsive form-control">
@@ -1226,7 +1226,7 @@ $(document).ready(function () {
                                 <option value="Approved">Approved</option>
                                 <option value="Rejected">Rejected</option>
                             </select>
-                        </div>  
+                        </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Relationship with Pass Holder `+(passholders_length + 1)+`</label>
                             <select name="passholder[` +passholders_length + `][relation_with_pass]" class="form-control relationship_with_passholderJs" data-passholder_id="`+passholders_length+`">
@@ -1322,7 +1322,7 @@ $(document).ready(function () {
                         <div class="formAreahalf basic_data">
                             <label for="monthly_sal" class="form-label">Monthly Salary(SGD)</label>
                             <div class="dollersec"><span class="doller">$</span>
-                                <span class="input"> 
+                                <span class="input">
                                     <input type="number" name="passholder[` +passholders_length + `][monthly_sal]" class="form-control">
                                 </span>
                             </div>
@@ -1331,7 +1331,7 @@ $(document).ready(function () {
                             <label for="pass_remarks" class="form-label">Remarks</label>
                             <textarea name="passholder[` +passholders_length + `][pass_remarks]" rows="4" cols="50"
                                 value=""></textarea>
-                        </div>                                                                 
+                        </div>
                     </div>
                 </div>
             </div>
