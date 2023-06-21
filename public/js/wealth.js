@@ -34,35 +34,26 @@ $(document).ready(function () {
 
     $("body").on('keyup', '.equity_shareholders', function (evt) {
         $(this).attr('value', $(this).val());
-        // console.log('yes');
-        // console.log($(this).val());
         let percentage = 0;
         var compId = $(this).parents('.full_div').attr('id');
         var cal_eqty_percentage = $(this).parents('#' + compId + ".full_div").find(".equity_shareholders");
         for (per = 0; per < cal_eqty_percentage.length; per++) {
-            // console.log(cal_eqty_percentage[per].value);
-            // console.log($(cal_eqty_percentage[per]).attr('value'));
             percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
         }
         console.log(percentage , compId);
         if (percentage == 100) {
-            // console.log('here');
             $(this).parents('#' + compId + ".full_div").find('#next3').removeClass("disable");
             $(this).parents('#' + compId + ".full_div").find('#next3').prop("disabled", false);
         }
         else {
-            // console.log('there');
             $(this).parents('#' + compId + ".full_div").find('#next3').addClass("disable");
             $(this).parents('#' + compId + ".full_div").find('#next3').attr('disabled', 'disabled');
-
         }
         if (percentage >= 100) {
-            // console.log('ghty');
             $('#' + compId).find("#add_shareholder").addClass("disable");
             $('#' + compId).find("#add_shareholder").attr('disabled', 'disabled');
             $('#' + compId).find("#add_nfo_shareholder").addClass("disable");
             $('#' + compId).find("#add_nfo_shareholder").attr('disabled', 'disabled');
-            //    $(".saveBtn").addClass("disable");
         }
         else {
             $('#' + compId).find("#add_shareholder").removeClass("disable");
@@ -70,8 +61,6 @@ $(document).ready(function () {
             $('#' + compId).find("#add_nfo_shareholder").removeClass("disable");
             $('#' + compId).find("#add_nfo_shareholder").prop('disabled',false);
         }
-
-
     });
 
     $('body').on('change', ".business_type", function () {
@@ -2287,7 +2276,24 @@ $(document).ready(function () {
             $(this).children().find('h4').html('Shareholder #' + shar_count);
             shar_count++;
         });
-
+        let percentage = 0;
+        let value      = 0;
+        var cal_eqty_percentage = $('#' + loop + ".full_div").find(".equity_shareholders");
+        for (per = 0; per < cal_eqty_percentage.length; per++) {
+            value = parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                percentage += value;
+            }
+        }
+        console.log(percentage);
+        if (percentage == 100) {
+            $('#' + loop + ".full_div").find('#next3').removeClass("disable");
+            $('#' + loop + ".full_div").find('#next3').prop("disabled", false);
+        }
+        else {
+            $('#' + loop + ".full_div").find('#next3').addClass("disable");
+            $('#' + loop + ".full_div").find('#next3').prop('disabled', 'true');
+        }
     });
     $('body').on('click', '.cancel_nfocompany', function () {
         $(this).parents('#nfo_corporate').remove();
