@@ -259,7 +259,7 @@ $(document).ready(function () {
             <div class="card-header" id="headingOne_shareholder">
             <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
                 <div class="formAreahalf basic_data">
-                    <label for="shareholder_name" class="form-label">Shareholderrr
+                    <label for="shareholder_name" class="form-label">Shareholder
                         #`+ (key2 + 1) + ` </label>
                     <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
                     <button class="btn btn_set collapsed" data-toggle="collapse"
@@ -512,7 +512,7 @@ $(document).ready(function () {
                             >
                         </div>
                     </div>
-                    <div class="formAreahalf basic_data"><label>Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                    <div class="formAreahalf basic_data"><label class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                         <input type="date" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
                             >
