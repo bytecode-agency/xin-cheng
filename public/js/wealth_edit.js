@@ -259,7 +259,7 @@ $(document).ready(function () {
             <div class="card-header" id="headingOne_shareholder">
             <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
                 <div class="formAreahalf basic_data">
-                    <label for="shareholder_name" class="form-label">Shareholder
+                    <label for="shareholder_name" class="form-label">Shareholderrr
                         #`+ (key2 + 1) + ` </label>
                     <input type="hidden" name="share[`+ key + `][` + key2 + `][id]" id="share_id" class="form-control" >
                     <button class="btn btn_set collapsed" data-toggle="collapse"
@@ -346,6 +346,53 @@ $(document).ready(function () {
                            >
                     </div>
                     <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Gender </label>
+                        <select class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][gender]"
+                           >
+                           <option value="" selected disabled>Choose gender</option>
+                           <option value="Male">M</option>
+                           <option value="Female">F</option>
+                           </select>
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
+                        <input type="date" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
+                            value="{{ $shareholder->dob }}">
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][phone]"
+                           >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">E-mail</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][email]"
+                            >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Passport Number</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_no]"
+                            >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Passport Country</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_country]"
+                           >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Passport Expiry
+                            Date(DD/MM/YYYY)</label>
+                        <input type="date" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_exp_date]"
+                           >
+                    </div>
+                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Renewal
                             Reminder</label>
 
@@ -367,12 +414,6 @@ $(document).ready(function () {
                                 180 days before expiry
                             </option>
                         </select>
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
-                            value="{{ $shareholder->dob }}">
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Reminder Trigger
@@ -399,47 +440,6 @@ $(document).ready(function () {
                         </div>
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Gender </label>
-                        <select class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][gender]"
-                           >
-                           <option value="" selected disabled>Choose gender</option>
-                           <option value="Male">M</option>
-                           <option value="Female">F</option>
-                           </select>
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Passport Number</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_no]"
-                            >
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Passport Expiry
-                            Date(MM/DD/YYYY)</label>
-                        <input type="date" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_exp_date]"
-                           >
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Passport Country</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][passport_country]"
-                           >
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">E-mail</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][email]"
-                            >
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][phone]"
-                           >
-                    </div>
-                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Residential
                             Address</label>
                         <input type="text" class="form-control"
@@ -451,13 +451,6 @@ $(document).ready(function () {
                             country</label>
                         <input type="text" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_country]"
-                            >
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Current TIN
-                            Number</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_no]"
                             >
                     </div>
                     <div class="formAreahalf basic_data">
@@ -492,6 +485,19 @@ $(document).ready(function () {
 
                     </div>
                     <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Current TIN
+                            Number</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_no]"
+                            >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Company</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][job_title]"
+                            >
+                    </div>
+                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Job Title</label>
                         <input type="text" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][job_title]"
@@ -505,6 +511,11 @@ $(document).ready(function () {
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
                             >
                         </div>
+                    </div>
+                    <div class="formAreahalf basic_data"><label>Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                        <input type="date" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][monthly_sal]"
+                            >
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Relationship With

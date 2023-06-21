@@ -684,9 +684,7 @@
                                             <input type="date" class="form-control"
                                                 name="corporate[1][nfo_incorporation_date]" id="nfo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="formAreahalf">
-                                        </div>
-                                        <div class="formAreahalf">
+                                        <div class="formAreahalf mb-5">
                                             <label for="nfo_company_email_1" class="form-label">Company Email</label>
                                             <input type="email" class="form-control"
                                                 name="corporate[1][nfo_company_email]" id="nfo_company_email_1">

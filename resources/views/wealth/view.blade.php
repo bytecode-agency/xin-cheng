@@ -542,7 +542,9 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary (SGD)</label>
+                                                            <div class="dollersec"><span class="doller">$</span>
                                                             <p>{{ $shareholder->monthly_sal }}</p>
+                                                            </div>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
@@ -927,7 +929,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Annual Declaration
-                                                    Deadline</label>
+                                                    Deadline (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($wealth_mas->annual_declaration_deadline)
                                                         {{ convertDate($wealth_mas->annual_declaration_deadline,'d/m/Y') }}

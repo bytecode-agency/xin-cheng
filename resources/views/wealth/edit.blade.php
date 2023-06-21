@@ -182,7 +182,7 @@
 
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
                             <select
                                 name="annual_fee_due_reminder"
                                 id="annual_fee_due_reminder" class="form-control">
@@ -199,7 +199,7 @@
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Remainder Trigger Frequency</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Reminder Trigger Frequency</label>
                             <select class="js-example-responsive form-control" name="annual_fee_due_reminder_trigger">
                                 <option value="" selected="" disabled="">Please select</option>
                                 <option value="Day"
@@ -525,7 +525,7 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="annual_declaration_deadline" class="form-label">Annual
                                                         Declaration
-                                                        Deadline</label>
+                                                        Deadline (DD/MM/YYYY)</label>
                                                     <input type="date" name="annual_declaration_deadline"
                                                         id="annual_declaration_deadline"
                                                         value="{{$wealth_mas->annual_declaration_deadline ?? ''}}"
@@ -2255,6 +2255,7 @@
                         <button type="submit" class="btn saveBtn file_upload_submit">Upload</button>
                     </div>
                 </form>
+                <!-- <span class="fileUploadType">.jpg, .png, .pdf, .doc, .ppt or .zip format. Max file size 100 MB</span> -->
                 <div class="dataAreaMain">
                     <div class="table_cstm  dasboard-entry">
                     <table class="table user_action_log">
