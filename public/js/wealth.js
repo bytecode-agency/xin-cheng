@@ -593,7 +593,7 @@ $(document).ready(function () {
                                     <option value="4 Weeks">4 Weeks</option> </select></span></div>
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Add</label>
+                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Address</label>
                                     <input type="text" name="share[1][1][residential_address]" id="fo_cpm2_res_add_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -1640,7 +1640,7 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-                            <div class="formAreahalf">
+                            <div class="formAreahalf mb-5">
                                 <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                 <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
                             </div>
