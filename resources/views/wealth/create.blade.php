@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="formAreahalf">
                                             <label for="fo_incorporation_date_1" class="form-label">Incorporation
-                                                Date</label>
+                                                Date (DD/MM/YYYY)</label>
                                             <input type="date" class="form-control" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
@@ -451,6 +451,10 @@
                         <label for="nfo_residential_Add" class="form-label">Residential Address</label>
                         <input type="text" class="form-control" name="nfo_residential_Add" id="nfo_residential_Add">
                     </div>
+                    <div class="formAreahalf mb-5">
+                        <label for="nfo_emp_name" class="form-label">Employer's Name</label>
+                        <input type="text" class="form-control" name="nfo_emp_name" id="nfo_emp_name">
+                    </div>
                     <div class="formAreahalf">
                         <label for="nfo_tin_type_before_app" class="form-label">Type of TIN Before Pass
                             Application</label>
@@ -466,15 +470,12 @@
                             <option value="NRIC">NRIC</option>
                         </select>
                     </div>
-                    <div class="formAreahalf">
+                    <div class="formAreahalf mb-5">
                         <label for="nfo_current_job_title" class="form-label">Current Job Title</label>
                         <input type="text" class="form-control" name="nfo_current_job_title"
                             id="nfo_current_job_title">
                     </div>
-                    <div class="formAreahalf mb-5">
-                        <label for="nfo_emp_name" class="form-label">Employer's Name</label>
-                        <input type="text" class="form-control" name="nfo_emp_name" id="nfo_emp_name">
-                    </div>
+
                     <div class="formAreahalf">
                         <label for="nfo_employer_ind" class="form-label">Employer's Industry</label>
                         <input type="text" class="form-control" name="nfo_employer_ind" id="nfo_employer_ind">
