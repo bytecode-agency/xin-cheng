@@ -322,7 +322,9 @@ class WealthController extends Controller
                     $shareholder_all->type_of_tin = isset($shareholder['nfo_tin_type']) ? $shareholder['nfo_tin_type'] : null ;
                     $shareholder_all->job_title = isset($shareholder['nfo_job_title'])? $shareholder['nfo_job_title'] : null;
                     $shareholder_all->monthly_sal = isset($shareholder['nfo_mth_salary']) ? $shareholder['nfo_mth_salary'] : null;    
-                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;         
+                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;   
+                    $shareholder_all->company = isset($shareholder['employee_name']) ? $shareholder['employee_name'] : null;      
+                    $shareholder_all->monthly_salary_wef = isset($shareholder['monthly_salary_wef']) ? $shareholder['monthly_salary_wef'] : null;
                     $shareholder_all->save();    
                     }
                 }       
@@ -498,6 +500,7 @@ class WealthController extends Controller
                             'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
                             'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
                             'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                            'company' => isset($shareholder['employee_name']) ? $shareholder['employee_name'] :null,
                             'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                             'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
                             'monthly_salary_wef' =>  isset($shareholder['monthly_salary_wef']) ?$shareholder['monthly_salary_wef'] :null,
@@ -608,7 +611,7 @@ class WealthController extends Controller
                         'pass_renewal_frq'=>  isset( $passholer_item['pass_renewal_frq']) ?  $passholer_item['pass_renewal_frq'] :null,
                         'pass_jon_title'=>  isset( $passholer_item['pass_jon_title']) ?  $passholer_item['pass_jon_title'] :null,
                         'singpass_set_up'=>  isset( $passholer_item['singpass_set_up']) ?  $passholer_item['singpass_set_up'] :null,
-                        'employee_name'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
+                        'company'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
                         'monthly_sal'=>  isset( $passholer_item['monthly_sal']) ?  $passholer_item['monthly_sal'] :null,
                         'pass_remarks'=>  isset( $passholer_item['pass_remarks']) ?  $passholer_item['pass_remarks'] :null,           
                         ]
@@ -761,6 +764,8 @@ class WealthController extends Controller
                                 'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
                                 'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
                                 'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                                'company' => isset($shareholder['employee_name']) ? $shareholder['employee_name'] :null,
+                                'monthly_salary_wef' => isset($shareholder['monthly_salary_wef']) ? $shareholder['monthly_salary_wef'] :null,
                                 'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                                 'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
                                 'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,

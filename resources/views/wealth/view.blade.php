@@ -415,7 +415,7 @@
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
+                                                            <label for="" class="form-label">Employer's Name</label>
                                                             <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -533,7 +533,7 @@
                                                             <p>{{ $shareholder->tin_no }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
+                                                            <label for="" class="form-label">Employer's Name</label>
                                                             <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">

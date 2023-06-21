@@ -297,6 +297,12 @@
 
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Employer's Name</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][employee_name]"
+                                                    value="{{ $shareholder->company }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Job Title</label>
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][job_title]"
@@ -308,6 +314,12 @@
                                                 <input type="integer" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                                <input type="date" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
+                                                    value="{{ $shareholder->monthly_salary_wef }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With

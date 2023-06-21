@@ -1447,6 +1447,10 @@ $(document).ready(function () {
                                 </select>
                             </div>
                             <div class="formAreahalf">
+                                <label for="employee_name" class="form-label">Employer's Name</label>
+                                <input type="text" class="form-control" name="shrd[1][1][employee_name]" id="employee_name">
+                            </div>
+                            <div class="formAreahalf">
                                 <label for="nfo_job_title" class="form-label">Job Title</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_job_title]" id="nfo_job_title">
                             </div>
@@ -1455,7 +1459,23 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-
+                            <div class="formAreahalf">
+                                <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_relation" class="form-label">Relationship with shareholder 1</label>
+                                <select class="form-control" name="shrd[1][1][nfo_relation]" id="nfo_relation">
+                                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div id="appended_nfo_shareholder_div">
@@ -1607,7 +1627,10 @@ $(document).ready(function () {
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
                                     id="nfo_tin_number">
                             </div>
-
+                            <div class="formAreahalf">
+                                <label for="employee_name" class="form-label">Employer's Name</label>
+                                <input type="text" class="form-control" name="shrd[1][1][employee_name]" id="employee_name">
+                            </div>
                             <div class="formAreahalf">
                                 <label for="nfo_job_title" class="form-label">Job Title</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_job_title]" id="nfo_job_title">
@@ -1617,7 +1640,23 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-
+                            <div class="formAreahalf">
+                                <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_relation" class="form-label">Relationship with shareholder 1</label>
+                                <select class="form-control" name="shrd[1][1][nfo_relation]" id="nfo_relation">
+                                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div id="appended_nfo_shareholder_div">
@@ -2193,6 +2232,10 @@ $(document).ready(function () {
                     </select>
                 </div>\
                 <div class="formAreahalf">\
+                    <label for="employee_name" class="form-label">Employer's Name</label>\
+                    <input type="text" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][employee_name]" class="form-control" id="employee_name">\
+                </div>\
+                <div class="formAreahalf">\
                     <label for="nfo_job_title" class="form-label">Job Title</label>\
                     <input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_job_title]" id="nfo_job_title">\
                 </div>\
@@ -2202,18 +2245,22 @@ $(document).ready(function () {
                     </div>
                 </div>\
                 <div class="formAreahalf">\
-                <label for="nfo_mth_salary" class="form-label">Relationship with shareholder 1</label>\
-                <select class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_relation]" id="nfo_relation">\
-                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
-                <option value="Self">Self</option>
-                <option value="Parents">Parents</option>
-                <option value="Spouse">Spouse</option>
-                <option value="Children">Children</option>
-                <option value="Relatives">Relatives</option>
-                <option value="Friend">Friend</option>
-                <option value="Others">Others</option>
-                </select>
-            </div>\
+                    <label class="form-label" for="monthly_salary_wef">Monthly Salary w.e.f. (DD/MM/YYYY)</label>\
+                    <input type="date" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][monthly_salary_wef]" class="form-control" id="monthly_salary_wef">\
+                </div>\
+                <div class="formAreahalf">\
+                    <label for="nfo_mth_salary" class="form-label">Relationship with shareholder 1</label>\
+                    <select class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_relation]" id="nfo_relation">\
+                    <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                    <option value="Self">Self</option>
+                    <option value="Parents">Parents</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Children">Children</option>
+                    <option value="Relatives">Relatives</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Others">Others</option>
+                    </select>
+                </div>\
                 </div></div>`
         );
         $(".datepicker").datepicker({
