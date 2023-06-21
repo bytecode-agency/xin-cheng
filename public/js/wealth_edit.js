@@ -17,31 +17,28 @@ $('body').on('change', 'selectq', function () {
     }
 });
 function equity_percentage_checks() {
-
     var company = document.querySelectorAll('.accordion-item');
     var disable = 0;
     for (index = 0; index < company.length; index++) {
         var id = '';
         id = $(company[index]).attr('id');
         var eqty_precentage = document.getElementById(id).querySelectorAll('#equity_shareholder')
-        // console.log(eqty_precentage);
         let percentage = 0;
         for (per = 0; per < eqty_precentage.length; per++) {
-            percentage += parseFloat($(eqty_precentage[per]).attr('value'));
-
+            var value = parseFloat($(eqty_precentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                percentage += value;
+            }
         }
-        // console.log(percentage);
         if (percentage < 100) {
-
             $(".edit__add_com").addClass("disable");
-            $(".edit__add_com").attr('disabled', 'disabled');
-            $("#" + id).find(".edit_add_shareholder").removeClass("disable");
+            $(".edit__add_com").removeAttr('disabled');
+            $("#" + id).find(".edit_add_shareholder").prop("disabled", false);;
             if (!$("#" + id).find(".edit_add_shareholder").hasClass("disable")) {
                 disable = 1;
             }
         }
         else {
-            // console.log('here');
             $("#" + id).find(".edit_add_shareholder").addClass("disable");
             $("#" + id).find(".edit_add_shareholder").attr("disabled", 'disabled');
         }
@@ -57,7 +54,7 @@ function equity_percentage_checks() {
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yyyy',
+        dateFormat: 'dd/mm/yy',
         onClose: function () {
             $(this).valid();
         }
@@ -77,6 +74,10 @@ $(document).ready(function () {
         $("#notes_cancel").hide();
     });
 
+    $('.equity_shareholders').on('input', function() {
+        this.value = this.value.replace(/(?!^-)[^0-9.]/g, "").replace(/(\..*)\./g, '$1');
+    });
+
     $("body").on('keyup', '#equity_shareholder', function (evt) {
 
         $(this).attr('value', $(this).val());
@@ -88,16 +89,17 @@ $(document).ready(function () {
         for (per = 0; per < cal_eqty_percentage.length; per++) {
             // console.log(cal_eqty_percentage[per].value);
             // console.log($(cal_eqty_percentage[per]).attr('value'));
-            edit_percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            var value = parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                edit_percentage += value;
+            }
         }
-        console.log(edit_percentage);
+        //console.log(edit_percentage);
         if (edit_percentage == 100) {
-            console.log('here');
             $('.edit__add_com').removeClass("disable");
             $('.edit__add_com').prop("disabled", false);
         }
         else {
-            console.log('there');
             $('.edit__add_com').addClass("disable");
             $('.edit__add_com').attr("disabled", "disabled");
 
@@ -150,7 +152,7 @@ $(document).ready(function () {
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Incorporation Date</label>
                             <input type="date" name="cmp[`+ key + `][incorporate_date]"
-                                id="fo_compnay_incorporate_date" class="form-control">
+                                id="fo_compnay_incorporate_date" class="form-control" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>
@@ -159,6 +161,9 @@ $(document).ready(function () {
                                 <option value="" selected disabled>Choose Relationship with company 1</option>
                                 <option value="Self">Self</option>
                                 <option value="Subsidiary">Subsidiary</option>
+                                <option value="Parent company">Parent company</option>
+                                <option value="Fund co.">Fund co.</option>
+                                <option value="Management co.">Management co.</option>
                                 </select>
                         </div>
                         <div class="formAreahalf basic_data">
@@ -168,7 +173,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
+                            <input type="text" name="cmp[`+ key + `][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control">
                         </div>
 
@@ -751,11 +756,11 @@ $(document).ready(function () {
                                 <label for="poc_email" class="form-label">POC Email</label>
                                 <input type="text" name="financial[`+ (f_btn_key + 1) + `][poc_email]" id="poc_email"
                                     value=""
-                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                    class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                <input type="text" name="financial[`+ (f_btn_key + 1) + `][application_submission_date]" id="application_submission_date"
+                                <input type="date" name="financial[`+ (f_btn_key + 1) + `][application_submission_date]" id="application_submission_date"
                                     value=""
                                     class="form-control">
                             </div>
@@ -773,12 +778,6 @@ $(document).ready(function () {
                                         value="Done">Done</option>
 
                                 </select>
-                            </div>
-                            <div class="formAreahalf basic_data">
-                                <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                <input type="text" name="financial[`+(f_btn_key +1)+`][application_submission_date]" id="application_submission_date"
-                                    value=""
-                                    class="form-control">
                             </div>
                             <div class="formAreahalf basic_data">
                                 <label for="account_type" class="form-label">Account Type</label>
@@ -842,6 +841,17 @@ $(document).ready(function () {
                                     <option value="Progress">Progress</option>
                                     <option value="Done">Done</option>
                                     <option value="N/A">N/A</option>
+                                </select>
+                            </div>
+                            <div class="formAreahalf basic_data">
+                                <label for="intial_deposit_currency" class="form-label">Initial Deposit Currency</label>
+                                <select name="financial[`+ (f_btn_key + 1) + `][intial_deposit_currency]" id="intial_deposit_currency"
+                                    class="js-example-responsive form-control">
+                                    <option value="" selected="" disabled=""> Choose money deposit Currency </option>
+                                    <option value="SGD">SGD</option>
+                                    <option value="USD">USD</option>
+                                    <option value="Mult-currency">Mult-currency</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div class="formAreahalf basic_data">
@@ -917,6 +927,25 @@ $(document).ready(function () {
 
     });
 
+    $('.redDateJs').on('change' , function(){
+        var red_date = $('.redDateJs').val();
+        var red_amount = $('.redAmountJs').val();
+        if(red_date && red_amount){
+            $('.addRedButtonJs').attr('disabled' , false);
+        }else{
+            $('.addRedButtonJs').attr('disabled' , true);
+        }
+    });
+
+    $('.redDateJs , .redAmountJs').on('keyup' , function(){
+        var red_date = $('.redDateJs').val();
+        var red_amount = $('.redAmountJs').val();
+        if(red_date && red_amount){
+            $('.addRedButtonJs').attr('disabled' , false);
+        }else{
+            $('.addRedButtonJs').attr('disabled' , true);
+        }
+    });
 
     $('body').on('click', '.btn_add_redempt', function () {
         var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
@@ -971,20 +1000,20 @@ $(document).ready(function () {
     })
 
     $('body').on('click', '.remove-campany', function () {
-        // var id =  $(this).parents('.company_name').find('#fo_company_id').val();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type: "delete",
-        //     url: "/company-destroy",
-        //     data: {id: id },
-        //     success: function (response) {
-        //      console.log(response);
-        //     }
-        // });
+        var id =  $(this).parents('.company_name').find('#fo_company_id').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "delete",
+            url: "/company-destroy",
+            data: {id: id },
+            success: function (response) {
+             console.log(response);
+            }
+        });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -997,7 +1026,8 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click', '.remove-campany-shareholder', function () {
+    $('body').on('click', '.remove-campany-shareholder', function (e) {
+        e.preventDefault();
         var finance_entry_id = $(this).parents('.sharehold_length').find('#share_id').val();
         $.ajaxSetup({
             headers: {
@@ -1006,22 +1036,326 @@ $(document).ready(function () {
         });
         $.ajax({
             type: "delete",
-            url: "/company-shareholder-destroy-1",
+            url: "/company-shareholder-destroy",
             data: { id: finance_entry_id },
             success: function (response) {
-                console.log(response);
+                equity_percentage_checks();
+                console.log('Shareholder deleted successfully.');
             }
         });
 
-        $(this).parents('.sharehold_length').remove();
+        var share_holders = $(this).closest('.company_share').find('.sharehold_length').not($(this).closest('.sharehold_length'));
+
+        $(this).closest('.sharehold_length').remove();
+
         var count = 1;
-        $('.sharehold_length').each(function (index) {
+        $(share_holders).each(function (index) {
             console.log(count);
-            console.log($(this).children().find('.formAreahalf label[for="shareholder_name"]'));
             $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
             count++;
         });
 
 
+    });
+
+    $('.subsInsDateJs , .maturityDateJs').change(function(){
+        var si_date = moment($('.subsInsDateJs').val());
+        var m_date = moment($('.maturityDateJs').val());
+        var duration = moment.duration(m_date.diff(si_date));
+        var diff     = duration._data;
+        if(si_date != 'Invalid Date' && m_date != 'Invalid Date'){
+            var years = diff.years;
+            if(years > 1){
+                years = years + ' Years';
+            }else{
+                years = years + ' Year';
+            }
+            var months = diff.months;
+            if(months > 1){
+                months = months + ' Months';
+            }else{
+                months = months + ' Month';
+            }
+            var days = diff.days;
+            if(days > 1){
+                days = days + ' Days';
+            }else{
+                days = days + ' Day';
+            }
+            $('.durationJs').val(years +' ' + months +' ' + days);
+            $('.durationJs').attr('readonly' , true);
+        }
+    });
+
+
+    //Add Passholder
+    var passholders_length = "";
+    $('body').on('click', '#add_passholder', function () {
+        passholders_length = $('.passholder_itemJs').length + 1;
+        $(".passholders_itemsJs").append(`
+        <div id="passholder_item`+passholders_length+`" class="mas_related passholder_itemJs">
+        <input type="hidden" name="passholder[` +passholders_length + `][wealth_pass_id]">
+            <div id="passholder_accordion">
+                <div class="mas_heading_accordian">
+                    <div class="formAreahalf basic_data">
+                        <label class="form-label">Is Passholder also the shareholder</label>
+                        <select name="passholder[` +passholders_length + `][passholder_shareholder]" value="" class="form-control shareholdersJs" data-key="`+passholders_length+`">
+                            <option value="" selected="" disabled="">Choose is passholder also the shareholder</option>
+                            <option value="Yes"> Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <button class="btn btn_set edit_new_btn_set" data-toggle="collapse" data-target="#passholder_collapse_`+passholders_length+`" aria-expanded="true" aria-controls="collapse`+passholders_length+`">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="cross financial_wealth"><span class="edit_cancel_share remove_item delete_passholderJs" data-id="`+passholders_length+`" data-passholder_id="">x</span></div>
+                </div>
+                <div id="passholder_collapse_`+passholders_length+`" class="collapse" aria-labelledby="heading`+passholders_length+`" data-parent="#passholder_accordion">
+                    <div class="tab-inner-text d-flex flex-wrap">
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label pass_holder_name_lableJs">Pass Holder Name
+                                (Eng)
+                            </label>
+                            <input type="text" name="passholder[` +passholders_length + `][pass_holder_name]" class="form-control pass_holder_nameJs">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport
+                                Full Name(Chinese)
+                            </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passposrt_name_chinese]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">DOB (DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][dob]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Gender(M/F)</label>
+                            <select name="passholder[` +passholders_length + `][gender]" class="form-control">
+                                <option value="" selected="" disabled="">Choose gender</option>
+                                <option value="Male"> M </option>
+                                <option value="Female"> F </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][passport_expiry_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Number </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passport_no]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Renewal Reminder</label>
+                            <select name="passholder[` +passholders_length + `][passport_renewal_reminder]" class="form-control">
+                                <option value="" selected="" disabled="">Please select</option>
+                                <option value="90 days before expiry"> 90 days before expiry</option>
+                                <option value="120 days before expiry">120 days before expiry</option>
+                                <option value="180 days before expiry">180 days before expiry</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Country </label>
+                            <input type="text" name="passholder[` +passholders_length + `][passport_country]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Passport Reminder Trigger Frequency</label>
+                            <div class="select_box">
+                            <span class="every">Every</span>
+                            <span class="select">
+                                <select name="passholder[` +passholders_length + `][passport_tri_frq]" class="form-control">
+                                    <option value="" selected="" disabled=""> Please select</option>
+                                    <option value="Day">Day</option>
+                                    <option value="3 Days">3 Days</option>
+                                    <option value="Week">Week</option>
+                                    <option value="2 Weeks">2 Weeks</option>
+                                    <option value="4 Weeks">4 Weeks</option>
+                                </select>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Tin Country Before Pass Application</label>
+                            <input type="text" name="passholder[` +passholders_length + `][tin_country_before_app]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Type of TIN Before Pass Application</label>
+                            <select name="passholder[` +passholders_length + `][type_of_tin_before_app]" class="form-control">
+                                <option value="" selected="" disabled="">Choose type of tin before pass application</option>
+                                <option value="WP">WP</option>
+                                <option value="SP">SP</option>
+                                <option value="EP">EP</option>
+                                <option value="LVTP">LVTP</option>
+                                <option value="DP">DP</option>
+                                <option value="NRIC">NRIC</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">TIN Number Before Pass Application</label>
+                            <input type="text" name="passholder[` +passholders_length + `][tin_no_before_pass_app]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="passholder[` +passholders_length + `][phone_no]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="passholder[` +passholders_length + `][email]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Business Type</label>
+                            <select name="passholder[` +passholders_length + `][business_type]" class="form-control">
+                                <option value="" selected="" disabled="">Choose business type</option>
+                                <option vlaue="FO">FO</option>
+                                <option vlaue="PIC">PIC</option>
+                                <option vlaue="Self-Employment">Self-Employment</option>
+                                <option vlaue="Employer Guarantee">Employer Guarantee</option>
+                                <option vlaue="PR Application">PR Application</option>
+                                <option vlaue="PR Renewal">PR Renewal</option>
+                                <option vlaue="Citizen">Citizen</option>
+                                <option vlaue="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Residential Address</label>
+                            <input type="text" name="passholder[` +passholders_length + `][residential_add]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Application Status</label>
+                            <select name="passholder[` +passholders_length + `][pass_app_status]" class="js-example-responsive form-control">
+                                <option value="" selected="" disabled="">Choose application status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Relationship with Pass Holder ` + passholders_length + `</label>
+                            <select name="passholder[` +passholders_length + `][relation_with_pass]" class="form-control relationship_with_passholderJs" data-passholder_id="`+passholders_length+`">
+                                <option value="" selected="" disabled="">Choose relationship with pass holder ` +passholders_length+ ` </option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Application Type</label>
+                            <select name="passholder[` +passholders_length + `][pass_app_type]" class="form-control">
+                                <option value="" selected="" disabled="">Choose pass application </option>
+                                <option value="EP">EP</option>
+                                <option value="SP">SP</option>
+                                <option value="DP">DP</option>
+                                <option value="LVTP">LVTP</option>
+                                <option value="WP">WP</option>
+                                <option value="PR">PR</option>
+                                <option value="Citizen">Citizen</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Issuance</label>
+                            <select name="passholder[` +passholders_length + `][pass_inssuance]" class="js-example-responsive form-control">
+                                <option value="" selected disabled>Choose Pass Issuance</option>
+                                <option value="Progress">Progress</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
+                                <input type="date" name="passholder[` +passholders_length + `][pass_issuance_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][pass_expiry_date]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Renewal Reminder</label>
+                            <select name="passholder[` +passholders_length + `][pass_renewal_reminder]" class="form-control">
+                                <option value="" selected disabled> Choose pass renewal reminder </option>
+                                <option value="90 days before expiry"> 90 days before expiry </option>
+                                <option value="120 days before expiry"> 120 days before expiry </option>
+                                <option value="180 days before expiry"> 180 days before expiry </option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Duration</label>
+                            <input type="text" name="passholder[` +passholders_length + `][duration]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">FIN Number</label>
+                            <input type="text" name="passholder[` +passholders_length + `][fin_number]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label class="form-label">Pass Renewal Trigger Frequency</label>
+                            <div class="select_box">
+                                <span class="every">Every</span>
+                                <span class="select">
+                                    <select name="passholder[` +passholders_length + `][pass_renewal_frq]" class="form-control">
+                                        <option value="" selected="" disabled=""> Please select</option>
+                                        <option value="Day">Day</option>
+                                        <option value="3 Days">3 Days</option>
+                                        <option value="Week">Week</option>
+                                        <option value="2 Weeks">2 Weeks</option>
+                                        <option value="4 Weeks">4 Weeks</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_jon_title" class="form-label">Pass. Job Title</label>
+                            <input type="text" name="passholder[` +passholders_length + `][pass_jon_title]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="singpass_set_up" class="form-label">Singpass Set Up</label>
+                            <select name="passholder[` +passholders_length + `][singpass_set_up]" class="js-example-responsive form-control">
+                                <option value="" selected disabled>Choose singpass set</option>
+                                <option value="Progress" >Progress</option>
+                                <option value="Done"  >Done</option>
+                            </select>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="employee_name" class="form-label">Employer's Name</label>
+                            <input type="text" name="passholder[` +passholders_length + `][employee_name]" class="form-control">
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="monthly_sal" class="form-label">Monthly Salary(SGD)</label>
+                            <div class="dollersec"><span class="doller">$</span>
+                                <span class="input">
+                                    <input type="number" name="passholder[` +passholders_length + `][monthly_sal]" class="form-control">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="formAreahalf basic_data">
+                            <label for="pass_remarks" class="form-label">Remarks</label>
+                            <textarea name="passholder[` +passholders_length + `][pass_remarks]" rows="4" cols="50"
+                                value=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `);
+
+        $('#passholder_item' + passholders_length + ' .js-example-responsive').select2({
+            minimumResultsForSearch: -1
+        });
+    });
+
+    $('body').on('change' , '.relationship_with_passholderJs' , function(){
+        var value = $(this).val();
+        if ($(this).val() == "Others") {
+            var passholder_id = $(this).attr('data-passholder_id');
+            $(this).parent().after(
+                `<div class="formAreahalf basic_data please_specifyJs">
+                    <label for="" class="form-label">Please Specify</label>
+                    <input type="text" class="form-control" name="passholder[` +passholder_id + `][relation_with_pass_specify]">
+                </div>`
+            );
+        } else {
+            $(this).parents().next('.please_specifyJs').remove();
+        }
     });
 });

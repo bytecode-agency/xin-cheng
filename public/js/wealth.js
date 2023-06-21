@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $(".datepicker").datepicker({
-        dateFormat: 'dd/mm/yyyy',
+        dateFormat: 'dd/mm/yy',
         onClose: function() {
             $(this).valid();
         }
@@ -275,7 +275,7 @@ $(document).ready(function () {
                     </div>\
                     <div class="formAreahalf">\
                         <label for="fo_incorporation_date_`+ (comp + 1)+`" class="form-label">Incorporation Date</label>\
-                        <input type="text" class="form-control datepicker" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yyyy">\
+                        <input type="date" class="form-control" name="cmp[` + (comp + 1) + `][incorporate_date]" id="fo_incorporation_date_`+ (comp + 1)+`" placeholder="dd/mm/yy">\
                     </div>\
 
                     <div class="formAreahalf">\
@@ -305,7 +305,7 @@ $(document).ready(function () {
         )
 
         $( ".datepicker" ).datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -345,7 +345,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
 
             <div class="formAreahalf">
@@ -368,7 +368,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yyyy" value="">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_`+ (sharehold_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_pass_renew_`+ (sharehold_no + 1) + `" class="form-label">Passport Renewal Reminder</label>
@@ -429,7 +429,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_relation_`+ (sharehold_no + 1) + `" class="form-label">Relationship with shareholder 1</label>
@@ -450,7 +450,7 @@ $(document).ready(function () {
         </div>`);
 
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -464,7 +464,7 @@ $(document).ready(function () {
 
         var relationfield = $('select[name^="cmp"]');
         comp_field.each(function() {
-            if($(this).val().trim() == ""){
+            if($(this).val() && $(this).val().trim() == ""){
                 const id = $(this).attr('id')
                 document.getElementById(id).value = ""
             }
@@ -473,7 +473,7 @@ $(document).ready(function () {
             });
         });
         relationfield.each(function() {
-            if($(this).val().trim() == ""){
+            if($(this).val() && $(this).val().trim() == ""){
                 const id = $(this).attr('id')
                 document.getElementById(id).value = ""
             }
@@ -549,7 +549,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                    <input type="text" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
 
                                 <div class="formAreahalf">
@@ -571,7 +571,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                    <input type="text" name="share[1][1][passport_exp_date]" id="fo_cpm2_pass_exp_1" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="share[1][1][passport_exp_date]" id="fo_cpm2_pass_exp_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_renew_1" class="form-label">Passport Renewal Reminder</label>
@@ -631,7 +631,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_month_wef_1" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                    <input type="integer" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="share[1][1][monthly_salary_wef]" id="fo_cpm2_month_wef_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_relation_1" class="form-label">Relationship with shareholder 1</label>
@@ -671,7 +671,7 @@ $(document).ready(function () {
             }
 
             $(".datepicker").datepicker({
-                dateFormat: 'dd/mm/yyyy',
+                dateFormat: 'dd/mm/yy',
                 onClose: function() {
                     $(this).valid();
                 }
@@ -1108,7 +1108,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yyyy" value="">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Number</label>
@@ -1120,7 +1120,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" placeholder="dd/mm/yyyy" value="">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_exp_date]" id="fo_cpm2_pass_exp_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_renew_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Renewal Reminder</label>
@@ -1184,10 +1184,10 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                            <input type="integer" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][monthly_salary_wef]" id="fo_cpm2_month_wef_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
-                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number two</label>
+                            <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
                             <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
                                 value="">
                         </div>
@@ -1207,7 +1207,7 @@ $(document).ready(function () {
                     </div>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1250,7 +1250,7 @@ $(document).ready(function () {
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_incorporation_date_` + (cmp_count + 1) + `" class="form-label">Incorporation Date</label>\
-                            <input type="text" class="form-control datepicker" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yyyy">\
+                            <input type="date" class="form-control" name="corporate[` + (cmp_count + 1) + `][nfo_incorporation_date]" id="nfo_incorporation_date_` + (cmp_count + 1) + `" placeholder="dd/mm/yy">\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="nfo_relationship_` + (cmp_count + 1) + `" class="form-label">Relationship with Company 1</label>\
@@ -1275,7 +1275,7 @@ $(document).ready(function () {
             </div></div></div></div></div></div>`
         );
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1375,7 +1375,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yyyy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -1404,7 +1404,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yyyy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_country" class="form-label">Passport Country</label>
@@ -1447,6 +1447,10 @@ $(document).ready(function () {
                                 </select>
                             </div>
                             <div class="formAreahalf">
+                                <label for="employee_name" class="form-label">Employer's Name</label>
+                                <input type="text" class="form-control" name="shrd[1][1][employee_name]" id="employee_name">
+                            </div>
+                            <div class="formAreahalf">
                                 <label for="nfo_job_title" class="form-label">Job Title</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_job_title]" id="nfo_job_title">
                             </div>
@@ -1455,7 +1459,23 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-
+                            <div class="formAreahalf">
+                                <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_relation" class="form-label">Relationship with shareholder 1</label>
+                                <select class="form-control" name="shrd[1][1][nfo_relation]" id="nfo_relation">
+                                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div id="appended_nfo_shareholder_div">
@@ -1509,7 +1529,7 @@ $(document).ready(function () {
                                 <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_equity" class="form-label">Equity Percentageee</label>
+                                <label for="nfo_equity" class="form-label">Equity Percentage</label>
                                     <div class="dollersec percentage_input"><span class="input">
                                     <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
@@ -1536,7 +1556,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yyyy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -1565,10 +1585,10 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_exp_1" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                                <input type="text" class="form-control datepicker" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yyyy">
+                                <input type="date" class="form-control" name="shrd[1][1][nfo_pass_exp]" id="nfo_pass_exp_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_pass_country" class="form-label">Passport Countryyy</label>
+                                <label for="nfo_pass_country" class="form-label">Passport Country</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_pass_country]"
                                     id="nfo_pass_country">
                             </div>
@@ -1587,15 +1607,6 @@ $(document).ready(function () {
                                     id="nfo_residential_Add">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_tin_ctry" class="form-label">Current TIN country</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_ctry]" id="nfo_tin_ctry">
-                            </div>
-                            <div class="formAreahalf">
-                                <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
-                                    id="nfo_tin_number">
-                            </div>
-                            <div class="formAreahalf">
                                 <label for="nfo_tin_type" class="form-label">Type of TIN</label>
                                 <select class="form-control" name="shrd[1][1][nfo_tin_type]" id="nfo_tin_type">
                                 <option value="" selected disabled>Choose Type of TIN</option>
@@ -1608,6 +1619,19 @@ $(document).ready(function () {
                                 </select>
                             </div>
                             <div class="formAreahalf">
+                                <label for="nfo_tin_ctry" class="form-label">Current TIN country</label>
+                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_ctry]" id="nfo_tin_ctry">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
+                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
+                                    id="nfo_tin_number">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="employee_name" class="form-label">Employer's Name</label>
+                                <input type="text" class="form-control" name="shrd[1][1][employee_name]" id="employee_name">
+                            </div>
+                            <div class="formAreahalf">
                                 <label for="nfo_job_title" class="form-label">Job Title</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_job_title]" id="nfo_job_title">
                             </div>
@@ -1616,7 +1640,23 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-
+                            <div class="formAreahalf">
+                                <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
+                            </div>
+                            <div class="formAreahalf">
+                                <label for="nfo_relation" class="form-label">Relationship with shareholder 1</label>
+                                <select class="form-control" name="shrd[1][1][nfo_relation]" id="nfo_relation">
+                                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                                <option value="Self">Self</option>
+                                <option value="Parents">Parents</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Children">Children</option>
+                                <option value="Relatives">Relatives</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Others">Others</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div id="appended_nfo_shareholder_div">
@@ -1634,7 +1674,7 @@ $(document).ready(function () {
                 }
             }
             $(".datepicker").datepicker({
-                dateFormat: 'dd/mm/yyyy',
+                dateFormat: 'dd/mm/yy',
                 onClose: function() {
                     $(this).valid();
                 }
@@ -1732,7 +1772,7 @@ $(document).ready(function () {
             </div></div></fieldset>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -1786,7 +1826,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="nfo_cpm2_dobq_`+(shr_arr_id) +(nfo_sh_no + 1) +`" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                            <input type="date" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no" class="form-label">Passport Number</label>
@@ -1798,7 +1838,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                            <input type="text" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_exp]" id="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-control datepicker" value="" placeholder="dd/mm/yyyy">
+                            <input type="date" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_pass_exp]" id="nfo_cpm2_pass_expq_`+(shr_arr_id)+(nfo_sh_no + 1)+`" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_renew" class="form-label">Passport Renewal Reminder</label>
@@ -1877,7 +1917,7 @@ $(document).ready(function () {
                     </div>`);
         }
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }
@@ -2125,7 +2165,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">DOB (DD/MM/YYYY)</label>\
-                    <input type="text" class="form-control datepicker" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yyyy">\
+                    <input type="date" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>\
@@ -2153,7 +2193,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>\
-                    <input type="text" class="form-control datepicker" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_exp]" id="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yyyy">\
+                    <input type="date" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_exp]" id="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_country" class="form-label">Passport Country</label>\
@@ -2192,6 +2232,10 @@ $(document).ready(function () {
                     </select>
                 </div>\
                 <div class="formAreahalf">\
+                    <label for="employee_name" class="form-label">Employer's Name</label>\
+                    <input type="text" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][employee_name]" class="form-control" id="employee_name">\
+                </div>\
+                <div class="formAreahalf">\
                     <label for="nfo_job_title" class="form-label">Job Title</label>\
                     <input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_job_title]" id="nfo_job_title">\
                 </div>\
@@ -2201,22 +2245,26 @@ $(document).ready(function () {
                     </div>
                 </div>\
                 <div class="formAreahalf">\
-                <label for="nfo_mth_salary" class="form-label">Relationship with shareholder 1</label>\
-                <select class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_relation]" id="nfo_relation">\
-                <option value="" selected disabled>Choose Relationship with shareholder 1</option>
-                <option value="Self">Self</option>
-                <option value="Parents">Parents</option>
-                <option value="Spouse">Spouse</option>
-                <option value="Children">Children</option>
-                <option value="Relatives">Relatives</option>
-                <option value="Friend">Friend</option>
-                <option value="Others">Others</option>
-                </select>
-            </div>\
+                    <label class="form-label" for="monthly_salary_wef">Monthly Salary w.e.f. (DD/MM/YYYY)</label>\
+                    <input type="date" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][monthly_salary_wef]" class="form-control" id="monthly_salary_wef">\
+                </div>\
+                <div class="formAreahalf">\
+                    <label for="nfo_mth_salary" class="form-label">Relationship with shareholder 1</label>\
+                    <select class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_relation]" id="nfo_relation">\
+                    <option value="" selected disabled>Choose Relationship with shareholder 1</option>
+                    <option value="Self">Self</option>
+                    <option value="Parents">Parents</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Children">Children</option>
+                    <option value="Relatives">Relatives</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Others">Others</option>
+                    </select>
+                </div>\
                 </div></div>`
         );
         $(".datepicker").datepicker({
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: 'dd/mm/yy',
             onClose: function() {
                 $(this).valid();
             }

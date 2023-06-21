@@ -6,7 +6,7 @@
 
                 <div class="card-header" id="headingOne">
                     {{-- <span class="edit_cancel_company cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>  --}}
-                    <div class="cross"><span s="edit_cancel_company remove-campany">x</span></div>
+                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
                     <div class="formAreahalf basic_data">
                         <label for="company_name" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id" class="form-control"
@@ -34,20 +34,21 @@
                                 class="form-control" value="{{ $company->uen }}">
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date</label>
-                            <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
-                                class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yyyy">
+                            <label for="fo_compnay_{{$key}}" class="form-label">Incorporation Date (DD/MM/YYYY)</label>
+                            <input type="date" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
+                                class="form-control" value="{{$company->incorporate_date}}" placeholder="dd/mm/yyyy">
                         </div>
-                       @if( $key != 0)
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Relationship with Company 1</label>
                             <select class="form-control" name="cmp[{{$key}}][relationship]" id="fo_relationship">
                             <option value="" selected disabled="">Choose Relationship with Company</option>
                             <option value="Self" {{isset($company->relationship) && $company->relationship == 'Self' ? 'selected' : ''  }}>Self</option>
                             <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
+                            <option value="Parent company" {{isset($company->relationship) && $company->relationship == 'Parent company' ? 'selected' : ''  }}>Parent company</option>
+                            <option value="Fund co." {{isset($company->relationship) && $company->relationship == 'Fund co.' ? 'selected' : ''  }}>Fund co.</option>
+                            <option value="Management co." {{isset($company->relationship) && $company->relationship == 'Management co.' ? 'selected' : ''  }}>Management co.</option>
                             </select>
                         </div>
-                        @endif
 
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
@@ -56,7 +57,7 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
+                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay_company_pass"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 
@@ -160,7 +161,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
+                                                <input type="date" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][dob]"
                                                     value="{{ $shareholder->dob }}" placeholder="dd/mm/yyyy">
                                             </div>
@@ -191,7 +192,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
+                                                <input type="date" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]"
                                                     value="{{ $shareholder->passport_exp_date }}" placeholder="dd/mm/yyyy">
                                             </div>
@@ -321,8 +322,8 @@
 
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                <input  type="integer"
-                                                        class="form-control datepicker"
+                                                <input  type="date"
+                                                        class="form-control"
                                                         name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
                                                         value="{{ isset($shareholder->monthly_salary_wef) ? $shareholder->monthly_salary_wef : '' }}"
                                                         placeholder="dd/mm/yyyy"
@@ -383,8 +384,7 @@
                         </div>
                     @endforeach
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
-                        id="edit_add_share">Add
-                        Shareholder</button>
+                        id="edit_add_share">Add Shareholder</button>
                 </div>
             </div>
         </div>

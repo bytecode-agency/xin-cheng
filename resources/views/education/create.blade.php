@@ -51,29 +51,29 @@
                     <div class="number_main">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item active">
-                                <a href="">1</a>
+                                <a href="javascript:void(0);">1</a>
                                 <p> Personal Details </p>
                             </li>
 
                             <li class="list-group-item">
-                                <a href="">2</a>
+                                <a href="javascript:void(0);">2</a>
                                 <p> Student Pass Application </p>
                             </li>
 
                             <li class="list-group-item">
-                                <a href="">3</a>
+                                <a href="javascript:void(0);">3</a>
                                 <p> Parent’s Personal Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">4</a>
+                                <a href="javascript:void(0);">4</a>
                                 <p>Parent/Guardian LVTP Application</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">5</a>
+                                <a href="javascript:void(0);">5</a>
                                 <p>Parent/Guardian Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">6</a>
+                                <a href="javascript:void(0);">6</a>
                                 <p>Complete</p>
                             </li>
 
@@ -252,29 +252,29 @@
                     <div class="number_main">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item active">
-                                <a href="">1</a>
+                                <a href="javascript:void(0);">1</a>
                                 <p> Personal Details </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">2</a>
+                                <a href="javascript:void(0);">2</a>
                                 <p> Student Pass Application </p>
                             </li>
 
                             <li class="list-group-item">
-                                <a href="">3</a>
+                                <a href="javascript:void(0);">3</a>
                                 <p> Parent’s Personal Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">4</a>
+                                <a href="javascript:void(0);">4</a>
                                 <p>Parent’s LTVP Application </p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">5</a>
+                                <a href="javascript:void(0);">5</a>
                                 <p>Parent/Guardian Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">6</a>
+                                <a href="javascript:void(0);">6</a>
                                 <p>Complete</p>
                             </li>
 
@@ -312,29 +312,29 @@
                     <div class="number_main">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item active">
-                                <a href="">1</a>
+                                <a href="javascript:void(0);">1</a>
                                 <p> Personal Details </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">2</a>
+                                <a href="javascript:void(0);">2</a>
                                 <p> Student Pass Application </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">3</a>
+                                <a href="javascript:void(0);">3</a>
                                 <p> Parent’s Personal Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">4</a>
+                                <a href="javascript:void(0);">4</a>
                                 <p>Parent’s LTVP Application </p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">5</a>
+                                <a href="javascript:void(0);">5</a>
                                 <p>Parent/Guardian Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">6</a>
+                                <a href="javascript:void(0);">6</a>
                                 <p>Complete</p>
                             </li>
 
@@ -461,29 +461,29 @@
                     <div class="number_main">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item active">
-                                <a href="">1</a>
+                                <a href="javascript:void(0);">1</a>
                                 <p> Personal Details </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">2</a>
+                                <a href="javascript:void(0);">2</a>
                                 <p> Student Pass Application </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">3</a>
+                                <a href="javascript:void(0);">3</a>
                                 <p> Parent’s Personal Details</p>
                             </li>
                             <li class="list-group-item active">
-                                <a href="">4</a>
+                                <a href="javascript:void(0);">4</a>
                                 <p>Parent’s LTVP Application </p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">5</a>
+                                <a href="javascript:void(0);">5</a>
                                 <p>Parent/Guardian Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">6</a>
+                                <a href="javascript:void(0);">6</a>
                                 <p>Complete</p>
                             </li>
 
@@ -521,29 +521,29 @@
                     <div class="number_main">
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item active">
-                                <a href="">1</a>
+                                <a href="javascript:void(0);">1</a>
                                 <p> Personal Details </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">2</a>
+                                <a href="javascript:void(0);">2</a>
                                 <p> Student Pass Application </p>
                             </li>
 
                             <li class="list-group-item active">
-                                <a href="">3</a>
+                                <a href="javascript:void(0);">3</a>
                                 <p> Parent’s Personal Details</p>
                             </li>
                             <li class="list-group-item active">
-                                <a href="">4</a>
+                                <a href="javascript:void(0);">4</a>
                                 <p>Parent’s LTVP Application </p>
                             </li>
                             <li class="list-group-item active">
-                                <a href="">5</a>
+                                <a href="javascript:void(0);">5</a>
                                 <p>Parent/Guardian Details</p>
                             </li>
                             <li class="list-group-item">
-                                <a href="">6</a>
+                                <a href="javascript:void(0);">6</a>
                                 <p>Complete</p>
                             </li>
 
@@ -968,12 +968,12 @@
                             response
                             .success.id + `'>here</a></p>
                             <div class='number_main swal_number education_add_model'><ul class="list-group list-group-horizontal" id = "nav_list">
-                            <li class="list-group-item active"> <a href="#">1</a><p> Personal Details </p> </li> 
-                            <li class="list-group-item active"> <a href="#">2</a><p> Student Pass Application </p> </li>                    
-                            <li class="list-group-item active"> <a href="#">3</a><p> Parent Personal Details </p> </li></ul>
-                            <li class="list-group-item active"> <a href="#">4</a><p> Parents LTVP Application </p> </li></ul>
-                            <li class="list-group-item active"> <a href="#">5</a><p> Parent/Guardian Details </p> </li></ul>
-                            <li class="list-group-item active"> <a href="#">5</a><p> Complete </p> </li></ul>
+                            <li class="list-group-item active"> <a href="javascript:void(0);">1</a><p> Personal Details </p> </li> 
+                            <li class="list-group-item active"> <a href="javascript:void(0);">2</a><p> Student Pass Application </p> </li>                    
+                            <li class="list-group-item active"> <a href="javascript:void(0);">3</a><p> Parent Personal Details </p> </li>
+                            <li class="list-group-item active"> <a href="javascript:void(0);">4</a><p> Parents LTVP Application </p> </li>
+                            <li class="list-group-item active"> <a href="javascript:void(0);">5</a><p> Parent/Guardian Details </p> </li>
+                            <li class="list-group-item active"> <a href="javascript:void(0);">6</a><p> Complete </p> </li></ul>
                             </div>`;
 
                         swal({

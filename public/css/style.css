@@ -4627,6 +4627,18 @@ form#operation_form .formAreahalf span.select2.select2-container {
     right: -45px;
 }
 
+.dataAreaMain .card .tab-content .tab-pane .mas_heading_accordian .cross.financial_wealth span.edit_cancel_share.remove_item::after {
+    content: "";
+    position: absolute;
+    background-image: url(../images/Vector.png);
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 20px;
+    right: -45px;
+}
+
  .dataAreaMain .card .tab-content .tab-pane .mas_heading_accordian button.btn.btn_set.edit_new_btn_set {
     right: 70px;
 }

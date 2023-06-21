@@ -93,8 +93,14 @@
                         </div>
                     @endif
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
-                        <p>{{ convertDate($basic_data->date_of_contract,"d/m/Y") }}</p>
+                        <label for="" class="form-label">Date of contract (DD/MM/YYYY)</label>
+                        <p>
+                            @if(!empty($basic_data->date_of_contract))
+                                {{ date('d/m/Y' , strtotime($basic_data->date_of_contract)) }}
+                            @else
+                                -
+                            @endif
+                        </p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Client Type</label>
@@ -137,8 +143,14 @@
                     </div>
 
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
-                        <p>{{ convertDate($basic_data->annual_fee_due_date,"d/m/Y") }}</p>
+                        <label for="" class="form-label">Annual Servicing Fee Due Date (DD/MM/YYYY)</label>
+                        <p>
+                            @if(!empty($basic_data->annual_fee_due_date))
+                                {{date('d/m/Y' , strtotime($basic_data->annual_fee_due_date))}}
+                            @else
+                                -
+                            @endif
+                        </p>
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Annual Servicing Fee Due Reminder</label>
@@ -210,15 +222,21 @@
                                         <p>{{ $company->uen }}</p>
                                     </div>
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Incorporation Date</label>
-                                        <p>{{ convertDate($company->incorporate_date,"d/m/Y") }}</p>
+                                        <label for="" class="form-label">Incorporation Date (DD/MM/YYYY)</label>
+                                        <p>
+                                            @if(!empty($company->incorporate_date))
+                                                {{date('d/m/Y' , strtotime($company->incorporate_date))}}
+                                            @else
+                                                -
+                                            @endif
+                                        </p>
                                     </div>
 
                                     <div class="formAreahalf basic_data">
-                                        @if ($key != 0)
+
                                             <label for="" class="form-label">Relationship with Company 1</label>
                                             <p>{{ $company->relationship }}</p>
-                                        @endif
+
                                     </div>
 
                                     <div class="formAreahalf basic_data">
@@ -320,7 +338,11 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->dob,"d/m/Y") }}
+                                                            @if(!empty($shareholder->dob))
+                                                                {{date('d/m/Y' , strtotime($shareholder->dob))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -343,7 +365,11 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
+                                                            @if($shareholder->passport_exp_date)
+                                                                {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -389,12 +415,18 @@
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
+                                                            <label for="" class="form-label">Employer's Name</label>
                                                             <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
+                                                            <p>
+                                                                @if($shareholder->monthly_salary_wef)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->monthly_salary_wef))}}
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                            </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
@@ -425,7 +457,11 @@
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->dob,"d/m/Y") }}
+                                                                @if($shareholder->dob)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->dob))}}
+                                                                @else
+                                                                    -
+                                                                @endif
                                                             </p>
                                                         </div>
 
@@ -456,7 +492,11 @@
                                                             <label for="" class="form-label">Passport Expiry
                                                                 Date(DD/MM/YYYY)</label>
                                                             <p>
-                                                            {{ convertDate($shareholder->passport_exp_date,"d/m/Y") }}
+                                                                @if($shareholder->passport_exp_date)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                                @else
+                                                                    -
+                                                                @endif
                                                             </p>
                                                         </div>
 
@@ -493,7 +533,7 @@
                                                             <p>{{ $shareholder->tin_no }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Company</label>
+                                                            <label for="" class="form-label">Employer's Name</label>
                                                             <p>{{ $shareholder->company }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
@@ -506,7 +546,13 @@
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
-                                                            <p>{{ convertDate($shareholder->monthly_salary_wef,'d/m/y') }}</p>
+                                                            <p>
+                                                                @if($shareholder->monthly_salary_wef)
+                                                                    {{date('d/m/Y' , strtotime($shareholder->monthly_salary_wef))}}
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                            </p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
@@ -553,7 +599,11 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                         <p>
-                        {{ convertDate($basic_data->dob,"d/m/Y") }}
+                        @if($basic_data->dob)
+                            {{date('d/m/Y' , strtotime($basic_data->dob))}}
+                        @else
+                            -
+                        @endif
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -563,7 +613,11 @@
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Expiry Date(DD/MM/YYYY)</label>
                         <p>
-                            {{ convertDate($basic_data->passport_exp_date,"d/m/Y") }}
+                        @if($basic_data->passport_exp_date)
+                            {{date('d/m/Y' , strtotime($basic_data->passport_exp_date))}}
+                        @else
+                            -
+                        @endif
                         </p>
                     </div>
                     <div class="formAreahalf basic_data">
@@ -995,7 +1049,7 @@
                                                         Submission Date</label>
 
                                                         @isset($wealth_finance[$i]->application_submission_date)
-                                                            {{ $wealth_finance[$i]->application_submission_date }}
+                                                            {{ date('d/m/Y' , strtotime($wealth_finance[$i]->application_submission_date)) }}
                                                         @else
                                                             -
                                                         @endisset
@@ -1207,34 +1261,35 @@
 
 
                             <div class="tab-pane fade" id="nav-pass" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <div id="pass_accordion" class="mas_related">
+                                @foreach($wealthpass as $passholder_key=>$passholder_item)
+                                <div id="pass_accordion_{{$passholder_key}}" class="mas_related">
                                     <div class="mas_heading_accordian">
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Is Passholder also the
                                                 shareholder</label>
                                             <p>
-                                                @isset($wealthpass->passholder_shareholder)
-                                                    {{ $wealthpass->passholder_shareholder }}
+                                                @isset($passholder_item->passholder_shareholder)
+                                                    {{ $passholder_item->passholder_shareholder }}
                                                 @else
                                                     -
                                                 @endisset
                                             </p>
                                         </div>
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
-                                            data-target="#pass_collapseOne" aria-expanded="true"
+                                            data-target="#pass_collapse{{$passholder_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div id="pass_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#pass_accordion">
+                                    <div id="pass_collapse{{$passholder_key}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#pass_accordion_{{$passholder_key}}">
                                         <div class="tab-inner-passhold d-flex flex-wrap">
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Holder Name 1
                                                     (Eng)</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_holder_name)
-                                                        {{ $wealthpass->pass_holder_name }}
+                                                    @isset($passholder_item->pass_holder_name)
+                                                        {{ $passholder_item->pass_holder_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1244,8 +1299,8 @@
                                                 <label for="" class="form-label">Passport Full
                                                     Name(Chinese)</label>
                                                 <p>
-                                                    @isset($wealthpass->passposrt_name_chinese)
-                                                        {{ $wealthpass->passposrt_name_chinese }}
+                                                    @isset($passholder_item->passposrt_name_chinese)
+                                                        {{ $passholder_item->passposrt_name_chinese }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1254,8 +1309,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                 <p>
-                                                    @isset($wealthpass->dob)
-                                                        {{ convertDate($wealthpass->dob,"d/m/Y") }}
+                                                    @isset($passholder_item->dob)
+                                                        {{date('d/m/Y' , strtotime($passholder_item->dob))}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1264,8 +1319,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Gender(M/F)</label>
                                                 <p>
-                                                    @isset($wealthpass->gender)
-                                                        {{ $wealthpass->gender }}
+                                                    @isset($passholder_item->gender)
+                                                        {{ $passholder_item->gender }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1275,8 +1330,8 @@
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
                                                 <p>
-                                                    @isset($wealthpass->passport_expiry_date)
-                                                        {{ convertDate($wealthpass->passport_expiry_date,"d/m/Y") }}
+                                                    @isset($passholder_item->passport_expiry_date)
+                                                        {{date('d/m/Y' , strtotime($passholder_item->passport_expiry_date))}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1285,8 +1340,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Number</label>
                                                 <p>
-                                                    @isset($wealthpass->wealthpass->passport_no)
-                                                        {{ $wealthpass->passport_no }}
+                                                    @isset($passholder_item->passport_no)
+                                                        {{ $passholder_item->passport_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1296,8 +1351,8 @@
                                                 <label for="" class="form-label">Passport Renewal
                                                     Reminder</label>
                                                 <p>
-                                                    @isset($wealthpass->passport_renewal_reminder)
-                                                        {{ $wealthpass->passport_renewal_reminder }}
+                                                    @isset($passholder_item->passport_renewal_reminder)
+                                                        {{ $passholder_item->passport_renewal_reminder }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1306,8 +1361,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Country</label>
                                                 <p>
-                                                    @isset($wealthpass->passport_country)
-                                                        {{ $wealthpass->passport_country }}
+                                                    @isset($passholder_item->passport_country)
+                                                        {{ $passholder_item->passport_country }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1317,8 +1372,8 @@
                                                 <label for="" class="form-label">Passport Reminder Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthpass->passport_tri_frq)
-                                                        <span class="Every">Every</span> {{ $wealthpass->passport_tri_frq }}
+                                                    @isset($passholder_item->passport_tri_frq)
+                                                        <span class="Every">Every</span> {{ $passholder_item->passport_tri_frq }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1328,8 +1383,8 @@
                                                 <label for="" class="form-label">Tin Country Before Pass
                                                     Application</label>
                                                 <p>
-                                                    @isset($wealthpass->tin_country_before_app)
-                                                        {{ $wealthpass->tin_country_before_app }}
+                                                    @isset($passholder_item->tin_country_before_app)
+                                                        {{ $passholder_item->tin_country_before_app }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1339,8 +1394,8 @@
                                                 <label for="" class="form-label">Type of TIN Before Pass
                                                     Application</label>
                                                 <p>
-                                                    @isset($wealthpass->type_of_tin_before_app)
-                                                        {{ $wealthpass->type_of_tin_before_app }}
+                                                    @isset($passholder_item->type_of_tin_before_app)
+                                                        {{ $passholder_item->type_of_tin_before_app }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1350,8 +1405,8 @@
                                                 <label for="" class="form-label">TIN Number Before Pass
                                                     Application</label>
                                                 <p>
-                                                    @isset($wealthpass->tin_no_before_pass_app)
-                                                        {{ $wealthpass->tin_no_before_pass_app }}
+                                                    @isset($passholder_item->tin_no_before_pass_app)
+                                                        {{ $passholder_item->tin_no_before_pass_app }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1360,8 +1415,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Phone Number</label>
                                                 <p>
-                                                    @isset($wealthpass->phone_no)
-                                                        {{ $wealthpass->phone_no }}
+                                                    @isset($passholder_item->phone_no)
+                                                        {{ $passholder_item->phone_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1370,8 +1425,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Email</label>
                                                 <p>
-                                                    @isset($wealthpass->email)
-                                                        {{ $wealthpass->email }}
+                                                    @isset($passholder_item->email)
+                                                        {{ $passholder_item->email }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1380,18 +1435,18 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Business Type</label>
                                                 <p>
-                                                    @isset($wealthpass->business_type)
-                                                        {{ $wealthpass->business_type }}
+                                                    @isset($passholder_item->business_type)
+                                                        {{ $passholder_item->business_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
+                                            @if (isset($passholder_item->business_type) && $passholder_item->business_type == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthpass->business_type_specify))
-                                                    {{ $wealthpass->business_type_specify }} @else-
+                                                    @if (isset($passholder_item->business_type_specify))
+                                                    {{ $passholder_item->business_type_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1399,8 +1454,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Residential Address</label>
                                                 <p>
-                                                    @isset($wealthpass->residential_add)
-                                                        {{ $wealthpass->residential_add }}
+                                                    @isset($passholder_item->residential_add)
+                                                        {{ $passholder_item->residential_add }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1410,9 +1465,9 @@
                                                 <label for="" class="form-label">Pass Application
                                                     Status</label>
                                                 <p
-                                                    class="@if (isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Pending') active-blue @elseif(isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Approved') active-btn @elseif(isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Rejected') active-btn Dormant @else '' @endif">
-                                                    @isset($wealthpass->pass_app_status)
-                                                        {{ $wealthpass->pass_app_status }}
+                                                    class="@if (isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Pending') active-blue @elseif(isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Approved') active-btn @elseif(isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    @isset($passholder_item->pass_app_status)
+                                                        {{ $passholder_item->pass_app_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1422,18 +1477,18 @@
                                                 <label for="" class="form-label">Relationship with Pass Holder
                                                     1</label>
                                                 <p>
-                                                    @isset($wealthpass->relation_with_pass)
-                                                        {{ $wealthpass->relation_with_pass }}
+                                                    @isset($passholder_item->relation_with_pass)
+                                                        {{ $passholder_item->relation_with_pass }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
+                                            @if (isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthpass->relation_with_pass_specify))
-                                                    {{ $wealthpass->relation_with_pass_specify }} @else-
+                                                    @if (isset($passholder_item->relation_with_pass_specify))
+                                                    {{ $passholder_item->relation_with_pass_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1441,18 +1496,18 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Application Type</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_app_type)
-                                                        {{ $wealthpass->pass_app_type }}
+                                                    @isset($passholder_item->pass_app_type)
+                                                        {{ $passholder_item->pass_app_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others')
+                                            @if (isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthpass->pass_app_type_specify))
-                                                    {{ $wealthpass->pass_app_type_specify }} @else-
+                                                    @if (isset($passholder_item->pass_app_type_specify))
+                                                    {{ $passholder_item->pass_app_type_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1460,10 +1515,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance</label>
                                                 <p
-                                                    class="@if (isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Progress') active-blue @elseif(isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($passholder_item->pass_inssuance) && $passholder_item->pass_inssuance == 'Progress') active-blue @elseif(isset($passholder_item->pass_inssuance) && $passholder_item->pass_inssuance == 'Done') active-btn @else '' @endif">
 
-                                                    @isset($wealthpass->pass_inssuance)
-                                                        {{ $wealthpass->pass_inssuance }}
+                                                    @isset($passholder_item->pass_inssuance)
+                                                        {{ $passholder_item->pass_inssuance }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1472,8 +1527,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_issuance_date)
-                                                        {{ convertDate($wealthpass->pass_issuance_date,"d/m/Y") }}
+                                                    @isset($passholder_item->pass_issuance_date)
+                                                        {{ convertDate($passholder_item->pass_issuance_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1482,8 +1537,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_expiry_date)
-                                                        {{ convertDate($wealthpass->pass_expiry_date,"d/m/Y") }}
+                                                    @isset($passholder_item->pass_expiry_date)
+                                                        {{ convertDate($passholder_item->pass_expiry_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1492,8 +1547,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Renewal Reminder</label>
                                                 <p>
-                                                    @isset($wealthpass->passholder_shareholder)
-                                                        {{ $wealthpass->passholder_shareholder }}
+                                                    @isset($passholder_item->passholder_shareholder)
+                                                        {{ $passholder_item->passholder_shareholder }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1502,8 +1557,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Duration</label>
                                                 <p>
-                                                    @isset($wealthpass->duration)
-                                                        {{ $wealthpass->duration }}
+                                                    @isset($passholder_item->duration)
+                                                        {{ $passholder_item->duration }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1512,8 +1567,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">FIN Number</label>
                                                 <p>
-                                                    @isset($wealthpass->fin_number)
-                                                        {{ $wealthpass->fin_number }}
+                                                    @isset($passholder_item->fin_number)
+                                                        {{ $passholder_item->fin_number }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1523,8 +1578,8 @@
                                                 <label for="" class="form-label">Pass Renewal Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_renewal_frq)
-                                                        <span class="every">Every</span> {{ $wealthpass->pass_renewal_frq }}
+                                                    @isset($passholder_item->pass_renewal_frq)
+                                                        <span class="every">Every</span> {{ $passholder_item->pass_renewal_frq }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1533,8 +1588,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass. Job Title</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_jon_title)
-                                                        {{ $wealthpass->pass_jon_title }}
+                                                    @isset($passholder_item->pass_jon_title)
+                                                        {{ $passholder_item->pass_jon_title }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1543,9 +1598,9 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Singpass Set Up</label>
                                                 <p
-                                                    class="@if (isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'Progress') active-blue @elseif(isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up == 'Done') active-btn @else '' @endif">
-                                                    @isset($wealthpass->singpass_set_up)
-                                                        {{ $wealthpass->singpass_set_up }}
+                                                    class="@if (isset($passholder_item->singpass_set_up) && $passholder_item->singpass_set_up == 'Progress') active-blue @elseif(isset($passholder_item->singpass_set_up) && $passholder_item->singpass_set_up == 'Done') active-btn @else '' @endif">
+                                                    @isset($passholder_item->singpass_set_up)
+                                                        {{ $passholder_item->singpass_set_up }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1554,8 +1609,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Employer's Name</label>
                                                 <p>
-                                                    @isset($wealthpass->employee_name)
-                                                        {{ $wealthpass->employee_name }}
+                                                    @isset($passholder_item->employee_name)
+                                                        {{ $passholder_item->employee_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1564,8 +1619,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary(SGD)</label>
                                                 <p>
-                                                    @isset($wealthpass->monthly_sal)
-                                                        {{ $wealthpass->monthly_sal }}
+                                                    @isset($passholder_item->monthly_sal)
+                                                        {{ $passholder_item->monthly_sal }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1574,8 +1629,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
-                                                    @isset($wealthpass->pass_remarks)
-                                                        {{ $wealthpass->pass_remarks }}
+                                                    @isset($passholder_item->pass_remarks)
+                                                        {{ $passholder_item->pass_remarks }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1584,6 +1639,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
 
 
@@ -2533,8 +2589,15 @@
                                         <tr>
                                             <td style="width:50%;color:#000; font-size:15px ; padding-top:26px;">
                                                 <b>Incorporation Date</b>
-                                                <span
-                                                    style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span>
+                                                <!-- <span
+                                                    style="padding-top:12px; display:block;">{{ convertDate($company->incorporate_date,"d/m/Y")  }}</span> -->
+                                                <span style="padding-top:12px; display:block;">
+                                                @if($company->incorporate_date)
+                                                    {{date('d/m/Y' , strtotime($company->incorporate_date))}}
+                                                @else
+                                                    -
+                                                @endif
+                                                </span>
                                             </td>
 
                                         </tr>
@@ -2643,7 +2706,12 @@
                                                         style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                                         <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                                         <span
-                                                            style="padding-top:12px; display:block;">{{ convertDate($shareholder->passport_exp_date,'d/m/Y') }}
+                                                            style="padding-top:12px; display:block;">
+                                                            @if($shareholder->passport_exp_date)
+                                                                {{date('d/m/Y' , strtotime($shareholder->passport_exp_date))}}
+                                                            @else
+                                                                -
+                                                            @endif
                                                         </span>
                                                     </td>
                                                     <td
@@ -2783,7 +2851,11 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>DOB (DD/MM/YYYY)</b>
                                             <span style="padding-top:12px; display:block;">
-                                                {{ convertDate($basic_data->dob,"d/m/Y") }}
+                                                @if($basic_data->dob)
+                                                    {{date('d/m/Y' , strtotime($basic_data->dob))}}
+                                                @else
+                                                    -
+                                                @endif
                                         </span>
                                         </td>
                                     </tr>
@@ -2793,7 +2865,12 @@
                                             style="width:50%;color:#000; font-size:15px ; padding-left:15px; padding-top:20px;">
                                             <b>Passport Expiry Date (DD/MM/YYYY)</b>
                                             <span
-                                                style="padding-top:12px; display:block;">{{ convertDate($basic_data->passport_exp_date,'d/m/Y') }}
+                                                style="padding-top:12px; display:block;">
+                                                @if($basic_data->passport_exp_date)
+                                                    {{date('d/m/Y' , strtotime($basic_data->passport_exp_date))}}
+                                                @else
+                                                    -
+                                                @endif
                                             </span>
                                         </td>
                                         <td

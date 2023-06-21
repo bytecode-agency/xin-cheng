@@ -322,8 +322,9 @@ class WealthController extends Controller
                     $shareholder_all->type_of_tin = isset($shareholder['nfo_tin_type']) ? $shareholder['nfo_tin_type'] : null ;
                     $shareholder_all->job_title = isset($shareholder['nfo_job_title'])? $shareholder['nfo_job_title'] : null;
                     $shareholder_all->monthly_sal = isset($shareholder['nfo_mth_salary']) ? $shareholder['nfo_mth_salary'] : null;    
-                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;           
-                    
+                    $shareholder_all->relation_with_shareholder= isset($shareholder['nfo_relation'])? $shareholder['nfo_relation'] : null ;   
+                    $shareholder_all->company = isset($shareholder['employee_name']) ? $shareholder['employee_name'] : null;      
+                    $shareholder_all->monthly_salary_wef = isset($shareholder['monthly_salary_wef']) ? $shareholder['monthly_salary_wef'] : null;
                     $shareholder_all->save();    
                     }
                 }       
@@ -391,7 +392,7 @@ class WealthController extends Controller
         $action_log = LogActivity::where('module_name','=','Wealth')->where('userID','=',$id)->orderBy('id','desc')->get(); 
         $wealth_mas = WealthMas::where('wealth_id',$id)->first();
         $wealth_finance = WealthFinancial::where('wealth_id',$id)->get();
-        $wealthpass = WealthPass::where('wealth_id',$id)->first();
+        $wealthpass = WealthPass::where('wealth_id',$id)->get();
         $wealthbuss = WealthBusinessApp::with('business_redempt')->orderBy('id','desc')->where('wealth_id',$id)->first();
         // dd($wealthbuss);
         return view('wealth.view',compact('data','basic_data','file','action_log','notes','wealth_mas','wealth_finance','wealthpass','wealthbuss'));
@@ -418,7 +419,7 @@ class WealthController extends Controller
         $wealth_mas = WealthMas::where('wealth_id',$id)->first();
         $wealthfinance = WealthFinancial::where('wealth_id',$id)->get();
        
-        $wealthpass = WealthPass::where('wealth_id',$id)->first();
+        $wealthpass = WealthPass::where('wealth_id',$id)->get();
         $wealthbuss = WealthBusinessApp::with('business_redempt')->where('wealth_id',$id)->first();       
         
         $notes = Notes::where('module_name','Wealth')->where('application_id',$id)->orderBy('id','desc')->get();   
@@ -426,6 +427,12 @@ class WealthController extends Controller
     }
     public function update(Request $request)
     {
+        $business_account_types = $request->business_account_type;
+
+        // if(!empty($request->business_account_type)){
+        //     $business_account_types = implode(',' , $request->business_account_type);
+        // }
+
         $id= $request->wealth_id;
         $data_update = Wealth::with('companies.shareholder')->find($id); 
         if($request->client_status)
@@ -493,8 +500,10 @@ class WealthController extends Controller
                             'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
                             'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
                             'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                            'company' => isset($shareholder['employee_name']) ? $shareholder['employee_name'] :null,
                             'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                             'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
+                            'monthly_salary_wef' =>  isset($shareholder['monthly_salary_wef']) ?$shareholder['monthly_salary_wef'] :null,
                             'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
                             'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] :null,
                             
@@ -538,6 +547,11 @@ class WealthController extends Controller
                   //  dd($request->financial);
                   foreach($request->financial as $f_key=>$f_value )
                   {
+                    $sub_date = $f_value['application_submission_date'];
+                    if(!empty($sub_date)){
+                        $sub_date = str_replace("/","-",$f_value['application_submission_date']);
+                        $sub_date = date('Y-m-d' , strtotime($sub_date));
+                    }
                     // dd(['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id]);
                    $wealth_financial_application = WealthFinancial::updateOrCreate(
                     ['id' => $f_value['wealth_finance_id'] , 'wealth_id' => $id],
@@ -547,7 +561,7 @@ class WealthController extends Controller
                     'poc_contact_no' => isset($f_value['poc_contact_no']) ? $f_value['poc_contact_no'] :null,
                     'poc_email'=>  isset($f_value['poc_email']) ? $f_value['poc_email'] :null,
                     'application_submission' =>  isset($f_value['application_submission']) ? $f_value['application_submission'] :null,
-                    'application_submission_date' =>  isset($f_value['application_submission_date']) ? $f_value['application_submission_date'] :null,
+                    'application_submission_date' =>  isset($sub_date) ? $sub_date :null,
                     'account_type' =>  isset($f_value['account_type']) ? json_encode($f_value['account_type']) :null,
                     'account_type_specify' =>  isset($f_value['account_type_specify']) ? json_encode($f_value['account_type_specify']) :null,
                     'account_policy_no'  =>  isset($f_value['account_policy_no']) ? json_encode($f_value['account_policy_no']) :null,
@@ -561,52 +575,95 @@ class WealthController extends Controller
                     'finacial_remarks' => isset($f_value['finacial_remarks']) ? $f_value['finacial_remarks'] :null,  ]);
                 }
             }
-            $wealth_pass_application = WealthPass::updateOrCreate(
-                ['id' => $request->wealth_pass_id , 'wealth_id' => $id],
-                ['passholder_shareholder' => isset($request->passholder_shareholder) ? $request->passholder_shareholder :null,
-                'pass_holder_name' => isset($request->pass_holder_name) ? $request->pass_holder_name :null,
-                'passposrt_name_chinese'=>  isset($request->passposrt_name_chinese) ? $request->passposrt_name_chinese :null,
-                'dob' => isset($request->dob) ? $request->dob :null,
-                'gender'=>  isset($request->gender) ? $request->gender :null,
-                'passport_expiry_date' =>  isset($request->passport_expiry_date) ? $request->passport_expiry_date :null,
-                'passport_no' =>  isset($request->passport_no) ? $request->passport_no :null,
-                'passport_renewal_reminder'  =>  isset($request->passport_renewal_reminder) ? $request->passport_renewal_reminder :null,
-                'passport_country'  =>  isset($request->passport_country) ? $request->passport_country :null,
-                'passport_tri_frq'=>  isset($request->passport_tri_frq) ? $request->passport_tri_frq :null,
-                'tin_country_before_app' =>  isset($request->tin_country_before_app) ? $request->tin_country_before_app :null,
-                'type_of_tin_before_app' =>  isset($request->type_of_tin_before_app) ? $request->type_of_tin_before_app :null,
-                'tin_no_before_pass_app' =>  isset($request->tin_no_before_pass_app) ? $request->tin_no_before_pass_app :null,
-                'phone_no' => isset($request->phone_no) ? $request->phone_no :null,
-                'email' => isset($request->email) ? $request->email :null,
-                'business_type' =>  isset($request->business_type) ? $request->business_type :null,
-                'business_type_specify' =>  isset($request->business_type_specify) ? $request->business_type_specify :null,
-                'residential_add' =>  isset($request->residential_add) ? $request->residential_add :null,
-                'pass_app_status' => isset($request->pass_app_status) ? $request->pass_app_status :null,
-                'relation_with_pass'  =>  isset($request->relation_with_pass) ? $request->relation_with_pass :null,
-                'relation_with_pass_specify'  =>  isset($request->relation_with_pass_specify) ? $request->relation_with_pass_specify :null,
-                'pass_app_type'=>  isset($request->pass_app_type) ? $request->pass_app_type :null,
-                'pass_app_type_specify'=>  isset($request->pass_app_type_specify) ? $request->pass_app_type_specify :null,
-                'pass_inssuance'  =>  isset($request->pass_inssuance) ? $request->pass_inssuance :null,
-                'pass_issuance_date'=>  isset($request->pass_issuance_date) ? $request->pass_issuance_date :null,
-                'pass_expiry_date'  =>  isset($request->pass_expiry_date) ? $request->pass_expiry_date :null,
-                'pass_renewal_reminder'=>  isset($request->pass_renewal_reminder) ? $request->pass_renewal_reminder :null,
-                'duration'  =>  isset($request->duration) ? $request->duration :null,
-                'fin_number'=>  isset($request->fin_number) ? $request->fin_number :null,
-                'pass_renewal_frq'=>  isset($request->pass_renewal_frq) ? $request->pass_renewal_frq :null,
-                'pass_jon_title'=>  isset($request->pass_jon_title) ? $request->pass_jon_title :null,
-                'singpass_set_up'=>  isset($request->singpass_set_up) ? $request->singpass_set_up :null,
-                'employee_name'=>  isset($request->employee_name) ? $request->employee_name :null,
-                'monthly_sal'=>  isset($request->monthly_sal) ? $request->monthly_sal :null,
-                'pass_remarks'=>  isset($request->pass_remarks) ? $request->pass_remarks :null,           
-                ]
-            );           
+            if(!empty($request->passholder)){
+                foreach($request->passholder as $passholer_item){
+                    $wealth_pass_application = WealthPass::updateOrCreate(
+                        ['id' =>  $passholer_item['wealth_pass_id'] , 'wealth_id' => $id],
+                        ['passholder_shareholder' => isset( $passholer_item['passholder_shareholder']) ?  $passholer_item['passholder_shareholder'] :null,
+                        'pass_holder_name' => isset( $passholer_item['pass_holder_name']) ?  $passholer_item['pass_holder_name'] :null,
+                        'passposrt_name_chinese'=>  isset( $passholer_item['passposrt_name_chinese']) ?  $passholer_item['passposrt_name_chinese'] :null,
+                        'dob' => isset( $passholer_item['dob']) ?  $passholer_item['dob'] :null,
+                        'gender'=>  isset( $passholer_item['gender']) ?  $passholer_item['gender'] :null,
+                        'passport_expiry_date' =>  isset( $passholer_item['passport_expiry_date']) ?  $passholer_item['passport_expiry_date'] :null,
+                        'passport_no' =>  isset( $passholer_item['passport_no']) ?  $passholer_item['passport_no'] :null,
+                        'passport_renewal_reminder'  =>  isset( $passholer_item['passport_renewal_reminder']) ?  $passholer_item['passport_renewal_reminder'] :null,
+                        'passport_country'  =>  isset( $passholer_item['passport_country']) ?  $passholer_item['passport_country'] :null,
+                        'passport_tri_frq'=>  isset( $passholer_item['passport_tri_frq']) ?  $passholer_item['passport_tri_frq'] :null,
+                        'tin_country_before_app' =>  isset( $passholer_item['tin_country_before_app']) ?  $passholer_item['tin_country_before_app'] :null,
+                        'type_of_tin_before_app' =>  isset( $passholer_item['type_of_tin_before_app']) ?  $passholer_item['type_of_tin_before_app'] :null,
+                        'tin_no_before_pass_app' =>  isset( $passholer_item['tin_no_before_pass_app']) ?  $passholer_item['tin_no_before_pass_app'] :null,
+                        'phone_no' => isset( $passholer_item['phone_no']) ?  $passholer_item['phone_no'] :null,
+                        'email' => isset( $passholer_item['email']) ?  $passholer_item['email'] :null,
+                        'business_type' =>  isset( $passholer_item['business_type']) ?  $passholer_item['business_type'] :null,
+                        'business_type_specify' =>  isset( $passholer_item['business_type_specify']) ?  $passholer_item['business_type_specify'] :null,
+                        'residential_add' =>  isset( $passholer_item['residential_add']) ?  $passholer_item['residential_add'] :null,
+                        'pass_app_status' => isset( $passholer_item['pass_app_status']) ?  $passholer_item['pass_app_status'] :null,
+                        'relation_with_pass'  =>  isset( $passholer_item['relation_with_pass']) ?  $passholer_item['relation_with_pass'] :null,
+                        'relation_with_pass_specify'  =>  isset( $passholer_item['relation_with_pass_specify']) ?  $passholer_item['relation_with_pass_specify'] :null,
+                        'pass_app_type'=>  isset( $passholer_item['pass_app_type']) ?  $passholer_item['pass_app_type'] :null,
+                        'pass_app_type_specify'=>  isset( $passholer_item['pass_app_type_specify']) ?  $passholer_item['pass_app_type_specify'] :null,
+                        'pass_inssuance'  =>  isset( $passholer_item['pass_inssuance']) ?  $passholer_item['pass_inssuance'] :null,
+                        'pass_issuance_date'=>  isset( $passholer_item['pass_issuance_date']) ?  $passholer_item['pass_issuance_date'] :null,
+                        'pass_expiry_date'  =>  isset( $passholer_item['pass_expiry_date']) ?  $passholer_item['pass_expiry_date'] :null,
+                        'pass_renewal_reminder'=>  isset( $passholer_item['pass_renewal_reminder']) ?  $passholer_item['pass_renewal_reminder'] :null,
+                        'duration'  =>  isset( $passholer_item['duration']) ?  $passholer_item['duration'] :null,
+                        'fin_number'=>  isset( $passholer_item['fin_number']) ?  $passholer_item['fin_number'] :null,
+                        'pass_renewal_frq'=>  isset( $passholer_item['pass_renewal_frq']) ?  $passholer_item['pass_renewal_frq'] :null,
+                        'pass_jon_title'=>  isset( $passholer_item['pass_jon_title']) ?  $passholer_item['pass_jon_title'] :null,
+                        'singpass_set_up'=>  isset( $passholer_item['singpass_set_up']) ?  $passholer_item['singpass_set_up'] :null,
+                        'company'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
+                        'monthly_sal'=>  isset( $passholer_item['monthly_sal']) ?  $passholer_item['monthly_sal'] :null,
+                        'pass_remarks'=>  isset( $passholer_item['pass_remarks']) ?  $passholer_item['pass_remarks'] :null,           
+                        ]
+                    );
+                }
+            } 
+            // $wealth_pass_application = WealthPass::updateOrCreate(
+            //     ['id' => $request->wealth_pass_id , 'wealth_id' => $id],
+            //     ['passholder_shareholder' => isset($request->passholder_shareholder) ? $request->passholder_shareholder :null,
+            //     'pass_holder_name' => isset($request->pass_holder_name) ? $request->pass_holder_name :null,
+            //     'passposrt_name_chinese'=>  isset($request->passposrt_name_chinese) ? $request->passposrt_name_chinese :null,
+            //     'dob' => isset($request->dob) ? $request->dob :null,
+            //     'gender'=>  isset($request->gender) ? $request->gender :null,
+            //     'passport_expiry_date' =>  isset($request->passport_expiry_date) ? $request->passport_expiry_date :null,
+            //     'passport_no' =>  isset($request->passport_no) ? $request->passport_no :null,
+            //     'passport_renewal_reminder'  =>  isset($request->passport_renewal_reminder) ? $request->passport_renewal_reminder :null,
+            //     'passport_country'  =>  isset($request->passport_country) ? $request->passport_country :null,
+            //     'passport_tri_frq'=>  isset($request->passport_tri_frq) ? $request->passport_tri_frq :null,
+            //     'tin_country_before_app' =>  isset($request->tin_country_before_app) ? $request->tin_country_before_app :null,
+            //     'type_of_tin_before_app' =>  isset($request->type_of_tin_before_app) ? $request->type_of_tin_before_app :null,
+            //     'tin_no_before_pass_app' =>  isset($request->tin_no_before_pass_app) ? $request->tin_no_before_pass_app :null,
+            //     'phone_no' => isset($request->phone_no) ? $request->phone_no :null,
+            //     'email' => isset($request->email) ? $request->email :null,
+            //     'business_type' =>  isset($request->business_type) ? $request->business_type :null,
+            //     'business_type_specify' =>  isset($request->business_type_specify) ? $request->business_type_specify :null,
+            //     'residential_add' =>  isset($request->residential_add) ? $request->residential_add :null,
+            //     'pass_app_status' => isset($request->pass_app_status) ? $request->pass_app_status :null,
+            //     'relation_with_pass'  =>  isset($request->relation_with_pass) ? $request->relation_with_pass :null,
+            //     'relation_with_pass_specify'  =>  isset($request->relation_with_pass_specify) ? $request->relation_with_pass_specify :null,
+            //     'pass_app_type'=>  isset($request->pass_app_type) ? $request->pass_app_type :null,
+            //     'pass_app_type_specify'=>  isset($request->pass_app_type_specify) ? $request->pass_app_type_specify :null,
+            //     'pass_inssuance'  =>  isset($request->pass_inssuance) ? $request->pass_inssuance :null,
+            //     'pass_issuance_date'=>  isset($request->pass_issuance_date) ? $request->pass_issuance_date :null,
+            //     'pass_expiry_date'  =>  isset($request->pass_expiry_date) ? $request->pass_expiry_date :null,
+            //     'pass_renewal_reminder'=>  isset($request->pass_renewal_reminder) ? $request->pass_renewal_reminder :null,
+            //     'duration'  =>  isset($request->duration) ? $request->duration :null,
+            //     'fin_number'=>  isset($request->fin_number) ? $request->fin_number :null,
+            //     'pass_renewal_frq'=>  isset($request->pass_renewal_frq) ? $request->pass_renewal_frq :null,
+            //     'pass_jon_title'=>  isset($request->pass_jon_title) ? $request->pass_jon_title :null,
+            //     'singpass_set_up'=>  isset($request->singpass_set_up) ? $request->singpass_set_up :null,
+            //     'employee_name'=>  isset($request->employee_name) ? $request->employee_name :null,
+            //     'monthly_sal'=>  isset($request->monthly_sal) ? $request->monthly_sal :null,
+            //     'pass_remarks'=>  isset($request->pass_remarks) ? $request->pass_remarks :null,           
+            //     ]
+            // );           
             $wealth_business_app = WealthBusinessApp::updateOrCreate(
                 ['id' => $request->wealth_business_id , 'wealth_id' => $id],
                 ['financial_institition_name' => isset($request->financial_institition_name) ? $request->financial_institition_name :null,
                 'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
                 'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
                 // 'business_account_status_specify'=>  isset($request->business_account_status_specify) ? $request->business_account_status_specify :null,
-                'business_account_type' => isset($request->business_account_type) ? $request->business_account_type :null,
+                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
                 'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
                 'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
                 'product_name' =>  isset($request->product_name) ? $request->product_name :null,
@@ -707,9 +764,12 @@ class WealthController extends Controller
                                 'tin_no' => isset($shareholder['tin_no']) ? $shareholder['tin_no'] :null,
                                 'tin_country' => isset($shareholder['tin_country']) ? $shareholder['tin_country'] :null,
                                 'type_of_tin' => isset($shareholder['type_of_tin']) ? $shareholder['type_of_tin']: null,
+                                'company' => isset($shareholder['employee_name']) ? $shareholder['employee_name'] :null,
+                                'monthly_salary_wef' => isset($shareholder['monthly_salary_wef']) ? $shareholder['monthly_salary_wef'] :null,
                                 'job_title' => isset($shareholder['job_title']) ? $shareholder['job_title'] :null,
                                 'monthly_sal' => isset($shareholder['monthly_sal']) ?$shareholder['monthly_sal'] :null,
-                                'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null
+                                'relation_with_shareholder' => isset($shareholder['relation_with_shareholder']) ? $shareholder['relation_with_shareholder'] :null,
+                               'rel_share_specify' => isset($shareholder['please_specify']) ? $shareholder['please_specify'] : null
                                 ]);                       
                             }    
                     }       
@@ -721,7 +781,8 @@ class WealthController extends Controller
                 ['financial_institition_name' => isset($request->financial_institition_name) ? $request->financial_institition_name :null,
                 'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
                 'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
-                'business_account_type' => isset($request->business_account_type) ? $request->business_account_type :null,
+                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
+                'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
                 'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
                 'product_name' =>  isset($request->product_name) ? $request->product_name :null,
                 'payment_mode' =>  isset($request->payment_mode) ? $request->payment_mode :null,
@@ -922,5 +983,12 @@ class WealthController extends Controller
 
         return response()->json();
 
+    }
+
+    public function deletePassholder($id){
+        $passholder = WealthPass::find($id)->delete();
+        return response()->json([
+            'message' => 'Passholder has been deleted successfully!'
+        ]);
     }
 }

@@ -90,9 +90,9 @@
                             </div>
                         @endif
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Date of contract DD/MM/YYYY</label>
-                            <input type="text" class="form-control datepicker" name="date_of_contract"
-                                        value="{{convertDate($basic_data->date_of_contract,'d/m/Y')}}" placeholder="dd/mm/yyyy">
+                            <label for="" class="form-label">Date of contract (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" name="date_of_contract"
+                                        value="{{$basic_data->date_of_contract ?? ''}}" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Client Type</label>
@@ -175,10 +175,10 @@
                         </div>
 
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Annual Servicing Fee Due Date DD/MM/YYYY</label>
+                            <label for="" class="form-label">Annual Servicing Fee Due Date (DD/MM/YYYY)</label>
 
-                            <input type="text" class="form-control datepicker" name="annual_fee_due_date"
-                                        value="{{ convertDate($basic_data->annual_fee_due_date,'d/m/Y') }}" placeholder="dd/mm/yyyy">
+                            <input type="date" class="form-control" name="annual_fee_due_date"
+                                        value="{{$basic_data->annual_fee_due_date ?? ''}}" placeholder="dd/mm/yyyy">
 
                         </div>
                         <div class="formAreahalf basic_data">
@@ -497,9 +497,9 @@
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="commencement_date" class="form-label">Commencement Date (DD/MM/YYYY)</label>
-                                                    <input type="text" name="commencement_date" id="commencement_date"
-                                                        value="@isset($wealth_mas->commencement_date) {{ convertDate($wealth_mas->commencement_date,'d/m/Y') }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                    <input type="date" name="commencement_date" id="commencement_date"
+                                                        value="{{$wealth_mas->commencement_date ?? ''}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
 
                                                 </div>
                                                 <div class="formAreahalf basic_data">
@@ -526,10 +526,10 @@
                                                     <label for="annual_declaration_deadline" class="form-label">Annual
                                                         Declaration
                                                         Deadline</label>
-                                                    <input type="text" name="annual_declaration_deadline"
+                                                    <input type="date" name="annual_declaration_deadline"
                                                         id="annual_declaration_deadline"
-                                                        value="@isset($wealth_mas->annual_declaration_deadline) {{ $wealth_mas->annual_declaration_deadline }} @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                        value="{{$wealth_mas->annual_declaration_deadline ?? ''}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="internal_account_manager" class="form-label">Internal
@@ -655,9 +655,9 @@
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission_date" class="form-label">Application Submission Date</label>
-                                                                    <input type="text" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
-                                                                        value="@isset($wealthfinance[$i]->application_submission_date){{ $wealthfinance[$i]->application_submission_date }} @endisset"
-                                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
+                                                                    <input type="date" name="financial[{{$i +1}}][application_submission_date]" id="application_submission_date"
+                                                                        value="{{$wealthfinance[$i]->application_submission_date ?? ''}}"
+                                                                        class="form-control" placeholder="dd/mm/yyyy">
                                                                 </div>
                                                                 <div class="formAreahalf basic_data">
                                                                     <label for="application_submission" class="form-label">Application
@@ -916,460 +916,468 @@
 
                                 <div class="tab-pane fade" id="nav-pass" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
-                                    <input type="hidden" name="wealth_pass_id"
-                                    value="@isset($wealthpass->id) {{ $wealthpass->id }} @endisset">
-                                    <div id="pass_accordion" class="mas_related">
-                                        <div class="mas_heading_accordian">
-                                            <div class="formAreahalf basic_data">
-                                                <label for="passholder_shareholder" class="form-label">Is Passholder
-                                                    also
-                                                    the
-                                                    shareholder</label>
-                                                <select name="passholder_shareholder" id="passholder_shareholder"
-                                                    value="" class="form-control">
-                                                    <option value="" selected disabled>Choose is passholder also the shareholder
-                                                    </option>
-                                                    <option value="Yes"
-                                                        {{ isset($wealthpass->passholder_shareholder) && $wealthpass->passholder_shareholder == 'Yes' ? 'selected' : '' }}>
-                                                        Yes</option>
-                                                    <option
-                                                        value="No"{{ isset($wealthpass->passholder_shareholder) && $wealthpass->passholder_shareholder == 'No' ? 'selected' : '' }}>
-                                                        No</option>
-                                                </select>
+                                    <div id="pass_accordion" class="passholders_itemsJs">
+                                        @foreach($wealthpass as $passholder_key => $passholder_item)
+                                        @php $passholder_key++; @endphp
+                                        <div id="passholder_item{{$passholder_key}}" class="mas_related passholder_itemJs">
+                                        <input type="hidden" name="passholder[{{$passholder_key}}][wealth_pass_id]" value="{{$passholder_item->id}}">
+                                            <div class="mas_heading_accordian">
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="passholder_shareholder" class="form-label">Is Passholder
+                                                        also
+                                                        the
+                                                        shareholder</label>
+                                                    <select name="passholder[{{$passholder_key}}][passholder_shareholder]" id="passholder_shareholder" data-key="{{$passholder_key}}"
+                                                        class="form-control shareholdersJs">
+                                                        <option value="" selected disabled>Choose is passholder also the shareholder
+                                                        </option>
+                                                        <option value="Yes"
+                                                            {{ isset($passholder_item->passholder_shareholder) && $passholder_item->passholder_shareholder == 'Yes' ? 'selected' : '' }}>
+                                                            Yes</option>
+                                                        <option
+                                                            value="No"{{ isset($passholder_item->passholder_shareholder) && $passholder_item->passholder_shareholder == 'No' ? 'selected' : '' }}>
+                                                            No</option>
+                                                    </select>
+                                                </div>
+                                                <button class="btn btn_set edit_new_btn_set" data-toggle="collapse"
+                                                    data-target="#pass_collapse_{{$passholder_key}}" aria-expanded="true"
+                                                    aria-controls="collapseOne">
+                                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                </button>
+                                                <div class="cross financial_wealth"><span class="edit_cancel_share remove_item delete_passholderJs" data-id="{{$passholder_key}}" data-passholder_id="{{$passholder_item->id}}">x</span></div>
                                             </div>
-                                            <button class="btn btn_set collapsed" data-toggle="collapse"
-                                                data-target="#pass_collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                        <div id="pass_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                            data-parent="#pass_accordion">
-                                            <div class="tab-inner-text d-flex flex-wrap">
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_holder_name" class="form-label" id="pass_holder_name_lable">Pass Holder Name
-                                                        (Eng)
-                                                    </label>
-                                                    <input type="text" name="pass_holder_name" id="pass_holder_name"
-                                                        value="@isset($wealthpass->pass_holder_name) {{ $wealthpass->pass_holder_name }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passposrt_name_chinese" class="form-label">Passport
-                                                        Full
-                                                        Name(Chinese)</label>
-                                                    <input type="text" name="passposrt_name_chinese"
-                                                        id="passposrt_name_chinese"
-                                                        value="@isset($wealthpass->passposrt_name_chinese) {{ $wealthpass->passposrt_name_chinese }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                    <input type="date" name="dob" id="dob"
-                                                        value="@isset($wealthpass->dob) {{ $wealthpass->dob }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="gender" class="form-label">Gender(M/F)</label>
-                                                    <select name="gender" id="gender" class="form-control">
-                                                        <option value="" selected disabled>Choose gender</option>
-                                                        <option value="Male"
-                                                            {{ isset($wealthpass->gender) && $wealthpass->gender == 'Male' ? 'selected' : '' }}>
-                                                            M
-                                                        </option>
-                                                        <option value="Female"
-                                                            {{ isset($wealthpass->gender) && $wealthpass->gender == 'Female' ? 'selected' : '' }}>
-                                                            F
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passport_expiry_date" class="form-label">Passport
-                                                        Expiry
-                                                        Date(DD/MM/YYYY)</label>
-                                                    <input type="date" name="passport_expiry_date"
-                                                        id="passport_expiry_date"
-                                                        value="@isset($wealthpass->passport_expiry_date) {{ $wealthpass->passport_expiry_date }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passport_no" class="form-label">Passport
-                                                        Number</label>
-                                                    <input type="text" name="passport_no"
-                                                        value="@isset($wealthpass->passport_no) {{ $wealthpass->passport_no }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passport_renewal_reminder" class="form-label">Passport
-                                                        Renewal
-                                                        Reminder</label>
-                                                    <select name="passport_renewal_reminder"
-                                                        id="passport_renewal_reminder" class="form-control">
-                                                        <option value="" selected="" disabled="">Please
-                                                            select</option>
-                                                        <option value="90 days before expiry"
-                                                            {{ isset($wealthpass->passport_renewal_reminder) && $wealthpass->passport_renewal_reminder == '90 days before expiry' ? 'selected' : '' }}>
-                                                            90 days before expiry
-                                                        </option>
-                                                        <option value="120 days before expiry"
-                                                            {{ isset($wealthpass->passport_renewal_reminder) && $wealthpass->passport_renewal_reminder == '120 days before expiry' ? 'selected' : '' }}>
-                                                            120 days before expiry
-                                                        </option>
-                                                        <option value="180 days before expiry"
-                                                            {{ isset($wealthpass->passport_renewal_reminder) && $wealthpass->passport_renewal_reminder == '180 days before expiry' ? 'selected' : '' }}>
-                                                            180 days before expiry
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passport_country" class="form-label">Passport
-                                                        Country</label>
-                                                    <input type="text" name="passport_country"
-                                                        value="@isset($wealthpass->passport_country) {{ $wealthpass->passport_country }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="passport_tri_frq" class="form-label">Passport Reminder
-                                                        Trigger
-                                                        Frequency</label>
-                                                    <div class="select_box"><span class="every">Every</span><span
-                                                            class="select"><select name="passport_tri_frq"
-                                                                id="passport_tri_frq" class="form-control">
-                                                                <option value="" selected="" disabled="">
-                                                                    Please
-                                                                    select</option>
-                                                                <option value="Day"
-                                                                    {{ isset($wealthpass->passport_tri_frq) && $wealthpass->passport_tri_frq == 'Day' ? 'selected' : '' }}>
-                                                                    Day</option>
-                                                                <option value="3 Days"
-                                                                    {{ isset($wealthpass->passport_tri_frq) && $wealthpass->passport_tri_frq == '3 Days' ? 'selected' : '' }}>
-                                                                    3 Days</option>
-                                                                <option value="Week"
-                                                                    {{ isset($wealthpass->passport_tri_frq) && $wealthpass->passport_tri_frq == 'Week' ? 'selected' : '' }}>
-                                                                    Week</option>
-                                                                <option value="2 Weeks"
-                                                                    {{ isset($wealthpass->passport_tri_frq) && $wealthpass->passport_tri_frq == '2 Weeks' ? 'selected' : '' }}>
-                                                                    2 Weeks</option>
-                                                                <option value="4 Weeks"
-                                                                    {{ isset($wealthpass->passport_tri_frq) && $wealthpass->passport_tri_frq == '4 Weeks' ? 'selected' : '' }}>
-                                                                    4 Weeks</option>
-                                                            </select></span></div>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="tin_country_before_app" class="form-label">Tin Country
-                                                        Before
-                                                        Pass
-                                                        Application</label>
-                                                    <input type="text" name="tin_country_before_app"
-                                                        value="@isset($wealthpass->tin_country_before_app) {{ $wealthpass->tin_country_before_app }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="type_of_tin_before_app" class="form-label">Type of TIN
-                                                        Before
-                                                        Pass
-                                                        Application</label>
-                                                    <select name="type_of_tin_before_app" id="type_of_tin_before_app"
-                                                        class="form-control">
-                                                        <option value=""selected disabled>Choose type of tin
-                                                            before
-                                                            pass
-                                                            application</option>
-                                                        <option value="WP"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'WP' ? 'selected' : '' }}>
-                                                            WP</option>
-                                                        <option value="SP"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'SP' ? 'selected' : '' }}>
-                                                            SP</option>
-                                                        <option value="EP"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'EP' ? 'selected' : '' }}>
-                                                            EP</option>
-                                                        <option value="LVTP"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'LVTP' ? 'selected' : '' }}>
-                                                            LVTP</option>
-                                                        <option value="DP"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'DP' ? 'selected' : '' }}>
-                                                            DP</option>
-                                                        <option value="NRIC"
-                                                            {{ isset($wealthpass->type_of_tin_before_app) && $wealthpass->type_of_tin_before_app == 'NRIC' ? 'selected' : '' }}>
-                                                            NRIC</option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="tin_no_before_pass_app" class="form-label">TIN Number
-                                                        Before
-                                                        Pass
-                                                        Application</label>
-                                                    <input type="text" name="tin_no_before_pass_app"
-                                                        value="@isset($wealthpass->tin_no_before_pass_app) {{ $wealthpass->tin_no_before_pass_app }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="phone_no" class="form-label">Phone Number</label>
-                                                    <input type="text" name="phone_no"
-                                                        value="@isset($wealthpass->phone_no) {{ $wealthpass->phone_no }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="email" class="form-label">Email</label>
-                                                    <input type="text" name="email"
-                                                        value="@isset($wealthpass->email) {{ $wealthpass->email }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="business_type" class="form-label">Business
-                                                        Type</label>
-                                                    <select id="business_type" name="business_type" class="form-control">
-                                                        <option value="" selected disabled>Choose business type
-                                                        </option>
-                                                        <option vlaue="FO"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'FO' ? 'selected' : '' }}>FO</option>
-                                                            <option vlaue="PIC"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'PIC' ? 'selected' : '' }}>PIC</option>
-                                                            <option vlaue="Self-Employment"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'Self-Employment' ? 'selected' : '' }}>Self-Employment</option>
-                                                            <option vlaue="Employer Guarantee"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'Employer Guarantee' ? 'selected' : '' }}>Employer Guarantee</option>
-                                                            <option vlaue="PR Application"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'PR Application' ? 'selected' : '' }}>PR Application</option>
-                                                            <option vlaue="PR Renewal"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'PR Renewal' ? 'selected' : '' }}>PR Renewal</option>
-                                                            <option vlaue="Citizen"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'Citizen' ? 'selected' : '' }}>Citizen</option>
-                                                            <option vlaue="Others"
-                                                            {{ isset($wealthpass->business_type) && $wealthpass->business_type == 'Others' ? 'selected' : '' }}>Others</option>
-                                                    </select>
-                                                </div>
-                                                @if (isset($wealthpass->business_type) && $wealthpass->business_type == 'Others')
-                                                    <div class="formAreahalf basic_data please_specify">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        <input type="text" class="form-control"
-                                                                name="business_type_specify"
-                                                                value="{{ isset($wealthpass->business_type_specify) ? $wealthpass->business_type_specify : '' }}">
+                                            <div id="pass_collapse_{{$passholder_key}}" class="collapse" aria-labelledby="headingOne"
+                                                data-parent="#pass_accordion">
+                                                <div class="tab-inner-text d-flex flex-wrap">
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_holder_name" class="form-label pass_holder_name_lableJs" id="pass_holder_name_lable">Pass Holder Name
+                                                            (Eng)
+                                                        </label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][pass_holder_name]" id="pass_holder_name"
+                                                            value="@isset($passholder_item->pass_holder_name) {{ $passholder_item->pass_holder_name }} @endisset"
+                                                            class="form-control pass_holder_nameJs">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passposrt_name_chinese" class="form-label">Passport
+                                                            Full
+                                                            Name(Chinese)</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][passposrt_name_chinese]"
+                                                            id="passposrt_name_chinese"
+                                                            value="@isset($passholder_item->passposrt_name_chinese) {{ $passholder_item->passposrt_name_chinese }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="dob" class="form-label">DOB (DD/MM/YYYY)</label>
+                                                        <input type="date" name="passholder[{{$passholder_key}}][dob]" id="dob"
+                                                            value="{{$passholder_item->dob ?? ''}}"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="gender" class="form-label">Gender(M/F)</label>
+                                                        <select name="passholder[{{$passholder_key}}][gender]" id="gender" class="form-control">
+                                                            <option value="" selected disabled>Choose gender</option>
+                                                            <option value="Male"
+                                                                {{ isset($passholder_item->gender) && $passholder_item->gender == 'Male' ? 'selected' : '' }}>
+                                                                M
+                                                            </option>
+                                                            <option value="Female"
+                                                                {{ isset($passholder_item->gender) && $passholder_item->gender == 'Female' ? 'selected' : '' }}>
+                                                                F
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_expiry_date" class="form-label">Passport
+                                                            Expiry
+                                                            Date(DD/MM/YYYY)</label>
+                                                        <input type="date" name="passholder[{{$passholder_key}}][passport_expiry_date]"
+                                                            id="passport_expiry_date"
+                                                            value="{{$passholder_item->passport_expiry_date ?? ''}}"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_no" class="form-label">Passport
+                                                            Number</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_no]"
+                                                            value="@isset($passholder_item->passport_no) {{ $passholder_item->passport_no }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_renewal_reminder" class="form-label">Passport
+                                                            Renewal
+                                                            Reminder</label>
+                                                        <select name="passholder[{{$passholder_key}}][passport_renewal_reminder]"
+                                                            id="passport_renewal_reminder" class="form-control">
+                                                            <option value="" selected="" disabled="">Please
+                                                                select</option>
+                                                            <option value="90 days before expiry"
+                                                                {{ isset($passholder_item->passport_renewal_reminder) && $passholder_item->passport_renewal_reminder == '90 days before expiry' ? 'selected' : '' }}>
+                                                                90 days before expiry
+                                                            </option>
+                                                            <option value="120 days before expiry"
+                                                                {{ isset($passholder_item->passport_renewal_reminder) && $passholder_item->passport_renewal_reminder == '120 days before expiry' ? 'selected' : '' }}>
+                                                                120 days before expiry
+                                                            </option>
+                                                            <option value="180 days before expiry"
+                                                                {{ isset($passholder_item->passport_renewal_reminder) && $passholder_item->passport_renewal_reminder == '180 days before expiry' ? 'selected' : '' }}>
+                                                                180 days before expiry
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_country" class="form-label">Passport
+                                                            Country</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_country]"
+                                                            value="@isset($passholder_item->passport_country) {{ $passholder_item->passport_country }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_tri_frq" class="form-label">Passport Reminder
+                                                            Trigger
+                                                            Frequency</label>
+                                                        <div class="select_box"><span class="every">Every</span><span
+                                                                class="select"><select name="passholder[{{$passholder_key}}][passport_tri_frq]"
+                                                                    id="passport_tri_frq" class="form-control">
+                                                                    <option value="" selected="" disabled="">
+                                                                        Please
+                                                                        select</option>
+                                                                    <option value="Day"
+                                                                        {{ isset($passholder_item->passport_tri_frq) && $passholder_item->passport_tri_frq == 'Day' ? 'selected' : '' }}>
+                                                                        Day</option>
+                                                                    <option value="3 Days"
+                                                                        {{ isset($passholder_item->passport_tri_frq) && $passholder_item->passport_tri_frq == '3 Days' ? 'selected' : '' }}>
+                                                                        3 Days</option>
+                                                                    <option value="Week"
+                                                                        {{ isset($passholder_item->passport_tri_frq) && $passholder_item->passport_tri_frq == 'Week' ? 'selected' : '' }}>
+                                                                        Week</option>
+                                                                    <option value="2 Weeks"
+                                                                        {{ isset($passholder_item->passport_tri_frq) && $passholder_item->passport_tri_frq == '2 Weeks' ? 'selected' : '' }}>
+                                                                        2 Weeks</option>
+                                                                    <option value="4 Weeks"
+                                                                        {{ isset($passholder_item->passport_tri_frq) && $passholder_item->passport_tri_frq == '4 Weeks' ? 'selected' : '' }}>
+                                                                        4 Weeks</option>
+                                                                </select></span></div>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="tin_country_before_app" class="form-label">Tin Country
+                                                            Before
+                                                            Pass
+                                                            Application</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][tin_country_before_app]"
+                                                            value="@isset($passholder_item->tin_country_before_app) {{ $passholder_item->tin_country_before_app }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="type_of_tin_before_app" class="form-label">Type of TIN
+                                                            Before
+                                                            Pass
+                                                            Application</label>
+                                                        <select name="passholder[{{$passholder_key}}][type_of_tin_before_app]" id="type_of_tin_before_app"
+                                                            class="form-control">
+                                                            <option value=""selected disabled>Choose type of tin
+                                                                before
+                                                                pass
+                                                                application</option>
+                                                            <option value="WP"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'WP' ? 'selected' : '' }}>
+                                                                WP</option>
+                                                            <option value="SP"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'SP' ? 'selected' : '' }}>
+                                                                SP</option>
+                                                            <option value="EP"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'EP' ? 'selected' : '' }}>
+                                                                EP</option>
+                                                            <option value="LVTP"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'LVTP' ? 'selected' : '' }}>
+                                                                LVTP</option>
+                                                            <option value="DP"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'DP' ? 'selected' : '' }}>
+                                                                DP</option>
+                                                            <option value="NRIC"
+                                                                {{ isset($passholder_item->type_of_tin_before_app) && $passholder_item->type_of_tin_before_app == 'NRIC' ? 'selected' : '' }}>
+                                                                NRIC</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="tin_no_before_pass_app" class="form-label">TIN Number
+                                                            Before
+                                                            Pass
+                                                            Application</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][tin_no_before_pass_app]"
+                                                            value="@isset($passholder_item->tin_no_before_pass_app) {{ $passholder_item->tin_no_before_pass_app }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="phone_no" class="form-label">Phone Number</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][phone_no]"
+                                                            value="@isset($passholder_item->phone_no) {{ $passholder_item->phone_no }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][email]"
+                                                            value="@isset($passholder_item->email) {{ $passholder_item->email }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="business_type" class="form-label">Business
+                                                            Type</label>
+                                                        <select id="business_type" name="passholder[{{$passholder_key}}][business_type]" class="form-control">
+                                                            <option value="" selected disabled>Choose business type
+                                                            </option>
+                                                            <option vlaue="FO"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'FO' ? 'selected' : '' }}>FO</option>
+                                                                <option vlaue="PIC"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'PIC' ? 'selected' : '' }}>PIC</option>
+                                                                <option vlaue="Self-Employment"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'Self-Employment' ? 'selected' : '' }}>Self-Employment</option>
+                                                                <option vlaue="Employer Guarantee"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'Employer Guarantee' ? 'selected' : '' }}>Employer Guarantee</option>
+                                                                <option vlaue="PR Application"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'PR Application' ? 'selected' : '' }}>PR Application</option>
+                                                                <option vlaue="PR Renewal"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'PR Renewal' ? 'selected' : '' }}>PR Renewal</option>
+                                                                <option vlaue="Citizen"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'Citizen' ? 'selected' : '' }}>Citizen</option>
+                                                                <option vlaue="Others"
+                                                                {{ isset($passholder_item->business_type) && $passholder_item->business_type == 'Others' ? 'selected' : '' }}>Others</option>
+                                                        </select>
+                                                    </div>
+                                                    @if (isset($passholder_item->business_type) && $passholder_item->business_type == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            <input type="text" class="form-control"
+                                                                    name="passholder[{{$passholder_key}}][business_type_specify]"
+                                                                    value="{{ isset($passholder_item->business_type_specify) ? $passholder_item->business_type_specify : '' }}">
 
+
+                                                        </div>
+                                                    @endif
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="residential_add" class="form-label">Residential
+                                                            Address</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][residential_add]"
+                                                            value="@isset($passholder_item->residential_add) {{ $passholder_item->residential_add }} @endisset"
+                                                            class="form-control"></select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_app_status" class="form-label">Pass Application
+                                                            Status</label>
+                                                        <select name="passholder[{{$passholder_key}}][pass_app_status]" id="pass_app_status"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose application
+                                                                status
+                                                            </option>
+                                                            <option value="Pending"
+                                                                {{ isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                            <option value="Approved"
+                                                                {{ isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Approved' ? 'selected' : '' }}>Approved</option>
+                                                            <option value="Rejected"
+                                                                {{ isset($passholder_item->pass_app_status) && $passholder_item->pass_app_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="relation_with_pass" class="form-label">Relationship
+                                                            with
+                                                            Pass
+                                                            Holder 1</label>
+                                                        <select  name="passholder[{{$passholder_key}}][relation_with_pass]" value=""
+                                                            class="form-control relationship_with_passholderJs" data-passholder_id="{{$passholder_key}}">
+                                                            <option value="" selected disabled>Choose relationship with pass holder 1</option>
+                                                            <option value="Self"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>
+                                                            <option value="Parents"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>
+                                                            <option value="Spouse"
+                                                            {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>
+                                                            <option value="Children"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>
+                                                            <option value="Relatives"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>
+                                                            <option value="Friend"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>
+                                                            <option value="Others"
+                                                                {{ isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>
+                                                        </select>
+                                                    </div>
+                                                    @if (isset($passholder_item->relation_with_pass) && $passholder_item->relation_with_pass == 'Others')
+                                                        <div class="formAreahalf basic_data please_specifyJs">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            <input type="text" class="form-control"
+                                                                    name="passholder[{{$passholder_key}}][relation_with_pass_specify]"
+                                                                    value="{{ isset($passholder_item->relation_with_pass_specify) ? $passholder_item->relation_with_pass_specify : '' }}">
+
+
+                                                        </div>
+                                                    @endif
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_app_type" class="form-label">Pass Application
+                                                            Type</label>
+                                                        <select id= "pass_app_type" name="passholder[{{$passholder_key}}][pass_app_type]" id="pass_app_type"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose pass
+                                                                application
+                                                            </option>
+                                                            <option value="EP"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'EP' ? 'selected' : '' }}>EP</option>
+                                                            <option value="SP"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'SP' ? 'selected' : '' }}>SP</option>
+                                                            <option value="DP"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'DP' ? 'selected' : '' }}>DP</option>
+                                                            <option value="LVTP"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'LVTP' ? 'selected' : '' }}>LVTP</option>
+                                                            <option value="WP"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'WP' ? 'selected' : '' }}>WP</option>
+                                                            <option value="PR"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'PR' ? 'selected' : '' }}>PR</option>
+                                                            <option value="Citizen"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'Citizen' ? 'selected' : '' }}>Citizen</option>
+                                                            <option value="Others"
+                                                                {{ isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'Others' ? 'selected' : '' }}>Others</option>
+                                                        </select>
+                                                    </div>
+                                                    @if (isset($passholder_item->pass_app_type) && $passholder_item->pass_app_type == 'Others')
+                                                        <div class="formAreahalf basic_data please_specify">
+                                                            <label for="" class="form-label">Others, please specify</label>
+                                                            <input type="text" class="form-control"
+                                                                    name="passholder[{{$passholder_key}}][pass_app_type_specify]"
+                                                                    value="{{ isset($passholder_item->pass_app_type_specify) ? $passholder_item->pass_app_type_specify : '' }}">
+
+
+                                                        </div>
+                                                    @endif
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_inssuance" class="form-label">Pass
+                                                            Issuance</label>
+                                                        <select name="passholder[{{$passholder_key}}][pass_inssuance]" id="pass_inssuance"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose Pass Issuance
+                                                            </option>
+                                                            <option value="Progress"
+                                                                {{ isset($passholder_item->pass_inssuance) && $passholder_item->pass_inssuance == 'Progress' ? 'selected' : '' }}>Progress</option>
+                                                            <option value="Done"
+                                                                {{ isset($passholder_item->pass_inssuance) && $passholder_item->pass_inssuance == 'Done' ? 'selected' : '' }}>Done</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
+                                                            <input type="date" name="passholder[{{$passholder_key}}][pass_issuance_date]"
+                                                            value="{{$passholder_item->pass_issuance_date ?? ''}}"
+                                                            class="form-control" placeholder="dd/mm/yyyy">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
+                                                        <input type="date" name="passholder[{{$passholder_key}}][pass_expiry_date]"
+                                                        value="{{$passholder_item->pass_expiry_date ?? ''}}"
+                                                        class="form-control" placeholder="dd/mm/yyyy">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_renewal_reminder" class="form-label">Pass Renewal
+                                                            Reminder</label>
+                                                        <select name="passholder[{{$passholder_key}}][pass_renewal_reminder]" id="pass_renewal_reminder"
+                                                            class="form-control">
+                                                            <option value="" selected disabled>Choose pass renewal
+                                                                reminder
+                                                            </option>
+                                                            <option value="90 days before expiry"
+                                                                {{ isset($passholder_item->pass_renewal_reminder) && $passholder_item->pass_renewal_reminder == '90 days before expiry' ? 'selected' : '' }}>
+                                                                90 days before expiry
+                                                            </option>
+                                                            <option value="120 days before expiry"
+                                                                {{ isset($passholder_item->pass_renewal_reminder) && $passholder_item->pass_renewal_reminder == '120 days before expiry' ? 'selected' : '' }}>
+                                                                120 days before expiry
+                                                            </option>
+                                                            <option value="180 days before expiry"
+                                                                {{ isset($passholder_item->pass_renewal_reminder) && $passholder_item->pass_renewal_reminder == '180 days before expiry' ? 'selected' : '' }}>
+                                                                180 days before expiry
+                                                            </option>
+                                                        </select>
 
                                                     </div>
-                                                @endif
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="residential_add" class="form-label">Residential
-                                                        Address</label>
-                                                    <input type="text" name="residential_add"
-                                                        value="@isset($wealthpass->residential_add) {{ $wealthpass->residential_add }} @endisset"
-                                                        class="form-control"></select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_app_status" class="form-label">Pass Application
-                                                        Status</label>
-                                                    <select name="pass_app_status" id="pass_app_status"
-                                                        class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose application
-                                                            status
-                                                        </option>
-                                                        <option value="Pending"
-                                                            {{ isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                        <option value="Approved"
-                                                            {{ isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Approved' ? 'selected' : '' }}>Approved</option>
-                                                        <option value="Rejected"
-                                                            {{ isset($wealthpass->pass_app_status) && $wealthpass->pass_app_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="relation_with_pass" class="form-label">Relationship
-                                                        with
-                                                        Pass
-                                                        Holder 1</label>
-                                                    <select id="relation_with_pass" name="relation_with_pass" value=""
-                                                        class="form-control">
-                                                        <option value="" selected disabled>Choose relationship with pass holder 1</option>
-                                                        <option value="Self"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Self' ? 'selected' : '' }}>Self</option>
-                                                        <option value="Parents"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Parents' ? 'selected' : '' }}>Parents</option>
-                                                        <option value="Spouse"
-                                                           {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Spouse' ? 'selected' : '' }}>Spouse</option>
-                                                        <option value="Children"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Children' ? 'selected' : '' }}>Children</option>
-                                                        <option value="Relatives"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Relatives' ? 'selected' : '' }}>Relatives</option>
-                                                        <option value="Friend"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Friend' ? 'selected' : '' }}>Friend</option>
-                                                        <option value="Others"
-                                                            {{ isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others' ? 'selected' : '' }}>Others</option>
-                                                    </select>
-                                                </div>
-                                                @if (isset($wealthpass->relation_with_pass) && $wealthpass->relation_with_pass == 'Others')
-                                                    <div class="formAreahalf basic_data please_specify">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        <input type="text" class="form-control"
-                                                                name="relation_with_pass_specify"
-                                                                value="{{ isset($wealthpass->relation_with_pass_specify) ? $wealthpass->relation_with_pass_specify : '' }}">
-
-
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="duration" class="form-label">Duration</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][duration]"
+                                                            value="@isset($passholder_item->duration) {{ $passholder_item->duration }}  @endisset"
+                                                            class="form-control">
                                                     </div>
-                                                @endif
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_app_type" class="form-label">Pass Application
-                                                        Type</label>
-                                                    <select id= "pass_app_type" name="pass_app_type" id="pass_app_type"
-                                                        class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose pass
-                                                            application
-                                                        </option>
-                                                        <option value="EP"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'EP' ? 'selected' : '' }}>EP</option>
-                                                        <option value="SP"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'SP' ? 'selected' : '' }}>SP</option>
-                                                        <option value="DP"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'DP' ? 'selected' : '' }}>DP</option>
-                                                        <option value="LVTP"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'LVTP' ? 'selected' : '' }}>LVTP</option>
-                                                        <option value="WP"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'WP' ? 'selected' : '' }}>WP</option>
-                                                        <option value="PR"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'PR' ? 'selected' : '' }}>PR</option>
-                                                        <option value="Citizen"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Citizen' ? 'selected' : '' }}>Citizen</option>
-                                                        <option value="Others"
-                                                            {{ isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others' ? 'selected' : '' }}>Others</option>
-                                                    </select>
-                                                </div>
-                                                @if (isset($wealthpass->pass_app_type) && $wealthpass->pass_app_type == 'Others')
-                                                    <div class="formAreahalf basic_data please_specify">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        <input type="text" class="form-control"
-                                                                name="pass_app_type_specify"
-                                                                value="{{ isset($wealthpass->pass_app_type_specify) ? $wealthpass->pass_app_type_specify : '' }}">
-
-
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="fin_number" class="form-label">FIN Number</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][fin_number]"
+                                                            value="@isset($passholder_item->fin_number) {{ $passholder_item->fin_number }}  @endisset"
+                                                            class="form-control">
                                                     </div>
-                                                @endif
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_inssuance" class="form-label">Pass
-                                                        Issuance</label>
-                                                    <select name="pass_inssuance" id="pass_inssuance"
-                                                        class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose Pass Issuance
-                                                        </option>
-                                                        <option value="Progress"
-                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Progress' ? 'selected' : '' }}>Progress</option>
-                                                        <option value="Done"
-                                                            {{ isset($wealthpass->pass_inssuance) && $wealthpass->pass_inssuance == 'Done' ? 'selected' : '' }}>Done</option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
-                                                        <input type="text" name="pass_issuance_date"
-                                                        value="@isset($wealthpass->pass_issuance_date) {{ $wealthpass->pass_issuance_date }}  @endisset"
-                                                        class="form-control datepicker" placeholder="dd/mm/yyyy">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
-                                                    <input type="text" name="pass_expiry_date"
-                                                    value="@isset($wealthpass->pass_expiry_date) {{ $wealthpass->pass_expiry_date }}  @endisset"
-                                                    class="form-control datepicker" placeholder="dd/mm/yyyy">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_renewal_reminder" class="form-label">Pass Renewal
-                                                        Reminder</label>
-                                                    <select name="pass_renewal_reminder" id="pass_renewal_reminder"
-                                                        class="form-control">
-                                                        <option value="" selected disabled>Choose pass renewal
-                                                            reminder
-                                                        </option>
-                                                        <option value="90 days before expiry"
-                                                            {{ isset($wealthpass->pass_renewal_reminder) && $wealthpass->pass_renewal_reminder == '90 days before expiry' ? 'selected' : '' }}>
-                                                            90 days before expiry
-                                                        </option>
-                                                        <option value="120 days before expiry"
-                                                            {{ isset($wealthpass->pass_renewal_reminder) && $wealthpass->pass_renewal_reminder == '120 days before expiry' ? 'selected' : '' }}>
-                                                            120 days before expiry
-                                                        </option>
-                                                        <option value="180 days before expiry"
-                                                            {{ isset($wealthpass->pass_renewal_reminder) && $wealthpass->pass_renewal_reminder == '180 days before expiry' ? 'selected' : '' }}>
-                                                            180 days before expiry
-                                                        </option>
-                                                    </select>
-
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="duration" class="form-label">Duration</label>
-                                                    <input type="text" name="duration"
-                                                        value="@isset($wealthpass->duration) {{ $wealthpass->duration }}  @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="fin_number" class="form-label">FIN Number</label>
-                                                    <input type="text" name="fin_number"
-                                                        value="@isset($wealthpass->fin_number) {{ $wealthpass->fin_number }}  @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_renewal_frq" class="form-label">Pass Renewal
-                                                        Trigger
-                                                        Frequency</label>
-                                                    <div class="select_box"><span class="every">Every</span><span
-                                                            class="select"><select name="pass_renewal_frq"
-                                                                id="pass_renewal_frq" class="form-control">
-                                                                <option value="" selected="" disabled="">
-                                                                    Please
-                                                                    select</option>
-                                                                <option value="Day"
-                                                                    {{ isset($wealthpass->pass_renewal_frq) && $wealthpass->pass_renewal_frq == 'Day' ? 'selected' : '' }}>
-                                                                    Day</option>
-                                                                <option value="3 Days"
-                                                                    {{ isset($wealthpass->pass_renewal_frq) && $wealthpass->pass_renewal_frq == '3 Days' ? 'selected' : '' }}>
-                                                                    3 Days</option>
-                                                                <option value="Week"
-                                                                    {{ isset($wealthpass->pass_renewal_frq) && $wealthpass->pass_renewal_frq == 'Week' ? 'selected' : '' }}>
-                                                                    Week</option>
-                                                                <option value="2 Weeks"
-                                                                    {{ isset($wealthpass->pass_renewal_frq) && $wealthpass->pass_renewal_frq == '2 Weeks' ? 'selected' : '' }}>
-                                                                    2 Weeks</option>
-                                                                <option value="4 Weeks"
-                                                                    {{ isset($wealthpass->pass_renewal_frq) && $wealthpass->pass_renewal_frq == '4 Weeks' ? 'selected' : '' }}>
-                                                                    4 Weeks</option>
-                                                            </select></span></div>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_jon_title" class="form-label">Pass. Job
-                                                        Title</label>
-                                                    <input type="text" name="pass_jon_title"
-                                                        value="@isset($wealthpass->pass_jon_title) {{ $wealthpass->pass_jon_title }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="singpass_set_up" class="form-label">Singpass Set
-                                                        Up</label>
-                                                    <select name="singpass_set_up"
-                                                        class="js-example-responsive form-control">
-                                                        <option value="" selected disabled>Choose singpass set</option>
-                                                        <option value="Progress" {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Progress" ? 'selected' : ""}}>Progress</option>
-                                                        <option value="Done"  {{isset($wealthpass->singpass_set_up) && $wealthpass->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
-                                                    </select>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="employee_name" class="form-label">Employer's
-                                                        Name</label>
-                                                    <input type="text" name="employee_name"
-                                                        value="@isset($wealthpass->employee_name) {{ $wealthpass->employee_name }} @endisset"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="monthly_sal" class="form-label">Monthly
-                                                        Salary(SGD)</label>
-
-                                                    <div class="dollersec"><span class="doller">$</span>
-                                                        <span class="input"> <input type="integer" name="monthly_sal" value="@isset($wealthpass->monthly_sal) {{ $wealthpass->monthly_sal }} @endisset"
-                                                        class="form-control"></span>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_renewal_frq" class="form-label">Pass Renewal
+                                                            Trigger
+                                                            Frequency</label>
+                                                        <div class="select_box"><span class="every">Every</span><span
+                                                                class="select"><select name="passholder[{{$passholder_key}}][pass_renewal_frq]"
+                                                                    id="pass_renewal_frq" class="form-control">
+                                                                    <option value="" selected="" disabled="">
+                                                                        Please
+                                                                        select</option>
+                                                                    <option value="Day"
+                                                                        {{ isset($passholder_item->pass_renewal_frq) && $passholder_item->pass_renewal_frq == 'Day' ? 'selected' : '' }}>
+                                                                        Day</option>
+                                                                    <option value="3 Days"
+                                                                        {{ isset($passholder_item->pass_renewal_frq) && $passholder_item->pass_renewal_frq == '3 Days' ? 'selected' : '' }}>
+                                                                        3 Days</option>
+                                                                    <option value="Week"
+                                                                        {{ isset($passholder_item->pass_renewal_frq) && $passholder_item->pass_renewal_frq == 'Week' ? 'selected' : '' }}>
+                                                                        Week</option>
+                                                                    <option value="2 Weeks"
+                                                                        {{ isset($passholder_item->pass_renewal_frq) && $passholder_item->pass_renewal_frq == '2 Weeks' ? 'selected' : '' }}>
+                                                                        2 Weeks</option>
+                                                                    <option value="4 Weeks"
+                                                                        {{ isset($passholder_item->pass_renewal_frq) && $passholder_item->pass_renewal_frq == '4 Weeks' ? 'selected' : '' }}>
+                                                                        4 Weeks</option>
+                                                                </select></span></div>
                                                     </div>
-                                                </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="pass_remarks" class="form-label">Remarks</label>
-                                                    <textarea name="pass_remarks" rows="4" cols="50"
-                                                        value="@isset($wealthpass->pass_remarks) {{ $wealthpass->pass_remarks }} @endisset">@isset($wealthpass->pass_remarks) {{ $wealthpass->pass_remarks }} @endisset</textarea>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_jon_title" class="form-label">Pass. Job
+                                                            Title</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][pass_jon_title]"
+                                                            value="@isset($passholder_item->pass_jon_title) {{ $passholder_item->pass_jon_title }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="singpass_set_up" class="form-label">Singpass Set
+                                                            Up</label>
+                                                        <select name="passholder[{{$passholder_key}}][singpass_set_up]"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose singpass set</option>
+                                                            <option value="Progress" {{isset($passholder_item->singpass_set_up) && $passholder_item->singpass_set_up =="Progress" ? 'selected' : ""}}>Progress</option>
+                                                            <option value="Done"  {{isset($passholder_item->singpass_set_up) && $passholder_item->singpass_set_up =="Done" ? 'selected' : ""}}>Done</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="employee_name" class="form-label">Employer's
+                                                            Name</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][employee_name]"
+                                                            value="@isset($passholder_item->employee_name) {{ $passholder_item->employee_name }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="monthly_sal" class="form-label">Monthly
+                                                            Salary(SGD)</label>
+
+                                                        <div class="dollersec"><span class="doller">$</span>
+                                                            <span class="input"> <input type="integer" name="passholder[{{$passholder_key}}][monthly_sal]" value="@isset($passholder_item->monthly_sal) {{ $passholder_item->monthly_sal }} @endisset"
+                                                            class="form-control"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="pass_remarks" class="form-label">Remarks</label>
+                                                        <textarea name="passholder[{{$passholder_key}}][pass_remarks]" rows="4" cols="50"
+                                                            value="@isset($passholder_item->pass_remarks) {{ $passholder_item->pass_remarks }} @endisset">@isset($passholder_item->pass_remarks) {{ $passholder_item->pass_remarks }} @endisset</textarea>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="btn_check_finance">
+                                        <button class='btn saveBtn' id="add_passholder">Add Passholder</button>
                                     </div>
                                 </div>
 
@@ -1550,22 +1558,22 @@
                                                             Inception
                                                             Date</label>
                                                         <input type="date" name="subscription"
-                                                            value="@isset($wealthbuss->subscription){{ $wealthbuss->subscription }}@endisset"
-                                                            class="form-control">
+                                                            value="{{$wealthbuss->subscription ?? ''}}"
+                                                            class="form-control subsInsDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
-                                                            value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
-                                                            class="form-control">
+                                                            value="{{$wealthbuss->maturity_date ?? ''}}"
+                                                            class="form-control maturityDateJs">
 
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control durationJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity
@@ -1810,12 +1818,12 @@
                                                             class="js-example-responsive form-control business_account_status">
                                                             <option value="" selected disabled>Choose account status
                                                             </option>
-                                                            <option value="Pending"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                            <option value="Approved"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved' ? 'selected' : '' }}>Approved</option>
-                                                            <option value="Rejected"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+                                                            <!-- <option value="Pending"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option> -->
+                                                            <option value="Active"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Active' ? 'selected' : '' }}>Active</option>
+                                                            <option value="Dormant"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Dormant' ? 'selected' : '' }}>Dormant</option>
                                                         </select>
                                                     </div>
 
@@ -1942,22 +1950,22 @@
                                                             Inception
                                                             Date</label>
                                                         <input type="date" name="subscription"
-                                                            value="@isset($wealthbuss->subscription){{ $wealthbuss->subscription }}@endisset"
-                                                            class="form-control">
+                                                            value="{{$wealthbuss->subscription ?? ''}}"
+                                                            class="form-control subsInsDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_date" class="form-label">Maturity
                                                             Date</label>
                                                         <input type="date" name="maturity_date"
-                                                            value="@isset($wealthbuss->maturity_date){{ $wealthbuss->maturity_date }}@endisset"
-                                                            class="form-control">
+                                                            value="{{$wealthbuss->maturity_date ?? ''}}"
+                                                            class="form-control maturityDateJs">
 
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control">
+                                                            class="form-control durationJs" disabled>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity
@@ -2072,7 +2080,7 @@
                                                         <label for="net_amount_val" class="form-label">Redemption
                                                             Date</label>
                                                         <input type="date" name="business_redemption_date"
-                                                            value="@isset($wealthbuss->business_redemption_date){{ $wealthbuss->business_redemption_date }}@endisset"
+                                                            value="{{$wealthbuss->business_redemption_date ?? ''}}"
                                                             class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
@@ -2113,14 +2121,14 @@
                                                                         Date</label>
                                                                     <input type="date" name="business_redemption_date"
                                                                         value=""
-                                                                        class="form-control red_date">
+                                                                        class="form-control red_date redDateJs">
                                                                 </div>
                                                                 <div class="formAreahalf r_table">
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
                                                                         <span class="input"> <input type="integer"
-                                                                                class="form-control red_amount" name="business_redemption_amount"
+                                                                                class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>
                                                                     </div>
@@ -2128,7 +2136,7 @@
                                                             </div>
 
                                                         <div class="btn_adding_redempton">
-                                                            <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
+                                                            <button class="btn saveBtn add_redemption btn_add_redempt addRedButtonJs" disabled>Add</button>
                                                         </div>
 
                                                 </div>
@@ -2477,6 +2485,7 @@
             });
             const callBack = (o) => {
                 let substr = o.name.substr(0,11)
+                console.log(substr);
                 const emailValue = document.getElementsByName(substr + '[email]')[0].value
                 document.getElementsByName('email')[0].value = emailValue
 
@@ -2491,7 +2500,7 @@
                 document.getElementsByName('gender')[0].value = gender
 
                 const passport_exp_date = document.getElementsByName(substr + '[passport_exp_date]')[0].value
-                document.getElementsByName('pass_expiry_date')[0].value = passport_expiry_date
+                document.getElementsByName('passport_expiry_date')[0].value = passport_exp_date.split("/").reverse().join("-")
 
                 const passport_no = document.getElementsByName(substr + '[passport_no]')[0].value
                 document.getElementsByName('passport_no')[0].value = passport_no
@@ -2501,6 +2510,9 @@
 
                 const passport_renew = document.getElementsByName(substr + '[passport_renew]')[0].value
                 document.getElementsByName('pass_renewal_reminder')[0].value = passport_renew
+
+                const dob = document.getElementsByName(substr + '[passport_exp_date]')[0].value
+                document.getElementsByName('dob')[0].value = dob.split("/").reverse().join("-")
 
                 const residential_address = document.getElementsByName(substr + '[residential_address]')[0].value
                 document.getElementsByName('residential_add')[0].value = residential_address
@@ -2540,41 +2552,96 @@
                     </div>
                     `
             }
-            $(document).on('change', '#pass_holder_name', function() {
+            $('body').on('change', '.pass_holder_nameJs', function() {
                 const arr = document.getElementsByClassName('pass_name_eng')
                 for(let i = 0; i < arr.length; i++){
                     if(arr[i].value == $(this).val()){
-                        callBack(arr[i])
+                        //callBack(arr[i])
                     }
                 }
             });
-            $(document).on('change', '#passholder_shareholder', function() {
-                if ($(this).val() == "Yes") {
+            // $('body').on('change', '.shareholdersJs', function() {
+            //     var passholder_key = $(this).attr('data-key');
+            //     if ($(this).val() == "Yes") {
+            //          var htmpass=`<select class="form-control pass_holder_nameJs" id="pass_holder_name"
+            //                     name="passholder[`+passholder_key+`]['pass_holder_name']">`;
+            //         var pass_name_eng_arr = $('.pass_name_eng').map(function () {
+            //             return this.value;
+            //         }).get();
+            //         var option_values= "";
+            //         $.each(pass_name_eng_arr, function(key, value) {
+            //              htmpass += `<option value="`+value+`">`+value+`</option>`;
+            //         });
+            //         htmpass += `</select>`;
 
-                     var htmpass=`<select class="form-control" id="pass_holder_name"
-                                name="pass_holder_name">`;
-                    var pass_name_eng_arr = $('.pass_name_eng').map(function () {
-                        return this.value;
-                    }).get();
-                    var option_values= "";
-                    $.each(pass_name_eng_arr, function(key, value) {
-                         htmpass += `<option value="`+value+`">`+value+`</option>`;
-                    });
-                    htmpass += `</select>`;
+            //         $('.pass_holder_name_lableJs').next('.pass_holder_nameJs').remove();
+            //         $('.pass_holder_name_lableJs').after(htmpass);
+            //         // callBack(document.getElementsByClassName('pass_name_eng')[0])
 
-                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
-                    $('#pass_holder_name_lable').after(htmpass);
-                    callBack(document.getElementsByClassName('pass_name_eng')[0])
+            //     } else {
+            //         var htmpass = `<input type="text" name="passholder[`+passholder_key+`]['pass_holder_name']" id="pass_holder_name" class="form-control pass_holder_nameJs">`;
+            //         $('.pass_holder_name_lableJs').next('.pass_holder_nameJs').remove();
+            //         $('.pass_holder_name_lableJs').after(htmpass);
+            //     }
 
-                } else {
-                    var htmpass = `<input type="text" name="pass_holder_name" id="pass_holder_name" class="form-control">`;
-                    $('#pass_holder_name_lable').next('#pass_holder_name').remove();
-                    $('#pass_holder_name_lable').after(htmpass);
-                }
-
-            });
+            // });
 
 
+        });
+
+        $('#business_account_type').select2({
+            placeholder: 'Select Account Types',
+            allowClear: true
+        });
+
+
+        $('body').on('click' , '.delete_passholderJs' , function(){
+            var id            = $(this).attr('data-id');
+            var passholder_id = $(this).attr('data-passholder_id');
+            if(passholder_id){
+                swal({
+                    title: "Are you sure you want to delete this passholder ?",
+                    text: "You will not be able to retrieve this passholder again.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        var url = "{{ route('wealth.delete.passholder', ':id') }}";
+                        url = url.replace(':id', passholder_id);
+                        $.ajax({
+                            type: "DELETE",
+                            url: url,
+                            data: {
+                                passholder_id: passholder_id,
+                            },
+                            cache: false,
+                            success: function(response) {
+                                swal(
+                                    "Success!",
+                                    "Passholder has been deleted successfully!",
+                                    "success",
+                                );
+                                $('#passholder_item' + id).remove();
+                            },
+                            failure: function(response) {
+                                swal(
+                                    "Internal Error",
+                                    "Oops, your passholder was not deleted.",
+                                    "error"
+                                )
+                            }
+                        });
+                    }
+                });
+            }else{
+                $('#passholder_item' + id).remove();
+            }
         });
     </script>
 @endpush

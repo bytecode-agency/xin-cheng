@@ -205,7 +205,7 @@
                                                     class="form-control" name="cmp[2][address]" id="fo_company_add">
                                             </div>
                                             <div class="formAreahalf"> <label for="fo_incorporation_date_2"
-                                                    class="form-label">Incorporation Date</label> <input type="date"
+                                                    class="form-label">Incorporation Date (DD/MM/YYYY)</label> <input type="date"
                                                     class="form-control" name="cmp[2][incorporate_date]"
                                                     id="fo_incorporation_date_2" placeholder="dd/mm/yyyy"> </div>
                                             <div class="formAreahalf"> <label for="fo_relationship_2"
@@ -365,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" name="nfo_dob" id="nfo_dob" class="form-control" placeholder="dd/mm/yyyy">
+                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -416,6 +416,12 @@
                         <input type="text" class="form-control" name="nfo_tin_ctry" id="nfo_tin_ctry">
                     </div>
                     <div class="formAreahalf">
+                        <label for="nfo_tin_country_before_app" class="form-label">TIN Country Before Pass Application
+                        </label>
+                        <input type="text" class="form-control" name="nfo_tin_country_before_app"
+                            id="nfo_tin_country_before_app">
+                    </div>
+                    <div class="formAreahalf">
                         <label for="nfo_tin_no_before_app" class="form-label">TIN Number Before Pass Application </label>
                         <input type="text" class="form-control" name="nfo_tin_no_before_app"
                             id="nfo_tin_no_before_app">
@@ -437,10 +443,8 @@
                         <input type="text" class="form-control" name="nfo_email" id="nfo_email">
                     </div>
                     <div class="formAreahalf">
-                        <label for="nfo_tin_country_before_app" class="form-label">TIN Country Before Pass Application
-                        </label>
-                        <input type="text" class="form-control" name="nfo_tin_country_before_app"
-                            id="nfo_tin_country_before_app">
+                        <label for="nfo_phone_number" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
                     </div>
 
                     <div class="formAreahalf">
@@ -463,23 +467,17 @@
                         </select>
                     </div>
                     <div class="formAreahalf">
-                        <label for="nfo_employer_ind" class="form-label">Employer's Industry</label>
-                        <input type="text" class="form-control" name="nfo_employer_ind" id="nfo_employer_ind">
-                    </div>
-
-                    <div class="formAreahalf">
-                        <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
-                    </div>
-
-                    <div class="formAreahalf">
                         <label for="nfo_current_job_title" class="form-label">Current Job Title</label>
                         <input type="text" class="form-control" name="nfo_current_job_title"
                             id="nfo_current_job_title">
                     </div>
-                    <div class="formAreahalf">
+                    <div class="formAreahalf mb-5">
                         <label for="nfo_emp_name" class="form-label">Employer's Name</label>
                         <input type="text" class="form-control" name="nfo_emp_name" id="nfo_emp_name">
+                    </div>
+                    <div class="formAreahalf">
+                        <label for="nfo_employer_ind" class="form-label">Employer's Industry</label>
+                        <input type="text" class="form-control" name="nfo_employer_ind" id="nfo_employer_ind">
                     </div>
                 </div>
             </div>
@@ -848,7 +846,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" class="form-control" name="fo_dob" id="fo_dob">
+            <input type="text" class="form-control datepicker" name="fo_dob" id="fo_dob">
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -868,7 +866,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-            <input type="text" class="form-control" name="fo_pass_exp" id="fo_pass_exp">
+            <input type="date" class="form-control" name="fo_pass_exp" id="fo_pass_exp">
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_country" class="form-label">Passport Country</label>
@@ -1001,7 +999,7 @@
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" name="nfo_cpm2_dob" id="nfo_cpm2_dob" class="form-control" value="">
+            <input type="text" name="nfo_cpm2_dob datepicker" id="nfo_cpm2_dob" class="form-control" value="">
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_pass_no" class="form-label">Passport Number</label>
@@ -1015,7 +1013,7 @@
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-            <input type="text" name="nfo_cpm2_pass_exp" id="nfo_cpm2_pass_exp" class="form-control"
+            <input type="date" name="nfo_cpm2_pass_exp" id="nfo_cpm2_pass_exp" class="form-control"
                 value="">
         </div>
         <div class="formAreahalf">

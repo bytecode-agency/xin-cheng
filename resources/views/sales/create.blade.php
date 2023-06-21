@@ -34,10 +34,11 @@
         <div class="card formContentData border-0 p-4 salescreate">
             <h3>Application Details</h3>
             <form action="javascript:void(0);" class="userForm d-flex justify-content-center flex-wrap  application_details"
-                method="POST" id="multistep_form">
+                method="POST" id="multistep_form" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="created_by" value="{{ Auth::user()->name }}">
                 <input type="hidden" name="uid" value="{{ Auth::user()->id }}">
+                <input type="hidden" value="Sale Application" name="tbl_name">
 
                 <fieldset id="account"
                     class=" w-100 d-flex justify-content-start flex-wrap form-fields fieldset1-account">
@@ -429,9 +430,16 @@
                         <div class="text-end generated"><button type="button" name="add" id="dynamic-ar2"
                                 class="btn saveBtn add_potentia mb-0">Add Business Generated</button></div>
                     </div>
-                </div>
-
-
+                        <div class="textarea">
+                           <h3>Notes</h3>
+                            <textarea id="text_notes" name="notes" placeholder="Type your notes here..." rows="8" cols="200"></textarea>
+                        </div>  
+                        <br>
+                        <div class="file_uload">
+                            <h3>File Upload</h3>
+                            <input type="file" name="file" class="form-control" id="upload_file" style="height:36px;">
+                        </div>
+                </div>                                       
                 {{-- {!! Form::close() !!} --}}
         </div>
         <div class="text-center custom_next_btn pt-4 " id="append_div_btn">
@@ -1080,9 +1088,13 @@
 
 
 
-
+                    $('.textarea').hide();
+                    $('.file_uload').hide();
                 }
                 if (document.getElementById('business').value == "B2C") {
+                    $('.textarea').show();
+                    $('.file_uload').show();
+
                     // alert('b2b');
                     // $("#client").append('<option>Select</option>');
                     $("#client").html(
@@ -1430,21 +1442,38 @@
                 else return true;
             }
 
+            $.validator.addMethod('dateAfter', function (value, element, params) {
+            // if start date is valid, validate it as well
+                var start = $(params);
+                if (!start.data('validation.running')) {
+                    $(element).data('validation.running', true);
+                    setTimeout($.proxy(
 
-            $("#multistep_form").change(function(e) {
-                $("#multistep_form").valid();
-                if (e.target.id === 'b2bexdate') {
-                    const aggrementDate = $('#b2bsigndate').val();
-                    if (compare_dates(new Date(aggrementDate), new Date(e.target.value))) {
-                        $('#b2bexdate').val(aggrementDate);
-                    }
-                } else if (e.target.id === 'b2bsigndate') {
-                    const expiryDate = $('#b2bexdate').val();
-                    if (compare_dates(new Date(e.target.value), new Date(expiryDate))) {
-                        $('#b2bexdate').val(e.target.value);
-                    }
+                    function () {
+                        this.element(start);
+                    }, this), 0);
+                    setTimeout(function () {
+                        $(element).data('validation.running', false);
+                    }, 0);
                 }
-            });
+                return this.optional(element) || this.optional(start[0]) || new Date(value) > new Date($(params).val());
+
+            }, 'Must be after B2B Agreement Sign Date');
+            
+            // $("#multistep_form").change(function(e) {
+            //     $("#multistep_form").valid();
+            //     if (e.target.id === 'b2bexdate') {
+            //         const aggrementDate = $('#b2bsigndate').val();
+            //         if (compare_dates(new Date(aggrementDate), new Date(e.target.value))) {
+            //             $('#b2bexdate').val(aggrementDate);
+            //         }
+            //     } else if (e.target.id === 'b2bsigndate') {
+            //         const expiryDate = $('#b2bexdate').val();
+            //         if (compare_dates(new Date(e.target.value), new Date(expiryDate))) {
+            //             $('#b2bexdate').val(e.target.value);
+            //         }
+            //     }
+            // });
 
             $("#multistep_form").validate({
 
@@ -1456,10 +1485,21 @@
                         required: true,
                         minlength: 1
                     },
-                    // cname: {
-                    //     required: true
-                    // },
-
+                    cname: {
+                        maxlength: 100
+                    },
+                    ccountry: {
+                        maxlength: 100
+                    },
+                    ccity: {
+                        maxlength: 100
+                    },
+                    pocname: {
+                        maxlength: 100
+                    },
+                    pocwechat: {
+                        maxlength: 100
+                    },
                     pocph: {
                         minlength: 6,
                         maxlength: 10,
@@ -1470,6 +1510,13 @@
                         email: true,
                         minlength: 1
                     },
+                    b2bsigndate:{
+                        // required:true
+                    },
+                    b2bexdate:{
+                        dateAfter: "#b2bsigndate",
+                        // required:true,
+                    }
                 },
                 messages: {
                     pocph: "Please enter valid phone number",
@@ -1481,8 +1528,8 @@
             //     $("#multistep_form").valid();
 
             // });
-
-            $('body').on('click', '#next1', function() {
+            $('#multistep_form').submit(function(e) {
+                e.preventDefault();
                 // var client = $('.same_client_topb').prop("checked");
                 // var business = $('.Potential_business').prop("checked");
                 // var clientfieldLength = $('input[name^="addpb"]').val().length;
@@ -1516,25 +1563,28 @@
                 //     });
                 // }
                 const valid = $("#multistep_form").valid();
+                let formData = new FormData(this);
                 if (valid == true) {
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
-                                'content')
+                                'content'),
+                            
                         }
                     });
-
                     $.ajax({
                         url: "{{ route('sales.save') }}",
                         type: "POST",
-                        data: $('#multistep_form').serialize(),
+                        contentType: false,
+                        processData: false,
+                        data:formData,
                         success: function(response) {
-                            console.log(response.input.view_id);
+                            // console.log(response.input.view_id);
                             const el = document.createElement('div')
                             el.innerHTML =
 
                                 `<p>You can view Application <a class='view-application' href='/salesshow/` +
-                                response.input.view_id + `'>here</a>`
+                                response.view_id + `'>here</a>`
                             swal({
                                 title: `Application Created`,
                                 content: el,
@@ -1549,7 +1599,7 @@
                                 },
                             }).then((result) => {
                                 $('#multistep_form')[0].reset();
-                                window.location.reload()
+                                window.location = '{{route('sales')}}';
 
                             })
                         }

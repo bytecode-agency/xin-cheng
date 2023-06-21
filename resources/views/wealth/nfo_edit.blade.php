@@ -34,19 +34,20 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Incorporation Date</label>
-                            <input type="text" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
-                                class="form-control datepicker" value="{{ $company->incorporate_date }}" placeholder="dd/mm/yyyy">
+                            <input type="date" name="cmp[{{ $key }}][incorporate_date]" id="fo_compnay_{{$key}}"
+                                class="form-control" value="{{$company->incorporate_date}}" placeholder="dd/mm/yyyy">
                         </div>
-                        @if( $key != 0)
                             <div class="formAreahalf basic_data">
                                 <label for="" class="form-label">Relationship with Company 1</label>
                                 <select class="form-control" name="cmp[{{$key}}][relationship]" id="fo_relationship">
                                 <option value="" selected disabled="">Choose Relationship with Company</option>
                                 <option value="Self" {{isset($company->relationship) && $company->relationship == 'Self' ? 'selected' : ''  }}>Self</option>
                                 <option value="Subsidiary" {{isset($company->relationship) && $company->relationship == 'Subsidiary' ? 'selected' : ''  }}>Subsidiary</option>
+                                <option value="Parent company" {{isset($company->relationship) && $company->relationship == 'Parent company' ? 'selected' : ''  }}>Parent company</option>
+                                <option value="Fund co." {{isset($company->relationship) && $company->relationship == 'Fund co.' ? 'selected' : ''  }}>Fund co.</option>
+                                <option value="Management co." {{isset($company->relationship) && $company->relationship == 'Management co.' ? 'selected' : ''  }}>Management co.</option>
                                 </select>
                             </div>
-                        @endif
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Email</label>
                             <input type="text" name="cmp[{{ $key }}][company_email]" id="fo_compnay"
@@ -54,7 +55,7 @@
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Company Password</label>
-                            <input type="password" name="cmp[{{ $key }}][company_pass]" id="fo_compnay"
+                            <input type="text" name="cmp[{{ $key }}][company_pass]" id="fo_compnay"
                                 class="form-control" value="{{ $company->company_pass }}">
                         </div>
 
@@ -168,7 +169,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker" id="nfo_dob_{{$key}}{{$key2}}"
+                                                <input type="date" class="form-control" id="nfo_dob_{{$key}}{{$key2}}"
                                                     name="share[{{ $key }}][{{ $key2 }}][dob]"
                                                     value="{{ $shareholder->dob }}">
                                             </div>
@@ -222,7 +223,7 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
-                                                <input type="text" class="form-control datepicker"
+                                                <input type="date" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][passport_exp_date]" id="nfo_date_exp_{{$key}}{{$key2}}"
                                                     value="{{ $shareholder->passport_exp_date }}">
                                             </div>
@@ -296,6 +297,12 @@
 
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Employer's Name</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][employee_name]"
+                                                    value="{{ $shareholder->company }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Job Title</label>
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][job_title]"
@@ -307,6 +314,12 @@
                                                 <input type="integer" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][monthly_sal]"
                                                     value="{{ $shareholder->monthly_sal }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
+                                                <input type="date" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][monthly_salary_wef]"
+                                                    value="{{ $shareholder->monthly_salary_wef }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With
