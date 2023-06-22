@@ -1,11 +1,10 @@
 <h3>Company Information</h3>
 <div class="wealth company_show">
     @foreach ($data->companies as $key => $company)
-        <div id="accordion-{{ $key }}" class="accordion-item" data-companyid={{ $key }}>
+        <div id="accordion-{{ $key }}" class="accordion-item company_name" data-companyid="{{$key}}">
             <div class="card">
                 <div class="card-header" id="headingOne">
-                    <div class="cross"><span class="edit_cancel_company remove-input-field">x</span></div>
-
+                    <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Company Name {{ $key + 1 }}</label>
                         <input type="hidden" name="cmp[{{ $key }}][id]" id="fo_company_id"
@@ -18,7 +17,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div id="collapseOne{{ $key }}" class="collapse show company_share"
                     aria-labelledby="headingOne" data-parent="#accordion-{{ $key }}">
                     <div class="card-body d-flex flex-wrap">

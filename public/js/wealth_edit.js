@@ -492,9 +492,9 @@ $(document).ready(function () {
                             >
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Company</label>
+                        <label for="" class="form-label">Employer's Name</label>
                         <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][job_title]"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][employee_name]"
                             >
                     </div>
                     <div class="formAreahalf basic_data">
