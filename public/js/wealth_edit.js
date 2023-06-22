@@ -1098,6 +1098,36 @@ $(document).ready(function () {
         }
     });
 
+    $('body').on('change' , '.pass_issuanceDateJs , .pass_expiryDateJs' , function(){
+        var pass_issue_date  = moment($(this).closest('.passholder_itemJs').find('.pass_issuanceDateJs').val());
+        var pass_expiry_date = moment($(this).closest('.passholder_itemJs').find('.pass_expiryDateJs').val());
+        var duration = moment.duration(pass_expiry_date.diff(pass_issue_date));
+        var diff     = duration._data;
+        if(pass_issue_date != 'Invalid Date' && pass_expiry_date != 'Invalid Date'){
+            var years = diff.years;
+            if(years > 1){
+                years = years + ' Years';
+            }else{
+                years = years + ' Year';
+            }
+            var months = diff.months;
+            if(months > 1){
+                months = months + ' Months';
+            }else{
+                months = months + ' Month';
+            }
+            var days = diff.days;
+            if(days > 1){
+                days = days + ' Days';
+            }else{
+                days = days + ' Day';
+            }
+            console.log(years +' ' + months +' ' + days);
+            $(this).closest('.passholder_itemJs').find('.pass_durationJs').val(years +' ' + months +' ' + days);
+            $(this).closest('.passholder_itemJs').find('.pass_durationJs').attr('readonly' , true);
+        }
+    });
+
 
     //Add Passholder
     var passholders_length = "";
@@ -1276,11 +1306,11 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
-                                <input type="date" name="passholder[` +passholders_length + `][pass_issuance_date]" class="form-control">
+                                <input type="date" name="passholder[` +passholders_length + `][pass_issuance_date]" class="form-control pass_issuanceDateJs">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
-                            <input type="date" name="passholder[` +passholders_length + `][pass_expiry_date]" class="form-control">
+                            <input type="date" name="passholder[` +passholders_length + `][pass_expiry_date]" class="form-control pass_expiryDateJs">
                         </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Pass Renewal Reminder</label>
@@ -1293,7 +1323,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">Duration</label>
-                            <input type="text" name="passholder[` +passholders_length + `][duration]" class="form-control">
+                            <input type="text" name="passholder[` +passholders_length + `][duration]" class="form-control pass_durationJs" readonly>
                         </div>
                         <div class="formAreahalf basic_data">
                             <label class="form-label">FIN Number</label>

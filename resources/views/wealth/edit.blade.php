@@ -1263,13 +1263,13 @@
                                                         <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                             <input type="date" name="passholder[{{$passholder_key}}][pass_issuance_date]"
                                                             value="{{$passholder_item->pass_issuance_date ?? ''}}"
-                                                            class="form-control" placeholder="dd/mm/yyyy">
+                                                            class="form-control pass_issuanceDateJs" placeholder="dd/mm/yyyy">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                         <input type="date" name="passholder[{{$passholder_key}}][pass_expiry_date]"
                                                         value="{{$passholder_item->pass_expiry_date ?? ''}}"
-                                                        class="form-control" placeholder="dd/mm/yyyy">
+                                                        class="form-control pass_expiryDateJs" placeholder="dd/mm/yyyy">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -1298,7 +1298,7 @@
                                                         <label for="duration" class="form-label">Duration</label>
                                                         <input type="text" name="passholder[{{$passholder_key}}][duration]"
                                                             value="@isset($passholder_item->duration) {{ $passholder_item->duration }}  @endisset"
-                                                            class="form-control">
+                                                            class="form-control pass_durationJs" readonly>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="fin_number" class="form-label">FIN Number</label>
