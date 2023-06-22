@@ -64,9 +64,9 @@
                         <div id="shareholder-accordion-{{ $key2 }}" class="sharehold_length">
                             <div class="card shareholder">
                                 <div class="card-header" id="headingOne_shareholder">
-                                    <div class="cross"><span class="edit_cancel_share remove-input-field">x</span></div>
+                                    <div class="cross"><span class="edit_cancel_share remove-campany-shareholder">x</span></div>
                                     <div class="formAreahalf basic_data">
-                                        <label for="" class="form-label">Shareholder
+                                        <label for="shareholder_name" class="form-label">Shareholder
                                             #{{ $key2 + 1 }}</label>
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#collapseOneS{{ $key }}{{ $key2 }}"
@@ -78,7 +78,7 @@
                                                 <label for="" class="form-label">Equity Percentage</label>
                                                 <input type="hidden" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
-                                                    value="{{ $shareholder->id }}">
+                                                    value="{{ $shareholder->id }}" id="share_id">
                                                 <div class="dollersec percentage_input"><span class="input"><input
                                                             type="text"
                                                             name="share[{{ $key }}][{{ $key2 }}][equity_percentage]"
