@@ -329,12 +329,12 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With
-                                                    Shareholder 1</label>
+                                                    Shareholder {{$key2 + 1}}</label>
                                                 <select
                                                     name="share[{{ $key }}][{{ $key2 }}][relation_with_shareholder]"
                                                     id="fo_cpm2_relation" class="form-control" data-id="{{ $key }}" data-key="{{ $key2 }}">
                                                     <option value="" selected disabled>Choose Relationship with
-                                                        shareholder</option>
+                                                        shareholder {{$key2 + 1}} </option>
                                                     <option value="Self"
                                                         {{ $shareholder->relation_with_shareholder == 'Self' ? 'selected' : '' }}>
                                                         Self

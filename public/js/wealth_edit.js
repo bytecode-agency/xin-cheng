@@ -155,10 +155,10 @@ $(document).ready(function () {
                                 id="fo_compnay_incorporate_date" class="form-control" placeholder="dd/mm/yyyy">
                         </div>
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Relationship with Company 1</label>
+                            <label for="" class="form-label">Relationship with Company `+ (key + 1) +`</label>
                             <select name="cmp[`+ key + `][relationship]"
                                 id="fo_compnay_relationship" class="form-control">
-                                <option value="" selected disabled>Choose Relationship with company 1</option>
+                                <option value="" selected disabled>Choose Relationship with company ` + (key + 1) + ` </option>
                                 <option value="Self">Self</option>
                                 <option value="Subsidiary">Subsidiary</option>
                                 <option value="Parent company">Parent company</option>
@@ -568,12 +568,31 @@ $(document).ready(function () {
                 check = true
             }
         }
+
+        var form = $('#multistep_form_edit');
+        form.valid();
+        //Validations on company input field
+        var comp_fields = $('.companyFormJs input[name^="cmp"]');
+        comp_fields.each(function() {
+            $(this).rules("add", {
+                required: true
+            });
+        });
+
+        //Validations on company select fields
+        var select_fields = $('select[name^="cmp"]');
+        select_fields.each(function() {
+            $(this).rules("add", {
+                required: true
+            });
+        });
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        if (check) {
+        if (form.valid() === true) {
             $.ajax({
                 type: "post",
                 route: url,

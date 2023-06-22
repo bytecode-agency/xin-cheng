@@ -259,7 +259,7 @@
                     @endif
                 </div>
             </div>
-            <div class="card company_info formContentData border-0 p-4">
+            <div class="card company_info formContentData border-0 p-4 companyFormJs">
 
                 @if ($data->business_type == 'FO')
                     @include('wealth.fo_edit')
