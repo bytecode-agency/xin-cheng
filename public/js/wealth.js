@@ -980,14 +980,8 @@ $(document).ready(function () {
         $('#nfo_pass_name_c').text($('#nfo_pass_name').val());
         $('#nfo_pass_name_chinese_c').text($('#nfo_pass_name_chinese').val());
         $('#nfo_gender_c').text($('#nfo_gender').val());
-        if($("#nfo_dob").val() != "" ){
-            // nfo_dob = moment($("#nfo_dob").val()).format('DD/MM/YYYY');
-            $("#nfo_dob_c").text($("#nfo_dob").val());
-        }
-        else{
-            $("#nfo_dob_c").text("");
-        }
-        $('#nfo_pass_number_c').text($('#nfo_pass_number').val());
+        $("#nfo_dob_c").text($("#nfo_dob").val());
+       $('#nfo_pass_number_c').text($('#nfo_pass_number').val());
         $('#nfo_pass_exp_c').text($("#nfo_pass_exp").val());
         $('#nfo_pass_reminder_c').text($('#nfo_pass_reminder').val());
         $('#nfo_pass_country_c').text($('#nfo_pass_country').val());
@@ -1308,7 +1302,7 @@ $(document).ready(function () {
         cmp_count++;
     });
     $('body').on('click', '.next_nfo_2', function () {
-
+                alert('hello');
         // if (form.valid() === true) {
         //     let next = $('#NFO_shareholder').attr('id');
         //     $('#' + next).show();
@@ -1323,9 +1317,6 @@ $(document).ready(function () {
         nfo_comp_field.each(function() {
             $(this).rules("add", {
                 required: true,
-                // messages: {
-                //     required: "This field is required."
-                // }
             });
         });
         nfo_relation_field.each(function() {
@@ -2304,6 +2295,7 @@ $(document).ready(function () {
             count++;
         });
     });
+   
     $('body').on('click', '.cancel_shareholder', function () {
         var currentRem = $(this).attr('data-share');
         var per = 0;
