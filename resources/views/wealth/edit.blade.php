@@ -1697,7 +1697,7 @@
                                                                 <div class="formAreahalf r_table">
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Date</label>
-                                                                    <input type="date" name="business_redemption_date"
+                                                                    <input type="date" name="business_redemption_date" min="<?php echo date("Y-m-d"); ?>"
                                                                         value=""
                                                                         class="form-control red_date redDateJs">
                                                                 </div>
@@ -1743,11 +1743,10 @@
                                                                 </tr>
                                                                 @endforeach
                                                                 @else
-                                                                <!-- <tr>
-                                                                    <td colspan="3">No record found</td>
-                                                                </tr> -->
+                                                                <tr>
+                                                                    <td colspan="3" id ="norecordsids">No record found</td>
+                                                                </tr>
                                                                 @endif
-                                                            </tbody>
                                                             </tbody>
                                                         </table>
 
