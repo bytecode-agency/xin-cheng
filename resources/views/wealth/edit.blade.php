@@ -283,8 +283,7 @@
                                         Related</button>
                                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-financial" type="button" role="tab"
-                                        aria-controls="nav-profile" aria-selected="false">Financial Institution
-                                        Related</button>
+                                        aria-controls="nav-profile" aria-selected="false">Financial Institution Related</button>
                                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-pass" type="button" role="tab"
                                         aria-controls="nav-contact" aria-selected="false">Pass
@@ -622,7 +621,7 @@
                                                                     value="@isset($wealthfinance[$i]->financial_institution_name) {{ $wealthfinance[$i]->financial_institution_name }} @endisset"
                                                                     class="form-control">
                                                             </div>
-                                                            <button class="btn btn_set edit_new_btn_set" data-toggle="collapse"
+                                                            <button class="btn btn_set edit_new_btn_set collapsed" data-toggle="collapse"
                                                                 data-target="#financial_collapse{{$i +1}}" aria-expanded="true"
                                                                 aria-controls="collapseOne">
                                                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
