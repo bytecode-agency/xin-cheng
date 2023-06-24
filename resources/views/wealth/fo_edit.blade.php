@@ -1,9 +1,8 @@
 <h3>Company Information</h3>
 <div class="wealth company_show">
     @foreach ($data->companies as $key => $company)
-        <div id="accordion-{{ $key }}" class="accordion-item company_name" data-companyid={{ $key }}>
+        <div id="accordion-{{ $key }}" class="accordion-item company_name" data-companyid="{{$key}}">
             <div class="card">
-
                 <div class="card-header" id="headingOne">
                     {{-- <span class="edit_cancel_company cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span>  --}}
                     <div class="cross"><span class="edit_cancel_company remove-campany">x</span></div>
@@ -19,7 +18,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div id="collapseOne{{ $key }}" class="collapse show company_share"
                     aria-labelledby="headingOne" data-parent="#accordion-{{ $key }}">
                     <div class="card-body d-flex flex-wrap">
@@ -300,10 +298,10 @@
                                                     value="{{ $shareholder->tin_no }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Company</label>
+                                                <label for="" class="form-label">Employer's Name</label>
                                                 <input  type="text"
                                                         class="form-control"
-                                                        name="share[{{ $key }}][{{ $key2 }}][company]"
+                                                        name="share[{{ $key }}][{{ $key2 }}][employee_name]"
                                                         value="{{ isset($shareholder->company) ? $shareholder->company : '' }}"
                                                 >
                                             </div>
@@ -331,12 +329,12 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Relationship With
-                                                    Shareholder 1</label>
+                                                    Shareholder {{$key2 + 1}}</label>
                                                 <select
                                                     name="share[{{ $key }}][{{ $key2 }}][relation_with_shareholder]"
                                                     id="fo_cpm2_relation" class="form-control" data-id="{{ $key }}" data-key="{{ $key2 }}">
                                                     <option value="" selected disabled>Choose Relationship with
-                                                        shareholder</option>
+                                                        shareholder {{$key2 + 1}} </option>
                                                     <option value="Self"
                                                         {{ $shareholder->relation_with_shareholder == 'Self' ? 'selected' : '' }}>
                                                         Self

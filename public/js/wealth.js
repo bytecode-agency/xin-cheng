@@ -34,35 +34,26 @@ $(document).ready(function () {
 
     $("body").on('keyup', '.equity_shareholders', function (evt) {
         $(this).attr('value', $(this).val());
-        // console.log('yes');
-        // console.log($(this).val());
         let percentage = 0;
         var compId = $(this).parents('.full_div').attr('id');
         var cal_eqty_percentage = $(this).parents('#' + compId + ".full_div").find(".equity_shareholders");
         for (per = 0; per < cal_eqty_percentage.length; per++) {
-            // console.log(cal_eqty_percentage[per].value);
-            // console.log($(cal_eqty_percentage[per]).attr('value'));
             percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
         }
         console.log(percentage , compId);
         if (percentage == 100) {
-            // console.log('here');
             $(this).parents('#' + compId + ".full_div").find('#next3').removeClass("disable");
             $(this).parents('#' + compId + ".full_div").find('#next3').prop("disabled", false);
         }
         else {
-            // console.log('there');
             $(this).parents('#' + compId + ".full_div").find('#next3').addClass("disable");
             $(this).parents('#' + compId + ".full_div").find('#next3').attr('disabled', 'disabled');
-
         }
         if (percentage >= 100) {
-            // console.log('ghty');
             $('#' + compId).find("#add_shareholder").addClass("disable");
             $('#' + compId).find("#add_shareholder").attr('disabled', 'disabled');
             $('#' + compId).find("#add_nfo_shareholder").addClass("disable");
             $('#' + compId).find("#add_nfo_shareholder").attr('disabled', 'disabled');
-            //    $(".saveBtn").addClass("disable");
         }
         else {
             $('#' + compId).find("#add_shareholder").removeClass("disable");
@@ -70,8 +61,6 @@ $(document).ready(function () {
             $('#' + compId).find("#add_nfo_shareholder").removeClass("disable");
             $('#' + compId).find("#add_nfo_shareholder").prop('disabled',false);
         }
-
-
     });
 
     $('body').on('change', ".business_type", function () {
@@ -251,7 +240,7 @@ $(document).ready(function () {
             <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span> \
 
             <div class="accordion-item accordian-items-comp" id="accordion-`+ (comp + 1) + `">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <div class="accordion-header" id="panelsStayOpen-headingOne">
                  <div class="formAreahalf company-full_width_Cstm"> \
                     <label for="fo_compnay_`+(comp + 1)+`" class="form-label">Company Name ` + (comp + 1) + `</label>\
                     <input type="text" name="cmp[` + (comp + 1) + `][name]" id="fo_compnay_`+(comp + 1)+`" class="form-control" value="">\
@@ -262,7 +251,7 @@ $(document).ready(function () {
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
 
                 </button>
-            </h2>
+            </div>
             <div id="panelsStayOpen-collapseOne`+ (comp + 1) + `" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body d-flex flex-wrap">
                     <div class="formAreahalf">\
@@ -593,7 +582,7 @@ $(document).ready(function () {
                                     <option value="4 Weeks">4 Weeks</option> </select></span></div>
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Add</label>
+                                    <label for="fo_cpm2_res_add_1" class="form-label">Residential Address</label>
                                     <input type="text" name="share[1][1][residential_address]" id="fo_cpm2_res_add_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -1226,7 +1215,7 @@ $(document).ready(function () {
                     <span class="cancel_nfocompany cancel_company "><i class="fa fa-times" aria-hidden="true"></i></span> \
 
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <div class="accordion-header" id="panelsStayOpen-headingOne">
                                 <div class="formAreahalf company-full_width_Cstm">\
                                 <label for="nfo_compnay_` + (cmp_count + 1) + `" class="form-label">Company Name `+ (cmp_count + 1) + `</label>\
                                 <input type="text" name="corporate[` + (cmp_count + 1) + `][nfo_company]" id="nfo_compnay_` + (cmp_count + 1) + `" class="form-control" value="">\
@@ -1236,7 +1225,7 @@ $(document).ready(function () {
                                 aria-controls="panelsStayOpen-collapseOne">
                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </button>
-                        </h2>
+                        </div>
                     <div id="panelsStayOpen-collapseOne`+ (cmp_count + 1) + `" class="accordion-collapse collapse show"
                         aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body d-flex flex-wrap">
@@ -1640,7 +1629,7 @@ $(document).ready(function () {
                                 <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control" name="shrd[1][1][nfo_mth_salary]"
                                     id="nfo_mth_salary"></div>
                             </div>
-                            <div class="formAreahalf">
+                            <div class="formAreahalf mb-5">
                                 <label for="monthly_salary_wef" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                 <input type="date" class="form-control" name="shrd[1][1][monthly_salary_wef]" id="monthly_salary_wef">
                             </div>
@@ -2287,7 +2276,24 @@ $(document).ready(function () {
             $(this).children().find('h4').html('Shareholder #' + shar_count);
             shar_count++;
         });
-
+        let percentage = 0;
+        let value      = 0;
+        var cal_eqty_percentage = $('#' + loop + ".full_div").find(".equity_shareholders");
+        for (per = 0; per < cal_eqty_percentage.length; per++) {
+            value = parseFloat($(cal_eqty_percentage[per]).attr('value'));
+            if(value != '' && !isNaN(value)){
+                percentage += value;
+            }
+        }
+        console.log(percentage);
+        if (percentage == 100) {
+            $('#' + loop + ".full_div").find('#next3').removeClass("disable");
+            $('#' + loop + ".full_div").find('#next3').prop("disabled", false);
+        }
+        else {
+            $('#' + loop + ".full_div").find('#next3').addClass("disable");
+            $('#' + loop + ".full_div").find('#next3').prop('disabled', 'true');
+        }
     });
     $('body').on('click', '.cancel_nfocompany', function () {
         $(this).parents('#nfo_corporate').remove();

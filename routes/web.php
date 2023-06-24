@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('wealth-uploadfile', [App\Http\Controllers\WealthController::class,'upload_file'])->name('wealth.upload_file')->middleware('can:Wealth Module');
     Route::delete('wealth-deletefile/{id}', [App\Http\Controllers\WealthController::class,'delete_file'])->name('wealth.delete_file')->middleware('can:Wealth Module');
     Route::delete('wealth/passholder/{id}/delete', [App\Http\Controllers\WealthController::class,'deletePassholder'])->name('wealth.delete.passholder')->middleware('can:Wealth Module');
+    Route::post('wealth/passrelated_item_view', [App\Http\Controllers\WealthController::class,'passRelatedItemView'])->name('wealth.passrelated.item.view')->middleware('can:Wealth Module');
     
     Route::post('business-data', [App\Http\Controllers\WealthController::class,'business_tab_add'])->name('business.add')->middleware('can:Wealth Module');
     Route::delete('finance-destroy', [App\Http\Controllers\WealthController::class,'finance_destroy'])->name('wealth.finance_destroy')->middleware('can:Wealth Module');

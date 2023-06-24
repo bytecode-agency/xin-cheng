@@ -68,7 +68,8 @@ $('body').on('click', '.note_remove', function (e) {
             type: "POST",
             data: {id:id},
             success: function (response) {
-                $('#note'+id).hide();
+                $('#note'+id).remove();
+                notesPaginate();
                 swal({
                     title: `Note Removed`,
                     // content: el,
@@ -93,6 +94,7 @@ $('body').on('click', '.note_remove', function (e) {
 //Pagination
 notesPaginate();
 function notesPaginate(){
+    $('#pagin').empty();
     pageSize = 4;
     incremSlide = 5;
     startPage = 0;
