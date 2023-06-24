@@ -1271,7 +1271,7 @@
                                                     </div>
                                                 </div>
 
-                                                    <div class="redemption_add_table">
+                                                    <div class="redemption_add_table redemptionDAJs">
                                                         <h3>Redemption Date and Amount</h3>
                                                         {{-- <form name="business_red_table_data" class="business_redemption_tab" id="redemption_table" method="POST"> --}}
 
@@ -1282,14 +1282,14 @@
                                                                             Date</label>
                                                                         <input type="date" name="business_redemption_date"
                                                                             value=""
-                                                                            class="form-control red_date">
+                                                                            class="form-control red_date redDateJs">
                                                                     </div>
                                                                     <div class="formAreahalf r_table">
                                                                         <label for="net_amount_val" class="form-label">Redemption
                                                                             Amount</label>
                                                                         <div class="dollersec"><span class="doller">$</span>
-                                                                            <span class="input"> <input type="text"
-                                                                                    class="form-control red_amount" name="business_redemption_amount"
+                                                                            <span class="input"> <input type="number"
+                                                                                    class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                     id="fo_servicing_fee_amount"
                                                                                     value=""></span>
                                                                         </div>
@@ -1297,7 +1297,7 @@
                                                                 </div>
 
                                                             <div class="btn_adding_redempton">
-                                                                <button class="btn saveBtn add_redemption btn_add_redempt">Add</button>
+                                                                <button class="btn saveBtn add_redemption btn_add_redempt addRedButtonJs" disabled>Add</button>
                                                             </div>
                                                         {{-- </form> --}}
                                                     </div>
@@ -1326,9 +1326,9 @@
                                                                     </tr>
                                                                     @endforeach
                                                                     @else
-                                                                    <tr>
+                                                                    <!-- <tr>
                                                                         <td colspan="3">No record found</td>
-                                                                    </tr>
+                                                                    </tr> -->
                                                                     @endif
                                                                 </tbody>
                                                                 </tbody>
@@ -1692,7 +1692,7 @@
                                                 </div>
 
 
-                                                <div class="redemption_add_table">
+                                                <div class="redemption_add_table redemptionDAJs">
                                                     <h3>Redemption Date and Amount</h3>
 
                                                     <input type="hidden" name="business_tab_id" id="busines_tab_id" class="busines_tab_id" value="@isset($wealthbuss->id) {{$wealthbuss->id}} @endisset">
@@ -1708,7 +1708,7 @@
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="integer"
+                                                                        <span class="input"> <input type="number"
                                                                                 class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>
@@ -1746,9 +1746,9 @@
                                                                 </tr>
                                                                 @endforeach
                                                                 @else
-                                                                <tr>
+                                                                <!-- <tr>
                                                                     <td colspan="3">No record found</td>
-                                                                </tr>
+                                                                </tr> -->
                                                                 @endif
                                                             </tbody>
                                                             </tbody>
