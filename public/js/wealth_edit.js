@@ -554,9 +554,12 @@ $(document).ready(function () {
                     </div>`);
         }
 
-    })
+    });
 
-    $('body').on('click', '.edit_save', function () {
+
+
+    $('body').on('click', '.edit_save', function(){
+
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
         const notesVal = $("#text_notes").val()

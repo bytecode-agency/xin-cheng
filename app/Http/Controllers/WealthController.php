@@ -615,6 +615,7 @@ class WealthController extends Controller
                         'singpass_set_up'=>  isset( $passholer_item['singpass_set_up']) ?  $passholer_item['singpass_set_up'] :null,
                         'employee_name'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
                         'monthly_sal'=>  isset( $passholer_item['monthly_sal']) ?  $passholer_item['monthly_sal'] :null,
+                        'monthly_sal_wef'=>  isset( $passholer_item['monthly_sal_wef']) ?  $passholer_item['monthly_sal_wef'] :null,
                         'pass_remarks'=>  isset( $passholer_item['pass_remarks']) ?  $passholer_item['pass_remarks'] :null,           
                         ]
                     );

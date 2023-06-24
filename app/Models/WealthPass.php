@@ -44,6 +44,7 @@ class WealthPass extends Model
         'singpass_set_up',
         'employee_name',
         'monthly_sal',
+        'monthly_sal_wef',
         'pass_remarks',   
 
 

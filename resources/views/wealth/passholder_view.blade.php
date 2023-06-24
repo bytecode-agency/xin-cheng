@@ -344,6 +344,16 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Monthly Salary w.e.f</label>
+                                                <p>
+                                                    @isset($passholder_item->monthly_sal_wef)
+                                                        {{ date('d/m/Y' , strtotime($passholder_item->monthly_sal_wef)) }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
                                                     @isset($passholder_item->pass_remarks)
