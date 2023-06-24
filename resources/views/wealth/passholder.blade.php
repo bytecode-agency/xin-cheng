@@ -38,19 +38,26 @@
                                                         </select>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
+                                                        <label for="passport_no" class="form-label">Passport
+                                                            Number</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_no]"
+                                                            value="@isset($passholder_item->passport_no) {{ $passholder_item->passport_no }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="passport_country" class="form-label">Passport
+                                                            Country</label>
+                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_country]"
+                                                            value="@isset($passholder_item->passport_country) {{ $passholder_item->passport_country }} @endisset"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
                                                         <label for="passport_expiry_date" class="form-label">Passport
                                                             Expiry
                                                             Date(DD/MM/YYYY)</label>
                                                         <input type="date" name="passholder[{{$passholder_key}}][passport_expiry_date]"
                                                             id="passport_expiry_date"
                                                             value="{{$passholder_item->passport_expiry_date ?? ''}}"
-                                                            class="form-control">
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="passport_no" class="form-label">Passport
-                                                            Number</label>
-                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_no]"
-                                                            value="@isset($passholder_item->passport_no) {{ $passholder_item->passport_no }} @endisset"
                                                             class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
@@ -74,13 +81,6 @@
                                                                 180 days before expiry
                                                             </option>
                                                         </select>
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="passport_country" class="form-label">Passport
-                                                            Country</label>
-                                                        <input type="text" name="passholder[{{$passholder_key}}][passport_country]"
-                                                            value="@isset($passholder_item->passport_country) {{ $passholder_item->passport_country }} @endisset"
-                                                            class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="passport_tri_frq" class="form-label">Passport Reminder
@@ -314,13 +314,13 @@
                                                         <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                             <input type="date" name="passholder[{{$passholder_key}}][pass_issuance_date]"
                                                             value="{{$passholder_item->pass_issuance_date ?? ''}}"
-                                                            class="form-control pass_issuanceDateJs" placeholder="dd/mm/yyyy">
+                                                            class="form-control pass_issuanceDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="pass_expiry_date" class="form-label">Pass Expiry Date (DD/MM/YYYY)</label>
                                                         <input type="date" name="passholder[{{$passholder_key}}][pass_expiry_date]"
                                                         value="{{$passholder_item->pass_expiry_date ?? ''}}"
-                                                        class="form-control pass_expiryDateJs" placeholder="dd/mm/yyyy">
+                                                        class="form-control pass_expiryDateJs">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="pass_renewal_reminder" class="form-label">Pass Renewal
@@ -416,6 +416,12 @@
                                                             <span class="input"> <input type="integer" name="passholder[{{$passholder_key}}][monthly_sal]" value="@isset($passholder_item->monthly_sal) {{ $passholder_item->monthly_sal }} @endisset"
                                                             class="form-control"></span>
                                                         </div>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="monthly_sal_wef" class="form-label">Monthly Salary w.e.f</label>
+                                                        <input type="date" name="passholder[{{$passholder_key}}][monthly_sal_wef]"
+                                                        value="{{$passholder_item->monthly_sal_wef ?? ''}}"
+                                                        class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="pass_remarks" class="form-label">Remarks</label>
