@@ -964,22 +964,24 @@ $(document).ready(function () {
     });
 
     $('.redDateJs').on('change' , function(){
-        var red_date = $('.redDateJs').val();
-        var red_amount = $('.redAmountJs').val();
+        var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
+        var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
+        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
-            $('.addRedButtonJs').attr('disabled' , false);
+            $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
-            $('.addRedButtonJs').attr('disabled' , true);
+            $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , true);
         }
     });
 
     $('.redDateJs , .redAmountJs').on('keyup' , function(){
-        var red_date = $('.redDateJs').val();
-        var red_amount = $('.redAmountJs').val();
+        var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
+        var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
+        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
-            $('.addRedButtonJs').attr('disabled' , false);
+           $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
-            $('.addRedButtonJs').attr('disabled' , true);
+           $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , true);
         }
     });
 
@@ -1012,6 +1014,7 @@ $(document).ready(function () {
                     $('#red_table').prepend(html);
                     $('.red_date').val("");
                     $('.red_amount').val("");
+                    $('.addRedButtonJs').attr('disabled' , true);
                 }
             }
         });
