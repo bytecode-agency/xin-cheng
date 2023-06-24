@@ -540,9 +540,12 @@ $(document).ready(function () {
                     </div>`);
         }
 
-    })
+    });
 
-    $('body').on('click', '.edit_save', function () {
+
+
+    $('body').on('click', '.edit_save', function(){
+
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
         const notesVal = $("#text_notes").val()
@@ -562,7 +565,8 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        if (check) {
+
+        if (check ) {
             $.ajax({
                 type: "post",
                 route: url,
