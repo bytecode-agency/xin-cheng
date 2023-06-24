@@ -1046,17 +1046,7 @@
                                                         @endisset
                                                     </p>
                                                 </div>
-                                                <div class="formAreahalf basic_data">
-                                                    <label for="application_submission_date" class="form-label">Application
-                                                        Submission Date</label>
 
-                                                        @isset($wealth_finance[$i]->application_submission_date)
-                                                            {{ date('d/m/Y' , strtotime($wealth_finance[$i]->application_submission_date)) }}
-                                                        @else
-                                                            -
-                                                        @endisset
-                                                    </p>
-                                                </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Application
                                                         Submission </label>
@@ -1065,6 +1055,17 @@
 
                                                         @isset($wealth_finance[$i]->application_submission)
                                                             {{ $wealth_finance[$i]->application_submission }}
+                                                        @else
+                                                            -
+                                                        @endisset
+                                                    </p>
+                                                </div>
+                                                <div class="formAreahalf basic_data">
+                                                    <label for="application_submission_date" class="form-label">Application
+                                                        Submission Date</label>
+
+                                                        @isset($wealth_finance[$i]->application_submission_date)
+                                                            {{ date('d/m/Y' , strtotime($wealth_finance[$i]->application_submission_date)) }}
                                                         @else
                                                             -
                                                         @endisset
