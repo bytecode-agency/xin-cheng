@@ -1673,7 +1673,7 @@ span.doller {
 
 .dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian button.accordion-button {
     top: 9px;
-   
+
 }
 
 .dataAreaMain.sales-edit .accordion-body.add_fieldset_fg.add_potensian .cross span.remove-input-field {
@@ -3070,7 +3070,7 @@ form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-sel
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Done"] ,
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Active"] ,
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Approved"],
-.select2-container--default .select2-selection--single .select2-selection__rendered[title="Received"]  
+.select2-container--default .select2-selection--single .select2-selection__rendered[title="Received"]
  {
     background: green !important;
 	color: #fff !important;
@@ -3085,7 +3085,7 @@ form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-sel
 
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Dormant"] ,
 .select2-container--default .select2-selection--single .select2-selection__rendered[title="Inactive"] ,
-span.select2-selection.select2-selection--single span[title="Pending"] 
+span.select2-selection.select2-selection--single span[title="Pending"]
  {
     background: #b30000 !important;
 	color: #fff !important;
@@ -3263,7 +3263,7 @@ form#operation_form .card.formContentData .card_potentials_fg .form-fields .acco
 form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-body {
     justify-content: space-between;
     max-width: calc(100% - 166px);
-   
+
 }
 
 form#operation_form .card.formContentData .card_potentials_fg .form-fields .accordion-body .formAreahalf {
@@ -3616,7 +3616,7 @@ form#operation_form .card.formContentData .accordion-item .accordion-collapse .f
     border-radius: 4px;
     width: max-content;
 	    padding: 0;
-    
+
 }
 
 .edit_wealth form#multistep_form_edit .card .tab-content .tab-pane  .tab-inner-text .formAreahalf ,
@@ -4466,6 +4466,7 @@ html body .application_info .select2.select2-container  span.select2-selection__
     transition: .4s;
     width: auto;
     z-index: 1;
+    top: 8px;
 }
 
 .edit_wealth form#multistep_form_edit >.card.company_info .wealth.company_show .accordion-item .card .cross span.edit_cancel_share ,
@@ -4881,7 +4882,7 @@ span.cancel_company i::before {
 }
 
 
-.tabbing_wealth_four.accordian_design_custom .tab-content .form-fields .form-fields .accordion-item.pass_acc_it .accordion-collapse 
+.tabbing_wealth_four.accordian_design_custom .tab-content .form-fields .form-fields .accordion-item.pass_acc_it .accordion-collapse
 {
 	padding: 0 !important;padding-right: 240px !important;
 	}
