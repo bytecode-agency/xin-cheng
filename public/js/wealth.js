@@ -28,14 +28,9 @@ $(document).ready(function () {
     var i = 0;
     var sh_no = 0;
     var nfo_sh_no=0;
-    function setProgressBar(cu6rStep) {
+    function setProgressBar(curStep) {
         var data = $('#' + curStep).addClass("active");
     };
-
-    $('.button').click(function(){
-        var id = $(this).attr('id');
-        alert(id);
-      });
 
     $("body").on('keyup', '.equity_shareholders', function (evt) {
         $(this).attr('value', $(this).val());
@@ -45,7 +40,7 @@ $(document).ready(function () {
         for (per = 0; per < cal_eqty_percentage.length; per++) {
             percentage += parseFloat($(cal_eqty_percentage[per]).attr('value'));
         }
-        console.log(percentage , compId, 'jgjgjhgjhjh');
+        console.log(percentage , compId);
         if (percentage == 100) {
             $(this).parents('#' + compId + ".full_div").find('#next3').removeClass("disable");
             $(this).parents('#' + compId + ".full_div").find('#next3').prop("disabled", false);
@@ -184,6 +179,7 @@ $(document).ready(function () {
         }
     });
     $('.previous1').click(function () {
+        // if ($("#business_type").val() == "FO") {
         $('#append_div_form').html(`<div class="formAreahalf ">
                 <label for="business_type" class="form-label">Business Type</label>
                 <select id="business_type" name="business_type" class="business_type">
@@ -217,7 +213,6 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.previous', function () {
-        $('#multistep_form').get(0).reset();
         let current = $(this).closest("fieldset").attr('id');
         $('#' + current).hide();
         $(this).parents('fieldset').addClass("wealth_back_next_comp");
@@ -309,10 +304,10 @@ $(document).ready(function () {
 
     $('body').on('click', '.add_first_comp_shareholder', function () {
         var sharehold_no = $(this).parents('.full_div').find('.sharehold_length').length;
-         alert(sharehold_no);
+        // alert(sharehold_no);
         $(this).parents('fieldset').find('#appended_shareholder_div').append(`<div id="fo_shareholder" class="sharehold">
         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design sharehold_length">
-        <span class="cancel_shareholder" data-share="`+(sharehold_no + 1)+`"><i class="fa fa-times" aria-hidden="true"></i></span> \
+        <span class="cancel_shareholder"><i class="fa fa-times" aria-hidden="true"></i></span> \
             <div class="Share_holder-w sub-heading">
                 <h4>Shareholder #`+ (sharehold_no + 1) + `</h4>
             </div>
@@ -556,9 +551,8 @@ $(document).ready(function () {
                                     <input type="text" name="share[1][1][email]" id="fo_cpm2_email_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_pass_no_1" class="form-label">Passport Numberhhh</label>
+                                    <label for="fo_cpm2_pass_no_1" class="form-label">Passport Number</label>
                                     <input type="text" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
-                                    <span id="lblError" class="error" style="color:red">Invalid Passport Number.</span>
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_cnty_1" class="form-label">Passport Country</label>
@@ -680,25 +674,6 @@ $(document).ready(function () {
             }
            });
 
-        $(function () {
-            $("#fo_cpm2_pass_no_1").keypress(function () {
-                var passportnumber = $(this).val();
-                var regex = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
-                if (regex.test(passportnumber)) {
-                    $("#lblError").css("visibility", "hidden");
-                } else {
-                    $("#lblError").css("visibility", "visible");
-                }
-            });
-        });
-
-        $('#fo_cpm2_tin_num_1').on('input',function(e){
-            let {value} = e.target
-            if( !/^\d+$/.test(value)){
-                document.getElementById("fo_cpm2_tin_num_1").value = value.replace(/[@a-zA-Z]/g, "")
-            }
-           });
-          
     });
     $(document).on('change', '.fo_cpm2_relation', function() {
         if ($(this).val() == "Others") {
@@ -969,8 +944,14 @@ $(document).ready(function () {
         $('#nfo_pass_name_c').text($('#nfo_pass_name').val());
         $('#nfo_pass_name_chinese_c').text($('#nfo_pass_name_chinese').val());
         $('#nfo_gender_c').text($('#nfo_gender').val());
-        $("#nfo_dob_c").text($("#nfo_dob").val());
-       $('#nfo_pass_number_c').text($('#nfo_pass_number').val());
+        if($("#nfo_dob").val() != "" ){
+            // nfo_dob = moment($("#nfo_dob").val()).format('DD/MM/YYYY');
+            $("#nfo_dob_c").text($("#nfo_dob").val());
+        }
+        else{
+            $("#nfo_dob_c").text("");
+        }
+        $('#nfo_pass_number_c').text($('#nfo_pass_number').val());
         $('#nfo_pass_exp_c').text($("#nfo_pass_exp").val());
         $('#nfo_pass_reminder_c').text($('#nfo_pass_reminder').val());
         $('#nfo_pass_country_c').text($('#nfo_pass_country').val());
@@ -1291,7 +1272,7 @@ $(document).ready(function () {
         cmp_count++;
     });
     $('body').on('click', '.next_nfo_2', function () {
-                alert('hello');
+
         // if (form.valid() === true) {
         //     let next = $('#NFO_shareholder').attr('id');
         //     $('#' + next).show();
@@ -1306,6 +1287,9 @@ $(document).ready(function () {
         nfo_comp_field.each(function() {
             $(this).rules("add", {
                 required: true,
+                // messages: {
+                //     required: "This field is required."
+                // }
             });
         });
         nfo_relation_field.each(function() {
@@ -2284,26 +2268,7 @@ $(document).ready(function () {
             count++;
         });
     });
-   
     $('body').on('click', '.cancel_shareholder', function () {
-        var currentRem = $(this).attr('data-share');
-        var per = 0;
-        $('.equity_shareholders').each(function(){
-            per += parseInt($(this).val());
-        });
-        var currentShare = $('#equity_shareholder_'+currentRem).val();
-         var percentage = parseInt(per - currentShare);
-        if (percentage == 100) {
-            // console.log('here');
-            $('#next3').removeClass("disable");
-            $('#next3').prop("disabled", false);
-        }
-        else {
-            // console.log('there');
-            $('#next3').addClass("disable");
-            $('#next3').attr('disabled', 'disabled');
-        
-        }
         var shar_count = 1;
         var loop = $(this).parents('.full_div').attr('id');
         $(this).parents('#fo_shareholder').remove();

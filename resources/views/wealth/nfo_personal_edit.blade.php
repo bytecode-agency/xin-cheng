@@ -85,8 +85,7 @@
     </div>
     <div class="formAreahalf">
         <label for="nfo_email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" name="nfo_email" id="nfo_email"  value="{{$basic_data->email}}">
-        <span class="emailserror" style="color:red;"></span>
+        <input type="text" class="form-control" name="nfo_email" id="nfo_email" value="{{$basic_data->email}}">
     </div>
     <div class="formAreahalf">
         <label for="nfo_tin_country_before_app" class="form-label">TIN Country Before Pass Application

@@ -365,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" name="nfo_dob" id="nfo_dob"  class="form-control" max="<?php echo date("Y-m-d"); ?>"  placeholder="dd/mm/yyyy">
+                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>

@@ -42,6 +42,27 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Passport Number</label>
+                                                <p>
+                                                    @isset($passholder_item->passport_no)
+                                                        {{ $passholder_item->passport_no }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Passport Country</label>
+                                                <p>
+                                                    @isset($passholder_item->passport_country)
+                                                        {{ $passholder_item->passport_country }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Expiry
                                                     Date(DD/MM/YYYY)</label>
@@ -54,31 +75,11 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Passport Number</label>
-                                                <p>
-                                                    @isset($passholder_item->passport_no)
-                                                        {{ $passholder_item->passport_no }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Renewal
                                                     Reminder</label>
                                                 <p>
                                                     @isset($passholder_item->passport_renewal_reminder)
                                                         {{ $passholder_item->passport_renewal_reminder }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Passport Country</label>
-                                                <p>
-                                                    @isset($passholder_item->passport_country)
-                                                        {{ $passholder_item->passport_country }}
                                                     @else
                                                         -
                                                     @endisset

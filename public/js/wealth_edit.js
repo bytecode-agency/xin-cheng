@@ -554,29 +554,9 @@ $(document).ready(function () {
                     </div>`);
         }
 
-    });
-    
-    $('#nfo_email').keyup(function(){
-       var emailvalids = $(this).val();
-       var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-       if(!pattern.test(emailvalids)){
-           $('.emailserror').text("Please enter valid email");
-           $('.edit_save').attr('disabled', true);
-       }else{
-        $('.edit_save').attr('disabled', false);
-        $('.emailserror').text("");
-       }
-    });
+    })
 
-    $('body').on('click', '.edit_save', function(){
-        var emailval = $('#nfo_email').val();
-        var errormsg = 0;
-        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-        if(!pattern.test(emailval)){
-            $('.emailserror').text("Please enter valid email");
-            errormsg = 1;
-            return false;
-        }
+    $('body').on('click', '.edit_save', function () {
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
         const notesVal = $("#text_notes").val()
@@ -615,8 +595,7 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-        if (form.valid() === true && check && (errormsg == 0)) {
+        if (form.valid() === true && check) {
             $.ajax({
                 type: "post",
                 route: url,
@@ -646,14 +625,6 @@ $(document).ready(function () {
         }
 
     });
-    function IsEmail(email) {
-        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if(!regex.test(email)) {
-          return false;
-        }else{
-          return true;
-        }
-      }
 
     $('#wealth_inputFile').change(function (e) {
         const size = e.target.files[0].size / Math.pow(1024, 2)
@@ -1010,7 +981,6 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.btn_add_redempt', function () {
-        $('#norecordsids').hide();
         var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
         var red_date = $(this).parents('.redemption_add_table').find('.red_date').val();
         var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
