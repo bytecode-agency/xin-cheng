@@ -2266,20 +2266,20 @@ html body .card .company_design .accordion-item {
 }
 
 
-html body .card .company_design .accordion-item h2.accordion-header {
+html body .card .company_design .accordion-item .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-html body .card .company_design .accordion-item h2.accordion-header button.accordion-button {
+html body .card .company_design .accordion-item .accordion-header button.accordion-button {
     justify-content: end;
     width: auto;
     max-width: initial;
     display: flex;
 }
 
-html body .card .company_design .accordion-item h2.accordion-header button.accordion-button i {
+html body .card .company_design .accordion-item .accordion-header button.accordion-button i {
     width: 45px;
     height: 45px;
     background: #000;

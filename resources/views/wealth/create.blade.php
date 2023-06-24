@@ -115,7 +115,7 @@
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design cmd_count">
                         <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                             <div class="accordion-item accordian-items-comp" id="accordion-1">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <div class="accordion-header" id="panelsStayOpen-headingOne">
                                     <div class="formAreahalf company-full_width_Cstm">
                                         <label for="fo_compnay_1" class="form-label">Company Name 1</label>
                                         <input type="text" name="cmp[1][name]" id="fo_compnay_1" class="form-control"
@@ -127,7 +127,7 @@
 
                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                                     </button>
-                                </h2>
+                                </div>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="panelsStayOpen-headingOne">
                                     <div class="accordion-body d-flex flex-wrap">
@@ -365,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
+                        <input type="date" name="nfo_dob" id="nfo_dob"  class="form-control" max="<?php echo date("Y-m-d"); ?>"  placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
