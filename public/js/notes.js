@@ -82,9 +82,8 @@ $('body').on('click', '.note_remove', function (e) {
                         },
                     },
                 }).then((result) => {
-                    location.reload();
+                    
                 })
-
             }
         })
     
