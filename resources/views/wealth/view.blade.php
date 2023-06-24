@@ -1297,8 +1297,8 @@
                             <div class="tab-pane fade " id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
                                 <div id="business_accordion" class="mas_related">
-                                    <div class="mas_heading_accordian">
-                                        <div class="formAreahalf basic_data">
+                                    <div class="mas_heading_accordian row">
+                                        <div class="formAreahalf basic_data col-6">
                                             <label for="" class="form-label">Financial Institution Name</label>
                                             <p>
                                                 @isset($wealthbuss->financial_institition_name)
@@ -1308,6 +1308,7 @@
                                                 @endisset
                                             </p>
                                         </div>
+
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
                                             data-target="#business_collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
@@ -1318,6 +1319,48 @@
                                         data-parent="#business_accordion">
 
                                         <div class="tab-cstm-data-inner d-flex flex-wrap ">
+                                            <div class="formAreahalf basic_data col-6">
+                                                <label for="" class="form-label">Online Account Username</label>
+                                                <p>
+                                                    @isset($wealthbuss->online_account_user)
+                                                        {{ $wealthbuss->online_account_user }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Online Account Password</label>
+                                                <p>
+                                                    @isset($wealthbuss->online_acc_pass)
+                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Account Type</label>
+                                                <p>
+                                                    @isset($wealthbuss->business_account_type)
+                                                        {{ $wealthbuss->business_account_type }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+
+                                            @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                                    <div class="formAreahalf basic_data please_specify">
+                                                        <label for="" class="form-label">Others, please specify</label>
+                                                        @if (isset($wealthbuss->business_account_type_specify))
+                                                        {{ $wealthbuss->business_account_type_specify  }}
+                                                        @else -
+
+                                                        @endif
+
+                                                    </div>
+                                                @endif
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
@@ -1325,6 +1368,16 @@
 
                                                     @isset($wealthbuss->application_submision)
                                                         {{ $wealthbuss->application_submision }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Account/Policy Number</label>
+                                                <p>
+                                                    @isset($wealthbuss->business_account_policy_no)
+                                                        {{ $wealthbuss->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1343,51 +1396,10 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account Type</label>
-                                                <p>
-                                                    @isset($wealthbuss->business_account_type)
-                                                        {{ $wealthbuss->business_account_type }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
-                                                    <div class="formAreahalf basic_data please_specify">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss->business_account_type_specify))
-                                                        {{ $wealthbuss->business_account_type_specify  }}
-                                                        @else -
-
-                                                        @endif
-
-                                                    </div>
-                                                @endif
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account/Policy Number</label>
-                                                <p>
-                                                    @isset($wealthbuss->business_account_policy_no)
-                                                        {{ $wealthbuss->business_account_policy_no }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>
                                                     @isset($wealthbuss->product_name)
                                                         {{ $wealthbuss->product_name }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Payment Mode</label>
-                                                <p>
-                                                    @isset($wealthbuss->payment_mode)
-                                                        {{ $wealthbuss->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1423,20 +1435,10 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Online Account Username</label>
+                                                <label for="" class="form-label">Payment Mode</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_account_user)
-                                                        {{ $wealthbuss->online_account_user }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Online Account Password</label>
-                                                <p>
-                                                    @isset($wealthbuss->online_acc_pass)
-                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @isset($wealthbuss->payment_mode)
+                                                        {{ $wealthbuss->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1453,6 +1455,7 @@
                                                     @endisset
                                                 </p>
                                             </div>
+
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
@@ -1496,20 +1499,6 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Commisison Status (For Admin
-                                                    Purpose)
-                                                </label>
-                                                <p
-                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
-
-                                                    @isset($wealthbuss->commision_status)
-                                                        {{ $wealthbuss->commision_status }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Commission Currency (For Admin
                                                     Purpose)</label>
                                                 <p>
@@ -1535,6 +1524,20 @@
                                                 <p>
                                                     @isset($wealthbuss->commission_amount)
                                                         {{ $wealthbuss->commission_amount }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Commisison Status (For Admin
+                                                    Purpose)
+                                                </label>
+                                                <p
+                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
+
+                                                    @isset($wealthbuss->commision_status)
+                                                        {{ $wealthbuss->commision_status }}
                                                     @else
                                                         -
                                                     @endisset

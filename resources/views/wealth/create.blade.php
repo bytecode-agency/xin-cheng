@@ -147,7 +147,7 @@
                                             <input type="date" class="form-control" name="cmp[1][incorporate_date]"
                                                 id="fo_incorporation_date_1" placeholder="dd/mm/yyyy">
                                         </div>
-                                        <div class="formAreahalf"> <label for="fo_relationship_1"
+                                        <!-- <div class="formAreahalf"> <label for="fo_relationship_1"
                                                 class="form-label">Relationship with Company 1</label> <select
                                                 class="form-control" name="cmp[1][relationship]"
                                                 id="fo_relationship_1">
@@ -159,8 +159,8 @@
                                                 <option value="Fund co.">Fund co.</option>
                                                 <option value="Management co.">Management co.</option>
                                             </select>
-                                        </div>
-                                        <div class="formAreahalf">
+                                        </div> -->
+                                        <div class="formAreahalf mb-5">
                                             <label for="fo_company_email_1" class="form-label">Company Email</label>
                                             <input type="email" class="form-control" name="cmp[1][company_email]"
                                                 id="fo_company_email_1">
@@ -183,7 +183,7 @@
                             <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                                 {{-- <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span> --}}
                                 <div class="accordion-item accordian-items-comp" id="accordion-2">
-                                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <div class="accordion-header" id="panelsStayOpen-headingOne">
                                         <div class="formAreahalf company-full_width_Cstm"> <label for="fo_compnay_2"
                                                 class="form-label">Company Name 2</label> <input type="text"
                                                 name="cmp[2][name]" id="fo_compnay_2" class="form-control" value="">
@@ -193,7 +193,7 @@
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
 
                                         </button>
-                                    </h2>
+                                    </div>
                                     <div id="panelsStayOpen-collapseOne2" class="accordion-collapse collapse show"
                                         aria-labelledby="panelsStayOpen-headingOne">
                                         <div class="accordion-body d-flex flex-wrap">

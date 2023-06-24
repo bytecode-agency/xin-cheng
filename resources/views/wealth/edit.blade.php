@@ -977,6 +977,7 @@
                                                         value="@isset($wealthbuss->financial_institition_name) {{ $wealthbuss->financial_institition_name }} @endisset"
                                                         class="form-control">
                                                 </div>
+
                                                 <button class="btn btn_set collapsed" data-toggle="collapse"
                                                     data-target="#business_collapseOne" aria-expanded="true"
                                                     aria-controls="collapseOne">
@@ -986,36 +987,20 @@
                                             <div id="business_collapseOne" class="collapse" aria-labelledby="headingOne"
                                                 data-parent="#business_accordion">
                                                 <div class="tab-inner-text d-flex flex-wrap">
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="application_submision" class="form-label">Application
-                                                            Submission</label>
-                                                        <select name="application_submision" id="application_submision"
-                                                            class="js-example-responsive form-control">
-                                                            <option value="" selected disabled>Choose Application
-                                                                Submission
-                                                            </option>
-                                                            <option
-                                                                value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
-                                                            <option
-                                                                value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
-                                                        </select>
+                                                <div class="formAreahalf basic_data">
+                                                        <label for="online_account_user" class="form-label">Online Account
+                                                            Username</label>
+                                                        <input type="text" name="online_account_user"
+                                                            value="@isset($wealthbuss->online_account_user) {{ $wealthbuss->online_account_user }} @endisset"
+                                                            class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="business_account_status" class="form-label">Account
-                                                            Status</label>
-                                                        <select name="business_account_status" id="business_account_status"
-                                                            class="js-example-responsive form-control">
-                                                            <option value="" selected disabled>Choose account status
-                                                            </option>
-                                                            <option value="Pending"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                            <option value="Approved"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved' ? 'selected' : '' }}>Approved</option>
-                                                            <option value="Rejected"
-                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
-                                                        </select>
+                                                        <label for="online_acc_pass" class="form-label">Online Account
+                                                            Password</label>
+                                                        <input type="text" name="online_acc_pass"
+                                                            value="@isset($wealthbuss->online_acc_pass) {{ $wealthbuss->online_acc_pass }} @endisset"
+                                                            class="form-control">
                                                     </div>
-
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_type" class="form-label">Account
                                                             Type</label>
@@ -1044,42 +1029,45 @@
                                                         </div>
                                                     @endif
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="business_account_policy_no"
-                                                            class="form-label">Account/Policy
-                                                            Number</label>
-                                                        <input type="text" name="business_account_policy_no"
-                                                            value="@isset($wealthbuss->business_account_policy_no) {{ $wealthbuss->business_account_policy_no }} @endisset"
+                                                        <label for="application_submision" class="form-label">Application
+                                                            Submission</label>
+                                                        <select name="application_submision" id="application_submision"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose Application
+                                                                Submission
+                                                            </option>
+                                                            <option
+                                                                value="Progress"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress' ? 'selected' : '' }}>Progress</option>
+                                                            <option
+                                                                value="Done"{{ isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="product_name" class="form-label">Account/Policy Number</label>
+                                                        <input type="text" name="product_name"
+                                                            value="@isset($wealthbuss->product_name) {{ $wealthbuss->product_name }} @endisset"
                                                             class="form-control">
+                                                    </div>
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="business_account_status" class="form-label">Account
+                                                            Status</label>
+                                                        <select name="business_account_status" id="business_account_status"
+                                                            class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose account status
+                                                            </option>
+                                                            <option value="Pending"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                            <option value="Approved"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved' ? 'selected' : '' }}>Approved</option>
+                                                            <option value="Rejected"
+                                                                {{ isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+                                                        </select>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="product_name" class="form-label">Product Name</label>
                                                         <input type="text" name="product_name"
                                                             value="@isset($wealthbuss->product_name) {{ $wealthbuss->product_name }} @endisset"
                                                             class="form-control">
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="payment_mode" class="form-label">Payment Mode</label>
-                                                        <select name="payment_mode" class="form-control">
-                                                            <option value="" selected disabled>Choose payment mode
-                                                            </option>
-                                                            <option
-                                                                value="Lump Sum"{{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Lump Sum' ? 'selected' : '' }}>
-                                                                Lump Sum</option>
-                                                            <option value="Yearly"
-                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Yearly' ? 'selected' : '' }}>
-                                                                Yearly</option>
-                                                            <option value="Half-yearly"
-                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Half-yearly' ? 'selected' : '' }}>
-                                                                Half-yearly</option>
-                                                            <option value="Quarterly"
-                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Quarterly' ? 'selected' : '' }}>
-                                                                Quarterly</option>
-                                                            <option value="Monthly"
-                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Monthly' ? 'selected' : '' }}>
-                                                                Monthly</option>
-
-
-                                                        </select>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="currency" class="form-label">Currency</label>
@@ -1121,18 +1109,28 @@
                                                         </div>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="online_account_user" class="form-label">Online Account
-                                                            Username</label>
-                                                        <input type="text" name="online_account_user"
-                                                            value="@isset($wealthbuss->online_account_user) {{ $wealthbuss->online_account_user }} @endisset"
-                                                            class="form-control">
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="online_acc_pass" class="form-label">Online Account
-                                                            Password</label>
-                                                        <input type="text" name="online_acc_pass"
-                                                            value="@isset($wealthbuss->online_acc_pass) {{ $wealthbuss->online_acc_pass }} @endisset"
-                                                            class="form-control">
+                                                        <label for="payment_mode" class="form-label">Payment Mode</label>
+                                                        <select name="payment_mode" class="form-control">
+                                                            <option value="" selected disabled>Choose payment mode
+                                                            </option>
+                                                            <option
+                                                                value="Lump Sum"{{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Lump Sum' ? 'selected' : '' }}>
+                                                                Lump Sum</option>
+                                                            <option value="Yearly"
+                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Yearly' ? 'selected' : '' }}>
+                                                                Yearly</option>
+                                                            <option value="Half-yearly"
+                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Half-yearly' ? 'selected' : '' }}>
+                                                                Half-yearly</option>
+                                                            <option value="Quarterly"
+                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Quarterly' ? 'selected' : '' }}>
+                                                                Quarterly</option>
+                                                            <option value="Monthly"
+                                                                {{ isset($wealthbuss->payment_mode) && $wealthbuss->payment_mode == 'Monthly' ? 'selected' : '' }}>
+                                                                Monthly</option>
+
+
+                                                        </select>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="subscription" class="form-label">Subscription /
@@ -1209,22 +1207,6 @@
                                                                 </select></span></div>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="commision_status" class="form-label">Commisison
-                                                            Status(For
-                                                            Admin
-                                                            Purpose)
-                                                        </label>
-                                                        <select name="commision_status" class="js-example-responsive form-control">
-                                                            <option value="" selected disabled>Choose commission
-                                                                status
-                                                            </option>
-                                                            <option
-                                                                value="Received"{{ isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received' ? 'selected' : '' }}>Received</option>
-                                                            <option value="Pending"
-                                                                {{ isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
                                                         <label for="commission_currency" class="form-label">Commission
                                                             Currency(For Admin
                                                             Purpose)</label>
@@ -1263,7 +1245,22 @@
                                                             value="@isset($wealthbuss->commission_amount) {{ $wealthbuss->commission_amount }} @endisset"
                                                             class="form-control">
                                                     </div>
-
+                                                    <div class="formAreahalf basic_data">
+                                                        <label for="commision_status" class="form-label">Commisison
+                                                            Status(For
+                                                            Admin
+                                                            Purpose)
+                                                        </label>
+                                                        <select name="commision_status" class="js-example-responsive form-control">
+                                                            <option value="" selected disabled>Choose commission
+                                                                status
+                                                            </option>
+                                                            <option
+                                                                value="Received"{{ isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received' ? 'selected' : '' }}>Received</option>
+                                                            <option value="Pending"
+                                                                {{ isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_remarks" class="form-label">Remarks</label>
                                                         <textarea name="business_remarks" rows="4" cols="50"

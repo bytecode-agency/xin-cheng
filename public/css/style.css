@@ -2301,6 +2301,7 @@ html body .card .company_design .accordion-item .accordion-header button.accordi
     width: auto;
     max-width: initial;
     display: flex;
+    left: -45px;
 }
 
 html body .card .company_design .accordion-item .accordion-header button.accordion-button i {

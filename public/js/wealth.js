@@ -240,7 +240,7 @@ $(document).ready(function () {
             <span class="cancel_company"><i class="fa fa-times" aria-hidden="true"></i></span> \
 
             <div class="accordion-item accordian-items-comp" id="accordion-`+ (comp + 1) + `">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <div class="accordion-header" id="panelsStayOpen-headingOne">
                  <div class="formAreahalf company-full_width_Cstm"> \
                     <label for="fo_compnay_`+(comp + 1)+`" class="form-label">Company Name ` + (comp + 1) + `</label>\
                     <input type="text" name="cmp[` + (comp + 1) + `][name]" id="fo_compnay_`+(comp + 1)+`" class="form-control" value="">\
@@ -251,7 +251,7 @@ $(document).ready(function () {
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
 
                 </button>
-            </h2>
+            </div>
             <div id="panelsStayOpen-collapseOne`+ (comp + 1) + `" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body d-flex flex-wrap">
                     <div class="formAreahalf">\
@@ -1215,7 +1215,7 @@ $(document).ready(function () {
                     <span class="cancel_nfocompany cancel_company "><i class="fa fa-times" aria-hidden="true"></i></span> \
 
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <div class="accordion-header" id="panelsStayOpen-headingOne">
                                 <div class="formAreahalf company-full_width_Cstm">\
                                 <label for="nfo_compnay_` + (cmp_count + 1) + `" class="form-label">Company Name `+ (cmp_count + 1) + `</label>\
                                 <input type="text" name="corporate[` + (cmp_count + 1) + `][nfo_company]" id="nfo_compnay_` + (cmp_count + 1) + `" class="form-control" value="">\
@@ -1225,7 +1225,7 @@ $(document).ready(function () {
                                 aria-controls="panelsStayOpen-collapseOne">
                                 <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </button>
-                        </h2>
+                        </div>
                     <div id="panelsStayOpen-collapseOne`+ (cmp_count + 1) + `" class="accordion-collapse collapse show"
                         aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body d-flex flex-wrap">
