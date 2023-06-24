@@ -542,27 +542,10 @@ $(document).ready(function () {
 
     });
     
-    $('#nfo_email').keyup(function(){
-       var emailvalids = $(this).val();
-       var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-       if(!pattern.test(emailvalids)){
-           $('.emailserror').text("Please enter valid email");
-           $('.edit_save').attr('disabled', true);
-       }else{
-        $('.edit_save').attr('disabled', false);
-        $('.emailserror').text("");
-       }
-    });
+    
 
     $('body').on('click', '.edit_save', function(){
-        var emailval = $('#nfo_email').val();
-        var errormsg = 0;
-        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-        if(!pattern.test(emailval)){
-            $('.emailserror').text("Please enter valid email");
-            errormsg = 1;
-            return false;
-        }
+       
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
         const notesVal = $("#text_notes").val()
@@ -583,7 +566,7 @@ $(document).ready(function () {
             }
         });
 
-        if (check && (errormsg == 0)) {
+        if (check ) {
             $.ajax({
                 type: "post",
                 route: url,
