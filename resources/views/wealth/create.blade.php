@@ -115,7 +115,7 @@
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design cmd_count">
                         <div class="company_set_accrodian" id="accordionPanelsStayOpenExample">
                             <div class="accordion-item accordian-items-comp" id="accordion-1">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <div class="accordion-header" id="panelsStayOpen-headingOne">
                                     <div class="formAreahalf company-full_width_Cstm">
                                         <label for="fo_compnay_1" class="form-label">Company Name 1</label>
                                         <input type="text" name="cmp[1][name]" id="fo_compnay_1" class="form-control"
@@ -127,7 +127,7 @@
 
                                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                                     </button>
-                                </h2>
+                                </div>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="panelsStayOpen-headingOne">
                                     <div class="accordion-body d-flex flex-wrap">

@@ -943,7 +943,7 @@ fieldset#account .formAreahalf {
     position: relative;
     cursor: pointer;
     z-index: 10;
-    top: 13px;
+    top: 0px;
 }
 
 .custom-form,
@@ -2290,20 +2290,20 @@ html body .card .company_design .accordion-item {
     margin: 5px 0;
 }
 
-html body .card .company_design .accordion-item h2.accordion-header {
+html body .card .company_design .accordion-item .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-html body .card .company_design .accordion-item h2.accordion-header button.accordion-button {
+html body .card .company_design .accordion-item .accordion-header button.accordion-button {
     justify-content: end;
     width: auto;
     max-width: initial;
     display: flex;
 }
 
-html body .card .company_design .accordion-item h2.accordion-header button.accordion-button i {
+html body .card .company_design .accordion-item .accordion-header button.accordion-button i {
     width: 45px;
     height: 45px;
     background: #000;
@@ -3119,15 +3119,15 @@ form#multistep_form_edit .card.company_basic_info .formAreahalf span[title="Acti
 }
 
 form#multistep_form_edit .card.company_basic_info .formAreahalf span.selection span.select2-selection {
-    /* background: green; */
-    /* width: max-content; */
-    /* border-radius: 4px; */
+    background: green;
+    width: max-content;
+    border-radius: 4px;
 }
 
 form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-selection.select2-selection--single span {
-    /* color: #fff !important; */
-    /* padding: 0 15px !important; */
-    /* border-radius: 4px; */
+    color: #fff !important;
+    padding: 0 15px !important;
+    border-radius: 4px;
 }
 
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
@@ -3612,7 +3612,7 @@ form#operation_form .card.formContentData .accordion-item .accordion-collapse .f
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    /* background: green; */
+    background: green;
     border-radius: 4px;
     width: max-content;
 	    padding: 0;

@@ -29,6 +29,8 @@ class WealthController extends Controller
     /**
      * Handle the incoming request.
      */
+    public $data = [];
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -370,17 +372,17 @@ class WealthController extends Controller
     }
     public function view($id)
     {   
-        $data = Wealth::with('companies.shareholder')->with('users')->find($id); 
+        $data = Wealth::with('companies.shareholder')->with('users')->find($id) ?? new Wealth; 
         // dd($data);
         if(!empty($data) && !empty($data->business_type) && $data->business_type == "FO")
         {
-            $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first();           
+            $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first() ?? new WealthBusiness;           
         }
         else
         {
             if($data->client_type == "Personal")
             {
-                $basic_data = WealthPersonal::where('wealth_id','=',$data->id)->first();     
+                $basic_data = WealthPersonal::where('wealth_id','=',$data->id)->first() ?? new WealthPersonal;     
             }
             else
             {
@@ -399,16 +401,16 @@ class WealthController extends Controller
     }
     public function edit($id)
     {
-        $data = Wealth::with('companies.shareholder')->with('users')->find($id); 
+        $data = Wealth::with('companies.shareholder')->with('users')->find($id) ?? new Wealth; 
         if($data->business_type == "FO")
         {
-            $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first();           
+            $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first() ?? new WealthBusiness;           
         }
         else
         {
             if($data->client_type == "Personal")
             {
-                $basic_data = WealthPersonal::where('wealth_id','=',$data->id)->first();     
+                $basic_data = WealthPersonal::where('wealth_id','=',$data->id)->first() ?? new WealthPersonal;     
             }
             else
             {
@@ -611,7 +613,7 @@ class WealthController extends Controller
                         'pass_renewal_frq'=>  isset( $passholer_item['pass_renewal_frq']) ?  $passholer_item['pass_renewal_frq'] :null,
                         'pass_jon_title'=>  isset( $passholer_item['pass_jon_title']) ?  $passholer_item['pass_jon_title'] :null,
                         'singpass_set_up'=>  isset( $passholer_item['singpass_set_up']) ?  $passholer_item['singpass_set_up'] :null,
-                        'company'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
+                        'employee_name'=>  isset( $passholer_item['employee_name']) ?  $passholer_item['employee_name'] :null,
                         'monthly_sal'=>  isset( $passholer_item['monthly_sal']) ?  $passholer_item['monthly_sal'] :null,
                         'pass_remarks'=>  isset( $passholer_item['pass_remarks']) ?  $passholer_item['pass_remarks'] :null,           
                         ]
@@ -989,6 +991,23 @@ class WealthController extends Controller
         $passholder = WealthPass::find($id)->delete();
         return response()->json([
             'message' => 'Passholder has been deleted successfully!'
+        ]);
+    }
+
+    public function passRelatedItemView(Request $request){
+        $passholder_id   = $request->passholder_id;
+        $item_id         = $request->item_id;
+        $value           = $request->value;
+        $passholder_item = WealthPass::find($passholder_id) ?? new WealthPass;
+        $this->data['passholder_key']  = $item_id;
+        $this->data['passholder_item'] = $passholder_item;
+        if($value == 'Yes'){
+            $view = \View::make('wealth.passholder_shareholder' , $this->data)->render();
+        }else{
+            $view = \View::make('wealth.passholder' , $this->data)->render();
+        }
+        return response()->json([
+            'view' => $view
         ]);
     }
 }
