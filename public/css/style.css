@@ -3119,15 +3119,15 @@ form#multistep_form_edit .card.company_basic_info .formAreahalf span[title="Acti
 }
 
 form#multistep_form_edit .card.company_basic_info .formAreahalf span.selection span.select2-selection {
-    background: green;
-    width: max-content;
-    border-radius: 4px;
+    /* background: green; */
+    /* width: max-content; */
+    /* border-radius: 4px; */
 }
 
 form#multistep_form_edit .card.company_basic_info .formAreahalf span.select2-selection.select2-selection--single span {
-    color: #fff !important;
-    padding: 0 15px !important;
-    border-radius: 4px;
+    /* color: #fff !important; */
+    /* padding: 0 15px !important; */
+    /* border-radius: 4px; */
 }
 
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
@@ -3612,7 +3612,7 @@ form#operation_form .card.formContentData .accordion-item .accordion-collapse .f
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    background: green;
+    /* background: green; */
     border-radius: 4px;
     width: max-content;
 	    padding: 0;
