@@ -167,7 +167,7 @@
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Phone</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" id="sharephone" pattern="[6789][0-9]{9}" title="Please enter valid phone number" onKeyPress="if(this.value.length==10) return false;" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][phone]"
                                                     value="{{ $shareholder->phone }}">
                                             </div>
@@ -384,11 +384,11 @@
                         </div>
                     @endforeach
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
-                        id="edit_add_share">Add Shareholder</button>
+                        id="edit_add_share">Add shareholders</button>
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach     
 
     <button class="btn saveBtn edit__add_com" id="edit_add_company" name="edit_add_company">Add
         Company</button>

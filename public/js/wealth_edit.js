@@ -39,6 +39,8 @@ function equity_percentage_checks() {
             }
         }
         else {
+           
+           
             $("#" + id).find(".edit_add_shareholder").addClass("disable");
             $("#" + id).find(".edit_add_shareholder").attr("disabled", 'disabled');
         }
@@ -190,7 +192,7 @@ $(document).ready(function () {
                                             </button>
                                             <div class="shareholder_div_accrodion_show">
                                                 <div class="formAreahalf basic_data">
-                                                    <label for="" class="form-label">Equity Percentage</label>
+                                                    <label for="" class="form-label">Equity Percentages</label>
 
                                                         <div class="dollersec percentage_input"><span class="input"><input type="text"
                                                         name="share[`+ key + `][0][equity_percentage]" id="equity_shareholder"
@@ -269,7 +271,7 @@ $(document).ready(function () {
                     </button>
                     <div class="shareholder_div_accrodion_show">
                         <div class="formAreahalf basic_data">
-                            <label for="" class="form-label">Equity Percentage</label>
+                            <label for="" class="form-label">Equity Percentages</label>
                             <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
                             name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
                             ></span><span class="pecentage_end">%</span></div>
@@ -541,6 +543,17 @@ $(document).ready(function () {
         }
 
     });
+    $('#tax_advisor_email').keyup(function(){
+        var emailvalids = $(this).val();
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        if(!pattern.test(emailvalids)){
+            $('.emailserror').text("Please enter valid email");
+            
+        }else{
+         $('.emailserror').text("");
+        }
+     });
+    
     
     
 
@@ -549,7 +562,9 @@ $(document).ready(function () {
         var formdata = $('#multistep_form_edit').serialize();
         var url = "{{ route('wealth.update') }}";
         const notesVal = $("#text_notes").val()
+        const emailval = $('#tax_advisor_email').val();
         let check = true
+       
         if (notesVal) {
             const testStr = notesVal.substr(0, 1)
             if (testStr.includes(" ")) {
@@ -560,12 +575,12 @@ $(document).ready(function () {
                 check = true
             }
         }
+console.log(check);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         if (check ) {
             $.ajax({
                 type: "post",
@@ -596,14 +611,7 @@ $(document).ready(function () {
         }
 
     });
-    function IsEmail(email) {
-        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if(!regex.test(email)) {
-          return false;
-        }else{
-          return true;
-        }
-      }
+ 
 
     $('#wealth_inputFile').change(function (e) {
         const size = e.target.files[0].size / Math.pow(1024, 2)
@@ -1038,6 +1046,13 @@ $(document).ready(function () {
 
 
     });
+    $('#sharephone').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("sharephone").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+       });
+     
 
     $('body').on('click', '.remove-campany-shareholder', function (e) {
         e.preventDefault();
