@@ -365,7 +365,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" name="nfo_dob" id="nfo_dob"  class="form-control" max="<?php echo date("Y-m-d"); ?>"  placeholder="dd/mm/yyyy">
+                        <input type="date" name="nfo_dob" id="nfo_dob"  class="form-control" max="<?php echo date("Y-m-d"); ?>"  placeholder="dd/mm/yyyy" onkeydown="return false" />
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -376,7 +376,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
+                        <input type="date" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy" onkeydown="return false" />
                         {{-- <div class="calender"><span class="cal_input"><input type="date" name="nfo_pass_exp" id="nfo_pass_exp"
                             class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -443,8 +443,8 @@
                         <input type="text" class="form-control" name="nfo_email" id="nfo_email">
                     </div>
                     <div class="formAreahalf">
-                        <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
+                        <label for="nfo_phone_number" class="form-label">Phone Numbers</label>
+                        <input type ="text" maxlength ="10"    class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" >
                     </div>
 
                     <div class="formAreahalf">
@@ -876,7 +876,7 @@
             <input type="text" class="form-control" name="fo_email" id="fo_email">
         </div>
         <div class="formAreahalf">
-            <label for="fo_phone_number" class="form-label">Phone Number</label>
+            <label for="fo_phone_number" class="form-label">Phone Numbers</label>
             <input type="tel" id="fo_phone_number" name="fo_phone_number" class="form-control" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
         </div>
         <div class="formAreahalf">

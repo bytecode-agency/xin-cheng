@@ -371,15 +371,13 @@
                             </div>
                         </div>
                     @endforeach
-
                     <button class="btn saveBtn edit_add_shareholder" style="float:right" name="edit_add_shoulder"
-                        id="edit_add_share" data-id={{ $key2 }}>Add
-                        Shareholder</button>
+                        id="edit_add_share">Add shareholders</button>
+                    
                 </div>
             </div>
         </div>
     @endforeach
-    <button class="btn saveBtn edit__add_com" id="edit_add_company" name="edit_add_company"
-        data-id={{ $key }}>Add
+    <button class="btn saveBtn edit__add_com" id="edit_add_company" name="edit_add_company">Add
         Company</button>
 </div>

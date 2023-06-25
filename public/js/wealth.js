@@ -7,6 +7,18 @@ $(document).ready(function () {
         }
     });
 
+    $(function() {
+        $("input[name='nfo_phone_number']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        });
+    });
+    $(function() {
+    $('#nfo_phone_numbers').on('input',function(e){
+        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+       });
+    });
+   
+
     $(document).on('keypress','[type^=integer]',function(event){
         var key = window.event ? event.keyCode : event.which;
           if (event.keyCode === 8 || event.keyCode === 46) {
@@ -31,6 +43,8 @@ $(document).ready(function () {
     function setProgressBar(cu6rStep) {
         var data = $('#' + curStep).addClass("active");
     };
+
+   
 
     $('.button').click(function(){
         var id = $(this).attr('id');
@@ -344,7 +358,7 @@ $(document).ready(function () {
 
             <div class="formAreahalf">
                 <label for="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-label">Phone Number</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
+                <input maxlength="10" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
                     value="">
             </div>
             <div class="formAreahalf">
@@ -518,7 +532,7 @@ $(document).ready(function () {
                         <div id="fo_shareholder" class="sharehold">
                             <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design sharehold_length">
                                 <div class="Share_holder-w sub-heading">
-                                    <h4>Shareholder #1</h4>
+                                    <h4>Shareholder #12</h4>
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_equity_1" class="form-label">Equity Percentage</label>
@@ -547,7 +561,7 @@ $(document).ready(function () {
                                 </div>
 
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_phone_1" class="form-label">Phone Number</label>
+                                    <label for="fo_cpm2_phone_1" class="form-label">Phone Numbers</label>
                                     <input maxlength="10" name="share[1][1][phone]" id="fo_cpm2_phone_1" class="form-control"
                                         value="">
                                 </div>
@@ -673,6 +687,8 @@ $(document).ready(function () {
             });
 
         }
+
+
         $('#fo_cpm2_phone_1').on('input',function(e){
             let {value} = e.target
             if( !/^\d+$/.test(value)){
@@ -680,17 +696,25 @@ $(document).ready(function () {
             }
            });
 
-        $(function () {
-            $("#fo_cpm2_pass_no_1").keypress(function () {
-                var passportnumber = $(this).val();
-                var regex = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
-                if (regex.test(passportnumber)) {
-                    $("#lblError").css("visibility", "hidden");
-                } else {
-                    $("#lblError").css("visibility", "visible");
-                }
-            });
-        });
+          
+
+        // $(function () {
+        //     $("#fo_cpm2_pass_no_1").keypress(function () {
+        //         var passportnumber = $(this).val();
+        //         var regex = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
+        //         if (regex.test(passportnumber)) {
+        //             $("#lblError").css("visibility", "hidden");
+        //         } else {
+        //             $("#lblError").css("visibility", "visible");
+        //         }
+        //     });
+        // });
+        $('#fo_cpm2_pass_no_1').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("fo_cpm2_pass_no_1").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
 
         $('#fo_cpm2_tin_num_1').on('input',function(e){
             let {value} = e.target
@@ -698,6 +722,8 @@ $(document).ready(function () {
                 document.getElementById("fo_cpm2_tin_num_1").value = value.replace(/[@a-zA-Z]/g, "")
             }
            });
+
+   
           
     });
     $(document).on('change', '.fo_cpm2_relation', function() {
@@ -837,7 +863,7 @@ $(document).ready(function () {
                     <div id="fo_shareholder" class="sharehold">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design sharehold_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #1</h4>
+                                <h4>Shareholder #12</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity_1" class="form-label">Equity Percentage</label>
@@ -1091,6 +1117,7 @@ $(document).ready(function () {
                         </div>
                      </div>`);
         } else {
+             
             // $(this).parents('#fo_shareholder').find(
             //     "#appended_user_shareholder_cmp2_selcection_div").html($(
             //         '#FO_shrhold_c2_personal')
@@ -1196,7 +1223,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
+                            <input maxlength="10" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
                                 value="">
                         </div>
                         <div class="formAreahalf">
@@ -1350,7 +1377,7 @@ $(document).ready(function () {
                     <div id="nfo_shareholder">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #1</h4>
+                                <h4>Shareholder #12</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
@@ -1421,8 +1448,8 @@ $(document).ready(function () {
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_email]" id="nfo_email">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_phone_number]"
+                                <label for="nfo_phone_number" class="form-label">Phone Numbers</label>
+                                <input maxlength="" class="form-control" name="shrd[1][1][nfo_phone_number]"
                                     id="nfo_phone_number">
                             </div>
                             <div class="formAreahalf">
@@ -1500,6 +1527,7 @@ $(document).ready(function () {
                 if ($(this).closest('fieldset').next().hasClass("wealth_back_next_comp")) {
                     $(this).closest('fieldset').next().show();
                 } else {
+                    
                 $('.NFO_shareholder').css("display", "block");
                 $('.NFO_shareholder').html(`<div class="full_div" id="nf_comp_1"><div class="card formContentData border-0 p-4">
                     <div class="Personal_Details company_space">
@@ -1531,7 +1559,7 @@ $(document).ready(function () {
                     <div id="nfo_shareholder">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #1</h4>
+                                <h4>Shareholder #12</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
@@ -1602,9 +1630,9 @@ $(document).ready(function () {
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_email]" id="nfo_email">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_phone_number]"
-                                    id="nfo_phone_number">
+                                <label for="nfo_phone_number" class="form-label">Phone Numbers</label>
+                                <input maxlength="10" class="form-control" name="shrd[1][1][nfo_phone_number]"
+                                    id="nfo_phone_numbers">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_residential_Add" class="form-label">Residential Address</label>
@@ -1742,7 +1770,7 @@ $(document).ready(function () {
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">\
 
                         <div class="Share_holder-w sub-heading">\
-                            <h4>Shareholder #1</h4>\
+                            <h4>Shareholder #12</h4>\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="fo_equity" class="form-label">Equity Percentage</label>\
@@ -1921,6 +1949,12 @@ $(document).ready(function () {
                         </div>
                     </div>`);
         }
+        jQuery.validator.addMethod("phoneUS", function(phone_number, element) {
+            phone_number = phone_number.replace(/\s+/g, "");
+            return this.optional(element) || phone_number.length > 9 && 
+            phone_number.match(/^(\+?1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/);
+        }, "Please specify a valid phone number");
+
         $(".datepicker").datepicker({
             dateFormat: 'dd/mm/yy',
             onClose: function() {
@@ -2209,8 +2243,9 @@ $(document).ready(function () {
                     <input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_email]" id="nfo_email">\
                 </div>\
                 <div class="formAreahalf">\
-                    <label for="nfo_phone_number" class="form-label">Phone Number</label>\
-                    <input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_phone_number]" id="nfo_phone_number">\
+                    <label for="nfo_phone_number" class="form-label">Phone Numbers</label>\
+                    <input maxlength="10" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_phone_number]" id="fo_cpm2_phone_1" class="form-control valid" value="" aria-invalid="false">
+                    
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_residential_Add" class="form-label">Residential Address</label>\
@@ -2284,7 +2319,7 @@ $(document).ready(function () {
             count++;
         });
     });
-   
+  
     $('body').on('click', '.cancel_shareholder', function () {
         var currentRem = $(this).attr('data-share');
         var per = 0;
@@ -2338,6 +2373,7 @@ $(document).ready(function () {
             nf_count++;
         });
     });
+   
     $('body').on('click', '.cancel_nfoshareholder', function () {
 
         var nfo_shar_count = 1;

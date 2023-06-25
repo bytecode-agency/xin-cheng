@@ -150,7 +150,10 @@ class WealthController extends Controller
        return view('wealth.create');
     }
     public function save(Request $request)
+
     {
+       
+        
         // dd($request);
         // echo "<pre>";print_r($request->all());
         
@@ -250,7 +253,9 @@ class WealthController extends Controller
       {  
          // for NON-FO client type as personal or corporate
          if($request->nfo_client_type == "Personal")
+        
          {
+            
             $nf_personal = new WealthPersonal;
             $nf_personal-> wealth_id = $wealth_all->id;
             $nf_personal->pass_name_eng = $request->nfo_pass_name;
@@ -429,6 +434,8 @@ class WealthController extends Controller
     }
     public function update(Request $request)
     {
+       
+    
         $business_account_types = $request->business_account_type;
 
         // if(!empty($request->business_account_type)){
@@ -478,6 +485,7 @@ class WealthController extends Controller
                     // echo'<pre>';print_r($company_add->id);  
                     // dd($company_add->id);
                     if(!empty($request->share) && is_array($request->share) && array_key_exists($key,$request->share)){
+                        
                         foreach($request->share[$key] as $key2=> $shareholder)
                         {
                             // dd($shareholder['id']);
@@ -518,6 +526,9 @@ class WealthController extends Controller
 
                 // for application data mas_related
                 // dd($request);
+                $validate = $request->validate([
+                    'tax_advisor_email' => 'required|max:255|regex:/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i'    
+                ]);
             $wealth_mas_application = WealthMas::updateOrCreate(
                 ['id' => $request->wealth_mas_id , 'wealth_id' => $id],
                 ['account_status' => isset($request->account_status) ? $request->account_status :null,

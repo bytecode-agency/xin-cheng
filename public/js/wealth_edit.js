@@ -709,6 +709,7 @@ $(document).ready(function () {
         }
 
     });
+ 
 
     $('#wealth_inputFile').change(function (e) {
         const size = e.target.files[0].size / Math.pow(1024, 2)
