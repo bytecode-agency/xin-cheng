@@ -1043,9 +1043,9 @@
                                                         </select>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
-                                                        <label for="product_name" class="form-label">Account/Policy Number</label>
-                                                        <input type="text" name="product_name"
-                                                            value="@isset($wealthbuss->product_name) {{ $wealthbuss->product_name }} @endisset"
+                                                        <label for="business_account_policy_no" class="form-label">Account/Policy Number</label>
+                                                        <input type="text" name="business_account_policy_no"
+                                                            value="@isset($wealthbuss->business_account_policy_no) {{ $wealthbuss->business_account_policy_no }} @endisset"
                                                             class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
@@ -1152,7 +1152,7 @@
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control durationJs">
+                                                            class="form-control durationJs" readonly>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity
@@ -1543,7 +1543,7 @@
                                                         <label for="business_duration" class="form-label">Duration</label>
                                                         <input type="text" name="business_duration"
                                                             value="@isset($wealthbuss->business_duration){{ $wealthbuss->business_duration }}@endisset"
-                                                            class="form-control durationJs" disabled>
+                                                            class="form-control durationJs" readonly>
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="maturity_reminder" class="form-label">Maturity

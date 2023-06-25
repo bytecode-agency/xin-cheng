@@ -2729,44 +2729,46 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:15px;">
                                             <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Active</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealth_mas->account_status ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:15px;">
                                             <b>Tax Advisor Name</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Tax Advisor Email</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_email ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Tax Advisor Conatact Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Kickstart to Tax Advisor</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->kickstart_tax_advisor ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Legal Opinion</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->deck_submission ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Presentation Deck(Final)</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->presentation_deck ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Account Opening</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_account ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -2774,77 +2776,77 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Preliminary Approval</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->preliminary_approval ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Final Approval</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->final_approval ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Final Submission</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->final_submission ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>OIC Name</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->oic_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_username ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_password ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Institution Code</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->institution_code ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Declaration Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->declaration_frequency ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commencement Date (DD/MM/YYYY)</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->commencement_date ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Reminder Notification</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->reminder_notification ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Annual Declaration Deadline</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->annual_declaration_deadline ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Internal Account Manager</b>
-                                            <span style="padding-top:15px;  display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->internal_account_manager ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Trigger Frequency Reminder</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->trigger_fqy_rem ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealth_mas->remarks ?? '-'}} </span>
                                         </td>
                                     </tr>
 
@@ -2927,104 +2929,126 @@
                                 </table>
                             </td>
                         </tr>
+                        @foreach($wealth_finance as $key => $wealthfinance)
 
                         <tr class="forth-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2" style="padding:25px 0;">
+                                            <b>Financial Institution Name {{$key+1}}</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Stakeholder Type</b>
-                                            <span style="padding-top:25px; display:block;">Fund CO</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->stakeholder_type ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:13px;">
-                                            <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:25px; display:block;">DBS bank Ltd</span>
+                                            <b>Financial Institution Name {{$key+1}}</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->financial_institution_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>POC Name</b>
-                                            <span style="padding-top:25px; display:block;">abc</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_name ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>POC Contact Number</b>
-                                            <span style="padding-top:25px; display:block;">9123456789</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_contact_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>POC Email</b>
-                                            <span style="padding-top:25px; display:block;">9123456789</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_email ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:25px; display:block;">Singapore</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
-                                            <b>Account Type</b>
-                                            <span style="padding-top:25px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account(Policy Number)</b>
-                                            <span style="padding-top:25px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:25px; display:block;">
+                                            {{$wealthfinance->application_submission ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account Opening Status</b>
-                                            <span style="padding-top:25px; display:block;">Self</span>
+                                            <b>Application Submission Date</b>
+                                            <span style="padding-top:25px; display:block;">
+                                            @if(!empty($wealthfinance->application_submission_date))
+                                                {{ date('d/m/Y' , strtotime($wealthfinance->application_submission_date)) }}
+                                            @else
+                                                -
+                                            @endif
+                                            </span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Current Account Status</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Type</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_type ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Account(Policy Number)</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_policy_no ?? '-'}}
+                                            </span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Account Opening Status</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_opening_status ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Current Account Status</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->current_account_status ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Money Deposit Status</b>
-                                            <span style="padding-top:25px;  display:block;">Self</span>
+                                            <span style="padding-top:25px;  display:block;">{{$wealthfinance->money_deposit_status ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Intial Deposit Currency</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->intial_deposit_currency ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Intial Deposit Amount</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->intial_deposit_amount ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Username</b>
-                                            <span style="padding-top:25px; display:block;">Self</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->online_account_username ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->online_account_pass ?? '-'}}</span>
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:25px; display:block;"></span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->finacial_remarks ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
 
                                         </td>
                                     </tr>
-
                                 </table>
                             </td>
                         </tr>
-
+                        @endforeach
                     </table>
-
                 </div>
                 {{-- Pass Related --}}
                 <div class="page page_8" style="page-break-before: always;">
@@ -3098,176 +3122,227 @@
                                 </table>
                             </td>
                         </tr>
-
+                        @foreach($wealthpass as $pass_related_key => $pass_related)
                         <tr class="forth-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <th colspan="2" style="padding:25px 0;">
+                                            <b> Pass Related {{$pass_related_key+1}} </b>
+                                        </th>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:15px;">
                                             <b>Pass Holder Name 1 (Eng)</b>
-                                            <span style="padding-top:15px; display:block;">Active</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_holder_name ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:15px;">
                                             <b>Passport Full Name (Chinese)</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passposrt_name_chinese ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Gender(M/F)</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->gender ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>DOB (DD/MM/YYYY)</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->dob ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Passpport Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_no ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Passport Expiry Date(DD/MM/YYYY) </b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <b>Passport Country</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_country ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Passport Expiry Date(DD/MM/YYYY) </b>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(@empty($pass_related->passport_expiry_date))
+                                                {{date('d/m/Y' , strtotime($pass_related->passport_expiry_date))}}
+                                            @else
+                                                -
+                                            @endif
+                                            </span>
+                                        </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Passport Renewal Reminder </b>
-                                            <span style="padding-top:15px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Passport Country </b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
-                                            </span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_renewal_reminder ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Passport Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_tri_frq ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>TIN Number Before Pass Application</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Tin Country Before Pass Application</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Email</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->tin_country_before_app ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Type of TIN Before Pass Application</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->type_of_tin_before_app ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Residential Address</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>TIN Number Before Pass Application</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->tin_no_before_pass_app ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Phone Number</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->phone_no ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Application Status</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Email</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->email ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Business Type</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->business_type ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Application Type</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->business_type_specify ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Relationship with Pass Holder 1</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <b>Residential Address</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->residential_add ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>FIN Number</b>
-                                            <span style="padding-top:15px;  display:block;">$30,000.00</span>
+                                            <b>Pass Application Status</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_app_status ?? '-'}}</span>
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Relationship with Pass Holder</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->relation_with_pass ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->relation_with_pass_specify ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Pass Application Type</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_app_type ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_app_type_specify ?? '-'}}</span>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Pass Issuace</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_inssuance ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Renewal Reminder</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass Issuace Date</b>
+                                            <span style="padding-top:15px;  display:block;">
+                                            @if(!empty($pass_related->pass_issuance_date))
+                                            {{date('d/m/Y' , strtotime($pass_related->pass_issuance_date))}}
+                                            @else
+                                            -
+                                            @endif
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Issuace Date</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Pass Expiry Date</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-                                    {{-- <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Job Title</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">@if(!empty($pass_related->pass_expiry_date))
+                                            {{date('d/m/Y' , strtotime($pass_related->pass_expiry_date))}}
+                                            @else
+                                            -
+                                            @endif</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Renewal Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass Renewal Reminder</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_renewal_reminder ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->duration ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Singpass Set Up</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>FIN Number</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->fin_number ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Salary</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <b>Pass Renewal Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_renewal_frq ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass. Job
+                                                            Title</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_jon_title ?? '-'}}</span>
                                         </td>
-                                    </tr> --}}
-
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Singpass Set Up</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->singpass_set_up ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Employer's
+                                                            Name</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->employee_name ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Monthly
+                                                            Salary(SGD)</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->monthly_sal ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Monthly Salary w.e.f</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->monthly_sal_wef ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Remarks</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_remarks ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
                                 </table>
                             </td>
                         </tr>
-
+                        @endforeach
                     </table>
 
                 </div>
@@ -3317,82 +3392,6 @@
                                 </table>
                             </td>
                         </tr>
-
-                        <tr class="third-row-cstm">
-                            <td>
-                                <table style="width:80%; margin:0 auto;">
-                                    <tr>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                        <td style="width:10%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:23%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:17px; color:#010101; font-weight:500; padding:10px 0;">
-                                                Pass Related</div>
-                                        </td>
-                                        <td style="width:10%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="forth-row-cstm">
-                            <td>
-                                <table style="width:100%; margin:0 auto;" border="0">
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Pass. Job Title</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Pass renewal Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">Every Week</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Duration </b>
-                                            <span style="padding-top:15px; display:block;">5 Year</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
-                                            <b>Singpass Set Up</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Monthly salary (SGD)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b></b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b></b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
                         <tr class="five-row-cstm">
                             <td>
                                 <table style="width:80%; margin:0 auto;">
@@ -3424,232 +3423,201 @@
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:15px; display:block;">DBS bank Ltd</span>
+                                            <b>Financial Institution Name</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->financial_institition_name ?? ''}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Approved</span>
+                                            <b>Online Account Username</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->online_account_user ?? '-'}}</span>
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Online Account Password</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->online_acc_pass ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Type</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_type ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    @if($wealthbuss->business_account_type == 'Others')
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_type_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                           &nbsp;
+                                        </td>
+                                    </tr>
+                                    @endif
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->application_submision ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account/Policy Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account Type</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>PAyment Mode</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_policy_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Status</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_status ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Product Name</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Investment Amount Premium</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->product_name ?? '-'}}
                                             </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Online Account Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Online Account Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->currency ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Investment Amount/Premium</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->financial_institition_name ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    @if($wealthbuss->currency == 'Others')
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->currency_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Investment
+                                                            Amount/Premium</b>
+                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss->investment_amount ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Payment Mode</b>
+                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss->payment_mode ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Subscription / Inception Date</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(!empty($wealthbuss->subscription))
+                                            {{date('d/m/Y' , strtotime($wealthbuss->subscription))}}
+                                            @else
+                                            - 
+                                            @endif
+                                        </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;"> 
+                                            @if(!empty($wealthbuss->maturity_date))
+                                            {{date('d/m/Y' , strtotime($wealthbuss->maturity_date))}}
+                                            @else
+                                            - 
+                                            @endif</span>
                                         </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Subscription/Inception Date</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Maturity Reminder</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_duration ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Maturity Reminder</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->maturity_reminder ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Maturity Reminder Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->maturity_reminder_trg ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="page page_10" style="page-break-before: always;">
-                    <table class="header-table">
-                        <tr class="first-row-cstm">
-                            <td>
-                                <table class="header-table">
                                     <tr>
-                                        <td style="width:20%;">
-                                            <img src="{{ url('/images/logo.png') }}" alt="logo"
-                                                style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
-                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
-                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr class="second-row-cstm">
-                            <td>
-                                <table style="width:80%; margin:0 auto;">
-                                    <tr>
-                                        <td style="width:5%; text-align:right; color:#000;">
-
-                                        </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:43%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:22px; color:#010101; font-weight:500; padding:25px 0;">
-                                                Application Information</div>
-                                        </td>
-                                        <td style="width:20%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:5%; text-align:right; color:#000;">
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="third-row-cstm">
-                            <td style="padding:0 0 20px;">
-                                <table style="width:80%; margin:0 auto;">
-                                    <tr>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                        <td style="width:10%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:28%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:17px; color:#010101; font-weight:500; padding:10px 0;">
-                                                Business Related</div>
-                                        </td>
-                                        <td style="width:10%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="forth-row-cstm">
-                            <td>
-                                <table style="width:100%; margin:0 auto;" border="0">
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;">SGD</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_currency ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Commission Status (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_amount ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr class="five-row-cstm">
-                            <td style="padding-top:30px;">
-                                <table style="width:100%; margin:0 auto;">
+                                    @if($wealthbuss->commission_currency == 'Others')
                                     <tr>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Redemption Date
-                                        </th>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Redemption Amount
-                                        </th>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Net Account Value
-                                        </th>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_currency_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
                                     </tr>
+                                    @endif
                                     <tr>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            30/03/2021
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Commisison Status (For Admin Purpose)</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commision_status ?? '-'}}</span>
                                         </td>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            $13,000
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Remarks</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_remarks ?? '-'}}</span>
                                         </td>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            $16,625
+                                    </tr>
+                                    <tr class="five-row-cstm">
+                                        <td style="padding-top:30px;" colspan="2">
+                                            <table style="width:100%; margin:0 auto;">
+                                                <tr>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Redemption Date
+                                                    </th>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Redemption Amount
+                                                    </th>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Net Account Value
+                                                    </th>
+                                                </tr>
+                                                @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                <tr>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        @if(!empty($redemption_data->red_date))
+                                                            {{date('d/m/Y' , strtotime($redemption_data->red_date))}}
+                                                        @else
+                                                        - 
+                                                        @endif
+                                                    </td>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        {{$redemption_data->red_amount}}
+                                                    </td>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        {{$wealthbuss->net_amount_val ?? 0}}
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </table>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                     </table>
-
                 </div>
             @else
                 {{-- Business Related --}}
@@ -3731,44 +3699,59 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:15px; display:block;">DBS bank Ltd</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->financial_institition_name ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Approved</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->business_account_status ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss->application_submision ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Account/Policy Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->product_name ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account Type</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss->business_account_type ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Payment Mode</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->payment_mode ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Product Name</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss->product_name ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Investment Amount Premium</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->investment_amount ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3776,70 +3759,102 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->online_account_user ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->online_acc_pass ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">
+                                            {{$wealthbuss->currency ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if($wealthbuss->maturity_date)
+                                                {{date('d/m/Y' , strtotime($wealthbuss->maturity_date))}}
+                                            @else
+                                             -
+                                            @endif
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Subscription/Inception Date</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if($wealthbuss->subscription)
+                                                {{date('d/m/Y' , strtotime($wealthbuss->subscription))}}
+                                            @else
+                                             -
+                                            @endif
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->maturity_reminder ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->business_duration ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Maturity Reminder Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->maturity_reminder_trg ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;">SGD</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->commission_currency ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Commission Status (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->commision_status ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->business_remarks ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss->commission_amount ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr class="five-row-cstm">
-                                        <td style="padding-top:30px;">
-                                            <table style="width:100%; margin:0 auto;">
+                                        <td style="padding-top:30px;" colspan="2">
+                                            <table style="width:100%; margin:0 auto; table-layout: fixed;">
                                                 <tr>
                                                     <th
                                                         style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
@@ -3854,24 +3869,31 @@
                                                         Net Account Value
                                                     </th>
                                                 </tr>
+                                                @if(!empty($wealthbuss->business_redempt))
+                                                @foreach($wealthbuss->business_redempt as $redemption)
                                                 <tr>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        30/03/2021
+                                                        @if(!empty($redemption->red_date))
+                                                            {{date('d/m/Y' , strtotime($redemption->red_date))}}
+                                                        @else
+                                                            NA
+                                                        @endif
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        $13,000
+                                                       {{$redemption->red_amount}}
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        $16,625
+                                                        {{$wealthbuss->net_amount_val}}
                                                     </td>
                                                 </tr>
+                                                @endforeach
+                                                @endif
                                             </table>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
-
                     </table>
 
                 </div>
