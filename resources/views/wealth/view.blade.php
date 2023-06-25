@@ -331,11 +331,6 @@
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Renewal
-                                                                Reminder</label>
-                                                            <p>{{ $shareholder->passport_renew }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             @if(!empty($shareholder->dob))
@@ -346,20 +341,32 @@
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Reminder
-                                                                Trigger
-                                                                Frequency</label>
-                                                            <p><span class="every">Every</span>
-                                                                {{ $shareholder->passport_trg_fqy }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Gender</label>
                                                             <p>{{ $shareholder->gender }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Phone
+                                                                Number</label>
+                                                            <p>{{ $shareholder->phone }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">E-mail</label>
+                                                            <p>{{ $shareholder->email }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Residential
+                                                                Address</label>
+                                                            <p>{{ $shareholder->residential_address }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport
                                                                 Number</label>
                                                             <p>{{ $shareholder->passport_no }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Passport
+                                                                Country</label>
+                                                            <p>{{ $shareholder->passport_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Expiry
@@ -373,24 +380,18 @@
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport
-                                                                Country</label>
-                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                            <label for="" class="form-label">Passport Renewal
+                                                                Reminder</label>
+                                                            <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">E-mail</label>
-                                                            <p>{{ $shareholder->email }}</p>
+                                                            <label for="" class="form-label">Passport Reminder
+                                                                Trigger
+                                                                Frequency</label>
+                                                            <p><span class="every">Every</span>
+                                                                {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Phone
-                                                                Number</label>
-                                                            <p>{{ $shareholder->phone }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Residential
-                                                                Address</label>
-                                                            <p>{{ $shareholder->residential_address }}</p>
-                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 country</label>
@@ -407,6 +408,10 @@
                                                             <p>{{ $shareholder->type_of_tin }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Employer's Name</label>
+                                                            <p>{{ $shareholder->company }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Job Title</label>
                                                             <p>{{ $shareholder->job_title }}</p>
                                                         </div>
@@ -414,10 +419,7 @@
                                                             <label for="" class="form-label">Monthly Salary (SGD)</label>
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Employer's Name</label>
-                                                            <p>{{ $shareholder->company }}</p>
-                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>
@@ -448,12 +450,6 @@
                                                                 Name(Chinese)</label>
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
-
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Gender</label>
-                                                            <p>{{ $shareholder->gender }}</p>
-                                                        </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
@@ -464,16 +460,23 @@
                                                                 @endif
                                                             </p>
                                                         </div>
-
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Gender</label>
+                                                            <p>{{ $shareholder->gender }}</p>
+                                                        </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Phone
                                                                 Number</label>
                                                             <p>{{ $shareholder->phone }}</p>
                                                         </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">E-mail</label>
                                                             <p>{{ $shareholder->email }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Residential
+                                                                Address</label>
+                                                            <p>{{ $shareholder->residential_address }}</p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
@@ -513,24 +516,19 @@
                                                                 {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Residential
-                                                                Address</label>
-                                                            <p>{{ $shareholder->residential_address }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 country</label>
                                                             <p>{{ $shareholder->tin_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Type of
-                                                                TIN</label>
-                                                            <p>{{ $shareholder->type_of_tin }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 Number</label>
                                                             <p>{{ $shareholder->tin_no }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Type of
+                                                                TIN</label>
+                                                            <p>{{ $shareholder->type_of_tin }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Employer's Name</label>
@@ -556,7 +554,6 @@
                                                                 @endif
                                                             </p>
                                                         </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
                                                                 Shareholder 1</label>
