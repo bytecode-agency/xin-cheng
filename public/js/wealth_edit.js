@@ -195,7 +195,7 @@ $(document).ready(function () {
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Equity Percentage</label>
 
-                                                        <div class="dollersec percentage_input"><span class="input"><input type="text"
+                                                        <div class="dollersec percentage_input"><span class="input"><input type="number"
                                                         name="share[`+ key + `][0][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value=""></span><span class="pecentage_end">%</span></div>
 
@@ -273,7 +273,7 @@ $(document).ready(function () {
                     <div class="shareholder_div_accrodion_show">
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Equity Percentage</label>
-                            <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
+                            <div class="dollersec percentage_input"><span class="input"><input type="number" class="form-control equity_shareholders"
                             name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
                             ></span><span class="pecentage_end">%</span></div>
 
@@ -582,7 +582,8 @@ $(document).ready(function () {
         var comp_fields = $('.companyFormJs input[name^="cmp"]');
         comp_fields.each(function() {
             $(this).rules("add", {
-                required: true
+                required: true,
+                maxlength: 100
             });
         });
 
@@ -1207,3 +1208,16 @@ $(document).ready(function () {
         }
     });
 });
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    // if(evt.value.length==10){
+    //     return false;
+    // } 
+    console.log($(this).val());
+    return true;
+}

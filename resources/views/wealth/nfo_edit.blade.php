@@ -78,7 +78,7 @@
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
                                                     value="{{ $shareholder->id }}" id="share_id">
                                                 <div class="dollersec percentage_input"><span class="input"><input
-                                                            type="text"
+                                                            type="number"
                                                             name="share[{{ $key }}][{{ $key2 }}][equity_percentage]"
                                                             class="form-control equity_shareholder" id="equity_shareholder"
                                                             value="{{ $shareholder->equity_percentage }}"></span><span

@@ -58,35 +58,45 @@ $('body').on('submit', '.note_send', function (e) {
 });
 $('body').on('click', '.note_remove', function (e) {
         var id = $(this).data('id');
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "/note-destroy",
-            type: "POST",
-            data: {id:id},
-            success: function (response) {
-                $('#note'+id).remove();
-                notesPaginate();
-                swal({
-                    title: `Note Removed`,
-                    // content: el,
-                    icon: "success",
-                    buttons: true,
-                    buttons: {
-                        cancel: false,
-                        confirm: {
-                            text: 'Close',
-                            className: 'btn btn-danger'
+        swal({
+            title: "Are you sure you want to delete this note ?",
+            text: "You will not be able to retrieve this note again.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+        if (willDelete) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "/note-destroy",
+                type: "POST",
+                data: {id:id},
+                success: function (response) {
+                    $('#note'+id).remove();
+                    notesPaginate();
+                    swal({
+                        title: `Note Removed`,
+                        // content: el,
+                        icon: "success",
+                        buttons: true,
+                        buttons: {
+                            cancel: false,
+                            confirm: {
+                                text: 'Close',
+                                className: 'btn btn-danger'
+                            },
                         },
-                    },
-                }).then((result) => {
-                    
-                })
-            }
-        })
+                    }).then((result) => {
+                        
+                    })
+                }
+            })
+        }
+    });
     
 
 

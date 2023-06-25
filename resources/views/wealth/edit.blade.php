@@ -345,9 +345,9 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="tax_advisor_no" class="form-label">Tax Advisor Contact
                                                         Number</label>
-                                                    <input type="text" name="tax_advisor_no" id="tax_advisor_no"
+                                                    <input type="tel" name="tax_advisor_no" id="tax_advisor_no"
                                                         value="@isset($wealth_mas->tax_advisor_no) {{ $wealth_mas->tax_advisor_no }} @endisset"
-                                                        class="form-control">
+                                                        class="form-control" maxlength="14">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="kickstart_tax_advisor" class="form-label">Kickstart to
@@ -1285,10 +1285,10 @@
                                                                         <label for="net_amount_val" class="form-label">Redemption
                                                                             Amount</label>
                                                                         <div class="dollersec"><span class="doller">$</span>
-                                                                            <span class="input"> <input type="number"
+                                                                            <span class="input"> <input type="text"
                                                                                     class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                     id="fo_servicing_fee_amount"
-                                                                                    value=""></span>
+                                                                                    value="" onkeypress="return isNumber(event)" maxlength="8"></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1341,7 +1341,7 @@
                                                                 <span class="input"> <input type="integer"
                                                                         class="form-control" name="net_amount_val"
                                                                         id="net_amount_val"
-                                                                        value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
+                                                                        value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"  onkeypress="return isNumber(event)" maxlength="8"></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1705,10 +1705,10 @@
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="number"
+                                                                        <span class="input"> <input type="text"
                                                                                 class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
-                                                                                value=""></span>
+                                                                                value="" onkeypress="return isNumber(event)" maxlength="8"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1761,7 +1761,7 @@
                                                             <span class="input"> <input type="text"
                                                                     class="form-control" name="net_amount_val"
                                                                     id="net_amount_val"
-                                                                    value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset"></span>
+                                                                    value="@isset($wealthbuss->net_amount_val) {{ $wealthbuss->net_amount_val }} @endisset" onkeypress="return isNumber(event)" maxlength="8"></span>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -81,7 +81,7 @@
                                                 <input type="hidden" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
                                                     value="{{ $shareholder->id }}" id="share_id">
-                                                    <div class="dollersec percentage_input"><span class="input"><input type="text"
+                                                    <div class="dollersec percentage_input"><span class="input"><input type="number"
                                                         name="share[{{ $key }}][{{ $key2 }}][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value="{{ $shareholder->equity_percentage }}"></span><span class="pecentage_end">%</span></div>
 
