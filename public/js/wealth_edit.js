@@ -968,7 +968,6 @@ $(document).ready(function () {
     $('.redDateJs').on('change' , function(){
         var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
         var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
-        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
             $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
@@ -979,7 +978,6 @@ $(document).ready(function () {
     $('.redDateJs , .redAmountJs').on('keyup' , function(){
         var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
         var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
-        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
            $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
@@ -991,7 +989,8 @@ $(document).ready(function () {
         var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
         var red_date = $(this).parents('.redemption_add_table').find('.red_date').val();
         var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
-        console.log(red_date, red_amount, red_id);
+        var business_item_table = $(this).closest('.business_itemJs').find('.redTableJs tbody');
+        console.log(business_item_table);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1006,14 +1005,14 @@ $(document).ready(function () {
                 red_id: red_id
             },
             success: function (response) {
-                console.log(response);
                 if (response.success) {
                     var html = '<tr>';
                     var redemption_date = moment(response.success.red_date).format('DD/MM/YYYY');
                     html += '<td>' + redemption_date + '</td>';
                     html += '<td>' + response.success.red_amount + '</td>';
                     html += `<td><a href="javascript:void(0);" data-id="` + response.success.id + `" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a></td></tr>`;
-                    $('#red_table').prepend(html);
+                    business_item_table.prepend(html);
+                    console.log(business_item_table);
                     $('.red_date').val("");
                     $('.red_amount').val("");
                     $('.addRedButtonJs').attr('disabled' , true);
@@ -1215,9 +1214,26 @@ function isNumber(evt) {
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         return false;
     }
-    // if(evt.value.length==10){
-    //     return false;
-    // } 
-    console.log($(this).val());
     return true;
 }
+
+$('#add_business_item').on('click' , function(){
+    var business_item_key = $(this).closest('#nav-business').find('.business_itemJs').length;
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    triggerLoader();
+    $.ajax({
+        type: "post",
+        url: '/wealth/business_form_view',
+        data: {business_item_key: business_item_key },
+        success: function (response) {
+            if(response.view){
+                $('.business_itemsJs').append(response.view);
+            }
+            removeLoader();
+        }
+    });    
+});

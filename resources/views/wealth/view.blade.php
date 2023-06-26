@@ -1293,7 +1293,8 @@
 
                             <div class="tab-pane fade " id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                <div id="business_accordion" class="mas_related">
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss)
+                                <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian row">
                                         <div class="formAreahalf basic_data col-6">
                                             <label for="" class="form-label">Financial Institution Name</label>
@@ -1307,13 +1308,13 @@
                                         </div>
 
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
-                                            data-target="#business_collapseOne" aria-expanded="true"
+                                            data-target="#business_collapse_{{$business_item_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div id="business_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#business_accordion">
+                                    <div id="business_collapse_{{$business_item_key}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#business_accordion_{{$business_item_key}}">
 
                                         <div class="tab-cstm-data-inner d-flex flex-wrap ">
                                             <div class="formAreahalf basic_data col-6">
@@ -1601,11 +1602,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         @else
                             <div class="tab-pane fade show active" id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                <div id="business_accordion" class="mas_related">
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss)
+                                <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian">
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Financial Institution Name</label>
@@ -1618,13 +1621,13 @@
                                             </p>
                                         </div>
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
-                                            data-target="#business_collapseOne" aria-expanded="true"
+                                            data-target="#business_collapse_{{$business_item_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div id="business_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#business_accordion">
+                                    <div id="business_collapse_{{$business_item_key}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#business_accordion_{{$business_item_key}}">
 
                                         <div class="tab-cstm-data-inner d-flex flex-wrap ">
                                             <div class="formAreahalf basic_data">
@@ -1880,6 +1883,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         @endif
 
