@@ -444,7 +444,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_phone_number" class="form-label">Phone Numbers</label>
-                        <input type ="text" maxlength ="10"    class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" >
+                        <input type ="text" maxlength ="10" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" >
                     </div>
 
                     <div class="formAreahalf">
