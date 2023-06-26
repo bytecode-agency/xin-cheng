@@ -2379,7 +2379,7 @@ $(document).ready(function () {
             $(this).children().find('h4').html('Shareholder #' + shar_count);
             shar_count++;
         });
-        let percentage = 0;
+         percentage = 0;
         let value      = 0;
         var cal_eqty_percentage = $('#' + loop + ".full_div").find(".equity_shareholders");
         for (per = 0; per < cal_eqty_percentage.length; per++) {
