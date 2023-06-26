@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="filterBtn viewSave d-flex align-items-center justify-content-end">
-        <button class="btn saveBtn edit_save"><span>Save</span></button>
+        <button class="btn saveBtn edit_save" id="updatebtns"><span>Save</span></button>
         <a href="{{ route('wealth.show', $data->id) }}"><button
             class="btn saveBtn cancelBtn"><span>Cancel</span></button></a>
     </div>
@@ -338,9 +338,11 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="tax_advisor_email" class="form-label">Tax Advisor
                                                         Email</label>
-                                                    <input type="text" name="tax_advisor_email" id="tax_advisor_email"
+                                                    <input type="text" name="tax_advisor_email" id="tax_advisor_email"  onkeyup="EmailValidate();"
                                                         value="@isset($wealth_mas->tax_advisor_email) {{ $wealth_mas->tax_advisor_email }} @endisset"
                                                         class="form-control">
+                                                        <span id="lblError" style="color: red"></span>
+                                                       
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="tax_advisor_no" class="form-label">Tax Advisor Contact
@@ -2167,6 +2169,19 @@
 
 
         });
+
+        function EmailValidate() {
+        var email = document.getElementById("tax_advisor_email").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML = "";
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!expr.test(email)) {
+            lblError.innerHTML = "Invalid Email Id";
+            document.getElementById("updatebtns").disabled = false;
+        }
+    }
+
+  
 
         $('#business_account_type').select2({
             placeholder: 'Select Account Types',
