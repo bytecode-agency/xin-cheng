@@ -152,6 +152,7 @@ class WealthController extends Controller
     public function save(Request $request)
 
     {
+        
        
         
         // dd($request);
@@ -616,6 +617,7 @@ class WealthController extends Controller
                         'pass_app_type'=>  isset( $passholer_item['pass_app_type']) ?  $passholer_item['pass_app_type'] :null,
                         'pass_app_type_specify'=>  isset( $passholer_item['pass_app_type_specify']) ?  $passholer_item['pass_app_type_specify'] :null,
                         'pass_inssuance'  =>  isset( $passholer_item['pass_inssuance']) ?  $passholer_item['pass_inssuance'] :null,
+                        'first_pass_issue'=>  isset( $passholer_item['first_pass_issue']) ?  $passholer_item['first_pass_issue'] :null,
                         'pass_issuance_date'=>  isset( $passholer_item['pass_issuance_date']) ?  $passholer_item['pass_issuance_date'] :null,
                         'pass_expiry_date'  =>  isset( $passholer_item['pass_expiry_date']) ?  $passholer_item['pass_expiry_date'] :null,
                         'pass_renewal_reminder'=>  isset( $passholer_item['pass_renewal_reminder']) ?  $passholer_item['pass_renewal_reminder'] :null,

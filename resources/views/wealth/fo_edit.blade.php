@@ -311,6 +311,7 @@
                                                     name="share[{{ $key }}][{{ $key2 }}][job_title]"
                                                     value="{{ $shareholder->job_title }}">
                                             </div>
+                                         
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary (SGD)</label>
                                                     <div class="dollersec"><span class="doller">$</span> <input type="integer" class="form-control"

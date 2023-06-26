@@ -238,10 +238,10 @@
                                                     value="{{ $shareholder->email }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control"
+                                                <label for="" class="form-label">Phone Numbers</label>
+                                                <input type="text" maxlength ="10"  class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][phone]"
-                                                    value="{{ $shareholder->phone }}">
+                                                    value="{{ $shareholder->phone }}" id="unitphone">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Residential
