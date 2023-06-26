@@ -1,4 +1,17 @@
+$(document).ready(function(){
+    $('[id^=edit]').keypress(validateNumber);
+});
 
+function validateNumber(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46) {
+        return true;
+    } else if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+    	return true;
+    }
+};
 $(document).ready(function () {
     $(".datepicker").datepicker({
         dateFormat: 'dd/mm/yy',
@@ -7,16 +20,21 @@ $(document).ready(function () {
         }
     });
 
+
+    // $('#nfo_phone_numbers1').on('input',function(e){
+    //     alert('hello');
+    //     let {value} = e.target
+    //     if( !/^\d+$/.test(value)){
+    //         document.getElementById("nfo_phone_numbers1").value = value.replace(/[@a-zA-Z]/g, "")
+    //     }
+    //    });
+
     $(function() {
         $("input[name='nfo_phone_number']").on('input', function(e) {
             $(this).val($(this).val().replace(/[^0-9]/g, ''));
         });
     });
-    $(function() {
-    $('#nfo_phone_numbers').on('input',function(e){
-        $(this).val($(this).val().replace(/[^0-9]/g, ''));
-       });
-    });
+    
    
 
     $(document).on('keypress','[type^=integer]',function(event){
@@ -707,6 +725,8 @@ $(document).ready(function () {
             }
            });
 
+         
+
           
 
         // $(function () {
@@ -765,6 +785,19 @@ $(document).ready(function () {
         console.log(val,'vvvvvvvvvvvv')
 
      });
+
+     function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    //  $('nfo_phone_numbers1').change(function() {
+
+    //     let val = document.getElementById("nfo_phone_numbers1").value
+    //     console.log(val,'vvvvvvvvvvvv')
+
+    //  });
 
     $(document).on('change', '#type_of_fo', function() {
         if ($(this).val() == "Others") {
@@ -874,7 +907,7 @@ $(document).ready(function () {
                     <div id="fo_shareholder" class="sharehold">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design sharehold_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #12</h4>
+                                <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity_1" class="form-label">Equity Percentage</label>
@@ -1329,7 +1362,7 @@ $(document).ready(function () {
         cmp_count++;
     });
     $('body').on('click', '.next_nfo_2', function () {
-                alert('hello');
+                
         // if (form.valid() === true) {
         //     let next = $('#NFO_shareholder').attr('id');
         //     $('#' + next).show();
@@ -1388,7 +1421,7 @@ $(document).ready(function () {
                     <div id="nfo_shareholder">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #12</h4>
+                                <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
@@ -1570,7 +1603,7 @@ $(document).ready(function () {
                     <div id="nfo_shareholder">
                         <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">
                             <div class="Share_holder-w sub-heading">
-                                <h4>Shareholder #12</h4>
+                                <h4>Shareholder #1</h4>
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
@@ -1641,9 +1674,9 @@ $(document).ready(function () {
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_email]" id="nfo_email">
                             </div>
                             <div class="formAreahalf">
-                                <label for="nfo_phone_number" class="form-label">Phone Numbers</label>
-                                <input maxlength="10" class="form-control" name="shrd[1][1][nfo_phone_number]"
-                                    id="nfo_phone_numbers">
+                                <label for="nfo_phone_numbers" class="form-label">Phone Number</label>
+                               
+                         <input type="number" id="nfo_phone_number" maxlength="10" class="form-control" name="shrd[1][1][nfo_phone_number]" >
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_residential_Add" class="form-label">Residential Address</label>
@@ -1781,7 +1814,7 @@ $(document).ready(function () {
                     <div class="w-100 d-flex justify-content-start flex-wrap form-fields company_design nfo_shr_length">\
 
                         <div class="Share_holder-w sub-heading">\
-                            <h4>Shareholder #12</h4>\
+                            <h4>Shareholder #1</h4>\
                         </div>\
                         <div class="formAreahalf">\
                             <label for="fo_equity" class="form-label">Equity Percentage</label>\

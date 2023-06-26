@@ -1525,6 +1525,16 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">First Pass Issued Date (DD/MM/YYYY)</label>
+                                                <p>
+                                                    @isset($passholder_item->first_pass_issue)
+                                                        {{ convertDate($passholder_item->first_pass_issue,"d/m/Y") }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($passholder_item->pass_issuance_date)

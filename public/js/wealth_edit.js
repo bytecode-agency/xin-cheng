@@ -2,6 +2,28 @@ $(document).on('click', '.remove-input-field', function () {
 
     $(this).parents('.accordion-item').hide();
 });
+$('#unitphone').on('input',function(e){
+    let {value} = e.target
+    if( !/^\d+$/.test(value)){
+        document.getElementById("unitphone").value = value.replace(/[@a-zA-Z]/g, "")
+    }
+   });
+
+   $('#nfo_phone_number').on('input',function(e){
+    let {value} = e.target
+    if( !/^\d+$/.test(value)){
+        document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+    }
+   });
+
+   $('#nfo_phone_numbers').on('input',function(e){
+    alert('hello');
+    let {value} = e.target
+    if( !/^\d+$/.test(value)){
+        document.getElementById("nfo_phone_numbers").value = value.replace(/[@a-zA-Z]/g, "")
+    }
+   });
+
 
 $('body').on('change', 'selectq', function () {
     if (this.value == 'Others') {
@@ -30,6 +52,7 @@ function equity_percentage_checks() {
                 percentage += value;
             }
         }
+
         if (percentage < 100) {
             $(".edit__add_com").addClass("disable");
             $(".edit__add_com").removeAttr('disabled');
@@ -61,6 +84,8 @@ $(document).ready(function () {
             $(this).valid();
         }
     });
+
+  
 
     $('.js-example-responsive').select2({
         minimumResultsForSearch: -1
@@ -436,7 +461,7 @@ $(document).ready(function () {
                             >
                     </div>
                     <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Phone Number</label>
+                        <label for="" class="form-label">Phone Numbers</label>
                         <input type="text" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][phone]"
                            >
@@ -1291,6 +1316,10 @@ console.log(check);
                                 <option value="Done">Done</option>
                             </select>
                         </div>
+                        <div class="formAreahalf basic_data">
+                        <label for="pass_issuance_date" class="form-label">First Pass Issued Date (DD/MM/YYYY)</label>
+                            <input type="date" name="passholder[` +passholders_length + `][first_pass_issue]" class="form-control">
+                    </div>
                         <div class="formAreahalf basic_data">
                             <label for="pass_issuance_date" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                 <input type="date" name="passholder[` +passholders_length + `][pass_issuance_date]" class="form-control">
