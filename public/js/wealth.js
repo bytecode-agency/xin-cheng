@@ -7,6 +7,20 @@ $(document).ready(function () {
         }
     });
 
+    $('#nfo_phone_number').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+       });
+
+       $('#nfo_tin_number').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("nfo_tin_number").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+       });
+
     $(document).on('keypress','[type^=integer]',function(event){
         var key = window.event ? event.keyCode : event.which;
           if (event.keyCode === 8 || event.keyCode === 46) {
@@ -110,6 +124,7 @@ $(document).ready(function () {
     // });
 
     $('body').on('click','.next1',function () {
+        
         form.validate({
             rules: {
                 business_type: {
@@ -166,6 +181,7 @@ $(document).ready(function () {
                 let next = $('#' + this.id).closest('fieldset').next('fieldset').attr('id');
                 $('#start_field').hide();
                 $('#' + next).show();
+                
             }
             else {
                 // alert();
@@ -339,7 +355,7 @@ $(document).ready(function () {
 
             <div class="formAreahalf">
                 <label for="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-label">Phone Number</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
+                <input type="text" maxlength ="10"  name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control phonty"
                     value="">
             </div>
             <div class="formAreahalf">
@@ -552,7 +568,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_no_1" class="form-label">Passport Number</label>
-                                    <input type="text" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
+                                    <input type="text" maxlength="10" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_cnty_1" class="form-label">Passport Country</label>
@@ -603,10 +619,10 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_tin_num_1" class="form-label">Current TIN Number</label>
-                                    <input type="text" name="share[1][1][tin_no]" id="fo_cpm2_tin_num_1" class="form-control" value="">
+                                    <input type="text" maxlength="12" name="share[1][1][tin_no]" id="fo_cpm2_tin_num_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_company_1" class="form-label">Company</label>
+                                    <label for="fo_cpm2_company_1" class="form-label">Employer's Name.</label>
                                     <input type="text" name="share[1][1][company]" id="fo_cpm2_company_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -671,6 +687,21 @@ $(document).ready(function () {
             let {value} = e.target
             if( !/^\d+$/.test(value)){
                 document.getElementById("fo_cpm2_phone_1").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
+
+           $('#fo_cpm2_tin_num_1').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("fo_cpm2_tin_num_1").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
+
+           
+           $('.phonty').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementByClassName("phonty").value = value.replace(/[@a-zA-Z]/g, "")
             }
            });
 
@@ -1177,7 +1208,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
+                            <input type="tel" maxlength ="12" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
                                 value="">
                         </div>
                         <div class="formAreahalf">
@@ -2258,6 +2289,9 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+       
+
     });
     $('body').on('click', '.cancel_company', function () {
         $(this).parents('#fo_company').remove();

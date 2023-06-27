@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="text-center pt-4 " id="append_div_btn">
-                <button type="button" id="next1" class="btn saveBtn next1" data-id="1">Next</button>
+                <button type="button" id="next1" class="btn saveBtn next1"  data-id="1">Next</button>
                 <button type="button" style="display:none;" id="#previous1"
                     class="btn saveBtn cancelBtn previous1">Back</button>
             </div>
@@ -365,18 +365,18 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="text" name="nfo_dob" id="nfo_dob" class="form-control datepicker" placeholder="dd/mm/yyyy">
+                        <input type="date" onkeydown="return false" max="<?php echo date("Y-m-d"); ?>" name="nfo_dob"  id="nfo_dob" class="form-control " placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="text" name="nfo_dob" id="nfo_dob"
                                     class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_pass_number" class="form-label">Passport Number</label>
-                        <input type="text" class="form-control" name="nfo_pass_number" id="nfo_pass_number">
+                        <input type="text" class="form-control" maxlength ="10" name="nfo_pass_number" id="nfo_pass_number">
 
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_pass_exp" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
+                        <input type="date" onkeydown="return false" max="<?php echo date("Y-m-d"); ?>" class="form-control" name="nfo_pass_exp" id="nfo_pass_exp" placeholder="dd/mm/yyyy">
                         {{-- <div class="calender"><span class="cal_input"><input type="date" name="nfo_pass_exp" id="nfo_pass_exp"
                             class="form-control"></span><i class="far fa-calendar-alt"></i></div> --}}
                     </div>
@@ -409,7 +409,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
-                        <input type="text" class="form-control" name="nfo_tin_number" id="nfo_tin_number">
+                        <input type="text" class="form-control" maxlength ="12" name="nfo_tin_number" id="nfo_tin_number">
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_tin_ctry" class="form-label">Current TIN country</label>
@@ -444,7 +444,7 @@
                     </div>
                     <div class="formAreahalf">
                         <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
+                        <input type="tel" class="form-control" id="nfo_phone_number" name="nfo_phone_number" maxlength="10" placeholder="+65 9876543210" pattern="[+][0-9]{2} [0-9]{3}[0-9]{4}[0-9]{3}" required>
                     </div>
 
                     <div class="formAreahalf">
@@ -845,7 +845,7 @@
         </div>
         <div class="formAreahalf">
             <label for="fo_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" class="form-control datepicker" name="fo_dob" id="fo_dob">
+            <input type="date" onkeydown="return false" max="<?php echo date("Y-m-d"); ?>" class="form-control" name="fo_dob" id="fo_dob">
         </div>
         <div class="formAreahalf">
             <label for="fo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -998,7 +998,7 @@
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_dob" class="form-label">DOB (DD/MM/YYYY)</label>
-            <input type="text" name="nfo_cpm2_dob datepicker" id="nfo_cpm2_dob" class="form-control" value="">
+            <input type="date" onkeydown="return false" max="<?php echo date("Y-m-d"); ?>" name="nfo_cpm2_dob " id="nfo_cpm2_dob" class="form-control" value="">
         </div>
         <div class="formAreahalf">
             <label for="nfo_cpm2_pass_no" class="form-label">Passport Number</label>

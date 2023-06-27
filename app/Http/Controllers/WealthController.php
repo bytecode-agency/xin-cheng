@@ -518,9 +518,9 @@ class WealthController extends Controller
 
                 // for application data mas_related
                 // dd($request);
-                $validate = $request->validate([
-                    'tax_advisor_email' => 'regex:/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i'    
-                ]);
+                // $validate = $request->validate([
+                //     'tax_advisor_email' => 'regex:/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i'    
+                // ]);
             $wealth_mas_application = WealthMas::updateOrCreate(
                 ['id' => $request->wealth_mas_id , 'wealth_id' => $id],
                 ['account_status' => isset($request->account_status) ? $request->account_status :null,

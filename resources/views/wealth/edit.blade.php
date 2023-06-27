@@ -1279,7 +1279,7 @@
                                                                     <div class="formAreahalf r_table">
                                                                         <label for="net_amount_val" class="form-label">Redemption
                                                                             Date</label>
-                                                                        <input type="date" name="business_redemption_date"
+                                                                        <input type="date" onkeydown="return false" min="<?php echo date("Y-m-d"); ?>" name="business_redemption_date"
                                                                             value=""
                                                                             class="form-control red_date redDateJs">
                                                                     </div>
@@ -1287,7 +1287,7 @@
                                                                         <label for="net_amount_val" class="form-label">Redemption
                                                                             Amount</label>
                                                                         <div class="dollersec"><span class="doller">$</span>
-                                                                            <span class="input"> <input type="number"
+                                                                            <span class="input"> <input type="integers"
                                                                                     class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                     id="fo_servicing_fee_amount"
                                                                                     value=""></span>
@@ -1659,7 +1659,7 @@
                                                     {{-- <div class="formAreahalf basic_data">
                                                         <label for="net_amount_val" class="form-label">Redemption
                                                             Date</label>
-                                                        <input type="date" name="business_redemption_date"
+                                                        <input type="date" name="business_redemption_date" 
                                                             value="{{$wealthbuss->business_redemption_date ?? ''}}"
                                                             class="form-control">
                                                     </div>
@@ -1699,7 +1699,7 @@
                                                                 <div class="formAreahalf r_table">
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Date</label>
-                                                                    <input type="date" name="business_redemption_date"
+                                                                    <input type="date" name="business_redemption_date" onkeydown="return false" min="<?php echo date("Y-m-d"); ?>"
                                                                         value=""
                                                                         class="form-control red_date redDateJs">
                                                                 </div>
@@ -1707,7 +1707,7 @@
                                                                     <label for="net_amount_val" class="form-label">Redemption
                                                                         Amount</label>
                                                                     <div class="dollersec"><span class="doller">$</span>
-                                                                        <span class="input"> <input type="number"
+                                                                        <span class="input"> <input type="integers"
                                                                                 class="form-control red_amount redAmountJs" name="business_redemption_amount"
                                                                                 id="fo_servicing_fee_amount"
                                                                                 value=""></span>
@@ -2173,11 +2173,14 @@
         function EmailValidate() {
         var email = document.getElementById("tax_advisor_email").value;
         var lblError = document.getElementById("lblError");
+        let button = document.getElementById("updatebtns");
         lblError.innerHTML = "";
         var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
         if (!expr.test(email)) {
             lblError.innerHTML = "Invalid Email Id";
-            document.getElementById("updatebtns").disabled = false;
+            button.disabled = true; 
+        }else{
+            button.disabled = false; 
         }
     }
 
