@@ -1009,7 +1009,7 @@ $(document).ready(function () {
                     var html = '<tr>';
                     var redemption_date = moment(response.success.red_date).format('DD/MM/YYYY');
                     html += '<td>' + redemption_date + '</td>';
-                    html += '<td>' + response.success.red_amount + '</td>';
+                    html += '<td>$' + response.success.red_amount + '</td>';
                     html += `<td><a href="javascript:void(0);" data-id="` + response.success.id + `" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a></td></tr>`;
                     business_item_table.prepend(html);
                     console.log(business_item_table);

@@ -318,10 +318,10 @@
                                                                         <label for="net_amount_val" class="form-label">Redemption
                                                                             Amount</label>
                                                                         <div class="dollersec"><span class="doller">$</span>
-                                                                            <span class="input"> <input type="text"
+                                                                            <span class="input"> <input type="integer"
                                                                                     class="form-control red_amount redAmountJs" name="business[{{$business_item_key}}][business_redemption_amount]"
                                                                                     id="fo_servicing_fee_amount"
-                                                                                    value="" onkeypress="return isNumber(event)" maxlength="8"></span>
+                                                                                    value="" maxlength="12"></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -350,7 +350,7 @@
 
                                                                     <tr>
                                                                         <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
-                                                                        <td>{{$redemption_data->red_amount}}</td>
+                                                                        <td>${{$redemption_data->red_amount}}</td>
                                                                         <td><a href="javascript:void(0);" data-id="{{$redemption_data->id}}" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a>
                                                                         </td>
                                                                     </tr>
@@ -374,7 +374,7 @@
                                                                 <span class="input"> <input type="integer"
                                                                         class="form-control" name="business[{{$business_item_key}}][net_amount_val]"
                                                                         id="net_amount_val"
-                                                                        value="@isset($business_item->net_amount_val) {{ $business_item->net_amount_val }} @endisset"  onkeypress="return isNumber(event)" maxlength="8"></span>
+                                                                        value="@isset($business_item->net_amount_val) {{ $business_item->net_amount_val }} @endisset"   maxlength="12"></span>
                                                             </div>
                                                         </div>
                                                     </div>
