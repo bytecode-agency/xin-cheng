@@ -373,7 +373,6 @@ class WealthController extends Controller
     public function view($id)
     {   
         $data = Wealth::with('companies.shareholder')->with('users')->find($id) ?? new Wealth; 
-        // dd($data);
         if(!empty($data) && !empty($data->business_type) && $data->business_type == "FO")
         {
             $basic_data = WealthBusiness::where('wealth_id','=',$data->id)->first() ?? new WealthBusiness;           
@@ -392,11 +391,10 @@ class WealthController extends Controller
         $file = WealthFiles::where('wealth_id', $id)->orderBy('id','desc')->get(); 
         $notes = Notes::where('module_name','Wealth')->where('application_id',$id)->orderBy('id','desc')->get();  
         $action_log = LogActivity::where('module_name','=','Wealth')->where('userID','=',$id)->orderBy('id','desc')->get(); 
-        $wealth_mas = WealthMas::where('wealth_id',$id)->first();
-        $wealth_finance = WealthFinancial::where('wealth_id',$id)->get();
-        $wealthpass = WealthPass::where('wealth_id',$id)->get();
-        $wealthbuss = WealthBusinessApp::with('business_redempt')->orderBy('id','desc')->where('wealth_id',$id)->first();
-        // dd($wealthbuss);
+        $wealth_mas = WealthMas::where('wealth_id',$id)->first() ?? new WealthFinancial;
+        $wealth_finance = WealthFinancial::where('wealth_id',$id)->get() ?? new WealthFinancial;
+        $wealthpass = WealthPass::where('wealth_id',$id)->get() ?? new WealthPass;
+        $wealthbuss = WealthBusinessApp::with('business_redempt')->orderBy('id','asc')->where('wealth_id',$id)->get() ?? new WealthBusinessApp;
         return view('wealth.view',compact('data','basic_data','file','action_log','notes','wealth_mas','wealth_finance','wealthpass','wealthbuss'));
     }
     public function edit($id)
@@ -422,7 +420,7 @@ class WealthController extends Controller
         $wealthfinance = WealthFinancial::where('wealth_id',$id)->get();
        
         $wealthpass = WealthPass::where('wealth_id',$id)->get();
-        $wealthbuss = WealthBusinessApp::with('business_redempt')->where('wealth_id',$id)->first();       
+        $wealthbuss = WealthBusinessApp::with('business_redempt')->where('wealth_id',$id)->get();       
         
         $notes = Notes::where('module_name','Wealth')->where('application_id',$id)->orderBy('id','desc')->get();   
         return view('wealth.edit',compact('data','basic_data','file','notes','wealth_mas','wealthfinance','wealthpass','wealthbuss'));
@@ -621,75 +619,40 @@ class WealthController extends Controller
                     );
                 }
             } 
-            // $wealth_pass_application = WealthPass::updateOrCreate(
-            //     ['id' => $request->wealth_pass_id , 'wealth_id' => $id],
-            //     ['passholder_shareholder' => isset($request->passholder_shareholder) ? $request->passholder_shareholder :null,
-            //     'pass_holder_name' => isset($request->pass_holder_name) ? $request->pass_holder_name :null,
-            //     'passposrt_name_chinese'=>  isset($request->passposrt_name_chinese) ? $request->passposrt_name_chinese :null,
-            //     'dob' => isset($request->dob) ? $request->dob :null,
-            //     'gender'=>  isset($request->gender) ? $request->gender :null,
-            //     'passport_expiry_date' =>  isset($request->passport_expiry_date) ? $request->passport_expiry_date :null,
-            //     'passport_no' =>  isset($request->passport_no) ? $request->passport_no :null,
-            //     'passport_renewal_reminder'  =>  isset($request->passport_renewal_reminder) ? $request->passport_renewal_reminder :null,
-            //     'passport_country'  =>  isset($request->passport_country) ? $request->passport_country :null,
-            //     'passport_tri_frq'=>  isset($request->passport_tri_frq) ? $request->passport_tri_frq :null,
-            //     'tin_country_before_app' =>  isset($request->tin_country_before_app) ? $request->tin_country_before_app :null,
-            //     'type_of_tin_before_app' =>  isset($request->type_of_tin_before_app) ? $request->type_of_tin_before_app :null,
-            //     'tin_no_before_pass_app' =>  isset($request->tin_no_before_pass_app) ? $request->tin_no_before_pass_app :null,
-            //     'phone_no' => isset($request->phone_no) ? $request->phone_no :null,
-            //     'email' => isset($request->email) ? $request->email :null,
-            //     'business_type' =>  isset($request->business_type) ? $request->business_type :null,
-            //     'business_type_specify' =>  isset($request->business_type_specify) ? $request->business_type_specify :null,
-            //     'residential_add' =>  isset($request->residential_add) ? $request->residential_add :null,
-            //     'pass_app_status' => isset($request->pass_app_status) ? $request->pass_app_status :null,
-            //     'relation_with_pass'  =>  isset($request->relation_with_pass) ? $request->relation_with_pass :null,
-            //     'relation_with_pass_specify'  =>  isset($request->relation_with_pass_specify) ? $request->relation_with_pass_specify :null,
-            //     'pass_app_type'=>  isset($request->pass_app_type) ? $request->pass_app_type :null,
-            //     'pass_app_type_specify'=>  isset($request->pass_app_type_specify) ? $request->pass_app_type_specify :null,
-            //     'pass_inssuance'  =>  isset($request->pass_inssuance) ? $request->pass_inssuance :null,
-            //     'pass_issuance_date'=>  isset($request->pass_issuance_date) ? $request->pass_issuance_date :null,
-            //     'pass_expiry_date'  =>  isset($request->pass_expiry_date) ? $request->pass_expiry_date :null,
-            //     'pass_renewal_reminder'=>  isset($request->pass_renewal_reminder) ? $request->pass_renewal_reminder :null,
-            //     'duration'  =>  isset($request->duration) ? $request->duration :null,
-            //     'fin_number'=>  isset($request->fin_number) ? $request->fin_number :null,
-            //     'pass_renewal_frq'=>  isset($request->pass_renewal_frq) ? $request->pass_renewal_frq :null,
-            //     'pass_jon_title'=>  isset($request->pass_jon_title) ? $request->pass_jon_title :null,
-            //     'singpass_set_up'=>  isset($request->singpass_set_up) ? $request->singpass_set_up :null,
-            //     'employee_name'=>  isset($request->employee_name) ? $request->employee_name :null,
-            //     'monthly_sal'=>  isset($request->monthly_sal) ? $request->monthly_sal :null,
-            //     'pass_remarks'=>  isset($request->pass_remarks) ? $request->pass_remarks :null,           
-            //     ]
-            // );           
-            $wealth_business_app = WealthBusinessApp::updateOrCreate(
-                ['id' => $request->wealth_business_id , 'wealth_id' => $id],
-                ['financial_institition_name' => isset($request->financial_institition_name) ? $request->financial_institition_name :null,
-                'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
-                'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
-                // 'business_account_status_specify'=>  isset($request->business_account_status_specify) ? $request->business_account_status_specify :null,
-                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
-                'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
-                'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
-                'product_name' =>  isset($request->product_name) ? $request->product_name :null,
-                'payment_mode' =>  isset($request->payment_mode) ? $request->payment_mode :null,
-                'currency'  =>  isset($request->currency) ? $request->currency :null,
-                'currency_specify'  =>  isset($request->currency_specify) ? $request->currency_specify :null,
-                'investment_amount'  =>  isset($request->investment_amount) ? $request->investment_amount :null,
-                'online_account_user'=>  isset($request->online_account_user) ? $request->online_account_user :null,
-                'online_acc_pass' =>  isset($request->online_acc_pass) ? $request->online_acc_pass :null,
-                'subscription' =>  isset($request->subscription) ? $request->subscription :null,
-                'maturity_date' =>  isset($request->maturity_date) ? $request->maturity_date :null,
-                'business_duration' => isset($request->business_duration) ? $request->business_duration :null,
-                'maturity_reminder' => isset($request->maturity_reminder) ? $request->maturity_reminder :null,
-                'maturity_reminder_trg' => isset($request->maturity_reminder_trg) ? $request->maturity_reminder_trg :null,
-                'commision_status' => isset($request->commision_status) ? $request->commision_status :null,
-                'commission_currency' => isset($request->commission_currency) ? $request->commission_currency :null,
-                'commission_currency_specify' => isset($request->commission_currency_specify) ? $request->commission_currency_specify :null,
-                'commission_amount' => isset($request->commission_amount) ? $request->commission_amount :null,
-                'business_redemption_date' => isset($request->business_redemption_date) ? $request->business_redemption_date :null,
-                'business_redemption_amount' => isset($request->business_redemption_amount) ? $request->business_redemption_amount :null,
-                'net_amount_val' => isset($request->net_amount_val) ? $request->net_amount_val :null,
-                'business_remarks' => isset($request->business_remarks) ? $request->business_remarks :null,               
-            ]);
+            if(!empty($request->business)){
+                foreach($request->business as $business){
+                    $wealth_business_app = WealthBusinessApp::updateOrCreate(
+                        ['id' => $business['wealth_business_id'] , 'wealth_id' => $id],
+                        ['financial_institition_name' => isset($business['financial_institition_name']) ? $business['financial_institition_name'] :null,
+                        'application_submision' => isset($business['application_submision']) ? $business['application_submision'] :null,
+                        'business_account_status'=>  isset($business['business_account_status']) ? $business['business_account_status'] :null,
+                        // 'business_account_status_specify'=>  isset($business['business_account_status_specify']) ? $business['business_account_status_specify'] :null,
+                        'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
+                        'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
+                        'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
+                        'product_name' =>  isset($business['product_name']) ? $business['product_name'] :null,
+                        'payment_mode' =>  isset($business['payment_mode']) ? $business['payment_mode'] :null,
+                        'currency'  =>  isset($business['currency']) ? $business['currency'] :null,
+                        'currency_specify'  =>  isset($business['currency_specify']) ? $business['currency_specify'] :null,
+                        'investment_amount'  =>  isset($business['investment_amount']) ? $business['investment_amount'] :null,
+                        'online_account_user'=>  isset($business['online_account_user']) ? $business['online_account_user'] :null,
+                        'online_acc_pass' =>  isset($business['online_acc_pass']) ? $business['online_acc_pass'] :null,
+                        'subscription' =>  isset($business['subscription']) ? $business['subscription'] :null,
+                        'maturity_date' =>  isset($business['maturity_date']) ? $business['maturity_date'] :null,
+                        'business_duration' => isset($business['business_duration']) ? $business['business_duration'] :null,
+                        'maturity_reminder' => isset($business['maturity_reminder']) ? $business['maturity_reminder'] :null,
+                        'maturity_reminder_trg' => isset($business['maturity_reminder_trg']) ? $business['maturity_reminder_trg'] :null,
+                        'commision_status' => isset($business['commision_status']) ? $business['commision_status'] :null,
+                        'commission_currency' => isset($business['commission_currency']) ? $business['commission_currency'] :null,
+                        'commission_currency_specify' => isset($business['commission_currency_specify']) ? $business['commission_currency_specify'] :null,
+                        'commission_amount' => isset($business['commission_amount']) ? $business['commission_amount'] :null,
+                        // 'business_redemption_date' => isset($business['business_redemption_date']) ? $business['business_redemption_date'] :null,
+                        // 'business_redemption_amount' => isset($business['business_redemption_amount']) ? $business['business_redemption_amount'] :null,
+                        'net_amount_val' => isset($business['net_amount_val']) ? $business['net_amount_val'] :null,
+                        'business_remarks' => isset($business['business_remarks']) ? $business['business_remarks'] :null,               
+                    ]);
+                }
+            }
        }
        else
        {   
@@ -779,33 +742,40 @@ class WealthController extends Controller
                 }
             }
             // dd($request);
-            $wealth_business_app = WealthBusinessApp::updateOrCreate(
-                ['id' => $request->wealth_business_id , 'wealth_id' => $id],
-                ['financial_institition_name' => isset($request->financial_institition_name) ? $request->financial_institition_name :null,
-                'application_submision' => isset($request->application_submision) ? $request->application_submision :null,
-                'business_account_status'=>  isset($request->business_account_status) ? $request->business_account_status :null,
-                'business_account_type' => isset($business_account_types) ? $business_account_types :null,
-                'business_account_type_specify' => isset($request->business_account_type_specify) ? $request->business_account_type_specify :null,
-                'business_account_policy_no'=>  isset($request->business_account_policy_no) ? $request->business_account_policy_no :null,
-                'product_name' =>  isset($request->product_name) ? $request->product_name :null,
-                'payment_mode' =>  isset($request->payment_mode) ? $request->payment_mode :null,
-                'currency'  =>  isset($request->currency) ? $request->currency :null,
-                'investment_amount'  =>  isset($request->investment_amount) ? $request->investment_amount :null,
-                'online_account_user'=>  isset($request->online_account_user) ? $request->online_account_user :null,
-                'online_acc_pass' =>  isset($request->online_acc_pass) ? $request->online_acc_pass :null,
-                'subscription' =>  isset($request->subscription) ? $request->subscription :null,
-                'maturity_date' =>  isset($request->maturity_date) ? $request->maturity_date :null,
-                'business_duration' => isset($request->business_duration) ? $request->business_duration :null,
-                'maturity_reminder' => isset($request->maturity_reminder) ? $request->maturity_reminder :null,
-                'maturity_reminder_trg' => isset($request->maturity_reminder_trg) ? $request->maturity_reminder_trg :null,
-                'commision_status' => isset($request->commision_status) ? $request->commision_status :null,
-                'commission_currency' => isset($request->commission_currency) ? $request->commission_currency :null,
-                'commission_amount' => isset($request->commission_amount) ? $request->commission_amount :null,
-                'business_redemption_date' => isset($request->business_redemption_date) ? $request->business_redemption_date :null,
-                'business_redemption_amount' => isset($request->business_redemption_amount) ? $request->business_redemption_amount :null,
-                'net_amount_val' => isset($request->net_amount_val) ? $request->net_amount_val :null,
-                'business_remarks' => isset($request->business_remarks) ? $request->business_remarks :null,               
-            ]);        
+            if(!empty($request->business)){
+                foreach($request->business as $business){
+                    $wealth_business_app = WealthBusinessApp::updateOrCreate(
+                        ['id' => $business['wealth_business_id'] , 'wealth_id' => $id],
+                        ['financial_institition_name' => isset($business['financial_institition_name']) ? $business['financial_institition_name'] :null,
+                        'application_submision' => isset($business['application_submision']) ? $business['application_submision'] :null,
+                        'business_account_status'=>  isset($business['business_account_status']) ? $business['business_account_status'] :null,
+                        // 'business_account_status_specify'=>  isset($business['business_account_status_specify']) ? $business['business_account_status_specify'] :null,
+                        'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
+                        'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
+                        'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
+                        'product_name' =>  isset($business['product_name']) ? $business['product_name'] :null,
+                        'payment_mode' =>  isset($business['payment_mode']) ? $business['payment_mode'] :null,
+                        'currency'  =>  isset($business['currency']) ? $business['currency'] :null,
+                        'currency_specify'  =>  isset($business['currency_specify']) ? $business['currency_specify'] :null,
+                        'investment_amount'  =>  isset($business['investment_amount']) ? $business['investment_amount'] :null,
+                        'online_account_user'=>  isset($business['online_account_user']) ? $business['online_account_user'] :null,
+                        'online_acc_pass' =>  isset($business['online_acc_pass']) ? $business['online_acc_pass'] :null,
+                        'subscription' =>  isset($business['subscription']) ? $business['subscription'] :null,
+                        'maturity_date' =>  isset($business['maturity_date']) ? $business['maturity_date'] :null,
+                        'business_duration' => isset($business['business_duration']) ? $business['business_duration'] :null,
+                        'maturity_reminder' => isset($business['maturity_reminder']) ? $business['maturity_reminder'] :null,
+                        'maturity_reminder_trg' => isset($business['maturity_reminder_trg']) ? $business['maturity_reminder_trg'] :null,
+                        'commision_status' => isset($business['commision_status']) ? $business['commision_status'] :null,
+                        'commission_currency' => isset($business['commission_currency']) ? $business['commission_currency'] :null,
+                        'commission_currency_specify' => isset($business['commission_currency_specify']) ? $business['commission_currency_specify'] :null,
+                        'commission_amount' => isset($business['commission_amount']) ? $business['commission_amount'] :null,
+                        // 'business_redemption_date' => isset($business['business_redemption_date']) ? $business['business_redemption_date'] :null,
+                        // 'business_redemption_amount' => isset($business['business_redemption_amount']) ? $business['business_redemption_amount'] :null,
+                        'net_amount_val' => isset($business['net_amount_val']) ? $business['net_amount_val'] :null,
+                        'business_remarks' => isset($business['business_remarks']) ? $business['business_remarks'] :null,               
+                    ]);
+                }
+            }       
     
        }
        
@@ -835,7 +805,7 @@ class WealthController extends Controller
     {
         // dd($request);
         $request->validate([
-            'wealth_inputFile' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
+            'wealth_inputFile' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:102400',
         ]);
 
         if ($files = $request->file('wealth_inputFile')) {
@@ -1007,6 +977,17 @@ class WealthController extends Controller
         }else{
             $view = \View::make('wealth.passholder' , $this->data)->render();
         }
+        return response()->json([
+            'view' => $view
+        ]);
+    }
+
+    public function businessFormView(Request $request){
+        $business_item     = new WealthBusinessApp;
+        $business_item_key = $request->business_item_key;
+        $this->data['business_item']     = $business_item;
+        $this->data['business_item_key'] = $business_item_key;
+        $view                            = \View::make('wealth.business_item' , $this->data)->render();
         return response()->json([
             'view' => $view
         ]);

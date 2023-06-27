@@ -285,7 +285,7 @@
                             </div>
                             <div class="formAreahalf">
                                 <label for="fo_equity" class="form-label">Equity Percentage</label>
-                                <div class="dollersec percentage_input"><span class="input"><input type="text"
+                                <div class="dollersec percentage_input"><span class="input"><input type="number"
                                             name="share[1][0][equity_percentage]" id="fo_equity"
                                             class="form-control"></span><span class="pecentage_end">%</span></div>
                             </div>

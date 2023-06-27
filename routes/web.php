@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('business-data', [App\Http\Controllers\WealthController::class,'business_tab_add'])->name('business.add')->middleware('can:Wealth Module');
     Route::delete('finance-destroy', [App\Http\Controllers\WealthController::class,'finance_destroy'])->name('wealth.finance_destroy')->middleware('can:Wealth Module');
     Route::delete('business-destroy', [App\Http\Controllers\WealthController::class,'business_destroy'])->name('wealth.business_destroy')->middleware('can:Wealth Module');
+    Route::post('wealth/business_form_view', [App\Http\Controllers\WealthController::class,'businessFormView'])->name('wealth.business.form.view')->middleware('can:Wealth Module');
     
     Route::delete('company-destroy', [App\Http\Controllers\WealthController::class,'company_destroy'])->name('wealth.company_destroy')->middleware('can:Wealth Module');
     Route::delete('company-shareholder-destroy', [App\Http\Controllers\WealthController::class,'company_shareholder_destroy'])->name('wealth.company_shareholder_destroy')->middleware('can:Wealth Module');
