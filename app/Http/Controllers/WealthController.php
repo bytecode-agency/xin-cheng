@@ -805,7 +805,7 @@ class WealthController extends Controller
     {
         // dd($request);
         $request->validate([
-            'wealth_inputFile' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:100240',
+            'wealth_inputFile' => 'required|mimes:jpg,png,doc,docx,pdf,ppt,zip|max:102400',
         ]);
 
         if ($files = $request->file('wealth_inputFile')) {
