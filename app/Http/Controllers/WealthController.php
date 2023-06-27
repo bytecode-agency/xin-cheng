@@ -394,7 +394,7 @@ class WealthController extends Controller
         $wealth_mas = WealthMas::where('wealth_id',$id)->first() ?? new WealthFinancial;
         $wealth_finance = WealthFinancial::where('wealth_id',$id)->get() ?? new WealthFinancial;
         $wealthpass = WealthPass::where('wealth_id',$id)->get() ?? new WealthPass;
-        $wealthbuss = WealthBusinessApp::with('business_redempt')->orderBy('id','desc')->where('wealth_id',$id)->get() ?? new WealthBusinessApp;
+        $wealthbuss = WealthBusinessApp::with('business_redempt')->orderBy('id','asc')->where('wealth_id',$id)->get() ?? new WealthBusinessApp;
         return view('wealth.view',compact('data','basic_data','file','action_log','notes','wealth_mas','wealth_finance','wealthpass','wealthbuss'));
     }
     public function edit($id)

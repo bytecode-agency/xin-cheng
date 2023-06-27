@@ -1293,14 +1293,14 @@
 
                             <div class="tab-pane fade " id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                @foreach($wealthbuss as $business_item_key => $wealthbuss)
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss_a)
                                 <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian row">
                                         <div class="formAreahalf basic_data col-6">
                                             <label for="" class="form-label">Financial Institution Name</label>
                                             <p>
-                                                @isset($wealthbuss->financial_institition_name)
-                                                    {{ $wealthbuss->financial_institition_name }}
+                                                @isset($wealthbuss_a->financial_institition_name)
+                                                    {{ $wealthbuss_a->financial_institition_name }}
                                                 @else
                                                     -
                                                 @endisset
@@ -1320,8 +1320,8 @@
                                             <div class="formAreahalf basic_data col-6">
                                                 <label for="" class="form-label">Online Account Username</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_account_user)
-                                                        {{ $wealthbuss->online_account_user }}
+                                                    @isset($wealthbuss_a->online_account_user)
+                                                        {{ $wealthbuss_a->online_account_user }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1330,8 +1330,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Password</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_acc_pass)
-                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @isset($wealthbuss_a->online_acc_pass)
+                                                        {{ $wealthbuss_a->online_acc_pass }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1340,19 +1340,19 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Type</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_type)
-                                                        {{ $wealthbuss->business_account_type }}
+                                                    @isset($wealthbuss_a->business_account_type)
+                                                        {{ $wealthbuss_a->business_account_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
 
-                                            @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                            @if (isset($wealthbuss_a->business_account_type) && $wealthbuss_a->business_account_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss->business_account_type_specify))
-                                                        {{ $wealthbuss->business_account_type_specify  }}
+                                                        @if (isset($wealthbuss_a->business_account_type_specify))
+                                                        {{ $wealthbuss_a->business_account_type_specify  }}
                                                         @else -
 
                                                         @endif
@@ -1362,10 +1362,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->application_submision) && $wealthbuss_a->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss_a->application_submision) && $wealthbuss_a->application_submision == 'Done') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->application_submision)
-                                                        {{ $wealthbuss->application_submision }}
+                                                    @isset($wealthbuss_a->application_submision)
+                                                        {{ $wealthbuss_a->application_submision }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1374,8 +1374,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account/Policy Number</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_policy_no)
-                                                        {{ $wealthbuss->business_account_policy_no }}
+                                                    @isset($wealthbuss_a->business_account_policy_no)
+                                                        {{ $wealthbuss_a->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1384,10 +1384,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Status</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->business_account_status)
-                                                        {{ $wealthbuss->business_account_status }}
+                                                    @isset($wealthbuss_a->business_account_status)
+                                                        {{ $wealthbuss_a->business_account_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1396,8 +1396,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>
-                                                    @isset($wealthbuss->product_name)
-                                                        {{ $wealthbuss->product_name }}
+                                                    @isset($wealthbuss_a->product_name)
+                                                        {{ $wealthbuss_a->product_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1406,18 +1406,18 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Currency</label>
                                                 <p>
-                                                    @isset($wealthbuss->currency)
-                                                        {{ $wealthbuss->currency }}
+                                                    @isset($wealthbuss_a->currency)
+                                                        {{ $wealthbuss_a->currency }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
+                                            @if (isset($wealthbuss_a->currency) && $wealthbuss_a->currency == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthbuss->currency_specify))
-                                                    {{ $wealthbuss->currency_specify }} @else-
+                                                    @if (isset($wealthbuss_a->currency_specify))
+                                                    {{ $wealthbuss_a->currency_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1425,8 +1425,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Investment Amount/Premium</label>
                                                 <p>
-                                                    @isset($wealthbuss->investment_amount)
-                                                      <span class="doller">$ {{ $wealthbuss->investment_amount }}</span>
+                                                    @isset($wealthbuss_a->investment_amount)
+                                                      <span class="doller">$ {{ $wealthbuss_a->investment_amount }}</span>
                                                     @else
                                                         -
                                                     @endisset
@@ -1435,8 +1435,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Payment Mode</label>
                                                 <p>
-                                                    @isset($wealthbuss->payment_mode)
-                                                        {{ $wealthbuss->payment_mode }}
+                                                    @isset($wealthbuss_a->payment_mode)
+                                                        {{ $wealthbuss_a->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1446,8 +1446,8 @@
                                                 <label for="" class="form-label">Subscription / Inception
                                                     Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->subscription)
-                                                        {{ convertDate($wealthbuss->subscription,'d/m/Y') }}
+                                                    @isset($wealthbuss_a->subscription)
+                                                        {{ convertDate($wealthbuss_a->subscription,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1457,8 +1457,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_date)
-                                                        {{ convertDate($wealthbuss->maturity_date,'d/m/Y') }}
+                                                    @isset($wealthbuss_a->maturity_date)
+                                                        {{ convertDate($wealthbuss_a->maturity_date,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1467,8 +1467,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Duration</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_duration)
-                                                        {{ $wealthbuss->business_duration }}
+                                                    @isset($wealthbuss_a->business_duration)
+                                                        {{ $wealthbuss_a->business_duration }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1477,8 +1477,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Reminder</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder)
-                                                        {{ $wealthbuss->maturity_reminder}}
+                                                    @isset($wealthbuss_a->maturity_reminder)
+                                                        {{ $wealthbuss_a->maturity_reminder}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1488,9 +1488,9 @@
                                                 <label for="" class="form-label">Maturity Reminder Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder_trg)
+                                                    @isset($wealthbuss_a->maturity_reminder_trg)
                                                         <span class="every">Every</span>
-                                                        {{ $wealthbuss->maturity_reminder_trg }}
+                                                        {{ $wealthbuss_a->maturity_reminder_trg }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1500,18 +1500,18 @@
                                                 <label for="" class="form-label">Commission Currency (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_currency)
-                                                        {{ $wealthbuss->commission_currency }}
+                                                    @isset($wealthbuss_a->commission_currency)
+                                                        {{ $wealthbuss_a->commission_currency }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
+                                            @if (isset($wealthbuss_a->commission_currency) && $wealthbuss_a->commission_currency == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthbuss->commission_currency_specify))
-                                                    {{ $wealthbuss->commission_currency_specify }} @else-
+                                                    @if (isset($wealthbuss_a->commission_currency_specify))
+                                                    {{ $wealthbuss_a->commission_currency_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1520,8 +1520,8 @@
                                                 <label for="" class="form-label">Commission Amount (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_amount)
-                                                        {{ $wealthbuss->commission_amount }}
+                                                    @isset($wealthbuss_a->commission_amount)
+                                                        {{ $wealthbuss_a->commission_amount }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1532,10 +1532,10 @@
                                                     Purpose)
                                                 </label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Received') active-btn @elseif(isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->commision_status)
-                                                        {{ $wealthbuss->commision_status }}
+                                                    @isset($wealthbuss_a->commision_status)
+                                                        {{ $wealthbuss_a->commision_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1544,8 +1544,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Net Account Value</label>
                                                 <p>
-                                                    @isset($wealthbuss->net_amount_val)
-                                                        {{ $wealthbuss->net_amount_val }}
+                                                    @isset($wealthbuss_a->net_amount_val)
+                                                        {{ $wealthbuss_a->net_amount_val }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1554,8 +1554,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_remarks)
-                                                        {{ $wealthbuss->business_remarks }}
+                                                    @isset($wealthbuss_a->business_remarks)
+                                                        {{ $wealthbuss_a->business_remarks }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1577,9 +1577,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
+                                                            @if(isset($wealthbuss_a->business_redempt) && count($wealthbuss_a->business_redempt)> 0)
 
-                                                            @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                            @foreach($wealthbuss_a->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>{{$redemption_data->red_amount}}</td>
@@ -1607,14 +1607,14 @@
                         @else
                             <div class="tab-pane fade show active" id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                @foreach($wealthbuss as $business_item_key => $wealthbuss)
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss_b)
                                 <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian">
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Financial Institution Name</label>
                                             <p>
-                                                @isset($wealthbuss->financial_institition_name)
-                                                    {{ $wealthbuss->financial_institition_name }}
+                                                @isset($wealthbuss_b->financial_institition_name)
+                                                    {{ $wealthbuss_b->financial_institition_name }}
                                                 @else
                                                     -
                                                 @endisset
@@ -1633,10 +1633,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->application_submision) && $wealthbuss_b->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss_b->application_submision) && $wealthbuss_b->application_submision == 'Done') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->application_submision)
-                                                        {{ $wealthbuss->application_submision }}
+                                                    @isset($wealthbuss_b->application_submision)
+                                                        {{ $wealthbuss_b->application_submision }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1645,10 +1645,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Status</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->business_account_status)
-                                                        {{ $wealthbuss->business_account_status }}
+                                                    @isset($wealthbuss_b->business_account_status)
+                                                        {{ $wealthbuss_b->business_account_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1657,8 +1657,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Type</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_type)
-                                                        {{ $wealthbuss->business_account_type }}
+                                                    @isset($wealthbuss_b->business_account_type)
+                                                        {{ $wealthbuss_b->business_account_type }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1667,8 +1667,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account/Policy Number</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_policy_no)
-                                                        {{ $wealthbuss->business_account_policy_no }}
+                                                    @isset($wealthbuss_b->business_account_policy_no)
+                                                        {{ $wealthbuss_b->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1677,8 +1677,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>
-                                                    @isset($wealthbuss->product_name)
-                                                        {{ $wealthbuss->product_name }}
+                                                    @isset($wealthbuss_b->product_name)
+                                                        {{ $wealthbuss_b->product_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1687,8 +1687,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Payment Mode</label>
                                                 <p>
-                                                    @isset($wealthbuss->payment_mode)
-                                                        {{ $wealthbuss->payment_mode }}
+                                                    @isset($wealthbuss_b->payment_mode)
+                                                        {{ $wealthbuss_b->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1697,8 +1697,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Currency</label>
                                                 <p>
-                                                    @isset($wealthbuss->currency)
-                                                        {{ $wealthbuss->currency }}
+                                                    @isset($wealthbuss_b->currency)
+                                                        {{ $wealthbuss_b->currency }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1707,8 +1707,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Investment Amount/Premium</label>
                                                 <p>
-                                                    @isset($wealthbuss->investment_amount)
-                                                       <span class="doller">$ {{ $wealthbuss->investment_amount }}</span>
+                                                    @isset($wealthbuss_b->investment_amount)
+                                                       <span class="doller">$ {{ $wealthbuss_b->investment_amount }}</span>
                                                     @else
                                                         -
                                                     @endisset
@@ -1717,8 +1717,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Username</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_account_user)
-                                                        {{ $wealthbuss->online_account_user }}
+                                                    @isset($wealthbuss_b->online_account_user)
+                                                        {{ $wealthbuss_b->online_account_user }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1727,8 +1727,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Password</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_acc_pass)
-                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @isset($wealthbuss_b->online_acc_pass)
+                                                        {{ $wealthbuss_b->online_acc_pass }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1738,8 +1738,8 @@
                                                 <label for="" class="form-label">Subscription / Inception
                                                     Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->subscription)
-                                                        {{ convertDate($wealthbuss->subscription,"d/m/Y") }}
+                                                    @isset($wealthbuss_b->subscription)
+                                                        {{ convertDate($wealthbuss_b->subscription,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1748,8 +1748,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_date)
-                                                        {{ convertDate($wealthbuss->maturity_date,"d/m/Y") }}
+                                                    @isset($wealthbuss_b->maturity_date)
+                                                        {{ convertDate($wealthbuss_b->maturity_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1758,8 +1758,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Duration</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_duration)
-                                                        {{ $wealthbuss->business_duration }}
+                                                    @isset($wealthbuss_b->business_duration)
+                                                        {{ $wealthbuss_b->business_duration }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1768,8 +1768,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Reminder</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder)
-                                                        {{ $wealthbuss->maturity_reminder }}
+                                                    @isset($wealthbuss_b->maturity_reminder)
+                                                        {{ $wealthbuss_b->maturity_reminder }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1779,9 +1779,9 @@
                                                 <label for="" class="form-label">Maturity Reminder Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder_trg)
+                                                    @isset($wealthbuss_b->maturity_reminder_trg)
                                                         <span class="every">Every</span>
-                                                        {{ $wealthbuss->maturity_reminder_trg }}
+                                                        {{ $wealthbuss_b->maturity_reminder_trg }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1792,10 +1792,10 @@
                                                     Purpose)
                                                 </label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->commision_status) && $wealthbuss_b->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss_b->commision_status) && $wealthbuss_b->commision_status == 'Received') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->commision_status)
-                                                        {{ $wealthbuss->commision_status }}
+                                                    @isset($wealthbuss_b->commision_status)
+                                                        {{ $wealthbuss_b->commision_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1805,8 +1805,8 @@
                                                 <label for="" class="form-label">Commission Currency (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_currency)
-                                                        {{ $wealthbuss->commission_currency }}
+                                                    @isset($wealthbuss_b->commission_currency)
+                                                        {{ $wealthbuss_b->commission_currency }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1816,8 +1816,8 @@
                                                 <label for="" class="form-label">Commission Amount (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_amount)
-                                                        {{ $wealthbuss->commission_amount }}
+                                                    @isset($wealthbuss_b->commission_amount)
+                                                        {{ $wealthbuss_b->commission_amount }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1826,8 +1826,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Net Account Value</label>
                                                 <p>
-                                                    @isset($wealthbuss->net_amount_val)
-                                                        {{ $wealthbuss->net_amount_val }}
+                                                    @isset($wealthbuss_b->net_amount_val)
+                                                        {{ $wealthbuss_b->net_amount_val }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1836,8 +1836,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_remarks)
-                                                        {{ $wealthbuss->business_remarks }}
+                                                    @isset($wealthbuss_b->business_remarks)
+                                                        {{ $wealthbuss_b->business_remarks }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1859,9 +1859,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
+                                                            @if(isset($wealthbuss_b->business_redempt) && count($wealthbuss_b->business_redempt)> 0)
 
-                                                            @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                            @foreach($wealthbuss_b->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>{{$redemption_data->red_amount}}</td>
@@ -3419,37 +3419,43 @@
                             </td>
                         </tr>
 
+                        @foreach($wealthbuss as $key => $wealthbuss_c)
                         <tr class="six-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2">
+                                            <h2>Business Related {{$key + 1}}</h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Financial Institution Name</b>
+                                            <b>Financial Institution Name </b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->financial_institition_name ?? ''}}
+                                            {{$wealthbuss_c->financial_institition_name ?? ''}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Online Account Username</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->online_account_user ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->online_account_user ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->online_acc_pass ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->online_acc_pass ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Account Type</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_type ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_type ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                    @if($wealthbuss->business_account_type == 'Others')
+                                    @if($wealthbuss_c->business_account_type == 'Others')
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Others, please specify</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_type_specify ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_type_specify ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                            &nbsp;
@@ -3459,22 +3465,22 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->application_submision ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->application_submision ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account/Policy Number</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_policy_no ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_policy_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_account_status ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_status ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Product Name</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->product_name ?? '-'}}
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->product_name ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3482,18 +3488,18 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->currency ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->currency ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Investment Amount/Premium</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->financial_institition_name ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->investment_amount ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                    @if($wealthbuss->currency == 'Others')
+                                    @if($wealthbuss_c->currency == 'Others')
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Others, please specify</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->currency_specify ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->currency_specify ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             &nbsp;
@@ -3502,66 +3508,63 @@
                                     @endif
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Investment
-                                                            Amount/Premium</b>
-                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss->investment_amount ?? '-'}}</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Payment Mode</b>
-                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss->payment_mode ?? '-'}}</span>
+                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss_c->payment_mode ?? '-'}}</span>
                                         </td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Subscription / Inception Date</b>
                                             <span style="padding-top:15px; display:block;">
-                                            @if(!empty($wealthbuss->subscription))
-                                            {{date('d/m/Y' , strtotime($wealthbuss->subscription))}}
+                                            @if(!empty($wealthbuss_c->subscription))
+                                            {{date('d/m/Y' , strtotime($wealthbuss_c->subscription))}}
                                             @else
                                             - 
                                             @endif
                                         </span>
                                         </td>
+                                    </tr>
+
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
                                             <span style="padding-top:15px; display:block;"> 
-                                            @if(!empty($wealthbuss->maturity_date))
-                                            {{date('d/m/Y' , strtotime($wealthbuss->maturity_date))}}
+                                            @if(!empty($wealthbuss_c->maturity_date))
+                                            {{date('d/m/Y' , strtotime($wealthbuss_c->maturity_date))}}
                                             @else
                                             - 
                                             @endif</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_duration ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss_c->business_duration ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->maturity_reminder ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->maturity_reminder ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->maturity_reminder_trg ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->maturity_reminder_trg ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_currency ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_currency ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_amount ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_amount ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                    @if($wealthbuss->commission_currency == 'Others')
+                                    @if($wealthbuss_c->commission_currency == 'Others')
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Others, please specify</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commission_currency_specify ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_currency_specify ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             &nbsp;
@@ -3571,11 +3574,11 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commisison Status (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->commision_status ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commision_status ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss->business_remarks ?? '-'}}</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_remarks ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr class="five-row-cstm">
@@ -3595,7 +3598,7 @@
                                                         Net Account Value
                                                     </th>
                                                 </tr>
-                                                @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                @foreach($wealthbuss_c->business_redempt as $redemption_data)
                                                 <tr>
                                                     <td style="width:30%; color:#000; padding:16px;">
                                                         @if(!empty($redemption_data->red_date))
@@ -3608,7 +3611,7 @@
                                                         {{$redemption_data->red_amount}}
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        {{$wealthbuss->net_amount_val ?? 0}}
+                                                        {{$wealthbuss_c->net_amount_val ?? 0}}
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -3618,6 +3621,7 @@
                                 </table>
                             </td>
                         </tr>
+                        @endforeach
                     </table>
                 </div>
             @else
@@ -3693,21 +3697,26 @@
                                 </table>
                             </td>
                         </tr>
-
+                        @foreach($wealthbuss as $key => $wealthbuss_d)
                         <tr class="six-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2">
+                                            <h2>Business Related {{$key + 1}} </h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Financial Institution Name 1</b>
+                                            <b>Financial Institution Name</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->financial_institition_name ?? '-'}}
+                                            {{$wealthbuss_d->financial_institition_name ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Account Status</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->business_account_status ?? '-'}}
+                                            {{$wealthbuss_d->business_account_status ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3716,13 +3725,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
                                             <span style="padding-top:15px; display:block;">
-                                                {{$wealthbuss->application_submision ?? '-'}}
+                                                {{$wealthbuss_d->application_submision ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Account/Policy Number</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->product_name ?? '-'}}
+                                            {{$wealthbuss_d->product_name ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3731,13 +3740,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account Type</b>
                                             <span style="padding-top:15px; display:block;">
-                                                {{$wealthbuss->business_account_type ?? '-'}}
+                                                {{$wealthbuss_d->business_account_type ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Payment Mode</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->payment_mode ?? '-'}}
+                                            {{$wealthbuss_d->payment_mode ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3746,13 +3755,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Product Name</b>
                                             <span style="padding-top:15px; display:block;">
-                                                {{$wealthbuss->product_name ?? '-'}}
+                                                {{$wealthbuss_d->product_name ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Investment Amount Premium</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->investment_amount ?? '-'}}
+                                            {{$wealthbuss_d->investment_amount ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3761,13 +3770,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Username</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->online_account_user ?? '-'}}
+                                            {{$wealthbuss_d->online_account_user ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->online_acc_pass ?? '-'}}
+                                            {{$wealthbuss_d->online_acc_pass ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3776,14 +3785,14 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
                                             <span style="padding-top:15px;  display:block;">
-                                            {{$wealthbuss->currency ?? '-'}}
+                                            {{$wealthbuss_d->currency ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
                                             <span style="padding-top:15px; display:block;">
-                                            @if($wealthbuss->maturity_date)
-                                                {{date('d/m/Y' , strtotime($wealthbuss->maturity_date))}}
+                                            @if(!empty($wealthbuss_d->maturity_date))
+                                                {{date('d/m/Y' , strtotime($wealthbuss_d->maturity_date))}}
                                             @else
                                              -
                                             @endif
@@ -3795,8 +3804,8 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Subscription/Inception Date</b>
                                             <span style="padding-top:15px; display:block;">
-                                            @if($wealthbuss->subscription)
-                                                {{date('d/m/Y' , strtotime($wealthbuss->subscription))}}
+                                            @if(!empty($wealthbuss_d->subscription))
+                                                {{date('d/m/Y' , strtotime($wealthbuss_d->subscription))}}
                                             @else
                                              -
                                             @endif
@@ -3805,7 +3814,7 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->maturity_reminder ?? '-'}}
+                                            {{$wealthbuss_d->maturity_reminder ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3814,13 +3823,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->business_duration ?? '-'}}
+                                            {{$wealthbuss_d->business_duration ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder Trigger Frequency</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->maturity_reminder_trg ?? '-'}}
+                                            {{$wealthbuss_d->maturity_reminder_trg ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3828,13 +3837,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->commission_currency ?? '-'}}
+                                            {{$wealthbuss_d->commission_currency ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Commission Status (For Admin Purpose)</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->commision_status ?? '-'}}
+                                            {{$wealthbuss_d->commision_status ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3843,13 +3852,13 @@
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Remarks</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->business_remarks ?? '-'}}
+                                            {{$wealthbuss_d->business_remarks ?? '-'}}
                                             </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
                                             <span style="padding-top:15px; display:block;">
-                                            {{$wealthbuss->commission_amount ?? '-'}}
+                                            {{$wealthbuss_d->commission_amount ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3870,8 +3879,8 @@
                                                         Net Account Value
                                                     </th>
                                                 </tr>
-                                                @if(!empty($wealthbuss->business_redempt))
-                                                @foreach($wealthbuss->business_redempt as $redemption)
+                                                @if(!empty($wealthbuss_d->business_redempt))
+                                                @foreach($wealthbuss_d->business_redempt as $redemption)
                                                 <tr>
                                                     <td style="width:30%; color:#000; padding:16px;">
                                                         @if(!empty($redemption->red_date))
@@ -3884,7 +3893,7 @@
                                                        {{$redemption->red_amount}}
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        {{$wealthbuss->net_amount_val}}
+                                                        {{$wealthbuss_d->net_amount_val}}
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -3895,6 +3904,7 @@
                                 </table>
                             </td>
                         </tr>
+                        @endforeach
                     </table>
 
                 </div>
