@@ -338,16 +338,16 @@
                                                 <div class="formAreahalf basic_data">
                                                     <label for="tax_advisor_email" class="form-label">Tax Advisor
                                                         Email</label>
-                                                    <input type="text" name="tax_advisor_email" id="tax_advisor_email"
+                                                    <input type="email" name="tax_advisor_email" id="tax_advisor_email"
                                                         value="@isset($wealth_mas->tax_advisor_email) {{ $wealth_mas->tax_advisor_email }} @endisset"
                                                         class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="tax_advisor_no" class="form-label">Tax Advisor Contact
                                                         Number</label>
-                                                    <input type="tel" name="tax_advisor_no" id="tax_advisor_no"
+                                                    <input type="number" name="tax_advisor_no" id="tax_advisor_no"
                                                         value="@isset($wealth_mas->tax_advisor_no) {{ $wealth_mas->tax_advisor_no }} @endisset"
-                                                        class="form-control" maxlength="14">
+                                                        class="form-control">
                                                 </div>
                                                 <div class="formAreahalf basic_data">
                                                     <label for="kickstart_tax_advisor" class="form-label">Kickstart to
@@ -1323,7 +1323,7 @@
             }
             const strFun = (i, key) => {
                 return `
-                <div class="formAreahalf basic_data test">
+                    <div class="formAreahalf basic_data test">
                             <label for="account_type" class="form-label">Account Type `+i+`</label>
                             <select name="financial[`+key+`][account_type][]" id="account_type" class="form-control">
                             <option value="" selected disabled>Choose account type
@@ -1338,14 +1338,13 @@
                                 Others</option>
                         </select>
                     </div>
-                        <div class="formAreahalf basic_data test">
+                    <div class="formAreahalf basic_data test">
                         <label for="account_policy_no" class="form-label">Account/Policy
                                 Number `+i+`</label>
                             <input type="text" name="financial[`+key+`][account_policy_no][]" id="account_policy_no"
                             value=""
                             class="form-control">
-                    </div>
-                    `
+                    </div>`
             }
             $('body').on('change', '.pass_holder_nameJs', function() {
                 const arr = document.getElementsByClassName('pass_name_eng')
