@@ -180,7 +180,9 @@ $(document).ready(function () {
             } else if ($(".business_type").val() == "FO") {
                 let next = $('#' + this.id).closest('fieldset').next('fieldset').attr('id');
                 $('#start_field').hide();
+                
                 $('#' + next).show();
+                $('#' + next).reset();
                 
             }
             else {
@@ -241,6 +243,8 @@ $(document).ready(function () {
         $('#NFO_personal').hide();
         $('#start_field').show();
     });
+
+  
     $('body').on('click', '.previous2_nfo', function () {
         $('#NFO_corporate').hide();
         $('#start_field').show();
@@ -1699,6 +1703,13 @@ $(document).ready(function () {
                     $(this).valid();
                 }
             });
+
+            $('#nfo_phone_number').on('input',function(e){
+                let {value} = e.target
+                if( !/^\d+$/.test(value)){
+                    document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+                }
+               });
         }
     });
     var btn_click_nfo = 0;
@@ -1942,6 +1953,13 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+        $('#nfo_phone_number').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
     })
 
     $('body').on('click', '.previous3_nfo', function () {
@@ -2289,6 +2307,13 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+        $('#nfo_phone_number').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
 
        
 

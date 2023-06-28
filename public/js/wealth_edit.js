@@ -77,6 +77,56 @@ $(document).ready(function () {
         $("#notes_cancel").hide();
     });
 
+    $("body").on('keyup', '#equity_shareholder', function (evt) {
+
+        $(this).attr('value', $(this).val());
+
+        // console.log($(this).val());
+        let edits_percentage = 0;
+        var compsId = $(this).parents('.accordion-item').attr('id');
+        var cals_eqty_percentages = $(this).parents('#' + compsId + ".accordion-item").find(".equity_shareholder");
+        for (per = 0; per < cals_eqty_percentages.length; per++) {
+            // console.log(cal_eqty_percentage[per].value);
+            // console.log($(cal_eqty_percentage[per]).attr('value'));
+            var values = parseFloat($(cals_eqty_percentages[per]).attr('value'));
+            if(values != '' && !isNaN(values)){
+                edits_percentage += values;
+            }
+        }
+        //console.log(edit_percentage);
+        if (edits_percentage == 100) {
+            $('.edit__add_com').removeClass("disable");
+            $('.edit__add_com').prop("disabled", false);
+            $("#updatebtns").removeAttr('disabled');
+            $('#' + compsId).find("#edit_add_share").removeClass("disable");
+            $('#' + compsId).find("#edit_add_share").prop("disabled", false);
+            
+        }
+        else {
+            $('.edit__add_com').addClass("disable");
+            $('.edit__add_com').attr("disabled", "disabled");
+            $("#updatebtns"). attr("disabled", true);
+            $('#' + compsId).find("#edit_add_share").addClass("disable");
+            $('#' + compsId).find("#edit_add_share").attr('disabled', 'disabled');
+          
+
+        }
+        if (edits_percentage > 100) {
+            // console.log('ghty');
+            $('#' + compsId).find("#edit_add_share").addClass("disable");
+            $('#' + compsId).find("#edit_add_share").attr('disabled', 'disabled');
+            
+            $("#updatebtns"). attr("disabled", true);
+            //    $(".saveBtn").addClass("disable");
+        }
+        else {
+            $('#' + compsId).find("#edit_add_share").removeClass("disable");
+            $('#' + compsId).find("#edit_add_share").prop("disabled", false);
+            
+            $("#updatebtns").removeAttr('disabled');
+        }
+
+    });
     $('.equity_shareholders').on('input', function() {
         this.value = this.value.replace(/(?!^-)[^0-9.]/g, "").replace(/(\..*)\./g, '$1');
     });
@@ -101,21 +151,33 @@ $(document).ready(function () {
         if (edit_percentage == 100) {
             $('.edit__add_com').removeClass("disable");
             $('.edit__add_com').prop("disabled", false);
+            $("#updatebtns").removeAttr('disabled');
+            $('#' + compId).find("#edit_add_share").removeClass("disable");
+            $('#' + compId).find("#edit_add_share").prop("disabled", false);
+            
         }
         else {
             $('.edit__add_com').addClass("disable");
             $('.edit__add_com').attr("disabled", "disabled");
+            $("#updatebtns"). attr("disabled", true);
+            $('#' + compId).find("#edit_add_share").addClass("disable");
+            $('#' + compId).find("#edit_add_share").attr('disabled', 'disabled');
+          
 
         }
-        if (edit_percentage >= 100) {
+        if (edit_percentage > 100) {
             // console.log('ghty');
             $('#' + compId).find("#edit_add_share").addClass("disable");
             $('#' + compId).find("#edit_add_share").attr('disabled', 'disabled');
+            
+            $("#updatebtns"). attr("disabled", true);
             //    $(".saveBtn").addClass("disable");
         }
         else {
             $('#' + compId).find("#edit_add_share").removeClass("disable");
             $('#' + compId).find("#edit_add_share").prop("disabled", false);
+            
+            $("#updatebtns").removeAttr('disabled');
         }
 
     });

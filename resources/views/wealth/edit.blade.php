@@ -1319,7 +1319,7 @@
 
                                                                     <tr>
                                                                         <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
-                                                                        <td>{{$redemption_data->red_amount}}</td>
+                                                                        <td>${{$redemption_data->red_amount}}</td>
                                                                         <td><a href="javascript:void(0);" data-id="{{$redemption_data->id}}" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a>
                                                                         </td>
                                                                     </tr>
@@ -1739,7 +1739,7 @@
 
                                                                 <tr>
                                                                     <td>{{date('d/m/Y', strtotime($redemption_data->red_date))}}</td>
-                                                                    <td>{{$redemption_data->red_amount}}</td>
+                                                                    <td>${{$redemption_data->red_amount}}</td>
                                                                     <td><a href="javascript:void(0);" data-id="{{$redemption_data->id}}" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a>
                                                                     </td>
                                                                 </tr>
