@@ -257,7 +257,7 @@ $(document).ready(function () {
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Equity Percentage</label>
 
-                                                        <div class="dollersec percentage_input"><span class="input"><input type="text"
+                                                        <div class="dollersec percentage_input"><span class="input"><input type="number"
                                                         name="share[`+ key + `][0][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value=""></span><span class="pecentage_end">%</span></div>
 
@@ -335,7 +335,7 @@ $(document).ready(function () {
                     <div class="shareholder_div_accrodion_show">
                         <div class="formAreahalf basic_data">
                             <label for="" class="form-label">Equity Percentage</label>
-                            <div class="dollersec percentage_input"><span class="input"><input type="text" class="form-control equity_shareholders"
+                            <div class="dollersec percentage_input"><span class="input"><input type="number" class="form-control equity_shareholders"
                             name="share[`+ key + `][` + key2 + `][equity_percentage]" id="equity_shareholder"
                             ></span><span class="pecentage_end">%</span></div>
 
@@ -411,6 +411,12 @@ $(document).ready(function () {
                            >
                     </div>
                     <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
+                        <input type="date" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
+                            value="{{ $shareholder->dob }}">
+                    </div>
+                    <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Gender </label>
                         <select class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][gender]"
@@ -419,12 +425,6 @@ $(document).ready(function () {
                            <option value="Male">M</option>
                            <option value="Female">F</option>
                            </select>
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                        <input type="date" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][dob]"
-                            value="{{ $shareholder->dob }}">
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Phone Number</label>
@@ -437,6 +437,13 @@ $(document).ready(function () {
                         <input type="text" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][email]"
                             >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Residential
+                            Address</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][residential_address]"
+                           >
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Passport Number</label>
@@ -504,18 +511,19 @@ $(document).ready(function () {
                                 </select></span>
                         </div>
                     </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Residential
-                            Address</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][residential_address]"
-                           >
-                    </div>
+
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Current TIN
                             country</label>
                         <input type="text" class="form-control"
                             name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_country]"
+                            >
+                    </div>
+                    <div class="formAreahalf basic_data">
+                        <label for="" class="form-label">Current TIN
+                            Number</label>
+                        <input type="text" class="form-control"
+                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_no]"
                             >
                     </div>
                     <div class="formAreahalf basic_data">
@@ -548,13 +556,6 @@ $(document).ready(function () {
 
                         </select>
 
-                    </div>
-                    <div class="formAreahalf basic_data">
-                        <label for="" class="form-label">Current TIN
-                            Number</label>
-                        <input type="text" class="form-control"
-                            name="share[`+ shr_arr_id + `][` + (share_key - 1) + `][tin_no]"
-                            >
                     </div>
                     <div class="formAreahalf basic_data">
                         <label for="" class="form-label">Employer's Name</label>
@@ -643,7 +644,8 @@ $(document).ready(function () {
         var comp_fields = $('.companyFormJs input[name^="cmp"]');
         comp_fields.each(function() {
             $(this).rules("add", {
-                required: true
+                required: true,
+                maxlength: 100
             });
         });
 
@@ -1028,7 +1030,6 @@ $(document).ready(function () {
     $('.redDateJs').on('change' , function(){
         var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
         var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
-        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
             $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
@@ -1039,7 +1040,6 @@ $(document).ready(function () {
     $('.redDateJs , .redAmountJs').on('keyup' , function(){
         var red_date = $(this).closest('.redemptionDAJs').find('.redDateJs').val();
         var red_amount = $(this).closest('.redemptionDAJs').find('.redAmountJs').val();
-        console.log(red_date +'-'+  red_amount);
         if(red_date && red_amount){
            $(this).closest('.redemptionDAJs').find('.addRedButtonJs').attr('disabled' , false);
         }else{
@@ -1051,7 +1051,8 @@ $(document).ready(function () {
         var red_id = $(this).parents('.redemption_add_table').find('.busines_tab_id').val();
         var red_date = $(this).parents('.redemption_add_table').find('.red_date').val();
         var red_amount = $(this).parents('.redemption_add_table').find('.red_amount').val()
-        console.log(red_date, red_amount, red_id);
+        var business_item_table = $(this).closest('.business_itemJs').find('.redTableJs tbody');
+        console.log(business_item_table);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1066,14 +1067,14 @@ $(document).ready(function () {
                 red_id: red_id
             },
             success: function (response) {
-                console.log(response);
                 if (response.success) {
                     var html = '<tr>';
                     var redemption_date = moment(response.success.red_date).format('DD/MM/YYYY');
                     html += '<td>' + redemption_date + '</td>';
-                    html += '<td>' + response.success.red_amount + '</td>';
+                    html += '<td>$' + response.success.red_amount + '</td>';
                     html += `<td><a href="javascript:void(0);" data-id="` + response.success.id + `" title="Delete" class="btn del_confirm_business"><i class="fa-solid fa-trash"></i></a></td></tr>`;
-                    $('#red_table').prepend(html);
+                    business_item_table.prepend(html);
+                    console.log(business_item_table);
                     $('.red_date').val("");
                     $('.red_amount').val("");
                     $('.addRedButtonJs').attr('disabled' , true);
@@ -1267,4 +1268,34 @@ $(document).ready(function () {
             $(this).parents().next('.please_specifyJs').remove();
         }
     });
+});
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+$('#add_business_item').on('click' , function(){
+    var business_item_key = $(this).closest('#nav-business').find('.business_itemJs').length;
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    triggerLoader();
+    $.ajax({
+        type: "post",
+        url: '/wealth/business_form_view',
+        data: {business_item_key: business_item_key },
+        success: function (response) {
+            if(response.view){
+                $('.business_itemsJs').append(response.view);
+            }
+            removeLoader();
+        }
+    });    
 });

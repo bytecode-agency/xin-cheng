@@ -333,7 +333,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_equity_`+ (sharehold_no + 1) + `" class="form-label">Equity Percentage</label>
-                <div class="dollersec percentage_input"><span class="input"> <input type="text" name="share[1][`+ (sharehold_no + 1) + `][equity_percentage]" id="equity_shareholder_`+ (sharehold_no + 1) + `" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
+                <div class="dollersec percentage_input"><span class="input"> <input type="number" name="share[1][`+ (sharehold_no + 1) + `][equity_percentage]" id="equity_shareholder_`+ (sharehold_no + 1) + `" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
             </div>
 
             <div class="formAreahalf">
@@ -478,7 +478,8 @@ $(document).ready(function () {
                 document.getElementById(id).value = ""
             }
             $(this).rules("add", {
-                required: true
+                required: true,
+                maxlength: 100
             });
         });
         relationfield.each(function() {
@@ -537,7 +538,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_equity_1" class="form-label">Equity Percentage</label>
-                                    <div class="dollersec percentage_input"><span class="input"> <input type="text" name="share[1][1][equity_percentage]" id="equity_shareholder_1" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
+                                    <div class="dollersec percentage_input"><span class="input"> <input type="number" name="share[1][1][equity_percentage]" id="equity_shareholder_1" class="form-control equity_shareholders" value=""></span><span class="pecentage_end">%</span></div>
                                 </div>
 
                                 <div class="formAreahalf">
@@ -776,7 +777,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="fo_equity_`+ (arr_id)+(sh_no + 1) + `" class="form-label">Equity Percentage</label>\
-                    <div class="dollersec percentage_input"><span class="input"> <input type="text" name="share[` + (arr_id) + `][` + (sh_no + 1) + `][equity_percentage]" id="equity_shareholder_`+ (arr_id)+(sh_no + 1) + `" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
+                    <div class="dollersec percentage_input"><span class="input"> <input type="number" name="share[` + (arr_id) + `][` + (sh_no + 1) + `][equity_percentage]" id="equity_shareholder_`+ (arr_id)+(sh_no + 1) + `" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
                 </div> <div class="formAreahalf">\
                     <label for="fo_shrholder_type_`+ (arr_id)+(sh_no + 1) + `" class="form-label">Shareholder Type</label>\
                     <select name="share[` + (arr_id) + `][` + (sh_no + 1) + `][shareholder_type]" id="fo_shrholder_type_`+ (arr_id)+(sh_no + 1) + `" class="shrholder_type">\
@@ -852,7 +853,7 @@ $(document).ready(function () {
                             <div class="formAreahalf">
                                 <label for="fo_equity_1" class="form-label">Equity Percentage</label>
                                 <div class="dollersec percentage_input"><span class="input">
-                                    <input type="text" name="share[` + (btn_click - 2) + `][1][equity_percentage]" id="equity_shareholder_1" class="form-control equity_shareholders" value=""></span>
+                                    <input type="number" name="share[` + (btn_click - 2) + `][1][equity_percentage]" id="equity_shareholder_1" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
                                 </div>
 
@@ -1374,7 +1375,7 @@ $(document).ready(function () {
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
                                 <div class="dollersec percentage_input"><span class="input">
-                                <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
+                                <input type="number" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                 <span class="pecentage_end">%</span>
                                 </div>
 
@@ -1555,7 +1556,7 @@ $(document).ready(function () {
                             <div class="formAreahalf">
                                 <label for="nfo_equity" class="form-label">Equity Percentage</label>
                                     <div class="dollersec percentage_input"><span class="input">
-                                    <input type="text" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
+                                    <input type="number" name="shrd[1][1][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                                     <span class="pecentage_end">%</span>
                                     </div>
                             </div>
@@ -1772,7 +1773,7 @@ $(document).ready(function () {
                         </div>\
                         <div class="formAreahalf">\
                             <label for="fo_equity" class="form-label">Equity Percentage</label>\
-                            <div class="dollersec percentage_input"><span class="input"> <input type="text" name="shrd[` + (id_nfo) + `][1][nfo_equity]" id="equity_shareholder" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
+                            <div class="dollersec percentage_input"><span class="input"> <input type="number" name="shrd[` + (id_nfo) + `][1][nfo_equity]" id="equity_shareholder" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
                         </div>
                         <div class="formAreahalf">\
                             <label for="fo_shrholder_type" class="form-label">Shareholder Type</label>\
@@ -2146,7 +2147,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_equity" class="form-label">Equity Percentage</label>\
-                    <div class="dollersec percentage_input"><span class="input"> <input type="text" name="shrd[` + (arr_id) + `][` + (sharehold_nfo_no + 1) + `][nfo_equity]" id="equity_shareholder" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
+                    <div class="dollersec percentage_input"><span class="input"> <input type="number" name="shrd[` + (arr_id) + `][` + (sharehold_nfo_no + 1) + `][nfo_equity]" id="equity_shareholder" class="form-control equity_shareholders"></span><span class="pecentage_end">%</span></div>\
                 </div> <div class="formAreahalf">\
                     <label for="nfo_shrholder_type" class="form-label">Shareholder Type</label>\
                     <select name="shrd[` + (arr_id) + `][` + (sharehold_nfo_no + 1) + `][nfo_shareholder_type]" id="nfo_shrholder_type" class="nfo_shrholder_type">\
@@ -2179,7 +2180,7 @@ $(document).ready(function () {
                 <div class="formAreahalf">\
                     <label for="nfo_equity" class="form-label">Equity Percentage</label>\
                     <div class="dollersec percentage_input"><span class="input">
-                    <input type="text" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
+                    <input type="number" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_equity]" id="nfo_equity" class="form-control equity_shareholders" value=""></span>
                     <span class="pecentage_end">%</span>
                     </div>
                     </div>\

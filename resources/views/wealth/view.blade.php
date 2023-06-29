@@ -331,11 +331,6 @@
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Renewal
-                                                                Reminder</label>
-                                                            <p>{{ $shareholder->passport_renew }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
                                                             @if(!empty($shareholder->dob))
@@ -346,20 +341,32 @@
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport Reminder
-                                                                Trigger
-                                                                Frequency</label>
-                                                            <p><span class="every">Every</span>
-                                                                {{ $shareholder->passport_trg_fqy }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Gender</label>
                                                             <p>{{ $shareholder->gender }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Phone
+                                                                Number</label>
+                                                            <p>{{ $shareholder->phone }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">E-mail</label>
+                                                            <p>{{ $shareholder->email }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Residential
+                                                                Address</label>
+                                                            <p>{{ $shareholder->residential_address }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport
                                                                 Number</label>
                                                             <p>{{ $shareholder->passport_no }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Passport
+                                                                Country</label>
+                                                            <p>{{ $shareholder->passport_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Passport Expiry
@@ -373,24 +380,18 @@
                                                             </p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Passport
-                                                                Country</label>
-                                                            <p>{{ $shareholder->passport_country }}</p>
+                                                            <label for="" class="form-label">Passport Renewal
+                                                                Reminder</label>
+                                                            <p>{{ $shareholder->passport_renew }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">E-mail</label>
-                                                            <p>{{ $shareholder->email }}</p>
+                                                            <label for="" class="form-label">Passport Reminder
+                                                                Trigger
+                                                                Frequency</label>
+                                                            <p><span class="every">Every</span>
+                                                                {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Phone
-                                                                Number</label>
-                                                            <p>{{ $shareholder->phone }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Residential
-                                                                Address</label>
-                                                            <p>{{ $shareholder->residential_address }}</p>
-                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 country</label>
@@ -407,6 +408,10 @@
                                                             <p>{{ $shareholder->type_of_tin }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Employer's Name</label>
+                                                            <p>{{ $shareholder->company }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Job Title</label>
                                                             <p>{{ $shareholder->job_title }}</p>
                                                         </div>
@@ -414,10 +419,7 @@
                                                             <label for="" class="form-label">Monthly Salary (SGD)</label>
                                                             <p>{{ $shareholder->monthly_sal }}</p>
                                                         </div>
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Employer's Name</label>
-                                                            <p>{{ $shareholder->company }}</p>
-                                                        </div>
+
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Monthly Salary w.e.f. (DD/MM/YYYY)</label>
                                                             <p>
@@ -448,12 +450,6 @@
                                                                 Name(Chinese)</label>
                                                             <p>{{ $shareholder->pass_name_chinese }}</p>
                                                         </div>
-
-                                                        <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Gender</label>
-                                                            <p>{{ $shareholder->gender }}</p>
-                                                        </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
                                                             <p>
@@ -464,16 +460,23 @@
                                                                 @endif
                                                             </p>
                                                         </div>
-
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Gender</label>
+                                                            <p>{{ $shareholder->gender }}</p>
+                                                        </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Phone
                                                                 Number</label>
                                                             <p>{{ $shareholder->phone }}</p>
                                                         </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">E-mail</label>
                                                             <p>{{ $shareholder->email }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Residential
+                                                                Address</label>
+                                                            <p>{{ $shareholder->residential_address }}</p>
                                                         </div>
 
                                                         <div class="formAreahalf basic_data">
@@ -513,24 +516,19 @@
                                                                 {{ $shareholder->passport_trg_fqy }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Residential
-                                                                Address</label>
-                                                            <p>{{ $shareholder->residential_address }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 country</label>
                                                             <p>{{ $shareholder->tin_country }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
-                                                            <label for="" class="form-label">Type of
-                                                                TIN</label>
-                                                            <p>{{ $shareholder->type_of_tin }}</p>
-                                                        </div>
-                                                        <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Current TIN
                                                                 Number</label>
                                                             <p>{{ $shareholder->tin_no }}</p>
+                                                        </div>
+                                                        <div class="formAreahalf basic_data">
+                                                            <label for="" class="form-label">Type of
+                                                                TIN</label>
+                                                            <p>{{ $shareholder->type_of_tin }}</p>
                                                         </div>
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Employer's Name</label>
@@ -556,7 +554,6 @@
                                                                 @endif
                                                             </p>
                                                         </div>
-
                                                         <div class="formAreahalf basic_data">
                                                             <label for="" class="form-label">Relationship With
                                                                 Shareholder 1</label>
@@ -1296,13 +1293,14 @@
 
                             <div class="tab-pane fade " id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                <div id="business_accordion" class="mas_related">
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss_a)
+                                <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian row">
                                         <div class="formAreahalf basic_data col-6">
                                             <label for="" class="form-label">Financial Institution Name</label>
                                             <p>
-                                                @isset($wealthbuss->financial_institition_name)
-                                                    {{ $wealthbuss->financial_institition_name }}
+                                                @isset($wealthbuss_a->financial_institition_name)
+                                                    {{ $wealthbuss_a->financial_institition_name }}
                                                 @else
                                                     -
                                                 @endisset
@@ -1310,20 +1308,20 @@
                                         </div>
 
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
-                                            data-target="#business_collapseOne" aria-expanded="true"
+                                            data-target="#business_collapse_{{$business_item_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div id="business_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#business_accordion">
+                                    <div id="business_collapse_{{$business_item_key}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#business_accordion_{{$business_item_key}}">
 
                                         <div class="tab-cstm-data-inner d-flex flex-wrap ">
                                             <div class="formAreahalf basic_data col-6">
                                                 <label for="" class="form-label">Online Account Username</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_account_user)
-                                                        {{ $wealthbuss->online_account_user }}
+                                                    @isset($wealthbuss_a->online_account_user)
+                                                        {{ $wealthbuss_a->online_account_user }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1332,8 +1330,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Password</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_acc_pass)
-                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @isset($wealthbuss_a->online_acc_pass)
+                                                        {{ $wealthbuss_a->online_acc_pass }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1342,19 +1340,19 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Type</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_type)
-                                                        {{ $wealthbuss->business_account_type }}
+                                                    @isset($wealthbuss_a->business_account_type)
+                                                        {{ $wealthbuss_a->business_account_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
 
-                                            @if (isset($wealthbuss->business_account_type) && $wealthbuss->business_account_type == 'Others')
+                                            @if (isset($wealthbuss_a->business_account_type) && $wealthbuss_a->business_account_type == 'Others')
                                                     <div class="formAreahalf basic_data please_specify">
                                                         <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss->business_account_type_specify))
-                                                        {{ $wealthbuss->business_account_type_specify  }}
+                                                        @if (isset($wealthbuss_a->business_account_type_specify))
+                                                        {{ $wealthbuss_a->business_account_type_specify  }}
                                                         @else -
 
                                                         @endif
@@ -1364,10 +1362,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->application_submision) && $wealthbuss_a->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss_a->application_submision) && $wealthbuss_a->application_submision == 'Done') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->application_submision)
-                                                        {{ $wealthbuss->application_submision }}
+                                                    @isset($wealthbuss_a->application_submision)
+                                                        {{ $wealthbuss_a->application_submision }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1376,8 +1374,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account/Policy Number</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_policy_no)
-                                                        {{ $wealthbuss->business_account_policy_no }}
+                                                    @isset($wealthbuss_a->business_account_policy_no)
+                                                        {{ $wealthbuss_a->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1386,10 +1384,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Status</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss_a->business_account_status) && $wealthbuss_a->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->business_account_status)
-                                                        {{ $wealthbuss->business_account_status }}
+                                                    @isset($wealthbuss_a->business_account_status)
+                                                        {{ $wealthbuss_a->business_account_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1398,8 +1396,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>
-                                                    @isset($wealthbuss->product_name)
-                                                        {{ $wealthbuss->product_name }}
+                                                    @isset($wealthbuss_a->product_name)
+                                                        {{ $wealthbuss_a->product_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1408,18 +1406,18 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Currency</label>
                                                 <p>
-                                                    @isset($wealthbuss->currency)
-                                                        {{ $wealthbuss->currency }}
+                                                    @isset($wealthbuss_a->currency)
+                                                        {{ $wealthbuss_a->currency }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthbuss->currency) && $wealthbuss->currency == 'Others')
+                                            @if (isset($wealthbuss_a->currency) && $wealthbuss_a->currency == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthbuss->currency_specify))
-                                                    {{ $wealthbuss->currency_specify }} @else-
+                                                    @if (isset($wealthbuss_a->currency_specify))
+                                                    {{ $wealthbuss_a->currency_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1427,8 +1425,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Investment Amount/Premium</label>
                                                 <p>
-                                                    @isset($wealthbuss->investment_amount)
-                                                      <span class="doller">$ {{ $wealthbuss->investment_amount }}</span>
+                                                    @isset($wealthbuss_a->investment_amount)
+                                                      <span class="doller">$ {{ $wealthbuss_a->investment_amount }}</span>
                                                     @else
                                                         -
                                                     @endisset
@@ -1437,8 +1435,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Payment Mode</label>
                                                 <p>
-                                                    @isset($wealthbuss->payment_mode)
-                                                        {{ $wealthbuss->payment_mode }}
+                                                    @isset($wealthbuss_a->payment_mode)
+                                                        {{ $wealthbuss_a->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1448,8 +1446,8 @@
                                                 <label for="" class="form-label">Subscription / Inception
                                                     Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->subscription)
-                                                        {{ convertDate($wealthbuss->subscription,'d/m/Y') }}
+                                                    @isset($wealthbuss_a->subscription)
+                                                        {{ convertDate($wealthbuss_a->subscription,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1459,8 +1457,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_date)
-                                                        {{ convertDate($wealthbuss->maturity_date,'d/m/Y') }}
+                                                    @isset($wealthbuss_a->maturity_date)
+                                                        {{ convertDate($wealthbuss_a->maturity_date,'d/m/Y') }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1469,8 +1467,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Duration</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_duration)
-                                                        {{ $wealthbuss->business_duration }}
+                                                    @isset($wealthbuss_a->business_duration)
+                                                        {{ $wealthbuss_a->business_duration }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1479,8 +1477,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Reminder</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder)
-                                                        {{ $wealthbuss->maturity_reminder}}
+                                                    @isset($wealthbuss_a->maturity_reminder)
+                                                        {{ $wealthbuss_a->maturity_reminder}}
                                                     @else
                                                         -
                                                     @endisset
@@ -1490,9 +1488,9 @@
                                                 <label for="" class="form-label">Maturity Reminder Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder_trg)
+                                                    @isset($wealthbuss_a->maturity_reminder_trg)
                                                         <span class="every">Every</span>
-                                                        {{ $wealthbuss->maturity_reminder_trg }}
+                                                        {{ $wealthbuss_a->maturity_reminder_trg }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1502,18 +1500,18 @@
                                                 <label for="" class="form-label">Commission Currency (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_currency)
-                                                        {{ $wealthbuss->commission_currency }}
+                                                    @isset($wealthbuss_a->commission_currency)
+                                                        {{ $wealthbuss_a->commission_currency }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-                                            @if (isset($wealthbuss->commission_currency) && $wealthbuss->commission_currency == 'Others')
+                                            @if (isset($wealthbuss_a->commission_currency) && $wealthbuss_a->commission_currency == 'Others')
                                                 <div class="formAreahalf basic_data">
                                                     <label for="" class="form-label">Others, please specify</label>
-                                                    @if (isset($wealthbuss->commission_currency_specify))
-                                                    {{ $wealthbuss->commission_currency_specify }} @else-
+                                                    @if (isset($wealthbuss_a->commission_currency_specify))
+                                                    {{ $wealthbuss_a->commission_currency_specify }} @else-
                                                     @endif
                                                     </p>
                                                 </div>
@@ -1522,8 +1520,8 @@
                                                 <label for="" class="form-label">Commission Amount (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_amount)
-                                                        {{ $wealthbuss->commission_amount }}
+                                                    @isset($wealthbuss_a->commission_amount)
+                                                        {{ $wealthbuss_a->commission_amount }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1534,10 +1532,10 @@
                                                     Purpose)
                                                 </label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Received') active-btn @elseif(isset($wealthbuss_a->commision_status) && $wealthbuss_a->commision_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->commision_status)
-                                                        {{ $wealthbuss->commision_status }}
+                                                    @isset($wealthbuss_a->commision_status)
+                                                        {{ $wealthbuss_a->commision_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1546,8 +1544,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Net Account Value</label>
                                                 <p>
-                                                    @isset($wealthbuss->net_amount_val)
-                                                        {{ $wealthbuss->net_amount_val }}
+                                                    @isset($wealthbuss_a->net_amount_val)
+                                                        {{ $wealthbuss_a->net_amount_val }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1556,8 +1554,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_remarks)
-                                                        {{ $wealthbuss->business_remarks }}
+                                                    @isset($wealthbuss_a->business_remarks)
+                                                        {{ $wealthbuss_a->business_remarks }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1579,9 +1577,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
+                                                            @if(isset($wealthbuss_a->business_redempt) && count($wealthbuss_a->business_redempt)> 0)
 
-                                                            @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                            @foreach($wealthbuss_a->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>${{$redemption_data->red_amount}}</td>
@@ -1604,39 +1602,41 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         @else
                             <div class="tab-pane fade show active" id="nav-business" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
-                                <div id="business_accordion" class="mas_related">
+                                @foreach($wealthbuss as $business_item_key => $wealthbuss_b)
+                                <div id="business_accordion_{{$business_item_key}}" class="mas_related">
                                     <div class="mas_heading_accordian">
                                         <div class="formAreahalf basic_data">
                                             <label for="" class="form-label">Financial Institution Name</label>
                                             <p>
-                                                @isset($wealthbuss->financial_institition_name)
-                                                    {{ $wealthbuss->financial_institition_name }}
+                                                @isset($wealthbuss_b->financial_institition_name)
+                                                    {{ $wealthbuss_b->financial_institition_name }}
                                                 @else
                                                     -
                                                 @endisset
                                             </p>
                                         </div>
                                         <button class="btn btn_set collapsed" data-toggle="collapse"
-                                            data-target="#business_collapseOne" aria-expanded="true"
+                                            data-target="#business_collapse_{{$business_item_key}}" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <div id="business_collapseOne" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#business_accordion">
+                                    <div id="business_collapse_{{$business_item_key}}" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#business_accordion_{{$business_item_key}}">
 
                                         <div class="tab-cstm-data-inner d-flex flex-wrap ">
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss->application_submision) && $wealthbuss->application_submision == 'Done') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->application_submision) && $wealthbuss_b->application_submision == 'Progress') active-blue @elseif(isset($wealthbuss_b->application_submision) && $wealthbuss_b->application_submision == 'Done') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->application_submision)
-                                                        {{ $wealthbuss->application_submision }}
+                                                    @isset($wealthbuss_b->application_submision)
+                                                        {{ $wealthbuss_b->application_submision }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1645,10 +1645,10 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Status</label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss->business_account_status) && $wealthbuss->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Pending') active-blue @elseif(isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Approved') active-btn @elseif(isset($wealthbuss_b->business_account_status) && $wealthbuss_b->business_account_status == 'Rejected') active-btn Dormant @else '' @endif">
 
-                                                    @isset($wealthbuss->business_account_status)
-                                                        {{ $wealthbuss->business_account_status }}
+                                                    @isset($wealthbuss_b->business_account_status)
+                                                        {{ $wealthbuss_b->business_account_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1657,8 +1657,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account Type</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_type)
-                                                        {{ $wealthbuss->business_account_type }}
+                                                    @isset($wealthbuss_b->business_account_type)
+                                                        {{ $wealthbuss_b->business_account_type }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1667,8 +1667,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Account/Policy Number</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_account_policy_no)
-                                                        {{ $wealthbuss->business_account_policy_no }}
+                                                    @isset($wealthbuss_b->business_account_policy_no)
+                                                        {{ $wealthbuss_b->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1677,8 +1677,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>
-                                                    @isset($wealthbuss->product_name)
-                                                        {{ $wealthbuss->product_name }}
+                                                    @isset($wealthbuss_b->product_name)
+                                                        {{ $wealthbuss_b->product_name }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1687,8 +1687,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Payment Mode</label>
                                                 <p>
-                                                    @isset($wealthbuss->payment_mode)
-                                                        {{ $wealthbuss->payment_mode }}
+                                                    @isset($wealthbuss_b->payment_mode)
+                                                        {{ $wealthbuss_b->payment_mode }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1697,8 +1697,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Currency</label>
                                                 <p>
-                                                    @isset($wealthbuss->currency)
-                                                        {{ $wealthbuss->currency }}
+                                                    @isset($wealthbuss_b->currency)
+                                                        {{ $wealthbuss_b->currency }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1707,8 +1707,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Investment Amount/Premium</label>
                                                 <p>
-                                                    @isset($wealthbuss->investment_amount)
-                                                       <span class="doller">$ {{ $wealthbuss->investment_amount }}</span>
+                                                    @isset($wealthbuss_b->investment_amount)
+                                                       <span class="doller">$ {{ $wealthbuss_b->investment_amount }}</span>
                                                     @else
                                                         -
                                                     @endisset
@@ -1717,8 +1717,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Username</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_account_user)
-                                                        {{ $wealthbuss->online_account_user }}
+                                                    @isset($wealthbuss_b->online_account_user)
+                                                        {{ $wealthbuss_b->online_account_user }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1727,8 +1727,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Online Account Password</label>
                                                 <p>
-                                                    @isset($wealthbuss->online_acc_pass)
-                                                        {{ $wealthbuss->online_acc_pass }}
+                                                    @isset($wealthbuss_b->online_acc_pass)
+                                                        {{ $wealthbuss_b->online_acc_pass }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1738,8 +1738,8 @@
                                                 <label for="" class="form-label">Subscription / Inception
                                                     Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->subscription)
-                                                        {{ convertDate($wealthbuss->subscription,"d/m/Y") }}
+                                                    @isset($wealthbuss_b->subscription)
+                                                        {{ convertDate($wealthbuss_b->subscription,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1748,8 +1748,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Date</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_date)
-                                                        {{ convertDate($wealthbuss->maturity_date,"d/m/Y") }}
+                                                    @isset($wealthbuss_b->maturity_date)
+                                                        {{ convertDate($wealthbuss_b->maturity_date,"d/m/Y") }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1758,8 +1758,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Duration</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_duration)
-                                                        {{ $wealthbuss->business_duration }}
+                                                    @isset($wealthbuss_b->business_duration)
+                                                        {{ $wealthbuss_b->business_duration }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1768,8 +1768,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Maturity Reminder</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder)
-                                                        {{ $wealthbuss->maturity_reminder }}
+                                                    @isset($wealthbuss_b->maturity_reminder)
+                                                        {{ $wealthbuss_b->maturity_reminder }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1779,9 +1779,9 @@
                                                 <label for="" class="form-label">Maturity Reminder Trigger
                                                     Frequency</label>
                                                 <p>
-                                                    @isset($wealthbuss->maturity_reminder_trg)
+                                                    @isset($wealthbuss_b->maturity_reminder_trg)
                                                         <span class="every">Every</span>
-                                                        {{ $wealthbuss->maturity_reminder_trg }}
+                                                        {{ $wealthbuss_b->maturity_reminder_trg }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1792,10 +1792,10 @@
                                                     Purpose)
                                                 </label>
                                                 <p
-                                                    class="@if (isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss->commision_status) && $wealthbuss->commision_status == 'Received') active-btn @else '' @endif">
+                                                    class="@if (isset($wealthbuss_b->commision_status) && $wealthbuss_b->commision_status == 'Pending') active-blue @elseif(isset($wealthbuss_b->commision_status) && $wealthbuss_b->commision_status == 'Received') active-btn @else '' @endif">
 
-                                                    @isset($wealthbuss->commision_status)
-                                                        {{ $wealthbuss->commision_status }}
+                                                    @isset($wealthbuss_b->commision_status)
+                                                        {{ $wealthbuss_b->commision_status }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1805,8 +1805,8 @@
                                                 <label for="" class="form-label">Commission Currency (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_currency)
-                                                        {{ $wealthbuss->commission_currency }}
+                                                    @isset($wealthbuss_b->commission_currency)
+                                                        {{ $wealthbuss_b->commission_currency }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1816,8 +1816,8 @@
                                                 <label for="" class="form-label">Commission Amount (For Admin
                                                     Purpose)</label>
                                                 <p>
-                                                    @isset($wealthbuss->commission_amount)
-                                                        {{ $wealthbuss->commission_amount }}
+                                                    @isset($wealthbuss_b->commission_amount)
+                                                        {{ $wealthbuss_b->commission_amount }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1826,8 +1826,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Net Account Value</label>
                                                 <p>
-                                                    @isset($wealthbuss->net_amount_val)
-                                                        {{ $wealthbuss->net_amount_val }}
+                                                    @isset($wealthbuss_b->net_amount_val)
+                                                        {{ $wealthbuss_b->net_amount_val }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1836,8 +1836,8 @@
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
-                                                    @isset($wealthbuss->business_remarks)
-                                                        {{ $wealthbuss->business_remarks }}
+                                                    @isset($wealthbuss_b->business_remarks)
+                                                        {{ $wealthbuss_b->business_remarks }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1859,9 +1859,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if(isset($wealthbuss->business_redempt) && count($wealthbuss->business_redempt)> 0)
+                                                            @if(isset($wealthbuss_b->business_redempt) && count($wealthbuss_b->business_redempt)> 0)
 
-                                                            @foreach($wealthbuss->business_redempt as $redemption_data)
+                                                            @foreach($wealthbuss_b->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
                                                                 <td>${{$redemption_data->red_amount}}</td>
@@ -1883,6 +1883,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         @endif
 
@@ -2729,44 +2730,46 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:15px;">
                                             <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Active</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealth_mas->account_status ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:15px;">
                                             <b>Tax Advisor Name</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Tax Advisor Email</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_email ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Tax Advisor Conatact Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->tax_advisor_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Kickstart to Tax Advisor</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->kickstart_tax_advisor ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Legal Opinion</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->deck_submission ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Presentation Deck(Final)</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->presentation_deck ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Account Opening</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_account ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -2774,77 +2777,77 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Preliminary Approval</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->preliminary_approval ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Final Approval</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->final_approval ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Final Submission</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->final_submission ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>OIC Name</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->oic_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_username ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>MASNET Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->masnet_password ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Institution Code</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->institution_code ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Declaration Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->declaration_frequency ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commencement Date (DD/MM/YYYY)</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->commencement_date ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Reminder Notification</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">{{$wealth_mas->reminder_notification ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Annual Declaration Deadline</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->annual_declaration_deadline ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Internal Account Manager</b>
-                                            <span style="padding-top:15px;  display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->internal_account_manager ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Trigger Frequency Reminder</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$wealth_mas->trigger_fqy_rem ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealth_mas->remarks ?? '-'}} </span>
                                         </td>
                                     </tr>
 
@@ -2927,104 +2930,126 @@
                                 </table>
                             </td>
                         </tr>
+                        @foreach($wealth_finance as $key => $wealthfinance)
 
                         <tr class="forth-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2" style="padding:25px 0;">
+                                            <b>Financial Institution Name {{$key+1}}</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Stakeholder Type</b>
-                                            <span style="padding-top:25px; display:block;">Fund CO</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->stakeholder_type ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:13px;">
-                                            <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:25px; display:block;">DBS bank Ltd</span>
+                                            <b>Financial Institution Name {{$key+1}}</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->financial_institution_name ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>POC Name</b>
-                                            <span style="padding-top:25px; display:block;">abc</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_name ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>POC Contact Number</b>
-                                            <span style="padding-top:25px; display:block;">9123456789</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_contact_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>POC Email</b>
-                                            <span style="padding-top:25px; display:block;">9123456789</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->poc_email ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:25px; display:block;">Singapore</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
-                                            <b>Account Type</b>
-                                            <span style="padding-top:25px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account(Policy Number)</b>
-                                            <span style="padding-top:25px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:25px; display:block;">
+                                            {{$wealthfinance->application_submission ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account Opening Status</b>
-                                            <span style="padding-top:25px; display:block;">Self</span>
+                                            <b>Application Submission Date</b>
+                                            <span style="padding-top:25px; display:block;">
+                                            @if(!empty($wealthfinance->application_submission_date))
+                                                {{ date('d/m/Y' , strtotime($wealthfinance->application_submission_date)) }}
+                                            @else
+                                                -
+                                            @endif
+                                            </span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Current Account Status</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Type</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_type ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Account(Policy Number)</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_policy_no ?? '-'}}
+                                            </span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Account Opening Status</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->account_opening_status ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Current Account Status</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->current_account_status ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Money Deposit Status</b>
-                                            <span style="padding-top:25px;  display:block;">Self</span>
+                                            <span style="padding-top:25px;  display:block;">{{$wealthfinance->money_deposit_status ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Intial Deposit Currency</b>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->intial_deposit_currency ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Intial Deposit Amount</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->intial_deposit_amount ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Username</b>
-                                            <span style="padding-top:25px; display:block;">Self</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->online_account_username ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
-                                            <span style="padding-top:25px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->online_account_pass ?? '-'}}</span>
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:25px; display:block;"></span>
+                                            <span style="padding-top:25px; display:block;">{{$wealthfinance->finacial_remarks ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
 
                                         </td>
                                     </tr>
-
                                 </table>
                             </td>
                         </tr>
-
+                        @endforeach
                     </table>
-
                 </div>
                 {{-- Pass Related --}}
                 <div class="page page_8" style="page-break-before: always;">
@@ -3098,176 +3123,227 @@
                                 </table>
                             </td>
                         </tr>
-
+                        @foreach($wealthpass as $pass_related_key => $pass_related)
                         <tr class="forth-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <th colspan="2" style="padding:25px 0;">
+                                            <b> Pass Related {{$pass_related_key+1}} </b>
+                                        </th>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:15px;">
                                             <b>Pass Holder Name 1 (Eng)</b>
-                                            <span style="padding-top:15px; display:block;">Active</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_holder_name ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:15px;">
                                             <b>Passport Full Name (Chinese)</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passposrt_name_chinese ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Gender(M/F)</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->gender ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>DOB (DD/MM/YYYY)</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->dob ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Passpport Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_no ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Passport Expiry Date(DD/MM/YYYY) </b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <b>Passport Country</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_country ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Passport Expiry Date(DD/MM/YYYY) </b>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(@empty($pass_related->passport_expiry_date))
+                                                {{date('d/m/Y' , strtotime($pass_related->passport_expiry_date))}}
+                                            @else
+                                                -
+                                            @endif
+                                            </span>
+                                        </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Passport Renewal Reminder </b>
-                                            <span style="padding-top:15px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Passport Country </b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
-                                            </span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_renewal_reminder ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Passport Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->passport_tri_frq ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>TIN Number Before Pass Application</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Tin Country Before Pass Application</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Email</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->tin_country_before_app ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Type of TIN Before Pass Application</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->type_of_tin_before_app ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Residential Address</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>TIN Number Before Pass Application</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->tin_no_before_pass_app ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Phone Number</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->phone_no ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Application Status</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Email</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->email ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Business Type</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->business_type ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Application Type</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->business_type_specify ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Relationship with Pass Holder 1</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <b>Residential Address</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->residential_add ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>FIN Number</b>
-                                            <span style="padding-top:15px;  display:block;">$30,000.00</span>
+                                            <b>Pass Application Status</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_app_status ?? '-'}}</span>
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Relationship with Pass Holder</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->relation_with_pass ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->relation_with_pass_specify ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Pass Application Type</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_app_type ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_app_type_specify ?? '-'}}</span>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Pass Issuace</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_inssuance ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Renewal Reminder</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass Issuace Date</b>
+                                            <span style="padding-top:15px;  display:block;">
+                                            @if(!empty($pass_related->pass_issuance_date))
+                                            {{date('d/m/Y' , strtotime($pass_related->pass_issuance_date))}}
+                                            @else
+                                            -
+                                            @endif
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Issuace Date</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Pass Expiry Date</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-                                    {{-- <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Job Title</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">@if(!empty($pass_related->pass_expiry_date))
+                                            {{date('d/m/Y' , strtotime($pass_related->pass_expiry_date))}}
+                                            @else
+                                            -
+                                            @endif</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Pass Renewal Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass Renewal Reminder</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_renewal_reminder ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->duration ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Singpass Set Up</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>FIN Number</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->fin_number ?? '-'}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Salary</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <b>Pass Renewal Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_renewal_frq ?? '-'}}</span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <b>Pass. Job
+                                                            Title</b>
+                                            <span style="padding-top:15px;  display:block;">{{$pass_related->pass_jon_title ?? '-'}}</span>
                                         </td>
-                                    </tr> --}}
-
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Singpass Set Up</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->singpass_set_up ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Employer's
+                                                            Name</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->employee_name ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Monthly
+                                                            Salary(SGD)</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->monthly_sal ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Monthly Salary w.e.f</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->monthly_sal_wef ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Remarks</b>
+                                            <span style="padding-top:15px; display:block;">{{$pass_related->pass_remarks ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
                                 </table>
                             </td>
                         </tr>
-
+                        @endforeach
                     </table>
 
                 </div>
@@ -3317,82 +3393,6 @@
                                 </table>
                             </td>
                         </tr>
-
-                        <tr class="third-row-cstm">
-                            <td>
-                                <table style="width:80%; margin:0 auto;">
-                                    <tr>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                        <td style="width:10%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:23%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:17px; color:#010101; font-weight:500; padding:10px 0;">
-                                                Pass Related</div>
-                                        </td>
-                                        <td style="width:10%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="forth-row-cstm">
-                            <td>
-                                <table style="width:100%; margin:0 auto;" border="0">
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Pass. Job Title</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Pass renewal Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">Every Week</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Duration </b>
-                                            <span style="padding-top:15px; display:block;">5 Year</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
-                                            <b>Singpass Set Up</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Monthly salary (SGD)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b></b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b></b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
                         <tr class="five-row-cstm">
                             <td>
                                 <table style="width:80%; margin:0 auto;">
@@ -3419,237 +3419,210 @@
                             </td>
                         </tr>
 
+                        @foreach($wealthbuss as $key => $wealthbuss_c)
                         <tr class="six-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2">
+                                            <h2>Business Related {{$key + 1}}</h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:15px; display:block;">DBS bank Ltd</span>
+                                            <b>Financial Institution Name </b>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_c->financial_institition_name ?? ''}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Approved</span>
+                                            <b>Online Account Username</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->online_account_user ?? '-'}}</span>
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Online Account Password</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->online_acc_pass ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Type</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_type ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    @if($wealthbuss_c->business_account_type == 'Others')
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_type_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                           &nbsp;
+                                        </td>
+                                    </tr>
+                                    @endif
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->application_submision ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account/Policy Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Account Type</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>PAyment Mode</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_policy_no ?? '-'}}</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
+                                            <b>Account Status</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_account_status ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Product Name</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Investment Amount Premium</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->product_name ?? '-'}}
                                             </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Online Account Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Online Account Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->currency ?? '-'}}</span>
                                         </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Investment Amount/Premium</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->investment_amount ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    @if($wealthbuss_c->currency == 'Others')
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->currency_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Payment Mode</b>
+                                            <span style="padding-top:15px;  display:block;"> {{$wealthbuss_c->payment_mode ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Subscription / Inception Date</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(!empty($wealthbuss_c->subscription))
+                                            {{date('d/m/Y' , strtotime($wealthbuss_c->subscription))}}
+                                            @else
+                                            - 
+                                            @endif
+                                        </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;"> 
+                                            @if(!empty($wealthbuss_c->maturity_date))
+                                            {{date('d/m/Y' , strtotime($wealthbuss_c->maturity_date))}}
+                                            @else
+                                            - 
+                                            @endif</span>
                                         </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Subscription/Inception Date</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Maturity Reminder</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="page page_10" style="page-break-before: always;">
-                    <table class="header-table">
-                        <tr class="first-row-cstm">
-                            <td>
-                                <table class="header-table">
-                                    <tr>
-                                        <td style="width:20%;">
-                                            <img src="{{ url('/images/logo.png') }}" alt="logo"
-                                                style="width:100px;">
-                                        </td>
-                                        <td>
-                                            <span style="width:80%;display: flex;justify-content: center; flex-direction: column; align-item: center;">
-                                                <span style="text-align: center; display: block; font-size: 26px; color: rgb(1, 1, 1); font-weight: bold; user-select: text;">{{ $companyName }}</span><br/>
-                                                <span style="text-align: center; display: block;font-size: 26px; color: rgb(1, 1, 1);font-weight: bold; user-select: text;">{{ $data->client_type }} ({{ $data->business_type }})</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss_c->business_duration ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr class="second-row-cstm">
-                            <td>
-                                <table style="width:80%; margin:0 auto;">
                                     <tr>
-                                        <td style="width:5%; text-align:right; color:#000;">
-
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Maturity Reminder</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->maturity_reminder ?? '-'}}</span>
                                         </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:43%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:22px; color:#010101; font-weight:500; padding:25px 0;">
-                                                Application Information</div>
-                                        </td>
-                                        <td style="width:20%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:5%; text-align:right; color:#000;">
-
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Maturity Reminder Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->maturity_reminder_trg ?? '-'}}</span>
                                         </td>
                                     </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="third-row-cstm">
-                            <td style="padding:0 0 20px;">
-                                <table style="width:80%; margin:0 auto;">
                                     <tr>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                        <td style="width:10%; text-align:right; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="text-align:center; width:28%">
-                                            <div class="text-center line-cstm"
-                                                style="font-size:17px; color:#010101; font-weight:500; padding:10px 0;">
-                                                Business Related</div>
-                                        </td>
-                                        <td style="width:10%; text-align:left; color:#000;">
-                                            <hr / style="background-color:#000; ">
-                                        </td>
-                                        <td style="width:20%; text-align:right; color:#000;">
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-
-                        <tr class="forth-row-cstm">
-                            <td>
-                                <table style="width:100%; margin:0 auto;" border="0">
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;">SGD</span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_currency ?? '-'}}</span>
                                         </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
-                                            <b>Commission Status (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
-                                        </td>
-                                        <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_amount ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    @if($wealthbuss_c->commission_currency == 'Others')
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Others, please specify</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commission_currency_specify ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Commisison Status (For Admin Purpose)</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->commision_status ?? '-'}}</span>
+                                        </td>
+                                        <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
+                                            <b>Remarks</b>
+                                            <span style="padding-top:15px; display:block;"> {{$wealthbuss_c->business_remarks ?? '-'}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="five-row-cstm">
+                                        <td style="padding-top:30px;" colspan="2">
+                                            <table style="width:100%; margin:0 auto;">
+                                                <tr>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Redemption Date
+                                                    </th>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Redemption Amount
+                                                    </th>
+                                                    <th
+                                                        style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
+                                                        Net Account Value
+                                                    </th>
+                                                </tr>
+                                                @foreach($wealthbuss_c->business_redempt as $redemption_data)
+                                                <tr>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        @if(!empty($redemption_data->red_date))
+                                                            {{date('d/m/Y' , strtotime($redemption_data->red_date))}}
+                                                        @else
+                                                        - 
+                                                        @endif
+                                                    </td>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        {{$redemption_data->red_amount}}
+                                                    </td>
+                                                    <td style="width:30%; color:#000; padding:16px;">
+                                                        {{$wealthbuss_c->net_amount_val ?? 0}}
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </table>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
-                        <tr class="five-row-cstm">
-                            <td style="padding-top:30px;">
-                                <table style="width:100%; margin:0 auto;">
-                                    <tr>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Redemption Date
-                                        </th>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Redemption Amount
-                                        </th>
-                                        <th
-                                            style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
-                                            Net Account Value
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            30/03/2021
-                                        </td>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            $13,000
-                                        </td>
-                                        <td style="width:30%; color:#000; padding:16px;">
-                                            $16,625
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
+                        @endforeach
                     </table>
-
                 </div>
             @else
                 {{-- Business Related --}}
@@ -3724,51 +3697,71 @@
                                 </table>
                             </td>
                         </tr>
-
+                        @foreach($wealthbuss as $key => $wealthbuss_d)
                         <tr class="six-row-cstm">
                             <td>
                                 <table style="width:100%; margin:0 auto;" border="0">
                                     <tr>
+                                        <td colspan="2">
+                                            <h2>Business Related {{$key + 1}} </h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
-                                            <b>Financial Institution Name 1</b>
-                                            <span style="padding-top:15px; display:block;">DBS bank Ltd</span>
+                                            <b>Financial Institution Name</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->financial_institition_name ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Account Status</b>
-                                            <span style="padding-top:15px; display:block;">Approved</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->business_account_status ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Application Submission</b>
-                                            <span style="padding-top:15px; display:block;">abc</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss_d->application_submision ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Account/Policy Number</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->product_name ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Account Type</b>
-                                            <span style="padding-top:15px; display:block;">9123456789</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss_d->business_account_type ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Payment Mode</b>
-                                            <span style="padding-top:15px; display:block;">Singapore</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->payment_mode ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:13px;">
                                             <b>Product Name</b>
-                                            <span style="padding-top:15px; display:block;">None</span>
+                                            <span style="padding-top:15px; display:block;">
+                                                {{$wealthbuss_d->product_name ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Investment Amount Premium</b>
-                                            <span style="padding-top:15px; display:block;">Others, please specify: EAD
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->investment_amount ?? '-'}}
                                             </span>
                                         </td>
                                     </tr>
@@ -3776,70 +3769,102 @@
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Username</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->online_account_user ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Online Account Password</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->online_acc_pass ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Currency</b>
-                                            <span style="padding-top:15px;  display:block;">Self</span>
+                                            <span style="padding-top:15px;  display:block;">
+                                            {{$wealthbuss_d->currency ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Date</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(!empty($wealthbuss_d->maturity_date))
+                                                {{date('d/m/Y' , strtotime($wealthbuss_d->maturity_date))}}
+                                            @else
+                                             -
+                                            @endif
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Subscription/Inception Date</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            @if(!empty($wealthbuss_d->subscription))
+                                                {{date('d/m/Y' , strtotime($wealthbuss_d->subscription))}}
+                                            @else
+                                             -
+                                            @endif
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Maturity Reminder</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->maturity_reminder ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
                                             <b>Duration</b>
-                                            <span style="padding-top:15px; display:block;">Self</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->business_duration ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:13px;">
-                                            <b>Monthly Reminder Trigger Frequency</b>
-                                            <span style="padding-top:15px; display:block;">$30,000.00</span>
+                                            <b>Maturity Reminder Trigger Frequency</b>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->maturity_reminder_trg ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Commission Currency (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;">SGD</span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->commission_currency ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;  padding-top:10px;">
                                             <b>Commission Status (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->commision_status ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td style="width:50%;color:#000; font-size:15px ; padding-top:10px;">
                                             <b>Remarks</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->business_remarks ?? '-'}}
+                                            </span>
                                         </td>
                                         <td style="width:50%;color:#000; font-size:15px ;padding-top:10px;">
                                             <b>Commission Amount (For Admin Purpose)</b>
-                                            <span style="padding-top:15px; display:block;"></span>
+                                            <span style="padding-top:15px; display:block;">
+                                            {{$wealthbuss_d->commission_amount ?? '-'}}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr class="five-row-cstm">
-                                        <td style="padding-top:30px;">
-                                            <table style="width:100%; margin:0 auto;">
+                                        <td style="padding-top:30px;" colspan="2">
+                                            <table style="width:100%; margin:0 auto; table-layout: fixed;">
                                                 <tr>
                                                     <th
                                                         style="width:30%; color:#6B7280; padding:16px; background:#F9FAFB; border-bottom:1px solid #ddd;">
@@ -3854,24 +3879,32 @@
                                                         Net Account Value
                                                     </th>
                                                 </tr>
+                                                @if(!empty($wealthbuss_d->business_redempt))
+                                                @foreach($wealthbuss_d->business_redempt as $redemption)
                                                 <tr>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        30/03/2021
+                                                        @if(!empty($redemption->red_date))
+                                                            {{date('d/m/Y' , strtotime($redemption->red_date))}}
+                                                        @else
+                                                            NA
+                                                        @endif
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        $13,000
+                                                       {{$redemption->red_amount}}
                                                     </td>
                                                     <td style="width:30%; color:#000; padding:16px;">
-                                                        $16,625
+                                                        {{$wealthbuss_d->net_amount_val}}
                                                     </td>
                                                 </tr>
+                                                @endforeach
+                                                @endif
                                             </table>
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
-
+                        @endforeach
                     </table>
 
                 </div>

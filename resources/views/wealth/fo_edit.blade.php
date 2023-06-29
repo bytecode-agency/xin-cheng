@@ -81,7 +81,7 @@
                                                 <input type="hidden" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
                                                     value="{{ $shareholder->id }}" id="share_id">
-                                                    <div class="dollersec percentage_input"><span class="input"><input type="text"
+                                                    <div class="dollersec percentage_input"><span class="input"><input type="number"
                                                         name="share[{{ $key }}][{{ $key2 }}][equity_percentage]" id="equity_shareholder"
                                                         class="equity_shareholders form-control" value="{{ $shareholder->equity_percentage }}"></span><span class="pecentage_end">%</span></div>
 
@@ -144,6 +144,12 @@
                                                     value="{{ $shareholder->pass_name_chinese }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
+                                                <input type="date" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][dob]"
+                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yyyy">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Gender</label>
                                                 <select class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][gender]"
@@ -157,14 +163,9 @@
                                                     </option>
                                                 </select>
                                             </div>
+
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">DOB (DD/MM/YYYY)</label>
-                                                <input type="date" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][dob]"
-                                                    value="{{ $shareholder->dob }}" placeholder="dd/mm/yyyy">
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Phone</label>
+                                                <label for="" class="form-label">Phone Number</label>
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][phone]"
                                                     value="{{ $shareholder->phone }}">
@@ -174,6 +175,13 @@
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][email]"
                                                     value="{{ $shareholder->email }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Residential
+                                                    Address</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][residential_address]"
+                                                    value="{{ $shareholder->residential_address }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Passport Number</label>
@@ -245,20 +253,19 @@
                                                         </select></span>
                                                 </div>
                                             </div>
-
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Residential
-                                                    Address</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][residential_address]"
-                                                    value="{{ $shareholder->residential_address }}">
-                                            </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Current TIN
                                                     country</label>
                                                 <input type="text" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][tin_country]"
                                                     value="{{ $shareholder->tin_country }}">
+                                            </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Current TIN
+                                                    Number</label>
+                                                <input type="text" class="form-control"
+                                                    name="share[{{ $key }}][{{ $key2 }}][tin_no]"
+                                                    value="{{ $shareholder->tin_no }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Type of TIN</label>
@@ -289,13 +296,6 @@
                                                     </option>
                                                 </select>
 
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Current TIN
-                                                    Number</label>
-                                                <input type="text" class="form-control"
-                                                    name="share[{{ $key }}][{{ $key2 }}][tin_no]"
-                                                    value="{{ $shareholder->tin_no }}">
                                             </div>
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Employer's Name</label>

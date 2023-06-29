@@ -36,7 +36,8 @@ $('.user_action_log').DataTable({
     },
     
     searching: false,
-    paging: true
+    paging: true,
+    order: [[2, 'desc']],
 });
 $('.file_upload_table').DataTable({
 
