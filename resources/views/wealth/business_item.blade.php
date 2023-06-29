@@ -1,6 +1,6 @@
                                         <div id="business_accordion_{{$business_item_key}}" class="mas_related business_itemJs" data-bussines_item_key="{{$business_item_key}}">
                                             <input type="hidden" name="business[{{$business_item_key}}][wealth_business_id]"
-                                              value="@isset($business_item->id) {{ $business_item->id }} @endisset">
+                                              value="@isset($business_item->id) {{ $business_item->id }} @endisset" class="business_idJs">
                                             <div class="mas_heading_accordian">
                                                 <div class="formAreahalf basic_data">
                                                     <label for="financial_institition_name" class="form-label">Financial
@@ -11,11 +11,12 @@
                                                         class="form-control">
                                                 </div>
 
-                                                <button class="btn btn_set collapsed" data-toggle="collapse"
+                                                <button class="btn btn_set edit_new_btn_set" data-toggle="collapse"
                                                     data-target="#business_collapse_{{$business_item_key}}" aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                                                 </button>
+                                                <div class="cross financial_wealth"><span class="edit_cancel_share remove_item delete_business_itemJs" data-id="{{$business_item_key}}">x</span></div>
                                             </div>
                                             <div id="business_collapse_{{$business_item_key}}" class="collapse" aria-labelledby="headingOne"
                                                 data-parent="#business_accordion_{{$business_item_key}}">
@@ -34,33 +35,18 @@
                                                             value="@isset($business_item->online_acc_pass) {{ $business_item->online_acc_pass }} @endisset"
                                                             class="form-control">
                                                     </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="business_account_type" class="form-label">Account
-                                                            Type</label>
-                                                        <select name="business[{{$business_item_key}}][business_account_type]" class="form-control business_account_type">
-                                                            <option value="" selected disabled>Choose Account Type
-                                                            </option>
-                                                            <option
-                                                                value="Insurance"{{ isset($business_item->business_account_type) && $business_item->business_account_type == 'Insurance' ? 'selected' : '' }}>
-                                                                Insurance</option>
-                                                            <option value="Investment"
-                                                                {{ isset($business_item->business_account_type) && $business_item->business_account_type == 'Investment' ? 'selected' : '' }}>
-                                                                Investment</option>
-                                                            <option value="Others"
-                                                                {{ isset($business_item->business_account_type) && $business_item->business_account_type == 'Others' ? 'selected' : '' }}>
-                                                                Others</option>
-                                                        </select>
-                                                    </div>
-                                                    @if (isset($business_item->business_account_type) && $business_item->business_account_type == 'Others')
-                                                        <div class="formAreahalf basic_data please_specify">
-                                                            <label for="" class="form-label">Others, please specify</label>
-                                                            <input type="text" class="form-control"
-                                                                    name="business[{{$business_item_key}}][business_account_type_specify]"
-                                                                    value="{{ isset($business_item->business_account_type_specify) ? $business_item->business_account_type_specify : '' }}">
-
-
+                                                    <div class="account_types_containerJs" style="width:100%;">
+                                                        <div class="account_typesJs">
+                                                        @if(!empty($business_item->accountTypes) && count($business_item->accountTypes))
+                                                            @foreach($business_item->accountTypes as $account_type_item_key => $account_type_item)
+                                                                @include('wealth.business_account_type')
+                                                            @endforeach
+                                                        @else
+                                                            @include('wealth.business_account_type')
+                                                        @endif
                                                         </div>
-                                                    @endif
+                                                        <input type="button" class="btn saveBtn add_account_typeJs" value="Add Account Type" data-id="1" style="margin:0 0 40px 0">
+                                                    </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="application_submision" class="form-label">Application
                                                             Submission</label>
@@ -74,12 +60,6 @@
                                                             <option
                                                                 value="Done"{{ isset($business_item->application_submision) && $business_item->application_submision == 'Done' ? 'selected' : '' }}>Done</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="formAreahalf basic_data">
-                                                        <label for="business_account_policy_no" class="form-label">Account/Policy Number</label>
-                                                        <input type="text" name="business[{{$business_item_key}}][business_account_policy_no]"
-                                                            value="@isset($business_item->business_account_policy_no) {{ $business_item->business_account_policy_no }} @endisset"
-                                                            class="form-control">
                                                     </div>
                                                     <div class="formAreahalf basic_data">
                                                         <label for="business_account_status" class="form-label">Account

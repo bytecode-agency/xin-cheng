@@ -22,7 +22,7 @@ function equity_percentage_checks() {
     for (index = 0; index < company.length; index++) {
         var id = '';
         id = $(company[index]).attr('id');
-        var eqty_precentage = document.getElementById(id).querySelectorAll('#equity_shareholder')
+        var eqty_precentage = document.getElementById(id).querySelectorAll('.equity_shareholders');
         let percentage = 0;
         for (per = 0; per < eqty_precentage.length; per++) {
             var value = parseFloat($(eqty_precentage[per]).attr('value'));
@@ -1041,19 +1041,19 @@ $(document).ready(function () {
 
     $('body').on('click', '.remove-campany', function () {
         var id =  $(this).parents('.company_name').find('#fo_company_id').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "delete",
-            url: "/company-destroy",
-            data: {id: id },
-            success: function (response) {
-             console.log(response);
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     type: "delete",
+        //     url: "/company-destroy",
+        //     data: {id: id },
+        //     success: function (response) {
+        //      console.log(response);
+        //     }
+        // });
 
         $(this).parents('.company_name').remove();
         var count = 1;
@@ -1067,30 +1067,32 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.remove-campany-shareholder', function (e) {
+        console.log('Hi');
         e.preventDefault();
         var finance_entry_id = $(this).parents('.sharehold_length').find('#share_id').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "delete",
-            url: "/company-shareholder-destroy",
-            data: { id: finance_entry_id },
-            success: function (response) {
-                equity_percentage_checks();
-                console.log('Shareholder deleted successfully.');
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     type: "delete",
+        //     url: "/company-shareholder-destroy",
+        //     data: { id: finance_entry_id },
+        //     success: function (response) {
+        //         equity_percentage_checks();
+        //         console.log('Shareholder deleted successfully.');
+        //     }
+        // });
 
         var share_holders = $(this).closest('.company_share').find('.sharehold_length').not($(this).closest('.sharehold_length'));
 
         $(this).closest('.sharehold_length').remove();
 
+        equity_percentage_checks();
+
         var count = 1;
         $(share_holders).each(function (index) {
-            console.log(count);
             $(this).children().find('.formAreahalf label[for="shareholder_name"]').html('Shareholder #' + count);
             count++;
         });

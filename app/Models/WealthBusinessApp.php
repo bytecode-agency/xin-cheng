@@ -44,5 +44,9 @@ class WealthBusinessApp extends Model
     {
         return $this->hasMany(Wealth_business_redempt::class,'business_id')->orderBy('id','desc');
     }
+
+    public function accountTypes(){
+        return $this->hasMany(WealthBusinessAppAccountType::class , 'business_app_id' , 'id');
+    }
     
 }
