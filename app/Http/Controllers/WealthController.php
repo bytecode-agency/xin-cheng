@@ -442,12 +442,14 @@ class WealthController extends Controller
         }
 
         //Delete wealth data 
-        WealthBusinessApp::where('wealth_id' , $id)->delete();
         WealthPass::where('wealth_id' , $id)->delete();
         if($data_update->companies){
             $companies_ids = $data_update->companies->pluck('id');
             WealthShareholder::whereIn('company_id' , $companies_ids)->delete();
         }
+        $business_ids  = WealthBusinessApp::where('wealth_id' , $id)->get()->pluck('id');
+        WealthBusinessAppAccountType::whereIn('business_app_id' , $business_ids)->delete();
+        WealthBusinessApp::where('wealth_id' , $id)->delete();
         WealthCompany::where('wealth_id' , $id)->delete();
 
        if($data_update->business_type == "FO")
@@ -666,11 +668,13 @@ class WealthController extends Controller
                     if(!empty($business['account_types'])){
                         $account_types = $business['account_types'];
                         foreach($account_types as $account_type){
-                            $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
-                                ['id' => $account_type['account_type_id'] , 'business_app_id' => $business['wealth_business_id']],
-                                ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
-                                'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
-                                'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                            if(!empty($account_type['account_type'])){
+                                $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
+                                    ['id' => $account_type['account_type_id'] , 'business_app_id' =>  $wealth_business_app->id],
+                                    ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
+                                    'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
+                                    'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                            }
                         }
                     }
                 }
@@ -799,11 +803,13 @@ class WealthController extends Controller
                     if(!empty($business['account_types'])){
                         $account_types = $business['account_types'];
                         foreach($account_types as $account_type){
-                            $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
-                                ['id' => $account_type['account_type_id'] , 'business_app_id' => $business['wealth_business_id']],
-                                ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
-                                'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
-                                'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                            if(!empty($account_type['account_type'])){
+                                $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
+                                    ['id' => $account_type['account_type_id'] , 'business_app_id' => $wealth_business_app->id],
+                                    ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
+                                    'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
+                                    'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                            }
                         }
                     }
                 }

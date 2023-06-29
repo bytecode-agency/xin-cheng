@@ -23,7 +23,7 @@
                                                                     value="@isset($account_type_item->policy_number) {{ $account_type_item->policy_number }} @endisset"
                                                                     class="form-control">
                                                             </div>
-                                                            <div class="formAreahalf basic_data accountTypeOtherJs" style="display:none;">
+                                                            <div class="formAreahalf basic_data accountTypeOtherJs" style="display:none;margin-bottom:40px;">
                                                                 <label  class="form-label">Others, please specify {{($account_type_item_key ?? 0) + 1}}</label>
                                                                 <input type="text" class="form-control"
                                                                             name="business[{{$business_item_key}}][account_types][{{$account_type_item_key ?? 0}}][other]"
