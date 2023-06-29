@@ -1268,6 +1268,7 @@
 
         });
 
+<<<<<<< HEAD
         $(document).on('click', '.add_account_type', function() {
             var akey = $(this).data('id');
             var aclick = $(this).data('aclick');
@@ -1458,6 +1459,82 @@
                             )
                         }
                     });
+=======
+        $('body').on('click' , '.delete_passholderJs' , function(){
+            var id            = $(this).attr('data-id');
+            var passholder_id = $(this).attr('data-passholder_id');
+            $('#passholder_item' + id).remove();
+            // if(passholder_id){
+            //     swal({
+            //         title: "Are you sure you want to delete this passholder ?",
+            //         text: "You will not be able to retrieve this passholder again.",
+            //         icon: "warning",
+            //         buttons: true,
+            //         dangerMode: true,
+            //     }).then((willDelete) => {
+            //         if (willDelete) {
+            //             $.ajaxSetup({
+            //                 headers: {
+            //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //                 }
+            //             });
+            //             var url = "{{ route('wealth.delete.passholder', ':id') }}";
+            //             url = url.replace(':id', passholder_id);
+            //             $.ajax({
+            //                 type: "DELETE",
+            //                 url: url,
+            //                 data: {
+            //                     passholder_id: passholder_id,
+            //                 },
+            //                 cache: false,
+            //                 success: function(response) {
+            //                     swal(
+            //                         "Success!",
+            //                         "Passholder has been deleted successfully!",
+            //                         "success",
+            //                     );
+            //                     $('#passholder_item' + id).remove();
+            //                 },
+            //                 failure: function(response) {
+            //                     swal(
+            //                         "Internal Error",
+            //                         "Oops, your passholder was not deleted.",
+            //                         "error"
+            //                     )
+            //                 }
+            //             });
+            //         }
+            //     });
+            // }else{
+            //     $('#passholder_item' + id).remove();
+            // }
+        });
+
+        $('body').on('change' , '.shareholdersJs' , function(){
+            var item_id       = $(this).attr('data-key');
+            var passholder_id = $(this).closest('.passholder_itemJs').find('.passholder_idJs').val();
+            var value         = $(this).val();
+            triggerLoader();
+
+            $.ajax({
+                type: "POST",
+                url: "{{route('wealth.passrelated.item.view')}}",
+                data: {
+                    '_token'        : '{{csrf_token()}}',
+                    'item_id'       : item_id,
+                    'passholder_id' : passholder_id,
+                    'value'         : value
+                },
+                error: function(request,status,errorThrown){
+                    removeLoader();
+                },
+                success: function(response) {
+                    if(response.view){
+                        $('#pass_collapse_' + item_id).empty();
+                        $('#pass_collapse_' + item_id).html(response.view);
+                    }
+                    removeLoader();
+>>>>>>> aec819338e262627c3cfcb06215ab975be373d70
                 }
             });
         }else{
@@ -1490,6 +1567,61 @@
                 removeLoader();
             }
         });
+<<<<<<< HEAD
     });
 </script>
+=======
+        $('body').on('click' , '.add_account_typeJs' , function(e){
+            var wealth_id         = "{{$data->id}}";
+            var business_id       = $(this).closest('.business_itemJs').find('.business_idJs').val();
+            var account_type_item_key  = $(this).closest('.account_types_containerJs').find('.account_typesJs .account_typeJs').length;
+            var business_item_key = $(this).closest('.business_itemJs').attr('data-bussines_item_key');
+            var account_types_container = $(this).closest('.business_itemJs').find('.account_typesJs');
+            console.log($(this).closest('.business_itemJs'));
+            triggerLoader();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "post",
+                url: '/add_account_type',
+                data: {
+                    wealth_id        : wealth_id,
+                    business_id      : business_id,
+                    account_type_item_key : account_type_item_key,
+                    business_item_key: business_item_key
+                },
+                success: function (response) {
+                    if(response.view){
+                        account_types_container.append(response.view);
+                    }
+                    removeLoader();
+                }
+            });
+            e.stopPropagation();
+        });
+
+        $('body').on('change' , '.accountTypesJs' , function(){
+            var value = $(this).val();
+            if(value == 'Others'){
+                $(this).closest('.account_typeJs').find('.accountTypeOtherJs').show();
+            }else{
+                $(this).closest('.account_typeJs').find('.accountTypeOtherJs').hide();
+            }
+            
+        });
+
+        $('body').on('click' , '.delete_business_itemJs' , function(){
+            var business_items = $(this).closest('.business_itemsJs').find('.business_itemJs').not($(this).closest('.business_itemJs'));
+            $(this).closest('.business_itemJs').remove();
+            var count = 1;
+            $(business_items).each(function (index) {
+                $(this).children().find('.formAreahalf label[for="financial_institition_name"]').html('Financial Institution Name ' + count);
+                count++;
+            });
+        });
+    </script>
+>>>>>>> aec819338e262627c3cfcb06215ab975be373d70
 @endpush
