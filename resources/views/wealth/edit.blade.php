@@ -7,6 +7,15 @@
 @endpush
 @section('content')
 
+<!-- <style>
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+</style> -->
 <!-- Title Area -->
 <div class="TitleBlock">
     <div class="headingArea p-3">
