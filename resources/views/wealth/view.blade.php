@@ -1337,28 +1337,36 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @foreach($wealthbuss_a->accountTypes as $key => $accountType)
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account Type</label>
+                                                <label for="" class="form-label">Account Type {{$key+1}}</label>
                                                 <p>
-                                                    @isset($wealthbuss_a->business_account_type)
-                                                        {{ $wealthbuss_a->business_account_type }}
+                                                    @isset($accountType->account_type)
+                                                        {{ $accountType->account_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
-
-                                            @if (isset($wealthbuss_a->business_account_type) && $wealthbuss_a->business_account_type == 'Others')
-                                                    <div class="formAreahalf basic_data please_specify">
-                                                        <label for="" class="form-label">Others, please specify</label>
-                                                        @if (isset($wealthbuss_a->business_account_type_specify))
-                                                        {{ $wealthbuss_a->business_account_type_specify  }}
-                                                        @else -
-
-                                                        @endif
-
-                                                    </div>
+                                            <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Account/Policy Number {{$key+1}} </label>
+                                                <p>
+                                                    @isset($accountType->policy_number)
+                                                        {{ $accountType->policy_number }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data please_specify" @if($accountType->account_type != 'Others') style="display:none;" @endif>
+                                                <label for="" class="form-label">Others, please specify {{$key+1}}</label>
+                                                @if (isset($accountType->other))
+                                                    {{ $accountType->other  }}
+                                                @else 
+                                                    -
                                                 @endif
+                                            </div>
+                                            @endforeach
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Application Submission</label>
                                                 <p
@@ -1366,16 +1374,6 @@
 
                                                     @isset($wealthbuss_a->application_submision)
                                                         {{ $wealthbuss_a->application_submision }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account/Policy Number</label>
-                                                <p>
-                                                    @isset($wealthbuss_a->business_account_policy_no)
-                                                        {{ $wealthbuss_a->business_account_policy_no }}
                                                     @else
                                                         -
                                                     @endisset
@@ -1654,26 +1652,36 @@
                                                     @endisset
                                                 </p>
                                             </div>
+                                            @foreach($wealthbuss_b->accountTypes as $key => $accountType)
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account Type</label>
+                                                <label for="" class="form-label">Account Type {{$key+1}}</label>
                                                 <p>
-                                                    @isset($wealthbuss_b->business_account_type)
-                                                        {{ $wealthbuss_b->business_account_type }}
+                                                    @isset($accountType->account_type)
+                                                        {{ $accountType->account_type }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Account/Policy Number</label>
+                                                <label for="" class="form-label">Account/Policy Number {{$key+1}}</label>
                                                 <p>
-                                                    @isset($wealthbuss_b->business_account_policy_no)
-                                                        {{ $wealthbuss_b->business_account_policy_no }}
+                                                    @isset($accountType->policy_number)
+                                                        {{ $accountType->policy_number }}
                                                     @else
                                                         -
                                                     @endisset
                                                 </p>
                                             </div>
+                                            <div class="formAreahalf basic_data please_specify" @if($accountType->account_type != 'Others') style="display:none;" @endif>
+                                                <label for="" class="form-label">Others, please specify {{$key+1}}</label>
+                                                @if (isset($accountType->other))
+                                                    {{ $accountType->other  }}
+                                                @else 
+                                                    -
+                                                @endif
+                                            </div>
+                                            @endforeach
                                             <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Product Name</label>
                                                 <p>

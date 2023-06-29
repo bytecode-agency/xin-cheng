@@ -19,6 +19,7 @@ use App\Models\WealthFinancial;
 use App\Models\WealthPass;
 use App\Models\WealthBusinessApp;
 use  App\Models\Wealth_business_redempt;
+use App\Models\WealthBusinessAppAccountType;
 use DataTables;
 use DB;
 use Auth;
@@ -434,11 +435,21 @@ class WealthController extends Controller
         // }
 
         $id= $request->wealth_id;
-        $data_update = Wealth::with('companies.shareholder')->find($id); 
+        $data_update = Wealth::with('companies.shareholder')->find($id);
         if($request->client_status)
         {
              Wealth::find($id)->update(['client_status'=> $request->client_status]);
         }
+
+        //Delete wealth data 
+        WealthBusinessApp::where('wealth_id' , $id)->delete();
+        WealthPass::where('wealth_id' , $id)->delete();
+        if($data_update->companies){
+            $companies_ids = $data_update->companies->pluck('id');
+            WealthShareholder::whereIn('company_id' , $companies_ids)->delete();
+        }
+        WealthCompany::where('wealth_id' , $id)->delete();
+
        if($data_update->business_type == "FO")
        {
             
@@ -627,9 +638,9 @@ class WealthController extends Controller
                         'application_submision' => isset($business['application_submision']) ? $business['application_submision'] :null,
                         'business_account_status'=>  isset($business['business_account_status']) ? $business['business_account_status'] :null,
                         // 'business_account_status_specify'=>  isset($business['business_account_status_specify']) ? $business['business_account_status_specify'] :null,
-                        'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
-                        'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
-                        'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
+                        // 'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
+                        // 'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
+                        // 'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
                         'product_name' =>  isset($business['product_name']) ? $business['product_name'] :null,
                         'payment_mode' =>  isset($business['payment_mode']) ? $business['payment_mode'] :null,
                         'currency'  =>  isset($business['currency']) ? $business['currency'] :null,
@@ -651,6 +662,17 @@ class WealthController extends Controller
                         'net_amount_val' => isset($business['net_amount_val']) ? $business['net_amount_val'] :null,
                         'business_remarks' => isset($business['business_remarks']) ? $business['business_remarks'] :null,               
                     ]);
+
+                    if(!empty($business['account_types'])){
+                        $account_types = $business['account_types'];
+                        foreach($account_types as $account_type){
+                            $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
+                                ['id' => $account_type['account_type_id'] , 'business_app_id' => $business['wealth_business_id']],
+                                ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
+                                'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
+                                'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                        }
+                    }
                 }
             }
        }
@@ -750,9 +772,9 @@ class WealthController extends Controller
                         'application_submision' => isset($business['application_submision']) ? $business['application_submision'] :null,
                         'business_account_status'=>  isset($business['business_account_status']) ? $business['business_account_status'] :null,
                         // 'business_account_status_specify'=>  isset($business['business_account_status_specify']) ? $business['business_account_status_specify'] :null,
-                        'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
-                        'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
-                        'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
+                        // 'business_account_type' => isset($business['business_account_type']) ? $business['business_account_type'] :null,
+                        // 'business_account_type_specify' => isset($business['business_account_type_specify']) ? $business['business_account_type_specify'] :null,
+                        // 'business_account_policy_no'=>  isset($business['business_account_policy_no']) ? $business['business_account_policy_no'] :null,
                         'product_name' =>  isset($business['product_name']) ? $business['product_name'] :null,
                         'payment_mode' =>  isset($business['payment_mode']) ? $business['payment_mode'] :null,
                         'currency'  =>  isset($business['currency']) ? $business['currency'] :null,
@@ -774,6 +796,16 @@ class WealthController extends Controller
                         'net_amount_val' => isset($business['net_amount_val']) ? $business['net_amount_val'] :null,
                         'business_remarks' => isset($business['business_remarks']) ? $business['business_remarks'] :null,               
                     ]);
+                    if(!empty($business['account_types'])){
+                        $account_types = $business['account_types'];
+                        foreach($account_types as $account_type){
+                            $business_account_type = WealthBusinessAppAccountType::updateOrCreate(
+                                ['id' => $account_type['account_type_id'] , 'business_app_id' => $business['wealth_business_id']],
+                                ['account_type' => isset($account_type['account_type']) ? $account_type['account_type'] :null,
+                                'policy_number' => isset($account_type['policy_number']) ? $account_type['policy_number'] :null,
+                                'other' => isset($account_type['other']) ? $account_type['other'] :null]);
+                        }
+                    }
                 }
             }       
     
@@ -988,6 +1020,21 @@ class WealthController extends Controller
         $this->data['business_item']     = $business_item;
         $this->data['business_item_key'] = $business_item_key;
         $view                            = \View::make('wealth.business_item' , $this->data)->render();
+        return response()->json([
+            'view' => $view
+        ]);
+    }
+    
+    public function addAccountType(Request $request){
+        $business_item_key = $request->business_item_key;
+        $account_type_item_key  = $request->account_type_item_key;
+        $business_item = WealthBusinessApp::find($request->business_id) ?? new WealthBusinessApp;
+        $business_account_type = WealthBusinessAppAccountType::find($request->business_account_type_id) ?? new WealthBusinessAppAccountType;
+        $this->data['business_item']         = $business_item;
+        $this->data['business_item_key']     = $business_item_key;
+        $this->data['account_type_item_key'] = $account_type_item_key;
+        $this->data['business_account_type'] = $business_account_type;
+        $view = \View::make('wealth.business_account_type' , $this->data)->render();
         return response()->json([
             'view' => $view
         ]);
