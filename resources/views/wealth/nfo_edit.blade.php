@@ -73,14 +73,14 @@
                                         </button>
                                         <div class="shareholder_div_accrodion_show">
                                             <div class="formAreahalf basic_data edit_equity_percentage">
-                                                <label for="" class="form-label">Equity Percentage</label>
+                                                <label for="" class="form-label">Equitys Percentage</label>
                                                 <input type="hidden" class="form-control"
                                                     name="share[{{ $key }}][{{ $key2 }}][id]"
                                                     value="{{ $shareholder->id }}" id="share_id">
                                                 <div class="dollersec percentage_input"><span class="input"><input
                                                             type="number"
                                                             name="share[{{ $key }}][{{ $key2 }}][equity_percentage]"
-                                                            class="form-control equity_shareholder" id="equity_shareholder"
+                                                            class="form-control equity_shareholders" id="equity_shareholder"
                                                             value="{{ $shareholder->equity_percentage }}"></span><span
                                                         class="pecentage_end">%</span></div>
 

@@ -7,6 +7,20 @@ $(document).ready(function () {
         }
     });
 
+    $('#nfo_phone_number').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+       });
+
+       $('#nfo_tin_number').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("nfo_tin_number").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+       });
+
     $(document).on('keypress','[type^=integer]',function(event){
         var key = window.event ? event.keyCode : event.which;
           if (event.keyCode === 8 || event.keyCode === 46) {
@@ -109,7 +123,58 @@ $(document).ready(function () {
     //     }
     // });
 
+
+
+
+
+// $('#business_type').on('change',function(){
+//     alert( $(this).find(":selected").val() );
+//     $('#next1').on('click',function(e){
+//     e.preventDefault();
+//       $('form > fieldset').filter(function() {
+//      if($(this).prop('id') == 'FO_company'){
+//       $('input[type=text]').each(function() {
+//        $(this).val('');
+//    });
+// }
+//    });
+
+//  });
+// });
+
+var last_value;
+var current_value;
+$(document).on("click","#business_type",function(){
+    last_value = $(this).val();
+}).on("change","#business_type",function(){
+    current_value = $(this).val();
+    if((last_value == null) || (last_value == current_value)){
+       
+    }else{
+        $('form > fieldset').filter(function() {
+            if($(this).prop('id') == 'FO_company'){
+                $('input[type=text]').each(function() {
+                    $(this).val('');
+                });
+                $('input[type=email]').each(function() {
+                    $(this).val('');
+                });
+                $('input[type=date]').each(function() {
+                    $(this).val('');
+                });
+                $('#appended_company_div select').prop('selectedIndex',0);
+               
+            }
+        });
+    }
+
+    console.log(last_value);
+   console.log(current_value);
+});
+
+
     $('body').on('click','.next1',function () {
+        
         form.validate({
             rules: {
                 business_type: {
@@ -165,7 +230,10 @@ $(document).ready(function () {
             } else if ($(".business_type").val() == "FO") {
                 let next = $('#' + this.id).closest('fieldset').next('fieldset').attr('id');
                 $('#start_field').hide();
+                
                 $('#' + next).show();
+            
+                
             }
             else {
                 // alert();
@@ -225,6 +293,8 @@ $(document).ready(function () {
         $('#NFO_personal').hide();
         $('#start_field').show();
     });
+
+  
     $('body').on('click', '.previous2_nfo', function () {
         $('#NFO_corporate').hide();
         $('#start_field').show();
@@ -334,12 +404,12 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                <input type="date" name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
+                <input type="date"   name="share[1][`+ (sharehold_no + 1) + `][dob]" id="fo_cpm2_dob_`+ (sharehold_no + 1) + `" class="form-control" value="" placeholder="dd/mm/yy">
             </div>
 
             <div class="formAreahalf">
                 <label for="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-label">Phone Number</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" class="form-control"
+                <input type="text" maxlength ="10"  name="share[1][`+ (sharehold_no + 1) + `][phone]" id="fo_cpm2_phone_`+ (sharehold_no + 1) + `" data-cntr="`+(sharehold_no + 1)+`" class="form-control phonty"
                     value="">
             </div>
             <div class="formAreahalf">
@@ -400,7 +470,7 @@ $(document).ready(function () {
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_tin_num_`+ (sharehold_no + 1) + `" class="form-label">Current TIN Number</label>
-                <input type="text" name="share[1][`+ (sharehold_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_`+ (sharehold_no + 1) + `" class="form-control" value="">
+                <input type="text" maxlength="12" name="share[1][`+ (sharehold_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_`+ (sharehold_no + 1) + `" data-cntrs="`+(sharehold_no + 1)+`" class="form-control tinny" value="">
             </div>
             <div class="formAreahalf">
                 <label for="fo_cpm2_company_`+ (sharehold_no + 1) + `" class="form-label">Company</label>
@@ -444,6 +514,13 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+        $('#testingsdy').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("testingsd").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
 
     });
 
@@ -539,7 +616,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                    <input type="date" name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control" value="" placeholder="dd/mm/yy">
+                                    <input type="date"   name="share[1][1][dob]" id="fo_cpm2_dob_1" class="form-control" value="" placeholder="dd/mm/yy">
                                 </div>
 
                                 <div class="formAreahalf">
@@ -553,7 +630,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_no_1" class="form-label">Passport Number</label>
-                                    <input type="text" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
+                                    <input type="text" maxlength="10" name="share[1][1][passport_no]" id="fo_cpm2_pass_no_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_pass_cnty_1" class="form-label">Passport Country</label>
@@ -604,10 +681,10 @@ $(document).ready(function () {
                                 </div>
                                 <div class="formAreahalf">
                                     <label for="fo_cpm2_tin_num_1" class="form-label">Current TIN Number</label>
-                                    <input type="text" name="share[1][1][tin_no]" id="fo_cpm2_tin_num_1" class="form-control" value="">
+                                    <input type="text" maxlength="12" name="share[1][1][tin_no]" id="fo_cpm2_tin_num_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
-                                    <label for="fo_cpm2_company_1" class="form-label">Company</label>
+                                    <label for="fo_cpm2_company_1" class="form-label">Employer's Name.</label>
                                     <input type="text" name="share[1][1][company]" id="fo_cpm2_company_1" class="form-control" value="">
                                 </div>
                                 <div class="formAreahalf">
@@ -669,11 +746,54 @@ $(document).ready(function () {
 
         }
         $('#fo_cpm2_phone_1').on('input',function(e){
+            var sharehold = $(this).parents('.full_div').find('.sharehold_length').length;
             let {value} = e.target
             if( !/^\d+$/.test(value)){
                 document.getElementById("fo_cpm2_phone_1").value = value.replace(/[@a-zA-Z]/g, "")
             }
-           });
+        });
+
+        $(document).on('input', '.phonty', function(){
+            var phn = $(this).val();
+            var cnt = $(this).attr('data-cntr');
+            if( !/^\d+$/.test(phn)){
+                document.getElementById("fo_cpm2_phone_"+cnt).value = phn.replace(/[@a-zA-Z]/g, "")
+            }
+        });
+
+        $(document).on('input', '.tinny', function(){
+            var tin = $(this).val();
+            var cntdd = $(this).attr('data-cntrs');
+            if( !/^\d+$/.test(tin)){
+                document.getElementById("fo_cpm2_tin_num_"+cntdd).value = tin.replace(/[@a-zA-Z]/g, "")
+            }
+        });
+
+        $(document).on('input', '.tinds', function(){
+            var lshh = $(this).val();
+            var targ = $(this).attr('data-tind');
+            if( !/^\d+$/.test(lshh)){
+                document.getElementById("fo_cpm2_tin_num_"+targ).value = lshh.replace(/[@a-zA-Z]/g, "")
+            }
+        });
+
+        $(document).on('input', '.phonix', function(){
+            var hatr = $(this).val();
+            var jkjj = $(this).attr('data-phonix');
+            if( !/^\d+$/.test(hatr)){
+                document.getElementById("fo_cpm2_phone_"+jkjj).value = hatr.replace(/[@a-zA-Z]/g, "")
+            }
+        });
+
+        $('#fo_cpm2_tin_num_1').on('input',function(e){
+        let {value} = e.target
+        if( !/^\d+$/.test(value)){
+            document.getElementById("fo_cpm2_tin_num_1").value = value.replace(/[@a-zA-Z]/g, "")
+        }
+        });
+
+           
+           
 
     });
     $(document).on('change', '.fo_cpm2_relation', function() {
@@ -1077,6 +1197,15 @@ $(document).ready(function () {
             //     "#appended_user_shareholder_cmp2_selcection_div").html($(
             //         '#FO_shrhold_c2_personal')
             //     .html());
+
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            
+
             $(this).parents('#fo_shareholder').find(
                 "#appended_user_shareholder_cmp2_selcection_div")
                 .html(`<div id="FO_shrhold_c2_personal" class="added_shareholder_cmp2 w-100 d-flex justify-content-start flex-wrap"">
@@ -1098,11 +1227,11 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="date" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
+                            <input type="date" max="`+today+`" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][dob]" id="fo_cpm2_dob_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" placeholder="dd/mm/yy" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Number</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_no]" id="fo_cpm2_pass_no_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
+                            <input type="text" maxlength="10" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][passport_no]" id="fo_cpm2_pass_no_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_cnty_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Passport Country</label>
@@ -1157,7 +1286,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_tin_num_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Current TIN Number</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control" value="">
+                            <input type="text" maxlength="12" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][tin_no]" id="fo_cpm2_tin_num_` + (shr_arr_id)+(sh_no + 1) + `" data-tind="`+ (shr_arr_id)+(sh_no + 1) +`"  class="form-control tinds" value="">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_sal_` + (shr_arr_id)+(sh_no + 1) + `" class="form-label">Monthly Salary (SGD)</label>
@@ -1178,7 +1307,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_phone_`+(shr_arr_id)+(sh_no + 1)+`" class="form-label">Phone Number</label>
-                            <input type="text" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" class="form-control"
+                            <input type="text" maxlength ="10" name="share[` + (shr_arr_id) + `][` + (sh_no + 1) + `][phone]" id="fo_cpm2_phone_` + (shr_arr_id)+(sh_no + 1) + `" data-phonix="`+ (shr_arr_id)+(sh_no + 1) +`" class="form-control phonix"
                                 value="">
                         </div>
                         <div class="formAreahalf">
@@ -1408,7 +1537,7 @@ $(document).ready(function () {
                             <div class="formAreahalf">
                                 <label for="nfo_phone_number" class="form-label">Phone Number</label>
                                 <input type="text" class="form-control" name="shrd[1][1][nfo_phone_number]"
-                                    id="nfo_phone_number">
+                                    id="nfo_phone_numbers">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_residential_Add" class="form-label">Residential Address</label>
@@ -1485,6 +1614,12 @@ $(document).ready(function () {
                 if ($(this).closest('fieldset').next().hasClass("wealth_back_next_comp")) {
                     $(this).closest('fieldset').next().show();
                 } else {
+                    var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
                 $('.NFO_shareholder').css("display", "block");
                 $('.NFO_shareholder').html(`<div class="full_div" id="nf_comp_1"><div class="card formContentData border-0 p-4">
                     <div class="Personal_Details company_space">
@@ -1546,7 +1681,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_dob_1" class="form-label">DOB (DD/MM/YYYY)</label>
-                                <input type="date" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
+                                <input type="date" max="`+today+`" class="form-control" name="shrd[1][1][nfo_dob]" id="nfo_dob_1" placeholder="dd/mm/yy">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>
@@ -1570,7 +1705,7 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_pass_number" class="form-label">Passport Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_pass_number]"
+                                <input type="text" maxlength="10" class="form-control" name="shrd[1][1][nfo_pass_number]"
                                     id="nfo_pass_number">
                             </div>
                             <div class="formAreahalf">
@@ -1588,8 +1723,8 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_phone_number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_phone_number]"
-                                    id="nfo_phone_number">
+                                <input type="text" maxlength="10" class="form-control" name="shrd[1][1][nfo_phone_number]"
+                                    id="nfo_phone_numberd">
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_residential_Add" class="form-label">Residential Address</label>
@@ -1614,8 +1749,8 @@ $(document).ready(function () {
                             </div>
                             <div class="formAreahalf">
                                 <label for="nfo_tin_number" class="form-label">Current TIN Number</label>
-                                <input type="text" class="form-control" name="shrd[1][1][nfo_tin_number]"
-                                    id="nfo_tin_number">
+                                <input type="text" maxlength="12" class="form-control" name="shrd[1][1][nfo_tin_number]"
+                                    id="nfo_tin_numberd">
                             </div>
                             <div class="formAreahalf">
                                 <label for="employee_name" class="form-label">Employer's Name</label>
@@ -1669,6 +1804,22 @@ $(document).ready(function () {
                     $(this).valid();
                 }
             });
+
+            $('#nfo_phone_numberd').on('input',function(e){
+                let {value} = e.target
+                if( !/^\d+$/.test(value)){
+                    document.getElementById("nfo_phone_numberd").value = value.replace(/[@a-zA-Z]/g, "")
+                }
+               });
+
+               $('#nfo_tin_numberd').on('input',function(e){
+                let {value} = e.target
+                if( !/^\d+$/.test(value)){
+                    document.getElementById("nfo_tin_numberd").value = value.replace(/[@a-zA-Z]/g, "")
+                }
+               });
+
+           
         }
     });
     var btn_click_nfo = 0;
@@ -1816,7 +1967,7 @@ $(document).ready(function () {
                         </div>
                         <div class="formAreahalf">
                             <label for="nfo_cpm2_dobq_`+(shr_arr_id) +(nfo_sh_no + 1) +`" class="form-label">DOB (DD/MM/YYYY)</label>
-                            <input type="date" name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control" value="" placeholder="dd/mm/yy">
+                            <input type="date"  name="shrd[` + (shr_arr_id) + `][` + (nfo_sh_no + 1) + `][nfo_dob]" id="nfo_cpm2_dobq_`+(shr_arr_id)+(nfo_sh_no + 1) +`" class="form-control" value="" placeholder="dd/mm/yy">
                         </div>
                         <div class="formAreahalf">
                             <label for="fo_cpm2_pass_no" class="form-label">Passport Number</label>
@@ -1912,6 +2063,13 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+        $('#nfo_phone_number').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
     })
 
     $('body').on('click', '.previous3_nfo', function () {
@@ -2083,6 +2241,7 @@ $(document).ready(function () {
 
     });
     $('body').on('click','.add_nfo_shareholder',function(){
+    
         var sharehold_nfo_no = $(this).parents('.full_div').find('.nfo_shr_length').length;
 
         var arr_id = $(this).parents('.full_div').attr('id').replace("nf_comp_", "");
@@ -2115,6 +2274,12 @@ $(document).ready(function () {
 
     })
     $('body').on('click', '.add_nfo_firstcmp_shareholder', function () {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
         var nfo_shr_length = $(this).parents('.full_div').find('.nfo_shr_length').length;
         // var nfo_arr_id = $(this).parents('fieldset').find('#next_nfo_3').attr('data-id');
         var nfo_arr_id = $(this).parents('.full_div').attr('id').replace("nf_comp_", "");
@@ -2155,7 +2320,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">DOB (DD/MM/YYYY)</label>\
-                    <input type="date" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
+                    <input type="date" max="`+today+`" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_dob]" id="nfo_dob_` + (nfo_arr_id)+(nfo_shr_length +1) + `" placeholder="dd/mm/yy">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_trg_frq" class="form-label">Passport Reminder Trigger Frequency</label>\
@@ -2179,7 +2344,7 @@ $(document).ready(function () {
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_number" class="form-label">Passport Number</label>\
-                    <input type="text" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_number]" id="nfo_pass_number">\
+                    <input type="text" maxlength="10" class="form-control" name="shrd[` + (nfo_arr_id) + `][` + (nfo_shr_length +1) + `][nfo_pass_number]" id="nfo_pass_number">\
                 </div>\
                 <div class="formAreahalf">\
                     <label for="nfo_pass_exp__` + (nfo_arr_id)+(nfo_shr_length +1) + `" class="form-label">Passport Expiry Date (DD/MM/YYYY)</label>\
@@ -2259,6 +2424,16 @@ $(document).ready(function () {
                 $(this).valid();
             }
         });
+
+        $('#nfo_phone_number').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementById("nfo_phone_number").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
+
+       
+
     });
     $('body').on('click', '.cancel_company', function () {
         $(this).parents('#fo_company').remove();

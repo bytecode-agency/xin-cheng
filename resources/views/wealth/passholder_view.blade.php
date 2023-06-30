@@ -242,6 +242,16 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">First Pass Issued Date (DD/MM/YYYY)</label>
+                                                <p>
+                                                    @isset($passholder_item->first_pass_issuance_date)
+                                                        {{ convertDate($passholder_item->first_pass_issuance_date,"d/m/Y") }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Pass Issuance Date (DD/MM/YYYY)</label>
                                                 <p>
                                                     @isset($passholder_item->pass_issuance_date)
@@ -334,16 +344,6 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
-                                                <label for="" class="form-label">Monthly Salary(SGD)</label>
-                                                <p>
-                                                    @isset($passholder_item->monthly_sal)
-                                                        {{ $passholder_item->monthly_sal }}
-                                                    @else
-                                                        -
-                                                    @endisset
-                                                </p>
-                                            </div>
-                                            <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Monthly Salary w.e.f</label>
                                                 <p>
                                                     @isset($passholder_item->monthly_sal_wef)
@@ -354,6 +354,16 @@
                                                 </p>
                                             </div>
                                             <div class="formAreahalf basic_data">
+                                                <label for="" class="form-label">Monthly Salary(SGD)</label>
+                                                <p>
+                                                    @isset($passholder_item->monthly_sal)
+                                                        {{ $passholder_item->monthly_sal }}
+                                                    @else
+                                                        -
+                                                    @endisset
+                                                </p>
+                                            </div>
+                                         <div class="formAreahalf basic_data">
                                                 <label for="" class="form-label">Remarks</label>
                                                 <p>
                                                     @isset($passholder_item->pass_remarks)

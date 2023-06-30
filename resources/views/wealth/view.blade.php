@@ -1580,7 +1580,7 @@
                                                             @foreach($wealthbuss_a->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
-                                                                <td>{{$redemption_data->red_amount}}</td>
+                                                                <td>${{$redemption_data->red_amount}}</td>
                                                                 <td><a href="#" data-id="" title="Delete" class="btn"><i class="fa-solid fa-trash"></i></a>
                                                                 </td>
                                                             </tr>
@@ -1872,7 +1872,7 @@
                                                             @foreach($wealthbuss_b->business_redempt as $redemption_data)
                                                             <tr>
                                                                 <td>{{ convertDate($redemption_data->red_date,"d/m/Y") }}</td>
-                                                                <td>{{$redemption_data->red_amount}}</td>
+                                                                <td>${{$redemption_data->red_amount}}</td>
                                                                 <td><a href="#" data-id="" title="Delete" class="btn"><i class="fa-solid fa-trash"></i></a>
                                                                 </td>
                                                             </tr>

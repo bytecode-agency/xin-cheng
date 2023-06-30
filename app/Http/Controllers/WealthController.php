@@ -529,6 +529,9 @@ class WealthController extends Controller
 
                 // for application data mas_related
                 // dd($request);
+                // $validate = $request->validate([
+                //     'tax_advisor_email' => 'regex:/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i'    
+                // ]);
             $wealth_mas_application = WealthMas::updateOrCreate(
                 ['id' => $request->wealth_mas_id , 'wealth_id' => $id],
                 ['account_status' => isset($request->account_status) ? $request->account_status :null,
@@ -616,6 +619,7 @@ class WealthController extends Controller
                         'pass_app_type'=>  isset( $passholer_item['pass_app_type']) ?  $passholer_item['pass_app_type'] :null,
                         'pass_app_type_specify'=>  isset( $passholer_item['pass_app_type_specify']) ?  $passholer_item['pass_app_type_specify'] :null,
                         'pass_inssuance'  =>  isset( $passholer_item['pass_inssuance']) ?  $passholer_item['pass_inssuance'] :null,
+                        'first_pass_issuance_date'=>  isset( $passholer_item['first_pass_issuance_date']) ?  $passholer_item['first_pass_issuance_date'] :null,
                         'pass_issuance_date'=>  isset( $passholer_item['pass_issuance_date']) ?  $passholer_item['pass_issuance_date'] :null,
                         'pass_expiry_date'  =>  isset( $passholer_item['pass_expiry_date']) ?  $passholer_item['pass_expiry_date'] :null,
                         'pass_renewal_reminder'=>  isset( $passholer_item['pass_renewal_reminder']) ?  $passholer_item['pass_renewal_reminder'] :null,

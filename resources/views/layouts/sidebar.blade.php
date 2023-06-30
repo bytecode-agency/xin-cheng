@@ -144,5 +144,17 @@
             </ul>
         </nav>
     </aside>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {    
+     $('.phonty').on('input',function(e){
+            let {value} = e.target
+            if( !/^\d+$/.test(value)){
+                document.getElementByClassName("phonty").value = value.replace(/[@a-zA-Z]/g, "")
+            }
+           });
+
+});
+        </script>
 
 @endguest

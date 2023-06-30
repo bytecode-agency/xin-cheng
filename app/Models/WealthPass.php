@@ -34,6 +34,7 @@ class WealthPass extends Model
         'pass_app_type',
         'pass_app_type_specify',//
         'pass_inssuance',
+        'first_pass_issuance_date',
         'pass_issuance_date',
         'pass_expiry_date',
         'pass_renewal_reminder',
